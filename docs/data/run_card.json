@@ -1,8 +1,8 @@
 {
   "kind": "readiness audit; no geological experiment run",
-  "hypothesis": "No lane-qualified hypothesis was implemented; assess whether a compliant unique submission can be released from this checkout.",
-  "mechanism": "Fail closed when shared inputs, lane assignment and comparable hide-and-recover evidence are absent.",
-  "non_fault_mimic": "Lake Lahontan shoreline terraces, lithologic contacts and survey seams can mimic the proposed fault signatures; untested here.",
+  "hypothesis": null,
+  "mechanism": null,
+  "non_fault_mimic": null,
   "holdout": {
     "class": "HOLDOUT-DTI",
     "status": "NOT RUN",
@@ -26,7 +26,10 @@
     "range_0_1": null,
     "crs_match": null,
     "shape_match": null,
-    "transform_match": null
+    "transform_match": null,
+    "no_nan_inside_footprint": null,
+    "values_in_0_1_inside_footprint": null,
+    "reason": "Not run: no candidate GeoTIFF or official sample template in this checkout."
   },
   "submission_name": null,
   "submission_note": "Readiness audit only; no new raster; missing lane and validated shared inputs. DO NOT SUBMIT.",
@@ -38,6 +41,14 @@
     "No local cached feature stack or integrated shared evaluator/writer",
     "Input mirrors discoverable but not organizer-authenticated",
     "No same-evaluator incumbent comparison, feature canaries or registry comparisons run",
-    "No organizer receipt or authenticated weekly-cap check"
-  ]
+    "No organizer receipt or authenticated weekly-cap check",
+    "Official competition data page redirected to DrivenData login during this session; no authorized input files downloaded",
+    "Current mutable GEMSDOE pages contain conflicting upload-selector/uniqueness claims; no participant promotion flag is accepted here"
+  ],
+  "score_estimate": {
+    "class": "PROJECTION",
+    "status": "not_estimable",
+    "value": null,
+    "reason": "No calibrated same-evaluator/organizer-receipt mapping; user/site historical numbers remain unverified."
+  }
 }
