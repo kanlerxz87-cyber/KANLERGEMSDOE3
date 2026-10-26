@@ -1,0 +1,7 @@
+__pycache__/
+.cache/
+data/
+*.tif
+*.tiff
+!docs/data/
+!docs/data/*.json
