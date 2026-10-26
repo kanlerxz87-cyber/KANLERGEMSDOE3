@@ -1,0 +1,22 @@
+{
+  "first_run": 40418062245,
+  "merged_commit": "1fcc140e56b886c7d059bb78aa30dcf034396301",
+  "observed_conclusion": "failure",
+  "failed_step": "Select Actions publishing using the workflow Pages permission",
+  "annotation": "Process completed with exit code 1.",
+  "log_retrieval": "The signed Actions log host is not reachable from the sandbox; exact API stderr unavailable. No HTTP status for this job is asserted.",
+  "succeeded_before_failed_step": [
+    "SSP1 unit tests",
+    "Saved-byte scientific-gate verification",
+    "Real-browser portal checks",
+    "All-lane staging"
+  ],
+  "site_configuration_observed": {
+    "build_type": "legacy",
+    "branch": "main",
+    "path": "/"
+  },
+  "followup": "Remove unnecessary repository-settings mutation; use official configure-pages and deploy-pages on the already enabled site, and observe actual deployment result.",
+  "new_model_fits": 0,
+  "new_dot_placements": 0
+}
