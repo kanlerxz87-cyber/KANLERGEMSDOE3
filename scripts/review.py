@@ -33,7 +33,8 @@ def build():
  (ROOT/'docs/data/sites.json').write_text(json.dumps(rows,indent=2)+'\n')
  manifest=[]
  for p in sorted((ROOT/'evidence/upstream').rglob('*')):
-  if p.is_file():manifest.append({'path':str(p.relative_to(ROOT)), 'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
+  if p.is_file() and '__pycache__' not in p.parts and p.suffix != '.pyc':
+   manifest.append({'path':str(p.relative_to(ROOT)), 'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
  (ROOT/'evidence/snapshot_hashes.json').write_text(json.dumps(manifest,indent=2)+'\n')
  tr=''.join('<tr>'+''.join(f'<td>{html.escape(str(v))}</td>' for v in [r['site'],r['historical_file'],r['owner_reported_value']+' (unverified owner report)','Unavailable',r['unique'],'NO'])+f'<td><a href="{r["source"]}">Pinned source</a></td></tr>' for r in rows)
  summaries=''.join(f'<h3>{r["site"]}</h3><p>{html.escape(r["summary"])}. Historical file: <code>{r["historical_file"]}</code>. Local format, holdout and all-registry uniqueness checks have not run. No new upload is recommended. <a href="{r["source"]}">Review evidence</a>.</p>' for r in rows)

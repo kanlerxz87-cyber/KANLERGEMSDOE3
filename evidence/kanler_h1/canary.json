@@ -1,0 +1,88 @@
+{
+  "evidence_class": "COMPUTED",
+  "protocol_rule": "Single-feature AUC > 0.90 implies catalogue leakage until proven otherwise",
+  "auc_ceiling": 0.9,
+  "all_pass": true,
+  "rows": [
+    {
+      "feature": "J_ASYM",
+      "kind": "physical_line",
+      "auc_catalogue": 0.636554,
+      "auc_off_catalogue_sgmc": 0.581591,
+      "max_directional_auc": 0.636554,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "SUB_DIP",
+      "kind": "physical_line",
+      "auc_catalogue": 0.542942,
+      "auc_off_catalogue_sgmc": 0.41055,
+      "max_directional_auc": 0.58945,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "LIDAR_SCARP",
+      "kind": "physical_line",
+      "auc_catalogue": 0.589735,
+      "auc_off_catalogue_sgmc": 0.451422,
+      "max_directional_auc": 0.589735,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "BLIND_CONDUIT",
+      "kind": "physical_line",
+      "auc_catalogue": 0.520705,
+      "auc_off_catalogue_sgmc": 0.477251,
+      "max_directional_auc": 0.522749,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "TECT_CTX",
+      "kind": "physical_line",
+      "auc_catalogue": 0.568493,
+      "auc_off_catalogue_sgmc": 0.480435,
+      "max_directional_auc": 0.568493,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "CTRL",
+      "kind": "physical_line",
+      "auc_catalogue": 0.526076,
+      "auc_off_catalogue_sgmc": 0.490574,
+      "max_directional_auc": 0.526076,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "SLOPE",
+      "kind": "physical_line",
+      "auc_catalogue": 0.558174,
+      "auc_off_catalogue_sgmc": 0.757658,
+      "max_directional_auc": 0.757658,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "REF_H31X",
+      "kind": "physical_line",
+      "auc_catalogue": 0.642349,
+      "auc_off_catalogue_sgmc": 0.589515,
+      "max_directional_auc": 0.642349,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "H1_JASYM",
+      "kind": "composite_surface",
+      "auc_catalogue": 0.641537,
+      "auc_off_catalogue_sgmc": 0.568668,
+      "max_directional_auc": 0.641537,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "H1_MULTI",
+      "kind": "composite_surface",
+      "auc_catalogue": 0.652811,
+      "auc_off_catalogue_sgmc": 0.503747,
+      "max_directional_auc": 0.652811,
+      "leakage_flagged": false
+    }
+  ]
+}

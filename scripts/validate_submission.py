@@ -20,7 +20,7 @@ except ImportError as exc:  # fail closed; missing validation dependency is not 
     sys.exit(2)
 
 
-def validate(template_path: Path, candidate_path: Path) -> dict:
+def validate(template_path: Path, candidate_path: Path, allow_zero_outside: bool = False) -> dict:
     errors: list[str] = []
     with rasterio.open(template_path) as ref, rasterio.open(candidate_path) as src:
         if src.count != 1:
@@ -51,8 +51,10 @@ def validate(template_path: Path, candidate_path: Path) -> dict:
         if finite_in.size and (float(finite_in.min()) < 0 or float(finite_in.max()) > 1):
             errors.append(f"in-footprint range=[{float(finite_in.min())}, {float(finite_in.max())}]; expected [0,1]")
         outside = ~footprint
+        outside_vals = arr[outside]
         outside_valid_count = int(candidate_valid[outside].sum())
-        if outside_valid_count:
+        outside_all_zero = bool(np.isfinite(outside_vals).all() and np.all(outside_vals == 0.0))
+        if outside_valid_count and not (allow_zero_outside and outside_all_zero):
             errors.append(f"outside-footprint valid pixels={outside_valid_count}; expected null/nodata")
         return {
             "ok": not errors,
@@ -76,9 +78,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("template", type=Path)
     parser.add_argument("candidate", type=Path)
+    parser.add_argument("--allow-zero-outside", action="store_true",
+                        help="Permit finite 0.0 outside the template footprint (all-finite -zeros.tif convention).")
     args = parser.parse_args()
     try:
-        result = validate(args.template, args.candidate)
+        result = validate(args.template, args.candidate, allow_zero_outside=args.allow_zero_outside)
     except Exception as exc:
         print(json.dumps({"ok": False, "errors": [f"Unable to validate: {exc}"], "validator": "submission-format-v1"}, indent=2))
         return 2

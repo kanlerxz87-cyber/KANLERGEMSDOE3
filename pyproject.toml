@@ -1,0 +1,4 @@
+[tool.pytest.ini_options]
+pythonpath = [".", "src", "vendor"]
+testpaths = ["tests", "vendor/template57"]
+norecursedirs = [".git", ".venv", ".cache", "evidence", "sources", "docs"]
