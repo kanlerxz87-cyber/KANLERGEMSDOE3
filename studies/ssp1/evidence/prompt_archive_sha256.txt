@@ -1,0 +1,1 @@
+0b48a93a677d9e83418b32c92aafe95d414979b9a28a9448e5416941a40800af  README original project brief (from heading through EOF)

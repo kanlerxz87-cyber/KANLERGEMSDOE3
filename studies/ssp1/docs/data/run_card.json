@@ -1,0 +1,1131 @@
+{
+  "schema_version": 3,
+  "generated_utc": "2026-10-26T22:00:47.591005+00:00",
+  "experiment_id": "SSP1-E1",
+  "experiments_executed": 1,
+  "experiment_limit": 3,
+  "wall_seconds": 453.49,
+  "hypothesis": "Residualized odd-symmetric topographic step profiles identify fault scarps beyond the current catalogue more specifically than generic ridge strength.",
+  "mechanism": "Nine cross-normal elevation samples; tanh step templates residualized against a quadratic smooth-terrain null; tangent persistence, gravity alignment and independently derived LiDAR/radiometric nuisance controls; buffered HistGB ranking; no peer-raster blend.",
+  "named_non_fault_process": "Alluvial-fan terrace or paleoshoreline break; road embankment; lithologic contact.",
+  "method_lane": "SSP1 \u2014 residualized signed normal-direction scarp-profile likelihood; no incumbent blend, no catalogue distance feature, no coordinate feature",
+  "lane_assignment_caveat": "Declared autonomously; the prompt omitted an explicit coordinator-assigned method paragraph.",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "n_withheld_positives": 22232,
+    "pooled_dti": 0.08464433642105346,
+    "ci95_cluster_bootstrap": [
+      0.0703840726848591,
+      0.09704120455301896
+    ],
+    "leaderboard_estimate": null,
+    "caveat": "Local hide-and-recover estimate, not the hidden public/private leaderboard score."
+  },
+  "holdout_full": {
+    "candidate_id": "KANLER3-SSP1-E1",
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "score_label": "HOLDOUT-DTI",
+    "b_visible_px": 0.0,
+    "n_withheld_positives": 22232,
+    "n_spatial_clusters": 140,
+    "n_bootstrap_reps": 1000,
+    "pooled_dti": 0.08464433642105346,
+    "ci95_cluster_bootstrap": [
+      0.0703840726848591,
+      0.09704120455301896
+    ],
+    "fold_mean_dti": 0.08544310758745498,
+    "per_quadrant_dti": {
+      "NW": 0.07875574801325926,
+      "NE": 0.09040296156846045,
+      "SW": 0.0602811540306368,
+      "SE": 0.11233256673746338
+    },
+    "folds": {
+      "draw20_fold0": {
+        "dti": 0.07884958756378073,
+        "coverage": 0.12961329553514553,
+        "tp": 247.6910077676631,
+        "fp": 7814.859617326474,
+        "fn": 1663.308992232337,
+        "n_truth": 1911,
+        "emitted": 7945
+      },
+      "draw20_fold1": {
+        "dti": 0.09434196461027307,
+        "coverage": 0.15610366661398117,
+        "tp": 366.99972020946973,
+        "fp": 9679.502594722519,
+        "fn": 1984.0002797905304,
+        "n_truth": 2351,
+        "emitted": 9850
+      },
+      "draw20_fold2": {
+        "dti": 0.061975151071364615,
+        "coverage": 0.08268200436010825,
+        "tp": 304.6831860669989,
+        "fp": 9536.393326046305,
+        "fn": 3380.316813933001,
+        "n_truth": 3685,
+        "emitted": 9682
+      },
+      "draw20_fold3": {
+        "dti": 0.12493302551046107,
+        "coverage": 0.16257105229726235,
+        "tp": 524.2916436586711,
+        "fp": 7558.616659269214,
+        "fn": 2700.708356341329,
+        "n_truth": 3225,
+        "emitted": 7796
+      },
+      "draw21_fold0": {
+        "dti": 0.07866190846273778,
+        "coverage": 0.1231232569835605,
+        "tp": 259.9131954922962,
+        "fp": 7816.99257527331,
+        "fn": 1851.0868045077038,
+        "n_truth": 2111,
+        "emitted": 7946
+      },
+      "draw21_fold1": {
+        "dti": 0.08646395852664784,
+        "coverage": 0.14572891892066442,
+        "tp": 330.0760013553049,
+        "fp": 9697.41472771979,
+        "fn": 1934.923998644695,
+        "n_truth": 2265,
+        "emitted": 9850
+      },
+      "draw21_fold2": {
+        "dti": 0.05858715698990899,
+        "coverage": 0.07899816921003097,
+        "tp": 283.129438448751,
+        "fp": 9543.968157967898,
+        "fn": 3300.870561551249,
+        "n_truth": 3584,
+        "emitted": 9681
+      },
+      "draw21_fold3": {
+        "dti": 0.09973210796446569,
+        "coverage": 0.1313394848658073,
+        "tp": 407.1524030840026,
+        "fp": 7605.1506853591845,
+        "fn": 2692.847596915997,
+        "n_truth": 3100,
+        "emitted": 7795
+      }
+    }
+  },
+  "paired_delta_vs_frozen_champion_diagnostic": {
+    "label": "HOLDOUT-DTI DIAGNOSTIC; NOT PROMOTION EVIDENCE",
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "n_withheld_positives": 22232,
+    "delta": 0.08012895770570301,
+    "ci95": [
+      0.066097855372818,
+      0.0922883599760017
+    ],
+    "caveat": "Frozen Champion predictions are not a clean re-trained hide-and-recover comparator."
+  },
+  "current_best": {
+    "source_repository": "buffedlizard55-lab/GEMSDOE32",
+    "source_commit": "07806249f4ed3efe70b4fbf866183c32392b7853",
+    "source_path": "evidence/h38_run_card.json",
+    "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/07806249f4ed3efe70b4fbf866183c32392b7853/evidence/h38_run_card.json",
+    "status": "UPSTREAM-REPORTED HOLDOUT-DTI; not reproduced here, no paired OOF arrays published at this path",
+    "primary": {
+      "label": "HOLDOUT-DTI",
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "pooled_dti": 0.116958,
+      "ci95_cluster_bootstrap": [
+        0.100533,
+        0.13204
+      ],
+      "champion_02778_same_evaluator": 0.099202,
+      "champion_02778_ci95": [
+        0.085951,
+        0.112668
+      ],
+      "paired_delta_vs_champion": 0.017756,
+      "paired_delta_ci95": [
+        0.008324,
+        0.027425
+      ]
+    },
+    "negative_verdict": true
+  },
+  "paired_delta_vs_clean_current_best": null,
+  "external_catalogue_diagnostic": {
+    "label": "HOLDOUT-DTI / EXTERNAL-CATALOGUE DIAGNOSTIC",
+    "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+    "n_withheld_positives": 62703,
+    "pooled_dti": 0.06514825251596731,
+    "ci95_cluster_bootstrap": [
+      0.05421037508215277,
+      0.07588927360495927
+    ],
+    "not_newly_withheld_training_truth": true,
+    "caveat": "SGMC is another public fault catalogue, not organizer test truth. Template exclusion uses a three-iteration cross-shaped dilation, not a Euclidean 300 m disk. No prevalence-based leaderboard projection is used."
+  },
+  "leakage_canary": {
+    "label": "LEAKAGE-CANARY AUC DIAGNOSTIC; NOT DTI OR A LEADERBOARD SCORE",
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "n_withheld_positive_events": 22232,
+    "n_unique_withheld_positive_pixels": 20321,
+    "n_unlabeled_controls": 160000,
+    "n_features": 17,
+    "threshold": 0.9,
+    "passed": true,
+    "max_either_direction_auc": 0.5646215793956909,
+    "features": [
+      {
+        "feature": "step_r2_w0p7",
+        "raw_auc": 0.5089287805865419,
+        "either_direction_auc": 0.5089287805865419,
+        "passed": true
+      },
+      {
+        "feature": "step_amplitude_w0p7",
+        "raw_auc": 0.545534213352375,
+        "either_direction_auc": 0.545534213352375,
+        "passed": true
+      },
+      {
+        "feature": "step_r2_w1p4",
+        "raw_auc": 0.5065868882691615,
+        "either_direction_auc": 0.5065868882691615,
+        "passed": true
+      },
+      {
+        "feature": "step_amplitude_w1p4",
+        "raw_auc": 0.5453319653258816,
+        "either_direction_auc": 0.5453319653258816,
+        "passed": true
+      },
+      {
+        "feature": "residual_odd_fraction",
+        "raw_auc": 0.49717549098709074,
+        "either_direction_auc": 0.5028245090129093,
+        "passed": true
+      },
+      {
+        "feature": "profile_residual_rms",
+        "raw_auc": 0.5469865963194944,
+        "either_direction_auc": 0.5469865963194944,
+        "passed": true
+      },
+      {
+        "feature": "tangent_step_persistence",
+        "raw_auc": 0.496376788806675,
+        "either_direction_auc": 0.503623211193325,
+        "passed": true
+      },
+      {
+        "feature": "gravity_topography_gradient_cosine",
+        "raw_auc": 0.5375045262740644,
+        "either_direction_auc": 0.5375045262740644,
+        "passed": true
+      },
+      {
+        "feature": "gravity_gradient_magnitude",
+        "raw_auc": 0.5329236445495232,
+        "either_direction_auc": 0.5329236445495232,
+        "passed": true
+      },
+      {
+        "feature": "K_encoded_cross_normal_contrast",
+        "raw_auc": 0.5059205173005128,
+        "either_direction_auc": 0.5059205173005128,
+        "passed": true
+      },
+      {
+        "feature": "Th_encoded_cross_normal_contrast",
+        "raw_auc": 0.5234780655417867,
+        "either_direction_auc": 0.5234780655417867,
+        "passed": true
+      },
+      {
+        "feature": "lidar_step_clipped_m_per_m",
+        "raw_auc": 0.5493281226104264,
+        "either_direction_auc": 0.5493281226104264,
+        "passed": true
+      },
+      {
+        "feature": "lidar_upface_clipped_m_per_m",
+        "raw_auc": 0.5646215793956909,
+        "either_direction_auc": 0.5646215793956909,
+        "passed": true
+      },
+      {
+        "feature": "lidar_step_asymmetry_clipped_m_per_m",
+        "raw_auc": 0.5093854587419036,
+        "either_direction_auc": 0.5093854587419036,
+        "passed": true
+      },
+      {
+        "feature": "lidar_coherence",
+        "raw_auc": 0.494310643863575,
+        "either_direction_auc": 0.5056893561364251,
+        "passed": true
+      },
+      {
+        "feature": "lidar_relief_clipped_m",
+        "raw_auc": 0.548953075100081,
+        "either_direction_auc": 0.548953075100081,
+        "passed": true
+      },
+      {
+        "feature": "cached_detrended_slope",
+        "raw_auc": 0.5491151049163369,
+        "either_direction_auc": 0.5491151049163369,
+        "passed": true
+      }
+    ],
+    "cells": [
+      {
+        "cell": "draw20_fold0",
+        "positive_events": 1911,
+        "unlabeled_controls": 20000
+      },
+      {
+        "cell": "draw20_fold1",
+        "positive_events": 2351,
+        "unlabeled_controls": 20000
+      },
+      {
+        "cell": "draw20_fold2",
+        "positive_events": 3685,
+        "unlabeled_controls": 20000
+      },
+      {
+        "cell": "draw20_fold3",
+        "positive_events": 3225,
+        "unlabeled_controls": 20000
+      },
+      {
+        "cell": "draw21_fold0",
+        "positive_events": 2111,
+        "unlabeled_controls": 20000
+      },
+      {
+        "cell": "draw21_fold1",
+        "positive_events": 2265,
+        "unlabeled_controls": 20000
+      },
+      {
+        "cell": "draw21_fold2",
+        "positive_events": 3584,
+        "unlabeled_controls": 20000
+      },
+      {
+        "cell": "draw21_fold3",
+        "positive_events": 3100,
+        "unlabeled_controls": 20000
+      }
+    ],
+    "limitation": "Background is unlabeled, not proven fault absence. Passing a canary does not prove no leakage; split provenance and label-free feature derivation are separately checked."
+  },
+  "registry": {
+    "surface": {
+      "stage": "post_run_recheck_of_preserved_preplacement_surface",
+      "correlation": "Exact full-footprint Spearman, average ties, absolute threshold 0.90; no positive continuous pixel is treated as a placed dot. Final dot proximity is a separate gate.",
+      "n_manifest_files": 2729,
+      "n_checked_files": 2729,
+      "n_compared_files": 2711,
+      "n_unique_blobs_read": 1921,
+      "n_missing": 0,
+      "n_quarantined": 18,
+      "quarantines": [
+        {
+          "site": "14GEMSDOE",
+          "commit": "88dd365dc7469c316f0f7c3bdd18fd90c5825a07",
+          "path": "docs/downloads/GEMS_r5-geom-horse-ensemble_20260929T154852Z_ccbe1de0_site_e96e942f.tif",
+          "bytes": 259215,
+          "git_blob_sha": "7c12ed8a4164ce549fc8c3114eb30eb7f898af09",
+          "status": "ok",
+          "sha256": "ccbe1de0cfd70cbe7257c04669195f390ca652fa3a76c51505f461f01a1424c6",
+          "local": ".cache/blobs/7c12ed8a4164ce549fc8c3114eb30eb7f898af09.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 1"
+        },
+        {
+          "site": "60GEMSDOE",
+          "commit": "866f7e9316352d6c6071d6537cf0c338c2c6b45d",
+          "path": "docs/downloads/gems60-h63-strike-corridor-42000px-20261011T020352Z-zeros.tif",
+          "bytes": 101295,
+          "git_blob_sha": "a73a39a99e3d75fdf8d2160c4736c2f7d63cb766",
+          "status": "ok",
+          "sha256": "2b859cf93be06cf4e5a4fe2f66ef2561e2ad5a516e0059705b8131d753dff589",
+          "local": ".cache/blobs/a73a39a99e3d75fdf8d2160c4736c2f7d63cb766.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 1"
+        },
+        {
+          "site": "62GEMSDOE",
+          "commit": "38c521be981681832607c6b4152165e88a54ec11",
+          "path": "evidence/dem/lahontan_dem_utm11.tif",
+          "bytes": 45932226,
+          "git_blob_sha": "67aa86ab4e36c8e3f30bc90f6d8e124723e1f90e",
+          "status": "ok",
+          "sha256": "90838cbc194576b772c4c11b19b6d37aeb66cbe04818170ccaa3ca46591f40e7",
+          "local": ".cache/blobs/67aa86ab4e36c8e3f30bc90f6d8e124723e1f90e.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (9200, 7600), EPSG:32611, 1"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "external/dem/lidar_scarp_features_u8.tif",
+          "bytes": 36943606,
+          "git_blob_sha": "da733b53147efad5c141ffdb96e469ec5b4da8b8",
+          "status": "ok",
+          "sha256": "d580bb8bdcdb941e32fefb8b38044bc5bf04e199bf2e83498c3576e6fc465568",
+          "local": ".cache/blobs/da733b53147efad5c141ffdb96e469ec5b4da8b8.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 12"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "external/geodawn_extensions/geodawn_extensions_u8.tif",
+          "bytes": 27132925,
+          "git_blob_sha": "2fb1d57fdd33b0bdea51f2abef58fb5cddf53aa5",
+          "status": "ok",
+          "sha256": "a35a9c6d2a14786f4dab85481ee59769213072f5dab5b2535ea82ae4d9bb7d9b",
+          "local": ".cache/blobs/2fb1d57fdd33b0bdea51f2abef58fb5cddf53aa5.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 4"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "external/geodawn_rad/geodawn_rad_u8.tif",
+          "bytes": 26612970,
+          "git_blob_sha": "80704748f974ea9dbc002924ddf971a957186ae6",
+          "status": "ok",
+          "sha256": "c22420f75999030d7cc65c9e31e50d232ea6158423bca051613a18a8b20ba682",
+          "local": ".cache/blobs/80704748f974ea9dbc002924ddf971a957186ae6.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 4"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "external/qfaults/qfaults_prior_u8.tif",
+          "bytes": 873834,
+          "git_blob_sha": "b6b4c2193fad0b9266849d0838e27dee640a03d4",
+          "status": "ok",
+          "sha256": "538b45735833b341fc455dbbf06c47bc82a8bd8943c254ae6d3a5a07e72e22ca",
+          "local": ".cache/blobs/b6b4c2193fad0b9266849d0838e27dee640a03d4.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 3"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "tests/fixture/fixture_features_int16.tif",
+          "bytes": 5237005,
+          "git_blob_sha": "a6234b555fefe3a03d56d8d3f90e6a2be7c6f6b5",
+          "status": "ok",
+          "sha256": "22ec31702ff6d03c4ba9a45c66e2a924f540891844d5e4c79a6c1bd83397cf04",
+          "local": ".cache/blobs/a6234b555fefe3a03d56d8d3f90e6a2be7c6f6b5.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 19"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "tests/fixture/fixture_labels.tif",
+          "bytes": 6090,
+          "git_blob_sha": "a5d33edd0f8b35f3f0932e0135096d3172d9e79d",
+          "status": "ok",
+          "sha256": "0020056dc438ee34174d12b996b0adb8098070951798ac4cddb885689275daa2",
+          "local": ".cache/blobs/a5d33edd0f8b35f3f0932e0135096d3172d9e79d.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE22",
+          "commit": "96481093a7f73e5c13669e45574213d70c204ba0",
+          "path": "assets/external/qfaults_prior_u8.tif",
+          "bytes": 873834,
+          "git_blob_sha": "b6b4c2193fad0b9266849d0838e27dee640a03d4",
+          "status": "ok",
+          "sha256": "538b45735833b341fc455dbbf06c47bc82a8bd8943c254ae6d3a5a07e72e22ca",
+          "local": ".cache/blobs/b6b4c2193fad0b9266849d0838e27dee640a03d4.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 3"
+        },
+        {
+          "site": "GEMSDOE3",
+          "commit": "512371de5d30162813803cdccbd4931ceeb065c7",
+          "path": "legacy/data/evidence/proxy/proxy_window.tif",
+          "bytes": 5308,
+          "git_blob_sha": "1fc3d38da885918711ceef9aebab0fa7b53cf765",
+          "status": "ok",
+          "sha256": "400085c8ef9a1937a9a95b8b81d468ef67f9e39f02abc0403512b77521c24bbd",
+          "local": ".cache/blobs/1fc3d38da885918711ceef9aebab0fa7b53cf765.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE3",
+          "commit": "512371de5d30162813803cdccbd4931ceeb065c7",
+          "path": "legacy/data/evidence/xcat/proxy_window.tif",
+          "bytes": 7491,
+          "git_blob_sha": "51d18ae2082396fba9187cc299da051fd9d6f77e",
+          "status": "ok",
+          "sha256": "48326d816108330bddb6e329b71b5db60aea488d99b1d9788430d8575b8254a0",
+          "local": ".cache/blobs/51d18ae2082396fba9187cc299da051fd9d6f77e.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE3",
+          "commit": "512371de5d30162813803cdccbd4931ceeb065c7",
+          "path": "legacy/data/fixture/fixture_features_int16.tif",
+          "bytes": 5237005,
+          "git_blob_sha": "a6234b555fefe3a03d56d8d3f90e6a2be7c6f6b5",
+          "status": "ok",
+          "sha256": "22ec31702ff6d03c4ba9a45c66e2a924f540891844d5e4c79a6c1bd83397cf04",
+          "local": ".cache/blobs/a6234b555fefe3a03d56d8d3f90e6a2be7c6f6b5.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 19"
+        },
+        {
+          "site": "GEMSDOE3",
+          "commit": "512371de5d30162813803cdccbd4931ceeb065c7",
+          "path": "legacy/data/fixture/fixture_labels.tif",
+          "bytes": 6090,
+          "git_blob_sha": "a5d33edd0f8b35f3f0932e0135096d3172d9e79d",
+          "status": "ok",
+          "sha256": "0020056dc438ee34174d12b996b0adb8098070951798ac4cddb885689275daa2",
+          "local": ".cache/blobs/a5d33edd0f8b35f3f0932e0135096d3172d9e79d.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE36",
+          "commit": "b90418f852615aa0974cf9a53b92fa569ed133fc",
+          "path": "docs/downloads/GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif",
+          "bytes": 1129,
+          "git_blob_sha": "a97c7b2a513225c9f9f2b35736afe5abf4d2a491",
+          "status": "ok",
+          "sha256": "60543f8ea9d4ee432b018832337c3cf1fe0db4f71b87d15fea71869fe4f23638",
+          "local": ".cache/blobs/a97c7b2a513225c9f9f2b35736afe5abf4d2a491.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (32, 48), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE63",
+          "commit": "4195d91809a0c33871fe7013c90dde74d6571294",
+          "path": "docs/downloads/smoke.tif",
+          "bytes": 110,
+          "git_blob_sha": "89ffb2d61840859392a758928ffdbae4260f2918",
+          "status": "ok",
+          "sha256": "a65ccbb94d92988ddf1ddc599d05de756fa3339ea451c3711c6f2c4f5bc4e028",
+          "local": ".cache/blobs/89ffb2d61840859392a758928ffdbae4260f2918.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "89ffb2d61840859392a758928ffdbae4260f2918.tif: MissingRequired:TIFF directory is missing required \"StripOffsets\" field"
+        },
+        {
+          "site": "GEMSDOE75",
+          "commit": "c1b2d329e1926aac016d6286256878f5497f53fc",
+          "path": "docs/downloads/gems75-fault-tip-halo-20261021-SCHEMA-DEMO-DO-NOT-SUBMIT.tif",
+          "bytes": 171873,
+          "git_blob_sha": "df07c7c6b4aa87710b2ce97c6b80f7a4c2704c6d",
+          "status": "ok",
+          "sha256": "89d57a586634dafa256dc752a5d8a08815be23f26de4f651063378a198742098",
+          "local": ".cache/blobs/df07c7c6b4aa87710b2ce97c6b80f7a4c2704c6d.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE75",
+          "commit": "c1b2d329e1926aac016d6286256878f5497f53fc",
+          "path": "docs/downloads/gemsdoe75-zeros-SCHEMA-DEMO-DO-NOT-SUBMIT.tif",
+          "bytes": 160762,
+          "git_blob_sha": "65cbac2663e05541d29de340b1c652582207313e",
+          "status": "ok",
+          "sha256": "76e78cbd515e51afc3741c8000a61434a0839f1d84e9577631b83560fc59a5c8",
+          "local": ".cache/blobs/65cbac2663e05541d29de340b1c652582207313e.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 1"
+        }
+      ],
+      "max_abs_spearman": 0.4370705021809873,
+      "nearest_raster": {
+        "site": "GEMSDOE48",
+        "path": "docs/downloads/GEMSDOE48-H53-3SRC-DS-20261007-9242c831-nan-outside.tif"
+      },
+      "violations": [],
+      "complete": true,
+      "inventory_complete": true,
+      "comparison_complete": false,
+      "correlation_threshold_clear_on_comparable_entries": true,
+      "passed": false,
+      "verified_utc": "2026-10-26T22:46:01.571342+00:00",
+      "surface_npy_sha256": "4612119fd5ada1dd705f38aec3a7f6e156ace431fbea8c59febdd99f87775beb",
+      "registry_manifest_sha256": "8d4cd9b61744395446935c6d981ba3ce8261888663adce9891bcf7e2d432cc13",
+      "input_footprint_sha256": "bb2f0aae5da0741c436cf2807124e897658ef616ad35498fdc0d6e8009922e93",
+      "model_fits_executed": 0,
+      "dot_placements_executed": 0,
+      "original_report": "evidence/surface_guard.json",
+      "discrepancy": {
+        "n_comparisons_different_beyond_1e_12": 2704,
+        "maximum_absolute_delta": 0.0015266140252187185,
+        "cause": "Not established. The original observation is retained, not silently rewritten or excused by a relaxed tolerance.",
+        "scientific_effect": "No fit, candidate, holdout score/CI, final-dot overlap, or negative verdict changes. Both reports are well below 0.90 on comparable entries; quarantines still block universal certification."
+      }
+    },
+    "final_dots": {
+      "stage": "final_dots",
+      "passed": false,
+      "duplicate": true,
+      "stopped_at_first_duplicate": true,
+      "n_unique_rasters_checked": 1,
+      "checks": [
+        {
+          "site": "13GEMSDOE",
+          "path": "docs/downloads/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+          "spearman": -0.000285714793769,
+          "fraction_candidate_dots_within_3px": 0.9987517926382323
+        }
+      ],
+      "exact_dot_mask_matches": [],
+      "exact_dot_mask_unique_within_comparable_snapshot": true,
+      "file_sha_uniqueness_is_not_lane_uniqueness": true
+    },
+    "file_sha_unique_in_snapshot": true,
+    "dot_mask_sha256": "fbab7ef55863be9661eef591d80b8847a7d492051bc3d8526c6c26c0204d7c8c",
+    "universe_sites": 92,
+    "universe_files": 2729,
+    "universe_unique_blobs": 1921,
+    "scope": "All non-data GeoTIFFs in all 92 named repositories through GEMSDOE92 at frozen commits; no size cutoff. This includes prediction mirrors and quarantines nonprediction/incompatible grids explicitly. Unpublished files and later parallel changes are outside scope.",
+    "manifest_sha256": "8d4cd9b61744395446935c6d981ba3ce8261888663adce9891bcf7e2d432cc13",
+    "surface_original_observation": {
+      "stage": "surface_before_placement",
+      "correlation": "Exact full-footprint Spearman, average ties, absolute threshold 0.90; no positive continuous pixel is treated as a placed dot. Final dot proximity is a separate gate.",
+      "n_manifest_files": 2729,
+      "n_checked_files": 2729,
+      "n_compared_files": 2711,
+      "n_unique_blobs_read": 1921,
+      "n_missing": 0,
+      "n_quarantined": 18,
+      "quarantines": [
+        {
+          "site": "14GEMSDOE",
+          "commit": "88dd365dc7469c316f0f7c3bdd18fd90c5825a07",
+          "path": "docs/downloads/GEMS_r5-geom-horse-ensemble_20260929T154852Z_ccbe1de0_site_e96e942f.tif",
+          "bytes": 259215,
+          "git_blob_sha": "7c12ed8a4164ce549fc8c3114eb30eb7f898af09",
+          "status": "ok",
+          "sha256": "ccbe1de0cfd70cbe7257c04669195f390ca652fa3a76c51505f461f01a1424c6",
+          "local": ".cache/blobs/7c12ed8a4164ce549fc8c3114eb30eb7f898af09.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 1"
+        },
+        {
+          "site": "60GEMSDOE",
+          "commit": "866f7e9316352d6c6071d6537cf0c338c2c6b45d",
+          "path": "docs/downloads/gems60-h63-strike-corridor-42000px-20261011T020352Z-zeros.tif",
+          "bytes": 101295,
+          "git_blob_sha": "a73a39a99e3d75fdf8d2160c4736c2f7d63cb766",
+          "status": "ok",
+          "sha256": "2b859cf93be06cf4e5a4fe2f66ef2561e2ad5a516e0059705b8131d753dff589",
+          "local": ".cache/blobs/a73a39a99e3d75fdf8d2160c4736c2f7d63cb766.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 1"
+        },
+        {
+          "site": "62GEMSDOE",
+          "commit": "38c521be981681832607c6b4152165e88a54ec11",
+          "path": "evidence/dem/lahontan_dem_utm11.tif",
+          "bytes": 45932226,
+          "git_blob_sha": "67aa86ab4e36c8e3f30bc90f6d8e124723e1f90e",
+          "status": "ok",
+          "sha256": "90838cbc194576b772c4c11b19b6d37aeb66cbe04818170ccaa3ca46591f40e7",
+          "local": ".cache/blobs/67aa86ab4e36c8e3f30bc90f6d8e124723e1f90e.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (9200, 7600), EPSG:32611, 1"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "external/dem/lidar_scarp_features_u8.tif",
+          "bytes": 36943606,
+          "git_blob_sha": "da733b53147efad5c141ffdb96e469ec5b4da8b8",
+          "status": "ok",
+          "sha256": "d580bb8bdcdb941e32fefb8b38044bc5bf04e199bf2e83498c3576e6fc465568",
+          "local": ".cache/blobs/da733b53147efad5c141ffdb96e469ec5b4da8b8.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 12"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "external/geodawn_extensions/geodawn_extensions_u8.tif",
+          "bytes": 27132925,
+          "git_blob_sha": "2fb1d57fdd33b0bdea51f2abef58fb5cddf53aa5",
+          "status": "ok",
+          "sha256": "a35a9c6d2a14786f4dab85481ee59769213072f5dab5b2535ea82ae4d9bb7d9b",
+          "local": ".cache/blobs/2fb1d57fdd33b0bdea51f2abef58fb5cddf53aa5.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 4"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "external/geodawn_rad/geodawn_rad_u8.tif",
+          "bytes": 26612970,
+          "git_blob_sha": "80704748f974ea9dbc002924ddf971a957186ae6",
+          "status": "ok",
+          "sha256": "c22420f75999030d7cc65c9e31e50d232ea6158423bca051613a18a8b20ba682",
+          "local": ".cache/blobs/80704748f974ea9dbc002924ddf971a957186ae6.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 4"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "external/qfaults/qfaults_prior_u8.tif",
+          "bytes": 873834,
+          "git_blob_sha": "b6b4c2193fad0b9266849d0838e27dee640a03d4",
+          "status": "ok",
+          "sha256": "538b45735833b341fc455dbbf06c47bc82a8bd8943c254ae6d3a5a07e72e22ca",
+          "local": ".cache/blobs/b6b4c2193fad0b9266849d0838e27dee640a03d4.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 3"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "tests/fixture/fixture_features_int16.tif",
+          "bytes": 5237005,
+          "git_blob_sha": "a6234b555fefe3a03d56d8d3f90e6a2be7c6f6b5",
+          "status": "ok",
+          "sha256": "22ec31702ff6d03c4ba9a45c66e2a924f540891844d5e4c79a6c1bd83397cf04",
+          "local": ".cache/blobs/a6234b555fefe3a03d56d8d3f90e6a2be7c6f6b5.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 19"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "tests/fixture/fixture_labels.tif",
+          "bytes": 6090,
+          "git_blob_sha": "a5d33edd0f8b35f3f0932e0135096d3172d9e79d",
+          "status": "ok",
+          "sha256": "0020056dc438ee34174d12b996b0adb8098070951798ac4cddb885689275daa2",
+          "local": ".cache/blobs/a5d33edd0f8b35f3f0932e0135096d3172d9e79d.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE22",
+          "commit": "96481093a7f73e5c13669e45574213d70c204ba0",
+          "path": "assets/external/qfaults_prior_u8.tif",
+          "bytes": 873834,
+          "git_blob_sha": "b6b4c2193fad0b9266849d0838e27dee640a03d4",
+          "status": "ok",
+          "sha256": "538b45735833b341fc455dbbf06c47bc82a8bd8943c254ae6d3a5a07e72e22ca",
+          "local": ".cache/blobs/b6b4c2193fad0b9266849d0838e27dee640a03d4.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 3"
+        },
+        {
+          "site": "GEMSDOE3",
+          "commit": "512371de5d30162813803cdccbd4931ceeb065c7",
+          "path": "legacy/data/evidence/proxy/proxy_window.tif",
+          "bytes": 5308,
+          "git_blob_sha": "1fc3d38da885918711ceef9aebab0fa7b53cf765",
+          "status": "ok",
+          "sha256": "400085c8ef9a1937a9a95b8b81d468ef67f9e39f02abc0403512b77521c24bbd",
+          "local": ".cache/blobs/1fc3d38da885918711ceef9aebab0fa7b53cf765.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE3",
+          "commit": "512371de5d30162813803cdccbd4931ceeb065c7",
+          "path": "legacy/data/evidence/xcat/proxy_window.tif",
+          "bytes": 7491,
+          "git_blob_sha": "51d18ae2082396fba9187cc299da051fd9d6f77e",
+          "status": "ok",
+          "sha256": "48326d816108330bddb6e329b71b5db60aea488d99b1d9788430d8575b8254a0",
+          "local": ".cache/blobs/51d18ae2082396fba9187cc299da051fd9d6f77e.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE3",
+          "commit": "512371de5d30162813803cdccbd4931ceeb065c7",
+          "path": "legacy/data/fixture/fixture_features_int16.tif",
+          "bytes": 5237005,
+          "git_blob_sha": "a6234b555fefe3a03d56d8d3f90e6a2be7c6f6b5",
+          "status": "ok",
+          "sha256": "22ec31702ff6d03c4ba9a45c66e2a924f540891844d5e4c79a6c1bd83397cf04",
+          "local": ".cache/blobs/a6234b555fefe3a03d56d8d3f90e6a2be7c6f6b5.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 19"
+        },
+        {
+          "site": "GEMSDOE3",
+          "commit": "512371de5d30162813803cdccbd4931ceeb065c7",
+          "path": "legacy/data/fixture/fixture_labels.tif",
+          "bytes": 6090,
+          "git_blob_sha": "a5d33edd0f8b35f3f0932e0135096d3172d9e79d",
+          "status": "ok",
+          "sha256": "0020056dc438ee34174d12b996b0adb8098070951798ac4cddb885689275daa2",
+          "local": ".cache/blobs/a5d33edd0f8b35f3f0932e0135096d3172d9e79d.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE36",
+          "commit": "b90418f852615aa0974cf9a53b92fa569ed133fc",
+          "path": "docs/downloads/GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif",
+          "bytes": 1129,
+          "git_blob_sha": "a97c7b2a513225c9f9f2b35736afe5abf4d2a491",
+          "status": "ok",
+          "sha256": "60543f8ea9d4ee432b018832337c3cf1fe0db4f71b87d15fea71869fe4f23638",
+          "local": ".cache/blobs/a97c7b2a513225c9f9f2b35736afe5abf4d2a491.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (32, 48), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE63",
+          "commit": "4195d91809a0c33871fe7013c90dde74d6571294",
+          "path": "docs/downloads/smoke.tif",
+          "bytes": 110,
+          "git_blob_sha": "89ffb2d61840859392a758928ffdbae4260f2918",
+          "status": "ok",
+          "sha256": "a65ccbb94d92988ddf1ddc599d05de756fa3339ea451c3711c6f2c4f5bc4e028",
+          "local": ".cache/blobs/89ffb2d61840859392a758928ffdbae4260f2918.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "89ffb2d61840859392a758928ffdbae4260f2918.tif: MissingRequired:TIFF directory is missing required \"StripOffsets\" field"
+        },
+        {
+          "site": "GEMSDOE75",
+          "commit": "c1b2d329e1926aac016d6286256878f5497f53fc",
+          "path": "docs/downloads/gems75-fault-tip-halo-20261021-SCHEMA-DEMO-DO-NOT-SUBMIT.tif",
+          "bytes": 171873,
+          "git_blob_sha": "df07c7c6b4aa87710b2ce97c6b80f7a4c2704c6d",
+          "status": "ok",
+          "sha256": "89d57a586634dafa256dc752a5d8a08815be23f26de4f651063378a198742098",
+          "local": ".cache/blobs/df07c7c6b4aa87710b2ce97c6b80f7a4c2704c6d.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE75",
+          "commit": "c1b2d329e1926aac016d6286256878f5497f53fc",
+          "path": "docs/downloads/gemsdoe75-zeros-SCHEMA-DEMO-DO-NOT-SUBMIT.tif",
+          "bytes": 160762,
+          "git_blob_sha": "65cbac2663e05541d29de340b1c652582207313e",
+          "status": "ok",
+          "sha256": "76e78cbd515e51afc3741c8000a61434a0839f1d84e9577631b83560fc59a5c8",
+          "local": ".cache/blobs/65cbac2663e05541d29de340b1c652582207313e.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 1"
+        }
+      ],
+      "max_abs_spearman": 0.43720665139768755,
+      "nearest_raster": {
+        "site": "GEMSDOE48",
+        "path": "docs/downloads/GEMSDOE48-H53-3SRC-DS-20261007-9242c831-nan-outside.tif"
+      },
+      "violations": [],
+      "complete": true,
+      "passed": false,
+      "inventory_complete": true,
+      "comparison_complete": false,
+      "correlation_threshold_clear_on_comparable_entries": true,
+      "completion_semantics": "complete means inventory intake only; universal PASS requires comparison_complete and clear measured thresholds. Eighteen quarantines block certification."
+    }
+  },
+  "lattice_feasibility": {
+    "measured_utc": "2026-10-26T21:48:41.933288+00:00",
+    "source": ".cache/registry/GEMSDOE24/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "footprint_pixels": 5167373,
+    "registry_dots": 206895,
+    "pixels_within_3px": 5160724,
+    "covered_fraction": 0.9987132726822701,
+    "uncovered_pixels": 6649,
+    "candidate_fixed_budget": 37654,
+    "minimum_possible_overlap_for_any_distinct_pixel_map_at_this_budget": 0.8234184947150369,
+    "proof": "At most U distinct emitted pixels can be outside the registry 3px dilation. For N dots, overlap >= max(0, 1-U/N). No prediction or scientific assumption is used.",
+    "literal_threshold": 0.7,
+    "gate_is_mathematically_incompatible_with_budget": true,
+    "policy": "Do not relocate predictions into uncovered border pixels or exempt a registry to game the rule. Negative is a deliverable."
+  },
+  "raster_sha256": "4e88158e8859416b874cc424dc106847f8eaab474794bbb1716e273f57839a27",
+  "validator_output": {
+    "filename": "gemsdoe32-kanler3-ssp1-e1-RESEARCH-20261026T220043Z-fbab7ef5-zeros.tif",
+    "size_bytes": 201555,
+    "sha256": "4e88158e8859416b874cc424dc106847f8eaab474794bbb1716e273f57839a27",
+    "mode": "zeros",
+    "geometry_reference": "/home/user/KANLERGEMSDOE3/.cache/gems_data/sample_submission.tif",
+    "crs": "EPSG:32611",
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "shape": [
+      3730,
+      3292
+    ],
+    "dtype": "float32",
+    "nodata": null,
+    "nodata_repr": "None",
+    "emitted_positive_pixels": 37654,
+    "footprint_fraction": 0.007287,
+    "on_catalogue_positive_pixels": 0,
+    "in_footprint_finite_pixels": 5167373,
+    "in_footprint_min": 0.0,
+    "in_footprint_max": 1.0,
+    "full_grid_finite_pixels": 12279160,
+    "checks": {
+      "exact_reference_grid_match": true,
+      "single_band": true,
+      "dtype_float32": true,
+      "dimensions_3730x3292": true,
+      "crs_epsg_32611": true,
+      "in_footprint_all_finite": true,
+      "in_footprint_zero_nan": true,
+      "in_footprint_zero_inf": true,
+      "in_footprint_zero_sentinel": true,
+      "in_footprint_range_0_1": true,
+      "outside_footprint_compliant": true,
+      "zero_on_catalogue_leakage": true,
+      "validator_range_0_1_guaranteed": true
+    },
+    "all_checks_passed": true
+  },
+  "nan_twin_validator": {
+    "filename": "gemsdoe32-kanler3-ssp1-e1-RESEARCH-20261026T220043Z-fbab7ef5-nan.tif",
+    "size_bytes": 336301,
+    "sha256": "4be55587f07cdd347860b23c4f4c6f024d698da50d03586df2d0022d8255b67a",
+    "mode": "nan",
+    "geometry_reference": "/home/user/KANLERGEMSDOE3/.cache/gems_data/sample_submission.tif",
+    "crs": "EPSG:32611",
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "shape": [
+      3730,
+      3292
+    ],
+    "dtype": "float32",
+    "nodata": null,
+    "nodata_repr": "nan",
+    "emitted_positive_pixels": 37654,
+    "footprint_fraction": 0.007287,
+    "on_catalogue_positive_pixels": 0,
+    "in_footprint_finite_pixels": 5167373,
+    "in_footprint_min": 0.0,
+    "in_footprint_max": 1.0,
+    "full_grid_finite_pixels": 5167373,
+    "checks": {
+      "exact_reference_grid_match": true,
+      "single_band": true,
+      "dtype_float32": true,
+      "dimensions_3730x3292": true,
+      "crs_epsg_32611": true,
+      "in_footprint_all_finite": true,
+      "in_footprint_zero_nan": true,
+      "in_footprint_zero_inf": true,
+      "in_footprint_zero_sentinel": true,
+      "in_footprint_range_0_1": true,
+      "outside_footprint_compliant": true,
+      "zero_on_catalogue_leakage": true,
+      "validator_range_0_1_guaranteed": true
+    },
+    "all_checks_passed": true
+  },
+  "submission_name": "KANLER3-SSP1-E1-FBAB7EF5",
+  "submission_note": "KANLER3 SSP1 E1 | signed scarp-profile vs smooth null | fixed 37654 dots | negative; DO NOT SUBMIT",
+  "note_characters": 98,
+  "downloads": {
+    "tif": "gemsdoe32-kanler3-ssp1-e1-RESEARCH-20261026T220043Z-fbab7ef5-zeros.tif",
+    "zip": "gemsdoe32-kanler3-ssp1-e1-RESEARCH-20261026T220043Z-fbab7ef5-zeros.zip",
+    "nan_twin": "gemsdoe32-kanler3-ssp1-e1-RESEARCH-20261026T220043Z-fbab7ef5-nan.tif"
+  },
+  "verdict": "negative",
+  "decision": {
+    "verdict": "negative",
+    "ok_to_download": true,
+    "ok_to_submit": false,
+    "failed_or_unknown_gates": [
+      "surface_unique",
+      "final_dots_unique",
+      "registry_snapshot_complete",
+      "current_best_reproduced",
+      "paired_holdout_improvement",
+      "weekly_selector_approved"
+    ],
+    "gates": {
+      "declared_lane": true,
+      "leakage_canaries": true,
+      "surface_unique": false,
+      "final_dots_unique": false,
+      "registry_snapshot_complete": false,
+      "saved_bytes_valid": true,
+      "current_best_reproduced": false,
+      "paired_holdout_improvement": false,
+      "weekly_selector_approved": null
+    },
+    "slot_used": false,
+    "policy": "All gates must be literally true. A missing receipt, unknown slot capacity, or a format-only PASS never authorizes submission."
+  },
+  "leaderboard_estimate": null,
+  "organizer_confirmed_submission_score": null,
+  "organizer_receipt": null,
+  "stop_reason": "Final literal registry duplicate: stop without changing placement or method. No clean current-best paired comparison or selector approval exists.",
+  "next_experiment_allowed_in_this_run": false,
+  "full_training": {
+    "training_positive_pixels": 24000,
+    "training_unlabeled_pixels": 96000,
+    "train_domain_pixels": 5167373,
+    "seed": 20261026,
+    "positive_indices_sha256": "0a86fc21da981ddd77432115587c22f008af7832a6106e2f35882d8ef6690d42",
+    "unlabeled_indices_sha256": "317c2ffc66b82f8e1d59def78320dee7ace1ad11d4d71928186519a67cde404d",
+    "not_calibrated_probabilities": true
+  },
+  "fold_training": [
+    {
+      "cell": "draw20_fold0",
+      "training_positive_pixels": 24000,
+      "training_unlabeled_pixels": 96000,
+      "train_domain_pixels": 3975931,
+      "seed": 20261027,
+      "positive_indices_sha256": "ab2294fdb5af0c14e3ca1281ad7115cdb4603d13c44ee4bd38384d9497a0f32e",
+      "unlabeled_indices_sha256": "6ad19a32708ad4106d8fe338bb38704562d68017fc8e5f9987d79478405d4f1f",
+      "not_calibrated_probabilities": true,
+      "eligible_pixels": 1090250,
+      "emitted_dots": 7945,
+      "catalogue_feature_provenance": "none; labels used only for fold-visible supervision, visible-only negative sampling and exact visible mask",
+      "buffer_px": 15
+    },
+    {
+      "cell": "draw20_fold1",
+      "training_positive_pixels": 24000,
+      "training_unlabeled_pixels": 96000,
+      "train_domain_pixels": 3722257,
+      "seed": 20261028,
+      "positive_indices_sha256": "7da05281525d0b5cfa7c4be94564baf30f8fd1a768e452e379d7155c81b1ca08",
+      "unlabeled_indices_sha256": "98774d40db65990ef25bbe90ee945c37acc67e6cc5f951f5e52808b66cd156a9",
+      "not_calibrated_probabilities": true,
+      "eligible_pixels": 1351789,
+      "emitted_dots": 9850,
+      "catalogue_feature_provenance": "none; labels used only for fold-visible supervision, visible-only negative sampling and exact visible mask",
+      "buffer_px": 15
+    },
+    {
+      "cell": "draw20_fold2",
+      "training_positive_pixels": 24000,
+      "training_unlabeled_pixels": 96000,
+      "train_domain_pixels": 3686996,
+      "seed": 20261029,
+      "positive_indices_sha256": "d5eef0aef92fe7cdc1441f0a2a8e3c5e80faf4c7ef5d4d29179e50f98c8c8fdd",
+      "unlabeled_indices_sha256": "ca76c10b9ce72bb64978d62f18c7fb796671fc0bd7047880589591adfcd675c3",
+      "not_calibrated_probabilities": true,
+      "eligible_pixels": 1328689,
+      "emitted_dots": 9682,
+      "catalogue_feature_provenance": "none; labels used only for fold-visible supervision, visible-only negative sampling and exact visible mask",
+      "buffer_px": 15
+    },
+    {
+      "cell": "draw20_fold3",
+      "training_positive_pixels": 24000,
+      "training_unlabeled_pixels": 96000,
+      "train_domain_pixels": 3979181,
+      "seed": 20261030,
+      "positive_indices_sha256": "8c51fc5110f5d0708f57abe848c3cff25a28507febd3f39c49aab0bd5c6ee9ac",
+      "unlabeled_indices_sha256": "44a73b36402e142ed68a60a4fe9f07945831293f1390f6c1ffd0b5d6c570d9da",
+      "not_calibrated_probabilities": true,
+      "eligible_pixels": 1069921,
+      "emitted_dots": 7796,
+      "catalogue_feature_provenance": "none; labels used only for fold-visible supervision, visible-only negative sampling and exact visible mask",
+      "buffer_px": 15
+    },
+    {
+      "cell": "draw21_fold0",
+      "training_positive_pixels": 24000,
+      "training_unlabeled_pixels": 96000,
+      "train_domain_pixels": 3975931,
+      "seed": 20261031,
+      "positive_indices_sha256": "ed62cfe73a722aba692244e9d60828a61cb8a6c6464a1b230dd3025a6a7e0603",
+      "unlabeled_indices_sha256": "d0b982274cf7fee40b941372f7a2f154f92a3109c8a71f15287c9bd9db940854",
+      "not_calibrated_probabilities": true,
+      "eligible_pixels": 1090450,
+      "emitted_dots": 7946,
+      "catalogue_feature_provenance": "none; labels used only for fold-visible supervision, visible-only negative sampling and exact visible mask",
+      "buffer_px": 15
+    },
+    {
+      "cell": "draw21_fold1",
+      "training_positive_pixels": 24000,
+      "training_unlabeled_pixels": 96000,
+      "train_domain_pixels": 3722257,
+      "seed": 20261032,
+      "positive_indices_sha256": "b22c344a4ef7d902ef50332bc816e1508c961c368c01d0ca24fcc79ca483ffd9",
+      "unlabeled_indices_sha256": "5dc17eec3f8a88b109b87e9e410d8e1cdb4a67cc0e7011690b5c5547baa1ffd2",
+      "not_calibrated_probabilities": true,
+      "eligible_pixels": 1351703,
+      "emitted_dots": 9850,
+      "catalogue_feature_provenance": "none; labels used only for fold-visible supervision, visible-only negative sampling and exact visible mask",
+      "buffer_px": 15
+    },
+    {
+      "cell": "draw21_fold2",
+      "training_positive_pixels": 24000,
+      "training_unlabeled_pixels": 96000,
+      "train_domain_pixels": 3686996,
+      "seed": 20261033,
+      "positive_indices_sha256": "45b28d43039f5c501f24d41475c346fec96a61aea0a682377fc2a8276433fde4",
+      "unlabeled_indices_sha256": "ea4a5c336159d8124eab3a8f0c7e399e2f99820a25eb379948869912f88d3ac0",
+      "not_calibrated_probabilities": true,
+      "eligible_pixels": 1328588,
+      "emitted_dots": 9681,
+      "catalogue_feature_provenance": "none; labels used only for fold-visible supervision, visible-only negative sampling and exact visible mask",
+      "buffer_px": 15
+    },
+    {
+      "cell": "draw21_fold3",
+      "training_positive_pixels": 24000,
+      "training_unlabeled_pixels": 96000,
+      "train_domain_pixels": 3979181,
+      "seed": 20261034,
+      "positive_indices_sha256": "a6719f0441e0028f2b1a240200faf85209736b3dd82501dd8fe3731622d19eeb",
+      "unlabeled_indices_sha256": "09bd8ff2d59e65eeca83290acb565f6e791609ea168cf9d9059bc974f377b24a",
+      "not_calibrated_probabilities": true,
+      "eligible_pixels": 1069796,
+      "emitted_dots": 7795,
+      "catalogue_feature_provenance": "none; labels used only for fold-visible supervision, visible-only negative sampling and exact visible mask",
+      "buffer_px": 15
+    }
+  ],
+  "input_preregistration_sha256": "a6b043415d86c899da6fa95ac7f71048b39565f9885ef67d08daa6a9c8135371",
+  "raster_is_copied_peer_submission": false,
+  "limitations": [
+    "The highest hidden leaderboard result cannot be guaranteed from public labels.",
+    "Official data binaries were not freshly authenticated against DrivenData; owner-mirror SHA-256 checks establish mirror identity, not organizer authenticity.",
+    "No DrivenData session, submission receipt or authenticated weekly cap/usage is available.",
+    "Feature AUC and a spatial bootstrap do not eliminate public-to-new-fault distribution shift.",
+    "The original surface correlation log was not exactly reproduced from the retained array. A separate full-registry recheck is published; no cause is asserted and no model was refit."
+  ],
+  "review_amendments": "evidence/review_amendments.json",
+  "last_reviewed_utc": "2026-10-26T22:50:23.951057+00:00"
+}

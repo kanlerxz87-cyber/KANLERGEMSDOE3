@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "id": "IR-01",
+      "severity": "blocker",
+      "title": "Literal lattice rule is incompatible with the fixed dot budget",
+      "evidence": "evidence/lattice_feasibility.json",
+      "finding": "Only 6,649 footprint cells are outside the registered lattice's 3px dilation. Any 37,654-dot map has overlap >=82.3418%, above 70%. SSP1 actually has 99.8752% overlap.",
+      "action": "Stop after one experiment. Do not jitter, relocate, exempt the lattice, reduce the budget to chase registry gaps, or spend a slot. A parallel-run coordinator must settle the contradictory registry definition before future promotion."
+    },
+    {
+      "id": "IR-02",
+      "severity": "blocker",
+      "title": "No verified artifact-specific organizer score receipts",
+      "finding": "All named historical values came from the user's brief or peer pages. A public leaderboard observation does not tie those values to raster hashes.",
+      "action": "Keep USER-REPORTED / NOT ORGANIZER-CONFIRMED labels. Do not regress unverified claims into a projected leaderboard score."
+    },
+    {
+      "id": "IR-03",
+      "severity": "blocker",
+      "title": "Historical stored masks cannot serve as clean model-level hide-and-recover baselines",
+      "evidence": "evidence/nine_site_audit.json",
+      "finding": "Champion equals D2.8 outside a full-catalogue 2px collar. Persisted raster evaluation therefore already removes evidence around the subsequently hidden positives. Retraining or re-emitting from a label-independent parent is required.",
+      "action": "Publish frozen-raster diagnostics only with an explicit bias warning. Do not use their low values to promote SSP1. The upstream current-best OOF outputs were not reproduced here."
+    },
+    {
+      "id": "IR-04",
+      "severity": "blocker",
+      "title": "The new experiment does not beat the documented upstream best",
+      "evidence": "evidence/run_card.json",
+      "finding": "SSP1 HOLDOUT-DTI (GEMSDOE32-HIDE-RECOVER-v3.0; 22,232 positive events; spatial 95% CI) is 0.084644 [0.070384,0.097041]. Upstream-reported H38 on that evaluator is 0.116958 [0.100533,0.132040]. No paired comparison to clean H38 OOF arrays is available.",
+      "action": "Negative. No extra search after the final-dot duplicate. No claim of beating 0.2778 or the public leader."
+    },
+    {
+      "id": "IR-05",
+      "severity": "blocker",
+      "title": "Current account submission capacity and selector approval are unknown",
+      "finding": "The DrivenData submission page redirects to login. September rules section 3.4 says up to three per week, subject to the site, but current account usage and remaining capacity were not accessible.",
+      "action": "No login secrets requested, no automated upload, no selection and no slot used. Slot approval is separate from local format validation."
+    },
+    {
+      "id": "IR-06",
+      "severity": "warning",
+      "title": "Official-host authenticity is not established by mirror checksums",
+      "evidence": "evidence/input_geometry_audit.json",
+      "finding": "Core and external derivative bytes match pinned owner-mirror SHA-256 values. They were not freshly downloaded from the authenticated DrivenData host or original USGS archives.",
+      "action": "State mirror provenance. Compare against authenticated organizer originals when available; never label the binaries organizer-authenticated."
+    },
+    {
+      "id": "IR-07",
+      "severity": "warning",
+      "title": "Mirrored sample is not an all-zero prediction",
+      "evidence": "evidence/input_geometry_audit.json",
+      "finding": "Its 60,988 positive pixels equal the catalogue mask, despite the problem page describing a total-fault-absence example. The sample/feature validity footprints also differ.",
+      "action": "Use sample finite-ness only for geometry/footprint. Never treat its prediction values as model input or labels beyond the separately supplied labels raster. Expose the discrepancy and source hashes."
+    },
+    {
+      "id": "IR-08",
+      "severity": "warning",
+      "title": "External features are clipped/quantized and LiDAR coverage is incomplete",
+      "evidence": "evidence/lidar_source_metadata.json",
+      "finding": "LiDAR derivatives use clipped square-root/linear encodings and report ten failed source tiles. Radiometrics are 1st\u201399th-percentile encoded uint8 values, not raw K/Th concentration units.",
+      "action": "Invert only the documented LiDAR encoding, retain its clipping caveat, use radiometric encoded contrasts rather than fabricated concentration ratios, and publish coverage."
+    },
+    {
+      "id": "IR-09",
+      "severity": "warning",
+      "title": "SGMC secondary diagnostic is not an organizer or clean withheld test set",
+      "finding": "The template uses another public fault catalogue, a three-iteration cross/Manhattan exclusion rather than a Euclidean 300m disk, and an empirical prevalence rescaling derived from historical claims.",
+      "action": "Use only raw external-catalogue DTI as a separately labeled diagnostic. Do not use the prevalence rescaling as a leaderboard score or promotion gate. The shared primary evaluator remains byte-for-byte pinned."
+    },
+    {
+      "id": "IR-10",
+      "severity": "warning",
+      "title": "Explicit parallel method paragraph was not supplied",
+      "finding": "The brief says there is an assigned single-method paragraph, but none is identifiable in the supplied prompt.",
+      "action": "Autonomously declare SSP1 before implementation and stay in it. Do not assert external coordinator assignment or run the three other ranked ideas."
+    },
+    {
+      "id": "IR-11",
+      "severity": "blocker",
+      "title": "Eighteen registry entries cannot be compared on the competition grid",
+      "evidence": "evidence/surface_guard.json",
+      "finding": "All 2,729 entries in 92 frozen repositories were downloaded and indexed. 2,711 are comparable; 18 are incompatible grids, multi-band feature rasters, small examples or a malformed TIFF. A complete inventory is not a complete universal correlation check.",
+      "action": "List every quarantine, do not silently skip it, distinguish inventory completeness from comparison completeness, and fail closed on the universal-uniqueness certification. Exact pixel uniqueness is claimed only within the comparable snapshot."
+    },
+    {
+      "id": "IR-12",
+      "severity": "warning",
+      "title": "Public feed cannot refresh from this shell network",
+      "evidence": "registry/leaderboard_snapshot.json",
+      "finding": "The public page was verified through the browsing tool. A direct shell HTTPS refresh failed; it preserves the last observation and explicitly marks the feed stale.",
+      "action": "A scheduled GitHub Actions feed may refresh public observations on an unrestricted runner. Never invent a live value or a submission receipt on failure."
+    },
+    {
+      "id": "IR-13",
+      "severity": "warning",
+      "title": "Upstream software license is not explicit at the pinned root",
+      "finding": "No root LICENSE was present in the shared template's pinned tree. Official data licenses do not by themselves license third-party software.",
+      "action": "Retain attribution and source hashes; do not claim permissive software licensing or complete prize redistribution clearance."
+    },
+    {
+      "id": "IR-14",
+      "severity": "operational",
+      "title": "GitHub quota exhaustion and CLI authentication diagnostic",
+      "finding": "After broad registry retrieval the core API quota showed zero remaining until 2026-10-26T22:35:21Z, and gh auth status reported an authentication failure. This is not a competition-data or model failure. Quota recovered and normal repository operations work. The integration cannot modify Pages publishing settings (403); the standard Pages workflow token will be tested, and existing legacy routing is preserved.",
+      "action": "Finish local checks; use the fixed Arena branch for git operations. Retry GitHub after quota reset. If authentication persists, reconnect GitHub in Arena, never request credentials. Record actual PR/merge/deploy outcomes, not intentions."
+    },
+    {
+      "id": "IR-15",
+      "severity": "warning",
+      "title": "Original surface correlation log not exactly reproducible",
+      "evidence": "evidence/surface_recheck.json",
+      "finding": "Original max |rho| 0.4372066514; fixed retained-array full-registry recheck 0.4370705022. 2,704 comparable entries differ beyond 1e-12; maximum absolute delta 0.0015266140. Ref bytes and footprint are intact; root cause is not established.",
+      "action": "Preserve the original and separate recheck. Publish the reproducible recheck as current; keep universal certification false. No refit, new dots, budget change, or altered holdout result."
+    },
+    {
+      "id": "IR-16",
+      "severity": "operational",
+      "title": "Parallel sessions merged main during this study",
+      "finding": "Main advanced from the initial one-line README through other lane merges while SSP1 was running. Those lanes have different evaluators and independent negative artifacts.",
+      "action": "Isolate SSP1 under studies/ssp1, preserve all prior root code/evidence, and publish its portal at docs/ssp1. Do not mix evaluator scores or overwrite another lane run card."
+    },
+    {
+      "id": "IR-17",
+      "severity": "blocker",
+      "title": "A newly merged sibling detector-only uniqueness pass omits a mandatory lattice",
+      "evidence": "evidence/parallel_scope_audit.json",
+      "finding": "The new main README calls DCAP unique against 415 detectors while excluding the disclosed calibration lattice. Read-only KD-tree and EDT agree its saved TIFF has 99.997344% proximity to the pinned 13GEMSDOE lattice (>70%). This is not another SSP1 model experiment.",
+      "action": "Keep sibling raw evidence untouched but qualify the claim prominently in the root README/dashboard. No promotion, no lattice exemption, no fits or new dot placements."
+    }
+  ]
+}

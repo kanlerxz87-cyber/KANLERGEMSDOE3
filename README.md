@@ -1,5 +1,17 @@
 # KANLERGEMSDOE3 — DOE GEMS Geothermal Fault Discovery Desk & Autonomous `KANLER-H1` Engine
 
+## Strict all-registry gate and isolated SSP1 result
+
+**Download for research: YES. Submit: NO.** A "unique vs 415 detectors" statement below uses a narrower comparison set and is **not an all-registry pass**: the user expressly includes inconvenient lattice/calibration rasters. A read-only independent KD-tree/EDT check of the sibling DCAP saved TIFF found **99.997344%** within 3 pixels of the mandatory `13GEMSDOE` lattice. Its original evidence is preserved; [the separate scope audit](studies/ssp1/evidence/parallel_scope_audit.json) makes that limitation explicit. No lattice exemption is authorized.
+
+[**SSP1 nine-site executive summary and new research TIFF**](docs/ssp1/executive-summary.html) · [Full SSP1 brief and reproduction](studies/ssp1/README.md) · [Run card](studies/ssp1/evidence/run_card.json).
+
+SSP1 independently generated new pixels but failed its mandatory duplicate gate (**99.875179%** lattice overlap). **HOLDOUT-DTI 0.084644**, 95% CI **[0.070384, 0.097041]**, `GEMSDOE32-HIDE-RECOVER-v3.0`, **22,232 positive events**; this is not a leaderboard prediction and is **not directly comparable** to differently versioned sibling evaluators below. No slot was used. TIFF SHA-256: `4e88158e8859416b874cc424dc106847f8eaab474794bbb1716e273f57839a27`.
+
+SSP1 is isolated in `studies/ssp1`, published in `docs/ssp1`, and linked through `docs/source-status.js` without replacing any other lane's generator, dashboard, artifacts, evaluators or raw run cards. Its root `ssp1-checks.yml` / `ssp1-pages.yml` automate saved-byte/browser checks and a public-only last-good feed; they never train, select or upload a competition submission. Deployment success is determined by actual GitHub receipts. The full prompt remains archived below and in the study README.
+
+---
+
 **Quick Navigation:** [Live UI / Executive Summary (`docs/index.html`)](docs/index.html) · [Contest Submission & `[0, 1]` Fix Guide (`docs/executive-summary.html`)](docs/executive-summary.html) · [PhD Analysis & Cross-Site Review (`research/review.md`)](research/review.md) · [5 Ranked Hypotheses & Results (`research/hypotheses.md`)](research/hypotheses.md) · [Frozen Pre-Registration (`research/preregistration_kanler_h1.md`)](research/preregistration_kanler_h1.md) · [Official Verification & Irregularities (`research/verification.md`)](research/verification.md) · [JSON Run Card (`docs/run-card.json`)](docs/kanler-h1-run-card.json)
 
 ---
