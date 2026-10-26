@@ -1,40 +1,65 @@
-# KANLERGEMSDOE3 — DOE GEMS fault-discovery workbench
+# KANLERGEMSDOE3 — evidence before submission
 
-> **Read this standing brief and [`PROJECT_REQUEST.md`](PROJECT_REQUEST.md) before every project change.** `PROJECT_REQUEST.md` preserves the long request as an operational transcription, while this README is the session-start checklist. The goal is reliable, auditable scientific work that improves the probability of a strong DOE GEMS competition result—not the production of a TIFF merely to have one.
+**Start every session by reading this README, [standing requirements](research/standing-requirements.md),
+[review / continuation](research/review.md), and [run card](docs/run-card.json).**
 
-## Persistent work order
+## Current executive decision: DO NOT SUBMIT
 
-1. **Competition target.** Develop predictions of faults in the DOE GEMS / GeoDAWN region. Treat the official competition description, data specification, metric and rules as the source of truth. Keep a clean, auditable inventory of scientific claims and link primary sources.
-2. **Research before code.** Before implementing a candidate, describe 3–5 geological hypotheses. For each, name the existing layer(s), physical signature/transform, why it may reveal a catalog-missing fault, and what is materially different from work already recorded. Rank by expected value (qualitative unless supported by evidence) and implementation cost. If “new” cannot be established from the complete registry/history, say so.
-3. **Stay in the assigned lane.** Compare the candidate surface before placement and final dots against the pinned registry. Stop and record a duplicate if absolute rank correlation exceeds 0.90 or more than 70% of candidate dots are within 3 pixels of any one registry raster. Do not rename, perturb, or re-encode another submission to claim novelty.
-4. **Reuse shared tooling.** Use the template’s cached feature stack, shared `evaluate_holdout.py` and `submission_writer.py` when available. Holdout is hide-and-recover: withhold whole fault segments with a buffer; build every catalogue-derived feature only from visible faults; mask visible faults pixel-exactly; evaluate pooled distance-weighted Tversky (alpha 0.2, beta 0.8, 300 m triangular kernel). Fix a shared-tool defect in the shared template, never in a private fork. Do not invent substitute results when these files or data are absent.
-5. **Leakage checks.** Test each feature alone on the same holdout before trusting a model. AUC > 0.90 is a leakage warning until disproven.
-6. **Evidence labels.** Label every score as `HOLDOUT-DTI` (evaluator version, withheld-positive count, 95% CI) or `ORGANIZER-CONFIRMED` (copied from the submission-page receipt). Label owner-provided historical numbers `OWNER-REPORTED`. A projection is never a score. Do not claim a leaderboard estimate unless it is calibrated and validated; otherwise say `not estimable`.
-7. **Fail closed on files.** A download is not permission to submit. Before saying a TIFF is safe to upload, validate the exact saved bytes, single-band GeoTIFF, float32, required CRS/shape/transform, footprint/nodata behavior, no NaN inside the footprint, and predictions in [0, 1]. Record SHA-256 and a short unique portal name/note (≤140 characters). The scientific holdout gate and literal uniqueness gate must also pass. Slot selection is separate and subject to the competition’s current cap.
-8. **Budget and honesty.** Stop after at most 3 experiments or 2 hours per run card. Negative results are valid deliverables. Do not spend or claim a weekly slot without the separate selector decision. Do not fabricate a TIFF, score, receipt, data access, validation, or scientific conclusion.
-9. **Autonomy and values.** Automate checks where data and tooling permit; do not require human geological inspection for a machine gate. Flag blockers that genuinely require account access. Apply **Maximize P(Win)** by protecting scarce slots and **Own the Outcome** by reporting failures, uncertainty, and next actions directly.
-10. **Research archive.** Preserve official, free/public data sources and their license/provenance. Do not fetch/login-bypass competition data. Keep large datasets and artifacts out of Git unless the project’s storage policy requires them.
+[Executive summary](docs/index.html) · [How to submit](docs/executive-summary.html) ·
+[Ranked hypotheses](research/hypotheses.md) · [Independent audit](docs/audit.json)
 
-## Current checkout status (2026-10-26)
+No new eligible TIFF or score estimate exists. Nine historical best masks were restored from pinned
+GitHub mirrors and hash-checked. All 72 directed overlap comparisons exceed the requested 70% stop.
+No historical artifact is being relabelled as a unique entry. No weekly slot was consumed.
+This is a **negative research deliverable**, not a completed high-scoring model.
 
-The initial branch snapshot contained only a README; `origin/main` advanced during this review and was integrated so the current checkout now includes an offline evidence archive, pinned upstream site metadata/pages, a review generator, decision-schema gate, tests, and static pages. This is **not** the canonical competition pipeline: no authorized competition rasters, labels, local cached feature stack, or exact complete raster registry are present. Upstream evaluator/writer copies under `evidence/upstream/` are immutable reference artifacts, not a runnable integrated template. No geological experiment or holdout was run, no new TIFF exists, and **there is no file approved to download or submit**. The official competition data endpoint redirects to DrivenData login in this environment. Read the [full standing request](PROJECT_REQUEST.md), [published executive summary](docs/executive-summary.html), [detailed review](docs/executive-summary.md), [ranked hypotheses](docs/HYPOTHESES.md), and [submission guide](docs/submission-guide.md). The static site and CI artifacts exist in the branch; an actual Pages deployment/portal upload is not claimed.
+The initial checkout contained only this README's title. Claims in the project request about an existing
+GPU pipeline, cached stack or a single remaining data-placement blocker were not true for this checkout.
+A single method lane was not supplied. Full prompt requirements are **not yet fulfilled**; see continuation.
 
-## Primary sources
+## Reproduce the three review passes
 
-- [DrivenData problem description, metric, and GeoTIFF format](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/)
-- [DrivenData competition rules](https://www.drivendata.org/competitions/306/competition-doe-gems/rules/)
-- [DrivenData data download page](https://www.drivendata.org/competitions/306/competition-doe-gems/data/) — login required from this environment
-- [Official live public leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/)
-- [DrivenData GEMS reference solution](https://github.com/drivendataorg/gems-prize-reference-solution)
-- [USGS GeoDAWN data release](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and) · [DOI 10.5066/P93LGLVQ](https://doi.org/10.5066/P93LGLVQ)
-- [INGENIOUS project, Great Basin Center for Geothermal Energy](https://gbcge.org/current-projects/ingenious/)
-- [EPSG:32611](https://epsg.io/32611)
+```sh
+python -m venv .venv
+.venv/bin/pip install -r requirements.txt
+python scripts/restore_audit_data.py   # gh authenticated; pinned hashes; ~8 MB, ignored by Git
+.venv/bin/python scripts/audit_rasters.py
+.venv/bin/python -m unittest discover -s tests -v
+python scripts/build_site.py
+python -m http.server 8000 --bind 0.0.0.0 --directory docs
+```
 
-## How to continue
+Pass 1: source audit, pinned raster recovery, independent geometric comparisons and executive site.
+Pass 2: tests for directional overlap, exact distance boundary, invalid values, grid mismatch and
+fail-closed reporting; fix failures before proceeding.
+Pass 3: reconcile original scientific requirements, identify unmet gates, verify source snapshot integrity,
+rebuild docs and repeat tests. Details: [verification log](research/verification.md).
 
-1. Open the [static review landing page](docs/index.html); confirm the current fail-closed status and use its summary/submission links.
-2. Obtain competition data through an authorized DrivenData account and place it under the agreed `data/` path; preserve the original sample submission and metadata.
-3. Restore the canonical shared template’s cached features, segment-buffered evaluator, writer, and registry audit in the shared project (not a fork), with tests.
-4. Pin the complete raster registry and metadata/hashes; reconcile conflicting site claims before any uniqueness assertion.
-5. Preregister no more than three experiments, run leakage canaries, evaluate candidate and same-run controls, and publish the complete run card whether the outcome is positive or negative.
-6. Only after holdout, strict uniqueness, and byte-level format gates all pass, let the separate slot selector decide whether an upload is worth the weekly cap.
+`scripts/refresh_sources.py` explicitly refreshes third-party source snapshots (not a verified live feed).
+It needs GitHub `gh` access. Do not silently replace reviewed evidence with moving-branch claims.
+`scripts/audit_rasters.py` is a read-only forensic validator, **not a private competition evaluator or writer**.
+The snapshots of the canonical shared scripts import dependencies that have not been restored.
+
+## Website and publication
+
+The static site is in `docs/`. The existing legacy Pages configuration publishes main at the root; the root index redirects to docs/.
+A verification workflow is retained; actual publication status must be checked rather than assumed.
+The home page prominently separates file-format validity from scientific eligibility. There is deliberately
+no approved-TIFF download link while validation is blocked.
+
+## Core values
+
+**Maximize P(Win):** prefer honest negative results and defensible spatial validation over speculative
+leaderboard forecasts, duplicated raster tweaks or spending scarce submission slots.
+
+**Own the Outcome:** preserve evidence, automate checks, expose blockers, and document the next concrete
+experiment rather than claim unperformed training or verification.
+
+## Concurrent-main integration
+
+Main changed during this run. Its evidence archive, gate/schema tests, source reports and standing
+`PROJECT_REQUEST.md` were merged without deleting them. The previous active dashboard is preserved at
+[parallel review](docs/parallel-review-dashboard.html), with its README at
+[parallel review README](docs/parallel-review-readme.md). `scripts/review.py` now rebuilds archived
+dashboards rather than overwriting the active independent-raster-audit summary. The active run card
+for this session is `docs/run-card.json`; other run cards remain historical evidence.

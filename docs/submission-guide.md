@@ -15,7 +15,7 @@
 
 ## The reported `[0, 1]` error
 
-The competition problem page specifies one prediction layer, float32, values between zero and one, and null/NaN outside the footprint. Check the exact saved bytes rather than the design surface: nodata, NaNs, infinity, scaling, dtype conversion, and accidental out-of-range values can be introduced by the writer or GeoTIFF library. Validate the entire in-footprint array after reopening the TIFF. The format requirements and portal's actual acceptance must both be satisfied; this repository has not tested either because it has no TIFF or competition data.
+The competition problem page specifies one prediction layer, float32, values between zero and one, and null/NaN outside the footprint. Check the exact saved bytes rather than the design surface: nodata, NaNs, infinity, scaling, dtype conversion, and accidental out-of-range values can be introduced by the writer or GeoTIFF library. Validate the entire in-footprint array after reopening the TIFF. The pinned historical mirror files were checked with the local template-aware validator, but no new candidate TIFF exists and the organizer portal's actual acceptance has not been tested. Historical-file checks do not establish readiness to submit.
 
 ## Official references
 

@@ -45,12 +45,30 @@ def build():
  <h2>Why GEMSDOE32?</h2><p>It has the highest owner-reported value in the supplied focus list. That does not establish causality or prove it is best on hidden labels. The pinned upstream page explicitly calls it an owner report without a submission-page receipt. It also calls it an already-submitted duplicate family. Sparse placement can reduce false-positive mass while retaining distance-tolerant coverage; attribution to B2 masking or geology requires controlled fold-local ablations, not filenames or leaderboard anecdotes.</p><p>The upstream review also flags full-catalogue masking in a historical holdout and excessive registry overlap. We do not import upstream “promote” flags as authorization. No evidence here supports a promise to exceed the stated targets.</p>
  <h2>Per-site executive summaries</h2>{summaries}
  <h2>Priority next steps</h2><ol><li>Record the missing single-method lane before running any candidate.</li><li>Restore a shared template and cached stack with pinned provenance; reuse, do not privately fork its evaluator/writer.</li><li>Rebuild whole-segment buffered holdout features from visible faults only, and mask visible faults pixel-exactly.</li><li>Run feature canaries, paired candidate/incumbent HOLDOUT-DTI with pooled counts and segment/block bootstrap intervals.</li><li>Stop at any registry surface or final-dot threshold breach; otherwise validate saved TIFF bytes, then use a separate weekly-cap selector.</li></ol>'''
- write_page('index.html',body)
- write_page('executive-summary.html',body)
+ write_page('archived-dashboard.html',body)
+ write_page('archived-summary.html',body)
  for name in ('research','submission'):
-  text=html.escape((ROOT/'docs'/f'{name}.md').read_text())
-  text=re.sub(r'https://[^\s<>]+', lambda m: '<a href="'+m.group(0)+'">'+m.group(0)+'</a>', text)
+  raw=(ROOT/'docs'/f'{name}.md').read_text()
+  text=render_markdown_links(raw)
   write_page(name+'.html','<nav><a href="index.html">Executive summary</a></nav><article style="white-space:pre-wrap;overflow-wrap:anywhere">'+text+'</article>')
+
+
+def render_markdown_links(text):
+ """Escape Markdown text while rendering inline and bare HTTPS links safely."""
+ pattern=re.compile(r'\[([^]\n]+)\]\((https?://[^)\s]+)\)|(https?://[^\s<>]*[^\s<>.,;:!?])')
+ parts=[]
+ cursor=0
+ for match in pattern.finditer(text):
+  parts.append(html.escape(text[cursor:match.start()]))
+  if match.group(1) is not None:
+   label,url=match.group(1),match.group(2)
+  else:
+   label=url=match.group(3)
+  parts.append(f'<a href="{html.escape(url,quote=True)}">{html.escape(label)}</a>')
+  cursor=match.end()
+ parts.append(html.escape(text[cursor:]))
+ return ''.join(parts)
+
 
 def write_page(name,body):
  (ROOT/'docs'/name).write_text('''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GEMS · Evidence &amp; submission review</title><link rel="stylesheet" href="style.css"><main>'''+body+'</main></html>')
