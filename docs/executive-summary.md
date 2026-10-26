@@ -1,13 +1,13 @@
 # Executive review — GEMSDOE24/25/27/28/30/31/32/33/36
 
-**Reviewed:** 2026-10-26 (UTC) · **Repository checkout:** `KANLERGEMSDOE3`, initial commit `d795e4e` · **Decision:** no submission file is available or approved from this checkout.
+**Reviewed:** 2026-10-26 (UTC) · **Repository:** `KANLERGEMSDOE3` · **Starting checkout:** initial commit `d795e4e`; current branch also integrates concurrent `origin/main` review assets · **Decision:** no submission file is available or approved from this checkout.
 
 ## Decision at a glance
 
 - **Best historical score among the nine named sites, according to the supplied prompt:** GEMSDOE32’s `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros`, reported as **0.2778 (OWNER-REPORTED; not organizer-confirmed here)**. This is a historical claim, not an estimate or a validated current candidate. Do not copy/resubmit it.
-- **Highest public score on the official leaderboard when checked:** **0.4437**, displayed for the top public entry [on the live leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/). This corrects the prompt’s 0.3195 figure as a point-in-time snapshot; public results can change. It is not the same evidence as a private/final prize result.
-- **Score estimate for any new file from this checkout:** **not estimable**. There is no data, evaluator, training code, registry, or candidate TIFF in this repository. No submission-page receipt was supplied.
-- **Download / submit:** **No new TIFF to download; do not submit any file from this checkout.** No local checks or scientific holdout were run, so claiming a passing submission would be false.
+- **Highest public score on the official leaderboard when checked:** **0.4437**, displayed for the top public entry [on the live leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) retrieved during this review on 2026-10-26. This is a point-in-time page value and public results can change; it is not a private/final prize result. The prompt's 0.3195 and 0.4413 figures are both below this point-in-time fetch and should not be presented as current.
+- **Score estimate for any new file from this checkout:** **not estimable**. The merged repository now includes pinned snapshots of upstream site pages/metadata and archived evaluator/writer source copies, but it has no authorized competition rasters/labels, cached feature stack, complete raster registry, canonical integrated runner, or candidate TIFF. No submission-page receipt was supplied.
+- **Download / submit:** **No new TIFF to download; do not submit any file from this checkout.** The documentation/gate-schema tests do not evaluate raster bytes or scientific performance; no geospatial validator or scientific holdout was run, so claiming a passing submission would be false.
 
 The official metric is distance-weighted Tversky with alpha 0.2, beta 0.8 and a 300 m triangular support. This weighs false negatives more heavily than false positives and gives partial credit to predictions near labeled faults. It explains why line coverage/recall and placement tolerance can matter, but **does not establish why the named GEMSDOE32 file received its reported score**. A causal explanation requires verified file-to-receipt linkage, a reproducible implementation, and controlled tests. The GEMSDOE32 site itself describes 0.2778 as owner-reported without a receipt linking the score to that raster hash. See the [official metric and submission specification](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/) and [GEMSDOE32 snapshot](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html).
 
@@ -54,8 +54,8 @@ The current checkout has no implemented methods to compare against. The nine liv
 
 | Gate | Required | This checkout |
 |---|---|---|
-| Shared cached feature stack + visible-only feature construction | Available and inspected | **Missing** |
-| Whole-segment buffered hide-and-recover, pooled DTI (0.2/0.8; 300 m triangular), evaluator version, n positives, 95% CI | Run for candidate and same-run baseline | **Not run; no evaluator or data** |
+| Canonical shared cached feature stack + visible-only feature construction | Available and inspected | **Missing; upstream evaluator/writer source copies exist only as pinned audit material, not a runnable integrated template** |
+| Whole-segment buffered hide-and-recover, pooled DTI (0.2/0.8; 300 m triangular), evaluator version, n positives, 95% CI | Run for candidate and same-run baseline | **Not run; no authorized raster data or canonical evaluator integration** |
 | Per-feature leakage canary; AUC > 0.90 investigated | Required | **Not run** |
 | Surface and final-dot registry correlation/3-px overlap | All relevant registry rasters; stop at >0.90 or >70% | **Not run; no local registry raster files** |
 | Single-band GeoTIFF; float32; correct EPSG/shape/transform; no NaN inside footprint; values in [0,1]; exact saved-byte hash | Validate before download/submission | **No TIFF exists** |
@@ -63,7 +63,7 @@ The current checkout has no implemented methods to compare against. The nine liv
 
 ## Irregularities and limitations to resolve
 
-- **Repository gap:** at the start of this review, the checkout contained only an initial README and `.git`; this update adds review documentation and a static landing page, but no pre-existing project system to continue or test. This is the principal blocker and means the user's proposed “next steps from previous sessions” are not present in this branch.
+- **Repository gap:** the starting checkout contained only an initial README and `.git`. The merged current branch adds an offline review generator, schema gate, tests, pinned upstream metadata/pages and a static site; however, these are not an end-to-end model/training system. Several upstream evaluator/writer files are archived for audit only; there is no canonical cached feature stack, authorized competition raster package, full raster registry, or integrated holdout-to-TIFF pipeline.
 - **Competition data access:** the official data URL redirects to DrivenData login in this environment. No login bypass or credential request is appropriate. Public USGS GeoDAWN data are useful source material, but do not replace the competition’s labels, sample submission, or packaged training stack.
 - **Moving website claims:** GEMSDOE pages retrieved during this review show current 2026-10-26 content and sometimes conflicting or updated conclusions. Historical scores are not necessarily receipts; one page may contain multiple concurrent run cards and different evidence standards. Pin commit IDs, retrieve the linked exact files/JSON, and recompute comparisons before relying on them.
 - **Uniqueness scope:** exact byte/hash difference is not enough. A dense sampling lattice or near-clone may violate the user’s literal overlap rule. The full registry must be frozen and each surface and final dots screened; absent that, say unknown/fail-closed.

@@ -1,6 +1,6 @@
 # KANLERGEMSDOE3 — DOE GEMS fault-discovery workbench
 
-> **Read this standing brief before every project change.** The goal is reliable, auditable scientific work that improves the probability of a strong DOE GEMS competition result—not the production of a TIFF merely to have one.
+> **Read this standing brief and [`PROJECT_REQUEST.md`](PROJECT_REQUEST.md) before every project change.** `PROJECT_REQUEST.md` preserves the long request as an operational transcription, while this README is the session-start checklist. The goal is reliable, auditable scientific work that improves the probability of a strong DOE GEMS competition result—not the production of a TIFF merely to have one.
 
 ## Persistent work order
 
@@ -17,7 +17,7 @@
 
 ## Current checkout status (2026-10-26)
 
-At the start of this review, the checkout contained only the original README and `.git`; this update adds documentation and a static landing page, but no feature stack, labels, training data, `evaluate_holdout.py`, `submission_writer.py`, tests, interactive application, cached registry, or TIFF. Therefore **no candidate was tested, no holdout score was measured, and no submission TIFF can honestly be generated or approved here**. The competition data endpoint redirects to DrivenData login in this environment. See the [project landing page](index.html), [review and evidence report](docs/executive-summary.md), and [submission guide](docs/submission-guide.md) for the nine-site audit, source links, hypotheses, limitations, and next steps. GitHub Pages publishing is not configured or verified by this checkout.
+The initial branch snapshot contained only a README; `origin/main` advanced during this review and was integrated so the current checkout now includes an offline evidence archive, pinned upstream site metadata/pages, a review generator, decision-schema gate, tests, and static pages. This is **not** the canonical competition pipeline: no authorized competition rasters, labels, local cached feature stack, or exact complete raster registry are present. Upstream evaluator/writer copies under `evidence/upstream/` are immutable reference artifacts, not a runnable integrated template. No geological experiment or holdout was run, no new TIFF exists, and **there is no file approved to download or submit**. The official competition data endpoint redirects to DrivenData login in this environment. Read the [full standing request](PROJECT_REQUEST.md), [published executive summary](docs/executive-summary.html), [detailed review](docs/executive-summary.md), [ranked hypotheses](docs/HYPOTHESES.md), and [submission guide](docs/submission-guide.md). The static site and CI artifacts exist in the branch; an actual Pages deployment/portal upload is not claimed.
 
 ## Primary sources
 
@@ -32,8 +32,9 @@ At the start of this review, the checkout contained only the original README and
 
 ## How to continue
 
-1. Obtain competition data through an authorized DrivenData account and place it under the agreed `data/` path; preserve the original sample submission and metadata.
-2. Bring in or implement the shared template’s cached features, segment-buffered evaluator, writer, and registry audit in the shared project (not a fork), with tests.
-3. Pin the nine-site registry rasters and their metadata/hashes; reconcile conflicting site statements before any uniqueness claim.
-4. Preregister no more than three experiments, run leakage canaries, evaluate candidate and same-run controls, and publish the complete run card whether the outcome is positive or negative.
-5. Only after holdout, strict uniqueness, and byte-level format gates all pass, let the separate slot selector decide whether an upload is worth the weekly cap.
+1. Open the [static review landing page](docs/index.html); confirm the current fail-closed status and use its summary/submission links.
+2. Obtain competition data through an authorized DrivenData account and place it under the agreed `data/` path; preserve the original sample submission and metadata.
+3. Restore the canonical shared template’s cached features, segment-buffered evaluator, writer, and registry audit in the shared project (not a fork), with tests.
+4. Pin the complete raster registry and metadata/hashes; reconcile conflicting site claims before any uniqueness assertion.
+5. Preregister no more than three experiments, run leakage canaries, evaluate candidate and same-run controls, and publish the complete run card whether the outcome is positive or negative.
+6. Only after holdout, strict uniqueness, and byte-level format gates all pass, let the separate slot selector decide whether an upload is worth the weekly cap.
