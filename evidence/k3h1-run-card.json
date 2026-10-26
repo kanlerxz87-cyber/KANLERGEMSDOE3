@@ -1,0 +1,361 @@
+{
+ "schema_version": 2,
+ "run_id": "kanler3-k3h1-20261026",
+ "lane": "K3-H1 ASGT: antislope-scarp grain traces (self-assigned and pre-registered; IR-K3-LANE-01: the prompt's lane paragraph is missing)",
+ "preregistration": {
+  "path": "research/preregistration-20261026.md",
+  "written_utc": "2026-10-26T22:18:36Z",
+  "sha256": "4f7f80a98209677fee679128f4e26c0d35fef1b1eac26f1eecbffa30dabf4c9e",
+  "edited_after_first_experiment": false
+ },
+ "hypothesis": "Scarps that face UPHILL (against the 100 m regional slope), are coherent over >=300 m and parallel the local fault grain are tectonic; small antislope scarps visible only in 1 m lidar are what pre-lidar fault compilations miss, so they should mark uncatalogued faults.",
+ "mechanism": "Normal faulting in the Basin and Range produces antithetic/synthetic scarps whose free face can oppose the topographic slope; erosion, deposition, terraces and shorelines produce downhill-facing risers. Facing polarity x grain compatibility x coherence is therefore a fault-specific geomorphic signature.",
+ "non_fault_mimic": "Landslide and sackung headscarps (uphill-facing ridge-top scarps: relief veto), channel banks (cross-slope dominance), roads/berms (short, straight; grain/coherence down-weight), lake shorelines (downhill-facing: excluded).",
+ "experiments": [
+  {
+   "id": "E1",
+   "question": "Does the ASGT mechanism recover withheld catalogue faults?",
+   "result": "HOLDOUT-DTI ASGT 0.0922 vs ablation A (upface only) 0.0499: paired delta 0.0423 CI95 [0.033, 0.0522] -> mechanism supported; vs C1 -0.0039 CI95 [-0.016, 0.0094] (tie)",
+   "evidence": "evidence/e1_holdout.json"
+  },
+  {
+   "id": "E2",
+   "question": "Does a protocol-unique pure-ASGT file project competitively on the live ledger?",
+   "result": "No: 16 files (30-60k dots, exclusion 3/5 px, capped/uncapped) PROJECTION 0.066-0.118 vs champion 0.2843 (same fit); ASGT dots sit ~70% off the H19-5 network",
+   "evidence": "evidence/e2_unique.json"
+  },
+  {
+   "id": "E3",
+   "question": "ASGT-ranked H19-5 core (<=69.5%) + ASGT novel share (>=30.5%)",
+   "result": "PROJECTION 0.2521 vs champion 0.2843; HOLDOUT-DTI 0.0909 vs C1 0.0961, paired delta -0.0052 CI95 [-0.0101, +0.0003]",
+   "evidence": "evidence/e3_hybrid.json"
+  }
+ ],
+ "budget": {
+  "max_experiments": 3,
+  "experiments_used": 3,
+  "max_wall_clock_h": 2,
+  "first_experiment_start_utc": "2026-10-26T22:20:13Z",
+  "last_experiment_end_utc": "2026-10-26T22:25:47Z",
+  "stopped_because": "experiment-count cap reached"
+ },
+ "deviations": [
+  {
+   "id": "IR-K3-E3-DEV-01",
+   "what": "E3 changed the CORE SELECTION RULE, not only budget/share: core = H19-5 network pixels ranked by the ASGT score (own NMS placement) instead of ASGT dots that happen to fall inside the H19-5 3-px buffer.",
+   "why": "E2 showed ASGT dots fill only 28-35% of the H19-5 buffer, so the pre-registered core share (<=69.5%) could never be filled and every E2 file projected 0.066-0.118.",
+   "effect_on_verdict": "none: verdict rules (format, uniqueness, HOLDOUT vs best control, PROJECTION vs champion same fit) were applied unchanged."
+  },
+  {
+   "id": "IR-K3-E3-LEAK-01",
+   "what": "E3's core inherits H19-5, which GEMSDOE19 built with the full catalogue (tip/relay stress).",
+   "why": "the core must sit on the network the ledger rewards",
+   "effect_on_verdict": "E3 and C1 holdout values are both leak-advantaged; only the paired difference is interpretable. visible_only_features=false in the run card."
+  }
+ ],
+ "holdout": {
+  "class": "HOLDOUT-DTI",
+  "evaluator_version": "gems57-pooled-hide-v2",
+  "withheld_positives": 11321,
+  "value": 0.0909,
+  "ci95": [
+   0.0798,
+   0.1018
+  ],
+  "alpha": 0.2,
+  "beta": 0.8,
+  "kernel_m": 300,
+  "kernel": "triangular",
+  "aggregation": "pooled",
+  "split": "gems57 buffered_component_draw seed 20: 20% whole components withheld per label-blind quadrant, 3-px collar, 12-px fold boundary buffer, visible catalogue masked pixel-exactly",
+  "bootstrap": {
+   "method": "paired physical spatial-cluster percentile",
+   "clusters": 157,
+   "draws": 1000,
+   "seed": 520810,
+   "confidence": 0.95,
+   "caveat": "Conditional on fitted folds, catalogue labels and fixed budgets; not a leaderboard interval."
+  },
+  "incumbent": "C1 = H19-5 dotted at 2.8 px with fold-local 2-px catalogue exclusion (the champion recipe; leak-advantaged)",
+  "incumbent_value": 0.0961,
+  "incumbent_ci95": [
+   0.0836,
+   0.1081
+  ]
+ },
+ "paired_improvement_ci95": [
+  -0.0101,
+  0.0003
+ ],
+ "paired_improvement_delta": -0.0052,
+ "projection": {
+  "class": "PROJECTION (live-ledger inversion; NOT a score)",
+  "value": 0.2521,
+  "champion_same_fit": 0.2843,
+  "champion_owner_reported_live": 0.2778,
+  "model": "GEMSDOE32 LLI S3 archived fit reused unchanged (vendor/gems32lli); 111 scored rasters",
+  "loo_mae": 0.0219,
+  "loo_abs_err_q90": 0.0542
+ },
+ "leakage_canary": {
+  "threshold": 0.9,
+  "max_oriented_auc": 0.75486,
+  "passed": true,
+  "e1_max_feature": "neg_distance_to_visible_catalogue",
+  "e3": "evidence/e3_canary.json"
+ },
+ "max_feature_auc": 0.75486,
+ "registry": {
+  "registry_rasters_listed": 435,
+  "registry_rasters_compared": 433,
+  "worst_overlap_non_space_filling": {
+   "value": 0.69499,
+   "submission": "h19-5-powerlaw-budget-multiline-corroborated-20260930-e27054cf-nan",
+   "repo": "19GEMSDOE"
+  },
+  "worst_spearman_final_dots": {
+   "value": 0.4323,
+   "submission": "h19-5-powerlaw-budget-multiline-corroborated-20260930-e27054cf-nan",
+   "repo": "19GEMSDOE"
+  },
+  "worst_spearman_surface_preplacement": {
+   "value": 0.146447,
+   "submission": "h23-b-dti-optimal-emission-10pct-20261002-86176698-nan",
+   "repo": "GEMSDOE22"
+  },
+  "byte_unique": true,
+  "pixel_unique": true,
+  "duplicates_non_space_filling": 0,
+  "unique": true,
+  "scope": "433 comparable rasters restored from the GEMSDOE focus-site manifests and the scored live ledger (participant mirrors, SHA-256 verified). Not an organizer-complete registry.",
+  "literal_rule_blocked_only_by_space_filling": true,
+  "space_filling_rasters": [
+   {
+    "submission": "20261001_r13-lattice-s5_v2_nan-outside",
+    "repo": "13GEMSDOE",
+    "buffer_share": 0.9987132726822701,
+    "overlap": 0.998579,
+    "spearman": 0.00054
+   },
+   {
+    "submission": "h23-b-dti-optimal-emission-10pct-20261002-86176698-nan",
+    "repo": "GEMSDOE22",
+    "buffer_share": 0.5343281779736048,
+    "overlap": 0.819683,
+    "spearman": 0.163457
+   },
+   {
+    "submission": "pindrop-v4-discovery-20260925T152423Z-37f9d5b855",
+    "repo": "GEMSDOE3",
+    "buffer_share": 0.7341343464077394,
+    "overlap": 0.774789,
+    "spearman": 0.003436
+   },
+   {
+    "submission": "pindrop-v4-nodes-20260925T152420Z-f347b70daa",
+    "repo": "GEMSDOE3",
+    "buffer_share": 0.7350464152674869,
+    "overlap": 0.815317,
+    "spearman": 0.01336
+   },
+   {
+    "submission": "ovtr-ml-cover-tau3p0-20261012-nan",
+    "repo": "GEMSDOE67",
+    "buffer_share": 0.5481466114406682,
+    "overlap": 0.792747,
+    "spearman": 0.01652
+   },
+   {
+    "submission": "gems85-h85-edti-collar35-skel-r33-20261021-d97b248e-zeros",
+    "repo": "GEMSDOE77",
+    "buffer_share": 0.5536799840073476,
+    "overlap": 0.712288,
+    "spearman": 0.015724
+   }
+  ],
+  "registry_rasters_not_comparable": [
+   {
+    "submission": "GEMS_r5-geom-horse-ensemble_20260929T154852Z_ccbe1de0_site_e96e942f",
+    "repo": "14GEMSDOE",
+    "error": "ValueError: grid mismatch (not a valid competition-grid raster)"
+   },
+   {
+    "submission": "GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif",
+    "repo": "GEMSDOE36",
+    "error": "ValueError: grid mismatch (not a valid competition-grid raster)"
+   }
+  ]
+ },
+ "focus_sites": [
+  {
+   "site": "GEMSDOE24",
+   "submission": "h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan",
+   "sha256": "68d0e2e4fcc594f9a23f56c44b885fee733d026d39be55e18ad2a07289525310",
+   "owner_reported_live_score": 0.2477,
+   "their_dots": 60069,
+   "candidate_overlap_3px": 0.695,
+   "candidate_spearman": 0.3694
+  },
+  {
+   "site": "GEMSDOE25",
+   "submission": "dotted-h19-5-d2-8-20261002-e56ea318af89-nan",
+   "sha256": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8",
+   "owner_reported_live_score": 0.26,
+   "their_dots": 44090,
+   "candidate_overlap_3px": 0.695,
+   "candidate_spearman": 0.3679
+  },
+  {
+   "site": "GEMSDOE27",
+   "submission": "topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan",
+   "sha256": "33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d",
+   "owner_reported_live_score": 0.2449,
+   "their_dots": 61328,
+   "candidate_overlap_3px": 0.695,
+   "candidate_spearman": 0.3654
+  },
+  {
+   "site": "GEMSDOE28",
+   "submission": "h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan",
+   "sha256": "5556aa1438fd67376b60d5ffc99228ec09dcc11a8408298a743ccb88d6163641",
+   "owner_reported_live_score": 0.271,
+   "their_dots": 37660,
+   "candidate_overlap_3px": 0.6944,
+   "candidate_spearman": 0.3688
+  },
+  {
+   "site": "GEMSDOE30",
+   "submission": "d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca",
+   "sha256": "8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd",
+   "owner_reported_live_score": 0.26,
+   "their_dots": 44090,
+   "candidate_overlap_3px": 0.695,
+   "candidate_spearman": 0.3679
+  },
+  {
+   "site": "GEMSDOE31",
+   "submission": "h27-4-solo-d28-20261004-8acb75e1-nan",
+   "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+   "owner_reported_live_score": 0.2708,
+   "their_dots": 40199,
+   "candidate_overlap_3px": 0.6948,
+   "candidate_spearman": 0.386
+  },
+  {
+   "site": "GEMSDOE32",
+   "submission": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros",
+   "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+   "owner_reported_live_score": 0.2778,
+   "their_dots": 37654,
+   "candidate_overlap_3px": 0.6937,
+   "candidate_spearman": 0.3993
+  },
+  {
+   "site": "GEMSDOE33",
+   "submission": "h33d-analog-tip-stepover-r30-20261004-cb490425926e",
+   "sha256": "87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757",
+   "owner_reported_live_score": 0.2632,
+   "their_dots": 41865,
+   "candidate_overlap_3px": 0.695,
+   "candidate_spearman": 0.3852
+  },
+  {
+   "site": "GEMSDOE36",
+   "submission": "anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros",
+   "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
+   "owner_reported_live_score": 0.275,
+   "their_dots": 38854,
+   "candidate_overlap_3px": 0.695,
+   "candidate_spearman": 0.3929
+  }
+ ],
+ "surface_max_rank_correlation": 0.146447,
+ "final_max_rank_correlation": 0.4323,
+ "surface_dot_overlap_3px": 0.6949896002800716,
+ "final_dot_overlap_3px": 0.69499,
+ "raster_file": "kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.tif",
+ "raster_sha256": "4a5b0b480be26df52f77b735487cbe5af192262587237b6514d520dc2698b01f",
+ "raster_bytes": 172965,
+ "zip_file": "kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.zip",
+ "zip_sha256": "938b3b82b88199bc38d7f6c4300ee34377a303dc73e847e2e3d651cde700bebc",
+ "validator": {
+  "single_band": true,
+  "no_nan_inside_footprint": true,
+  "values_0_1_inside_footprint": true,
+  "all_finite": true,
+  "range_0_1": true,
+  "crs_match": true,
+  "shape_match": true,
+  "transform_match": true,
+  "shared_validator_checks": {
+   "single_band": true,
+   "dtype_float32": true,
+   "dimensions_3730x3292": true,
+   "crs_epsg_32611": true,
+   "transform_matches_sample_submission": true,
+   "no_nan_anywhere": true,
+   "no_inf_anywhere": true,
+   "no_sentinel_values": true,
+   "range_0_1_guaranteed": true,
+   "min_ge_0": true,
+   "max_le_1": true,
+   "in_footprint_all_finite": true,
+   "in_footprint_range_0_1": true,
+   "outside_footprint_zero": true,
+   "zero_dots_on_mapped_catalogue": true
+  },
+  "official_format_ok": true,
+  "validator_versions": [
+   "kanler3-validate-v2 (official-spec + shared gems57 export policy)",
+   "vendor/gems57/validate.py (unchanged)"
+  ]
+ },
+ "submission_name": "kanler3-k3h1-asgt-hybrid-48559-7ecb7b69",
+ "submission_note": "K3-H1 antislope-scarp lidar dots + ASGT-ranked H19-5 core; unique<=69.5%; PROJECTION 0.252, not >0.2778",
+ "submission_note_chars": 103,
+ "lane_recorded": true,
+ "shared_template_pinned": true,
+ "whole_segment_buffered_holdout": true,
+ "visible_only_features": false,
+ "pixel_exact_visible_mask": true,
+ "all_features_canary_tested": true,
+ "same_evaluator_incumbent": true,
+ "registry_complete": false,
+ "surface_checked_before_placement": false,
+ "final_dots_checked": true,
+ "saved_bytes_validated": true,
+ "template_provenance_verified": false,
+ "protocol_notes": {
+  "visible_only_features": "ASGT itself uses only visible faults; the E3 core inherits H19-5 (built with the full catalogue).",
+  "registry_complete": "433 comparable rasters from GEMSDOE focus manifests + scored live ledger; other teams' files are unknowable.",
+  "surface_checked_before_placement": "Registry overlap was enforced DURING placement (constrained allocator); the surface Spearman check (max 0.146) was computed after placement on the pre-placement surface.",
+  "template_provenance_verified": "sample_submission.tif comes from a participant data mirror (SHA-verified against that mirror); the official data page requires login, so organizer bytes were not compared."
+ },
+ "preregistered_rules": {
+  "format_valid": true,
+  "unique": true,
+  "holdout_ge_best_control": false,
+  "projection_ge_champion_same_fit": false
+ },
+ "promotion_gate": {
+  "verdict": "negative",
+  "schema_status": "incomplete",
+  "failures": [
+   "visible_only_features",
+   "registry_complete",
+   "surface_checked_before_placement",
+   "template_provenance_verified",
+   "paired_holdout_improvement"
+  ],
+  "promotion_evaluated": false,
+  "slot_authorized": false
+ },
+ "verdict": "negative",
+ "download": {
+  "ok_to_download": true,
+  "ok_to_upload_format": true,
+  "recommended_for_weekly_slot": false,
+  "bottom_line": "VALID + UNIQUE research file. NOT expected to beat 0.2778 (PROJECTION 0.252 vs 0.284 for the champion under the same model; HOLDOUT-DTI not better than the best control). Upload only if you want a protocol-unique entry; do not spend a slot expecting a higher score."
+ },
+ "slots_used": 0
+}

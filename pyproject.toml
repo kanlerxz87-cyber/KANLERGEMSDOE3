@@ -4,19 +4,20 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kanlergemsdoe3"
-version = "0.1.0"
-description = "Amplitude-invariant gradient-phase concordance fault discovery for the DOE GEMS Prize (DrivenData #306)."
+version = "0.2.0"
+description = "DOE GEMS Geothermal Prize (DrivenData #306): multi-lane fault discovery, KANLER-H1 DCAP-LHC & GPC-3."
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["numpy>=1.24", "scipy>=1.10", "rasterio>=1.3", "scikit-learn>=1.3"]
+dependencies = ["numpy>=1.24", "scipy>=1.10", "rasterio>=1.3", "scikit-learn>=1.3", "scikit-image>=0.22"]
 
 [project.optional-dependencies]
-dev = ["pytest>=7.4"]
+dev = ["pytest>=7.4", "Markdown>=3.5"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.pytest.ini_options]
-pythonpath = ["src"]
-testpaths = ["tests"]
+pythonpath = [".", "src", "vendor"]
+testpaths = ["tests", "vendor/template57"]
+norecursedirs = [".git", ".venv", ".cache", "evidence", "sources", "docs"]
 addopts = "-ra"

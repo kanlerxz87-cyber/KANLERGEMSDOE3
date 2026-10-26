@@ -77,7 +77,7 @@ class SharedToolTests(unittest.TestCase):
             historical = root / 'data/prepared_manifest.json'
             historical.write_text('inherited historical receipt')
             tool = types.SimpleNamespace(prepare=lambda: {'grid': {}, 'counts': {}})
-            with patch.object(prepare_data, 'ROOT', root), patch.object(prepare_data, 'load_tool', lambda name: tool):
+            with patch.dict(prepare_data.os.environ, {}), patch.object(prepare_data, 'ROOT', root), patch.object(prepare_data, 'load_tool', lambda name: tool):
                 prepare_data.main()
             self.assertEqual(historical.read_text(), 'inherited historical receipt')
             self.assertTrue((root / 'data/prepared/prepared_manifest.json').is_file())

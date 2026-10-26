@@ -1,0 +1,3 @@
+# Preserve the imported score ledger's exact bytes; its CSV append uses CRLF.
+# Do not normalize its hash-bearing source record merely to satisfy diff --check.
+registry/score-ledger-gemsdoe32.csv whitespace=cr-at-eol

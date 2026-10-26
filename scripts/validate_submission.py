@@ -30,7 +30,11 @@ def digest(path: Path) -> str:
     return result.hexdigest()
 
 
-def validate(template_path: Path, candidate_path: Path, profile: str = "template-mask", expected_dots: int | None = None) -> dict:
+def validate(template_path: Path, candidate_path: Path, profile: str = "template-mask", expected_dots: int | None = None, *, allow_zero_outside: bool | None = None) -> dict:
+    if allow_zero_outside is not None and type(allow_zero_outside) is not bool:
+        raise ValueError("Legacy allow_zero_outside flag must be a boolean")
+    if allow_zero_outside is not None and profile != "template-mask":
+        raise ValueError("Use a named profile or the legacy flag, not both")
     if profile not in PROFILES:
         raise ValueError("Unknown encoding profile")
     if expected_dots is not None and (type(expected_dots) is not int or expected_dots < 0):
@@ -83,6 +87,10 @@ def validate(template_path: Path, candidate_path: Path, profile: str = "template
             "template-mask": inside_ok and null_outside and no_infinity,
             "finite-grid": inside_ok and full_range and zeros_outside,
         }
+        if allow_zero_outside is True and not encodings["template-mask"] and encodings["finite-grid"]:
+            profile = "finite-grid"
+        base["encoding_profile"] = profile
+        base["legacy_allow_zero_outside"] = allow_zero_outside
         checks.update(
             no_nan_inside_footprint=bool(np.isfinite(inside).all()),
             no_masked_inside_footprint=bool(candidate_mask[footprint].all()),
@@ -122,6 +130,7 @@ def main() -> int:
     parser.add_argument("--template", type=Path)
     parser.add_argument("--profile", choices=PROFILES, default="template-mask")
     parser.add_argument("--expected-dots", type=int, help="Optional positive-pixel count check; not a soft-surface dot definition")
+    parser.add_argument("--allow-zero-outside", action="store_true", default=None, help="Legacy opt-in: select finite-grid only if the saved file passes it; never portal approval")
     args = parser.parse_args()
     if args.template is not None:
         if args.second is not None:
@@ -132,7 +141,7 @@ def main() -> int:
             parser.error("Supply both TEMPLATE CANDIDATE or use --template")
         template, candidate = args.first, args.second
     try:
-        result = validate(template, candidate, args.profile, args.expected_dots)
+        result = validate(template, candidate, args.profile, args.expected_dots, allow_zero_outside=args.allow_zero_outside)
     except Exception as exc:
         print(json.dumps({"ok": False, "errors": [f"Unable to validate: {exc}"], "validator": VERSION, "portal_acceptance_verified": False, "submission_authorized": False}, indent=2))
         return 2

@@ -140,6 +140,41 @@ class SiteAndReadinessTests(unittest.TestCase):
             self.assertFalse(result["submit_ready"])
             self.assertFalse(result["slot_authorized"])
 
+    def test_check_mode_never_repairs_a_stale_individual_site(self):
+        build()
+        site = ROOT / "docs/sites/GEMSDOE32.html"
+        original = site.read_text()
+        try:
+            site.write_text("stale sentinel")
+            with self.assertRaisesRegex(ValueError, "stale"):
+                build(check_only=True)
+            self.assertEqual(site.read_text(), "stale sentinel")
+        finally:
+            site.write_text(original)
+
+    def test_inherited_audit_matches_unchanged_saved_files_and_literal_rule(self):
+        from scripts.audit_inherited_artifacts import inherited_files
+        from scripts.build_site import check_inherited
+        report = json.loads((ROOT / "evidence/inherited_literal_audit.json").read_text())
+        check_inherited(report)
+        self.assertEqual({r["file"] for r in report["rows"]}, set(inherited_files()))
+        self.assertTrue(all(row["candidate_dot_overlap_fraction"] > .70 for row in report["rows"]))
+        self.assertTrue(all(row["validator"]["ok"] for row in report["rows"]))
+        self.assertFalse(report["slot_authorized"])
+        bad = json.loads(json.dumps(report)); bad["rows"][0]["candidate_sha256"] = "0" * 64
+        with self.assertRaises(ValueError):
+            check_inherited(bad)
+
+    def test_archived_research_clis_are_operationally_blocked(self):
+        import ast
+        from scripts.archive_guard import stop_archived_cli
+        with self.assertRaisesRegex(SystemExit, "Archived session"):
+            stop_archived_cli()
+        for name in ("run_e1_holdout.py", "run_e2_unique.py", "run_e3_canary.py", "run_e3_hybrid.py", "run_kanler_h1.py", "finalize_candidate.py", "build_run_card.py", "write_run_card.py"):
+            tree = ast.parse((ROOT / "scripts" / name).read_text())
+            guard = next(n for n in tree.body if isinstance(n, ast.If) and "__name__" in ast.unparse(n.test))
+            self.assertEqual(ast.unparse(guard.body[1]), "stop_archived_cli()")
+
 
 if __name__ == "__main__":
     unittest.main()
