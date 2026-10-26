@@ -1,0 +1,43 @@
+{
+  "kind": "DATA-MEASUREMENT",
+  "template_verified": true,
+  "template_commit": "822a0ce5546c7b6749cdd82eb145b6b3e616603d",
+  "provenance": "third-party template and bridge; not organizer-authenticated",
+  "license_status": "not verified",
+  "model_experiment_run": false,
+  "cache": {
+    "source_sha256": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5",
+    "sample_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "bands_verified": 19,
+    "band_hashes_match_shared_template": true,
+    "organizer_authenticated": false,
+    "band_sha256": [
+      "c3c9ff7be463e80a2215d897b5f543f462c405375d0779516a25ef3ab0882fed",
+      "032b1f28be6adb74f8fc9a7af00538b669bac86fafc6bb3e28d8d04c86a6fb32",
+      "f4e8056b307e6057f32c3204e41b66629b9e64a1141f28ba140b41c4929979bf",
+      "00bd2f792614ce5419765ce9b6ea8e89f059392bba8564d3daba4d45f26c2c05",
+      "f59f8010b0edc814606090d016cd2a22d7b08585e97a32a2b394921a9b212b0e",
+      "952921832eb7a55dc069bbd2628210e2a9e6e2e7ab5aca934ce433716d230681",
+      "5b74daa1d4cb84bcc599c2466dd24b531e4b282a798772ea41aba13d3f446def",
+      "367451caeb817a83b946130ab17680927de75f784681c2832946e7cfbce09e82",
+      "0389aeacf19c532857e834149d70c1919c7851caa459ff965d73cfd67f6a40ec",
+      "c326f37826cff179a18bc4416b512ef1cda1cbe0c6a115b0fc835141bcaa08dd",
+      "3117dd59e58d63f55209343ba6738375bf182c564230516ebb556b4004aeb7dd",
+      "739d6373125abf164e0f56163b8d9d02f651eb8d622decfe0360882085a0de32",
+      "a4de05be78cb6e03be15f976e9f7ad31dd7b290c3fdca29c20d2c4d6f88a215f",
+      "5c1ba32be4821d1a3038c455378026ea5f0cbf022713d47c974f98acddf3f4cf",
+      "5507230ae758d0c347c2b9e42850b2742b01754f8683e6d84e0655021225a300",
+      "27a54f645c7f7f6da155434e10f324eb873bdff3075eb897507ceebab50670b7",
+      "7261a2f3ca9dab07af4186b92a1f4346a6f71dead76689795c38ee1792fbd767",
+      "e747b424131c9462a2c7c434bc7e64585e262f2fcc99f5d52d71878517e85080",
+      "47cc1cb1472c123c5b8069dc07f6e2f8fbc7e2c688e228a3fe50b2438314c934"
+    ],
+    "band_sha256_count": 19,
+    "source_access": "public pinned GitHub bridge; assembled from five individually verified parts",
+    "sample_warning": "Mirror sample predicts mapped positives despite organizer description of a total-absence sample; provenance unresolved.",
+    "persistent_arrays": "ignored .cache/; reproducible with scripts/restore_shared_template.py --cache-features"
+  },
+  "observed_utc": "2026-10-26T22:09:20.634258+00:00",
+  "template_pin_manifest_sha256": "814dc44efbd88879f54e2c1352587180493cfe07c27c1445ba513dd10e8d4e10",
+  "independent_clean_bridge_restore": "Verified in an empty ignored work directory using the recovery function."
+}

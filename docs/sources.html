@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Source register | GEMS Evidence Lab</title><meta name="description" content="Evidence-led fault mapping research and submission readiness.">
+<link rel="stylesheet" href="experiment.css"></head><body>
+<header class="top"><div class="wrap top-inner"><a class="brand" href="index.html"><span class="mark">G</span><span><strong>GEMS</strong><small>Evidence lab / KANLERGEMSDOE3</small></span></a>
+<nav aria-label="Main navigation"><a href="index.html#kanler-h1">KANLER-H1</a><a href="index.html#results">Experiments</a><a href="index.html#comparison">Site comparison</a><a href="index.html#sources">Sources</a><a class="nav-cta" href="executive-summary.html">Submission guide ↗</a></nav></div></header>
+<main><div class="wrap"><article class="panel panel-pad markdown-page"><h1>Source register — checked 26 October 2026 UTC</h1>
+<p>A public source is not a submission receipt. Page access through the research tool does not imply that the sandbox can download the underlying binaries. This register distinguishes each level of verification.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Checked statement</th>
+<th>Limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">DrivenData problem</a></td>
+<td>Target is faults; official page defines weighted Tversky, α=0.2, β=0.8, 300 m triangular kernel, and single-band float32 EPSG:32611/100 m format.</td>
+<td>Does not provide the private truth or a receipt for the historical claims.</td>
+</tr>
+<tr>
+<td><a href="https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/4">DrivenData staff masking clarification</a></td>
+<td>The known USGS/INGENIOUS mask is pixel-exact in both rounds, with no 300 m buffer. New truth may occur within 300 m of known traces.</td>
+<td>Nearby unmasked predictions far from new truth are penalized; the hidden true positions remain unknown.</td>
+</tr>
+<tr>
+<td><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DrivenData overview</a></td>
+<td>Shows 3 December 2026 23:59 UTC deadline and explains use of the same selected submission in both rounds.</td>
+<td>Recheck the live page for changes and account-specific eligibility.</td>
+</tr>
+<tr>
+<td><a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">NLR rules PDF</a> §§3.2–3.5</td>
+<td>Describes three submissions per week, one final selection, reproducible code/documentation and disclosure of generative-AI use.</td>
+<td>Authenticated account's remaining quota and current submission page were not accessed.</td>
+</tr>
+<tr>
+<td><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/">DrivenData data page</a></td>
+<td>Redirected to login when fetched.</td>
+<td>No official data or receipt was downloaded using credentials.</td>
+</tr>
+<tr>
+<td><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">Public leaderboard</a></td>
+<td>Public page was fetched; link provides current standings.</td>
+<td>It does not bind a priority-site file to its claimed score and changes over time. No leader number is a candidate score estimate.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/drivendataorg/gems-prize-reference-solution">Official reference solution</a></td>
+<td>Its README supports CPU-only and GPU environments and requires separately downloaded data.</td>
+<td>Not the participant shared template selected by other parallel runs.</td>
+</tr>
+<tr>
+<td><a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN release</a> · <a href="https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7">ScienceBase</a></td>
+<td>Official metadata describes airborne magnetic/radiometric products, GeoTIFFs and CC0.</td>
+<td>Individual binary download, coverage, exact bands and grid compatibility not verified here.</td>
+</tr>
+<tr>
+<td><a href="https://gdr.openei.org/submissions/1391">GDR INGENIOUS #1391</a></td>
+<td>Public dataset landing page lists CC BY 4.0, 2 m probes, spring/well chemistry and other regional data with download links.</td>
+<td>Individual files and seasonal metadata/coverage were not downloaded or checked; direct binary retrieval failed in this environment.</td>
+</tr>
+<tr>
+<td><a href="data/shared_template_pins.json">Shared template pin</a> · <a href="data/feature_cache_recovery.json">cache receipt</a></td>
+<td>Owner code and 19 regenerated band hashes match pinned participant source bytes.</td>
+<td>Neither organizer provenance nor source-code/data licenses are established. The local sample contradicts the organizer's sample description.</td>
+</tr>
+<tr>
+<td><a href="audit.json">Priority-site audit</a> · <a href="data/registry_saturation.json">registry saturation</a></td>
+<td>Local pixel geometry was independently measured on pinned participant mirrors.</td>
+<td>These are geometric measurements, not HOLDOUT-DTI or leaderboard scores; continuous-diagnostic interpretation is unresolved.</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Official format versus conservative local policy</h2>
+<p>The organizer says the raster must have the same bounds as the training data and null/NaN outside those bounds. It does not explicitly state whether zero-valued cells outside the irregular mask of the independently mirrored sample are rejected by the portal. <code>scripts/validate_submission.py</code> conservatively requires null/masked/NaN outside that sample mask and reports whole-grid raw range separately. Treat a local failure or pass as local evidence, not a portal receipt. In particular, the exact cause of the user's prior range error is unknown without its uploaded bytes and organizer response.</p></article></div></main><footer><div class="wrap"><span>GEMS Evidence Lab &nbsp; / &nbsp; Maximize P(Win) · Own the Outcome</span><span>Research snapshot · No competition slot spent</span></div></footer>
+<script src="source-status.js" defer></script></body></html>

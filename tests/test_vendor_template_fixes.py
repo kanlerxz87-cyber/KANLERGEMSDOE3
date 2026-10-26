@@ -1,3 +1,5 @@
+import importlib
+import importlib.util
 import os
 import stat
 import sys
@@ -6,11 +8,21 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-if str(ROOT / "vendor") not in sys.path:
-    sys.path.insert(0, str(ROOT / "vendor"))
+VENDOR_PKG = ROOT / "vendor/gems57"
+_spec = importlib.util.spec_from_file_location(
+    "_patched_gems57",
+    VENDOR_PKG / "__init__.py",
+    submodule_search_locations=[str(VENDOR_PKG)],
+)
+_pkg = importlib.util.module_from_spec(_spec)
+sys.modules[_spec.name] = _pkg
+_spec.loader.exec_module(_pkg)
 
-from gems57.submission_writer import _temp_path
-from gems57.uniqueness import representation_class, two_phase_summary
+_writer_mod = importlib.import_module("_patched_gems57.submission_writer")
+_uniq_mod = importlib.import_module("_patched_gems57.uniqueness")
+_temp_path = _writer_mod._temp_path
+representation_class = _uniq_mod.representation_class
+two_phase_summary = _uniq_mod.two_phase_summary
 
 
 class VendorTemplateFixTests(unittest.TestCase):
@@ -59,7 +71,6 @@ class VendorTemplateFixTests(unittest.TestCase):
         self.assertEqual(summary["like_for_like_reading"]["halo_saturated_probe_rasters"], 1)
         self.assertAlmostEqual(summary["like_for_like_reading"]["worst_forward_overlap_dot_fields"], 0.3974)
 
-        # Inverted surface (rho = -0.95) must still trigger duplicate in both readings
         rows_inv = [
             *rows,
             {

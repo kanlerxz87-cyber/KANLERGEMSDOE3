@@ -1,90 +1,14 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contest Submission Guide &amp; [0, 1] Error Resolution | KANLERGEMSDOE3</title>
-<style>
-:root{--bg:#f4f7f9;--card:#ffffff;--ink:#132634;--muted:#526675;--line:#d7e1e8;--brand:#0b6b6f;--warn-bg:#fff6ed;--warn-bd:#c94a1f;--pass-bg:#e9f7ef;--pass-ink:#146c43;--fail-bg:#fdecea;--fail-ink:#b02a37;--info-bg:#eef5fb;--info-ink:#0b5394;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg)}
-*{box-sizing:border-box}
-body{max-width:1260px;margin:0 auto;padding:24px 20px 48px;line-height:1.6}
-header,section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin:16px 0;box-shadow:0 1px 3px rgba(19,38,52,.04)}
-h1{font-size:2rem;line-height:1.2;margin:.3rem 0 .6rem;letter-spacing:-.02em}
-h2{font-size:1.32rem;margin:0 0 .75rem;letter-spacing:-.01em}
-h3{font-size:1.05rem;margin:1rem 0 .4rem}
-p,li{margin:.45rem 0}
-a{color:var(--brand);text-decoration:none;font-weight:500}
-a:hover{text-decoration:underline}
-nav{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
-nav a{background:#eef4f6;padding:6px 12px;border-radius:8px;font-size:.9rem}
-.eyebrow{color:var(--brand);text-transform:uppercase;letter-spacing:.12em;font-size:.76rem;font-weight:700}
-.verdict-banner{border-left:7px solid var(--warn-bd);background:var(--warn-bg)}
-.badge{display:inline-block;padding:3px 9px;border-radius:999px;font-size:.78rem;font-weight:700;letter-spacing:.02em;white-space:nowrap}
-.badge-pass{background:var(--pass-bg);color:var(--pass-ink);border:1px solid #b7e4c7}
-.badge-fail{background:var(--fail-bg);color:var(--fail-ink);border:1px solid #f5c2c7}
-.badge-info{background:var(--info-bg);color:var(--info-ink);border:1px solid #cfe2f3}
-.dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px;margin:16px 0}
-.dl-card{border:1px solid var(--line);border-radius:11px;padding:15px 16px;background:#fafcfd}
-.dl-btn{display:inline-block;margin-top:8px;padding:9px 14px;border-radius:8px;background:var(--brand);color:#fff !important;font-weight:600;font-size:.9rem;text-decoration:none !important}
-.dl-btn.secondary{background:#2d4a5e}
-.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:14px 0}
-.kpi{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#fbfdfe}
-.kpi .label{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-.kpi .val{font-size:1.28rem;font-weight:700;margin-top:3px}
-.scroll{overflow-x:auto}
-table{border-collapse:collapse;width:100%;font-size:.87rem}
-th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-th{background:#eef4f6;font-weight:700}
-code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.83rem}
-code{background:#eff3f6;padding:2px 5px;border-radius:5px;overflow-wrap:anywhere}
-pre{background:#10202c;color:#e8f1f5;padding:14px 16px;border-radius:10px;overflow-x:auto;line-height:1.45}
-small{color:var(--muted);display:block;margin-top:4px}
-footer{color:var(--muted);font-size:.85rem;text-align:center;margin-top:24px}
-</style>
-</head>
-<body>
-<header>
-  <div class="eyebrow">Step-by-Step Contest Submission &amp; Validation Guide</div>
-  <h1>How to Validate, Package &amp; Submit a GeoTIFF on DrivenData (and Permanently Prevent <code>"Predicted values must be in range [0, 1]"</code>)</h1>
-  <nav>
-    <a href="index.html">← Back to Executive Summary &amp; Downloads</a>
-    <a href="run-card.json">JSON Run Card</a>
-    <a href="verification.md">Official Rules &amp; Irregularities</a>
-  </nav>
-</header>
-
-<section class="verdict-banner">
-  <h2>Current Slot Guidance for This Run: <span class="badge badge-fail">HOLD LIVE SLOT (VERDICT: NEGATIVE)</span></h2>
-  <p>The generated files <a href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif" download><code>kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif</code></a> and <a href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.tif" download><code>kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.tif</code></a> pass <strong>100% of GeoTIFF format, <code>[0, 1]</code> range, leakage-canary, and 415-detector uniqueness gates</strong>, and can be downloaded right now for local inspection. However, per Parallel-Run Protocol Rule 5, <strong>do not spend a weekly DrivenData submission slot</strong> until a candidate beats the <code>0.1674</code> shared <code>HOLDOUT-DTI</code> incumbent globally (current <code>KANLER-H1 = 0.1253</code>; wins Q3 at <code>0.1726</code>). Follow the exact checklist below whenever a candidate achieves <code>verdict: "promote"</code>.</p>
-</section>
-
-<section>
-  <h2>Why Prior Submissions Failed With <code>"Predicted values must be in range [0, 1]"</code> — and How We Fixed It</h2>
-  <p>Root-cause forensic inspection of <code>gems-geodawn-numerical-features.tif</code> and historical submission writers revealed three exact traps that trigger DrivenData's portal rejection:</p>
-  <ol>
-    <li><strong>Hidden GDAL Float32-Min Sentinels Inside the Active Footprint:</strong> Raw <code>training_features.tif</code> stores <code>-3.4028235e+38</code> on <strong>3,061 interior pixels</strong> inside the survey boundary (especially Band 15 <code>depth_to_base_surf</code> and Band 17 <code>cond_surf</code>). If not scrubbed via <code>(~np.isfinite(b)) | (np.abs(b) &gt; 1e30) &rarr; NaN</code> before feature math, linear/tree models emit negative numbers or <code>NaN</code> inside the active footprint, which DrivenData immediately rejects with <code>"Predicted values must be in range [0, 1]"</code>.</li>
-    <li><strong>Unmasked Numeric Nodata Tags Outside `[0, 1]`:</strong> Writing <code>-9999.0</code> into array cells when <code>nodata=None</code> (or when the portal reads raw float values inside the footprint) violates <code>0.0 &le; p &le; 1.0</code>.</li>
-    <li><strong>Dual-Validated Export Convention:</strong> Every candidate in <code>KANLERGEMSDOE3</code> is emitted and verified on disk in both proven conventions:
-      <ul>
-        <li><strong>All-Finite Convention (<code>-zeros.tif</code>, <code>nodata=None</code>):</strong> Every single one of the <code>12,279,160</code> pixels is finite in <code>[0.0, 1.0]</code> (<code>0.0</code> outside footprint, <code>0.0</code> on mapped <code>labels.tif</code>, <code>[0.0, 1.0]</code> on active unmapped footprint) — matching <code>GEMSDOE32</code>'s scored <code>0.2778</code> submission.</li>
-        <li><strong>Strict Template-Mask Convention (<code>-nan.tif</code>, <code>nodata=nan</code>):</strong> Finite <code>[0.0, 1.0]</code> on all <code>5,167,373</code> in-footprint pixels and <code>NaN</code> on all <code>7,111,787</code> outside-footprint pixels — matching <a href="https://github.com/drivendataorg/gems-prize-reference-solution">DrivenData's reference solution</a> pixel-for-pixel.</li>
-      </ul>
-    </li>
-  </ol>
-  <pre># Run automated on-disk validation locally (zero human inspection required):
-.venv/bin/python scripts/validate_submission.py data/official/sample_submission.tif docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.tif
-.venv/bin/python scripts/validate_submission.py --allow-zero-outside data/official/sample_submission.tif docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif</pre>
-</section>
-
-<section>
-  <h2>Exact DrivenData Contest Submission Steps (Once a Candidate Reaches <code>verdict: "promote"</code>)</h2>
-  <ol>
-    <li><strong>Verify Automated Gates Pass:</strong> Confirm <code>docs/run-card.json</code> shows <code>"verdict": "promote"</code> (<code>G1_format</code>, <code>G2_canary</code>, <code>G3_holdout_best</code>, <code>G4_offcat</code>, and <code>G5_unique</code> all <code>true</code>).</li>
-    <li><strong>Check Remaining Weekly Submission Quota:</strong> Log in to <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/">DrivenData Submissions</a>. Per Staff Ruling <a href="https://community.drivendata.org/t/11553">#11553</a>, the live counter displayed on the portal governs remaining weekly slots.</li>
-    <li><strong>Download the Exact Validated Package:</strong> Click the primary <code>.zip</code> (single GeoTIFF inside ZIP, 102 KB — fastest upload) or <code>.tif</code> (139 KB) on the <a href="index.html">Executive Summary</a> page and verify <code>shasum -a 256</code> matches <code>run-card.json</code>.</li>
-    <li><strong>Upload &amp; Paste Exact Tracking Note (&le;140 Characters):</strong> Upload the file on DrivenData and paste the exact <code>submission_note</code> from <code>run-card.json</code> so the ledger links the portal score to the exact commit and SHA-256.</li>
-    <li><strong>Archive Organizer Receipt &amp; Select Final Submission Before Dec. 3, 2026 (<code>22:00 UTC / 5:00 p.m. ET</code>):</strong> Record the exact portal score and timestamp to upgrade its label to <code>ORGANIZER-CONFIRMED</code>. Remember that the <strong>same single selected submission</strong> is scored in both Phase 1 ($50k) and Phase 2 ($250k), and Phase 2 finalists must disclose AI assistance under Official Rules Sec. 3.2.</li>
-  </ol>
-</section>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Executive summary &amp; submission guide | GEMS Evidence Lab</title><meta name="description" content="Evidence-led fault mapping research and submission readiness.">
+<link rel="stylesheet" href="experiment.css"></head><body>
+<header class="top"><div class="wrap top-inner"><a class="brand" href="index.html"><span class="mark">G</span><span><strong>GEMS</strong><small>Evidence lab / KANLERGEMSDOE3</small></span></a>
+<nav aria-label="Main navigation"><a href="index.html#kanler-h1">KANLER-H1</a><a href="index.html#results">Experiments</a><a href="index.html#comparison">Site comparison</a><a href="index.html#sources">Sources</a><a class="nav-cta" href="executive-summary.html">Submission guide ↗</a></nav></div></header>
+<main><div class="wrap"><div class="page-title"><div class="section-kicker">Executive summary / contest submission guide</div><h1>From evidence to upload.</h1><p>Exact DrivenData contest upload steps, fixing the <code>[0, 1]</code> portal error, and why no live weekly slot is authorized in this session.</p></div>
+<div class="guide"><div><section class="panel warn"><h2>Current decision: <strong>DO NOT SUBMIT</strong></h2><p>Do not spend a live weekly submission slot right now. <code>KANLER-H1</code> (<code>kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif-zeros.tif</code>, <code>HOLDOUT-DTI = 0.1253</code>) passed format, canary, and 416-detector uniqueness (<code>58.47% &le; 70%</code>), and beat <code>REF_H31X</code> in Q3 (<code>0.1726 vs 0.1602</code>), but trailed global holdout incumbent <code>REF_H31X</code> (<code>0.1674</code>) due to Q1 missing-LiDAR starvation. Archived parallel runs also remain negative (100% lattice overlap).</p><a class="button" href="kanler-h1-run-card.json">Open KANLER-H1 run card ↗</a></section>
+<section class="panel"><h2>The four mandatory gates before any live upload</h2><ol><li><strong>Science &amp; Holdout:</strong> stay inside one pre-registered method lane; withhold whole fault segments with a 500–1,500 m buffer; compute catalogue features from visible faults only; pass single-feature leakage canaries (<code>AUC &le; 0.90</code>); beat same-evaluator holdout best on paired 95% block-bootstrap CI.</li><li><strong>Cross-Registry Uniqueness:</strong> check both the continuous surface before placement (<code>|Spearman| &le; 0.90</code>) and final dots (<code>&le; 70%</code> within <code>3 px</code>).</li><li><strong>Standalone GeoTIFF Format:</strong> single-band <code>float32</code>, <code>EPSG:32611</code>, <code>3730 &times; 3292</code>, transform <code>(100, 0, 243350, 0, -100, 4508550)</code>, no <code>NaN</code>/<code>Inf</code> inside footprint, values strictly in <code>[0, 1]</code>, reopened from disk and verified automatically.</li><li><strong>Weekly Slot Selector:</strong> verify live DrivenData portal slot counter (<a href="https://community.drivendata.org/raw/11553">Staff clarification #11553</a>) and archive the portal receipt alongside the file SHA-256.</li></ol></section>
+<section class="panel"><h2>Understanding &amp; preventing <code>"Predicted values must be in range [0, 1]"</code></h2><p>The exact cause of the prior error is unknown: we do not have its rejected bytes or portal receipt. Typical root causes are: (1) unclipped raw logits/z-scores (&lt; 0 or &gt; 1), (2) numeric nodata sentinels such as <code>-9999.0</code> or <code>-3.4028235e38</code> read by an array check that only skips <code>NaN</code>, (3) <code>NaN</code>/<code>Inf</code> inside the active footprint, or (4) multi-band exports.</p><p>Our shared writer emits both an all-finite <code>-zeros.tif</code> (every cell in <code>3730 &times; 3292</code> finite in <code>[0.0, 1.0]</code>, <code>nodata=None</code>) and a strict template-mask <code>-nan.tif</code> twin (<code>NaN</code> outside footprint, identical <code>37,654</code> in-footprint predictions) plus single-TIFF <code>.zip</code> packages for &lt;1 s upload.</p></section>
+<section class="panel"><h2>Step-by-step upload checklist (only after a future run reaches <code>verdict: promote</code>)</h2><ol><li>Verify <code>verdict == "promote"</code> in the JSON Run Card and run <code>python scripts/validate_submission.py data/raw/sample_submission.tif &lt;file&gt;.tif --allow-zero-outside</code> (<code>"ok": true</code>).</li><li>Open <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/">DrivenData Submissions</a> and check remaining weekly slots.</li><li>Upload the single-TIFF <code>.zip</code> (or <code>-zeros.tif</code>) and paste the &le;140-character Run Card note verbatim.</li><li>Record the returned portal score with timestamp and SHA-256 receipt (only then may a score be labeled <code>ORGANIZER-CONFIRMED</code>), and remember Phase 1/Phase 2 both evaluate your single selected submission (deadline <strong>Dec. 3, 2026</strong>; mandatory AI disclosure in finalist report per <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">Official Rules Sec. 3.2</a>).</li></ol></section></div>
+<aside><section class="panel"><div class="section-kicker">KANLER-H1 summary</div><h3>Measured holdout</h3><p><code>0.1253</code> HOLDOUT-DTI · 95% CI [0.1080, 0.1414] · 60,988 positives · gems57-pooled-hide-v2 (Q3 Walker Lane: <code>0.1726 vs 0.1602</code>).</p><h3>Archived bilateral lane</h3><p><code>0.1134</code> HOLDOUT-DTI · 95% CI [0.1006, 0.1262].</p><h3>Unique name &amp; note</h3><p><code>kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif-zeros.tif</code><br><small>KANLER-H1 DCAP-LHC 37654d: dip-coupled piedmont+1mLiDAR+mag/hydro; holdoutDTI 0.1253 (84/140 chars)</small></p><h3>Research files</h3><p><a href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif">-zeros.tif ↗</a> · <a href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.tif">-nan.tif ↗</a> · <a href="kanler-h1-run-card.json">JSON card ↗</a></p></section>
+<section class="panel"><div class="section-kicker">Next session: KANLER-H1.1</div><h3>Fix Q1 LiDAR starvation</h3><p>Apply conditional rank normalization separately inside <code>lidar_valid == 1</code> (75.4%) and <code>lidar_valid == 0</code> (24.6%, 47.4% of Q1) plus pure slope-asymmetry gating to preserve Q3 gains across all 4 quadrants.</p></section></aside></div></div></main><footer><div class="wrap"><span>GEMS Evidence Lab &nbsp; / &nbsp; Maximize P(Win) · Own the Outcome</span><span>Research snapshot · No competition slot spent</span></div></footer>
+<script src="source-status.js" defer></script></body></html>

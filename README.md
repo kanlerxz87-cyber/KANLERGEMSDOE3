@@ -1,6 +1,6 @@
 # KANLERGEMSDOE3 — DOE GEMS Geothermal Fault Discovery Desk & Autonomous `KANLER-H1` Engine
 
-**Quick Navigation:** [Live UI / Executive Summary (`docs/index.html`)](docs/index.html) · [Contest Submission & `[0, 1]` Fix Guide (`docs/executive-summary.html`)](docs/executive-summary.html) · [PhD Analysis & Cross-Site Review (`research/review.md`)](research/review.md) · [5 Ranked Hypotheses & Results (`research/hypotheses.md`)](research/hypotheses.md) · [Frozen Pre-Registration (`research/preregistration_kanler_h1.md`)](research/preregistration_kanler_h1.md) · [Official Verification & Irregularities (`research/verification.md`)](research/verification.md) · [JSON Run Card (`docs/run-card.json`)](docs/run-card.json)
+**Quick Navigation:** [Live UI / Executive Summary (`docs/index.html`)](docs/index.html) · [Contest Submission & `[0, 1]` Fix Guide (`docs/executive-summary.html`)](docs/executive-summary.html) · [PhD Analysis & Cross-Site Review (`research/review.md`)](research/review.md) · [5 Ranked Hypotheses & Results (`research/hypotheses.md`)](research/hypotheses.md) · [Frozen Pre-Registration (`research/preregistration_kanler_h1.md`)](research/preregistration_kanler_h1.md) · [Official Verification & Irregularities (`research/verification.md`)](research/verification.md) · [JSON Run Card (`docs/run-card.json`)](docs/kanler-h1-run-card.json)
 
 ---
 

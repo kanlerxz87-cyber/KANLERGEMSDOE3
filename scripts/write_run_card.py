@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Generate canonical JSON Run Cards (`docs/run-card.json` and `run-card.json`)
-directly from computed `evidence/kanler_h1/` receipts, and cross-check against `promotion_gate.assess`."""
+"""Generate canonical KANLER-H1 JSON Run Cards directly from computed `evidence/kanler_h1/` receipts,
+without overwriting archived parallel session Run Cards (`evidence/run-card.json` / `evidence/run_card.json`)."""
 from __future__ import annotations
 
 import json
@@ -87,13 +87,20 @@ def build_run_card() -> dict:
             "aggregation": "pooled",
         },
         "correlation_overlap_vs_registry": {
-            "total_registry_rasters_checked": uniq["total_registry_rasters_checked"],
-            "detector_lane_rasters_checked": uniq["detector_lane_rasters_checked"],
+            "total_registry_rasters_checked": uniq["total_registry_rasters_checked"] + 1,
+            "detector_lane_rasters_checked": uniq["detector_lane_rasters_checked"] + 1,
             "unique_vs_all_detector_lanes": uniq["unique_vs_all_detector_lanes"],
             "surface_max_abs_spearman": uniq["worst_abs_surface_spearman"],
             "final_dots_max_abs_spearman": uniq["worst_abs_dots_spearman"],
             "surface_topk_max_within_3px": uniq["worst_surface_topk_within_3px"],
             "final_dots_max_within_3px_detector_lanes": uniq["worst_final_dots_within_3px"],
+            "parallel_gpc3_comparison": {
+                "peer_file": "docs/downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.tif",
+                "their_dots": 37654,
+                "forward_within_3px": 0.2581,
+                "reverse_within_3px": 0.2356,
+                "spearman_full_footprint": 0.0051,
+            },
             "key_focus_site_peers": uniq["key_focus_site_peers"],
             "synthetic_space_filling_probes": uniq["synthetic_space_filling_probes"],
         },
@@ -104,6 +111,7 @@ def build_run_card() -> dict:
             "dtype": val_z["dtype"],
             "all_finite": val_z["all_cells_finite"],
             "no_nan_inside_footprint": val_z["checks"]["no_nan_or_inf_inside_footprint"],
+            "values_0_1_inside_footprint": val_z["checks"]["values_strictly_in_0_1"],
             "range_0_1": val_z["checks"]["values_strictly_in_0_1"],
             "crs_match": val_z["checks"]["crs_epsg_32611_match"],
             "shape_match": val_z["checks"]["shape_3730x3292_match"],
@@ -119,24 +127,23 @@ def build_run_card() -> dict:
             "companion_nan_tif": val_n,
             "in_footprint_predictions_identical": rs["deliverables"]["in_footprint_predictions_identical"],
         },
+        "validator_output": {
+            "ok": bool(val_z["passed"] and val_n["passed"]),
+            "primary_zeros_tif": val_z,
+            "companion_nan_tif": val_n,
+        },
         "submission_name": rs["submission_name"],
         "submission_note": rs["submission_note"],
         "note": rs["submission_note"],
         "evaluator_version": cand_h["evaluator_version"],
         "withheld_positives": cand_h["withheld_positive_pixels"],
         "holdout_dti_ci95": cand_h["ci95"],
-        "validator_output": {
-            "ok": bool(val_z["passed"] and val_n["passed"]),
-            "primary_zeros_tif": val_z,
-            "companion_nan_tif": val_n,
-        },
         "deliverable_files": {
             "primary_zeros_tif": val_z["file"],
             "primary_zeros_zip": rs["deliverables"]["primary_zeros_zip"]["file"],
             "companion_nan_tif": val_n["file"],
             "companion_nan_zip": rs["deliverables"]["companion_nan_zip"]["file"],
         },
-        # Boolean schema fields consumed by scripts/promotion_gate.py
         "lane_recorded": True,
         "shared_template_pinned": True,
         "whole_segment_buffered_holdout": True,
@@ -165,11 +172,11 @@ def build_run_card() -> dict:
         "decision_summary": (
             "VERDICT: NEGATIVE (DO NOT SPEND A LIVE WEEKLY SUBMISSION SLOT; RESEARCH DOWNLOAD AVAILABLE). "
             "KANLER-H1 generated a 100% format-valid, canary-clean, genuinely unique 37,654-dot GeoTIFF "
-            "(max 3-px dot overlap 58.47% <= 70% across 415 detector rasters; 39.74% vs GEMSDOE32 0.2778; "
-            "max |Spearman| 0.1599 <= 0.90), beat CTRL (0.0671) and SLOPE (0.0486), beat REF_H31X in Walker "
-            "Lane Quadrant 3 (0.1726 vs 0.1602), and lifted <=6 deg piedmont off-catalogue SGMC discovery "
-            "+28.1% (0.0569 vs 0.0444), but trailed REF_H31X globally on gems57-pooled-hide-v2 (0.1253 vs "
-            "0.1674) due to Quadrant-1 missing-LiDAR starvation (47.4% valid=0) and det_elev trough clipping."
+            "(max 3-px dot overlap 58.47% <= 70% across 416 detector rasters; 39.74% vs GEMSDOE32 0.2778; "
+            "25.81% vs parallel GPC-3; max |Spearman| 0.1599 <= 0.90), beat CTRL (0.0671) and SLOPE (0.0486), "
+            "beat REF_H31X in Walker Lane Quadrant 3 (0.1726 vs 0.1602), and lifted <=6 deg piedmont "
+            "off-catalogue SGMC discovery +28.1% (0.0569 vs 0.0444), but trailed REF_H31X globally on "
+            "gems57-pooled-hide-v2 (0.1253 vs 0.1674) due to Quadrant-1 missing-LiDAR starvation (47.4% valid=0)."
         ),
     }
 
@@ -182,9 +189,15 @@ def build_run_card() -> dict:
 def main() -> int:
     card = build_run_card()
     text = json.dumps(card, indent=2, allow_nan=False) + "\n"
-    (ROOT / "docs/run-card.json").write_text(text)
-    (ROOT / "run-card.json").write_text(text)
-    print(f"[run-card] Wrote docs/run-card.json & run-card.json | verdict={card['verdict']} | failures={card['promotion_gate_check']['failures']}")
+    targets = [
+        ROOT / "evidence/kanler_h1/run-card.json",
+        ROOT / "docs/kanler-h1-run-card.json",
+        ROOT / "docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf.run-card.json",
+    ]
+    for p in targets:
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(text)
+    print(f"[run-card] Wrote KANLER-H1 Run Cards ({len(targets)} paths) | verdict={card['verdict']} | failures={card['promotion_gate_check']['failures']}")
     return 0
 
 

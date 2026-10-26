@@ -1,63 +1,126 @@
 {
-  "evidence_class": "DATA-MEASUREMENT",
-  "files": [
-    {
-      "path": "data/official/labels.tif",
-      "sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
-      "expected_sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
-      "verified": true,
-      "bytes": 425830
-    },
-    {
-      "path": "data/official/existing_faults.tif",
-      "sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
-      "expected_sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
-      "verified": true,
-      "bytes": 425830
-    },
-    {
-      "path": "data/official/sample_submission.tif",
-      "sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
-      "expected_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
-      "verified": true,
-      "bytes": 1599597
-    },
-    {
-      "path": "data/official/training_features.tif",
+  "generated_utc": "2026-10-26T21:45:24.757863+00:00",
+  "grid": {
+    "shape": [
+      3730,
+      3292
+    ],
+    "epsg": 32611,
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "footprint_pixels": 5167373
+  },
+  "files": {
+    "training_features": {
+      "bytes": 418912844,
       "sha256": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5",
-      "expected_sha256": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5",
-      "verified": true,
-      "bytes": 418912844
+      "bands": 19,
+      "dtype": [
+        "float32",
+        "float32",
+        "float32",
+        "float32",
+        "float32",
+        "float32",
+        "float32",
+        "float32",
+        "float32",
+        "float32",
+        "float32",
+        "float32",
+        "float32",
+        "float32",
+        "float32",
+        "float32",
+        "float32",
+        "float32",
+        "float32"
+      ],
+      "band_names": [
+        "mag_anom",
+        "rtp",
+        "tmi_hg",
+        "geod_2ndinv",
+        "iso_grav_anom_slope",
+        "tc",
+        "geod_shearrate",
+        "geod_dilaterate",
+        "tmi_vg",
+        "deq_n100a15",
+        "iso_grav_anom_vg",
+        "det_elev",
+        "iso_grav_anom",
+        "tmi",
+        "depth_to_base_surf",
+        "ieq_n100a15",
+        "cond_surf",
+        "iso_grav_anom_hg",
+        "det_elev_slope"
+      ]
     },
-    {
-      "path": "data/external/sgmc_faults_100m.tif",
-      "sha256": "26d142c4c93282cd94f6950ab96f22aeff59fbbea523d43d662e76fa1b161b5c",
-      "expected_sha256": "26d142c4c93282cd94f6950ab96f22aeff59fbbea523d43d662e76fa1b161b5c",
-      "verified": true,
-      "bytes": 213034
+    "labels": {
+      "bytes": 425830,
+      "sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+      "bands": 1,
+      "dtype": [
+        "int8"
+      ]
     },
-    {
-      "path": "data/external/derived_sgmc_faults_100m.tif",
-      "sha256": "643cbe992ef4ba37588fb469163ed8291e3ceb23d6c1f78a3cfaa462430c2da0",
-      "expected_sha256": "643cbe992ef4ba37588fb469163ed8291e3ceb23d6c1f78a3cfaa462430c2da0",
-      "verified": true,
-      "bytes": 198602
+    "sample_submission": {
+      "bytes": 1599597,
+      "sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+      "bands": 1,
+      "dtype": [
+        "float32"
+      ]
     },
-    {
-      "path": "data/external/trace_segments_utm11.csv",
-      "sha256": "c5edf9df3e0e1413c52784884fc38e5b9ca54627b27c6f8baf7713e908f48513",
-      "expected_sha256": "c5edf9df3e0e1413c52784884fc38e5b9ca54627b27c6f8baf7713e908f48513",
-      "verified": true,
-      "bytes": 5283577
+    "lidar_cached": {
+      "bytes": 36943606,
+      "sha256": "d580bb8bdcdb941e32fefb8b38044bc5bf04e199bf2e83498c3576e6fc465568",
+      "bands": 12,
+      "dtype": [
+        "uint8",
+        "uint8",
+        "uint8",
+        "uint8",
+        "uint8",
+        "uint8",
+        "uint8",
+        "uint8",
+        "uint8",
+        "uint8",
+        "uint8",
+        "uint8"
+      ]
     },
-    {
-      "path": "data/external/qfault_attributes.csv",
-      "sha256": "3b8745f0086a57b8255f6679afa1bf1168c10b5573491666c75cf53217029507",
-      "expected_sha256": "3b8745f0086a57b8255f6679afa1bf1168c10b5573491666c75cf53217029507",
-      "verified": true,
-      "bytes": 5786456
+    "geodawn_radiometric_cached": {
+      "bytes": 26612970,
+      "sha256": "c22420f75999030d7cc65c9e31e50d232ea6158423bca051613a18a8b20ba682",
+      "bands": 4,
+      "dtype": [
+        "uint8",
+        "uint8",
+        "uint8",
+        "uint8"
+      ]
+    },
+    "calibration_lattice": {
+      "bytes": 1706456,
+      "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+      "bands": 1,
+      "dtype": [
+        "float32"
+      ]
     }
-  ],
-  "provenance": "public bridge, not organizer receipt",
-  "all_pins_verified": true
+  },
+  "positive_catalogue_pixels": 60988,
+  "sample_positive_pixels": 60988,
+  "sample_positives_equal_labels": true,
+  "warning": "Owner-mirror hashes are not independently organizer-authenticated; sample is footprint metadata only."
 }

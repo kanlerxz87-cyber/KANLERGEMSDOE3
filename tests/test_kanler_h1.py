@@ -8,6 +8,7 @@ from pathlib import Path
 import numpy as np
 import rasterio
 from rasterio.transform import from_origin
+from scipy.ndimage import distance_transform_edt
 
 from scripts.promotion_gate import assess
 from scripts.validate_submission import validate as validate_tif
@@ -17,24 +18,28 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class KanlerH1DeliverableTests(unittest.TestCase):
     def test_run_card_and_promotion_gate_consistent(self):
-        card_docs = json.loads((ROOT / "docs/run-card.json").read_text())
-        card_root = json.loads((ROOT / "run-card.json").read_text())
-        self.assertEqual(card_docs, card_root)
+        card_ev = json.loads((ROOT / "evidence/kanler_h1/run-card.json").read_text())
+        card_docs = json.loads((ROOT / "docs/kanler-h1-run-card.json").read_text())
+        card_dl = json.loads(
+            (ROOT / "docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf.run-card.json").read_text()
+        )
+        self.assertEqual(card_ev, card_docs)
+        self.assertEqual(card_ev, card_dl)
 
-        gate = assess(card_docs)
-        self.assertEqual(gate["verdict"], card_docs["verdict"])
+        gate = assess(card_ev)
+        self.assertEqual(gate["verdict"], card_ev["verdict"])
         self.assertEqual(gate["verdict"], "negative")
         self.assertFalse(gate["slot_authorized"])
 
-        # Protocol budget & canary checks
-        self.assertLessEqual(card_docs["experiments_run"], 3)
-        self.assertLessEqual(card_docs["max_feature_auc"], 0.90)
-        self.assertLessEqual(card_docs["surface_max_rank_correlation"], 0.90)
-        self.assertLessEqual(card_docs["final_max_rank_correlation"], 0.90)
-        self.assertLessEqual(card_docs["final_dot_overlap_3px"], 0.70)
+        self.assertLessEqual(card_ev["experiments_run"], 3)
+        self.assertLessEqual(card_ev["max_feature_auc"], 0.90)
+        self.assertLessEqual(card_ev["surface_max_rank_correlation"], 0.90)
+        self.assertLessEqual(card_ev["final_max_rank_correlation"], 0.90)
+        self.assertLessEqual(card_ev["final_dot_overlap_3px"], 0.70)
+        self.assertLessEqual(len(card_ev["submission_note"]), 140)
 
-    def test_on_disk_zeros_and_nan_geotiffs_and_zips(self):
-        card = json.loads((ROOT / "docs/run-card.json").read_text())
+    def test_on_disk_zeros_and_nan_geotiffs_zips_and_gpc3_orthogonality(self):
+        card = json.loads((ROOT / "evidence/kanler_h1/run-card.json").read_text())
         z_tif = ROOT / card["deliverable_files"]["primary_zeros_tif"]
         z_zip = ROOT / card["deliverable_files"]["primary_zeros_zip"]
         n_tif = ROOT / card["deliverable_files"]["companion_nan_tif"]
@@ -63,23 +68,28 @@ class KanlerH1DeliverableTests(unittest.TestCase):
             foot = np.isfinite(an)
             self.assertEqual(int(foot.sum()), 5167373)
 
-            # All-finite -zeros.tif check (prevents "Predicted values must be in range [0, 1]")
             self.assertTrue(np.isfinite(az).all())
             self.assertGreaterEqual(float(az.min()), 0.0)
             self.assertLessEqual(float(az.max()), 1.0)
             self.assertTrue(np.all(az[~foot] == 0.0))
 
-            # Companion -nan.tif check
             self.assertTrue(np.isfinite(an[foot]).all())
             self.assertTrue(np.isnan(an[~foot]).all())
             self.assertGreaterEqual(float(an[foot].min()), 0.0)
             self.assertLessEqual(float(an[foot].max()), 1.0)
 
-            # Byte-identical in-footprint predictions and exact 37,654 dot budget
             self.assertTrue(np.array_equal(az[foot], an[foot]))
             self.assertEqual(int((az > 0).sum()), 37654)
 
-        # Single-TIFF ZIP archives must contain exactly the corresponding .tif
+            gpc_tif = ROOT / "docs/downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.tif"
+            if gpc_tif.is_file():
+                with rasterio.open(gpc_tif) as dg:
+                    ag = dg.read(1)
+                m_h1 = foot & (az > 0)
+                m_gpc = foot & (ag > 0)
+                ov_fwd = float((distance_transform_edt(~m_gpc)[m_h1] <= 3.0).mean())
+                self.assertLessEqual(ov_fwd, 0.70)
+
         for zp, tp in ((z_zip, z_tif), (n_zip, n_tif)):
             with zipfile.ZipFile(zp, "r") as zf:
                 self.assertEqual(zf.namelist(), [tp.name])

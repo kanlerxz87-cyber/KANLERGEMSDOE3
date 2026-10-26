@@ -1,52 +1,23 @@
-# Executive summary — repository review and nine-site submission audit
+# Executive decision — DO NOT SUBMIT
 
-**Review date:** 2026-10-26 (UTC)
-**Decision:** 🔴 **DO NOT SUBMIT — no submission TIFF is available or authorized.**
-**Scope:** This checkout plus the nine site claims explicitly supplied by the project owner.
-**Experiments run:** 0. **HOLDOUT-DTI measurements:** none. **Organizer receipts inspected:** none.
+**No TIFF is approved, and no candidate leaderboard estimate exists.** A previous parallel GPC-3 research TIFF already on main is also a duplicate against the registered lattice and is not approved. A separate bilateral experiment ended in an in-memory duplicate stop. Their prior research results are preserved in the [scientific review](review.md). The nine historical files below are pinned references for learning, not downloads to submit. Their user/owner-reported values are not `ORGANIZER-CONFIRMED` receipts or comparable `HOLDOUT-DTI` results. The live [official leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) is a separate source, not a forecast.
 
-## Decision in brief
-
-The highest figure in the supplied nine-site list is the GEMSDOE32 claim, **0.2778** for `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros`. That number is **owner-provided and unverified here**, not an `ORGANIZER-CONFIRMED` receipt and not a holdout result from this checkout. The number does not establish why the artifact scored as it did, and it cannot be used as a training label or forecast.
-
-The [GEMSDOE32 public page](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html) was fetched on 2026-10-26. It labels 0.2778 **OWNER-REPORT**, says no submission-page receipt linking raster hash to score is present in that repository, identifies the 37,654-dot H33 file as already submitted, and says not to resubmit. The same page's status banner says no new file is authorized and lists holdout, off-catalogue regression, uniqueness, format, and separate selector gates. The public page provides meaningful documentation, but does not prove the competition score's cause. It describes subsequent research artifacts as negative; we did not retrieve or rerun their TIFFs or local evaluator. A related audit on that page discusses H33 as pruning relative to a prior dot set, while cautioning that reconstruction does not identify which dropped/retained points were true/false positives. That is a plausible hypothesis for why thinning could help under a false-positive-penalizing metric, not causal evidence. See [Sources](SOURCES.md).
-
-**No score estimate is defensible.** There is no template, data, cached feature stack, holdout evaluator, writer, registry, or submission receipt in this repository. The user-provided leaderboard figures (including 0.3195 and 0.4413) conflict with each other and were not freshly verified. Treat them as unverified claims; do not extrapolate them into estimates.
-
-**No unique TIFF can responsibly be generated here.** The strict requirements call for exact sample-grid matching, [0,1] validation and registry-wide duplicate checks before and after placement. Inputs to perform those checks are absent. Creating a synthetic or empty GeoTIFF would falsely imply competition readiness. Consequently there is no download link and no `OK TO SUBMIT` status.
-
-## Nine-site comparison
-
-Every result below is transcribed from the user's supplied site history. **All scores are `OWNER-REPORTED / UNVERIFIED` in this review**—none is `HOLDOUT-DTI` or `ORGANIZER-CONFIRMED`. “Unique?” means verified pixel-level uniqueness against the listed sites' registries, not distinct filename. Since this checkout contains no raster artifacts/registry, every uniqueness answer is **unknown**.
-
-| Site | Highest supplied claim (unverified) | Named artifact | Est. score | Unique vs other eight? | Action |
+| Priority site | Historical leader in supplied list — unverified owner report | Historical artifact family | Candidate score estimate | Unique vs priority peers? | Submit? |
 |---|---:|---|---|---|---|
-| [GEMSDOE24](https://buffedlizard55-lab.github.io/GEMSDOE24/) | 0.2477 | `h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan` | **Not estimable** | Unknown; not audited | Treat as historical baseline only |
-| [GEMSDOE25](https://buffedlizard55-lab.github.io/GEMSDOE25/) | 0.2600 | `dotted-h19-5-d2-8-20261002-e56ea318af89-nan` | **Not estimable** | Unknown; not audited | Treat as historical baseline only |
-| [GEMSDOE27](https://buffedlizard55-lab.github.io/GEMSDOE27/) | 0.2449 | `topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan` | **Not estimable** | Unknown; not audited | Treat as historical baseline only |
-| [GEMSDOE28](https://buffedlizard55-lab.github.io/GEMSDOE28/) | 0.2710 | `h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan` | **Not estimable** | Unknown; not audited | Highest supplied claim for this site; no selection implied |
-| [GEMSDOE30](https://buffedlizard55-lab.github.io/GEMSDOE30/) | 0.2600 | `d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca` | **Not estimable** | Unknown; not audited | Treat as historical baseline only |
-| [GEMSDOE31](https://buffedlizard55-lab.github.io/GEMSDOE31/docs/) | 0.2708 | `h27-4-solo-d28-20261004-8acb75e1-nan` | **Not estimable** | Unknown; not audited | Closely related naming/lineage needs byte comparison |
-| [GEMSDOE32](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html) | **0.2778** | `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros` | **Not estimable** | Unknown; not audited | Highest supplied nine-site claim; not approved |
-| [GEMSDOE33](https://buffedlizard55-lab.github.io/GEMSDOE33/) | 0.2632 | `h33d-analog-tip-stepover-r30-20261004-cb490425926e` | **Not estimable** | Unknown; not audited | Tip/stepover idea is already represented in the supplied history |
-| [GEMSDOE36](https://buffedlizard55-lab.github.io/GEMSDOE36/docs/) | 0.2750 | `anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros` | **Not estimable** | Unknown; not audited | Second-highest supplied claim; PINN label alone is not validation |
+| [GEMSDOE24](https://buffedlizard55-lab.github.io/GEMSDOE24/) | 0.2477 | H19-5 dotted d1.5 | Not estimable | **No**, exceeds 3-pixel overlap stop | **No** |
+| [GEMSDOE25](https://buffedlizard55-lab.github.io/GEMSDOE25/) | 0.2600 | H19-5 dotted d2.8 | Not estimable | **No** | **No** |
+| [GEMSDOE27](https://buffedlizard55-lab.github.io/GEMSDOE27/) | 0.2449 | Topographic gap closure on d1.5 | Not estimable | **No** | **No** |
+| [GEMSDOE28](https://buffedlizard55-lab.github.io/GEMSDOE28/) | 0.2710 | H36-1 rung30 | Not estimable | **No** | **No** |
+| [GEMSDOE30](https://buffedlizard55-lab.github.io/GEMSDOE30/) | 0.2600 | D2.8 off-catalogue Poisson | Not estimable | **No** | **No** |
+| [GEMSDOE31](https://buffedlizard55-lab.github.io/GEMSDOE31/docs/) | 0.2708 | H27-4 solo d2.8 | Not estimable | **No** | **No** |
+| [GEMSDOE32](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html) | **0.2778** | H33-2 B2 near-catalogue thinning | Not estimable | **No** | **No** |
+| [GEMSDOE33](https://buffedlizard55-lab.github.io/GEMSDOE33/) | 0.2632 | Analog tip/stepover | Not estimable | **No** | **No** |
+| [GEMSDOE36](https://buffedlizard55-lab.github.io/GEMSDOE36/docs/) | 0.2750 | Anderson/geothermal PINN-named | Not estimable | **No** | **No** |
 
-**Best to investigate first, not to submit:** H33-B2 from site 32 is the highest *reported* claim among these nine. It cannot be called the best verified submission, estimated as a predicted score, or declared unique until its exact bytes, receipt, and registry comparisons are obtained and run through an identical spatial holdout protocol.
+Exact pinned file links, format diagnostics and measured pairwise overlap are on the [website](index.html) and in [audit.json](audit.json). All nine winners fail the stipulated duplicate stop against at least one other priority winner; this is a geometric result, not an organizer score. We have not compared any new candidate or all current registry surfaces.
 
-## Why 0.2778 might be higher (carefully bounded explanation)
+The H33 family is the highest supplied focus-site report, not a proven causal or generalizable winner. Sparse thinning can improve the DTI trade-off, but [DrivenData staff](https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/4) confirm the known-fault mask is pixel-exact, without a 300 m buffer. Nearby unmasked predictions can be penalized, but new-fault truth can also lie nearby. Removing those dots can either help or hurt; hidden truth and a receipt binding score to bytes are unavailable.
 
-The official metric weights distance with a 300 m triangular kernel and uses α=0.2, β=0.8. That makes false negatives costlier than false positives in the specified denominator, but false-positive mass still matters. If two prediction sets cover similar recoverable fault length, removing redundant/off-target predictions can improve the ratio by lowering the false-positive term more than it lowers weighted true positives. This provides a plausible *mechanistic explanation* for why a thinner map could outperform a denser ancestor.
+The shared template and its 19-band cache were recovered and hash checked from a participant mirror, but official provenance, licenses, and sample identity remain unverified. The pinned registry also contains a full-footprint continuous diagnostic which makes **any** nonempty candidate fail the shared template's literal positive-cell dot rule. It is not established to be a previously submitted dot raster; clarify registry scope without silently weakening the gate. The requested single-method lane is also missing. See the [scientific review](review.md), [source register](SOURCES.md), and [submission guide](SUBMISSION_GUIDE.md).
 
-The supplied owner history labels H33 as “zeros” and site 32 reports 37,654 dots; naming and point counts alone do not establish its actual pixel values, geospatial alignment, lineage, or score provenance. Even if a file is an exact subset of a prior map, aggregate leaderboard performance cannot tell whether removed points were false alarms or missed real faults. Only organizer scoring receipts or a valid spatial hide-and-recover holdout can answer predictive-performance questions. There is no evidence here to claim it beat 0.2778 or that a new candidate can beat the claimed 0.3195/0.4413.
-
-## Why work stops before the first experiment
-
-The checkout consists only of a one-line README at the starting commit. There are no model scripts or tests and no files under `data/`. The shared template/cached feature stack, `evaluate_holdout.py`, `submission_writer.py`, sample grid, fault-label raster/vectors, and registry surfaces are not available here. The provided project brief also says DrivenData authentication is required for the competition download page; we cannot authenticate or fetch login-only files from this blank checkout. Those are blocking prerequisites for the mandated experiment and TIF validation. No external substitute was downloaded or silently treated as equivalent.
-
-This is not a reason to relax the protocol. It is the result: **negative / blocked; no DTI measured, no projection, no TIF, zero submission slots used.** See [`run-card.json`](../run-card.json) and the next-step list in the [project charter](../README.md).
-
-## Three-pass completion review
-
-1. **Pass 1 — inventory and implement:** inspected the checkout and branch, checked the official problem/metric/formats page, and created the standing charter, nine-site score-provenance table, ranked hypotheses, source register, submission procedure, static overview, and negative JSON run card.
-2. **Pass 2 — challenge assumptions:** distinguished organizer facts from user/site claims, avoided inferring scores from unrelated leaderboard figures, checked that H33's proposed pruning explanation is presented as a possible mechanism rather than proven causality, and confirmed that no dataset/evaluator/registry exists here. Did not fabricate a TIFF to satisfy a file request.
-3. **Pass 3 — verify outputs:** parsed the JSON; parsed the HTML; checked all relative Markdown links, checked whitespace with `git diff --check`, and re-read the required protocol against the README, hypotheses, submission guide, and run card. These are documentation integrity checks, not raster validation, model tests, or holdout experiments.
+No geological experiment or competition slot was used in this recovery session; earlier parallel research is preserved separately. Format validation is not scientific promotion; promotion is not selector or slot authorization.
