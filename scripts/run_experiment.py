@@ -124,6 +124,7 @@ def execute():
           'holdout_dti':None,'correlation_overlap_vs_registry':None,'raster_sha256':None,
           'validator_output':None,'submission_name':None,
           'submission_note':'Bilateral K/Th displacement at LiDAR scarp; research only; DO NOT SUBMIT',
+          'note':'Bilateral K/Th displacement at LiDAR scarp; research only; DO NOT SUBMIT',
           'notes':['A catalogue-recovery holdout is not an estimate of the hidden leaderboard score.',
                    'The frozen snapshot cannot cover all concurrent or unregistered rasters.']}
     dump(card)
@@ -226,7 +227,12 @@ def execute():
             rc,tc=evaluate_holdout.evaluate(pc[sl].astype(np.float32),f,fp[sl],**kw)
             rb,tb=evaluate_holdout.evaluate(pb[sl].astype(np.float32),f,fp[sl],**kw)
             cand_terms.append(tc);base_terms.append(tb)
-            fold_results.append({'fold':fold['name'],'budget':n,'candidate':rc,'ablation':rb})
+            # Only pooled scores have the required confidence intervals. Keep
+            # additive fold components, not unlabeled per-fold score estimates.
+            components=('tpw','fpw','fnw','n_truth','emitted')
+            fold_results.append({'fold':fold['name'],'budget':n,
+                'candidate_components':{key:rc[key] for key in components},
+                'ablation_components':{key:rb[key] for key in components}})
             print(f"{fold['name']}: HOLDOUT-DTI candidate {rc['dti']:.6f}; ablation {rb['dti']:.6f}",flush=True)
         result=evaluate_holdout.pooled_summary({'candidate':np.sum(cand_terms,axis=0),
             'ablation':np.sum(base_terms,axis=0)},draws=1999,seed=20261026,candidate='candidate')

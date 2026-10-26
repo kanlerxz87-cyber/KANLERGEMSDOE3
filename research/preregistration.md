@@ -30,3 +30,7 @@ For the one experiment, fit two otherwise-identical histogram gradient boosting 
 ### Technical replay disclosure
 
 Attempt 1 computed features and canaries but terminated before training because the local orchestrator referred to an uninitialized clock variable. Its full error receipt is preserved at `evidence/run-01-error.json`. The clock-variable typo was corrected in this repo; no shared evaluator was changed, and no model parameter, feature, data, budget, threshold, or holdout was changed. The corrective replay counts as attempt 2 of the allowed maximum of 3. The first attempt never placed dots or evaluated DTI.
+
+### Outcome (recorded after the fixed run)
+
+Attempt 2 completed and stopped on the literal final-dot overlap gate: 37,654/37,654 in-memory dots were within 3 pixels of the pinned lattice. Both continuous surfaces cleared rank thresholds against the frozen 167-file snapshot, which is not complete globally. The pooled candidate HOLDOUT-DTI was 0.1133855, 95% CI [0.1006053, 0.1262007], `gems57-pooled-hide-v2`, 60,988 withheld positives; its paired difference from the six-feature ablation was +0.0009773, 95% CI [-0.0005962, +0.0026773], same evaluator and positives. This does not establish improvement and does not compare against the prior best incumbent. No final TIFF, hash, validator output, slot or receipt exists. See the authoritative [run card](../evidence/run-card.json). Per-fold additive components are retained without separate scores, since per-fold confidence intervals were not computed.

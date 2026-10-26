@@ -1,3 +1,5 @@
+> **Historical pre-experiment snapshot:** superseded by the [current README](../README.md) and [run card](../evidence/run-card.json). Assertions about missing inputs or zero experiments describe an earlier state.
+
 # How to make a competition submission
 
 **Current status: DO NOT SUBMIT. No new approved TIFF exists.** No historical file should be relabeled as unique. There is intentionally no active submission download button.

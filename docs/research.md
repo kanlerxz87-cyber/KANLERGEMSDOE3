@@ -1,3 +1,5 @@
+> **Historical pre-experiment snapshot:** superseded by the [current README](../README.md) and [run card](../evidence/run-card.json). Assertions about missing inputs or zero experiments describe an earlier state.
+
 # Scientific review and preregistration — 26 October 2026
 
 ## Audit scope and limits

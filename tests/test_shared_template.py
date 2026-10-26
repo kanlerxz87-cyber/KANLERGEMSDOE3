@@ -1,0 +1,78 @@
+"""Synthetic tests for unchanged shared components; never count as model runs."""
+import sys
+from pathlib import Path
+import tempfile
+import numpy as np
+import pytest
+import rasterio
+from rasterio.transform import from_origin
+
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'.cache/template/GEMSDOE24/src'))
+sys.path.insert(0,str(ROOT/'.cache/template/GEMSDOE32/vendor'))
+try:
+    from gems import holdout, metric
+    from gems57 import evaluate_holdout
+    from gems.submission import write_submission
+except ModuleNotFoundError:
+    pytest.skip('Install locked shared template before these optional tests',allow_module_level=True)
+
+
+def brute_terms(prob,truth,active,radius=3):
+    """Independent small-grid definition (not a production evaluator)."""
+    gt=np.argwhere(truth & active); pred=np.argwhere((prob>0)&active)
+    tp=0.
+    for g in gt:
+        tp+=max((float(prob[tuple(p)])*max(0.,1.-np.linalg.norm(g-p)/radius) for p in pred),default=0.)
+    fp=0.
+    for p in pred:
+        reach=max((max(0.,1.-np.linalg.norm(p-g)/radius) for g in gt),default=0.)
+        fp+=float(prob[tuple(p)])*(1.-reach)
+    return tp,fp,len(gt)-tp
+
+
+def test_shared_metric_matches_independent_probability_definition():
+    rng=np.random.default_rng(612)
+    for _ in range(5):
+        a=(rng.random((12,11))<.08)*rng.random((12,11))
+        y=rng.random((12,11))<.09
+        valid=rng.random((12,11))>.1
+        visible=rng.random((12,11))<.05
+        active=valid & ~visible
+        expected=brute_terms(a,y,active)
+        got=metric.dti_components_exact(a, y & active, valid_mask=valid, catalogue_mask=visible)
+        assert np.allclose([got['TP_w'],got['FP_w'],got['FN_w']],expected,atol=1e-8)
+        f={'region':valid,'visible':visible,'truth':y & active}
+        result,terms=evaluate_holdout.evaluate(a,f,valid,block_side=4,origin=(0,0),global_shape=valid.shape)
+        assert np.allclose(terms.sum(axis=0)[:3],expected,atol=1e-8)
+        assert np.isclose(result['dti'],got['dti'],atol=1e-8)
+
+
+def test_hidden_segments_and_canary_fail_on_labels():
+    fp=np.ones((100,100),bool);lab=np.zeros_like(fp)
+    for row,col in [(20,20),(20,70),(70,20),(70,70)]: lab[row:row+4,col]=1
+    ctx=holdout.SegmentHoldout(fp,lab,buffer_px=3)
+    for fold in ctx.folds:
+        assert not np.any(fold['train'] & fold['valid'])
+        assert not np.isin(ctx.components[fold['visible']],fold['hidden_component_ids']).any()
+    c=ctx.canary({'deliberately_leaky_label':lab.astype(float)},max_per_class=100,seed=7)
+    assert not c['passed']
+    assert c['features']['deliberately_leaky_label']['pooled_auc']>.9
+
+
+def test_canonical_writer_serializes_and_rejects_invalid_inside():
+    with tempfile.TemporaryDirectory() as d:
+        ref=Path(d)/'template.tif'; out=Path(d)/'smoke-not-a-submission.tif'
+        profile=dict(driver='GTiff',width=10,height=8,count=1,dtype='float32',crs='EPSG:32611',transform=from_origin(0,800,100,100))
+        template=np.zeros((8,10),np.float32);template[0,0]=np.nan
+        with rasterio.open(ref,'w',**profile) as ds:ds.write(template,1)
+        fp=np.ones((8,10),bool);fp[0,0]=False
+        a=np.zeros((8,10),np.float32);a[2,3]=.75;a[0,0]=np.nan
+        result=write_submission(a,ref,out,outside='zero')
+        with rasterio.open(out) as ds:
+            actual=ds.read(1)
+            assert ds.count==1 and ds.dtypes[0]=='float32' and ds.transform==profile['transform']
+            assert np.isfinite(actual).all() and actual[0,0]==0 and actual[2,3]==.75
+        for invalid in [np.nan,-.01,1.01,np.inf]:
+            b=a.copy();b[2,3]=invalid
+            with pytest.raises(ValueError):write_submission(b,ref,out,outside='zero')

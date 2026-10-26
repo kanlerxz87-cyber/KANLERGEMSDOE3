@@ -1,3 +1,5 @@
+> **Historical pre-experiment snapshot:** superseded by the [current README](../README.md) and [run card](../evidence/run-card.json). Assertions about missing inputs or zero experiments describe an earlier state.
+
 # Three-pass verification record
 
 ## Pass 1 — implementation
