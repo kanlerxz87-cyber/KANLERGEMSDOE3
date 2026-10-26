@@ -1,0 +1,14 @@
+{
+  "hypothesis": "No lane assigned; historical winner forensics before candidate implementation",
+  "mechanism": "Near-catalogue thinning may reduce uncredited prediction mass; causality unproven",
+  "non_fault_mimic": "Lithologic contacts and airborne-survey processing seams",
+  "holdout": {"label": "HOLDOUT-DTI", "status": "NOT_RUN", "value": null, "evaluator_version": null, "withheld_positives": null, "ci95": null},
+  "registry": {"scope": "nine pinned historical winners only", "directed_pairs": 72, "minimum_overlap_3px": 0.8671895382207149, "candidate_surface_rank_correlation": null, "candidate_final_dot_overlap": null, "full_registry_checked": false},
+  "raster_sha256": null,
+  "validator": {"status": "NO_NEW_RASTER", "no_nan_inside_footprint": null, "values_0_1": null, "crs_shape_transform_match": null, "historical_details": "audit.json"},
+  "submission_name": null,
+  "note": "Negative audit: historical winners fail overlap gate; lane and compliant paired holdout are missing. Do not submit.",
+  "verdict": "negative",
+  "experiments_run": 0,
+  "weekly_slots_used": 0
+}
