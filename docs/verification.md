@@ -88,6 +88,9 @@ check, source refresh, local format PASS or green CI is not promotion or slot pe
   no-authorizing-feed invariant. Exact final technical counts and publication
   references are recorded in `evidence/session-7d1e577d-verification.json`.
 
+Publication record: [PR #20](https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/pull/20). Its GitHub checks and merge state are
+authoritative; they are not manually duplicated here as a scientific approval.
+
 ## Acceptance matrix
 
 | Standing requirement | Outcome in this review |

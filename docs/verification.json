@@ -104,8 +104,11 @@
   "slot_authorized": false,
   "run_card": "evidence/session-7d1e577d-run-card.json",
   "publication": {
-    "state": "PR_PENDING",
-    "note": "A green software run is not promotion. GitHub PR state is the authoritative publication outcome."
+    "pr_number": 20,
+    "url": "https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/pull/20",
+    "state": "SEE_AUTHORITATIVE_GITHUB_PR",
+    "branch": "arena/7d1e577d-kanlergemsdoe3",
+    "merge_gate": "Merge only after GitHub checks pass. The linked PR records final checks and merge state; this receipt never authorizes a TIFF or slot."
   },
   "tested_component_sha256": {
     "scripts/build_site.py": "c7d1e6766754ab57146642efd4edda0a7f5e3e4b7cf92c7523f85d87236dc01e",

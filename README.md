@@ -121,6 +121,7 @@ The full public source-status script and its explicit negative study entry point
 The active static site is `docs/`; the repository-root `index.html` redirects there for the existing
 main/root GitHub Pages configuration. Do not overwrite active pages with archived review builders.
 Verification details and remaining gaps: [research/verification.md](research/verification.md).
+Publication/check/merge record: [PR #20](https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/pull/20). Its status is not TIFF eligibility.
 
 Pass 1 implements/reproduces the accessible work. Pass 2 attacks numerical, schema, transport,
 encoding and UI assumptions. Pass 3 reconciles the full request, reruns checks, integrates concurrent
