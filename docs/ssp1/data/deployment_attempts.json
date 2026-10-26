@@ -18,5 +18,19 @@
   },
   "followup": "Remove unnecessary repository-settings mutation; use official configure-pages and deploy-pages on the already enabled site, and observe actual deployment result.",
   "new_model_fits": 0,
-  "new_dot_placements": 0
+  "new_dot_placements": 0,
+  "observed_successful_followup": {
+    "merged_pr": 18,
+    "merged_commit": "b57a77f0c857f6c593bcd147a6ec5a104906dd22",
+    "pages_run": 40418825058,
+    "build": "success",
+    "deploy": "success",
+    "all_five_main_workflows_observed_success": true,
+    "public_executive_route": "https://kanlerxz87-cyber.github.io/KANLERGEMSDOE3/docs/ssp1/executive-summary.html",
+    "public_route_observed": true,
+    "remote_main_tif_bytes_sha256": "4e88158e8859416b874cc424dc106847f8eaab474794bbb1716e273f57839a27",
+    "source_settings_left_unchanged": "legacy/main/root; official deploy-pages successfully delivered the artifact without changing settings",
+    "feed_refresh_state_observed": "STALE, explicit rank-one parse failure; no new value fabricated",
+    "root_browser_entry_point": "PASS; 320/390/768/1440 widths; actual negative TIFF link found; no JS errors"
+  }
 }
