@@ -2,6 +2,7 @@
 """Build the static portfolio from the audited, immutable historical manifest."""
 from __future__ import annotations
 import argparse
+import hashlib
 import html
 import json
 from pathlib import Path
@@ -40,15 +41,33 @@ def generated_files() -> dict[Path, str]:
     audit_path = ROOT / "evidence/portfolio-audit.json"
     card_path = ROOT / "evidence/run-card.json"
     audit = json.loads(audit_path.read_text())
+    card = json.loads(card_path.read_text())
+    candidate_audit = ROOT / "evidence/parallel-candidate-audit.json"
+    checked = json.loads(candidate_audit.read_text())
+    candidate = (ROOT / card["submission"]["file"]).resolve()
+    rel = candidate.relative_to((ROOT / "docs").resolve())
+    actual_sha = hashlib.sha256(candidate.read_bytes()).hexdigest()
+    if (actual_sha != card["submission"]["sha256"] or actual_sha != checked["candidate_sha256"]
+            or card["verdict"] != "negative" or checked["duplicate_over_70_percent"] is not True):
+        raise ValueError("Candidate bytes, negative verdict or duplicate audit disagree")
+    hold = card["holdout"]["candidate"]
+    holdout_detail = (f"HOLDOUT-DTI {hold['dti']:.6f} [{hold['ci95'][0]:.6f}, {hold['ci95'][1]:.6f}], "
+                      f"{hold['evaluator']}, {hold['withheld_positives']:,} withheld positives")
     template = (ROOT / "site/index.template.html").read_text()
     values = {"{{PORTFOLIO_ROWS}}": portfolio_rows(audit), "{{SITE_COUNT}}": str(len(audit["rows"])),
-              "{{AUDIT_DATE}}": audit["generated_utc"][:10]}
+              "{{AUDIT_DATE}}": audit["generated_utc"][:10],
+              "{{PARALLEL_HOLDOUT_SHORT}}": f"{hold['dti']:.5f}",
+              "{{CANDIDATE_OVERLAP}}": f"{checked['candidate_dots_within_3px_of_lattice']:,} of {checked['candidate_dots']:,}",
+              "{{CANDIDATE_CATALOGUE_DOTS}}": f"{checked['catalogue_positive_pixels']:,}",
+              "{{CANDIDATE_HOLDOUT}}": esc(holdout_detail), "{{CANDIDATE_HREF}}": esc(rel.as_posix()),
+              "{{CANDIDATE_FILENAME}}": esc(candidate.name), "{{CANDIDATE_SHA}}": esc(actual_sha)}
     for key, value in values.items():
         if template.count(key) != 1:
             raise ValueError(f"expected exactly one {key} placeholder")
         template = template.replace(key, value)
     return {ROOT / "docs/index.html": template, ROOT / "docs/data/portfolio-audit.json": audit_path.read_text(),
-            ROOT / "docs/data/run-card.json": card_path.read_text()}
+            ROOT / "docs/data/run-card.json": card_path.read_text(),
+            ROOT / "docs/data/parallel-candidate-audit.json": candidate_audit.read_text()}
 
 
 def build() -> None:

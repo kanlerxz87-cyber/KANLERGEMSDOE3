@@ -1,25 +1,28 @@
 #!/usr/bin/env python3
-"""Validate a candidate GeoTIFF against the organizer's sample/template.
+"""Report local template-mask and whole-array range checks, never upload approval.
 
-Usage: python scripts/validate_submission.py template.tif candidate.tif
-Requires rasterio (see requirements.txt). Never writes or repairs the candidate.
-The template's valid-data mask defines the footprint; candidate pixels outside it
-must be nodata/masked/non-finite. In-footprint predictions must be finite [0, 1].
+A previous portal reported a range error, but its exact validation behavior and
+file bytes are unknown. A finite-zero outside encoding passes a whole-array range
+check yet conflicts with the written null/NaN-outside specification. This CLI
+reports both checks separately and fails closed if either fails. It does not
+authenticate a template or establish organizer portal acceptance.
 """
 from __future__ import annotations
-import argparse
-import json
-import sys
+import argparse, json, sys
 from pathlib import Path
+import numpy as np
+import rasterio
 
-try:
-    import numpy as np
-    import rasterio
-except ImportError as exc:  # fail closed; missing validation dependency is not a pass
-    print(json.dumps({"ok": False, "error": f"Missing dependency: {exc}", "validator": "submission-format-v1"}, indent=2))
-    sys.exit(2)
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+from gems.submission import check_variants  # noqa: E402
 
-
+# --- Compatibility API preserved from origin/main on merge (2026-10-26) ---
+# The forensic session's scripts/audit_rasters.py imports validate(template,
+# candidate) with nodata-outside semantics ("submission-format-v1"). It is kept
+# verbatim for that audit; this lane's portal gate above uses whole-array [0,1]
+# (-zeros) semantics instead. Do not confuse the two: they answer different
+# questions, and both are labelled in their outputs.
 def validate(template_path: Path, candidate_path: Path) -> dict:
     errors: list[str] = []
     with rasterio.open(template_path) as ref, rasterio.open(candidate_path) as src:
@@ -73,17 +76,36 @@ def validate(template_path: Path, candidate_path: Path) -> dict:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("template", type=Path)
-    parser.add_argument("candidate", type=Path)
-    args = parser.parse_args()
-    try:
-        result = validate(args.template, args.candidate)
-    except Exception as exc:
-        print(json.dumps({"ok": False, "errors": [f"Unable to validate: {exc}"], "validator": "submission-format-v1"}, indent=2))
-        return 2
-    print(json.dumps(result, indent=2))
-    return 0 if result["ok"] else 1
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("submission", type=Path)
+    ap.add_argument("--template", type=Path, default=ROOT / "data" / "raw" / "sample_submission.tif")
+    ap.add_argument("--expected-dots", type=int, default=None)
+    args = ap.parse_args()
+    checks = check_variants(args.submission, args.template)
+    with rasterio.open(args.submission) as s:
+        arr = s.read(1)
+        whole_finite = bool(np.isfinite(arr).all())
+        whole_range = bool(arr.min() >= 0.0 and arr.max() <= 1.0) if whole_finite else False
+        nodata = s.nodata
+        dots = int((arr == 1.0).sum())
+        checks["whole_array_finite"] = whole_finite
+        checks["whole_array_in_0_1"] = whole_range
+        checks["nodata_is_nan"] = bool(nodata is not None and np.isnan(nodata))
+        checks["positive_dots_eq1"] = dots
+        checks["whole_array_numeric_range_ok"] = bool(whole_finite and whole_range)
+        if args.expected_dots is not None:
+            checks["dots_match_expected"] = bool(dots == args.expected_dots)
+    strict = validate(args.template, args.submission)
+    checks["strict_template_mask_check"] = strict
+    checks["portal_acceptance_verified"] = False
+    checks["submission_authorized"] = False
+    checks["interpretation"] = "Local checks only; organizer template and portal behavior are not authenticated."
+    ok = bool(checks.get("format_valid")) and checks["whole_array_numeric_range_ok"] and strict["ok"]
+    if args.expected_dots is not None:
+        ok = ok and checks["dots_match_expected"]
+    checks["validator_verdict"] = "PASS_LOCAL_ONLY" if ok else "FAIL_OR_CONFLICT"
+    print(json.dumps(checks, indent=2, default=str))
+    return 0 if ok else 1
 
 if __name__ == "__main__":
     raise SystemExit(main())

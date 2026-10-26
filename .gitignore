@@ -10,3 +10,5 @@ __pycache__/
 .pytest_cache/
 *.py[cod]
 *.partial
+*.egg-info/
+!data/prepared_manifest.json

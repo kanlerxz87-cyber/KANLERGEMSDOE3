@@ -128,3 +128,23 @@ live full-registry scan.
    selector. This session cannot verify remaining account quota and has not picked a
    slot. The [official rules](https://docs.nlr.gov/docs/fy26osti/96647.pdf) state
    three submissions per week, but check the current submission page before use.
+
+## Later parallel GPC-3 file — independent stop
+
+After this review, a parallel branch merged a new research TIFF and reported
+HOLDOUT-DTI 0.137681 [0.125567, 0.150331], `gems-segment-pooled-v1`, 60,988
+withheld positives. The experiment was not independently rerun here. Its recorded
+0.005174 paired delta [0.000390, 0.010042] is against its B0 control, not the
+site-reported group best 0.16379; matching group-best folds is unverified.
+
+We reopened the exact saved bytes and compared with the pinned spacing-five
+lattice: **37,654 / 37,654 dots (100%)** lie within three pixels. This is a
+conclusive fail against one registry reference, not a complete live-registry
+or surface audit. The shared TIFF auditor rejected `outside_footprint_compliant`
+and `zero_on_catalogue_leakage` against the owner mirrors (4,115 catalogue
+positives and 7,111,787 finite outside-footprint cells). Mirror matching is not
+organizer authentication and does not prove portal behavior. See
+[`parallel-candidate-audit.json`](../evidence/parallel-candidate-audit.json) and
+[`run-card.json`](../evidence/run-card.json). The file is for research only;
+do not submit it. The earlier focus-nine-only uniqueness pass was insufficient
+under the user's literal any-registry requirement.

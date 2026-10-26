@@ -1,10 +1,11 @@
 # GEMS Observatory
 
-> **Current decision: NO FILE IS APPROVED FOR SUBMISSION.** This checkout has no
-> new candidate GeoTIFF, no candidate HOLDOUT-DTI and no complete candidate
-> novelty audit. [Open the executive summary and submission guide](docs/executive-summary.html)
-> or [read the portfolio review](knowledge/portfolio-review.md). Historical TIFF
-> links are for research only; do not copy, rename or re-submit them as new work.
+> **Current decision: NO FILE IS APPROVED FOR SUBMISSION.** A parallel session
+> produced a [research-only TIFF](docs/downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.tif),
+> but it fails the literal registry novelty rule and local footprint checks. Its
+> holdout was not independently rerun. [Open the executive summary and submission
+> guide](docs/executive-summary.html) or [read the portfolio review](knowledge/portfolio-review.md).
+> Do not upload this research file or rename a historical TIFF as new work.
 
 An evidence-first workspace for the [DOE GEMS Prize](https://www.drivendata.org/competitions/306/competition-doe-gems/).
 The aim is a scientifically grounded fault-discovery system that could compete
@@ -16,8 +17,10 @@ maintain an accessible, current feed. There is no permitted TIFF at present.
 
 The static GitHub Pages site lives in [`docs/`](docs/index.html). The original
 checkout contained only this README; the shared tools and data referred to in the
-request were not in the checkout. This session restored and prepared core inputs
-from owner mirrors but did not perform a new scientific experiment.
+request were not in the checkout. This audit session restored and prepared core
+inputs from owner mirrors but did not perform a scientific experiment. A separate
+parallel session later contributed a research TIFF and reported holdout results;
+its evidence is preserved and independently checked below.
 
 ## Standing project request — read before every session
 
@@ -127,8 +130,10 @@ observation and marks failures or stale data instead of silently using old value
   positive mask equals the labels, conflicting with the organizer's description
   of a zero-prediction sample. Mirrors are **not organizer-authenticated**.
 * The requested precomputed `feature_stack.npy` is absent from the pinned shared
-  tree and published artifacts. The session had no assigned lane. No candidate was
-  built, no leakage canaries or holdout were fabricated, and no slot was spent.
+  tree and published artifacts. This audit session had no assigned lane and built
+  no candidate. A parallel session self-selected a lane and rebuilt a stack rather
+  than using the missing cached stack; its reported tests are preserved separately.
+  No slot was spent.
 * The shared CLI silently binarizes positive probabilities; this was reproduced and
   [reported upstream](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/37).
   A second shared CLI validator does not inspect outside-footprint values; also
@@ -182,13 +187,48 @@ re-audit all current rasters, or upload anything.
 * [USGS 3DEP](https://www.usgs.gov/3d-elevation-program) · [USGS fault database](https://www.usgs.gov/programs/earthquake-hazards/faults)
 * [DOE GDR INGENIOUS compilation](https://gdr.openei.org/submissions/1391) · [EPSG:32611](https://epsg.io/32611)
 
+## Parallel GPC-3 research candidate — DO NOT SUBMIT
+
+A separate session produced
+[`kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.tif`](docs/downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.tif)
+(SHA-256 `16ec0585a884224460f0e5d09e7448a54ab5a3348db92279452a9a4e0453b0f7`).
+Its session reports **HOLDOUT-DTI 0.137681 [0.125567, 0.150331]**,
+`gems-segment-pooled-v1`, 60,988 withheld positives. We did not independently
+rerun that evaluation, and its folds have not been authenticated as matching the
+site-reported same-evaluator best of 0.16379. It is not a leaderboard prediction.
+
+The earlier report checked novelty against only nine champions. Our independent
+[`parallel-candidate-audit.json`](evidence/parallel-candidate-audit.json) finds
+**37,654/37,654 dots within 3 pixels of the registered spacing-five lattice**:
+100% exceeds the literal 70% stop, so this raster is a duplicate. The pinned
+shared auditor also rejects its finite values outside the footprint and 4,115
+positive catalogue cells. The owner-mirror sample is not organizer-authenticated.
+The parallel runner at `scripts/evaluate_holdout.py` is a prior session's custom
+experiment driver, not the shared evaluator; its CLI and final-emission path are
+blocked because its three-experiment budget was used and its narrower novelty gate
+must not promote another file. The pinned GEMSDOE32 shared tools are bootstrapped
+separately for audit and future properly assigned work.
+The exact original runner and prior site are archived for reproducibility; the
+TIFF and ZIP are **research downloads only**. No slot was selected or spent.
+
+To reproduce our lattice audit after restoring the core mirror and running
+`scripts/audit_history.py` (which caches the pinned lattice), run:
+
+```bash
+python scripts/audit_parallel_candidate.py \\
+  --candidate docs/downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.tif \\
+  --lattice .cache/history/13GEMSDOE/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif \\
+  --sample .cache/gems_data/sample_submission.tif --labels .cache/gems_data/labels.tif
+```
+
 ## Concurrent-main review preserved
 
 Other reviews reached `main` while this work was in progress. Their
 [standing project request](PROJECT_REQUEST.md), [independent audit](docs/audit.json),
 [review dashboard](docs/concurrent-main-dashboard.html), [research](docs/archived-research.html),
-[source snapshots](evidence/upstream/), and [prior README](docs/concurrent-main-readme.md)
-are preserved. The independent audit compared historical representation variants
+[source snapshots](evidence/upstream/), [prior README](docs/concurrent-main-readme.md),
+[parallel GPC-3 dashboard](docs/parallel-gpc-dashboard.html) and
+[parallel GPC-3 README](docs/parallel-gpc-readme.md) are preserved. The independent audit compared historical representation variants
 against the owner-mirror footprint and found that some zeros-outside files do not
 meet the strict null-outside interpretation; this is not an organizer portal
 receipt. The active run card for **this** session is

@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-26",
+  "hypothesis": "Cross-flank magnetic-texture displacement corroborated by a terrain break can reveal concealed faults.",
+  "mechanism": "Compare oriented total-magnetic-intensity and reduced-to-pole textures on opposite sides of a candidate trace and look for consistent displaced structure across scales.",
+  "non_fault_mimic": "Volcanic/lithologic contacts, fluvial magnetic-mineral concentration, and survey seams can mimic an offset.",
+  "lane": {
+    "explicitly_assigned": false,
+    "reason": "The prompt refers to a single assigned method paragraph, but supplies no such paragraph. The proposed hypothesis is not an assigned lane.",
+    "assigned_method": null
+  },
+  "feature_cache": {
+    "provenance_verified": false,
+    "sha256": null,
+    "reason": "The pinned template's feature_stack.npy is not present in its tracked tree or advertised artifacts. Core rasters were restored from owner mirrors and shared preparation was run; this is not the requested cached stack.",
+    "path": null
+  },
+  "budget": {
+    "experiments": 0,
+    "experiment_runtime_hours": 0,
+    "elapsed_session_hours": null,
+    "reason": "No experiments were run; elapsed research-session time was not measured.",
+    "hours": null
+  },
+  "leakage_canaries": {
+    "complete": false,
+    "expected_features": [],
+    "results": {},
+    "reason": "No candidate features were built or tested."
+  },
+  "holdout": {
+    "candidate": null,
+    "same_evaluator_best": null,
+    "paired_delta_ci95": null,
+    "protocol": {},
+    "reason": "Not run. No HOLDOUT-DTI, withheld-positive count, or 95% CI exists for a new candidate."
+  },
+  "uniqueness": {
+    "complete": false,
+    "current_snapshot_verified": false,
+    "registry_snapshot_sha256": null,
+    "raster_count": 0,
+    "missing_or_incompatible": null,
+    "surface": {
+      "complete": false,
+      "max_abs_spearman": null
+    },
+    "final_dots": {
+      "complete": false,
+      "max_abs_spearman": null,
+      "max_within_3px": null,
+      "raster_sha256": null
+    },
+    "reason": "No candidate surface or final dots exist; the separately documented historical subset audit is not a new-candidate registry audit."
+  },
+  "validator": {
+    "sha256": null,
+    "template_sha256": null,
+    "receipt_source": null,
+    "single_band": null,
+    "float32": null,
+    "no_nan_or_inf_inside_footprint": null,
+    "values_in_0_1": null,
+    "crs_shape_transform_match": null,
+    "outside_matches_official_spec": null,
+    "reason": "Not run: no candidate GeoTIFF was generated."
+  },
+  "submission": {
+    "name": null,
+    "file": null,
+    "sha256": null,
+    "note": "No candidate; do not upload."
+  },
+  "verdict": "negative",
+  "slots_spent": 0,
+  "issues": [
+    "No assigned lane and no published precomputed shared feature stack.",
+    "Literal all-registry overlap includes a space-filling calibration lattice; no exception was granted.",
+    "Shared evaluate_holdout.py and submission_writer.py silently binarize probability arrays; see https://github.com/buffedlizard55-lab/GEMSDOE32/issues/37.",
+    "Shared check_submission.py does not inspect outside-footprint values; see https://github.com/buffedlizard55-lab/GEMSDOE32/issues/39."
+  ]
+}

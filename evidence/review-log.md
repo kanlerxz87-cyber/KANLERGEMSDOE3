@@ -57,8 +57,8 @@ Date: 2026-10-26 UTC. This is a record of work, not a candidate scoring receipt.
   does not mean that its TIFFs have been re-audited. The scheduled Pages workflow
   will attempt public refreshes, but subsequent deployment and network access must
   be verified from GitHub Actions rather than assumed.
-* The saved run card remains **negative**, with no candidate, SHA, candidate
-  HOLDOUT-DTI, proposed name, leaderboard forecast or slot spent.
+* At this point, before merging the later parallel model run, the saved run card
+  was **negative** with no candidate, SHA, candidate HOLDOUT-DTI, name or slot spent.
 
 ## Concurrent-main integration
 
@@ -75,3 +75,31 @@ After integration, **43 pytest tests passed** including the prior review's tests
 its standalone `unittest` suite also passed **15 tests**. The site builder passed
 `--check`, and Chromium desktop/mobile checks were repeated. The scientific
 verdict, zero experiments and no-upload decision did not change.
+
+## Later parallel GPC-3 integration and byte-level stop
+
+Another branch merged three reported experiments and a research TIFF while this
+PR was in progress. Its source, run cards, model code, TIFF and earlier dashboard
+are retained; its method was self-selected, not a lane explicitly assigned in the
+user request, and its rebuilt stack was not the requested precomputed cache.
+Canary evidence for the 59 baseline features was not documented in the parallel
+receipt. We did not rerun its training or its reported HOLDOUT-DTI.
+
+We independently reopened its SHA-bound saved TIFF and the pinned lattice.
+All 37,654 candidate dots lie within 3 px of the lattice, violating the literal
+70% stop; see `parallel-candidate-audit.json`. Against the owner mirrors, the
+pinned shared auditor rejected outside-footprint compliance and nonzero
+catalogue pixels. The outside-format conflict is not a claim of actual portal
+behavior. The parallel report's nine-site pass is only a partial novelty check.
+The old runner is archived and its CLI/final emission are blocked after its
+three-experiment budget. The research file remains downloadable but is not
+approved for submission; the active run card records the combined negative result.
+
+Post-integration verification: **52 pytest tests passed** (including the
+parallel session's original tests and synthetic lattice/runner regressions), and
+**15 unittest tests passed**. There were 31 Rasterio/Affine pending-deprecation
+warnings in synthetic fixtures. Browser checks again passed at 1440×1000 and
+390×844, with no document overflow or local JS errors. The range-check CLI now
+labels numeric checks as local, checks strict template-mask compliance separately
+and does not claim a portal result: the research TIFF passed the all-finite
+numeric range check but failed the strict mask check, as expected.
