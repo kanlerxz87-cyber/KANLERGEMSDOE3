@@ -38,8 +38,11 @@
   feature support/offsets, leakage canary failure on a deliberately leaked label, independent metric
   parity, writer/mask conflict, source links and fail-closed gate behavior.
 - Regenerated deterministic HTML/JSON, checked active pages' local links and fragment IDs, validated
-  JavaScript syntax, and confirmed the standalone preview is served from `docs/` only. External
-  images or manual data entry are not needed. The leaderboard is a dated observation, not an automated
+  JavaScript syntax, and confirmed the standalone preview is served from `docs/` only. Rendered both
+  desktop (1440×900) and mobile (390×844) in headless Chromium: nine rows, no page errors, no body
+  overflow, and the guide verdict was visible. The source-refresh success path used a mocked GitHub
+  response; the restricted sandbox showed the truthful failure fallback. External images or manual
+  data entry are not needed. The leaderboard is a dated observation, not an automated
   feed; the optional browser source-health check uses only GitHub's public API.
 - Unresolved: assigned lane, authorized mirror/code rights, authenticated organizer data, full live
   registry, same-evaluator best-incumbent comparison, shared-template repair, account-specific cap,
