@@ -1,115 +1,53 @@
-# Scientific review: completed fixed experiment (2026-10-26 UTC)
+# Executive scientific review — 26 October 2026
 
-## Decision and actual evidence
+## Decision: DO NOT SUBMIT
 
-**Negative; do not submit.** After the whole-segment, buffered spatial experiment, the frozen
-37,654-dot candidate was generated only in memory and checked against the registered calibration
-lattice. All **37,654 / 37,654 = 100%** lay within 3 pixels; the 70% rule triggers an immediate stop.
-This lane produced no TIFF, SHA or saved-byte validator result; no slot selection, receipt or
-expert-reviewed discovery exists. The [run card](../evidence/run-card.json) is the single authoritative current record.
+There is **no eligible TIFF, no new leaderboard estimate, and no competition upload in this recovery session**. The single method lane referenced in the parallel-run protocol was not included in the request. More importantly, an independently verified registry witness makes the inherited literal uniqueness check impossible to pass for any nonempty candidate within the mirrored sample footprint. Stopping before further candidate placement is required; the recovery deliverable is negative, not a claim that the geology failed.
 
-The candidate achieved **HOLDOUT-DTI 0.1133855**, 95% CI **[0.1006053, 0.1262007]**;
-`gems57-pooled-hide-v2`, **60,988 withheld positive pixels**, 1,999 paired bootstrap draws over
-553 physical 10 km clusters. Its fixed feature ablation achieved **HOLDOUT-DTI 0.1124083**, 95% CI
-**[0.0994455, 0.1252295]**, same evaluator and positives. The paired difference is **+0.0009773**,
-95% CI **[−0.0005962, +0.0026773]**. This interval does not establish improvement. The ablation
-is a controlled comparator, not the best available prior incumbent; the requirement to beat a
-same-evaluator best has not been demonstrated. Intervals condition on fixed fitted folds and catalogue
-labels, and are not forecasts or calibrated probabilities of a hidden leaderboard score.
+## Prior parallel work preserved
 
-Four centroid-assigned whole-component folds used a 1.5 km training buffer, label-free physical features,
-visible-only training labels/background exclusion, and pixel-exact visible-fault masks. Single-feature
-and support-mask AUC leakage canaries and a genuinely out-of-fold model canary did not exceed 0.90 in
-either polarity; passing does not prove absence of leakage. No full-data predictions were used as a
-withheld-label canary. The model used K/Th and LiDAR cached layers, not sample values or prior predictions.
+A concurrent provisional bilateral K/Th–LiDAR experiment reported **HOLDOUT-DTI 0.1133855**, 95% CI **[0.1006053, 0.1262007]**, `gems57-pooled-hide-v2`, 60,988 withheld positives. Its paired delta against its same-fold feature ablation was **+0.0009773**, 95% CI **[−0.0005962, +0.0026773]**; the comparable best-incumbent gate remains untested. Its 37,654 in-memory dots had 100% overlap with a registered lattice; that lane did not write a TIFF. See its [record](../evidence/run-card.json) and the [preserved prior review](../archive/recovery/concurrent-main-research-review.md).
 
-Both out-of-fold and full-fit continuous surfaces were compared with all 167 hash-verified registry
-rasters before dot placement, preserving actual nonbinary values for two references. Maximum absolute
-rank correlations were **0.0859** and **0.0975**, respectively. This is only a frozen-snapshot
-surface pass. Final-dot comparisons stopped immediately after the first lattice duplicate, and the
-snapshot cannot establish completeness across concurrent/unregistered projects.
+A separate GPC-3 research TIFF already on main had 37,654 of 37,654 dots within 3 pixels of that lattice ([independent audit](../evidence/parallel-lattice-audit.json)). The other session reported **HOLDOUT-DTI 0.1376815**, 95% CI **[0.1255670, 0.1503305]**, `gems-segment-pooled-v1`, 60,988 positives; we did not rerun it, and the evaluator is not demonstrated interchangeable with the bilateral evaluator. The TIFF is research-only and **not an eligible submission**. These historical experiments are distinct from this session's data recovery; neither used a competition slot or supplies an organizer receipt.
 
-## Concurrent GPC-3 artifact, independently checked
+## What was recovered and measured
 
-A separate session had already committed a GPC-3 research TIFF to main, with a negative verdict based
-on its reported holdout. Its record reports **HOLDOUT-DTI 0.1376815**, 95% CI **[0.1255670,
-0.1503305]**, `gems-segment-pooled-v1`, **60,988 withheld positives**. Its reported paired delta
-against its own B0 is **+0.0051737**, 95% CI **[+0.0003899, +0.0100424]**, same evaluator and
-positives. We did not replay that experiment, and its evaluator should not be directly compared with
-our `gems57` result without parity validation.
+1. The shared [57GEMSDOE template](https://github.com/buffedlizard55-lab/57GEMSDOE/tree/822a0ce5546c7b6749cdd82eb145b6b3e616603d) evaluator, writer, metric, holdout and related code were recovered **unmodified** and checked against [pins](../registry/shared_template_pins.json). They live in ignored `.cache/`; their license for reuse has not been established. They are participant code, not an organizer evaluator. Several sibling repositories identify different templates, so this pin is a reproducible candidate template—not proof of the missing lane's intended template.
+2. A public third-party bridge was independently reassembled from five SHA-checked parts. The shared template's original `cache_bands` function produced 19 cached bands, each matching the corresponding template hash. A second clean-directory bridge recovery was also verified. [Recovery receipt](../evidence/feature_cache_recovery_20261026.json); reproduce with `python scripts/restore_shared_template.py --cache-features`. Large rasters/caches are ignored. Hashes establish mirror consistency, not organizer origin, license, correctness of band descriptions or absence of leakage.
+3. The independently recovered participant-mirror sample has 60,988 positive cells, all exactly matching the mirrored labels, although the [organizer describes its sample](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#submission-format) as predicting total fault absence. This is a provenance irregularity, not evidence that the organizer's actual sample has those values. Use this mirror only for grid/footprint checks pending an authenticated sample and license verification.
+4. A pinned [GEMSDOE31 raster registry](https://github.com/buffedlizard55-lab/GEMSDOE31/blob/2a7cd0c8f1c30341a3a655a01a1ff5bff67b23d2/registry/raster_registry.json) claims 716 distinct dot sets from 92 repositories as of 2026-10-25. We restored its manifest, **not all 716 raster bytes or a current complete registry**. It contains an [unassigned-mass diagnostic](https://github.com/buffedlizard55-lab/GEMSDOE48/blob/268ec599f51c517cc3485da077c24d83af5be81d/docs/downloads/GEMSDOE48-unassigned-mass-20261006.tif). Its hash, CRS, shape and transform were checked against the pinned mirror; the unchanged shared `saturation_certificate` found its positive support covers all 5,167,373 footprint pixels. Thus, **if every positive cell of every indexed registry raster is treated as a dot**, any nonempty candidate within that footprint has 100% directed overlap with this raster—above the 70% stop. [Reproducible geometric certificate](../evidence/registry_saturation_20261026.json).
+5. This witness is a **continuous diagnostic**, not an established prior dot submission. The protocol says compare registry rasters' dots but does not define whether diagnostics count; the shared implementation defines dots as finite values greater than zero. Do not silently exclude it, claim the run is unique, or substitute a density exemption. Resolve the registry scope/representation in the common protocol before a scientific run. The certificate is conditional on the mirrored footprint and the referenced registry scope, not a proof about an unobserved official registry.
+6. For forensic learning only, the nine historical winners were restored from pinned participant repositories, hash-verified, and compared independently. All 72 directed winner-to-winner 3-pixel comparisons exceed the requested 70% stop; the minimum is 86.718954%. Continuous-surface correlations have not been measured. Each historical file is therefore a duplicate **under this protocol**, not an eligible new submission. [Audit](../docs/audit.json).
 
-We independently checked its saved TIFF SHA-256 and found all **37,654 / 37,654 = 100%** of its
-final dots within 3 pixels of the same registered lattice ([receipt](../evidence/parallel-lattice-audit.json)).
-Its pass against only nine focus champions does not satisfy the user’s all-registry stop; this research
-file is a **duplicate and must not be submitted**. The strict local null-outside validator also finds
-7,111,787 valid exterior pixels in this zero-outside TIFF ([format receipt](../evidence/parallel-format-audit.json));
-this is not evidence of portal behavior. We also verified 4,115 of its positive dots lie exactly on
-known catalogue pixels, which are masked during scoring; these dots cannot earn credit there. The
-historical output remains for provenance, with
-its run card updated to reflect the new audit; it is not a promoted deliverable. This check inspected
-existing bytes and did not fit or generate another candidate.
+## Why H33 B2 might have ranked higher
 
-## Geometry and protocol tension
+The supplied GEMSDOE32 value **0.2778 is an unverified user/owner report**, not HOLDOUT-DTI or an organizer receipt binding exact bytes. Its sparse H19-5 descendant and near-catalogue thinning are plausible contributors: if non-catalogue pixels removed by thinning have little hidden-fault credit, their removal can lower weighted false-positive mass; too much thinning can also reduce coverage/recall. This is a hypothesis, not an ablation result.
 
-The lattice covers **5,160,724 / 5,167,373** footprint cells within 3 pixels, leaving **6,649**.
-For `N` distinct candidate dots, the overlap fraction is at least `max(0, N − 6649) / N`.
-It therefore exceeds 0.70 at `N >= 22,164`. For the preregistered 37,654-dot budget, the guaranteed
-lower bound is 82.34%; the actual run showed 100%. This proof does not say that every smaller candidate
-is a duplicate. The budget was recorded after the obstruction was discovered, but not reduced to evade
-it. The project does not change the rule without explicit authorization.
+A [DrivenData staff clarification](https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/4) says the known-fault mask is **pixel-exact**, identical to the provided training labels, and used in both rounds. Removing predictions exactly on those pixels does not itself lower the penalty. Nearby unmasked predictions far from new-fault truth are penalized; new-fault truth can also be within 300 m of a known trace. Thus the effect of near-fault thinning depends on hidden truth. Neither private labels nor a score-to-hash receipt are available, so there is no defensible basis to promise an improvement over the reported value.
 
-## Historical sites and the 0.2778 claim
+## Metric irregularity found during review
 
-Nine exact owner-mirrored historical files are hash- and Git-blob-verified; details and scores are in
-[evidence/portfolio-audit.json](../evidence/portfolio-audit.json). Their reported figures are **owner
-reports, not organizer-confirmed**; no submission receipt binds score and file. Each fails the 70%
-directed overlap criterion against another of the nine. GEMSDOE25 and GEMSDOE30 have identical
-footprint masks despite different bytes. In pinned mirrors GEMSDOE32's H33-B2 is exactly the 44,090
-D2.8 dots minus 6,436 dots at or within two pixels of the known catalogue, leaving 37,654.
+The official [DTI definitions](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#performance-metric) sum true-positive credit over **truth** cells and false-positive contributions over **prediction** cells. Their weighted totals need not coincide. Therefore the simplification `denominator = alpha * predicted_mass + beta * truth_count` is not generally valid. A checked synthetic case shows one prediction can add credit to several truth cells, so even the prose inequality `delta TP <= one prediction's nearest-truth credit` is not general. The pinned `gems57.metric.dti_exact` agreed with its brute-force implementation on that test; the questionable statement is prose, and the older GEMSDOE32 explanation also uses an unjustified simplification. No shared source was privately patched. Correct this prose once in the upstream shared template before using it to justify emission rules; local regression test: `test_shared_metric_synthetic_counterexample_when_available`.
 
-Removing predictions without losing weighted true-positive coverage can reduce the false-positive term
-and increase DTI. Removing dots near known faults may also remove real, newly mapped continuations or
-splays. Hidden truth, causal ablation, and verified receipts are missing, so no causal explanation or
-future improvement is established. A prior GEMSDOE24 report of HOLDOUT-DTI 0.16379 (95% CI
-[0.15045, 0.17739], `gems-segment-pooled-v1`, 60,988 positives) was not replayed against our model;
-its reported value is not a directly comparable victory threshold. Do not treat its holdout as an
-organizer result or claim our lane exceeded it.
+## Format, range error, and false certainty
 
-## Shared writer versus the official footprint mask
+The official description requires one `float32` band in EPSG:32611, 100 m resolution, matching bounds, values in [0,1], and null/NaN outside the bounds. It does **not** establish exactly how the portal interprets the mirrored sample's irregular mask. The local validator applies a conservative sample-mask policy; 7 of the 9 historical rasters fail that **local policy** because they use finite zeros outside that mask, while 2 pass. This does not prove those 7 were or would be rejected by DrivenData. The earlier report incorrectly called this an established official-format failure; that claim is withdrawn.
 
-The published format describes null/NaN outside the footprint. The two unchanged GEMSDOE24 shared
-writer pins differ: `fc2bc6f` defaults to NaN outside, while `7ab1c8f` defaults to zero. Their
-`format_valid` checks treat the official outside-NaN condition as advisory. A separately integrated strict local validator requires outside
-pixels to be nodata and rejects a zero-outside file. A synthetic regression demonstrates both
-behaviors; neither establishes what the portal accepted or why an earlier file failed. The shared
-upstream template has **not** been modified here: the session is restricted to this repository branch,
-so no private writer fork or upstream fix is claimed. The inconsistency must be fixed once in the
-shared template, or clarified by the organizer, before any submission is contemplated.
+The reported portal error cannot be diagnosed without the exact uploaded TIFF. The revised validator rejects empty/ambiguous footprints, infinity, invalid in-footprint values, mismatched geometry, and external `.msk` sidecar dependence; it reports whether all raw bytes are finite and in range. A synthetic internal-mask test demonstrates that a standalone TIFF can contain finite zeros outside while marking them invalid in its internal mask, but organizer acceptance and compatibility with the shared writer have not been established. Do not silently clip, repair, or resubmit an old file.
 
-## Data, licenses and access
+## Verified official context and limits
 
-The six files were restored from pinned owner mirrors. SHA-256 and expected grids/bands were verified;
-this is mirror integrity, not organizer authentication. The shared template’s full cached feature
-stack was not authenticated or reused: the nine model inputs were constructed from owner-cached
-LiDAR and radiometric rasters. This is an unmet protocol requirement, not a substitute for the
-requested shared stack. The sample mirror contains exactly the known
-labels as positives; it supplied only the finite footprint and spatial grid. Cached LiDAR/scarp and
-radiometric layers are derived, quantized proxies; the full 19-band training raster was validated but
-not used as a predictor. The underlying USGS GeoDAWN release is CC0 and 3DEP products are generally
-free/public-domain, but this does not establish the provenance, code license or shareability of the
-owner's derived caches. Direct authenticated organizer data and account-specific cap were unavailable.
-See [source register](../docs/SOURCES.md).
+- [Problem and DTI](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/): the target is expert-identified geological **faults**, not proof of a geothermal vent. The same selected submission is used for private initial scoring and the expanded final-label round.
+- [Organizer clarification on known-fault masks](https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/4): the mask is pixel-exact, not a 300 m buffer. Nearby unmasked predictions can be penalized and new-fault truth can occur within 300 m of known faults.
+- [NLR official rules, sections 3.2–3.5](https://docs.nlr.gov/docs/fy26osti/96647.pdf): the PDF describes three submissions per week, selection of one final submission for both rounds, reproducible code/documentation and generative-AI disclosure. The authenticated team's remaining quota and current form were not checked. The [competition overview](https://www.drivendata.org/competitions/306/competition-doe-gems/) gives a deadline of 3 December 2026 at 23:59 UTC; recheck the live site.
+- [Official public leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) was fetched on 2026-10-26; it is not a receipt for any of these site submissions. Use the link for current standings; no candidate leaderboard estimate or organizer-confirmed team score is inferred from it.
+- [USGS GeoDAWN](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and) identifies magnetic, radiometric and GeoTIFF products and a CC0 designation. [GDR INGENIOUS #1391](https://gdr.openei.org/submissions/1391) lists a publicly accessible CC BY 4.0 compilation including 2 m probes and well/spring chemistry. These official metadata pages were read; underlying external downloads, coverage and competition-use compatibility were **not** independently tested.
+- The [official data tab](https://www.drivendata.org/competitions/306/competition-doe-gems/data/) redirected to login. No organizer-authenticated data or account receipt is available. Do not store credentials. Review [external data rules](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#external-datasets) before using any mirror or derived feature.
 
-The user refers to a single named method paragraph that cannot be identified in the supplied request;
-this lane was explicitly provisional and cannot be promoted as though assigned. The feature idea may
-be mimicked by channels, deposits, contacts, roads, processing seams and inconsistent flight sampling.
-The candidate is not a geothermal-vent detector and no newly discovered feature has been confirmed.
+## Exact continuation
 
-## Attempts and continuation
-
-Attempt 1 terminated on an uninitialized clock variable after feature/canary calculation; its receipt
-is preserved. Attempt 2 corrected only the runner bug and produced the results above. Under the duplicate
-stop no further candidate is run. First resolve the actual lane, mirror authentication and sharing rights,
-registry completeness, and the impossible high-density requirement. Any new, authorized run needs a
-fresh preregistration and paired best-incumbent evaluation. Promotion, format validity and the weekly
-slot selector remain separate.
+1. Define the missing single-method lane and settle whether dense diagnostics belong in the dot registry, centrally; do not weaken thresholds in this project alone.
+2. Verify permission/license for the shared template and bridge and compare their bytes against an authorized organizer download. Resolve the sample discrepancy and competing template pins.
+3. Restore and freeze the current complete surface/dot registry and immutable inventory; a stale manifest or absent bytes cannot establish uniqueness.
+4. Only then preregister the lane's top hypothesis. Rebuild all catalogue-derived features from visible faults in buffered whole-segment folds, run every feature-alone AUC canary, and compare candidate versus the current incumbent using the same pooled shared HOLDOUT-DTI evaluator and paired spatial-block 95% CI. Maximum three experiments or two hours; stop on a duplicate.
+5. If scientific gates clear, use the shared writer and independently validate exact saved bytes. A separate selector checks the authenticated current quota and decides a slot. Preserve the organizer receipt, exact hash, name, and note. No user/owner report or projection is an organizer-confirmed score.

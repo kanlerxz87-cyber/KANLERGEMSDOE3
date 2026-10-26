@@ -16,7 +16,7 @@ def finite(value):
 def assess(card):
     failures = []
     if not isinstance(card, dict):
-        return {'verdict': 'negative', 'failures': ['run card must be an object'], 'slot_authorized': False}
+        return {'verdict': 'negative', 'schema_status': 'incomplete', 'failures': ['run card must be an object'], 'promotion_evaluated': False, 'slot_authorized': False}
     required_true = [
         'lane_recorded', 'shared_template_pinned', 'whole_segment_buffered_holdout',
         'visible_only_features', 'pixel_exact_visible_mask', 'all_features_canary_tested',
@@ -26,9 +26,11 @@ def assess(card):
     for field in required_true:
         if card.get(field) is not True:
             failures.append(field)
+    # The stated stop is rho > .90, not abs(rho) > .90. A strong negative
+    # correlation is not the same-direction duplicate specified by the user.
     for field in ('surface_max_rank_correlation', 'final_max_rank_correlation'):
         v=card.get(field)
-        if not finite(v) or not 0 <= abs(v) <= .90:
+        if not finite(v) or not -1 <= v <= .90:
             failures.append(field)
     for field in ('surface_dot_overlap_3px', 'final_dot_overlap_3px'):
         v=card.get(field)
@@ -38,11 +40,12 @@ def assess(card):
     if not finite(auc) or not 0 <= auc <= .90:
         failures.append('leakage_canary')
     ci=card.get('paired_improvement_ci95')
-    if not isinstance(ci,list) or len(ci)!=2 or not all(finite(x) for x in ci) or not 0 < ci[0] <= ci[1]:
+    if not isinstance(ci,list) or len(ci)!=2 or not all(finite(x) for x in ci) or not 0 < ci[0] <= ci[1] <= 1:
         failures.append('paired_holdout_improvement')
     metric=card.get('holdout',{})
     if not isinstance(metric,dict):metric={}
-    if metric.get('class')!='HOLDOUT-DTI' or not metric.get('evaluator_version'):
+    version = metric.get('evaluator_version')
+    if metric.get('class')!='HOLDOUT-DTI' or not isinstance(version, str) or not version.strip():
         failures.append('holdout_identity')
     n=metric.get('withheld_positives')
     if type(n) is not int or n <= 0:failures.append('withheld_positives')
@@ -53,7 +56,8 @@ def assess(card):
         failures.append('metric_definition')
     v=card.get('validator',{})
     if not isinstance(v,dict):v={}
-    for field in ('single_band','all_finite','range_0_1','crs_match','shape_match','transform_match'):
+    for field in ('single_band','no_nan_inside_footprint','values_0_1_inside_footprint',
+                  'crs_match','shape_match','transform_match'):
         if v.get(field) is not True:failures.append('validator.'+field)
     sha=card.get('raster_sha256')
     if not isinstance(sha,str) or not re.fullmatch('[0-9a-f]{64}',sha):failures.append('raster_sha256')
@@ -61,7 +65,13 @@ def assess(card):
         if not isinstance(card.get(field),str) or not card[field].strip():failures.append(field)
     note=card.get('submission_note')
     if not isinstance(note,str) or not 0<len(note)<=140:failures.append('submission_note')
-    return {'verdict':'negative' if failures else 'promote','failures':failures,'slot_authorized':False}
+    # Booleans in a card are not authenticated evidence. Even a complete schema
+    # can never issue a research promotion or authorize a weekly slot by itself.
+    return {'verdict':'negative',
+            'schema_status':'incomplete' if failures else 'complete',
+            'failures':failures,
+            'promotion_evaluated':False,
+            'slot_authorized':False}
 
 if __name__=='__main__':
     result=assess(json.load(open(sys.argv[1])))

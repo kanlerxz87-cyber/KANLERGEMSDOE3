@@ -16,3 +16,8 @@ __pycache__/
 /data/restore_receipt.json
 /evidence/*.npy
 _site/
+# Local recovery scratch and partial participant-template downloads
+/data/template57/
+/data/template*_*.json
+/data/cache_check.json
+/data/saturation_local.json

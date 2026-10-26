@@ -15,22 +15,57 @@
           "crs_match": true,
           "shape_match": true,
           "transform_match": true,
-          "finite_inside_footprint": true,
-          "range_0_1_inside_footprint": true,
-          "nodata_outside_footprint": false
+          "all_finite": true,
+          "range_0_1": true,
+          "outside_footprint_is_null": false,
+          "conservative_sample_mask_policy": false
         },
         "format_pass": false,
+        "strict_template_validation": {
+          "ok": false,
+          "errors": [
+            "outside-footprint unmasked non-null pixels=7111787; local policy expects null/nodata"
+          ],
+          "warnings": [],
+          "validator": "submission-format-v2",
+          "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE24.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 7111787,
+          "nan_pixels_whole_grid": 0,
+          "infinite_pixels_whole_grid": 0,
+          "finite_out_of_range_whole_grid": 0,
+          "raw_whole_grid_finite_in_range": true
+        },
         "sha256": "3e0730e8d4f7db095dd80246a98cba3bc0fc9a28f436b91db27ca34df4d0d1ce",
-        "nonfinite_count_inside": 0,
-        "finite_range_inside": [
-          0.0,
-          1.0
-        ],
-        "valid_outside_footprint": 7111787,
-        "errors": [
-          "outside-footprint valid pixels=7111787; expected null/nodata"
-        ],
-        "note": "Format only; template-mask-aware checks; not scientific validation or permission to submit."
+        "nonfinite_count": 0,
+        "note": "Conservative local check against a pinned participant-mirror sample mask; not a portal result, organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -51,22 +86,57 @@
           "crs_match": true,
           "shape_match": true,
           "transform_match": true,
-          "finite_inside_footprint": true,
-          "range_0_1_inside_footprint": true,
-          "nodata_outside_footprint": false
+          "all_finite": true,
+          "range_0_1": true,
+          "outside_footprint_is_null": false,
+          "conservative_sample_mask_policy": false
         },
         "format_pass": false,
+        "strict_template_validation": {
+          "ok": false,
+          "errors": [
+            "outside-footprint unmasked non-null pixels=7111787; local policy expects null/nodata"
+          ],
+          "warnings": [],
+          "validator": "submission-format-v2",
+          "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE25.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 7111787,
+          "nan_pixels_whole_grid": 0,
+          "infinite_pixels_whole_grid": 0,
+          "finite_out_of_range_whole_grid": 0,
+          "raw_whole_grid_finite_in_range": true
+        },
         "sha256": "3e78737f0da8dd2ca66cc6caac0ce8eeefcd6715707f8d1bd3091845cd9bcc30",
-        "nonfinite_count_inside": 0,
-        "finite_range_inside": [
-          0.0,
-          1.0
-        ],
-        "valid_outside_footprint": 7111787,
-        "errors": [
-          "outside-footprint valid pixels=7111787; expected null/nodata"
-        ],
-        "note": "Format only; template-mask-aware checks; not scientific validation or permission to submit."
+        "nonfinite_count": 0,
+        "note": "Conservative local check against a pinned participant-mirror sample mask; not a portal result, organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -87,22 +157,57 @@
           "crs_match": true,
           "shape_match": true,
           "transform_match": true,
-          "finite_inside_footprint": true,
-          "range_0_1_inside_footprint": true,
-          "nodata_outside_footprint": false
+          "all_finite": true,
+          "range_0_1": true,
+          "outside_footprint_is_null": false,
+          "conservative_sample_mask_policy": false
         },
         "format_pass": false,
+        "strict_template_validation": {
+          "ok": false,
+          "errors": [
+            "outside-footprint unmasked non-null pixels=7111787; local policy expects null/nodata"
+          ],
+          "warnings": [],
+          "validator": "submission-format-v2",
+          "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE27.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 7111787,
+          "nan_pixels_whole_grid": 0,
+          "infinite_pixels_whole_grid": 0,
+          "finite_out_of_range_whole_grid": 0,
+          "raw_whole_grid_finite_in_range": true
+        },
         "sha256": "a9bf76b57453a5b3af74c8eef837df53c29a0931162aa540b8763220b36ba3bb",
-        "nonfinite_count_inside": 0,
-        "finite_range_inside": [
-          0.0,
-          1.0
-        ],
-        "valid_outside_footprint": 7111787,
-        "errors": [
-          "outside-footprint valid pixels=7111787; expected null/nodata"
-        ],
-        "note": "Format only; template-mask-aware checks; not scientific validation or permission to submit."
+        "nonfinite_count": 0,
+        "note": "Conservative local check against a pinned participant-mirror sample mask; not a portal result, organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 0.9801884946517089,
       "unique_under_protocol": false,
@@ -123,22 +228,57 @@
           "crs_match": true,
           "shape_match": true,
           "transform_match": true,
-          "finite_inside_footprint": true,
-          "range_0_1_inside_footprint": true,
-          "nodata_outside_footprint": false
+          "all_finite": true,
+          "range_0_1": true,
+          "outside_footprint_is_null": false,
+          "conservative_sample_mask_policy": false
         },
         "format_pass": false,
+        "strict_template_validation": {
+          "ok": false,
+          "errors": [
+            "outside-footprint unmasked non-null pixels=7111787; local policy expects null/nodata"
+          ],
+          "warnings": [],
+          "validator": "submission-format-v2",
+          "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE28.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 7111787,
+          "nan_pixels_whole_grid": 0,
+          "infinite_pixels_whole_grid": 0,
+          "finite_out_of_range_whole_grid": 0,
+          "raw_whole_grid_finite_in_range": true
+        },
         "sha256": "7c74270ad48fa0b865163853046a6d3815967c5bf37bbda5b74ca7fa22583a32",
-        "nonfinite_count_inside": 0,
-        "finite_range_inside": [
-          0.0,
-          1.0
-        ],
-        "valid_outside_footprint": 7111787,
-        "errors": [
-          "outside-footprint valid pixels=7111787; expected null/nodata"
-        ],
-        "note": "Format only; template-mask-aware checks; not scientific validation or permission to submit."
+        "nonfinite_count": 0,
+        "note": "Conservative local check against a pinned participant-mirror sample mask; not a portal result, organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -159,20 +299,57 @@
           "crs_match": true,
           "shape_match": true,
           "transform_match": true,
-          "finite_inside_footprint": true,
-          "range_0_1_inside_footprint": true,
-          "nodata_outside_footprint": true
+          "all_finite": false,
+          "range_0_1": false,
+          "outside_footprint_is_null": true,
+          "conservative_sample_mask_policy": true
         },
         "format_pass": true,
+        "strict_template_validation": {
+          "ok": true,
+          "errors": [],
+          "warnings": [
+            "raw whole-grid values include non-finite or out-of-range cells; portal handling of nodata/masks is unverified"
+          ],
+          "validator": "submission-format-v2",
+          "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE30.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 0,
+          "nan_pixels_whole_grid": 7111787,
+          "infinite_pixels_whole_grid": 0,
+          "finite_out_of_range_whole_grid": 0,
+          "raw_whole_grid_finite_in_range": false
+        },
         "sha256": "5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32",
-        "nonfinite_count_inside": 0,
-        "finite_range_inside": [
-          0.0,
-          1.0
-        ],
-        "valid_outside_footprint": 0,
-        "errors": [],
-        "note": "Format only; template-mask-aware checks; not scientific validation or permission to submit."
+        "nonfinite_count": 7111787,
+        "note": "Conservative local check against a pinned participant-mirror sample mask; not a portal result, organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -193,22 +370,57 @@
           "crs_match": true,
           "shape_match": true,
           "transform_match": true,
-          "finite_inside_footprint": true,
-          "range_0_1_inside_footprint": true,
-          "nodata_outside_footprint": false
+          "all_finite": true,
+          "range_0_1": true,
+          "outside_footprint_is_null": false,
+          "conservative_sample_mask_policy": false
         },
         "format_pass": false,
+        "strict_template_validation": {
+          "ok": false,
+          "errors": [
+            "outside-footprint unmasked non-null pixels=7111787; local policy expects null/nodata"
+          ],
+          "warnings": [],
+          "validator": "submission-format-v2",
+          "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE31.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 7111787,
+          "nan_pixels_whole_grid": 0,
+          "infinite_pixels_whole_grid": 0,
+          "finite_out_of_range_whole_grid": 0,
+          "raw_whole_grid_finite_in_range": true
+        },
         "sha256": "acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6",
-        "nonfinite_count_inside": 0,
-        "finite_range_inside": [
-          0.0,
-          1.0
-        ],
-        "valid_outside_footprint": 7111787,
-        "errors": [
-          "outside-footprint valid pixels=7111787; expected null/nodata"
-        ],
-        "note": "Format only; template-mask-aware checks; not scientific validation or permission to submit."
+        "nonfinite_count": 0,
+        "note": "Conservative local check against a pinned participant-mirror sample mask; not a portal result, organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -229,22 +441,57 @@
           "crs_match": true,
           "shape_match": true,
           "transform_match": true,
-          "finite_inside_footprint": true,
-          "range_0_1_inside_footprint": true,
-          "nodata_outside_footprint": false
+          "all_finite": true,
+          "range_0_1": true,
+          "outside_footprint_is_null": false,
+          "conservative_sample_mask_policy": false
         },
         "format_pass": false,
+        "strict_template_validation": {
+          "ok": false,
+          "errors": [
+            "outside-footprint unmasked non-null pixels=7111787; local policy expects null/nodata"
+          ],
+          "warnings": [],
+          "validator": "submission-format-v2",
+          "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE32.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 7111787,
+          "nan_pixels_whole_grid": 0,
+          "infinite_pixels_whole_grid": 0,
+          "finite_out_of_range_whole_grid": 0,
+          "raw_whole_grid_finite_in_range": true
+        },
         "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
-        "nonfinite_count_inside": 0,
-        "finite_range_inside": [
-          0.0,
-          1.0
-        ],
-        "valid_outside_footprint": 7111787,
-        "errors": [
-          "outside-footprint valid pixels=7111787; expected null/nodata"
-        ],
-        "note": "Format only; template-mask-aware checks; not scientific validation or permission to submit."
+        "nonfinite_count": 0,
+        "note": "Conservative local check against a pinned participant-mirror sample mask; not a portal result, organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -265,20 +512,57 @@
           "crs_match": true,
           "shape_match": true,
           "transform_match": true,
-          "finite_inside_footprint": true,
-          "range_0_1_inside_footprint": true,
-          "nodata_outside_footprint": true
+          "all_finite": false,
+          "range_0_1": false,
+          "outside_footprint_is_null": true,
+          "conservative_sample_mask_policy": true
         },
         "format_pass": true,
+        "strict_template_validation": {
+          "ok": true,
+          "errors": [],
+          "warnings": [
+            "raw whole-grid values include non-finite or out-of-range cells; portal handling of nodata/masks is unverified"
+          ],
+          "validator": "submission-format-v2",
+          "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE33.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 0,
+          "nan_pixels_whole_grid": 7111787,
+          "infinite_pixels_whole_grid": 0,
+          "finite_out_of_range_whole_grid": 0,
+          "raw_whole_grid_finite_in_range": false
+        },
         "sha256": "bc3af2a5fcb4b49bc5845a2d7dc3da23daf41ce75e4c64da3337c0c8c93cc12c",
-        "nonfinite_count_inside": 0,
-        "finite_range_inside": [
-          0.0,
-          1.0
-        ],
-        "valid_outside_footprint": 0,
-        "errors": [],
-        "note": "Format only; template-mask-aware checks; not scientific validation or permission to submit."
+        "nonfinite_count": 7111787,
+        "note": "Conservative local check against a pinned participant-mirror sample mask; not a portal result, organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 0.9970858712528365,
       "unique_under_protocol": false,
@@ -299,22 +583,57 @@
           "crs_match": true,
           "shape_match": true,
           "transform_match": true,
-          "finite_inside_footprint": true,
-          "range_0_1_inside_footprint": true,
-          "nodata_outside_footprint": false
+          "all_finite": true,
+          "range_0_1": true,
+          "outside_footprint_is_null": false,
+          "conservative_sample_mask_policy": false
         },
         "format_pass": false,
+        "strict_template_validation": {
+          "ok": false,
+          "errors": [
+            "outside-footprint unmasked non-null pixels=7111787; local policy expects null/nodata"
+          ],
+          "warnings": [],
+          "validator": "submission-format-v2",
+          "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE36.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 7111787,
+          "nan_pixels_whole_grid": 0,
+          "infinite_pixels_whole_grid": 0,
+          "finite_out_of_range_whole_grid": 0,
+          "raw_whole_grid_finite_in_range": true
+        },
         "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
-        "nonfinite_count_inside": 0,
-        "finite_range_inside": [
-          0.0,
-          1.0
-        ],
-        "valid_outside_footprint": 7111787,
-        "errors": [
-          "outside-footprint valid pixels=7111787; expected null/nodata"
-        ],
-        "note": "Format only; template-mask-aware checks; not scientific validation or permission to submit."
+        "nonfinite_count": 0,
+        "note": "Conservative local check against a pinned participant-mirror sample mask; not a portal result, organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 0.9757811293560509,
       "unique_under_protocol": false,
