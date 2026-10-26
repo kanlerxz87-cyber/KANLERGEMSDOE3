@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "generated_utc": "2026-10-26T22:00:47.591005+00:00",
   "experiment_id": "SSP1-E1",
   "experiments_executed": 1,
@@ -329,6 +329,283 @@
   },
   "registry": {
     "surface": {
+      "stage": "post_run_recheck_of_preserved_preplacement_surface",
+      "correlation": "Exact full-footprint Spearman, average ties, absolute threshold 0.90; no positive continuous pixel is treated as a placed dot. Final dot proximity is a separate gate.",
+      "n_manifest_files": 2729,
+      "n_checked_files": 2729,
+      "n_compared_files": 2711,
+      "n_unique_blobs_read": 1921,
+      "n_missing": 0,
+      "n_quarantined": 18,
+      "quarantines": [
+        {
+          "site": "14GEMSDOE",
+          "commit": "88dd365dc7469c316f0f7c3bdd18fd90c5825a07",
+          "path": "docs/downloads/GEMS_r5-geom-horse-ensemble_20260929T154852Z_ccbe1de0_site_e96e942f.tif",
+          "bytes": 259215,
+          "git_blob_sha": "7c12ed8a4164ce549fc8c3114eb30eb7f898af09",
+          "status": "ok",
+          "sha256": "ccbe1de0cfd70cbe7257c04669195f390ca652fa3a76c51505f461f01a1424c6",
+          "local": ".cache/blobs/7c12ed8a4164ce549fc8c3114eb30eb7f898af09.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 1"
+        },
+        {
+          "site": "60GEMSDOE",
+          "commit": "866f7e9316352d6c6071d6537cf0c338c2c6b45d",
+          "path": "docs/downloads/gems60-h63-strike-corridor-42000px-20261011T020352Z-zeros.tif",
+          "bytes": 101295,
+          "git_blob_sha": "a73a39a99e3d75fdf8d2160c4736c2f7d63cb766",
+          "status": "ok",
+          "sha256": "2b859cf93be06cf4e5a4fe2f66ef2561e2ad5a516e0059705b8131d753dff589",
+          "local": ".cache/blobs/a73a39a99e3d75fdf8d2160c4736c2f7d63cb766.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 1"
+        },
+        {
+          "site": "62GEMSDOE",
+          "commit": "38c521be981681832607c6b4152165e88a54ec11",
+          "path": "evidence/dem/lahontan_dem_utm11.tif",
+          "bytes": 45932226,
+          "git_blob_sha": "67aa86ab4e36c8e3f30bc90f6d8e124723e1f90e",
+          "status": "ok",
+          "sha256": "90838cbc194576b772c4c11b19b6d37aeb66cbe04818170ccaa3ca46591f40e7",
+          "local": ".cache/blobs/67aa86ab4e36c8e3f30bc90f6d8e124723e1f90e.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (9200, 7600), EPSG:32611, 1"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "external/dem/lidar_scarp_features_u8.tif",
+          "bytes": 36943606,
+          "git_blob_sha": "da733b53147efad5c141ffdb96e469ec5b4da8b8",
+          "status": "ok",
+          "sha256": "d580bb8bdcdb941e32fefb8b38044bc5bf04e199bf2e83498c3576e6fc465568",
+          "local": ".cache/blobs/da733b53147efad5c141ffdb96e469ec5b4da8b8.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 12"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "external/geodawn_extensions/geodawn_extensions_u8.tif",
+          "bytes": 27132925,
+          "git_blob_sha": "2fb1d57fdd33b0bdea51f2abef58fb5cddf53aa5",
+          "status": "ok",
+          "sha256": "a35a9c6d2a14786f4dab85481ee59769213072f5dab5b2535ea82ae4d9bb7d9b",
+          "local": ".cache/blobs/2fb1d57fdd33b0bdea51f2abef58fb5cddf53aa5.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 4"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "external/geodawn_rad/geodawn_rad_u8.tif",
+          "bytes": 26612970,
+          "git_blob_sha": "80704748f974ea9dbc002924ddf971a957186ae6",
+          "status": "ok",
+          "sha256": "c22420f75999030d7cc65c9e31e50d232ea6158423bca051613a18a8b20ba682",
+          "local": ".cache/blobs/80704748f974ea9dbc002924ddf971a957186ae6.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 4"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "external/qfaults/qfaults_prior_u8.tif",
+          "bytes": 873834,
+          "git_blob_sha": "b6b4c2193fad0b9266849d0838e27dee640a03d4",
+          "status": "ok",
+          "sha256": "538b45735833b341fc455dbbf06c47bc82a8bd8943c254ae6d3a5a07e72e22ca",
+          "local": ".cache/blobs/b6b4c2193fad0b9266849d0838e27dee640a03d4.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 3"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "tests/fixture/fixture_features_int16.tif",
+          "bytes": 5237005,
+          "git_blob_sha": "a6234b555fefe3a03d56d8d3f90e6a2be7c6f6b5",
+          "status": "ok",
+          "sha256": "22ec31702ff6d03c4ba9a45c66e2a924f540891844d5e4c79a6c1bd83397cf04",
+          "local": ".cache/blobs/a6234b555fefe3a03d56d8d3f90e6a2be7c6f6b5.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 19"
+        },
+        {
+          "site": "7GEMSDOE",
+          "commit": "9d8b5d55b674629f7b0e0e486269917c0fa2dade",
+          "path": "tests/fixture/fixture_labels.tif",
+          "bytes": 6090,
+          "git_blob_sha": "a5d33edd0f8b35f3f0932e0135096d3172d9e79d",
+          "status": "ok",
+          "sha256": "0020056dc438ee34174d12b996b0adb8098070951798ac4cddb885689275daa2",
+          "local": ".cache/blobs/a5d33edd0f8b35f3f0932e0135096d3172d9e79d.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE22",
+          "commit": "96481093a7f73e5c13669e45574213d70c204ba0",
+          "path": "assets/external/qfaults_prior_u8.tif",
+          "bytes": 873834,
+          "git_blob_sha": "b6b4c2193fad0b9266849d0838e27dee640a03d4",
+          "status": "ok",
+          "sha256": "538b45735833b341fc455dbbf06c47bc82a8bd8943c254ae6d3a5a07e72e22ca",
+          "local": ".cache/blobs/b6b4c2193fad0b9266849d0838e27dee640a03d4.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 3"
+        },
+        {
+          "site": "GEMSDOE3",
+          "commit": "512371de5d30162813803cdccbd4931ceeb065c7",
+          "path": "legacy/data/evidence/proxy/proxy_window.tif",
+          "bytes": 5308,
+          "git_blob_sha": "1fc3d38da885918711ceef9aebab0fa7b53cf765",
+          "status": "ok",
+          "sha256": "400085c8ef9a1937a9a95b8b81d468ef67f9e39f02abc0403512b77521c24bbd",
+          "local": ".cache/blobs/1fc3d38da885918711ceef9aebab0fa7b53cf765.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE3",
+          "commit": "512371de5d30162813803cdccbd4931ceeb065c7",
+          "path": "legacy/data/evidence/xcat/proxy_window.tif",
+          "bytes": 7491,
+          "git_blob_sha": "51d18ae2082396fba9187cc299da051fd9d6f77e",
+          "status": "ok",
+          "sha256": "48326d816108330bddb6e329b71b5db60aea488d99b1d9788430d8575b8254a0",
+          "local": ".cache/blobs/51d18ae2082396fba9187cc299da051fd9d6f77e.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE3",
+          "commit": "512371de5d30162813803cdccbd4931ceeb065c7",
+          "path": "legacy/data/fixture/fixture_features_int16.tif",
+          "bytes": 5237005,
+          "git_blob_sha": "a6234b555fefe3a03d56d8d3f90e6a2be7c6f6b5",
+          "status": "ok",
+          "sha256": "22ec31702ff6d03c4ba9a45c66e2a924f540891844d5e4c79a6c1bd83397cf04",
+          "local": ".cache/blobs/a6234b555fefe3a03d56d8d3f90e6a2be7c6f6b5.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 19"
+        },
+        {
+          "site": "GEMSDOE3",
+          "commit": "512371de5d30162813803cdccbd4931ceeb065c7",
+          "path": "legacy/data/fixture/fixture_labels.tif",
+          "bytes": 6090,
+          "git_blob_sha": "a5d33edd0f8b35f3f0932e0135096d3172d9e79d",
+          "status": "ok",
+          "sha256": "0020056dc438ee34174d12b996b0adb8098070951798ac4cddb885689275daa2",
+          "local": ".cache/blobs/a5d33edd0f8b35f3f0932e0135096d3172d9e79d.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (512, 512), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE36",
+          "commit": "b90418f852615aa0974cf9a53b92fa569ed133fc",
+          "path": "docs/downloads/GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif",
+          "bytes": 1129,
+          "git_blob_sha": "a97c7b2a513225c9f9f2b35736afe5abf4d2a491",
+          "status": "ok",
+          "sha256": "60543f8ea9d4ee432b018832337c3cf1fe0db4f71b87d15fea71869fe4f23638",
+          "local": ".cache/blobs/a97c7b2a513225c9f9f2b35736afe5abf4d2a491.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (32, 48), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE63",
+          "commit": "4195d91809a0c33871fe7013c90dde74d6571294",
+          "path": "docs/downloads/smoke.tif",
+          "bytes": 110,
+          "git_blob_sha": "89ffb2d61840859392a758928ffdbae4260f2918",
+          "status": "ok",
+          "sha256": "a65ccbb94d92988ddf1ddc599d05de756fa3339ea451c3711c6f2c4f5bc4e028",
+          "local": ".cache/blobs/89ffb2d61840859392a758928ffdbae4260f2918.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "89ffb2d61840859392a758928ffdbae4260f2918.tif: MissingRequired:TIFF directory is missing required \"StripOffsets\" field"
+        },
+        {
+          "site": "GEMSDOE75",
+          "commit": "c1b2d329e1926aac016d6286256878f5497f53fc",
+          "path": "docs/downloads/gems75-fault-tip-halo-20261021-SCHEMA-DEMO-DO-NOT-SUBMIT.tif",
+          "bytes": 171873,
+          "git_blob_sha": "df07c7c6b4aa87710b2ce97c6b80f7a4c2704c6d",
+          "status": "ok",
+          "sha256": "89d57a586634dafa256dc752a5d8a08815be23f26de4f651063378a198742098",
+          "local": ".cache/blobs/df07c7c6b4aa87710b2ce97c6b80f7a4c2704c6d.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 1"
+        },
+        {
+          "site": "GEMSDOE75",
+          "commit": "c1b2d329e1926aac016d6286256878f5497f53fc",
+          "path": "docs/downloads/gemsdoe75-zeros-SCHEMA-DEMO-DO-NOT-SUBMIT.tif",
+          "bytes": 160762,
+          "git_blob_sha": "65cbac2663e05541d29de340b1c652582207313e",
+          "status": "ok",
+          "sha256": "76e78cbd515e51afc3741c8000a61434a0839f1d84e9577631b83560fc59a5c8",
+          "local": ".cache/blobs/65cbac2663e05541d29de340b1c652582207313e.tif",
+          "comparison_status": "quarantined_incompatible",
+          "reason": "Noncompetition grid or bands: (3730, 3292), EPSG:32611, 1"
+        }
+      ],
+      "max_abs_spearman": 0.4370705021809873,
+      "nearest_raster": {
+        "site": "GEMSDOE48",
+        "path": "docs/downloads/GEMSDOE48-H53-3SRC-DS-20261007-9242c831-nan-outside.tif"
+      },
+      "violations": [],
+      "complete": true,
+      "inventory_complete": true,
+      "comparison_complete": false,
+      "correlation_threshold_clear_on_comparable_entries": true,
+      "passed": false,
+      "verified_utc": "2026-10-26T22:46:01.571342+00:00",
+      "surface_npy_sha256": "4612119fd5ada1dd705f38aec3a7f6e156ace431fbea8c59febdd99f87775beb",
+      "registry_manifest_sha256": "8d4cd9b61744395446935c6d981ba3ce8261888663adce9891bcf7e2d432cc13",
+      "input_footprint_sha256": "bb2f0aae5da0741c436cf2807124e897658ef616ad35498fdc0d6e8009922e93",
+      "model_fits_executed": 0,
+      "dot_placements_executed": 0,
+      "original_report": "evidence/surface_guard.json",
+      "discrepancy": {
+        "n_comparisons_different_beyond_1e_12": 2704,
+        "maximum_absolute_delta": 0.0015266140252187185,
+        "cause": "Not established. The original observation is retained, not silently rewritten or excused by a relaxed tolerance.",
+        "scientific_effect": "No fit, candidate, holdout score/CI, final-dot overlap, or negative verdict changes. Both reports are well below 0.90 on comparable entries; quarantines still block universal certification."
+      }
+    },
+    "final_dots": {
+      "stage": "final_dots",
+      "passed": false,
+      "duplicate": true,
+      "stopped_at_first_duplicate": true,
+      "n_unique_rasters_checked": 1,
+      "checks": [
+        {
+          "site": "13GEMSDOE",
+          "path": "docs/downloads/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+          "spearman": -0.000285714793769,
+          "fraction_candidate_dots_within_3px": 0.9987517926382323
+        }
+      ],
+      "exact_dot_mask_matches": [],
+      "exact_dot_mask_unique_within_comparable_snapshot": true,
+      "file_sha_uniqueness_is_not_lane_uniqueness": true
+    },
+    "file_sha_unique_in_snapshot": true,
+    "dot_mask_sha256": "fbab7ef55863be9661eef591d80b8847a7d492051bc3d8526c6c26c0204d7c8c",
+    "universe_sites": 92,
+    "universe_files": 2729,
+    "universe_unique_blobs": 1921,
+    "scope": "All non-data GeoTIFFs in all 92 named repositories through GEMSDOE92 at frozen commits; no size cutoff. This includes prediction mirrors and quarantines nonprediction/incompatible grids explicitly. Unpublished files and later parallel changes are outside scope.",
+    "manifest_sha256": "8d4cd9b61744395446935c6d981ba3ce8261888663adce9891bcf7e2d432cc13",
+    "surface_original_observation": {
       "stage": "surface_before_placement",
       "correlation": "Exact full-footprint Spearman, average ties, absolute threshold 0.90; no positive continuous pixel is treated as a placed dot. Final dot proximity is a separate gate.",
       "n_manifest_files": 2729,
@@ -567,32 +844,7 @@
       "comparison_complete": false,
       "correlation_threshold_clear_on_comparable_entries": true,
       "completion_semantics": "complete means inventory intake only; universal PASS requires comparison_complete and clear measured thresholds. Eighteen quarantines block certification."
-    },
-    "final_dots": {
-      "stage": "final_dots",
-      "passed": false,
-      "duplicate": true,
-      "stopped_at_first_duplicate": true,
-      "n_unique_rasters_checked": 1,
-      "checks": [
-        {
-          "site": "13GEMSDOE",
-          "path": "docs/downloads/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
-          "spearman": -0.000285714793769,
-          "fraction_candidate_dots_within_3px": 0.9987517926382323
-        }
-      ],
-      "exact_dot_mask_matches": [],
-      "exact_dot_mask_unique_within_comparable_snapshot": true,
-      "file_sha_uniqueness_is_not_lane_uniqueness": true
-    },
-    "file_sha_unique_in_snapshot": true,
-    "dot_mask_sha256": "fbab7ef55863be9661eef591d80b8847a7d492051bc3d8526c6c26c0204d7c8c",
-    "universe_sites": 92,
-    "universe_files": 2729,
-    "universe_unique_blobs": 1921,
-    "scope": "All non-data GeoTIFFs in all 92 named repositories through GEMSDOE92 at frozen commits; no size cutoff. This includes prediction mirrors and quarantines nonprediction/incompatible grids explicitly. Unpublished files and later parallel changes are outside scope.",
-    "manifest_sha256": "8d4cd9b61744395446935c6d981ba3ce8261888663adce9891bcf7e2d432cc13"
+    }
   },
   "lattice_feasibility": {
     "measured_utc": "2026-10-26T21:48:41.933288+00:00",
@@ -871,7 +1123,9 @@
     "The highest hidden leaderboard result cannot be guaranteed from public labels.",
     "Official data binaries were not freshly authenticated against DrivenData; owner-mirror SHA-256 checks establish mirror identity, not organizer authenticity.",
     "No DrivenData session, submission receipt or authenticated weekly cap/usage is available.",
-    "Feature AUC and a spatial bootstrap do not eliminate public-to-new-fault distribution shift."
+    "Feature AUC and a spatial bootstrap do not eliminate public-to-new-fault distribution shift.",
+    "The original surface correlation log was not exactly reproduced from the retained array. A separate full-registry recheck is published; no cause is asserted and no model was refit."
   ],
-  "review_amendments": "evidence/review_amendments.json"
+  "review_amendments": "evidence/review_amendments.json",
+  "last_reviewed_utc": "2026-10-26T22:50:23.951057+00:00"
 }

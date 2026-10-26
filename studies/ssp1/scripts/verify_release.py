@@ -109,8 +109,10 @@ def main():
     require('zip_hash_matches_bundle',sha256(zip_path)==bundle['zeros_zip']['sha256'])
     legacy=bundle['holdout_metrics']
     require('unmeasured_legacy_metrics_are_null',all(legacy[k]is None for k in ('catalogue_hidden_mean','sgmc_prevalence_calibrated_dti','drift_corrected_holdout_mean')))
-    surf=json.loads((ROOT/'evidence/surface_guard.json').read_text())
-    require('surface_report_matches_run_card',c['registry']['surface']=={k:v for k,v in surf.items()if k!='rows'})
+    original_surface=json.loads((ROOT/'evidence/surface_guard.json').read_text())
+    surf=json.loads((ROOT/'evidence/surface_recheck.json').read_text())
+    require('original_surface_observation_retained',c['registry']['surface_original_observation']=={k:v for k,v in original_surface.items()if k not in ('rows','comparisons')})
+    require('surface_report_matches_run_card',c['registry']['surface']=={k:v for k,v in surf.items()if k not in ('rows','comparisons')})
     require('surface_flags_fail_closed',surf['passed']==bool(surf['comparison_complete']and surf['correlation_threshold_clear_on_comparable_entries']))
     require('frozen_registry_manifest_hash',sha256(ROOT/'registry/all_rasters.json')==c['registry']['manifest_sha256'])
     require('surface_inventory_count_consistent',surf['n_checked_files']==surf['n_manifest_files']==2729)
@@ -124,9 +126,10 @@ def main():
     marker='## Original project brief — read before each session'
     archive=marker+(ROOT/'README.md').read_text().split(marker,1)[1]
     require('full_original_brief_preserved',hashlib.sha256(archive.encode()).hexdigest()==(ROOT/'evidence/prompt_archive_sha256.txt').read_text().split()[0])
-    for relative in ['evidence/run_card.json','evidence/surface_guard.json','registry/template_pins.json']:
+    for relative in ['evidence/run_card.json','evidence/surface_guard.json','evidence/surface_recheck.json','registry/template_pins.json']:
         require('published_copy_'+Path(relative).stem,sha256(ROOT/relative)==sha256(ROOT/'docs/data'/Path(relative).name))
     require('download_checksum_list_matches_actual_bytes',all(sha256(ROOT/'docs/downloads'/line.split('  ',1)[1])==line.split('  ',1)[0]for line in (ROOT/'docs/downloads/SHA256SUMS.txt').read_text().splitlines()))
+    details['historical_surface_discrepancy']='Original correlations were not exactly reproduced; the separate full-registry fixed-array recheck is current. The unresolved cause and original values are retained in IR-15.'
     details['geometry_validation_basis']='Recorded owner-mirror template geometry + published integrity-pinned footprint/catalogue masks; NOT fresh organizer authentication'
     details['format_checks']=z_audit['checks']
     # Data are deliberately not committed. Only a local restored workspace can
@@ -152,6 +155,7 @@ def main():
         details['final_dot_recheck']={'algorithm':'Euclidean distance transform, independent of the original cKDTree; exact binary phi correlation, independent of the rank implementation','fraction_within_3px':measured,'spearman':phi}
         surface_path=ROOT/'.cache/gems_work/ssp1_surface.npy'
         if surface_path.exists():
+            require('preserved_surface_array_hash',sha256(surface_path)==surf['surface_npy_sha256'])
             nearest=surf['nearest_raster'];nr=next(r for r in registry['rasters']if r['site']==nearest['site']and r['path']==nearest['path'])
             na,_=read_comparable(ROOT/nr['local'],ddir/'sample_submission.tif',foot)
             full_surface=np.load(surface_path,mmap_mode='r')

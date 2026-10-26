@@ -1,7 +1,7 @@
 {
   "amended_utc": "2026-10-26T22:20:25.911755+00:00",
   "original_observation_commit": "a1329dfe44a2e863ced88014d99c9f3ea9cae25d",
-  "reason": "Pass 2 corrected reporting and fail-closed gate semantics; no feature, fit, dot, raster, holdout score, CI, overlap, or slot decision was optimized or changed.",
+  "reason": "Pass 2 corrected reporting and fail-closed gate semantics; no feature, fit, dot, raster, holdout score, CI, overlap, or slot decision was optimized or changed. Pass 3 separately remeasured surface correlations after an independent check found a discrepancy; the original log is retained.",
   "surface_original_observed_flags": {
     "passed": true,
     "complete": true,
@@ -28,6 +28,13 @@
   "original_verdict": "negative",
   "corrected_verdict": "negative",
   "raster_sha256_before_and_after": "4e88158e8859416b874cc424dc106847f8eaab474794bbb1716e273f57839a27",
-  "scientific_values_unchanged": true,
-  "git_ref_semantics": "Independent GitHub GraphQL verification resolved the concern: all 92 existing refs are Commit objects. Distinct root-tree OIDs are now also recorded; no peer bytes, refs, or download links were rebased."
+  "git_ref_semantics": "Independent GitHub GraphQL verification resolved the concern: all 92 existing refs are Commit objects. Distinct root-tree OIDs are now also recorded; no peer bytes, refs, or download links were rebased.",
+  "fitted_predictions_and_holdout_values_unchanged": true,
+  "surface_correlation_recheck": {
+    "original_max_abs_spearman": 0.43720665139768755,
+    "rechecked_max_abs_spearman": 0.4370705021809873,
+    "cause": "not established; both reports retained",
+    "fits_and_dot_placements": 0,
+    "receipt": "evidence/surface_recheck.json"
+  }
 }

@@ -2,7 +2,7 @@
 
 **Read this README and its full archived project brief at the start of every session.**
 
-- **GitHub Pages:** https://kanlerxz87-cyber.github.io/KANLERGEMSDOE3/ — [deployment runs](https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/actions/workflows/pages.yml) are the authority on live deployment status.
+- **GitHub Pages:** https://kanlerxz87-cyber.github.io/KANLERGEMSDOE3/docs/ssp1/ — [deployment runs](https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/actions/workflows/ssp1-pages.yml) are the authority on live deployment status.
 - **Start here:** [Executive summary](EXECUTIVE_SUMMARY.md) · [Website summary](docs/executive-summary.html) · [Submission instructions](docs/submission-guide.html)
 - **Evidence:** [one JSON run card](evidence/run_card.json) · [nine-site audit](evidence/nine_site_audit.json) · [official-source ledger](registry/sources.json) · [review passes](evidence/review_passes.json)
 
@@ -35,7 +35,10 @@ The executive table provides a pinned reference download, claim provenance, esti
 
 Python 3.11 and Node 22 are the tested environments. No GPU or DrivenData login is needed.
 
+From the repository root, enter this isolated study first:
+
 ```bash
+cd studies/ssp1
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.lock
 .venv/bin/python -m pytest -q
@@ -73,9 +76,13 @@ The official target is fault presence, not confirmed geothermal vents. Pooled di
 
 Owner-mirror hashes establish identity to those mirrors, not fresh organizer-host authentication. The sample's 60,988 ones equal the catalogue despite its example description; only its finite mask and geometry were used. Derivative quantization, missing LiDAR tiles, original data authentication, current account slot capacity, clean current-best OOF reproduction, protocol contradiction, and upstream software redistribution licensing remain explicit limitations. [Irregularities](registry/irregularities.json) · [scientific review](research/scientific-review.md) · [next-session priorities](research/next-session.md).
 
+The full-registry retained-array recheck gives max |Spearman| 0.4370705022. The original 0.4372066514 log was not exactly reproduced; its cause is unresolved and both records are retained. This changed no candidate pixels, holdout value/CI, final overlap or negative verdict.
+
+SSP1 is isolated because other sessions merged into main during this study. Their root code, run cards, research TIFFs and different evaluator results are preserved, not overwritten or treated as comparable controls.
+
 ## Automation and delivery
 
-`.github/workflows/ci.yml` verifies pull requests and branch updates. `.github/workflows/pages.yml` publishes validated `docs/` on main and refreshes the public leaderboard every 12 hours or by manual workflow dispatch. Its Actions cache preserves the newest last-good official observation across jobs; network/login/format failures keep that value and mark it stale. The workflow never commits/pushes a branch, authenticates to DrivenData, trains a model, selects a slot, or submits anything. Authenticated receipts and remaining weekly capacity remain null.
+The repository-level `.github/workflows/ssp1-checks.yml` verifies pull requests and branch updates. The repository-level `.github/workflows/ssp1-pages.yml` publishes validated `docs/` on main and refreshes the public leaderboard every 12 hours or by manual workflow dispatch. Its Actions cache preserves the newest last-good official observation across jobs; network/login/format failures keep that value and mark it stale. The workflow never commits/pushes a branch, authenticates to DrivenData, trains a model, selects a slot, or submits anything. Authenticated receipts and remaining weekly capacity remain null.
 
 The local sandbox shell cannot fetch arbitrary official data hosts; official text was checked through the research browsing tool and binary inputs came from pinned GitHub mirrors. GitHub Pages is a static delivery surface, not a browser-side model-fitting service. See Actions for the actual deployment/check outcome, not an assumed success.
 

@@ -188,3 +188,17 @@ def test_workflows_have_offline_validation_and_no_training_or_branch_push():
         assert 'npm test --prefix tools/browser'in text
     assert 'actions/cache/restore@'in (ROOT/'.github/workflows/pages.yml').read_text()
     assert '--state-path'in (ROOT/'.github/workflows/pages.yml').read_text()
+
+
+def test_actual_root_workflows_use_the_isolated_study_and_preserve_public_paths():
+    import yaml
+    repo=ROOT.parent.parent
+    ci=yaml.load((repo/'.github/workflows/ssp1-checks.yml').read_text(),Loader=yaml.BaseLoader)
+    pages=yaml.load((repo/'.github/workflows/ssp1-pages.yml').read_text(),Loader=yaml.BaseLoader)
+    assert ci['defaults']['run']['working-directory']=='studies/ssp1'
+    assert pages['defaults']['run']['working-directory']=='studies/ssp1'
+    assert pages['on']['schedule'][0]['cron']=='17 */12 * * *'
+    assert pages['permissions']['contents']=='read'
+    text=(repo/'.github/workflows/ssp1-pages.yml').read_text()
+    assert 'publish_ssp1.py'in text and 'stage_pages.py'in text
+    assert 'git push'not in text and 'run_experiment.py'not in text

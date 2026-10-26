@@ -8,6 +8,8 @@ The literal all-registry three-pixel rule is mathematically incompatible with th
 
 Until that is settled, more dense maps cannot become authorized under the current rule, regardless of their score. Do not spend a competition slot merely to see whether a format-valid negative gets lucky.
 
+Investigate IR-15: the original surface correlation log differs slightly from the reproducible retained-array recheck. Preserve both; do not assert a floating-point or mutation cause without evidence.
+
 ## Priority 2 · reproduce a clean current-best control
 
 Restore the upstream H38-generating model and its fold-local out-of-fold predictions, not just its final TIFF. Pin its feature provenance, test segments, train buffer, evaluator version and output hashes. Rebuild every catalogue-derived feature and exclusion from each fold's visible faults only. Never “repair” a globally catalogue-masked parent by stamping hidden truth back into it. The retained SSP1 OOF masks support exact repeated evaluation, but do not substitute for the upstream best.

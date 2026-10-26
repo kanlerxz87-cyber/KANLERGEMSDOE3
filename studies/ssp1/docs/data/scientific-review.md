@@ -91,7 +91,7 @@ SSP1's physical idea remains plausible in some terrain, but the tested implement
 
 1. **File SHA:** this TIFF's byte hash differs from the frozen registry.
 2. **Pixel mask:** zero exact mask matches in the 2,711 comparable snapshot entries. This is not a claim about unpublished or later artifacts.
-3. **Pre-placement surface correlation:** maximum full-footprint absolute Spearman **0.437207** among the comparable entries. Eighteen incompatible/malformed entries are explicitly quarantined; universal certification is therefore incomplete, not silently “all passed.”
+3. **Pre-placement surface correlation:** the post-run full-registry recheck of the retained pre-placement array gives maximum absolute Spearman **0.437071** among the comparable entries. The original observed maximum **0.437207** was not exactly reproduced; 2,704 comparisons differ beyond 1e-12, with maximum absolute difference 0.001527. The cause is not established; both reports are retained in `surface_guard.json` and `surface_recheck.json`. No model, dot placement, holdout score/CI or raster changed. Eighteen incompatible/malformed entries are explicitly quarantined; universal certification is therefore incomplete, not silently “all passed.”
 4. **Final dots:** **99.875179%** of SSP1 dots lie within 3 px of the registered lattice, exceeding 70%. The final guard stops at the first violation, as requested; it does not pretend it evaluated all final overlaps after the stop.
 
 The lattice proof is stronger than this one observed failure. It covers 5,160,724 of 5,167,373 footprint pixels within 3 px. With only `U = 6,649` uncovered cells and `N = 37,654` distinct dots, at most U dots can escape overlap, so the overlap is at least `max(0, 1 − U/N) = 82.341849%`. This is a counting argument, not a projection or a model score. The current constraints cannot authorize a map at this budget. Reducing the budget or moving dots into boundary gaps purely to satisfy the registry would replace geology with an anti-registry artefact.
@@ -110,7 +110,7 @@ Core inputs were restored autonomously; no GPU or fresh password was needed. How
 
 The website, tables, retained brief, source ledger, reproducible pipeline, new TIFF/ZIP, independent tests and negative JSON card are completed. The scientific requirement of a higher-scoring, protocol-unique, authorized competition submission is **not met** and is explicitly blocked. The project does not leave that judgment to a human inspector: it computes **NO**. A real weekly-slot selector and authenticated remaining capacity are separate requirements imposed by the prompt itself, not a missing raster-format inspection step.
 
-## Official sources for manual review
+## Official source ledger (already checked; not a validation hand-off)
 
 - [DrivenData problem, metric and format](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/)
 - [DrivenData known-pixel masking clarification](https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/2)

@@ -109,9 +109,10 @@
   },
   "zeros_zip": {
     "filename": "gemsdoe32-kanler3-ssp1-e1-RESEARCH-20261026T220043Z-fbab7ef5-zeros.zip",
-    "path": "/home/user/KANLERGEMSDOE3/docs/downloads/gemsdoe32-kanler3-ssp1-e1-RESEARCH-20261026T220043Z-fbab7ef5-zeros.zip",
+    "path": "docs/downloads/gemsdoe32-kanler3-ssp1-e1-RESEARCH-20261026T220043Z-fbab7ef5-zeros.zip",
     "size_bytes": 166063,
-    "sha256": "6d4e75c64872be21c1df79490f1a23a6977fb172958bc08e1f1a0b3c46487321"
+    "sha256": "6d4e75c64872be21c1df79490f1a23a6977fb172958bc08e1f1a0b3c46487321",
+    "original_local_path_at_generation": "/home/user/KANLERGEMSDOE3/docs/downloads/gemsdoe32-kanler3-ssp1-e1-RESEARCH-20261026T220043Z-fbab7ef5-zeros.zip"
   },
   "review_amendments": "evidence/review_amendments.json"
 }

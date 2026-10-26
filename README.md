@@ -10,6 +10,14 @@
 
 In this recovery session we recovered the original 57GEMSDOE evaluator/writer and rebuilt all 19 cached bands from SHA-pinned participant mirrors. This is data/tool preparation, **not** an organizer-authenticated download, license clearance or a new model. The mirrored sample conflicts with the organizer's description of an all-absence sample. This recovery session ran no geological experiment or weekly submission; the requested winning submission remains unfinished.
 
+### Additional isolated SSP1 study — download yes, submit no
+
+[**New nine-site executive summary and research TIFF**](docs/ssp1/executive-summary.html) · [SSP1 source and full brief](studies/ssp1/README.md) · [SSP1 run card](studies/ssp1/evidence/run_card.json).
+
+SSP1 independently generated new pixels but is **not protocol-lane unique or authorized to submit**. Its **HOLDOUT-DTI 0.084644**, 95% CI **[0.070384, 0.097041]**, `GEMSDOE32-HIDE-RECOVER-v3.0`, **22,232 positive events**, is not a leaderboard forecast and is not directly comparable to the differently versioned lanes below. Final overlap is 99.8752% with a registered lattice; no slot was used. The TIFF hash is `4e88158e8859416b874cc424dc106847f8eaab474794bbb1716e273f57839a27`.
+
+All pre-existing root code, artifacts and run cards are preserved. The isolated study includes source provenance, original/refreshed surface receipts, regression tests, real-browser download checks and a public-only last-good feed. Build its portal with `cd studies/ssp1 && python scripts/build_site.py`, then from the repository root run `python scripts/publish_ssp1.py`. The root `ssp1-checks.yml` / `ssp1-pages.yml` workflows automate its verification and public feed without a branch push or any competition upload; Actions determines actual runtime/deployment success. The archived project request below remains intact.
+
 ### Prior parallel experiments preserved on main
 
 - A provisional bilateral radiometric/LiDAR experiment reported **HOLDOUT-DTI 0.1134**, 95% CI **[0.1006, 0.1262]**, `gems57-pooled-hide-v2`, 60,988 withheld positives. Its paired difference versus an ablation was **+0.0010**, 95% CI **[−0.0006, +0.0027]**; the best comparable incumbent was not tested. Its in-memory final dots had 100% overlap with a registered lattice, and no TIFF was written by that lane. See its [run card](evidence/run-card.json).

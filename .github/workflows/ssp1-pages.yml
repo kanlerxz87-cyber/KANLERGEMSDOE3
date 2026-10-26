@@ -1,0 +1,92 @@
+name: Publish all lanes and refresh SSP1 public feed
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */12 * * *'
+
+defaults:
+  run:
+    working-directory: studies/ssp1
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: studies/ssp1/requirements.lock
+      - run: python -m pip install --requirement requirements.lock
+      - name: Restore last-good public observation across builds
+        uses: actions/cache/restore@v4
+        with:
+          path: studies/ssp1/.cache/feed/leaderboard_snapshot.json
+          key: gems-public-feed-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: gems-public-feed-
+      - name: Refresh official public table, never login or upload
+        run: python scripts/refresh_feed.py --state-path .cache/feed/leaderboard_snapshot.json
+      - name: Persist last-good state without a branch push
+        uses: actions/cache/save@v4
+        with:
+          path: studies/ssp1/.cache/feed/leaderboard_snapshot.json
+          key: gems-public-feed-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Validate scientific gates and saved bytes
+        env:
+          OPENBLAS_NUM_THREADS: '2'
+          OMP_NUM_THREADS: '2'
+        run: |
+          python -m pytest -q
+          python scripts/build_site.py
+          python scripts/verify_release.py --offline
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: studies/ssp1/tools/browser/package-lock.json
+      - run: npm ci --prefix tools/browser
+      - name: Check browser delivery before publishing
+        run: |
+          npm test --prefix tools/browser
+          cp .cache/browser-tests/results.json docs/data/browser_checks.json
+      - name: Preserve every lane and all existing Pages paths
+        run: |
+          python ../../scripts/publish_ssp1.py
+          python ../../scripts/stage_pages.py
+      - name: Select Actions publishing using the workflow Pages permission
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method PUT "repos/${{ github.repository }}/pages" -f build_type=workflow
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .cache/pages
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the validated static artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
