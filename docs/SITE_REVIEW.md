@@ -10,7 +10,7 @@ The following URLs are the nine requested project pages. They are useful for loc
 | [28](https://buffedlizard55-lab.github.io/GEMSDOE28/) | 0.2710 | H36-1 rung30 blind r1 | Owner claim only; bytes/receipt/novelty not inspected |
 | [30](https://buffedlizard55-lab.github.io/GEMSDOE30/) | 0.2600 | D28 Poisson 300 m off-catalogue | Owner claim only; bytes/receipt/novelty not inspected |
 | [31](https://buffedlizard55-lab.github.io/GEMSDOE31/docs/) | 0.2708 | H27-4 solo D28 | Owner claim only; bytes/receipt/novelty not inspected |
-| [32](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html) | 0.2778 | H33/H33-2 B2 | Owner claim only; bytes/receipt/novelty not inspected |
+| [32](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html) | 0.2778 | H33/H33-2 B2 | Page fetched 2026-10-26; labels OWNER-REPORT and states no receipt/hash binding; file not downloaded or compared |
 | [33](https://buffedlizard55-lab.github.io/GEMSDOE33/) | 0.2632 | Analog tip/stepover r30 | Owner claim only; bytes/receipt/novelty not inspected |
 | [36](https://buffedlizard55-lab.github.io/GEMSDOE36/docs/) | 0.2750 | Anderson geothermal PINN | Owner claim only; bytes/receipt/novelty not inspected |
 
