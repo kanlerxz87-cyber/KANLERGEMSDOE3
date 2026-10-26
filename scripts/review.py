@@ -49,7 +49,7 @@ def build():
  for name in ('research','submission'):
   text=html.escape((ROOT/'docs'/f'{name}.md').read_text())
   text=re.sub(r'https://[^\s<>]+', lambda m: '<a href="'+m.group(0)+'">'+m.group(0)+'</a>', text)
-  write_page(name+'.html','<nav><a href="index.html">Executive summary</a></nav><article style="white-space:pre-wrap;overflow-wrap:anywhere">'+text+'</article>')
+  write_page('archived-'+name+'.html','<nav><a href="index.html">Active executive summary</a> · Archived prior review (superseded)</nav><article style="white-space:pre-wrap;overflow-wrap:anywhere">'+text+'</article>')
 
 def write_page(name,body):
  (ROOT/'docs'/name).write_text('''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GEMS · Evidence &amp; submission review</title><link rel="stylesheet" href="style.css"><main>'''+body+'</main></html>')

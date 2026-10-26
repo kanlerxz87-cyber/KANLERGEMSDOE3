@@ -1,36 +1,80 @@
 {
-  "hypothesis": "No geological hypothesis was tested. The preregistered candidates are documented in docs/HYPOTHESES.md; no single lane was selected because the referenced method paragraph is not identifiable in the prompt and the shared template/data are absent.",
-  "mechanism": "Not tested. No cached feature stack or shared holdout/evaluator tooling is present in this checkout.",
-  "named_non_fault_process_that_could_mimic_it": "Not applicable to a tested candidate; each proposed candidate lists a named confounder in docs/HYPOTHESES.md.",
-  "holdout_dti": {
+  "hypothesis": "NOT TESTED: cross-scale edge phase disagreement is a conditional proposal, not an assigned lane.",
+  "mechanism": "Proposed signed magnetic/radiometric edge interaction for concealed structures; only data integrity and shared-tool operators were audited.",
+  "non_fault_mimic": "Intrusive lithologic contacts and airborne-survey levelling seams.",
+  "holdout": {
     "label": "HOLDOUT-DTI",
+    "status": "NOT_RUN",
     "value": null,
-    "confidence_interval_95": null,
+    "ci95": null,
     "evaluator_version": null,
     "withheld_positives": null,
-    "status": "NOT RUN — required shared evaluator, input rasters and labels absent"
+    "reason": "No assigned lane, canonical cache or same-fold incumbent; the pinned shared evaluator also fails an operator audit."
   },
-  "correlation_overlap_vs_registry": {
-    "surface_rank_correlation_max_abs": null,
-    "final_dot_overlap_max_within_3px": null,
-    "status": "NOT RUN — registry rasters absent"
+  "registry": {
+    "scope": "Nine pinned historical winners; not the complete competition registry",
+    "candidate_surface_rank_correlation": null,
+    "candidate_final_rank_correlation": null,
+    "candidate_preview_dot_overlap_3px": null,
+    "candidate_final_dot_overlap_3px": null,
+    "full_registry_checked": false,
+    "historical_directed_pairs": 72,
+    "historical_minimum_overlap_3px": 0.8671895382207149,
+    "historical_winners_stopped_as_duplicate": 9,
+    "numbers_are_geometric_audit_not_scores": true
   },
   "raster_sha256": null,
-  "validator_output": {
-    "status": "NOT RUN — no candidate raster generated",
+  "validator": {
+    "status": "NO_NEW_RASTER",
     "no_nan_inside_footprint": null,
-    "values_in_0_1": null,
-    "crs_shape_transform_match_template": null
+    "values_0_1": null,
+    "crs_shape_transform_match": null,
+    "saved_bytes_validated": false,
+    "organizer_acceptance": "NOT_TESTED",
+    "historical_details": "audit.json",
+    "historical_local_encoding_profiles": {
+      "template_mask_pass": 2,
+      "finite_grid_pass": 7,
+      "note": "Local profile compatibility only. Earlier categorical rejection of all zero-outside files is withdrawn; portal acceptance remains unknown."
+    }
   },
   "submission_name": null,
-  "submission_note": "No TIFF generated; do not download or submit a placeholder.",
+  "submission_note": "No new TIFF: missing lane/cache/incumbent; historical entries duplicate. Shared evaluator repair required. No slot authorized.",
+  "note": "No new TIFF: missing lane/cache/incumbent; historical entries duplicate. Shared evaluator repair required. No slot authorized.",
   "verdict": "negative",
-  "experiments_used": 0,
-  "submission_slots_used": 0,
+  "experiments_run": 0,
+  "weekly_slots_used": 0,
+  "score_estimate": {
+    "value": null,
+    "status": "NOT_ESTIMABLE",
+    "reason": "No calibrated mapping from valid holdout results to organizer submission receipts."
+  },
+  "data_recovery": {
+    "core_feature_stack_source": "Participant-mirrored 19-band raw GeoTIFF, not the shared derived cache",
+    "core_features_sha256": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5",
+    "organizer_authenticated": false,
+    "raw_bands_prepared_with_shared_tool": true,
+    "derived_35_channel_cache_rebuilt": false
+  },
+  "shared_tools": {
+    "repository": "buffedlizard55-lab/GEMSDOE32",
+    "commit": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+    "unmodified_source_files": 13,
+    "operator_audit_passed": false,
+    "blocking_issue": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41",
+    "private_metric_or_writer_fork_created": false
+  },
+  "selector": {
+    "slot_authorized": false,
+    "published_weekly_limit": 3,
+    "account_remaining_cap": null
+  },
   "limitations": [
-    "Checkout has only the initial README; model code, data, cached feature stack and tests are absent.",
-    "Shared evaluate_holdout.py and submission_writer.py are absent.",
-    "No sample template, labels, complete registry, or authenticated organizer receipt is available.",
-    "The exact single-method paragraph required to define this lane is not identifiable in the supplied prompt."
+    "Missing single-method lane paragraph",
+    "Shared cached feature stack bytes/digest unavailable",
+    "Central shared-evaluator defect unresolved",
+    "Full submission/surface registry incomplete",
+    "No same-evaluator, same-fold incumbent",
+    "Organizer-template and account slot evidence unavailable"
   ]
 }

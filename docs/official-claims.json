@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "retrieved_date_utc": "2026-10-26",
+  "retrieval_method": "fetch_page tool; excerpts below are transcribed from the returned page text, not hashes of the original HTML/PDF bytes",
+  "claims": [
+    {
+      "id": "TARGET",
+      "claim": "The prediction target is geological faults indicative of geothermal resources, not direct classification of geothermal vents.",
+      "source": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
+      "quote": "develop models and algorithms that provide accurate information about the presence of structures that are indicative of geothermal resources—namely, geological faults",
+      "verified_scope": "Official task page; no model performance claim."
+    },
+    {
+      "id": "FORMAT",
+      "claim": "The published format requires one float32 layer, EPSG:32611, 100 m resolution, matching bounds, values between zero and one, and null/NaN outside bounds.",
+      "source": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#submission-format",
+      "quotes": [
+        "Your submission has the same bounds as the training data, and data outside the bounds is null or nan.",
+        "Your submission contains a single layer with datatype of 32-bit float (`float32`) with values between 0 and 1 indicating the confidence or probability of fault presence, with higher values indicating higher probability."
+      ],
+      "verified_scope": "Published requirements, not portal acceptance. Whether 'outside bounds' mandates matching every internal sample-mask pixel is not established by these sentences alone. The reference notebook does not override the task requirements."
+    },
+    {
+      "id": "METRIC",
+      "claim": "Published DTI uses alpha=0.2, beta=0.8 and a 300 m triangular kernel; false negatives receive the larger penalty.",
+      "source": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#performance-metric",
+      "quotes": [
+        "where the range 𝑅 is 300 meters (i.e., 3 pixels at 100m resolution).",
+        "For this competition, we set 𝛼=0.2 and 𝛽=0.8, which reduces the penalty for false positive predictions and increases the penalty for false negative predictions."
+      ],
+      "verified_scope": "Metric definition. No estimate of this project's leaderboard score."
+    },
+    {
+      "id": "KNOWN_MASK",
+      "claim": "DrivenData Staff state that existing USGS/INGENIOUS fault pixels are excluded in both evaluations; this is pixel masking, not evidence for excluding a broad distance collar.",
+      "source": "https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/2",
+      "quotes": [
+        "Pixels corresponding to known USGS/INGENIOUS faults are masked / excluded from evaluation, so they do not count towards penalty terms.",
+        "Re-evaluation will also mask/exclude the existing USGS/INGENIOUS faults."
+      ],
+      "verified_scope": "Staff scoring clarification, not a receipt for a candidate."
+    },
+    {
+      "id": "WEEKLY_LIMIT",
+      "claim": "The September 2026 official rules specify up to three scoring submissions per week. This does not reveal the user's remaining allowance.",
+      "source": "https://docs.nlr.gov/docs/fy26osti/96647.pdf",
+      "section": "3.4 Feedback",
+      "quote": "each participating entity may submit more than one set of predictions for automated scoring on the competition platform up to three per week, as specified on the competition website",
+      "verified_scope": "Published rule, not the current account submission page or slot authorization."
+    },
+    {
+      "id": "AI_DISCLOSURE",
+      "claim": "The official rules require disclosure of the extent and use of generative AI in the narrative.",
+      "source": "https://docs.nlr.gov/docs/fy26osti/96647.pdf",
+      "section": "3.2 Process Overview",
+      "quote": "you must indicate in the narrative (not included in the word count) the extent to which, if any, you used generative AI technology and how you used it to develop your submission",
+      "verified_scope": "Official rules. Record AI assistance in the eventual winning-model documentation."
+    },
+    {
+      "id": "PUBLIC_BOARD_OBSERVATION",
+      "claim": "The fetched public leaderboard lists xiaofanhu first with displayed value 0.4437. This is an official-page observation, NOT a per-file submission receipt or a forecast for this project.",
+      "source": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+      "displayed_participant": "xiaofanhu",
+      "displayed_value": "0.4437",
+      "accepted_score_class": null,
+      "verified_scope": "Public snapshot retrieved 26 October 2026. It supersedes the prompt's unsupported 'current' 0.3195/0.4413 claims only as a public-page observation. No ORGANIZER-CONFIRMED submission-page receipt exists for any project file."
+    },
+    {
+      "id": "DATA_AUTH",
+      "claim": "The official data page redirects an unauthenticated request to login; successful pinned participant-mirror retrieval is not the same as organizer authentication.",
+      "source": "https://www.drivendata.org/competitions/306/competition-doe-gems/data/",
+      "observed_final_url": "https://www.drivendata.org/accounts/login/?next=/competitions/306/competition-doe-gems/data/",
+      "verified_scope": "Observed login redirect. No credentials requested or stored."
+    },
+    {
+      "id": "GEODAWN",
+      "claim": "USGS identify surface geology/soil composition as radiometric information and subsurface structure/geology as magnetic information; variable terrain clearance and survey levelling are relevant confounders.",
+      "source": "https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and",
+      "doi": "10.5066/P93LGLVQ",
+      "license": "CC0 1.0 Universal, stated by the USGS page",
+      "quotes": [
+        "aeroradiometric and aeromagnetic data that provide key information on surface geology and soil composition, and subsurface structure and geology, respectively",
+        "variable terrain clearance should be considered when modeling and interpreting these data"
+      ],
+      "verified_scope": "Official metadata page and ScienceBase catalogue retrieved. The original grid archives were not downloaded from USGS in this session."
+    },
+    {
+      "id": "GDR1391",
+      "claim": "The public INGENIOUS compilation lists temperature probes, paleogeothermal features and well/spring temperature/chemistry, with CC BY 4.0 attribution requirements.",
+      "source": "https://gdr.openei.org/submissions/1391",
+      "doi": "10.15121/1881483",
+      "license": "CC BY 4.0",
+      "official_resource_urls": [
+        "https://gdr.openei.org/files/1391/2m_temperature_probe_INGENIOUS_regional_data.zip",
+        "https://gdr.openei.org/files/1391/paleo_geothermal_regional.zip",
+        "https://gdr.openei.org/files/1391/wellspringdata.gdb.zip"
+      ],
+      "binary_obtainability": "Official index/resource links verified; probe ZIP fetch returned HTTP 500 via fetch_page. No source ZIP was downloaded. Coverage/season/depth adequacy remain unverified, so no hypothesis requiring these new bytes is cleared as viable."
+    }
+  ]
+}

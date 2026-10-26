@@ -1,0 +1,146 @@
+// UI regression tests only. Never a geological experiment or a submission.
+// npm ci --prefix tools/browser; node tests/browser_smoke.mjs
+import assert from 'node:assert/strict';
+import http from 'node:http';
+import { createRequire } from 'node:module';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+
+const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+const require = createRequire(path.join(root, 'tools/browser/package.json'));
+const { chromium: driver } = require('playwright-core');
+const browserPackage = await import(pathToFileURL(require.resolve('@sparticuz/chromium')));
+const { default: binary, inflate, setupLambdaEnvironment } = browserPackage;
+// The sandbox lacks NSS/NSPR. Use the libraries bundled in the npm package;
+// no system package install or external browser download is required.
+if (process.platform === 'linux') {
+  const libraryRoot = await inflate(path.join(path.dirname(require.resolve('@sparticuz/chromium')), '../bin/al2023.tar.br'));
+  setupLambdaEnvironment(path.join(libraryRoot, 'lib'));
+}
+const base = process.env.GEMS_PREVIEW_URL || 'http://127.0.0.1:8000'; // Test runner only, never browser application code.
+const feed = JSON.parse(await fs.readFile(path.join(root, 'docs/data/focus-feed.json'), 'utf8'));
+const hashes = Object.fromEntries(feed.rows.map(row => [row.repository, row.commit]));
+const output = path.join(root, 'data/ui-review');
+await fs.mkdir(output, { recursive: true });
+const checks = [];
+let browser;
+let server;
+
+async function context(mode = 'unchanged', width = 1440, height = 1000, blockStorage = false) {
+  const context = await browser.newContext({ viewport: { width, height } });
+  if (blockStorage) await context.addInitScript(() => {
+    Object.defineProperty(window, 'localStorage', { get() { throw new Error('Storage disabled in regression fixture'); } });
+  });
+  context.gemsRequestCount = 0;
+  await context.route('https://api.github.com/**', async route => {
+    context.gemsRequestCount += 1;
+    const url = new URL(route.request().url());
+    const repo = url.pathname.split('/').slice(2, 4).join('/');
+    if (mode === 'unavailable') return route.fulfill({ status: 403, contentType: 'application/json', body: '{"message":"Rate limited fixture"}' });
+    return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ sha: mode === 'changed' ? 'f'.repeat(40) : hashes[repo] }) });
+  });
+  return context;
+}
+
+async function noGlobalOverflow(page, label) {
+  const dimensions = await page.evaluate(() => ({ scroll: document.documentElement.scrollWidth, viewport: window.innerWidth }));
+  assert.ok(dimensions.scroll <= dimensions.viewport + 1, `${label}: global overflow ${JSON.stringify(dimensions)}`);
+  checks.push(`${label}: no global horizontal overflow`);
+}
+
+try {
+  if (process.argv.includes('--serve')) {
+    const docs = path.join(root, 'docs');
+    const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json' };
+    server = http.createServer(async (request, response) => {
+      try {
+        let pathname = decodeURIComponent(new URL(request.url, 'http://test.invalid').pathname);
+        if (pathname.endsWith('/')) pathname += 'index.html';
+        const target = path.resolve(docs, '.' + pathname);
+        if (!target.startsWith(docs + path.sep)) throw new Error('Unsafe path');
+        const body = await fs.readFile(target);
+        response.writeHead(200, { 'Content-Type': types[path.extname(target)] || 'text/plain' });
+        response.end(body);
+      } catch (_) { response.writeHead(404); response.end('Not found'); }
+    });
+    await new Promise((resolve, reject) => {
+      server.once('error', reject);
+      server.listen(Number(new URL(base).port || 8000), '0.0.0.0', resolve);
+    });
+  }
+  browser = await driver.launch({ executablePath: await binary.executablePath(), args: binary.args.filter(arg => arg !== '--single-process'), headless: true });
+  const desktop = await context();
+  const page = await desktop.newPage();
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  const response = await page.goto(base + '/index.html', { waitUntil: 'networkidle' });
+  assert.equal(response.status(), 200);
+  await page.locator('#feed-summary').filter({ hasText: '9 unchanged' }).waitFor();
+  assert.equal(await page.locator('#comparison tbody tr').count(), 9);
+  assert.match(await page.locator('#comparison tbody tr').first().innerText(), /GEMSDOE32/);
+  assert.equal(await page.locator('a[download]').count(), 0);
+  assert.match(await page.locator('.file-unavailable').innerText(), /DO NOT SUBMIT/);
+  assert.equal(await page.locator('.hypothesis').count(), 4);
+  await noGlobalOverflow(page, 'desktop summary');
+  await page.screenshot({ path: path.join(output, 'desktop.png'), fullPage: true });
+  checks.push('desktop: nine sites, four hypotheses, historical ranking and no approved download');
+  await page.locator('details').last().evaluate(element => { element.open = true; });
+  for (const name of ['executive-summary.html', 'submission.html', 'research.html', 'sources.html', ...feed.rows.map(row => `sites/${row.site}.html`)]) {
+    const result = await page.goto(base + '/' + name, { waitUntil: 'networkidle' });
+    assert.equal(result.status(), 200, name);
+    assert.equal(await page.locator('h1').count(), 1, name);
+    await noGlobalOverflow(page, 'desktop ' + name);
+  }
+  assert.deepEqual(errors, []);
+  checks.push('desktop: no JavaScript exceptions across every active page');
+  await desktop.close();
+
+  const mobile = await context('unchanged', 390, 844);
+  const mobilePage = await mobile.newPage();
+  await mobilePage.goto(base + '/', { waitUntil: 'networkidle' });
+  await noGlobalOverflow(mobilePage, 'mobile summary');
+  const table = await mobilePage.locator('#comparison .table-wrap').evaluate(element => ({ client: element.clientWidth, scroll: element.scrollWidth }));
+  assert.ok(table.scroll > table.client, 'The wide table must scroll locally on mobile');
+  await mobilePage.screenshot({ path: path.join(output, 'mobile.png'), fullPage: true });
+  for (const name of ['executive-summary.html', 'sources.html', 'research.html', 'sites/GEMSDOE32.html']) {
+    await mobilePage.goto(base + '/' + name, { waitUntil: 'networkidle' });
+    await noGlobalOverflow(mobilePage, 'mobile ' + name);
+  }
+  checks.push('mobile: table scroll is local; all required controls readable');
+  await mobile.close();
+
+  for (const mode of ['changed', 'unavailable']) {
+    const isolated = await context(mode);
+    const current = await isolated.newPage();
+    await current.goto(base + '/', { waitUntil: 'networkidle' });
+    await current.locator('#feed-summary').filter({ hasText: mode === 'changed' ? '9 changed' : '9 unknown' }).waitFor();
+    assert.equal(await current.locator('a[download]').count(), 0);
+    assert.match(await current.locator('.file-unavailable').innerText(), /DO NOT SUBMIT/);
+    checks.push(`${mode} source feed never authorizes an upload`);
+    await isolated.close();
+  }
+
+  const blockedStorage = await context('unchanged', 1440, 1000, true);
+  const storagePage = await blockedStorage.newPage();
+  await storagePage.goto(base + '/', { waitUntil: 'networkidle' });
+  await storagePage.locator('#feed-summary').filter({ hasText: '9 unchanged' }).waitFor();
+  checks.push('source feed works when localStorage is unavailable');
+  assert.equal(blockedStorage.gemsRequestCount, 9);
+  await storagePage.locator('#refresh-sources').click();
+  await storagePage.waitForFunction(() => !document.getElementById('refresh-sources').disabled);
+  assert.equal(blockedStorage.gemsRequestCount, 9, 'fresh in-memory results must respect the API cache');
+  await storagePage.evaluate(() => { const now = Date.now(); Date.now = () => now + 3600001; });
+  await storagePage.locator('#refresh-sources').click();
+  await storagePage.waitForFunction(() => !document.getElementById('refresh-sources').disabled);
+  assert.equal(blockedStorage.gemsRequestCount, 18, 'expired memory cache must be refreshed even when storage is disabled');
+  checks.push('source cache expires after one hour, including storage-disabled fallback');
+  await blockedStorage.close();
+
+  const report = { kind: 'BROWSER_UI_TEST_NOT_MODEL_RESULT', status: 'PASS', checks, source_network: 'GitHub API mocked to exercise unchanged, changed, quota failure and disabled storage; not a live score verification', screenshots: 'data/ui-review (ignored; not submission files)' };
+  await fs.writeFile(path.join(output, 'browser-checks.json'), JSON.stringify(report, null, 2) + '\n');
+  console.log(JSON.stringify(report, null, 2));
+} finally {
+  if (browser) await browser.close();
+  if (server) await new Promise(resolve => server.close(resolve));
+}

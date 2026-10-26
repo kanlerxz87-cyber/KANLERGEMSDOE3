@@ -7,9 +7,9 @@ from scripts.review import build
 
 
 def fixture():
-    from scripts.promotion_gate import assess
-    card={k:True for k in ['lane_recorded','shared_template_pinned','whole_segment_buffered_holdout','visible_only_features','pixel_exact_visible_mask','all_features_canary_tested','same_evaluator_incumbent','registry_complete','surface_checked_before_placement','final_dots_checked','saved_bytes_validated','template_provenance_verified']}
-    card.update(surface_max_rank_correlation=.9,final_max_rank_correlation=.9,surface_dot_overlap_3px=.7,final_dot_overlap_3px=.7,max_feature_auc=.9,paired_improvement_ci95=[.001,.01],holdout={'class':'HOLDOUT-DTI','evaluator_version':'TEST ONLY','withheld_positives':10,'value':.2,'ci95':[.1,.3],'alpha':.2,'beta':.8,'kernel_m':300,'kernel':'triangular','aggregation':'pooled'},validator={k:True for k in ['single_band','all_finite','range_0_1','crs_match','shape_match','transform_match']},raster_sha256='a'*64,hypothesis='synthetic',mechanism='test',non_fault_mimic='test',submission_name='test',submission_note='test')
+    from scripts.promotion_gate import REQUIRED_TRUE, VALIDATOR_CHECKS
+    card={k:True for k in REQUIRED_TRUE}
+    card.update(surface_max_rank_correlation=.9,final_max_rank_correlation=.9,surface_dot_overlap_3px=.7,final_dot_overlap_3px=.7,max_feature_auc=.9,paired_improvement_ci95=[.001,.01],holdout={'class':'HOLDOUT-DTI','evaluator_version':'TEST ONLY','withheld_positives':10,'value':.2,'ci95':[.1,.3],'alpha':.2,'beta':.8,'kernel_m':300,'kernel':'triangular','aggregation':'pooled'},validator={k:True for k in VALIDATOR_CHECKS},raster_sha256='a'*64,hypothesis='synthetic',mechanism='test',non_fault_mimic='test',submission_name='test',submission_note='test')
     return card
 
 class ReviewTests(unittest.TestCase):
@@ -27,10 +27,21 @@ class ReviewTests(unittest.TestCase):
             c=fixture();del c[key];self.assertEqual(assess(c)['verdict'],'negative',key)
     def test_nonfinite_and_threshold(self):
         for key in ['surface_max_rank_correlation','final_max_rank_correlation','surface_dot_overlap_3px','final_dot_overlap_3px','max_feature_auc']:
-            for bad in [float('nan'),float('inf'),True,1.01,-.91]:
+            for bad in [float('nan'),float('inf'),True,1.01,-1.01]:
                 c=fixture();c[key]=bad;self.assertEqual(assess(c)['verdict'],'negative')
     def test_no_improvement(self):
-        c=fixture();c['paired_improvement_ci95']=[0,.1];self.assertEqual(assess(c)['verdict'],'negative')
+        for ci in ([0,.1],[-.1,.2],[.01,1.01],[.5,.1]):
+            c=fixture();c['paired_improvement_ci95']=ci;self.assertEqual(assess(c)['verdict'],'negative')
+    def test_signed_correlation_and_literal_boundaries(self):
+        c=fixture();c['surface_max_rank_correlation']=-.95;c['final_max_rank_correlation']=-.99
+        self.assertEqual(assess(c)['verdict'],'promote')
+        for key,value in [('surface_max_rank_correlation',.90001),('final_dot_overlap_3px',.70001),('max_feature_auc',.90001)]:
+            c=fixture();c[key]=value;self.assertEqual(assess(c)['verdict'],'negative')
+    def test_identity_and_note_controls(self):
+        for field,value in [('submission_name','../bad'),('submission_note','  '),('submission_note','hello\nworld')]:
+            c=fixture();c[field]=value;self.assertEqual(assess(c)['verdict'],'negative')
+        c=fixture();c['holdout']['evaluator_version']=True
+        self.assertEqual(assess(c)['verdict'],'negative')
     def test_note(self):
         c=fixture();c['submission_note']='x'*141;self.assertEqual(assess(c)['verdict'],'negative')
     def test_rebuild(self):

@@ -21,14 +21,38 @@
           "inside_footprint_schema": false
         },
         "format_pass": false,
+        "encoding_profiles": {
+          "template-mask": false,
+          "finite-grid": true
+        },
+        "organizer_acceptance": "NOT_TESTED",
         "strict_template_validation": {
-          "ok": false,
-          "errors": [
-            "outside-footprint valid pixels=7111787; expected null/nodata"
-          ],
-          "validator": "submission-format-v1",
+          "validator": "submission-format-v2-explicit-encoding",
+          "encoding_profile": "template-mask",
           "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
           "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE24.tif",
+          "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+          "candidate_sha256": "3e0730e8d4f7db095dd80246a98cba3bc0fc9a28f436b91db27ca34df4d0d1ce",
+          "organizer_acceptance": "NOT_TESTED",
+          "slot_authorized": false,
+          "checks": {
+            "template_single_band": true,
+            "single_band": true,
+            "shape_match": true,
+            "crs_match": true,
+            "transform_match": true,
+            "dtype_float32": true,
+            "template_epsg_32611": true,
+            "template_100m_grid": true,
+            "no_nan_inside_footprint": true,
+            "no_masked_inside_footprint": true,
+            "inside_range_0_1": true,
+            "selected_encoding": false
+          },
+          "ok": false,
+          "errors": [
+            "selected_encoding"
+          ],
           "bands": 1,
           "dtype": [
             "float32"
@@ -51,15 +75,22 @@
           ],
           "footprint_pixels": 5167373,
           "nonfinite_inside": 0,
+          "masked_inside": 0,
           "finite_range_inside": [
             0.0,
             1.0
           ],
-          "valid_outside_footprint": 7111787
+          "valid_outside_footprint": 7111787,
+          "entire_grid_finite_range_0_1": true,
+          "local_encoding_compatibility": {
+            "template-mask": false,
+            "finite-grid": true
+          },
+          "note": "Local contract checks only; template-mirror authenticity, scientific quality and official outside-mask interpretation require separate evidence. A finite nodata sentinel may pass template-mask but fail the portal's whole-grid range scan."
         },
         "sha256": "3e0730e8d4f7db095dd80246a98cba3bc0fc9a28f436b91db27ca34df4d0d1ce",
         "nonfinite_count": 0,
-        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
+        "note": "Two local encoding profiles against a pinned participant-mirror sample; not organizer-authenticated, proof of portal rejection/acceptance, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -86,14 +117,38 @@
           "inside_footprint_schema": false
         },
         "format_pass": false,
+        "encoding_profiles": {
+          "template-mask": false,
+          "finite-grid": true
+        },
+        "organizer_acceptance": "NOT_TESTED",
         "strict_template_validation": {
-          "ok": false,
-          "errors": [
-            "outside-footprint valid pixels=7111787; expected null/nodata"
-          ],
-          "validator": "submission-format-v1",
+          "validator": "submission-format-v2-explicit-encoding",
+          "encoding_profile": "template-mask",
           "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
           "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE25.tif",
+          "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+          "candidate_sha256": "3e78737f0da8dd2ca66cc6caac0ce8eeefcd6715707f8d1bd3091845cd9bcc30",
+          "organizer_acceptance": "NOT_TESTED",
+          "slot_authorized": false,
+          "checks": {
+            "template_single_band": true,
+            "single_band": true,
+            "shape_match": true,
+            "crs_match": true,
+            "transform_match": true,
+            "dtype_float32": true,
+            "template_epsg_32611": true,
+            "template_100m_grid": true,
+            "no_nan_inside_footprint": true,
+            "no_masked_inside_footprint": true,
+            "inside_range_0_1": true,
+            "selected_encoding": false
+          },
+          "ok": false,
+          "errors": [
+            "selected_encoding"
+          ],
           "bands": 1,
           "dtype": [
             "float32"
@@ -116,15 +171,22 @@
           ],
           "footprint_pixels": 5167373,
           "nonfinite_inside": 0,
+          "masked_inside": 0,
           "finite_range_inside": [
             0.0,
             1.0
           ],
-          "valid_outside_footprint": 7111787
+          "valid_outside_footprint": 7111787,
+          "entire_grid_finite_range_0_1": true,
+          "local_encoding_compatibility": {
+            "template-mask": false,
+            "finite-grid": true
+          },
+          "note": "Local contract checks only; template-mirror authenticity, scientific quality and official outside-mask interpretation require separate evidence. A finite nodata sentinel may pass template-mask but fail the portal's whole-grid range scan."
         },
         "sha256": "3e78737f0da8dd2ca66cc6caac0ce8eeefcd6715707f8d1bd3091845cd9bcc30",
         "nonfinite_count": 0,
-        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
+        "note": "Two local encoding profiles against a pinned participant-mirror sample; not organizer-authenticated, proof of portal rejection/acceptance, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -151,14 +213,38 @@
           "inside_footprint_schema": false
         },
         "format_pass": false,
+        "encoding_profiles": {
+          "template-mask": false,
+          "finite-grid": true
+        },
+        "organizer_acceptance": "NOT_TESTED",
         "strict_template_validation": {
-          "ok": false,
-          "errors": [
-            "outside-footprint valid pixels=7111787; expected null/nodata"
-          ],
-          "validator": "submission-format-v1",
+          "validator": "submission-format-v2-explicit-encoding",
+          "encoding_profile": "template-mask",
           "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
           "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE27.tif",
+          "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+          "candidate_sha256": "a9bf76b57453a5b3af74c8eef837df53c29a0931162aa540b8763220b36ba3bb",
+          "organizer_acceptance": "NOT_TESTED",
+          "slot_authorized": false,
+          "checks": {
+            "template_single_band": true,
+            "single_band": true,
+            "shape_match": true,
+            "crs_match": true,
+            "transform_match": true,
+            "dtype_float32": true,
+            "template_epsg_32611": true,
+            "template_100m_grid": true,
+            "no_nan_inside_footprint": true,
+            "no_masked_inside_footprint": true,
+            "inside_range_0_1": true,
+            "selected_encoding": false
+          },
+          "ok": false,
+          "errors": [
+            "selected_encoding"
+          ],
           "bands": 1,
           "dtype": [
             "float32"
@@ -181,15 +267,22 @@
           ],
           "footprint_pixels": 5167373,
           "nonfinite_inside": 0,
+          "masked_inside": 0,
           "finite_range_inside": [
             0.0,
             1.0
           ],
-          "valid_outside_footprint": 7111787
+          "valid_outside_footprint": 7111787,
+          "entire_grid_finite_range_0_1": true,
+          "local_encoding_compatibility": {
+            "template-mask": false,
+            "finite-grid": true
+          },
+          "note": "Local contract checks only; template-mirror authenticity, scientific quality and official outside-mask interpretation require separate evidence. A finite nodata sentinel may pass template-mask but fail the portal's whole-grid range scan."
         },
         "sha256": "a9bf76b57453a5b3af74c8eef837df53c29a0931162aa540b8763220b36ba3bb",
         "nonfinite_count": 0,
-        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
+        "note": "Two local encoding profiles against a pinned participant-mirror sample; not organizer-authenticated, proof of portal rejection/acceptance, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 0.9801884946517089,
       "unique_under_protocol": false,
@@ -216,14 +309,38 @@
           "inside_footprint_schema": false
         },
         "format_pass": false,
+        "encoding_profiles": {
+          "template-mask": false,
+          "finite-grid": true
+        },
+        "organizer_acceptance": "NOT_TESTED",
         "strict_template_validation": {
-          "ok": false,
-          "errors": [
-            "outside-footprint valid pixels=7111787; expected null/nodata"
-          ],
-          "validator": "submission-format-v1",
+          "validator": "submission-format-v2-explicit-encoding",
+          "encoding_profile": "template-mask",
           "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
           "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE28.tif",
+          "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+          "candidate_sha256": "7c74270ad48fa0b865163853046a6d3815967c5bf37bbda5b74ca7fa22583a32",
+          "organizer_acceptance": "NOT_TESTED",
+          "slot_authorized": false,
+          "checks": {
+            "template_single_band": true,
+            "single_band": true,
+            "shape_match": true,
+            "crs_match": true,
+            "transform_match": true,
+            "dtype_float32": true,
+            "template_epsg_32611": true,
+            "template_100m_grid": true,
+            "no_nan_inside_footprint": true,
+            "no_masked_inside_footprint": true,
+            "inside_range_0_1": true,
+            "selected_encoding": false
+          },
+          "ok": false,
+          "errors": [
+            "selected_encoding"
+          ],
           "bands": 1,
           "dtype": [
             "float32"
@@ -246,15 +363,22 @@
           ],
           "footprint_pixels": 5167373,
           "nonfinite_inside": 0,
+          "masked_inside": 0,
           "finite_range_inside": [
             0.0,
             1.0
           ],
-          "valid_outside_footprint": 7111787
+          "valid_outside_footprint": 7111787,
+          "entire_grid_finite_range_0_1": true,
+          "local_encoding_compatibility": {
+            "template-mask": false,
+            "finite-grid": true
+          },
+          "note": "Local contract checks only; template-mirror authenticity, scientific quality and official outside-mask interpretation require separate evidence. A finite nodata sentinel may pass template-mask but fail the portal's whole-grid range scan."
         },
         "sha256": "7c74270ad48fa0b865163853046a6d3815967c5bf37bbda5b74ca7fa22583a32",
         "nonfinite_count": 0,
-        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
+        "note": "Two local encoding profiles against a pinned participant-mirror sample; not organizer-authenticated, proof of portal rejection/acceptance, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -281,12 +405,36 @@
           "inside_footprint_schema": true
         },
         "format_pass": true,
+        "encoding_profiles": {
+          "template-mask": true,
+          "finite-grid": false
+        },
+        "organizer_acceptance": "NOT_TESTED",
         "strict_template_validation": {
-          "ok": true,
-          "errors": [],
-          "validator": "submission-format-v1",
+          "validator": "submission-format-v2-explicit-encoding",
+          "encoding_profile": "template-mask",
           "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
           "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE30.tif",
+          "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+          "candidate_sha256": "5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32",
+          "organizer_acceptance": "NOT_TESTED",
+          "slot_authorized": false,
+          "checks": {
+            "template_single_band": true,
+            "single_band": true,
+            "shape_match": true,
+            "crs_match": true,
+            "transform_match": true,
+            "dtype_float32": true,
+            "template_epsg_32611": true,
+            "template_100m_grid": true,
+            "no_nan_inside_footprint": true,
+            "no_masked_inside_footprint": true,
+            "inside_range_0_1": true,
+            "selected_encoding": true
+          },
+          "ok": true,
+          "errors": [],
           "bands": 1,
           "dtype": [
             "float32"
@@ -309,15 +457,22 @@
           ],
           "footprint_pixels": 5167373,
           "nonfinite_inside": 0,
+          "masked_inside": 0,
           "finite_range_inside": [
             0.0,
             1.0
           ],
-          "valid_outside_footprint": 0
+          "valid_outside_footprint": 0,
+          "entire_grid_finite_range_0_1": false,
+          "local_encoding_compatibility": {
+            "template-mask": true,
+            "finite-grid": false
+          },
+          "note": "Local contract checks only; template-mirror authenticity, scientific quality and official outside-mask interpretation require separate evidence. A finite nodata sentinel may pass template-mask but fail the portal's whole-grid range scan."
         },
         "sha256": "5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32",
         "nonfinite_count": 7111787,
-        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
+        "note": "Two local encoding profiles against a pinned participant-mirror sample; not organizer-authenticated, proof of portal rejection/acceptance, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -344,14 +499,38 @@
           "inside_footprint_schema": false
         },
         "format_pass": false,
+        "encoding_profiles": {
+          "template-mask": false,
+          "finite-grid": true
+        },
+        "organizer_acceptance": "NOT_TESTED",
         "strict_template_validation": {
-          "ok": false,
-          "errors": [
-            "outside-footprint valid pixels=7111787; expected null/nodata"
-          ],
-          "validator": "submission-format-v1",
+          "validator": "submission-format-v2-explicit-encoding",
+          "encoding_profile": "template-mask",
           "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
           "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE31.tif",
+          "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+          "candidate_sha256": "acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6",
+          "organizer_acceptance": "NOT_TESTED",
+          "slot_authorized": false,
+          "checks": {
+            "template_single_band": true,
+            "single_band": true,
+            "shape_match": true,
+            "crs_match": true,
+            "transform_match": true,
+            "dtype_float32": true,
+            "template_epsg_32611": true,
+            "template_100m_grid": true,
+            "no_nan_inside_footprint": true,
+            "no_masked_inside_footprint": true,
+            "inside_range_0_1": true,
+            "selected_encoding": false
+          },
+          "ok": false,
+          "errors": [
+            "selected_encoding"
+          ],
           "bands": 1,
           "dtype": [
             "float32"
@@ -374,15 +553,22 @@
           ],
           "footprint_pixels": 5167373,
           "nonfinite_inside": 0,
+          "masked_inside": 0,
           "finite_range_inside": [
             0.0,
             1.0
           ],
-          "valid_outside_footprint": 7111787
+          "valid_outside_footprint": 7111787,
+          "entire_grid_finite_range_0_1": true,
+          "local_encoding_compatibility": {
+            "template-mask": false,
+            "finite-grid": true
+          },
+          "note": "Local contract checks only; template-mirror authenticity, scientific quality and official outside-mask interpretation require separate evidence. A finite nodata sentinel may pass template-mask but fail the portal's whole-grid range scan."
         },
         "sha256": "acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6",
         "nonfinite_count": 0,
-        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
+        "note": "Two local encoding profiles against a pinned participant-mirror sample; not organizer-authenticated, proof of portal rejection/acceptance, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -409,14 +595,38 @@
           "inside_footprint_schema": false
         },
         "format_pass": false,
+        "encoding_profiles": {
+          "template-mask": false,
+          "finite-grid": true
+        },
+        "organizer_acceptance": "NOT_TESTED",
         "strict_template_validation": {
-          "ok": false,
-          "errors": [
-            "outside-footprint valid pixels=7111787; expected null/nodata"
-          ],
-          "validator": "submission-format-v1",
+          "validator": "submission-format-v2-explicit-encoding",
+          "encoding_profile": "template-mask",
           "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
           "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE32.tif",
+          "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+          "candidate_sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+          "organizer_acceptance": "NOT_TESTED",
+          "slot_authorized": false,
+          "checks": {
+            "template_single_band": true,
+            "single_band": true,
+            "shape_match": true,
+            "crs_match": true,
+            "transform_match": true,
+            "dtype_float32": true,
+            "template_epsg_32611": true,
+            "template_100m_grid": true,
+            "no_nan_inside_footprint": true,
+            "no_masked_inside_footprint": true,
+            "inside_range_0_1": true,
+            "selected_encoding": false
+          },
+          "ok": false,
+          "errors": [
+            "selected_encoding"
+          ],
           "bands": 1,
           "dtype": [
             "float32"
@@ -439,15 +649,22 @@
           ],
           "footprint_pixels": 5167373,
           "nonfinite_inside": 0,
+          "masked_inside": 0,
           "finite_range_inside": [
             0.0,
             1.0
           ],
-          "valid_outside_footprint": 7111787
+          "valid_outside_footprint": 7111787,
+          "entire_grid_finite_range_0_1": true,
+          "local_encoding_compatibility": {
+            "template-mask": false,
+            "finite-grid": true
+          },
+          "note": "Local contract checks only; template-mirror authenticity, scientific quality and official outside-mask interpretation require separate evidence. A finite nodata sentinel may pass template-mask but fail the portal's whole-grid range scan."
         },
         "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
         "nonfinite_count": 0,
-        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
+        "note": "Two local encoding profiles against a pinned participant-mirror sample; not organizer-authenticated, proof of portal rejection/acceptance, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -474,12 +691,36 @@
           "inside_footprint_schema": true
         },
         "format_pass": true,
+        "encoding_profiles": {
+          "template-mask": true,
+          "finite-grid": false
+        },
+        "organizer_acceptance": "NOT_TESTED",
         "strict_template_validation": {
-          "ok": true,
-          "errors": [],
-          "validator": "submission-format-v1",
+          "validator": "submission-format-v2-explicit-encoding",
+          "encoding_profile": "template-mask",
           "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
           "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE33.tif",
+          "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+          "candidate_sha256": "bc3af2a5fcb4b49bc5845a2d7dc3da23daf41ce75e4c64da3337c0c8c93cc12c",
+          "organizer_acceptance": "NOT_TESTED",
+          "slot_authorized": false,
+          "checks": {
+            "template_single_band": true,
+            "single_band": true,
+            "shape_match": true,
+            "crs_match": true,
+            "transform_match": true,
+            "dtype_float32": true,
+            "template_epsg_32611": true,
+            "template_100m_grid": true,
+            "no_nan_inside_footprint": true,
+            "no_masked_inside_footprint": true,
+            "inside_range_0_1": true,
+            "selected_encoding": true
+          },
+          "ok": true,
+          "errors": [],
           "bands": 1,
           "dtype": [
             "float32"
@@ -502,15 +743,22 @@
           ],
           "footprint_pixels": 5167373,
           "nonfinite_inside": 0,
+          "masked_inside": 0,
           "finite_range_inside": [
             0.0,
             1.0
           ],
-          "valid_outside_footprint": 0
+          "valid_outside_footprint": 0,
+          "entire_grid_finite_range_0_1": false,
+          "local_encoding_compatibility": {
+            "template-mask": true,
+            "finite-grid": false
+          },
+          "note": "Local contract checks only; template-mirror authenticity, scientific quality and official outside-mask interpretation require separate evidence. A finite nodata sentinel may pass template-mask but fail the portal's whole-grid range scan."
         },
         "sha256": "bc3af2a5fcb4b49bc5845a2d7dc3da23daf41ce75e4c64da3337c0c8c93cc12c",
         "nonfinite_count": 7111787,
-        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
+        "note": "Two local encoding profiles against a pinned participant-mirror sample; not organizer-authenticated, proof of portal rejection/acceptance, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 0.9970858712528365,
       "unique_under_protocol": false,
@@ -537,14 +785,38 @@
           "inside_footprint_schema": false
         },
         "format_pass": false,
+        "encoding_profiles": {
+          "template-mask": false,
+          "finite-grid": true
+        },
+        "organizer_acceptance": "NOT_TESTED",
         "strict_template_validation": {
-          "ok": false,
-          "errors": [
-            "outside-footprint valid pixels=7111787; expected null/nodata"
-          ],
-          "validator": "submission-format-v1",
+          "validator": "submission-format-v2-explicit-encoding",
+          "encoding_profile": "template-mask",
           "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
           "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE36.tif",
+          "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+          "candidate_sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
+          "organizer_acceptance": "NOT_TESTED",
+          "slot_authorized": false,
+          "checks": {
+            "template_single_band": true,
+            "single_band": true,
+            "shape_match": true,
+            "crs_match": true,
+            "transform_match": true,
+            "dtype_float32": true,
+            "template_epsg_32611": true,
+            "template_100m_grid": true,
+            "no_nan_inside_footprint": true,
+            "no_masked_inside_footprint": true,
+            "inside_range_0_1": true,
+            "selected_encoding": false
+          },
+          "ok": false,
+          "errors": [
+            "selected_encoding"
+          ],
           "bands": 1,
           "dtype": [
             "float32"
@@ -567,15 +839,22 @@
           ],
           "footprint_pixels": 5167373,
           "nonfinite_inside": 0,
+          "masked_inside": 0,
           "finite_range_inside": [
             0.0,
             1.0
           ],
-          "valid_outside_footprint": 7111787
+          "valid_outside_footprint": 7111787,
+          "entire_grid_finite_range_0_1": true,
+          "local_encoding_compatibility": {
+            "template-mask": false,
+            "finite-grid": true
+          },
+          "note": "Local contract checks only; template-mirror authenticity, scientific quality and official outside-mask interpretation require separate evidence. A finite nodata sentinel may pass template-mask but fail the portal's whole-grid range scan."
         },
         "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
         "nonfinite_count": 0,
-        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
+        "note": "Two local encoding profiles against a pinned participant-mirror sample; not organizer-authenticated, proof of portal rejection/acceptance, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 0.9757811293560509,
       "unique_under_protocol": false,

@@ -11,3 +11,23 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python -m unittest discover -s tests -v
       - run: python scripts/build_site.py && git diff --exit-code -- docs/
+      - run: git diff --check
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tools/browser/package-lock.json
+      - run: npm ci --prefix tools/browser --no-audit --no-fund
+      - name: Desktop, mobile and fail-closed feed scenarios
+        run: node tests/browser_smoke.mjs --serve
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-ui-review
+          path: data/ui-review/
+          retention-days: 7

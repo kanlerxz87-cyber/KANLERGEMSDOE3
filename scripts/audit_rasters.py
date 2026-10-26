@@ -10,10 +10,9 @@ from validate_submission import validate as validate_template
 ROOT = Path(__file__).resolve().parents[1]
 
 def validate(path, template):
-    # Keep whole-array diagnostics for the reported portal range error, but use
-    # the canonical sample-template validator for the actual format decision.
-    # The competition format permits null/NaN outside its footprint; zeros there
-    # are not equivalent to a null mask merely because they lie in [0, 1].
+    # Report both explicit local encoding contracts. The official page says
+    # null/NaN outside bounds; its mapping to the sample's internal mask is not
+    # established by local validation. Neither profile proves portal acceptance.
     strict = validate_template(Path(template), Path(path))
     with rasterio.open(template) as ref, rasterio.open(path) as ds:
         a = ds.read(1)
@@ -29,10 +28,12 @@ def validate(path, template):
             'inside_footprint_schema': strict.get('ok') is True,
         }
         return {'checks': checks, 'format_pass': strict.get('ok') is True,
+                'encoding_profiles': strict.get('local_encoding_compatibility', {}),
+                'organizer_acceptance': 'NOT_TESTED',
                 'strict_template_validation': strict,
                 'sha256': hashlib.sha256(Path(path).read_bytes()).hexdigest(),
                 'nonfinite_count': int((~finite).sum()),
-                'note': 'Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit.'}
+                'note': 'Two local encoding profiles against a pinned participant-mirror sample; not organizer-authenticated, proof of portal rejection/acceptance, scientific validation, or permission to submit.'}
 
 def overlap(candidate, reference):
     if candidate.shape != reference.shape or not candidate.any() or not reference.any():

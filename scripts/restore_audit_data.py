@@ -1,28 +1,29 @@
-"""Restore small pinned audit inputs only; no training or submission generation."""
-import hashlib
+#!/usr/bin/env python3
+"""Restore small pinned historic audit inputs for learning, never as candidates.
+
+Uses the same hash-verifying Git transport as core-data restoration, with no
+REST quota and no redundant download when a pinned file is already present.
+"""
 import json
-import subprocess
+import sys
 from pathlib import Path
+
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from scripts.github_source import GitHubSource
 
-def fetch(repo, path, ref, dest, sha):
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    tmp = dest.with_suffix('.partial')
-    try:
-        with tmp.open('wb') as f:
-            subprocess.run(['gh','api','-H','Accept: application/vnd.github.raw',
-                            f'repos/{repo}/contents/{path}?ref={ref}'], stdout=f, check=True)
-        if hashlib.sha256(tmp.read_bytes()).hexdigest() != sha:
-            raise ValueError('Hash mismatch: '+str(dest))
-        tmp.replace(dest)
-    finally:
-        tmp.unlink(missing_ok=True)
 
-if __name__ == '__main__':
-    archive = json.loads((ROOT/'sources/GEMSDOE32/evidence/focus_site_winner_overlap_20261026.json').read_text())
-    for r in archive['historical_winners']:
-        fetch('buffedlizard55-lab/'+r['repo'],r['file'],r['head'],ROOT/'data'/f"{r['repo']}.tif",r['sha256'])
-    manifest = json.loads((ROOT/'sources/GEMSDOE32/registry/data_manifest.json').read_text())
-    for r in manifest['files']:
-        if r['id'] in ('sample_submission','labels'):
-            fetch(r['repo'],r['path'],r['ref'],ROOT/'data'/r['dest'],r['sha256'])
+def main() -> None:
+    source = GitHubSource()
+    archive = json.loads((ROOT / "sources/GEMSDOE32/evidence/focus_site_winner_overlap_20261026.json").read_text())
+    for row in archive["historical_winners"]:
+        result = source.restore("buffedlizard55-lab/" + row["repo"], row["head"], row["file"], ROOT / "data" / (row["repo"] + ".tif"), row["sha256"])
+        print(row["repo"], result["status"])
+    manifest = json.loads((ROOT / "sources/GEMSDOE32/registry/data_manifest.json").read_text())
+    for row in manifest["files"]:
+        if row["id"] in ("sample_submission", "labels"):
+            source.restore(row["repo"], row["ref"], row["path"], ROOT / "data" / row["dest"], row["sha256"])
+
+
+if __name__ == "__main__":
+    main()
