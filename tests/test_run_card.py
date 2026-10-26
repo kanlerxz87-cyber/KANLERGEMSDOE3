@@ -22,6 +22,8 @@ def test_recorded_run_is_negative_and_pooled_consistent():
     with pytest.raises(ValueError):check(bad,lock)
     bad=copy.deepcopy(card);bad['surface_registry']['full_fit_surface']['rows'][0]['file']='wrong.tif'
     with pytest.raises(ValueError):check(bad,lock)
+    bad=copy.deepcopy(card);bad['feature_cache']['template_feature_stack_reused']=True
+    with pytest.raises(ValueError):check(bad,lock)
     bad=copy.deepcopy(card);bad['ok_to_submit']=True
     with pytest.raises(ValueError):check(bad,lock)
 

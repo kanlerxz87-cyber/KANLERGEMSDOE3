@@ -1,14 +1,9 @@
 #!/usr/bin/env bash
-# Competition data is login-walled on DrivenData (no auth in this sandbox).
-# This repo restores SHA-256-pinned mirrors from GitHub instead; the manual
-# route on an unrestricted machine is:
-#   1. Log in at https://www.drivendata.org/competitions/306/competition-doe-gems/data/
-#   2. Download training_features.tif, labels.tif, sample_submission.tif into data/raw/
-#   3. Verify: sha256 must match registry/data_manifest.json pins.
-# Automated mirror route used here:
+# Restore the shared template's SHA-pinned owner mirrors; no organizer authentication implied.
 set -euo pipefail
-cd "$(dirname "$0")/.."
-.venv/bin/python scripts/restore_data.py --group core
-.venv/bin/python scripts/restore_data.py --group external
-.venv/bin/python scripts/prepare_data.py
-echo "Data ready in data/raw/ (mirror copies, NOT organizer-authenticated; see IR-04)."
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+TEMPLATE="$(bash "$ROOT/scripts/bootstrap_template.sh")"
+export GEMS_DATA_DIR="${GEMS_DATA_DIR:-$ROOT/.cache/gems_data}"
+GROUP="${1:-core}"
+case "$GROUP" in core|external|scored|all) ;; *) echo 'Use: download_competition_data.sh [core|external|scored|all]' >&2; exit 2;; esac
+"${PYTHON:-python3}" "$TEMPLATE/scripts/restore_data.py" --group "$GROUP" --target-dir "$GEMS_DATA_DIR"

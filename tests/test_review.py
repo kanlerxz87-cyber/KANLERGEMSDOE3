@@ -37,10 +37,12 @@ class ReviewTests(unittest.TestCase):
         build();rows=json.loads(Path('docs/data/sites.json').read_text())
         self.assertEqual(len(rows),9)
         self.assertTrue(all(not x['submit'] and x['estimate'] is None for x in rows))
-        page=Path('docs/research.html').read_text()
+        page=Path('docs/archived-research.html').read_text()
         self.assertIn('<a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">',page)
         self.assertNotIn('<a href="<a href=',page)
     def test_evidence_hashes(self):
         import hashlib
         for row in json.loads(Path('evidence/snapshot_hashes.json').read_text()):
+            self.assertNotIn('__pycache__', Path(row['path']).parts)
+            self.assertNotEqual(Path(row['path']).suffix, '.pyc')
             self.assertEqual(hashlib.sha256(Path(row['path']).read_bytes()).hexdigest(),row['sha256'])

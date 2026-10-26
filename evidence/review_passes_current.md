@@ -17,6 +17,8 @@
 ## Pass 2: defect and assumption review
 
 - Found the sample mirror contains the exact known positives. Restricted its use to footprint/grid.
+- The template full cached feature stack was not authenticated or reused; owner-derived LiDAR and
+  radiometric caches are not proof that the user’s shared-stack requirement was met.
 - Found two registry rasters are nonbinary; preserved continuous values for Spearman comparisons.
 - Verified the lattice bound separately and distinguished it from the observed final 100% overlap.
   Confirmed lower-density candidates are not universally ruled out and the budget was not reduced.
@@ -39,7 +41,7 @@
 
 - Recomputed run-card pooled arithmetic, gate thresholds, reference counts and paired difference;
   verified the same negative result even with Python assertions disabled.
-- Ran all **34** local tests after integration. The suite checks geometry, saved-byte format fixtures,
+- Ran all **66** local tests after integration, including the independently pinned shared auditor. The suite checks geometry, saved-byte format fixtures,
   feature support/offsets, leakage canary failure on a deliberately leaked label, independent metric
   parity, writer/mask conflict, source links and fail-closed gate behavior.
 - Regenerated deterministic HTML/JSON, checked active pages' local links and fragment IDs, validated

@@ -49,7 +49,8 @@ def build():
  for name in ('research','submission'):
   raw=(ROOT/'docs'/f'{name}.md').read_text()
   text=render_markdown_links(raw)
-  write_page(name+'.html','<p class="stop"><strong>ARCHIVED PRE-EXPERIMENT SNAPSHOT.</strong> <a href="index.html">See the current dashboard</a>.</p><nav><a href="index.html">Executive summary</a></nav><article style="white-space:pre-wrap;overflow-wrap:anywhere">'+text+'</article>')
+  target = 'archived-research.html' if name == 'research' else 'submission.html'
+  write_page(target,'<p class="stop"><strong>ARCHIVED PRE-EXPERIMENT SNAPSHOT.</strong> <a href="index.html">See the current dashboard</a>.</p><nav><a href="index.html">Executive summary</a></nav><article style="white-space:pre-wrap;overflow-wrap:anywhere">'+text+'</article>')
 
 def render_markdown_links(text):
  """Escape Markdown text while rendering inline and bare HTTPS links safely."""

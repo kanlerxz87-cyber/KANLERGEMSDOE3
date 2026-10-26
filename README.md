@@ -42,8 +42,9 @@ Changing the dot budget or quietly exempting the lattice to evade the rule is no
 
 The six required data files, including the ~419 MB 19-band competition-stack mirror, were restored
 and SHA-verified. Actual model inputs were the owner-cached radiometric and LiDAR channels; the
-19-band stack was validated, not used as a model feature. **Mirrors are not authenticated organizer
-originals.** The sample mirror's positive pixels exactly match the known labels, despite the official
+19-band stack was validated, not used as a model feature. The shared template’s full cached feature
+stack was not authenticated or reused; building nine features from owner-cached inputs does not satisfy
+that requirement. **Mirrors are not authenticated organizer originals.** The sample mirror's positive pixels exactly match the known labels, despite the official
 sample description; use it only for grid/footprint, never as a prediction feature. Derived caches and
 shared-template code lack an established redistribution license; verify provenance/rights before
 any competition use. Two pinned GEMSDOE24 versions differ: `fc2bc6f` defaults to NaN outside, while
@@ -54,7 +55,7 @@ clarification before use. No physical fault or geothermal resource was independe
 The prompt refers to a named single-method paragraph that was not identifiable. Our research lane
 was explicitly provisional, never claimed to be assigned. The frozen registry includes the nine focus
 sites but cannot prove coverage of all current registries. The best same-evaluator prior incumbent,
-a selector, account cap, organizer receipt and expert review remain unavailable.
+a verified shared feature stack, selector, account cap, organizer receipt and expert review remain unavailable.
 
 ## Reproduce checks without spending a slot
 

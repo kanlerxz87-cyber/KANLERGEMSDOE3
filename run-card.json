@@ -2353,5 +2353,14 @@
   },
   "stop_reason": "More than 70% of candidate dots lie within 3 pixels of a registered raster; no GeoTIFF written",
   "duration_seconds": 174.49,
-  "note": "Bilateral K/Th displacement at LiDAR scarp; research only; DO NOT SUBMIT"
+  "note": "Bilateral K/Th displacement at LiDAR scarp; research only; DO NOT SUBMIT",
+  "feature_cache": {
+    "provenance_verified": false,
+    "template_feature_stack_reused": false,
+    "owner_cached_input_rasters_used": [
+      "LiDAR scarp u8",
+      "GeoDAWN radiometric u8"
+    ],
+    "reason": "The shared template full cached feature stack was not authenticated or reused. Nine lane features were built from owner-derived cached rasters; organizer provenance and redistribution rights remain unverified."
+  }
 }

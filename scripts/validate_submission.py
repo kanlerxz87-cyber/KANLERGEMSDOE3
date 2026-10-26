@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Two local checks, neither proof of portal acceptance.
+"""Report local template-mask and whole-array range checks, never upload approval.
 
-The CLI includes a conservative whole-array [0,1] check; it rejects NaN outside
-by design and may conflict with the official null/NaN-outside wording. The
-separate validate(template, candidate) API checks that strict footprint policy.
-No local check establishes the cause of an earlier portal error or authorizes a
-submission; organizer clarification / a central shared-template fix is needed.
+A previous portal reported a range error, but its exact validation behavior and
+file bytes are unknown. A finite-zero outside encoding passes a whole-array range
+check yet conflicts with the written null/NaN-outside specification. This CLI
+reports both checks separately and fails closed if either fails. It does not
+authenticate a template or establish organizer portal acceptance.
 """
 from __future__ import annotations
 import argparse, json, sys
@@ -20,9 +20,8 @@ from gems.submission import check_variants  # noqa: E402
 # --- Compatibility API preserved from origin/main on merge (2026-10-26) ---
 # The forensic session's scripts/audit_rasters.py imports validate(template,
 # candidate) with nodata-outside semantics ("submission-format-v1"). It is kept
-# for that audit; this lane's local range check uses whole-array [0,1]
-# (-zeros) semantics instead. Do not confuse the two: they answer different
-# questions, and both are labelled in their outputs.
+# for that audit. The CLI also reports a separate strict whole-array check;
+# these local checks can conflict and neither establishes portal behavior.
 def validate(template_path: Path, candidate_path: Path) -> dict:
     errors: list[str] = []
     with rasterio.open(template_path) as ref, rasterio.open(candidate_path) as src:
@@ -92,14 +91,18 @@ def main() -> int:
         checks["whole_array_in_0_1"] = whole_range
         checks["nodata_is_nan"] = bool(nodata is not None and np.isnan(nodata))
         checks["positive_dots_eq1"] = dots
-        checks["portal_range_ok"] = bool(whole_finite and whole_range)
+        checks["whole_array_numeric_range_ok"] = bool(whole_finite and whole_range)
         if args.expected_dots is not None:
             checks["dots_match_expected"] = bool(dots == args.expected_dots)
-    ok = bool(checks.get("format_valid")) and checks["portal_range_ok"]
+    strict = validate(args.template, args.submission)
+    checks["strict_template_mask_check"] = strict
+    checks["portal_acceptance_verified"] = False
+    checks["submission_authorized"] = False
+    checks["interpretation"] = "Local checks only; organizer template and portal behavior are not authenticated."
+    ok = bool(checks.get("format_valid")) and checks["whole_array_numeric_range_ok"] and strict["ok"]
     if args.expected_dots is not None:
         ok = ok and checks["dots_match_expected"]
-    checks["validator_verdict"] = "PASS" if ok else "FAIL"
-    checks["interpretation"] = "Local whole-array range preflight only; not official-mask compliance, portal acceptance, or submission approval."
+    checks["validator_verdict"] = "PASS_LOCAL_ONLY" if ok else "FAIL_OR_CONFLICT"
     print(json.dumps(checks, indent=2, default=str))
     return 0 if ok else 1
 

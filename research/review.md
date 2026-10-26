@@ -43,7 +43,9 @@ final dots within 3 pixels of the same registered lattice ([receipt](../evidence
 Its pass against only nine focus champions does not satisfy the user’s all-registry stop; this research
 file is a **duplicate and must not be submitted**. The strict local null-outside validator also finds
 7,111,787 valid exterior pixels in this zero-outside TIFF ([format receipt](../evidence/parallel-format-audit.json));
-this is not evidence of portal behavior. The historical output remains for provenance, with
+this is not evidence of portal behavior. We also verified 4,115 of its positive dots lie exactly on
+known catalogue pixels, which are masked during scoring; these dots cannot earn credit there. The
+historical output remains for provenance, with
 its run card updated to reflect the new audit; it is not a promoted deliverable. This check inspected
 existing bytes and did not fit or generate another candidate.
 
@@ -87,7 +89,10 @@ shared template, or clarified by the organizer, before any submission is contemp
 ## Data, licenses and access
 
 The six files were restored from pinned owner mirrors. SHA-256 and expected grids/bands were verified;
-this is mirror integrity, not organizer authentication. The sample mirror contains exactly the known
+this is mirror integrity, not organizer authentication. The shared template’s full cached feature
+stack was not authenticated or reused: the nine model inputs were constructed from owner-cached
+LiDAR and radiometric rasters. This is an unmet protocol requirement, not a substitute for the
+requested shared stack. The sample mirror contains exactly the known
 labels as positives; it supplied only the finite footprint and spatial grid. Cached LiDAR/scarp and
 radiometric layers are derived, quantized proxies; the full 19-band training raster was validated but
 not used as a predictor. The underlying USGS GeoDAWN release is CC0 and 3DEP products are generally

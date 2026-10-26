@@ -20,6 +20,8 @@ def check(card, lock):
     require(card['verdict']=='negative' and card['ok_to_submit'] is False, 'verdict is not negative')
     require(card['raster_sha256'] is None and card['validator_output'] is None, 'unexpected saved-file claim')
     require(card['submission_slot_spent'] is False, 'unexpected slot claim')
+    require(card['feature_cache']['provenance_verified'] is False and
+            card['feature_cache']['template_feature_stack_reused'] is False, 'shared feature-cache limitation missing')
     require(len(card['submission_note'])<=140, 'submission note too long')
     require(card['leakage_canary']['passed'] and card['oof_model_canary']['passed'], 'leakage canary failed')
     expected=set(card['features']['names'])|{'profile_support'}
