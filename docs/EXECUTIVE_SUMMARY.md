@@ -1,8 +1,9 @@
 # Executive summary — 2026-10-26
 
 **DO NOT SUBMIT.** No eligible GeoTIFF was written and no competition slot was used. The final
-37,654-dot research candidate was 100% within 3 pixels of a registered lattice, exceeding the 70%
-stop. Full details: [current run card](../evidence/run-card.json), [scientific review](../research/review.md),
+37,654-dot bilateral research candidate was 100% within 3 pixels of a registered lattice, exceeding
+the 70% stop. A separate research TIFF already on main was independently checked and also has 100%
+lattice overlap; its nine-champion-only pass is insufficient. [Parallel audit](../evidence/parallel-lattice-audit.json). Full details: [current run card](../evidence/run-card.json), [scientific review](../research/review.md),
 [nine-site audit](../evidence/portfolio-audit.json), [visual dashboard](index.html), and
 [submission / range-error guide](executive-summary.html).
 

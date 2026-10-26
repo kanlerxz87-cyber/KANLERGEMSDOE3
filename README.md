@@ -6,14 +6,18 @@
 
 ## Decision: DO NOT SUBMIT
 
-The one fixed research experiment ended in a **duplicate stop**. Its 37,654 in-memory final dots
-were all within 3 pixels of a registered calibration lattice, above the user's 70% threshold. No
-candidate TIFF or submission name exists, no slot was spent, and there is no organizer receipt.
+Our fixed bilateral research experiment ended in a **duplicate stop**. Its 37,654 in-memory final dots
+were all within 3 pixels of a registered calibration lattice, above the user's 70% threshold; this
+lane did not write a TIFF. A separate GPC-3 research TIFF already committed on main was independently
+checked and also has **100% lattice overlap**, so it is a duplicate under the literal all-registry
+rule despite passing a nine-champion-only screen. No file is eligible for submission, no slot was spent,
+and there is no organizer receipt. See [the parallel-file audit](evidence/parallel-lattice-audit.json).
+The strict local null-outside validator also rejects its exterior zeros; this is not a portal receipt.
 Changing the dot budget or quietly exempting the lattice to evade the rule is not authorized.
 
 - [GitHub Pages research dashboard](https://kanlerxz87-cyber.github.io/KANLERGEMSDOE3/) ·
   [Executive summary / submission guide](docs/executive-summary.html) ·
-  [Nine-site audit](evidence/portfolio-audit.json) · [Run card](evidence/run-card.json)
+  [Nine-site audit](evidence/portfolio-audit.json) · [Canonical run card](evidence/run-card.json)
 - The provisional bilateral K/Th–LiDAR lane achieved **HOLDOUT-DTI 0.1134**
   (95% CI **[0.1006, 0.1262]**; `gems57-pooled-hide-v2`; 60,988 withheld positives).
   Against its same-fold feature ablation, the paired difference was **+0.0010**
@@ -25,6 +29,9 @@ Changing the dot budget or quietly exempting the lattice to evade the rule is no
 - The mathematical lattice bound would force more than 70% overlap for **any** ≥22,164 distinct
   footprint dots; it does not rule out all smaller budgets. The observed experiment's overlap was
   100%; the separate bound alone is not an observation. See [coverage evidence](evidence/lattice-coverage.json).
+- The parallel GPC-3 record reports **HOLDOUT-DTI 0.1377**, 95% CI **[0.1256, 0.1503]**
+  (`gems-segment-pooled-v1`; 60,988 positives); we did not rerun it and its protocol is not directly
+  interchangeable with our evaluator. Its research TIFF is not an approved or unique submission.
 - GEMSDOE32's **0.2778** is an **unverified owner report**, not a confirmed receipt. In pinned
   mirrors, H33-B2 is exactly D2.8's 44,090 dots minus 6,436 within two pixels of mapped faults.
   Removing uncredited mass may help, but may lose recall; hidden labels do not establish causality.
@@ -39,9 +46,10 @@ and SHA-verified. Actual model inputs were the owner-cached radiometric and LiDA
 originals.** The sample mirror's positive pixels exactly match the known labels, despite the official
 sample description; use it only for grid/footprint, never as a prediction feature. Derived caches and
 shared-template code lack an established redistribution license; verify provenance/rights before
-any competition use. The official null-outside format and the shared writer's zero-outside default
-conflict; the shared template remains unchanged and needs a central fix or organizer clarification
-before use. No physical fault or geothermal resource was independently confirmed.
+any competition use. Two pinned GEMSDOE24 versions differ: `fc2bc6f` defaults to NaN outside, while
+`7ab1c8f` defaults to zero. Both leave the official outside-NaN check advisory; a strict local check
+rejects exterior zeros. The shared templates remain unchanged and need a central fix or organizer
+clarification before use. No physical fault or geothermal resource was independently confirmed.
 
 The prompt refers to a named single-method paragraph that was not identifiable. Our research lane
 was explicitly provisional, never claimed to be assigned. The frozen registry includes the nine focus
@@ -57,10 +65,13 @@ by Git. Downloading the full data bundle is approximately 464 MiB and the regist
 python -m venv .venv
 .venv/bin/pip install -r requirements.txt
 python scripts/install_template.py                    # 19 pinned unchanged shared modules
-bash scripts/download_bilateral_data.sh            # six hash-pinned owner mirrors
-python scripts/fetch_bilateral_registry.py                      # 167 frozen comparison rasters
+bash scripts/download_bilateral_data.sh               # six hash-pinned owner mirrors
+python scripts/fetch_bilateral_registry.py            # 167 frozen comparison rasters
 OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/prepare_bilateral_data.py
 OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/check_lattice.py
+OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/audit_parallel_lattice.py
+OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/audit_parallel_format.py
+python scripts/check_parallel_audit.py                # saved-receipt consistency
 .venv/bin/python scripts/check_run.py                 # receipt consistency, not a model rerun
 PYTHONPATH=src OPENBLAS_NUM_THREADS=1 .venv/bin/pytest -q
 python scripts/build_site.py
@@ -97,5 +108,7 @@ unverified forecasts or spending a scarce slot on a duplicate.
 **Own the Outcome:** make the stop obvious, preserve failures, automate independent checks, and make
 uncertainty and exact next steps visible rather than presenting a placebo raster as a submission.
 
-Prior concurrent-agent reports are retained under `docs/archive/`, `research/archive/`, and
-`docs/legacy-*`; they are historical snapshots and must not override this run card.
+Prior concurrent-agent reports are retained under `archive/gpc3/`, `docs/archive/`,
+`research/archive/`, and `docs/legacy-*`; they are historical snapshots. The GPC-3 research
+card is retained as supplemental evidence, with its later full-registry duplicate finding added.
+The current bilateral card remains the canonical record for this lane.

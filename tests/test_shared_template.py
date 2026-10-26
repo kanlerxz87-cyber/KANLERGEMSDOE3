@@ -1,5 +1,7 @@
 """Synthetic tests for unchanged shared components; never count as model runs."""
 import sys
+import importlib
+import importlib.util
 from pathlib import Path
 import tempfile
 import numpy as np
@@ -8,14 +10,26 @@ import rasterio
 from rasterio.transform import from_origin
 
 ROOT=Path(__file__).resolve().parents[1]
-sys.path.insert(0,str(ROOT/'.cache/template/GEMSDOE24/src'))
+# Load the 7ab1c8f template under a unique package name. A concurrent lane
+# vendors a different, equally pinned gems package at src/gems; Python's
+# sys.modules cache would otherwise silently test whichever was imported first.
+locked=ROOT/'.cache/template/GEMSDOE24/src/gems'
+if not (locked/'__init__.py').is_file():
+    pytest.skip('Install locked shared template before these optional tests',allow_module_level=True)
+spec=importlib.util.spec_from_file_location('_locked_gems24',locked/'__init__.py',
+                                          submodule_search_locations=[str(locked)])
+pkg=importlib.util.module_from_spec(spec)
+sys.modules[spec.name]=pkg
+spec.loader.exec_module(pkg)
+holdout=importlib.import_module('_locked_gems24.holdout')
+metric=importlib.import_module('_locked_gems24.metric')
+submission=importlib.import_module('_locked_gems24.submission')
+write_submission,check_variants=submission.write_submission,submission.check_variants
 sys.path.insert(0,str(ROOT/'.cache/template/GEMSDOE32/vendor'))
 try:
-    from gems import holdout, metric
     from gems57 import evaluate_holdout
-    from gems.submission import write_submission, check_variants
 except ModuleNotFoundError:
-    pytest.skip('Install locked shared template before these optional tests',allow_module_level=True)
+    pytest.skip('Install locked shared evaluator before these optional tests',allow_module_level=True)
 
 
 def brute_terms(prob,truth,active,radius=3):
@@ -84,3 +98,22 @@ def test_canonical_writer_serializes_and_rejects_invalid_inside():
         for invalid in [np.nan,-.01,1.01,np.inf]:
             b=a.copy();b[2,3]=invalid
             with pytest.raises(ValueError):write_submission(b,ref,out,outside='zero')
+
+
+def test_other_pinned_writer_defaults_to_nan_exterior():
+    # The earlier fc2bc6f pin is not interchangeable with the 7ab1c8f pin.
+    old_path=ROOT/'src/gems'
+    old_spec=importlib.util.spec_from_file_location('_vendored_gems24_fc2',old_path/'__init__.py',
+                                                   submodule_search_locations=[str(old_path)])
+    old_pkg=importlib.util.module_from_spec(old_spec)
+    sys.modules[old_spec.name]=old_pkg
+    old_spec.loader.exec_module(old_pkg)
+    older_writer=importlib.import_module('_vendored_gems24_fc2.submission').write_submission
+    with tempfile.TemporaryDirectory() as d:
+        ref=Path(d)/'template.tif';out=Path(d)/'old-writer-smoke.tif'
+        profile=dict(driver='GTiff',width=3,height=3,count=1,dtype='float32',
+                     crs='EPSG:32611',transform=from_origin(0,300,100,100),nodata=np.nan)
+        a=np.zeros((3,3),np.float32);a[0,0]=np.nan
+        with rasterio.open(ref,'w',**profile) as ds:ds.write(a,1)
+        older_writer(a,ref,out)
+        with rasterio.open(out) as ds: assert np.isnan(ds.read(1)[0,0])

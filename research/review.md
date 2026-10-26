@@ -5,8 +5,8 @@
 **Negative; do not submit.** After the whole-segment, buffered spatial experiment, the frozen
 37,654-dot candidate was generated only in memory and checked against the registered calibration
 lattice. All **37,654 / 37,654 = 100%** lay within 3 pixels; the 70% rule triggers an immediate stop.
-No TIFF, SHA, saved-byte validator result, submission name, slot selection, receipt or expert-reviewed
-discovery exists. The [run card](../evidence/run-card.json) is the single authoritative current record.
+This lane produced no TIFF, SHA or saved-byte validator result; no slot selection, receipt or
+expert-reviewed discovery exists. The [run card](../evidence/run-card.json) is the single authoritative current record.
 
 The candidate achieved **HOLDOUT-DTI 0.1133855**, 95% CI **[0.1006053, 0.1262007]**;
 `gems57-pooled-hide-v2`, **60,988 withheld positive pixels**, 1,999 paired bootstrap draws over
@@ -28,6 +28,24 @@ rasters before dot placement, preserving actual nonbinary values for two referen
 rank correlations were **0.0859** and **0.0975**, respectively. This is only a frozen-snapshot
 surface pass. Final-dot comparisons stopped immediately after the first lattice duplicate, and the
 snapshot cannot establish completeness across concurrent/unregistered projects.
+
+## Concurrent GPC-3 artifact, independently checked
+
+A separate session had already committed a GPC-3 research TIFF to main, with a negative verdict based
+on its reported holdout. Its record reports **HOLDOUT-DTI 0.1376815**, 95% CI **[0.1255670,
+0.1503305]**, `gems-segment-pooled-v1`, **60,988 withheld positives**. Its reported paired delta
+against its own B0 is **+0.0051737**, 95% CI **[+0.0003899, +0.0100424]**, same evaluator and
+positives. We did not replay that experiment, and its evaluator should not be directly compared with
+our `gems57` result without parity validation.
+
+We independently checked its saved TIFF SHA-256 and found all **37,654 / 37,654 = 100%** of its
+final dots within 3 pixels of the same registered lattice ([receipt](../evidence/parallel-lattice-audit.json)).
+Its pass against only nine focus champions does not satisfy the user’s all-registry stop; this research
+file is a **duplicate and must not be submitted**. The strict local null-outside validator also finds
+7,111,787 valid exterior pixels in this zero-outside TIFF ([format receipt](../evidence/parallel-format-audit.json));
+this is not evidence of portal behavior. The historical output remains for provenance, with
+its run card updated to reflect the new audit; it is not a promoted deliverable. This check inspected
+existing bytes and did not fit or generate another candidate.
 
 ## Geometry and protocol tension
 
@@ -57,9 +75,9 @@ organizer result or claim our lane exceeded it.
 
 ## Shared writer versus the official footprint mask
 
-The published format describes null/NaN outside the footprint. The pinned GEMSDOE24 shared writer
-has an all-finite-zero exterior as its default, and its `format_valid` check treats the official
-outside-NaN condition as advisory. A separately integrated strict local validator requires outside
+The published format describes null/NaN outside the footprint. The two unchanged GEMSDOE24 shared
+writer pins differ: `fc2bc6f` defaults to NaN outside, while `7ab1c8f` defaults to zero. Their
+`format_valid` checks treat the official outside-NaN condition as advisory. A separately integrated strict local validator requires outside
 pixels to be nodata and rejects a zero-outside file. A synthetic regression demonstrates both
 behaviors; neither establishes what the portal accepted or why an earlier file failed. The shared
 upstream template has **not** been modified here: the session is restricted to this repository branch,

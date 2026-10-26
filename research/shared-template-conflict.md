@@ -1,12 +1,12 @@
 # Unresolved shared-writer footprint conflict
 
-The official problem description calls for null/NaN outside the bounds. In the pinned shared
-GEMSDOE24 template, `gems.submission.write_submission` defaults to `outside="zero"`, and
-`check_variants` marks `outside_is_nan_official_text` as non-hard; the CLI can therefore describe a
+The official problem description calls for null/NaN outside the bounds. Two unchanged pinned
+GEMSDOE24 versions are present: `fc2bc6f` defaults to `outside="nan"`, while `7ab1c8f` defaults
+to `outside="zero"`. Both `check_variants` implementations mark `outside_is_nan_official_text` as non-hard; the CLI can therefore describe a
 zero-outside file as `format_valid` while `official_format_compliant` is false. The separately
 integrated `scripts/validate_submission.py` uses the template mask and rejects valid exterior zeros.
-A synthetic regression in `tests/test_shared_template.py` demonstrates the disagreement without
-creating a real candidate. The user's previous portal failure cannot be attributed to either case
+Synthetic regressions in `tests/test_shared_template.py` isolate the two packages and demonstrate
+both defaults and the validator disagreement without creating a real candidate. The user's previous portal failure cannot be attributed to either case
 without the actual rejected file and response.
 
 The shared template and its pinned Git blobs are **unchanged**. The requested central repair cannot
