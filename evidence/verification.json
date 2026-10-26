@@ -1,0 +1,7 @@
+{
+  "status": "FAIL \u2014 first-pass release verification",
+  "verified_utc": "2026-10-26T22:17:00.636242+00:00",
+  "failed_check": "unmeasured_legacy_metrics_are_null",
+  "scientific_verdict": "negative",
+  "ok_to_submit": false
+}

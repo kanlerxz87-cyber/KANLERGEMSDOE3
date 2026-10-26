@@ -1,0 +1,25 @@
+{
+  "passes": [
+    {
+      "pass": 1,
+      "phase": "Implementation and first verification",
+      "status": "implemented; defects found for pass 2, not final approval",
+      "checks": [
+        "One fixed SSP1 experiment completed with a negative verdict and no slot use",
+        "New TIFF/ZIP generated and all 13 shared saved-byte format checks passed",
+        "28 unit tests passed",
+        "Desktop 1440px and mobile 390px Chromium smoke checks: no body overflow, no JavaScript errors, no failed page asset requests",
+        "Nine-site file identity and full frozen registry intake completed"
+      ],
+      "defects_found": [
+        "Shared writer legacy metric fields defaulted to unmeasured zero values because the caller did not explicitly supply nulls",
+        "The first surface report distinguished quarantine counts but conflated complete inventory with complete universal comparability in PASS gates",
+        "The small new-file table was cramped on mobile",
+        "The verifier left a RUNNING self-link after an early failure instead of an explicit failed verification state",
+        "The initial data/ ignore rule also matched docs/data; changed it to root-only /data/ before committing the published compact evidence"
+      ],
+      "scientific_outcome": "negative; not a leaderboard improvement; no further experiments allowed after the final-dot duplicate"
+    }
+  ],
+  "note": "This file is updated through three review passes. Technical defects are fixed without changing the fitted candidate pixels or turning a negative into a promoted file."
+}

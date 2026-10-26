@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "checked_utc_day": "2026-10-26",
+  "verification_method": "Public page content retrieved with fetch_page during this session; short quotations or normalized mathematical transcriptions below. Binary competition inputs were separately restored from owner GitHub mirrors and verified against pinned SHA-256 values. A hash proves mirror identity, not fresh organizer-host authentication.",
+  "sources": [
+    {
+      "id": "DD-PROBLEM",
+      "publisher": "DrivenData / competition organizer",
+      "kind": "official competition specification",
+      "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
+      "status": "verified public text",
+      "evidence": [
+        "namely, geological faults",
+        "These new faults will comprise the test dataset for the initial prize round of the challenge.",
+        "linear (triangular) kernel with 300 m support",
+        "For this competition, we set \u03b1=0.2 and \u03b2=0.8",
+        "single layer with datatype of 32-bit float (`float32`) with values between 0 and 1"
+      ],
+      "claims_supported": [
+        "The prediction target is fault presence, not vent temperature or commercial geothermal productivity.",
+        "New expert faults, not the public training catalogue, form the initial test labels.",
+        "100 m UTM 11N EPSG:32611 GeoTIFF; single float32 band; matching bounds; outside data null/NaN.",
+        "Exact distance-weighted Tversky formula and recall-heavy weights."
+      ],
+      "limit": "The page does not reveal hidden labels, private performance, or a score for any peer raster."
+    },
+    {
+      "id": "DD-MASK",
+      "publisher": "DrivenData staff (chrisk-dd)",
+      "kind": "official organizer clarification",
+      "url": "https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/2",
+      "status": "verified public staff response",
+      "evidence": [
+        "Pixels corresponding to known USGS/INGENIOUS faults are masked / excluded from evaluation, so they do not count towards penalty terms.",
+        "Re-evaluation will also mask/exclude the existing USGS/INGENIOUS faults."
+      ],
+      "claims_supported": [
+        "Mask the exact known pixels. An additional 200 m exclusion collar is a model heuristic, not an official scoring rule."
+      ]
+    },
+    {
+      "id": "DD-LEADERBOARD",
+      "publisher": "DrivenData",
+      "kind": "official public leaderboard observation, NOT a submission-page receipt",
+      "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+      "status": "verified public table on checked UTC day",
+      "evidence": [
+        "#1",
+        "0.4437"
+      ],
+      "claims_supported": [
+        "The observed public leading value on this date was 0.4437. The prompt's 0.3195 and 0.4413 targets are stale snapshots."
+      ],
+      "limit": "This does not link any GEMSDOE artifact hash to a score. None of the user's historical artifact claims is upgraded to ORGANIZER-CONFIRMED."
+    },
+    {
+      "id": "DD-SUBMISSIONS",
+      "publisher": "DrivenData",
+      "kind": "authenticated submission page",
+      "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/",
+      "status": "verified redirect to login",
+      "evidence": [
+        "/accounts/login/?next=/competitions/306/competition-doe-gems/submissions/"
+      ],
+      "claims_supported": [
+        "Current account slot usage, capacity, and submission receipts were not accessible. No login secrets are requested or stored."
+      ]
+    },
+    {
+      "id": "GEMS-RULES",
+      "publisher": "U.S. Department of Energy / NLR",
+      "kind": "official rules, September 2026",
+      "url": "https://docs.nlr.gov/docs/fy26osti/96647.pdf",
+      "status": "verified PDF sections 3.3\u20133.6",
+      "evidence": [
+        "up to three per week, as specified on the competition website",
+        "you must select only one set of predictions",
+        "The competitor\u2019s score on the private test dataset will be used for the first prize round"
+      ],
+      "claims_supported": [
+        "The published rules describe a three-per-week limit, subject to the competition website. Current remaining capacity still requires the authenticated page.",
+        "No weekly slot is spent in this run. Final selection and prize reproduction requirements are separate from local validation."
+      ],
+      "limit": "The rules PDF is not a file-specific score receipt, and its general final-material requirements do not replace the GeoTIFF upload specification."
+    },
+    {
+      "id": "USGS-GEODAWN",
+      "publisher": "U.S. Geological Survey",
+      "kind": "official data release and acquisition documentation",
+      "url": "https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and",
+      "doi": "10.5066/P93LGLVQ",
+      "status": "verified public metadata",
+      "license": "CC0 1.0 (stated on official page)",
+      "evidence": [
+        "surface geology and soil composition, and subsurface structure and geology, respectively",
+        "two different, overlapping surveys with different flight specifications",
+        "variable terrain clearance should be considered when modeling and interpreting these data"
+      ],
+      "claims_supported": [
+        "Radiometrics and magnetics provide different, non-unique geological evidence.",
+        "Acquisition blocks, flight height and terrain clearance can mimic geological structure.",
+        "Official release provides geophysical GeoTIFFs, line data and survey outline/flight path shapefiles."
+      ],
+      "binary_access": "This run used hash-pinned quantized owner derivatives; it did not re-download original survey archives from USGS."
+    },
+    {
+      "id": "GDR-1391",
+      "publisher": "DOE Geothermal Data Repository / UNR GBCGE INGENIOUS",
+      "kind": "official regional dataset catalogue",
+      "url": "https://gdr.openei.org/submissions/1391",
+      "doi": "10.15121/1881483",
+      "status": "verified public metadata and direct resource links",
+      "license": "CC BY 4.0 (stated on official page)",
+      "evidence": [
+        "Publicly accessible",
+        "2-meter temperature probe surveys",
+        "paleogeothermal features (such as sinter and tufa deposits)",
+        "provided as is"
+      ],
+      "claims_supported": [
+        "Free official candidate datasets include shallow temperatures, geodetic models, conductivity, gravity, magnetic, geothermal and fault information.",
+        "A geothermal observation is not a fault label and must not be substituted for the competition target."
+      ],
+      "official_resource_urls": [
+        "https://gdr.openei.org/files/1391/2m_temperature_probe_INGENIOUS_regional_data.zip",
+        "https://gdr.openei.org/files/1391/paleo_geothermal_regional.zip",
+        "https://gdr.openei.org/files/1391/geodetics_INGENIOUS_regional_data.zip"
+      ],
+      "limit": "The selected SSP1 experiment needs no new external download. These unexecuted future data ideas are not claimed as validated improvements."
+    },
+    {
+      "id": "GBCGE-INGENIOUS",
+      "publisher": "Great Basin Center for Geothermal Energy, University of Nevada Reno",
+      "kind": "official project description and publication index",
+      "url": "https://gbcge.org/current-projects/ingenious/",
+      "status": "verified public project page",
+      "evidence": [
+        "hidden geothermal systems",
+        "integrate these techniques to develop a comprehensive exploration workflow toolkit"
+      ],
+      "claims_supported": [
+        "Fault detection is one structural component of geothermal exploration, not proof of a productive vent or reservoir.",
+        "Project publications point to gravity, magnetic, conductivity, heat-flow and strain-rate research."
+      ]
+    },
+    {
+      "id": "DD-REFERENCE",
+      "publisher": "drivendataorg / John Lipor",
+      "kind": "official reference implementation",
+      "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
+      "commit": "aebe92f7c8a990f0e3443451b7a825d9afd6336b",
+      "status": "verified GitHub notebook code and README",
+      "evidence": [
+        "Fault Detection Using U-Net with Monte Carlo Cross-Validation",
+        "alpha = 0.2",
+        "beta = 0.8"
+      ],
+      "claims_supported": [
+        "A learning baseline and IO example exists. SSP1 is a CPU hypothesis experiment, not a reproduction of that U-Net.",
+        "Its random patch splits do not by themselves satisfy this project's buffered whole-segment holdout protocol."
+      ]
+    },
+    {
+      "id": "PEER-TEMPLATE",
+      "publisher": "buffedlizard55-lab",
+      "kind": "owner-hosted research code, data mirrors, and prediction files; NOT an organizer source",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE32/tree/07806249f4ed3efe70b4fbf866183c32392b7853",
+      "status": "commit-pinned files and SHA-256 verified",
+      "claims_supported": [
+        "Evaluator, writer and shared feature builder were reused byte-for-byte.",
+        "All 92 listed repositories and every non-data GeoTIFF at frozen commits are indexed, not just favorable submissions."
+      ],
+      "limit": "No explicit root software license was found in the pinned template tree; permissive redistribution rights are not asserted. Peer scores and geological interpretations are not official facts."
+    }
+  ]
+}

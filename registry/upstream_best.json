@@ -1,0 +1,28 @@
+{
+  "source_repository": "buffedlizard55-lab/GEMSDOE32",
+  "source_commit": "07806249f4ed3efe70b4fbf866183c32392b7853",
+  "source_path": "evidence/h38_run_card.json",
+  "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/07806249f4ed3efe70b4fbf866183c32392b7853/evidence/h38_run_card.json",
+  "status": "UPSTREAM-REPORTED HOLDOUT-DTI; not reproduced here, no paired OOF arrays published at this path",
+  "primary": {
+    "label": "HOLDOUT-DTI",
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "n_withheld_positives": 22232,
+    "pooled_dti": 0.116958,
+    "ci95_cluster_bootstrap": [
+      0.100533,
+      0.13204
+    ],
+    "champion_02778_same_evaluator": 0.099202,
+    "champion_02778_ci95": [
+      0.085951,
+      0.112668
+    ],
+    "paired_delta_vs_champion": 0.017756,
+    "paired_delta_ci95": [
+      0.008324,
+      0.027425
+    ]
+  },
+  "negative_verdict": true
+}
