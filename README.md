@@ -1,40 +1,65 @@
-# KANLERGEMSDOE3 — evidence-first fault prediction
+# KANLERGEMSDOE3 — evidence before submission
 
-**Start every session here and read [the standing request](PROJECT_REQUEST.md), [research audit](docs/research.md), and [run card](docs/data/run_card.json) before changing models.**
+**Start every session by reading this README, [standing requirements](research/standing-requirements.md),
+[review / continuation](research/review.md), and [run card](docs/run-card.json).**
 
-## Executive summary / download status
+## Current executive decision: DO NOT SUBMIT
 
-**DO NOT SUBMIT. There is no new validated unique GeoTIFF in this repository.**
+[Executive summary](docs/index.html) · [How to submit](docs/executive-summary.html) ·
+[Ranked hypotheses](research/hypotheses.md) · [Independent audit](docs/audit.json)
 
-[Executive summary](docs/executive-summary.html) · [Nine-site table](docs/data/sites.json) · [Submission instructions](docs/submission.md) · [Scientific hypotheses and sources](docs/research.md)
+No new eligible TIFF or score estimate exists. Nine historical best masks were restored from pinned
+GitHub mirrors and hash-checked. All 72 directed overlap comparisons exceed the requested 70% stop.
+No historical artifact is being relabelled as a unique entry. No weekly slot was consumed.
+This is a **negative research deliverable**, not a completed high-scoring model.
 
-The original checkout contained only this README title. No prior training code or cached stack was present. This review adds pinned upstream evidence and an honest decision dashboard; it does **not** claim to have trained a winning model or completed the requested TIFF generation.
+The initial checkout contained only this README's title. Claims in the project request about an existing
+GPU pipeline, cached stack or a single remaining data-placement blocker were not true for this checkout.
+A single method lane was not supplied. Full prompt requirements are **not yet fulfilled**; see continuation.
 
-## Local verification
+## Reproduce the three review passes
 
 ```sh
-python scripts/review.py
-python -m unittest discover -s tests -v
-python scripts/promotion_gate.py docs/data/run_card.json  # expected exit 1: blocked
+python -m venv .venv
+.venv/bin/pip install -r requirements.txt
+python scripts/restore_audit_data.py   # gh authenticated; pinned hashes; ~8 MB, ignored by Git
+.venv/bin/python scripts/audit_rasters.py
+.venv/bin/python -m unittest discover -s tests -v
+python scripts/build_site.py
 python -m http.server 8000 --bind 0.0.0.0 --directory docs
 ```
 
-Only the Python standard library is needed for the review. The gate is a decision-schema checker, not a geospatial evaluator or TIFF validator. Shared upstream evaluator/writer files under `evidence/upstream/` are immutable audit material, **not** a replacement runnable template. Do not execute them as an integrated pipeline without their pinned dependencies and inputs.
+Pass 1: source audit, pinned raster recovery, independent geometric comparisons and executive site.
+Pass 2: tests for directional overlap, exact distance boundary, invalid values, grid mismatch and
+fail-closed reporting; fix failures before proceeding.
+Pass 3: reconcile original scientific requirements, identify unmet gates, verify source snapshot integrity,
+rebuild docs and repeat tests. Details: [verification log](research/verification.md).
 
-GitHub Actions tests the report. The existing GitHub Pages configuration publishes from the main branch root; `index.html` forwards to `docs/` and `.nojekyll` preserves static assets. Changing Pages settings returned HTTP 403, so the existing legacy deployment is retained. Publication status must be checked rather than assumed.
+`scripts/refresh_sources.py` explicitly refreshes third-party source snapshots (not a verified live feed).
+It needs GitHub `gh` access. Do not silently replace reviewed evidence with moving-branch claims.
+`scripts/audit_rasters.py` is a read-only forensic validator, **not a private competition evaluator or writer**.
+The snapshots of the canonical shared scripts import dependencies that have not been restored.
 
-## Next session, in order
+## Website and publication
 
-1. Supply/recover a single-method lane; the user request omitted it.
-2. Select the canonical shared template, restore its pinned cached stack and registry, and resolve input provenance. Public owner mirrors exist but are not organizer-authenticated.
-3. Verify official metric/rules against accessible organizer materials. Whole-segment buffered, visible-only hide-and-recover evaluation is mandatory.
-4. Finish semantic novelty checks on the candidate hypotheses, then run at most three experiments within the lane and two-hour budget. Canaries first; uniqueness before placement and on final dots.
-5. Only publish an approved download after comparable holdout improvement, complete uniqueness and saved-byte format evidence. Separate selector approval and weekly-cap verification remain necessary.
+The static site is in `docs/`. The existing legacy Pages configuration publishes main at the root; the root index redirects to docs/.
+A verification workflow is retained; actual publication status must be checked rather than assumed.
+The home page prominently separates file-format validity from scientific eligibility. There is deliberately
+no approved-TIFF download link while validation is blocked.
 
-## Principles
+## Core values
 
-**Maximize P(Win):** favor falsifiable experiments and trustworthy estimates over attractive, unverified claims. **Own the Outcome:** automate checks, preserve negative results, and make blockers obvious rather than silently lowering gates. Fault mapping is the competition target; geothermal interpretation is not evidence of vent discovery.
+**Maximize P(Win):** prefer honest negative results and defensible spatial validation over speculative
+leaderboard forecasts, duplicated raster tweaks or spending scarce submission slots.
 
-## Parallel-session review preserved
+**Own the Outcome:** preserve evidence, automate checks, expose blockers, and document the next concrete
+experiment rather than claim unperformed training or verification.
 
-A concurrent review merged into main during this session. Its [charter](docs/previous-charter.md), [landing page](docs/prior-review.html), uppercase Markdown reports and root `run-card.json` are retained as historical records, not the active dashboard. This session's current decision card is `docs/data/run_card.json`. Historical source-verification assertions are not automatically inherited as newly verified facts.
+## Concurrent-main integration
+
+Main changed during this run. Its evidence archive, gate/schema tests, source reports and standing
+`PROJECT_REQUEST.md` were merged without deleting them. The previous active dashboard is preserved at
+[parallel review](docs/parallel-review-dashboard.html), with its README at
+[parallel review README](docs/parallel-review-readme.md). `scripts/review.py` now rebuilds archived
+dashboards rather than overwriting the active independent-raster-audit summary. The active run card
+for this session is `docs/run-card.json`; other run cards remain historical evidence.

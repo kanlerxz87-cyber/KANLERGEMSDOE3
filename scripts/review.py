@@ -44,8 +44,8 @@ def build():
  <h2>Why GEMSDOE32?</h2><p>It has the highest owner-reported value in the supplied focus list. That does not establish causality or prove it is best on hidden labels. The pinned upstream page explicitly calls it an owner report without a submission-page receipt. It also calls it an already-submitted duplicate family. Sparse placement can reduce false-positive mass while retaining distance-tolerant coverage; attribution to B2 masking or geology requires controlled fold-local ablations, not filenames or leaderboard anecdotes.</p><p>The upstream review also flags full-catalogue masking in a historical holdout and excessive registry overlap. We do not import upstream “promote” flags as authorization. No evidence here supports a promise to exceed the stated targets.</p>
  <h2>Per-site executive summaries</h2>{summaries}
  <h2>Priority next steps</h2><ol><li>Record the missing single-method lane before running any candidate.</li><li>Restore a shared template and cached stack with pinned provenance; reuse, do not privately fork its evaluator/writer.</li><li>Rebuild whole-segment buffered holdout features from visible faults only, and mask visible faults pixel-exactly.</li><li>Run feature canaries, paired candidate/incumbent HOLDOUT-DTI with pooled counts and segment/block bootstrap intervals.</li><li>Stop at any registry surface or final-dot threshold breach; otherwise validate saved TIFF bytes, then use a separate weekly-cap selector.</li></ol>'''
- write_page('index.html',body)
- write_page('executive-summary.html',body)
+ write_page('archived-dashboard.html',body)
+ write_page('archived-summary.html',body)
  for name in ('research','submission'):
   text=html.escape((ROOT/'docs'/f'{name}.md').read_text())
   text=re.sub(r'https://[^\s<>]+', lambda m: '<a href="'+m.group(0)+'">'+m.group(0)+'</a>', text)

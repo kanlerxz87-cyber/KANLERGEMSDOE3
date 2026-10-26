@@ -1,7 +1,5 @@
+data/*
+!data/.gitkeep
 __pycache__/
-.cache/
-data/
-*.tif
-*.tiff
-!docs/data/
-!docs/data/*.json
+*.pyc
+.venv/
