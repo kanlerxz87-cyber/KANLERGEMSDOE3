@@ -1,0 +1,8 @@
+# Regenerable local inputs and Python tooling; published evidence stays small.
+.cache/
+data/competition/
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.partial
