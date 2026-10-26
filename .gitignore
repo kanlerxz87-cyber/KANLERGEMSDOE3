@@ -1,0 +1,8 @@
+.venv/
+.cache/
+__pycache__/
+*.pyc
+data/raw/
+data/restore_receipt.json
+.pytest_cache/
+*.egg-info/
