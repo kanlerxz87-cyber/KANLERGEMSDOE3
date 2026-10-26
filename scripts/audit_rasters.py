@@ -5,25 +5,39 @@ from pathlib import Path
 import numpy as np
 import rasterio
 from scipy.ndimage import distance_transform_edt
+try:  # Support both `python scripts/audit_rasters.py` and package imports.
+    from .validate_submission import validate as validate_submission
+except ImportError:
+    from validate_submission import validate as validate_submission
 
 ROOT = Path(__file__).resolve().parents[1]
 
 def validate(path, template):
-    with rasterio.open(template) as ref, rasterio.open(path) as ds:
-        a = ds.read(1)
-        finite = np.isfinite(a)
-        checks = {
-            'single_band': ds.count == 1,
-            'crs_match': ds.crs is not None and ds.crs == ref.crs,
-            'shape_match': ds.shape == ref.shape,
-            'transform_match': ds.transform == ref.transform,
-            'all_finite': bool(finite.all()),
-            'range_0_1': bool(finite.all() and (a >= 0).all() and (a <= 1).all()),
-        }
-        return {'checks': checks, 'format_pass': all(checks.values()),
-                'sha256': hashlib.sha256(Path(path).read_bytes()).hexdigest(),
-                'nonfinite_count': int((~finite).sum()),
-                'note': 'Format only; not scientific validation or permission to submit.'}
+    """Apply the local sample-mask-aware policy to immutable bytes (not the shared writer)."""
+    result = validate_submission(Path(template), Path(path))
+    checks = {
+        'single_band': result.get('bands') == 1,
+        'crs_match': not any(e.startswith('CRS candidate=') or e.startswith('template CRS must') for e in result.get('errors', [])),
+        'shape_match': not any(e.startswith('shape candidate=') for e in result.get('errors', [])),
+        'transform_match': not any(e.startswith('transform candidate=') for e in result.get('errors', [])),
+        'finite_inside_footprint': result.get('nonfinite_inside') == 0,
+        'range_0_1_inside_footprint': (
+            result.get('finite_range_inside') is not None
+            and result['finite_range_inside'][0] >= 0
+            and result['finite_range_inside'][1] <= 1
+        ),
+        'nodata_outside_footprint': result.get('valid_outside_footprint') == 0,
+    }
+    return {
+        'checks': checks,
+        'format_pass': bool(result.get('ok')),
+        'sha256': hashlib.sha256(Path(path).read_bytes()).hexdigest(),
+        'nonfinite_count_inside': result.get('nonfinite_inside'),
+        'finite_range_inside': result.get('finite_range_inside'),
+        'valid_outside_footprint': result.get('valid_outside_footprint'),
+        'errors': result.get('errors', []),
+        'note': 'Format only; template-mask-aware checks; not scientific validation or permission to submit.',
+    }
 
 def overlap(candidate, reference):
     if candidate.shape != reference.shape or not candidate.any() or not reference.any():

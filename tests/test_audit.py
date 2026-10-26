@@ -39,6 +39,20 @@ class AuditTests(unittest.TestCase):
             self.assertFalse(validate(p,ref)['checks']['transform_match'])
             write(p,a,crs='EPSG:4326')
             self.assertFalse(validate(p,ref)['checks']['crs_match'])
+    def test_template_nodata_and_in_footprint_range(self):
+        with tempfile.TemporaryDirectory() as d:
+            ref=Path(d)/'ref.tif'; pred=Path(d)/'pred.tif'
+            profile=dict(driver='GTiff',width=3,height=3,count=1,dtype='float32',crs='EPSG:32611',transform=from_origin(0,300,100,100))
+            template=np.zeros((3,3),dtype='float32'); template[0,0]=-9999
+            with rasterio.open(ref,'w',**{**profile,'nodata':-9999}) as ds: ds.write(template,1)
+            prediction=np.zeros((3,3),dtype='float32'); prediction[0,0]=np.nan
+            with rasterio.open(pred,'w',**{**profile,'nodata':float('nan')}) as ds: ds.write(prediction,1)
+            self.assertTrue(validate(pred,ref)['format_pass'])
+            # A numeric zero outside the footprint is not a null/nodata value.
+            prediction[0,0]=0
+            with rasterio.open(pred,'w',**profile) as ds: ds.write(prediction,1)
+            self.assertFalse(validate(pred,ref)['format_pass'])
+
     def test_report_fail_closed(self):
         root=Path(__file__).resolve().parents[1]
         j=json.loads((root/'docs/audit.json').read_text())

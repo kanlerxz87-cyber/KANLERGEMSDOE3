@@ -66,8 +66,10 @@ The [official metric and grid rules](https://www.drivendata.org/competitions/306
 require float32 single-band probabilities [0,1], EPSG:32611 on the supplied 100 m grid, with a 300 m
 triangular distance kernel and Tversky α=.2, β=.8. The organizer requires data outside the bounds to be null or NaN; the pinned shared project
 writer instead enforces an **all-finite** local export policy. Their treatment of the irregular internal
-footprint is not automatically equivalent, and these are not the same guarantee. Local format validation does not prove acceptance by the portal; check its
-current documentation and exact output bytes. Never clip invalid predictions to hide an error.
+footprint is not automatically equivalent, and these are not the same guarantee. A concurrent independent
+review found seven historical rasters all-finite and two passing its separate sample-mask/nodata format
+policy. Those local tests express different assumptions; neither is portal acceptance. Check the current
+official wording and exact output bytes. Never clip invalid predictions to hide an error.
 See the [exact metric guardrails](../docs/METRIC.md). A synthetic counterexample also revealed a
 [shared-template docstring defect](../docs/SHARED_TEMPLATE_ISSUE.md), not a demonstrated evaluator defect;
 upstream issue creation was denied by the GitHub integration. No private fork was introduced.

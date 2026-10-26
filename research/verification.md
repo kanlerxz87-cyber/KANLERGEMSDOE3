@@ -21,10 +21,13 @@ and archived reports remain preserved; they predate some recovered inputs and th
   Spearman on tied binary masks, corrupt hashes, interrupted atomic restore, non-finite JSON, missing
   inventory, canary thresholds, matching folds, CI and budget/selector gates.
 - Hardened manifest paths, stale restore receipts, already-loaded foreign template submodules and numeric
-  gate types. A historical all-finite B2 file passes local format checks but the shared literal support
-  test reports 100% witness overlap at both supplied surface and final-dot phases; it is rejected.
-  A NaN-outside historical file produces strict JSON and fails the project's all-finite policy. Neither
-  outcome is a portal acceptance test or a new submission.
+  gate types. A historical all-finite B2 file passes the shared project's local format check but the literal
+  support test reports 100% witness overlap at both supplied surface and final-dot phases; it is rejected.
+  A NaN-outside historical file produces strict JSON and fails the shared project's all-finite policy.
+- Integrated the concurrent independent sample-mask-aware audit. It applies a different outside-nodata
+  interpretation: two of nine pass that local policy while seven files are all-finite. The official
+  outside-bounds wording is not automatically identical to the irregular mirror footprint; neither local
+  interpretation is a portal acceptance test or a new submission.
 - A synthetic two-truth-cell example disproved a shared `metric.py` **docstring** marginal-credit claim;
   it did not demonstrate an exact-evaluator defect. Upstream issue creation was denied by the GitHub
   integration, so [the defect and proposed correction](../docs/SHARED_TEMPLATE_ISSUE.md) are recorded
@@ -38,9 +41,9 @@ and archived reports remain preserved; they predate some recovered inputs and th
 - Kept the user-requested whole-segment holdout, visible-only features, individual leakage canaries,
   pooled DTI/95% CI, complete-registry two-phase gate, unchanged shared writer, budget and separate slot
   selector as outstanding requirements. No full holdout, experiment or candidate TIFF is claimed.
-- A clean no-cache copy passed **27 tests (three optional integration checks skipped)** and rebuilt the
-  static pages without network access. With pinned assets restored, the full local suite exercised those
-  integration checks. HTTP smoke checks returned 200 for the root, landing page, guide, hypotheses,
+- A clean no-cache copy passed **29 tests (three optional integration checks skipped)** and rebuilt the
+  static pages without network access. With pinned assets restored, all 29 local tests passed, including
+  those integration checks. HTTP smoke checks returned 200 for the root, landing page, guide, hypotheses,
   review, CSS and audit JSON; relative links and accessible landmarks were machine checked. These are
   not a manual accessibility audit, portal acceptance test or scientific experiment.
 - The exact long original user prompt is not available in the surviving context; the README faithfully

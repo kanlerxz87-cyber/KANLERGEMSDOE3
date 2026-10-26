@@ -3,6 +3,8 @@ from html.parser import HTMLParser
 import json
 import math
 from pathlib import Path
+import subprocess
+import sys
 import tempfile
 import types
 import unittest
@@ -66,6 +68,10 @@ class RegistryAuditTests(unittest.TestCase):
         for row in a['historical_files']:
             other=next(x for x in old['rows'] if x['repo']==row['site'])
             self.assertEqual(row['sha256'],other['sha256']);self.assertEqual(row['positive_pixels'],other['dots'])
+        outside=math.prod(grid['shape'])-grid['footprint_pixels']
+        allfinite=sum(r['finite_inside']==grid['footprint_pixels'] and r['finite_outside']==outside for r in a['historical_files'])
+        self.assertEqual(allfinite,7)
+        self.assertEqual(sum(r['local_validation']['format_pass'] for r in old['rows']),2)
         card=json.loads((ROOT/'evidence/run-card.json').read_text())
         self.assertIsNone(card['holdout_dti']);self.assertIsNone(card['raster_sha256']);self.assertIsNone(card['validator_output'])
         self.assertFalse(card['ok_to_submit']);self.assertEqual(card['verdict'],'negative')
@@ -94,6 +100,10 @@ class RegistryAuditTests(unittest.TestCase):
                     fetch('owner/repo','ref','thing',destination,hashlib.sha256(b'expected').hexdigest())
             self.assertEqual(destination.read_bytes(),b'old')
             self.assertEqual(sorted(x.name for x in Path(d).iterdir()),['asset'])
+    def test_audit_module_importable_without_test_path_mutation(self):
+        subprocess.run([sys.executable,'-c','from scripts.audit_rasters import validate'],
+                       cwd=ROOT,check=True,capture_output=True,text=True)
+
     def test_json_nonfinite_is_strict_and_visible(self):
         value=json_safe({'n':float('nan'),'p':float('inf'),'m':float('-inf'),'n2':np.float32('nan')})
         self.assertEqual(value,{'n':'NaN','p':'Infinity','m':'-Infinity','n2':'NaN'})

@@ -25,14 +25,14 @@ The official challenge describes fault prediction as pixel-wise confidence/proba
 
 ## Current repository state and decision
 
-This checkout currently contains no model code, cached features, holdout evaluator, writer, registry rasters, competition inputs, sample submission, tests, or submission TIFF. Therefore no valid experiment, holdout DTI, novelty audit, or downloadable submission can be produced here yet. **Current decision: DO NOT SUBMIT; no TIFF is offered for download.** Do not infer a score from historical website claims.
+The initial checkout contained no model code or data. The current branch now includes tests, offline audit/validation scripts, archived upstream evaluator/writer source copies, sample/template/label mirrors, and nine historical winner TIFFs in ignored `data/` for forensic analysis. It still lacks an organizer-authenticated feature stack, complete registry, integrated candidate pipeline, candidate TIFF, and valid spatial holdout. The historical files are not approved for reuse; their audit does not authorize submission. Therefore no valid candidate experiment or downloadable submission can be produced here yet. **Current decision: DO NOT SUBMIT; no new TIFF is offered for download.** Do not infer a score from historical website claims.
 
 The initial review and all blockers are recorded in [`docs/EXECUTIVE_SUMMARY.md`](docs/EXECUTIVE_SUMMARY.md), the nine-site comparison in [`docs/SITE_REVIEW.md`](docs/SITE_REVIEW.md), ranked preregistered hypotheses in [`docs/HYPOTHESES.md`](docs/HYPOTHESES.md), and the step-by-step portal workflow in [`docs/SUBMISSION_GUIDE.md`](docs/SUBMISSION_GUIDE.md). The official-source register is [`docs/SOURCES.md`](docs/SOURCES.md). The machine-readable end-of-run card is [`run-card.json`](run-card.json).
 
 ### Minimum prerequisites for the next valid experiment
 
 - Restore/locate the shared template and its cached feature stack, holdout evaluator, writer, and tests **in this branch/workspace**, or identify the approved shared remote/template to extend.
-- Obtain the competition-provided training features, fault labels, and sample-submission GeoTIFF through an authorized channel. The competition data page is login-gated per the inherited project brief; this checkout has none of those files.
+- Obtain the competition-provided training features and fault labels, plus an authorized sample-submission/template and provenance. The competition data page redirected to login during this review. Existing label/template mirrors are third-party forensic copies, not an authorized competition package.
 - Supply the full registry rasters for the uniqueness checks, plus any manifest mapping registry name to raster/hash. Do not treat a list of scores or repository pages as pixel-level duplicate evidence.
 - Run the canaries, spatial holdout, candidate/final-surface novelty checks, and exact saved-byte validator; only then report a measured result.
 

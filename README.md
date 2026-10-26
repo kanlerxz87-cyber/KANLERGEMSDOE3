@@ -58,9 +58,11 @@ This checks saved bytes with the unchanged shared local format/uniqueness helper
 witness. It exits nonzero and returns `ok_to_submit: false`, because one witness and local format checks
 cannot establish a complete registry, valid holdout or selector approval. It never uploads. The shared
 project's conservative all-finite export rule and the organizer's null/NaN-outside-bounds wording
-are not the same guarantee; local validity is not organizer acceptance. The historical `scripts/validate_submission.py` uses a
-separate outside-nodata interpretation and is not the canonical shared writer; neither interpretation
-establishes portal acceptance without an actual receipt.
+are not the same guarantee; local validity is not organizer acceptance. The historical `scripts/validate_submission.py` uses a separate outside-nodata interpretation and is not
+the canonical shared writer. The merged independent audit found seven historical files all-finite and
+two passing its sample-mask-aware policy; neither interpretation establishes portal acceptance without
+an actual receipt. The official wording says outside **bounds**, not necessarily outside an irregular
+internal footprint.
 
 GitHub Pages is configured from `main` at the root; `index.html` links into the maintained `docs/` desk.
 The site is an offline evidence snapshot, not a live scoreboard. Rebuild using `scripts/build_site.py`;
