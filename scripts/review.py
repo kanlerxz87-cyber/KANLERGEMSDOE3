@@ -38,8 +38,9 @@ def build():
  tr=''.join('<tr>'+''.join(f'<td>{html.escape(str(v))}</td>' for v in [r['site'],r['historical_file'],r['owner_reported_value']+' (unverified owner report)','Unavailable',r['unique'],'NO'])+f'<td><a href="{r["source"]}">Pinned source</a></td></tr>' for r in rows)
  summaries=''.join(f'<h3>{r["site"]}</h3><p>{html.escape(r["summary"])}. Historical file: <code>{r["historical_file"]}</code>. Local format, holdout and all-registry uniqueness checks have not run. No new upload is recommended. <a href="{r["source"]}">Review evidence</a>.</p>' for r in rows)
  body=f'''<h1>Executive submission review</h1><section class="stop"><h2>DO NOT SUBMIT — no candidate authorized</h2><p>No new TIFF was generated. There is no compliant download to submit from this checkout. Format validity alone never authorizes a weekly slot.</p><p>Missing lane assignment, local cached stack, validated holdout and complete registry prevent generation under your protocol. No slot was used.</p></section>
- <p>Reviewed 26 October 2026. Offline snapshot, not a live leaderboard feed. Values below are retained as unverified owner claims, NOT ORGANIZER-CONFIRMED or HOLDOUT-DTI. No accepted numerical score or score estimate is available.</p>
- <nav><a href="research.html">Research &amp; limitations</a> · <a href="submission.html">How to submit</a> · <a href="data/sites.json">Machine-readable table</a> · <a href="data/run_card.json">Run card</a></nav>
+ <p>Reviewed 26 October 2026. Offline snapshot, not a live leaderboard feed. Values below are retained as unverified owner claims, NOT ORGANIZER-CONFIRMED or HOLDOUT-DTI. No accepted score or score estimate for a new candidate is available.</p>
+ <p><b>Official public leaderboard snapshot:</b> the DrivenData page retrieved on 2026-10-26 displayed a top public score of 0.4437. This time-stamped public result supersedes older user-provided public-high figures for this review, but it is not a private/final score or a forecast.</p>
+ <nav><a href="research.html">Research &amp; limitations</a> · <a href="submission.html">How to submit</a> · <a href="executive-summary.md">Detailed nine-site review</a> · <a href="submission-guide.md">Submission guide</a> · <a href="data/sites.json">Machine-readable table</a> · <a href="data/run_card.json">Run card</a></nav>
  <h2>Best historical claims across nine focus sites</h2><p>Historical names identify artifacts for study, not fresh unique submissions. No historical download is offered as a new candidate.</p><div class="scroll"><table><thead><tr><th>Site</th><th>Historical file (not an approved download)</th><th>Reported value</th><th>Estimated score</th><th>Unique?</th><th>Submit?</th><th>Evidence</th></tr></thead><tbody>{tr}</tbody></table></div>
  <h2>Why GEMSDOE32?</h2><p>It has the highest owner-reported value in the supplied focus list. That does not establish causality or prove it is best on hidden labels. The pinned upstream page explicitly calls it an owner report without a submission-page receipt. It also calls it an already-submitted duplicate family. Sparse placement can reduce false-positive mass while retaining distance-tolerant coverage; attribution to B2 masking or geology requires controlled fold-local ablations, not filenames or leaderboard anecdotes.</p><p>The upstream review also flags full-catalogue masking in a historical holdout and excessive registry overlap. We do not import upstream “promote” flags as authorization. No evidence here supports a promise to exceed the stated targets.</p>
  <h2>Per-site executive summaries</h2>{summaries}
@@ -47,9 +48,27 @@ def build():
  write_page('archived-dashboard.html',body)
  write_page('archived-summary.html',body)
  for name in ('research','submission'):
-  text=html.escape((ROOT/'docs'/f'{name}.md').read_text())
-  text=re.sub(r'https://[^\s<>]+', lambda m: '<a href="'+m.group(0)+'">'+m.group(0)+'</a>', text)
+  raw=(ROOT/'docs'/f'{name}.md').read_text()
+  text=render_markdown_links(raw)
   write_page(name+'.html','<nav><a href="index.html">Executive summary</a></nav><article style="white-space:pre-wrap;overflow-wrap:anywhere">'+text+'</article>')
+
+
+def render_markdown_links(text):
+ """Escape Markdown text while rendering inline and bare HTTPS links safely."""
+ pattern=re.compile(r'\[([^]\n]+)\]\((https?://[^)\s]+)\)|(https?://[^\s<>]*[^\s<>.,;:!?])')
+ parts=[]
+ cursor=0
+ for match in pattern.finditer(text):
+  parts.append(html.escape(text[cursor:match.start()]))
+  if match.group(1) is not None:
+   label,url=match.group(1),match.group(2)
+  else:
+   label=url=match.group(3)
+  parts.append(f'<a href="{html.escape(url,quote=True)}">{html.escape(label)}</a>')
+  cursor=match.end()
+ parts.append(html.escape(text[cursor:]))
+ return ''.join(parts)
+
 
 def write_page(name,body):
  (ROOT/'docs'/name).write_text('''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GEMS · Evidence &amp; submission review</title><link rel="stylesheet" href="style.css"><main>'''+body+'</main></html>')

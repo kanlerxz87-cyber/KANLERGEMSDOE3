@@ -38,7 +38,7 @@
         "GEMSDOE32",
         "GEMSDOE36"
       ],
-      "failure_reason": "finite zero-valued cells outside the official sample footprint instead of null/nodata",
+      "failure_reason": "finite zero-valued cells outside the pinned owner-mirror sample footprint instead of null/nodata",
       "passing_sites": [
         "GEMSDOE30",
         "GEMSDOE33"
