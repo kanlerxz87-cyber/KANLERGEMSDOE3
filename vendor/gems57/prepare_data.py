@@ -17,15 +17,10 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
-import tarfile
-import urllib.request
 
-_HERE = Path(__file__).resolve()
-ROOT = _HERE.parents[2] if _HERE.parent.name in ("gems57", "template57") else _HERE.parents[1]
+ROOT = Path(__file__).resolve().parents[1]
 BRIDGE_REPO = "buffedlizard55-lab/6GEMSDOE"
 BRIDGE_COMMIT = "e2fe3f41c6f5dd2dcb2fc91958ee67698f114ada"
-EXT_REPO = "buffedlizard55-lab/57GEMSDOE"
-EXT_COMMIT = "822a0ce5546c7b6749cdd82eb145b6b3e616603d"
 PIN = {
     "data/official/labels.tif": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
     "data/official/existing_faults.tif": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
@@ -53,53 +48,6 @@ def sha256(path: Path) -> str:
     return h.hexdigest()
 
 
-def _git_fetch_blob(repo: str, source: str, ref: str, destination: Path) -> bool:
-    cache_repo = ROOT / ".cache" / "git_blobs" / repo.replace("/", "__")
-    try:
-        if not (cache_repo / ".git").is_dir():
-            cache_repo.mkdir(parents=True, exist_ok=True)
-            subprocess.run(["git", "init", "-q"], cwd=cache_repo, check=True, timeout=30)
-            subprocess.run(["git", "remote", "add", "origin", f"https://github.com/{repo}.git"],
-                           cwd=cache_repo, check=True, timeout=30)
-        has_commit = subprocess.run(
-            ["git", "cat-file", "-e", f"{ref}^{{commit}}"],
-            cwd=cache_repo, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=20,
-        ).returncode == 0
-        if not has_commit:
-            subprocess.run(
-                ["git", "fetch", "-q", "--depth", "1", "--filter=blob:none", "origin", ref],
-                cwd=cache_repo, check=True, timeout=600,
-            )
-        with destination.open("wb") as out:
-            subprocess.run(
-                ["git", "show", f"{ref}:{source}"],
-                cwd=cache_repo, stdout=out, stderr=subprocess.PIPE, check=True, timeout=600,
-            )
-        return destination.is_file() and destination.stat().st_size > 0
-    except Exception:
-        return False
-
-
-def _codeload_fetch_blob(repo: str, source: str, ref: str, destination: Path) -> bool:
-    url = f"https://codeload.github.com/{repo}/tar.gz/{ref}"
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": "gems57-prepare/1.0"})
-        with urllib.request.urlopen(req, timeout=600) as resp:
-            with tarfile.open(fileobj=resp, mode="r|gz") as tf:
-                for member in tf:
-                    parts = member.name.split("/", 1)
-                    if len(parts) == 2 and parts[1] == source:
-                        src_f = tf.extractfile(member)
-                        if src_f is None:
-                            return False
-                        with destination.open("wb") as out:
-                            shutil.copyfileobj(src_f, out, length=1 << 20)
-                        return destination.is_file() and destination.stat().st_size > 0
-        return False
-    except Exception:
-        return False
-
-
 def fetch_raw(repo: str, source: str, ref: str, destination: Path,
               expected: str, expected_bytes: int | None = None) -> None:
     if destination.exists() and sha256(destination) == expected:
@@ -108,16 +56,12 @@ def fetch_raw(repo: str, source: str, ref: str, destination: Path,
     temporary = destination.with_name(destination.name + ".partial")
     endpoint = f"repos/{repo}/contents/{source}?ref={ref}"
     try:
-        fetched = _git_fetch_blob(repo, source, ref, temporary)
-        if not fetched:
-            fetched = _codeload_fetch_blob(repo, source, ref, temporary)
-        if not fetched:
-            with temporary.open("wb") as stream:
-                result = subprocess.run(
-                    ["gh", "api", endpoint, "-H", "Accept: application/vnd.github.raw+json"],
-                    stdout=stream, stderr=subprocess.PIPE, timeout=180, check=False)
-            if result.returncode:
-                raise RuntimeError(f"GitHub API failed for {source}: {result.stderr.decode()[:200]}")
+        with temporary.open("wb") as stream:
+            result = subprocess.run(
+                ["gh", "api", endpoint, "-H", "Accept: application/vnd.github.raw+json"],
+                stdout=stream, stderr=subprocess.PIPE, timeout=180, check=False)
+        if result.returncode:
+            raise RuntimeError(f"GitHub API failed for {source}: {result.stderr.decode()[:200]}")
         if expected_bytes is not None and temporary.stat().st_size != expected_bytes:
             raise ValueError(f"download size mismatch: {source}")
         if sha256(temporary) != expected:
@@ -207,17 +151,7 @@ def main() -> int:
                     receipt["assembly"] = assemble_features(ROOT)
                 elif relative.startswith("data/official/"):
                     original = "example_submission.tif" if "sample_submission" in relative else "existing_faults.tif"
-                    cache_file = ROOT / ".cache" / relative
-                    fetch_raw(BRIDGE_REPO, f"data/bridge/{original}", BRIDGE_COMMIT, cache_file, digest)
-                    path.parent.mkdir(parents=True, exist_ok=True)
-                    path.unlink(missing_ok=True)
-                    path.symlink_to(os.path.relpath(cache_file, path.parent))
-                elif relative.startswith("data/external/"):
-                    cache_file = ROOT / ".cache" / relative
-                    fetch_raw(EXT_REPO, relative, EXT_COMMIT, cache_file, digest)
-                    path.parent.mkdir(parents=True, exist_ok=True)
-                    path.unlink(missing_ok=True)
-                    path.symlink_to(os.path.relpath(cache_file, path.parent))
+                    fetch_raw(BRIDGE_REPO, f"data/bridge/{original}", BRIDGE_COMMIT, path, digest)
             matches = path.exists() and sha256(path) == digest
             row = dict(path=relative, sha256=sha256(path) if path.exists() else None,
                        expected_sha256=digest, verified=matches,

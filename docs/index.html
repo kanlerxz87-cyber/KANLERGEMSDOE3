@@ -3,54 +3,76 @@
 <title>Research &amp; evidence | GEMS Evidence Lab</title><meta name="description" content="Evidence-led fault mapping research and submission readiness.">
 <link rel="stylesheet" href="experiment.css"></head><body>
 <header class="top"><div class="wrap top-inner"><a class="brand" href="index.html"><span class="mark">G</span><span><strong>GEMS</strong><small>Evidence lab / KANLERGEMSDOE3</small></span></a>
-<nav aria-label="Main navigation"><a href="index.html#kanler-h1">KANLER-H1</a><a href="index.html#results">Experiments</a><a href="index.html#comparison">Site comparison</a><a href="index.html#sources">Sources</a><a class="nav-cta" href="executive-summary.html">Submission guide ↗</a></nav></div></header>
+<nav aria-label="Main navigation"><a href="index.html#kanler-h1">KANLER-H1</a><a href="index.html#results">Experiments</a><a href="index.html#comparison">Site comparison</a><a href="index.html#sources">Sources</a><a href="k3h1.html">K3-H1 lane</a><a class="nav-cta" href="executive-summary.html">Submission guide ↗</a></nav></div></header>
 <main><div class="wrap">
 <section class="hero"><div><div class="eyebrow"><span>Executive summary &amp; research snapshot</span> 26 OCTOBER 2026 · NEVADA, USA</div>
 <h1>Better fault maps start with <em>better evidence.</em></h1>
 <p class="lede">Autonomous multi-lane fault discovery for DOE GEMS Prize #306 — combining 9-site forensic review, PhD attribution of <code>0.2778</code>, and the validated <code>KANLER-H1 (DCAP-LHC)</code> 37,654-dot GeoTIFF deliverable.</p>
 <div class="hero-actions"><a class="button primary" href="#kanler-h1">Inspect KANLER-H1 &amp; Research GeoTIFF <span>↓</span></a><a class="button" href="kanler-h1-run-card.json">KANLER-H1 JSON Run Card <span>↗</span></a><a class="button" href="executive-summary.html">Contest Submission Guide <span>↗</span></a></div></div>
-<aside class="hero-card" aria-label="Latest research checkpoint"><div class="label">Latest lane &nbsp; / &nbsp; KANLER-H1 (DCAP-LHC)</div><h2>Unique vs 416 detectors.<br>Honest negative gate.</h2><p>Dip-coupled piedmont + 1 m 3DEP LiDAR + upward-continued GeoDAWN/hydrothermal concordance (<code>3/3</code> frozen experiments).</p>
+<aside class="hero-card" aria-label="Latest research checkpoint"><div class="label">Primary physics lane &nbsp; / &nbsp; KANLER-H1 (DCAP-LHC)</div><h2>Unique vs 417 detectors.<br>Honest negative gate.</h2><p>Dip-coupled piedmont + 1 m 3DEP LiDAR + upward-continued GeoDAWN/hydrothermal concordance (<code>3/3</code> frozen experiments).</p>
 <div class="mini-row"><span>Format &amp; [0, 1] / Canary</span><strong>PASS · max AUC 0.7577</strong></div>
 <div class="mini-row"><span>Detector 3-px uniqueness</span><strong>PASS · 58.47% &le; 70%</strong></div>
 <div class="mini-row"><span>Pooled HOLDOUT-DTI (Q3 win)</span><strong>0.1253 (Q3 0.1726)</strong></div>
 <div class="mini-row"><span>Live weekly slot</span><strong class="fail">DO NOT SUBMIT</strong></div></aside></section>
 
-<section class="verdict" aria-label="Submission verdict"><span class="verdict-icon">!</span><div><h2>DO NOT SUBMIT — VERDICT: NEGATIVE (LIVE WEEKLY SLOT NOT AUTHORIZED)</h2><p><code>KANLER-H1</code> generated a 100% format-valid, canary-clean, genuinely unique 37,654-dot GeoTIFF across all 416 detector rasters (<code>39.74%</code> near <code>GEMSDOE32 0.2778</code>; <code>25.81%</code> near <code>GPC-3</code>; <code>|&rho;| &le; 0.1599</code>) and beat <code>REF_H31X</code> in Walker Lane Quadrant 3 (<code>0.1726 vs 0.1602</code>), but trailed <code>REF_H31X</code> globally on <code>gems57-pooled-hide-v2</code> (<code>0.1253 vs 0.1674</code>) due to 47.4% missing 1 m LiDAR in Quadrant 1. Research GeoTIFF files are linked below for inspection only — do not spend a live weekly slot.</p></div><span class="tag">NEGATIVE VERDICT</span></section>
+<section class="verdict" aria-label="Submission verdict"><span class="verdict-icon">!</span><div><h2>DO NOT SUBMIT — VERDICT: NEGATIVE (LIVE WEEKLY SLOT NOT AUTHORIZED)</h2><p><code>KANLER-H1</code> generated a 100% format-valid, canary-clean, genuinely unique 37,654-dot GeoTIFF across all 417 detector rasters (<code>39.74%</code> near <code>GEMSDOE32 0.2778</code>; <code>43.79%</code> near <code>K3-H1</code>; <code>25.81%</code> near <code>GPC-3</code>; <code>|&rho;| &le; 0.1599</code>) and beat <code>REF_H31X</code> in Walker Lane Quadrant 3 (<code>0.1726 vs 0.1602</code>), but trailed <code>REF_H31X</code> globally on <code>gems57-pooled-hide-v2</code> (<code>0.1253 vs 0.1674</code>) due to 47.4% missing 1 m LiDAR in Quadrant 1. Research GeoTIFF files are linked below for inspection only — do not spend a live weekly slot.</p></div><span class="tag">NEGATIVE VERDICT</span></section>
 
-<section class="panel panel-pad" id="kanler-h1" style="margin-top:18px">
-<div class="section-kicker">00 / New KANLER-H1 (DCAP-LHC) research artifact (unapproved for live slot)</div>
-<h2>Validated Unique GeoTIFF Deliverable &amp; Metadata</h2>
+<section class="panel panel-pad" id="kanler-h1" style="margin-top:18px;border:2px solid #1d4ed8">
+<div class="section-kicker">00 / Primary physics lane · KANLER-H1 (DCAP-LHC) · 37,654 pure-physics dots</div>
+<h2>KANLER-H1 Unique GeoTIFF — download: <strong>OK</strong> · upload format: <strong>OK</strong> · spend a slot: <strong class="fail">NO</strong></h2>
 <p><strong>Unique Submission Name:</strong> <code>kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif-zeros.tif</code> &nbsp; · &nbsp; <strong>DrivenData Note (84/140 chars):</strong> <code>KANLER-H1 DCAP-LHC 37654d: dip-coupled piedmont+1mLiDAR+mag/hydro; holdoutDTI 0.1253</code></p>
 <p><strong>Grid &amp; Range Verification:</strong> Single-band <code>float32</code> · <code>EPSG:32611</code> · <code>3730 &times; 3292</code> · transform <code>(100, 0, 243350, 0, -100, 4508550)</code> · <code>0</code> NaN/Inf inside footprint · values strictly in <code>[0.0, 1.0]</code> · <code>37,654</code> binary dots · <code>0</code> positive pixels on known <code>labels.tif</code> · SHA-256 <code>5e5a7b2925876a86473a50d523ee2d31b18da8b17809dcb00fa075cf817ea386</code>.</p>
-<p><strong>Research Inspection Files (not authorized for live DrivenData upload):</strong>
-<a href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif">All-finite -zeros.tif (139 KB) ↗</a> ·
-<a href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.zip">Single-TIFF -zeros.zip (102 KB) ↗</a> ·
-<a href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.tif">Template-mask -nan.tif (352 KB) ↗</a> ·
-<a href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.zip">Single-TIFF -nan.zip (217 KB) ↗</a> ·
-<a href="kanler-h1-run-card.json">KANLER-H1 JSON Run Card ↗</a> ·
-<a href="research.html">Full PhD Review ↗</a> ·
-<a href="hypotheses.html">5 Ranked Hypotheses &amp; Forensics ↗</a></p>
+<div class="hero-actions">
+<a class="button primary" href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif">All-finite -zeros.tif (139 KB) <span>↓</span></a>
+<a class="button" href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.zip">Single-TIFF -zeros.zip (102 KB) <span>↓</span></a>
+<a class="button" href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.tif">Template-mask -nan.tif (352 KB) <span>↓</span></a>
+<a class="button" href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.zip">Single-TIFF -nan.zip (217 KB) <span>↓</span></a>
+<a class="text-link" href="kanler-h1-run-card.json">KANLER-H1 JSON Run Card ↗</a>
+<a class="text-link" href="research.html">Full PhD Review ↗</a>
+<a class="text-link" href="hypotheses.html">5 Ranked Hypotheses &amp; Forensics ↗</a></div>
 </section>
+
+<section class="panel panel-pad" id="k3h1" aria-label="Generated K3-H1 GeoTIFF" style="margin-top:18px;border:2px solid #b84227">
+<div class="section-kicker">Parallel lane · K3-H1 · antislope-scarp grain traces</div>
+<h2>K3-H1 unique TIF — download: <strong>OK</strong> · upload format: <strong>OK</strong> · spend a slot: <strong class="fail">NO</strong></h2>
+<p>VALID + UNIQUE research file. NOT expected to beat 0.2778 (PROJECTION 0.252 vs 0.284 for the champion under the same model; HOLDOUT-DTI not better than the best control). Upload only if you want a protocol-unique entry; do not spend a slot expecting a higher score.</p>
+<div class="hero-actions"><a class="button primary" href="downloads/kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.tif">Download K3-H1 TIF <span>↓</span></a><a class="button" href="downloads/kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.zip">Download K3-H1 ZIP <span>↓</span></a><a class="text-link" href="k3h1.html">K3-H1 lane report ↗</a><a class="text-link" href="k3h1-run-card.json">K3-H1 JSON run card ↗</a></div>
+<ul class="gate-list">
+<li><span class="gate-dot">✓</span><span>Format: 15 shared-validator checks + official spec</span><span>PASS · avoids [0,1] error</span></li>
+<li><span class="gate-dot">✓</span><span>Unique vs 427 non-space-filling registry rasters</span><span>max overlap 0.695 · max ρ 0.432 (surface 0.146)</span></li>
+<li><span class="gate-dot stop">×</span><span>HOLDOUT-DTI vs best control · gems57-pooled-hide-v2 · 11,321 withheld</span><span>0.0909 [0.0798, 0.1018] vs 0.0961</span></li>
+</ul>
+<p><strong>File</strong> <code>kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.tif</code> · <strong>SHA-256</strong> <code>4a5b0b480be26df52f77b735487cbe5af192262587237b6514d520dc2698b01f</code> · <strong>Note (103 chars)</strong> <code>K3-H1 antislope-scarp lidar dots + ASGT-ranked H19-5 core; unique&lt;=69.5%; PROJECTION 0.252, not &gt;0.2778</code></p></section>
 
 <section class="panel panel-pad" style="margin-top:18px"><h2>Additional registry stop: full-footprint witness &amp; synthetic 5-px lattice</h2><p>A pinned continuous diagnostic has positive support on all 5,167,373 mirrored footprint cells, and synthetic grid <code>13gems_r13-lattice-s5</code> covers 99.87% of footprint cells within 3 px. Under the shared template’s literal positive-cell-as-dot rule, every nonempty 37,654-dot candidate exceeds 70% overlap against those synthetic probes (Pigeonhole lower bound 82.16%). Both literal and detector-lane readings are reported side by side without silent exemption.</p><p><a href="data/registry_saturation.json">View the reproducible certificate ↗</a> · <a href="research.html">Scientific review ↗</a> · <a href="data/recovery-run-card.json">Recovery-session run card ↗</a></p></section>
 
 <section class="stats" aria-label="Key experiment figures"><div class="stat"><span class="label">KANLER-H1 HOLDOUT-DTI</span><strong>0.1253</strong><small>95% CI [0.1080, 0.1414] · Q3 = 0.1726</small></div>
 <div class="stat"><span class="label">Piedmont &le;6&deg; SGMC lift</span><strong>+28.1%</strong><small>0.0569 vs REF_H31X 0.0444</small></div>
-<div class="stat"><span class="label">Detector rasters checked</span><strong>416</strong><small>Max 3-px 58.47% · |&rho;| 0.1599</small></div>
+<div class="stat"><span class="label">Detector rasters checked</span><strong>417</strong><small>Max 3-px 58.47% · |&rho;| 0.1599</small></div>
 <div class="stat"><span class="label">Submission slots used</span><strong>0</strong><small>No upload or receipt</small></div></section>
 
-<section class="section" id="results"><div class="section-head"><div><div class="section-kicker">01 / Archived &amp; active lanes</div><h2>What the spatial holdout experiments say.</h2><p>Both <code>KANLER-H1 (0.1253)</code> and the preserved bilateral K/Th lane (<code>0.1134</code>) were evaluated under <code>gems57-pooled-hide-v2</code> ($N = 60,988$ withheld positives) — never as a predicted leaderboard score.</p></div><a class="text-link" href="run-card.json">Archived bilateral run card ↗</a></div>
+<section class="section" id="results"><div class="section-head"><div><div class="section-kicker">01 / Multi-lane holdout comparison</div><h2>What the spatial holdout experiments say.</h2><p><code>KANLER-H1 (0.1253)</code>, <code>Bilateral K/Th (0.1134)</code>, and <code>K3-H1 (0.0909)</code> were all evaluated under <code>gems57-pooled-hide-v2</code> ($N = 60,988$ withheld positives) — never as a predicted leaderboard score.</p></div><a class="text-link" href="run-card.json">Archived bilateral run card ↗</a></div>
 <div class="result-grid"><article class="panel panel-pad"><h3>Preserved lane: Bilateral K/Th texture &times; LiDAR scarp</h3><p>Tested matching radiometric textures on opposite sides of a coherent surface break across 4 spatial folds.</p>
 <div class="score-row"><span class="big-score">0.1134</span><span class="score-copy">HOLDOUT-DTI · gems57-pooled-hide-v2<br>95% spatial-block CI [0.1006, 0.1262]<br>60,988 withheld positive pixels</span></div>
-<div class="interval"><strong>Paired difference vs feature ablation: +0.0010</strong><p>HOLDOUT-DTI · same evaluator and positives · 95% CI [-0.0006, +0.0027]. Ablation scored 0.1124 (95% CI [0.0994, 0.1252]).</p></div></article>
-<article class="panel panel-pad"><h3>Active lane: KANLER-H1 (DCAP-LHC)</h3><ul class="gate-list"><li><span class="gate-dot">✓</span><span>Single-feature &amp; surface canaries (10 checks)</span><span>max AUC 0.7577 &le; 0.90</span></li>
-<li><span class="gate-dot">✓</span><span>Surface &amp; dot rank vs 418 rasters</span><span>max |&rho;| 0.1599 / 0.0975*</span></li>
-<li><span class="gate-dot">✓</span><span>Final dots vs 416 detector rasters</span><span>max 58.47% &le; 70%</span></li>
+<div class="interval"><strong>Paired difference vs feature ablation: +0.0010</strong><p>HOLDOUT-DTI · same evaluator and positives · 95% CI [-0.0006, 0.0027]. Ablation scored 0.1124 (95% CI [0.0994, 0.1252]).</p></div></article>
+<article class="panel panel-pad"><h3>Primary physics lane: KANLER-H1 (DCAP-LHC)</h3><ul class="gate-list"><li><span class="gate-dot">✓</span><span>Single-feature &amp; surface canaries (10 checks)</span><span>max AUC 0.7577 &le; 0.90</span></li>
+<li><span class="gate-dot">✓</span><span>Surface &amp; dot rank vs 419 rasters</span><span>max |&rho;| 0.1599 / 0.0975*</span></li>
+<li><span class="gate-dot">✓</span><span>Final dots vs 417 detector rasters</span><span>max 58.47% &le; 70%</span></li>
 <li><span class="gate-dot stop">&times;</span><span>Literal 5-px synthetic lattice probe</span><span>100% / 99.997%</span></li>
 <li><span class="gate-dot stop">&times;</span><span>Global holdout vs REF_H31X (0.1674)</span><span>0.1253 (Q3: 0.1726 win)</span></li></ul><p class="notice">*See <a href="data/feature_cache_recovery.json">feature cache recovery ↗</a> and <a href="parallel-lattice-audit.json">parallel GPC-3 lattice audit (37,654/37,654) ↗</a>.</p></article></div></section>
 
-<section class="section" id="comparison"><span id="portfolio" aria-hidden="true"></span><div class="section-head"><div><div class="section-kicker">02 / Nine-site comparison</div><h2>Learn from the field.</h2><p>Exact historical files across <code>GEMSDOE24..36</code> are linked for study, not resubmission. All nine fail the 70% final-dot overlap rule against at least one peer (86.72%–100%).</p></div><a class="text-link" href="audit.json">Prior independent audit ↗</a></div>
-<div class="table-wrap"><table><thead><tr><th>Project</th><th>Historical reference variant</th><th>Reported figure</th><th>Forecast</th><th>3 px uniqueness</th><th>Submit?</th><th>Local format</th></tr></thead><tbody><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE24/">GEMSDOE24</a></td>
+<section class="section" id="comparison"><span id="portfolio" aria-hidden="true"></span><div class="section-head"><div><div class="section-kicker">02 / Cross-site &amp; session comparison</div><h2>Learn from the field.</h2><p>Our new <code>KANLER-H1</code> and <code>K3-H1</code> research GeoTIFFs alongside all nine historical focus sites (<code>GEMSDOE24..36</code>, which mutually overlap at 86.72%–100%).</p></div><a class="text-link" href="audit.json">Prior independent audit ↗</a></div>
+<div class="table-wrap"><table><thead><tr><th>Project</th><th>File / historical reference variant</th><th>Reported figure</th><th>Holdout / forecast</th><th>3 px uniqueness</th><th>Submit?</th><th>Local format</th></tr></thead><tbody><tr><td><a href="#kanler-h1">KANLERGEMSDOE3 · KANLER-H1 (DCAP-LHC)</a></td>
+<td><a class="file" href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif">kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif</a><small>Generated this session · 37,654 dots · pure physics (0% H19-5 core) + -nan.tif twin</small></td>
+<td><strong>—</strong><small>Never submitted</small></td>
+<td><strong>0.1253</strong><small>HOLDOUT-DTI [0.1080, 0.1414] · Q3 = 0.1726</small></td>
+<td><span class="badge">UNIQUE*</span><small>max 58.47% vs 417 detector rasters · 39.74% vs GEMSDOE32</small></td>
+<td><strong>NO</strong><small>Trailed 0.1674 global holdout in Q1</small></td><td>Pass<small>Both -zeros.tif &amp; -nan.tif verified</small></td></tr><tr><td><a href="k3h1.html">KANLERGEMSDOE3 · K3-H1</a></td>
+<td><a class="file" href="downloads/kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.tif">kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.tif</a><small>Parallel lane · hybrid ≤69.5% H19-5 core + antislope-scarp dots</small></td>
+<td><strong>—</strong><small>Never submitted</small></td>
+<td>0.252<small>PROJECTION, not a score · champion 0.284 same model</small></td>
+<td><span class="badge">UNIQUE*</span><small>max 69.5% vs detector rasters</small></td>
+<td><strong>NO</strong><small>Projected below 0.2778</small></td><td>Pass<small>15/15 shared checks</small></td></tr><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE24/">GEMSDOE24</a></td>
 <td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE24/blob/063b04e2ff3154d0ffd017bb5723f4f717d1754d/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif">gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif</a><small>Historical file · research reference only; score not bound to bytes</small></td>
 <td><strong>0.2477</strong><small>Owner-reported / unverified</small></td>
 <td>Not estimable<small>No calibrated score forecast</small></td>

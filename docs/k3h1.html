@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>K3-H1 lane report | GEMS Evidence Lab</title><meta name="description" content="Evidence-led fault mapping research and submission readiness.">
+<link rel="stylesheet" href="experiment.css"></head><body>
+<header class="top"><div class="wrap top-inner"><a class="brand" href="index.html"><span class="mark">G</span><span><strong>GEMS</strong><small>Evidence lab / KANLERGEMSDOE3</small></span></a>
+<nav aria-label="Main navigation"><a href="index.html#kanler-h1">KANLER-H1</a><a href="index.html#results">Experiments</a><a href="index.html#comparison">Site comparison</a><a href="index.html#sources">Sources</a><a href="k3h1.html">K3-H1 lane</a><a class="nav-cta" href="executive-summary.html">Submission guide ↗</a></nav></div></header>
+<main><div class="wrap"><article class="panel panel-pad markdown-page"><h1>K3-H1 lane report — antislope-scarp grain traces (26 Oct 2026)</h1>
+<p><strong>Bottom line.</strong> This lane produced one new GeoTIFF that is format-valid and measured as protocol-unique against 433 restored registry rasters. It is <strong>not expected to beat 0.2778</strong>: its live-ledger PROJECTION is 0.2521 vs 0.2843 for the champion under the same model, and its HOLDOUT-DTI does not beat the best control. Verdict: <strong>negative</strong>. You can download it and it will not trigger the portal's range error. Do not spend a weekly slot on it if your goal is a higher score.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File</td>
+<td><a href="downloads/kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.tif"><code>kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.tif</code></a> (172,965 bytes) · <a href="downloads/kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.zip">ZIP</a></td>
+</tr>
+<tr>
+<td>SHA-256</td>
+<td><code>4a5b0b480be26df52f77b735487cbe5af192262587237b6514d520dc2698b01f</code></td>
+</tr>
+<tr>
+<td>Submission name</td>
+<td><code>kanler3-k3h1-asgt-hybrid-48559-7ecb7b69</code></td>
+</tr>
+<tr>
+<td>Note (103 chars)</td>
+<td><code>K3-H1 antislope-scarp lidar dots + ASGT-ranked H19-5 core; unique&lt;=69.5%; PROJECTION 0.252, not &gt;0.2778</code></td>
+</tr>
+<tr>
+<td>Format</td>
+<td>PASS: all 15 shared-validator checks (<code>vendor/gems57/validate.py</code>, byte-identical to the pinned shared template) plus the official-spec check (<code>scripts/portal_check.py</code>). float32, one band, EPSG:32611, sample transform, all pixels finite, values exactly 0/1, zeros outside the footprint, no nodata tag, 0 dots on mapped faults</td>
+</tr>
+<tr>
+<td>Uniqueness</td>
+<td>PASS vs the 427 non-space-filling rasters: max forward overlap 0.695 (limit 0.70); max Spearman 0.432 on final dots and 0.146 on the pre-placement surface (limit 0.90); byte- and pixel-unique. <strong>Literal rule: BLOCKED</strong>, as for every non-empty file, by 6 space-filling dot rasters and by the full-footprint GEMSDOE48 witness (see §4)</td>
+</tr>
+<tr>
+<td>Expected score</td>
+<td>PROJECTION 0.2521 (live-ledger inversion; leave-one-out MAE 0.022). This is not a score. The champion projects at 0.2843 under the same model, and its OWNER-REPORT is 0.2778</td>
+</tr>
+<tr>
+<td>HOLDOUT-DTI</td>
+<td>0.0909, 95% CI [0.0798, 0.1018], <code>gems57-pooled-hide-v2</code>, 11,321 withheld positives. Best control C1: 0.0961 [0.0836, 0.1081]. Paired Δ −0.0052 [−0.0101, +0.0003]</td>
+</tr>
+<tr>
+<td>Recommended for a slot</td>
+<td><strong>No</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Machine-readable: <a href="k3h1-run-card.json">K3-H1 run card</a>.</p>
+<h2>1. Why GEMSDOE32 <code>h33-h33-2-b2</code> scored 0.2778</h2>
+<p>Scores here are OWNER-REPORT values from GEMSDOE32's live ledger. They are not organizer receipts.</p>
+<p><strong>What the file is (verified on bytes).</strong> H33-B2 is the 44,090-dot "D2.8" file (the H19-5 network dotted at 2.8 px spacing) with all 6,436 dots at or within 2 px of a mapped fault removed. That leaves 37,654 dots, every one of them on an H19-5 network pixel. GEMSDOE19 built H19-5 (121,131 px) as the ridge centreline of a fused multi-physics score: power-law tip/relay stress, GDR thermal/geochemistry, 1 m/10 m DEM openness, and gravity/magnetic worms. Its "solid" version scored only 0.1922. The ladder H19-5 0.1922 → D1.5 0.2477 → D2.8 0.2600 → B1 0.2708 → B2 0.2778 is pure <strong>subtraction</strong>: no new geology after H19-5.</p>
+<p><strong>The metric explains the ladder.</strong> With binary predictions, the official distance-weighted Tversky index (α = 0.2, β = 0.8, 300 m triangular kernel k(d) = max(1 − d/300 m, 0)) reduces to</p>
+<p>DTI = TP / (0.2·TP + 0.2·FP + 0.8·|G|),</p>
+<p>where TP = Σ over truth pixels of the best kernel credit from any dot, and FP = Σ over dots of (1 − that dot's best credit). Adding one dot with expected credit k changes TP by +k and FP by +(1 − k). It therefore improves the score <strong>iff k &gt; 0.2 × DTI</strong>, which is 0.056 at DTI = 0.2778. Every step of the ladder removes dots whose expected credit is below that break-even:</p>
+<ol>
+<li><strong>Thinning (solid → 2.8 px dots).</strong> Along a line, a truth pixel's credit falls only slowly with dot spacing s (about 1 − s/12 for s ≤ 6 px with a 3-px kernel). FP mass, by contrast, falls as 1/s. For the solid 121k-pixel network the FP term (0.2 × more than 100k uncredited pixels) outweighed the miss term (0.8 × about 18k truth pixels), so thinning raised DTI from 0.19 to 0.26. For the 37,654-dot champion the balance has flipped (0.2 × 35.1k ≈ 7.0k vs 0.8 × 18.0k ≈ 14.4k), which is why further thinning stops paying.</li>
+<li><strong>Catalogue-proximal depletion (B1/B2).</strong> Mapped faults are masked pixel-exactly, without a buffer (<a href="https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/4">DrivenData staff, forum 11516</a>). So the hidden truth is <em>new</em> faults, and they are rare right next to mapped ones: in the live-ledger inversion, the fitted truth density 1–2 px from mapped faults is 1.2% of its value more than 30 px away; it is 4.5% at 2.2–3 px and 14% at 3.2–5 px, then <strong>peaks at 5–10 px (1.10×)</strong>. New faults sit near, but not adjacent to, mapped ones. Dots ≤2 px from the catalogue therefore earn almost no credit but still pay FP, so deleting them raises DTI. (The same fit's distance-to-H19-5 factors contain non-physical spikes, e.g. 1,398× at 1 px; this lane never optimised against them.)</li>
+</ol>
+<p><strong>The nine focus winners confirm it quantitatively</strong> (measured: <a href="data/focus9_family.json">focus9 family evidence</a>). All nine are the same family: 97–100% of each file's scored dots lie on H19-5 pixels, and each file has ≥97.6% of its dots within 3 px of another winner. The <strong>share of dots within 2 px of mapped faults</strong> orders their scores almost perfectly:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Site</th>
+<th>Best scored file</th>
+<th style="text-align: right;">Dots</th>
+<th style="text-align: right;">On H19-5</th>
+<th style="text-align: right;">Dots ≤2 px from catalogue</th>
+<th style="text-align: right;">OWNER-REPORT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GEMSDOE32</td>
+<td>h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros</td>
+<td style="text-align: right;">37,654</td>
+<td style="text-align: right;">100%</td>
+<td style="text-align: right;">0.0%</td>
+<td style="text-align: right;">0.2778</td>
+</tr>
+<tr>
+<td>GEMSDOE36</td>
+<td>anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros</td>
+<td style="text-align: right;">38,854</td>
+<td style="text-align: right;">96.9%</td>
+<td style="text-align: right;">0.0%</td>
+<td style="text-align: right;">0.2750</td>
+</tr>
+<tr>
+<td>GEMSDOE28</td>
+<td>h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan</td>
+<td style="text-align: right;">37,660</td>
+<td style="text-align: right;">100%</td>
+<td style="text-align: right;">6.25%</td>
+<td style="text-align: right;">0.2710</td>
+</tr>
+<tr>
+<td>GEMSDOE31</td>
+<td>h27-4-solo-d28-20261004-8acb75e1-nan</td>
+<td style="text-align: right;">40,199</td>
+<td style="text-align: right;">100%</td>
+<td style="text-align: right;">6.3%</td>
+<td style="text-align: right;">0.2708</td>
+</tr>
+<tr>
+<td>GEMSDOE33</td>
+<td>h33d-analog-tip-stepover-r30-20261004-cb490425926e</td>
+<td style="text-align: right;">41,865</td>
+<td style="text-align: right;">99.7%</td>
+<td style="text-align: right;">9.3%</td>
+<td style="text-align: right;">0.2632</td>
+</tr>
+<tr>
+<td>GEMSDOE25</td>
+<td>dotted-h19-5-d2-8-20261002-e56ea318af89-nan</td>
+<td style="text-align: right;">44,090</td>
+<td style="text-align: right;">100%</td>
+<td style="text-align: right;">14.6%</td>
+<td style="text-align: right;">0.2600</td>
+</tr>
+<tr>
+<td>GEMSDOE30</td>
+<td>d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca</td>
+<td style="text-align: right;">44,090</td>
+<td style="text-align: right;">100%</td>
+<td style="text-align: right;">14.6%</td>
+<td style="text-align: right;">0.2600</td>
+</tr>
+<tr>
+<td>GEMSDOE24</td>
+<td>h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan</td>
+<td style="text-align: right;">60,069</td>
+<td style="text-align: right;">100%</td>
+<td style="text-align: right;">14.6%</td>
+<td style="text-align: right;">0.2477</td>
+</tr>
+<tr>
+<td>GEMSDOE27</td>
+<td>topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan</td>
+<td style="text-align: right;">61,328</td>
+<td style="text-align: right;">98.0%</td>
+<td style="text-align: right;">14.5%</td>
+<td style="text-align: right;">0.2449</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Executive summary per site: which file is best to submit.</strong> Every file below has already been submitted and scored (OWNER-REPORT). Re-uploading identical bytes cannot raise its score and only spends a weekly slot. All nine are near-duplicates of one another (≥97.6% overlap), so none is a <em>unique</em> new submission.</p>
+<ul>
+<li><strong>GEMSDOE32: <code>h33-h33-2-b2-…-zeros</code> (0.2778). Best of all nine.</strong> Keep it as your final selection.</li>
+<li><strong>GEMSDOE36:</strong> <code>anderson-geothermal-pinn-38854-…-zeros</code> (0.2750). Best at this site; 97% the same dots as the champion's family, 0.0028 lower.</li>
+<li><strong>GEMSDOE28:</strong> <code>h36-1-rung30-blind-r1-…-nan</code> (0.2710). Best at this site; still keeps 6.25% catalogue-hugging dots.</li>
+<li><strong>GEMSDOE31:</strong> <code>h27-4-solo-d28-…-nan</code> (0.2708). Best at this site; same pattern as GEMSDOE28. (Its sibling <code>csdu-stepover-…-nan</code> file is the one registry file with NaN inside the footprint; do not upload it.)</li>
+<li><strong>GEMSDOE33:</strong> <code>h33d-analog-tip-stepover-r30-…</code> (0.2632). Best at this site.</li>
+<li><strong>GEMSDOE25:</strong> <code>dotted-h19-5-d2-8-…-nan</code> (0.2600). Best at this site; the D2.8 parent of the champion.</li>
+<li><strong>GEMSDOE30:</strong> <code>d28-poisson300m-offcat-44090-…</code> (0.2600). Best at this site, but it is a relabelled copy of GEMSDOE25's D2.8.</li>
+<li><strong>GEMSDOE24:</strong> <code>h25-1-dotted-h19-5-d1-5-…-nan</code> (0.2477). Best at this site; too dense (1.5 px spacing).</li>
+<li><strong>GEMSDOE27:</strong> <code>topo-gap-closure-t-v2-on-d1-5-…-nan</code> (0.2449). Best at this site; gap-closure dots fell below break-even.</li>
+<li><strong>New (this lane):</strong> <code>kanler3-k3h1-asgt-hybrid-48559-…-zeros</code>. Unique and format-safe, but PROJECTION 0.252, so it is <strong>not</strong> a better choice than the champion.</li>
+</ul>
+<p>GEMSDOE30's file has <strong>exactly the same 44,090 dots</strong> as GEMSDOE25's D2.8 file. Its name even ends in <code>91eae1ca</code>, the SHA prefix of the D2.8 file, and both scored 0.2600. The two denser files (60k dots, 1.5 px spacing) score lowest, as the break-even rule predicts.</p>
+<p><strong>What it would take to beat it.</strong> Under the live-ledger inversion (§3), the champion's dots are near-optimal <em>for the information in H19-5</em>. Projected numbers: TP ≈ 6.46k, FP ≈ 35.1k, |G| ≈ 18.0k, giving 0.2843 (the live value is 0.2778, so the model reads 0.0065 high for this file). Holding FP and |G| fixed, reaching 0.3195 needs about 16% more credited truth than the live 0.2778, and the public leader's 0.4437 needs about 66% more. That cannot come from re-thinning the same network. It needs a <strong>new information source</strong> whose extra dots earn more than 0.056 credit each. The protocol adds a constraint: a unique file may keep at most 70% of its dots near any one registry raster. Every unique design built so far — GEMSDOE32's H47 (0.240–0.248) and this lane's E3 (0.252) — projects about 0.03 below the champion. The uniqueness rule itself costs about 0.03 DTI unless the novel 30% is unusually good.</p>
+<h2>2. Hypotheses (ranked before any experiment; <a href="https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/blob/main/research/preregistration-20261026.md">pre-registration</a>, written 22:18:36Z, sha256 in the run card)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Hypothesis</th>
+<th>Layers</th>
+<th>Physical signature</th>
+<th>Why it might catch <em>uncatalogued</em> faults</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>K3-H1 antislope-scarp grain traces (ASGT)</strong> — tested</td>
+<td>1 m lidar scarp product (USGS 3DEP-derived; GEMSDOE24), visible-catalogue grain</td>
+<td>uphill-facing step, coherent ≥300 m, parallel to local fault grain</td>
+<td>uphill-facing scarps are almost uniquely tectonic; small lidar-only scarps are what pre-lidar compilations miss</td>
+<td>low</td>
+</tr>
+<tr>
+<td>2</td>
+<td>K3-H2 hanging-wall antithetic belt</td>
+<td>ASGT + dip side of mapped range fronts</td>
+<td>antislope scarps 0.5–3 km into the hanging wall</td>
+<td>antithetic faults are rarely compiled at 1:250k</td>
+<td>medium</td>
+</tr>
+<tr>
+<td>3</td>
+<td>K3-H3 facing persistence</td>
+<td>lidar facing bands + strike</td>
+<td>facing side constant along strike for km</td>
+<td>removes channel-bank mimics</td>
+<td>medium</td>
+</tr>
+<tr>
+<td>4</td>
+<td>K3-H4 strain-gated piedmont scarps</td>
+<td>geodetic shear/dilatation (INGENIOUS), slope</td>
+<td>scarps in low-slope piedmonts inside high strain-rate belts</td>
+<td>young scarps survive where deformation is active</td>
+<td>low</td>
+</tr>
+<tr>
+<td>5</td>
+<td>K3-H5 radiometric offset edges</td>
+<td>GeoDAWN K/Th/U</td>
+<td>sharp linear K/Th contrasts cutting lithology</td>
+<td>bedrock faults without scarps</td>
+<td>medium</td>
+</tr>
+</tbody>
+</table></div>
+<p>Non-fault mimics handled by ASGT: landslide/sackung headscarps (relief veto), channel banks (cross-slope dominance), roads and berms (grain and coherence down-weighting), and lake shorelines (downhill-facing, so excluded).</p>
+<h2>3. Experiments (budget: 3 experiments / 2 h — used 3, in about 6 minutes wall-clock)</h2>
+<p>Every holdout number below uses the shared <code>gems57-pooled-hide-v2</code> evaluator, unchanged. Its setup:</p>
+<ul>
+<li>20% of whole fault components withheld per label-blind quadrant, 3-px collar, 12-px fold buffer;</li>
+<li>catalogue features derived from visible faults only, with visible faults masked pixel-exactly;</li>
+<li>pooled DTI (α = 0.2, β = 0.8, 300 m kernel), 11,321 withheld positives;</li>
+<li>paired spatial-cluster bootstrap (157 clusters, 1,000 draws).</li>
+</ul>
+<p>Projections use GEMSDOE32's archived live-ledger inversion (S3 design, 111 scored rasters; leave-one-out MAE 0.0219, q90 error 0.054), reused unchanged.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Exp.</th>
+<th>Question</th>
+<th>Result</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1</td>
+<td>Does the ASGT mechanism recover withheld faults?</td>
+<td>HOLDOUT-DTI ASGT 0.0922 [0.0788, 0.1042] vs upface-only ablation 0.0499 [0.0386, 0.0628]: Δ +0.0423 [+0.0330, +0.0522]. Vs C1 (champion recipe on the same folds) 0.0961: Δ −0.0039 [−0.0160, +0.0094]</td>
+<td>mechanism <strong>supported</strong>; ties the incumbent on catalogue-type faults</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>Does a unique <em>pure</em> ASGT file project competitively?</td>
+<td>16 files (30–60k dots, 3/5 px exclusion, capped/uncapped): PROJECTION 0.066–0.118 vs champion 0.2843. ASGT dots sit about 70% off the H19-5 network, where the ledger puts little hidden truth</td>
+<td><strong>no</strong></td>
+</tr>
+<tr>
+<td>E3</td>
+<td>ASGT-ranked H19-5 core (≤69.5%) + ASGT novel dots (≥30.5%)</td>
+<td>PROJECTION 0.2521 vs 0.2843. HOLDOUT-DTI 0.0909 [0.0798, 0.1018] vs C1 0.0961: Δ −0.0052 [−0.0101, +0.0003]</td>
+<td><strong>negative</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Leakage canary: max single-feature AUC 0.755 (distance to visible faults) in E1, and 0.634 for E3's added features. PASS (&lt; 0.90). Deviation IR-K3-E3-DEV-01: E3 changed the core <em>selection rule</em>, not only the budget, because E2 showed ASGT dots fill only 28–35% of the network buffer. The verdict rules were unchanged. Caveat IR-K3-E3-LEAK-01: E3's core and control C1 both inherit H19-5, which was built with the full catalogue. Their absolute holdout values are therefore leak-advantaged, and only the paired difference is interpretable.</p>
+<p><strong>Interpretation (contrarian but grounded).</strong> Antislope scarps are a real fault signal: they ranked withheld <em>catalogue</em> faults as well as the champion recipe. But the live ledger says the hidden <em>new</em> faults sit near the H19-5 network, which ASGT mostly avoids. The expert-added faults are evidently not dominated by small lidar scarps far from existing structure. The next lane should test what predicts <strong>where along the H19-5 network</strong> new faults lie (credit &gt; 0.056 per dot), rather than new places to look.</p>
+<h2>4. Uniqueness — measured, with the policy conflict stated plainly</h2>
+<p>Recomputed from the bytes of 433 comparable registry rasters (focus-site manifests + GEMSDOE32's scored live ledger; SHA-256 verified). Evidence: <a href="data/k3h1-uniqueness-summary.json">uniqueness evidence</a>.</p>
+<ul>
+<li><strong>Against every one of the 9 focus winners:</strong> forward overlap 0.694–0.695 (cap enforced during placement), Spearman 0.365–0.399, Jaccard 0.23–0.25. Formally unique, but this is a <em>hybrid</em>: 69.5% of its dots re-use the H19-5 network (with our own selection and placement), and 30.5% are new antislope-scarp dots.</li>
+<li><strong>Literal rule:</strong> six registry rasters are space-filling dot patterns whose 3-px buffers cover 53–99.9% of the footprint (5-px lattice; GEMSDOE3 pindrop ×2; GEMSDOE22, 67, 77). Our dots overlap them 71–99.9%, while Spearman is ≤ 0.164. Main's <a href="data/registry_saturation.json">registry-saturation certificate</a> also pins a continuous GEMSDOE48 raster that is positive on all 5,167,373 footprint cells. Under the literal "any positive cell is a dot" rule, <strong>no non-empty file can ever be unique</strong>. That is a protocol contradiction, not a property of this file. Exempting information-free space-filling rasters is a decision for you (the protocol owner); this lane reports both readings and does not decide it silently.</li>
+</ul>
+<h2>5. The portal error "Predicted values must be in range [0, 1]"</h2>
+<p>The organizer's validator text is not public. The rejected bytes and receipt are not in this repo, so the exact cause of <em>your</em> error cannot be proven. What is measured:</p>
+<ul>
+<li>Among the 433 restored registry files, <strong>no file</strong> has finite values outside [0, 1], and <strong>exactly one</strong> has NaN <em>inside</em> the scored footprint: GEMSDOE31 <code>gemsdoe31-csdu-stepover-8cf9dc27-nan.tif</code>, with 2,610,312 NaN pixels. NaN fails every <code>0 ≤ p ≤ 1</code> comparison, so it is the only registry file that would plausibly produce this message.</li>
+<li>Other causes <code>scripts/portal_check.py</code> detects: nodata sentinels written as values (−9999, −3.4e38), float rounding just above 1.0, negative logits, percentages 0–100, and ±inf.</li>
+<li><strong>Fix:</strong> write float32, all pixels finite, probabilities clipped to [0, 1] <em>before</em> writing, zeros (or NaN) outside the footprint only, and no nodata sentinel. The K3-H1 file follows the stricter all-finite policy used by the 0.2778 "-zeros" champion.</li>
+</ul>
+<p>Check any file: <code>python scripts/portal_check.py your.tif</code> prints <code>ok_to_upload</code> and the likely cause of a range error.</p>
+<p><strong>Two local validators disagree about outside-footprint pixels, and the portal accepts both.</strong> The shared template writer/validator (<code>vendor/gems57</code>, which the protocol names as the shared tool) <em>requires</em> zeros outside the footprint and no NaN anywhere. This repo's older conservative checker <code>scripts/validate_submission.py</code> (submission-format-v2) <em>expects</em> null/NaN there, following the official wording "null/NaN outside the bounds", and therefore reports <code>ok: false</code> for this file. The live ledger shows the portal scored both encodings: the 0.2778 champion was submitted as its <code>-zeros</code> variant, and D1.5 (0.2477) as its <code>-nan</code> variant. The K3-H1 file uses exactly the champion's accepted <code>-zeros</code> encoding. <code>scripts/portal_check.py</code> encodes the spec plus that empirical acceptance: finite values in [0, 1] or NaN outside the footprint, and nothing invalid anywhere.</p>
+<h2>6. Irregularities</h2>
+<ul>
+<li>The prompt's lane paragraph is missing (IR-K3-LANE-01); this lane was self-assigned and pre-registered.</li>
+<li>The prompt quotes 0.4413 and 0.3195 as leaderboard highs. On 26 Oct 2026 the official leaderboard showed 0.4437 at #1, and 0.3195 matched no visible top-50 entry. 0.2778 is below the visible top-50 cutoff (0.2826). All of these are dated snapshots.</li>
+<li>GEMSDOE30's 0.2600 file is a relabelled copy of GEMSDOE25's D2.8 dots (above).</li>
+<li><code>sample_submission.tif</code> comes from a participant mirror, SHA-verified against that mirror. The official data page requires login, so the organizer's bytes were not compared.</li>
+<li>The GitHub API token was unavailable in this sandbox; plain git transport worked.</li>
+</ul>
+<h2>7. Remaining work and limitations</h2>
+<ol>
+<li><strong>Decide the space-filling/continuous-raster policy</strong> (§4). Until then, the literal rule blocks every candidate, including the K3-H1 file.</li>
+<li>The final selection should remain the scored 0.2778 champion unless a candidate beats it on <em>both</em> the paired holdout and the same-fit projection. Per the <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">Official Rules</a> §3.4–3.6, one final submission counts for both prize rounds, and it must be chosen without knowledge of private scores.</li>
+<li>The registry covers 433 rasters from the user's sites. Other teams' files are unknowable.</li>
+<li>The projection model is fitted to one family of files. It can rank, but it cannot certify gains for unseen designs: its leave-one-out error, q90 0.054, exceeds the 0.03 gap.</li>
+<li>The rules require finalists to submit reproducible code, and to <strong>disclose generative-AI use</strong> in the narrative (§3.2). This work was produced with an AI agent.</li>
+<li>Next lane suggestion: an on-network ranking signal (where along H19-5 new faults lie), tested with the same paired holdout + projection gates.</li>
+</ol>
+<h2>Sources</h2>
+<p>Official sources, fetched 26 Oct 2026:</p>
+<ul>
+<li><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">Problem description &amp; metric (page 967)</a></li>
+<li><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/968/">About (page 968)</a>: GeoDAWN magnetics/radiometrics, 3DEP lidar</li>
+<li><a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">GEMS Prize Official Rules, NLR, Sept 2026</a>: 3 submissions/week; one final submission for both rounds; labels from the USGS Qfault database plus new NLR/USGS expert faults; code reproducibility; AI disclosure</li>
+<li><a href="https://gdr.openei.org/submissions/1391">INGENIOUS Great Basin Regional Dataset (GDR 1391, CC-BY-4.0)</a>: Quaternary faults v1/v2, geodetic shear/dilation, heat flow, MT conductance, gravity/magnetics, slip/dilation tendency</li>
+<li><a href="https://gbcge.org/current-projects/ingenious/">INGENIOUS project (GBCGE)</a>: DOE GTO award DE-EE0009254, 2021–2025, play-fairway based</li>
+<li><a href="https://doi.org/10.5066/P93LGLVQ">USGS GeoDAWN data release, DOI 10.5066/P93LGLVQ</a></li>
+<li>Forum: <a href="https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/4">11516</a> (pixel-exact known-fault mask)</li>
+<li><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">Live leaderboard</a></li>
+</ul>
+<p>Participant sources (SHA-pinned; not organizer receipts):</p>
+<ul>
+<li>buffedlizard55-lab/GEMSDOE32 @ <code>400b60d4</code> (live ledger, LLI fit, shared tools)</li>
+<li>GEMSDOE24 @ <code>07345ea0</code> (lidar scarp product)</li>
+<li>the GEMSDOE data mirror @ <code>c0c06ac8</code></li>
+<li>57GEMSDOE @ <code>822a0ce5</code> (shared template; byte-identical to <code>vendor/gems57</code>)</li>
+</ul></article></div></main><footer><div class="wrap"><span>GEMS Evidence Lab &nbsp; / &nbsp; Maximize P(Win) · Own the Outcome</span><span>Research snapshot · No competition slot spent</span></div></footer>
+<script src="source-status.js" defer></script></body></html>

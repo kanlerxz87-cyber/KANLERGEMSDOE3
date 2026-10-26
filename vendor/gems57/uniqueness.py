@@ -271,15 +271,12 @@ def compare_array_to_registry(mine, registry_index, footprint, *, file_sha256=No
             jac = _jaccard(my_support, support)
             their_decoded = hashlib.sha256(np.ascontiguousarray(theirs).tobytes()).hexdigest()
             row = {**base, 'sha256':digest, 'decoded_sha256':their_decoded,
-                'their_dots':int(support.sum()),
-                'their_3px_halo_fraction':float(_near(support)[fp].mean()) if fp.any() else 0.0,
-                'my_dots_within_3px_of_theirs':ov,
+                'their_dots':int(support.sum()), 'my_dots_within_3px_of_theirs':ov,
                 'their_dots_within_3px_of_mine':reverse, 'spearman_full_footprint':rho,
-                'abs_spearman_full_footprint':(abs(rho) if rho is not None else None),
                 'jaccard_dot_sets':jac,
                 'identical_bytes':bool(file_sha256 and digest==file_sha256),
                 'identical_decoded_predictions':bool(their_decoded==decoded_digest),
-                'duplicate_by_rho':bool(rho is not None and abs(rho) > RHO_LIMIT),
+                'duplicate_by_rho':bool(rho is not None and rho > RHO_LIMIT),
                 'duplicate_by_overlap':bool(ov > OVERLAP_LIMIT),
                 'duplicate_by_jaccard':bool(jac > JACCARD_LIMIT)}
             rows.append(row)
@@ -369,25 +366,14 @@ between.  Both readings are always reported.
 """
 
 
-HALO_SATURATION_FRACTION = 0.95
-
-
 def representation_class(their_dots: int, footprint_cells: int,
-                         limit: float = DENSE_SUPPORT_FRACTION,
-                         halo_fraction: float | None = None,
-                         halo_limit: float = HALO_SATURATION_FRACTION) -> dict:
-    """Classify one registry raster by the denseness of its support and 3-px halo."""
+                         limit: float = DENSE_SUPPORT_FRACTION) -> dict:
+    """Classify one registry raster by the denseness of its positive support."""
     if footprint_cells <= 0:
         raise ValueError("footprint_cells must be positive")
     fraction = float(their_dots) / float(footprint_cells)
-    if fraction > limit:
-        kind = "continuous_surface"
-    elif halo_fraction is not None and float(halo_fraction) >= halo_limit:
-        kind = "halo_saturated_probe"
-    else:
-        kind = "dot_field"
-    return dict(kind=kind, support_fraction=fraction, limit=float(limit),
-                halo_fraction=halo_fraction, halo_limit=float(halo_limit))
+    return dict(kind=("continuous_surface" if fraction > limit else "dot_field"),
+                support_fraction=fraction, limit=float(limit))
 
 
 def two_phase_summary(rows, footprint_cells: int, *, rho_limit: float = RHO_LIMIT,
@@ -400,9 +386,9 @@ def two_phase_summary(rows, footprint_cells: int, *, rho_limit: float = RHO_LIMI
     extension of it).  Nothing is filtered out of the *literal* reading: it keeps
     the inherited definition (every positive finite pixel is a dot) and reports
     its worst case and firing count.  The like-for-like reading applies the same
-    inherited thresholds to the subset of rasters that are genuine detector dot
-    fields (excluding dense continuous surfaces and >=95% 3-px halo-saturated
-    synthetic lattices), while full-footprint |Spearman| still applies to every raster.
+    inherited thresholds to the subset of rasters that are dot fields, which is
+    the only comparison in which a dot-overlap test carries information.  The
+    rank-correlation test is applied to every raster in both readings.
     """
     from math import isnan
 
@@ -411,10 +397,7 @@ def two_phase_summary(rows, footprint_cells: int, *, rho_limit: float = RHO_LIMI
         raise ValueError("no checked registry rows to summarise")
     for r in checked:
         r.setdefault("representation", representation_class(
-            int(r.get("their_dots", 0)),
-            footprint_cells,
-            halo_fraction=r.get("their_3px_halo_fraction"),
-        )["kind"])
+            int(r.get("their_dots", 0)), footprint_cells)["kind"])
 
     def _worst(subset, key):
         vals = [r[key] for r in subset if r.get(key) is not None and not isnan(r[key])]
@@ -424,31 +407,22 @@ def two_phase_summary(rows, footprint_cells: int, *, rho_limit: float = RHO_LIMI
         who = next(r for r in subset if r.get(key) == best)
         return float(best), who
 
-    def _worst_abs_rho(subset):
-        valid = [r for r in subset if r.get("spearman_full_footprint") is not None and not isnan(r["spearman_full_footprint"])]
-        if not valid:
-            return None, None
-        who = max(valid, key=lambda r: abs(r["spearman_full_footprint"]))
-        return float(abs(who["spearman_full_footprint"])), who
-
-    rho_lit, rho_who = _worst_abs_rho(checked)
+    rho_lit, rho_who = _worst(checked, "spearman_full_footprint")
     ov_lit, ov_who = _worst(checked, "my_dots_within_3px_of_theirs")
     dot_rows = [r for r in checked if r["representation"] == "dot_field"]
     surf_rows = [r for r in checked if r["representation"] == "continuous_surface"]
-    probe_rows = [r for r in checked if r["representation"] == "halo_saturated_probe"]
     ov_dot, ov_dot_who = _worst(dot_rows, "my_dots_within_3px_of_theirs")
     ov_rev, ov_rev_who = _worst(checked, "their_dots_within_3px_of_mine")
     jac, jac_who = _worst(checked, "jaccard_dot_sets")
     literal_firings = [dict(submission=r.get("submission"), repo=r.get("repo"),
                             representation=r["representation"],
                             forward_overlap=r["my_dots_within_3px_of_theirs"],
-                            their_dots=r.get("their_dots"),
-                            their_3px_halo_fraction=r.get("their_3px_halo_fraction"))
+                            their_dots=r.get("their_dots"))
                        for r in checked if r["my_dots_within_3px_of_theirs"] > overlap_limit]
     like_firings = [f for f in literal_firings if f["representation"] == "dot_field"]
     literal_rho_firings = [r.get("submission") for r in checked
                            if r.get("spearman_full_footprint") is not None
-                           and abs(r["spearman_full_footprint"]) > rho_limit]
+                           and r["spearman_full_footprint"] > rho_limit]
     return dict(
         evidence_class="REGISTRY-MEASUREMENT",
         rasters_checked=len(checked),
@@ -458,7 +432,6 @@ def two_phase_summary(rows, footprint_cells: int, *, rho_limit: float = RHO_LIMI
                     "limitation, never a claim of absence."),
         footprint_cells=int(footprint_cells),
         dense_support_fraction=DENSE_SUPPORT_FRACTION,
-        halo_saturation_fraction=HALO_SATURATION_FRACTION,
         thresholds=dict(rho=rho_limit, forward_overlap=overlap_limit, jaccard=jaccard_limit),
         literal_reading=dict(
             worst_spearman_full_footprint=rho_lit, worst_spearman_submission=(rho_who or {}).get("submission"),
@@ -466,13 +439,12 @@ def two_phase_summary(rows, footprint_cells: int, *, rho_limit: float = RHO_LIMI
             forward_overlap_firings=len(literal_firings),
             rho_firings=len(literal_rho_firings),
             duplicate=bool(literal_firings or literal_rho_firings),
-            note=("Keeps the inherited literal support definition. A continuous-surface or >=95% "
-                  "halo-saturated lattice prior fires on every sparse candidate, so both readings "
-                  "are reported side by side."),
+            note=("Keeps the inherited literal support definition. A continuous-surface prior fires on "
+                  "every nonempty candidate, so a firing here is not evidence of duplication; it is "
+                  "reported for completeness."),
         ),
         like_for_like_reading=dict(
             dot_field_rasters=len(dot_rows), continuous_surface_rasters=len(surf_rows),
-            halo_saturated_probe_rasters=len(probe_rows),
             worst_forward_overlap_dot_fields=ov_dot,
             worst_forward_overlap_dot_field_submission=(ov_dot_who or {}).get("submission"),
             worst_reverse_overlap=ov_rev,
@@ -480,8 +452,8 @@ def two_phase_summary(rows, footprint_cells: int, *, rho_limit: float = RHO_LIMI
             worst_jaccard=jac, worst_jaccard_submission=(jac_who or {}).get("submission"),
             forward_overlap_firings=len(like_firings),
             duplicate=bool(like_firings or literal_rho_firings),
-            note=("Inherited thresholds, applied to detector dot fields; |Spearman| still applies to "
-                  "every raster including continuous surfaces and halo-saturated probes."),
+            note=("Inherited thresholds, applied to dot fields only; rank correlation still applies to "
+                  "every raster including the continuous surfaces."),
         ),
         literal_firings=literal_firings,
     )

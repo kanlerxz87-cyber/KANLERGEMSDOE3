@@ -15,9 +15,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "vendor"))
+sys.path.insert(0, str(ROOT / "src"))
 
-from gems57.prepare_data import fetch_raw, sha256  # noqa: E402
+from kanler_gems.template_fixes import fetch_raw, sha256  # noqa: E402
 
 EXTERNAL_PINS = [
     {

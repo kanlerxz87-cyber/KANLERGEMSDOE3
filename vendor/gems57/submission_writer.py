@@ -22,7 +22,6 @@ from .validate import assert_submittable, validate
 
 def _temp_path(parent: Path, stem: str, suffix: str) -> Path:
     fd, name = tempfile.mkstemp(prefix=f".{stem}.", suffix=suffix, dir=parent)
-    os.fchmod(fd, 0o644)
     os.close(fd)
     return Path(name)
 
