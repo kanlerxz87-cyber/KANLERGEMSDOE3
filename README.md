@@ -21,7 +21,7 @@ python -m http.server 8000 --bind 0.0.0.0 --directory docs
 
 Only the Python standard library is needed for the review. The gate is a decision-schema checker, not a geospatial evaluator or TIFF validator. Shared upstream evaluator/writer files under `evidence/upstream/` are immutable audit material, **not** a replacement runnable template. Do not execute them as an integrated pipeline without their pinned dependencies and inputs.
 
-GitHub Actions tests the report and deploys `docs/` to Pages on main. Pages deployment requires Pages to be enabled for GitHub Actions in the repository. Publication status must be checked rather than assumed.
+GitHub Actions tests the report. The existing GitHub Pages configuration publishes from the main branch root; `index.html` forwards to `docs/` and `.nojekyll` preserves static assets. Changing Pages settings returned HTTP 403, so the existing legacy deployment is retained. Publication status must be checked rather than assumed.
 
 ## Next session, in order
 

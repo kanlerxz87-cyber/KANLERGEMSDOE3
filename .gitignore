@@ -3,3 +3,5 @@ __pycache__/
 data/
 *.tif
 *.tiff
+!docs/data/
+!docs/data/*.json

@@ -20,3 +20,7 @@
 - Four conditional hypotheses ranked without numerical score projections. No claim of global novelty or demonstrated benefit.
 - Tests are review/gate tests, NOT geological validation. A passing schema fixture is synthetic and supplies no real scientific result.
 - Unfulfilled core outcome remains explicit: no new validated GeoTIFF, no trained model, no new HOLDOUT-DTI, no verified live leaderboard or automatic current feed. This audit is a foundation, not completion of the competition-winning objective.
+
+## Publication follow-up
+- The Pages settings endpoint returned HTTP 403 for changing to workflow deployment. Retained the existing main/root legacy Pages configuration and added a root redirect plus `.nojekyll`; no settings access is required.
+- Found that the generic `data/` ignore rule also hid `docs/data/`; explicitly unignored the small report JSON files before merging. Large raster inputs remain ignored.
