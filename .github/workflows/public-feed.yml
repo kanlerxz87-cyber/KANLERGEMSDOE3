@@ -1,0 +1,27 @@
+name: Refresh public evidence feed
+on:
+  schedule:
+    - cron: '23 */12 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: gems-public-evidence-feed
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch only public leaderboard and focus-site commit heads
+        run: python scripts/refresh_public_feed.py --output /tmp/gems-public-feed.json
+      - name: Publish a mutable public feed without pushing a branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view public-evidence-feed >/dev/null 2>&1; then
+            gh release edit public-evidence-feed --title 'Public evidence feed (not a submission)' --notes-file /tmp/gems-public-feed.json
+          else
+            gh release create public-evidence-feed --target "$GITHUB_SHA" --title 'Public evidence feed (not a submission)' --notes-file /tmp/gems-public-feed.json
+          fi

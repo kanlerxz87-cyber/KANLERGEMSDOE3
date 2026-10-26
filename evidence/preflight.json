@@ -1,0 +1,61 @@
+{
+  "schema": "gems-workbench-preflight-v1",
+  "created_utc": "2026-10-26T21:44:26.578899+00:00",
+  "evidence_class": "REGISTRY-MEASUREMENT, not HOLDOUT-DTI or an organizer score",
+  "template_commit": "822a0ce5546c7b6749cdd82eb145b6b3e616603d",
+  "rule": "stop if any prior surface/dots overlap exceeds 0.70 within 3 pixels",
+  "preplacement_verdict": "STOP",
+  "experiments_run": 0,
+  "submission_slots_used": 0,
+  "witnesses": {
+    "registry_dense": {
+      "footprint_cells": 5167373,
+      "positive_inside_footprint": 5167373,
+      "within_3px_cells": 5167373,
+      "uncovered_cells": 0,
+      "fraction_within_3px": 1.0,
+      "universal_blocker": true,
+      "example_budget": 37654,
+      "overlap_lower_bound_at_example_budget": 1.0,
+      "sha256": "ab0a0a62eecf066a82713b09dd49f0f638a91fa3dd81f54cc34ae89afa3872be",
+      "positive_support_definition": "finite values greater than zero",
+      "shared_overlap_with_catalogue_as_example": 1.0
+    },
+    "registry_lattice": {
+      "footprint_cells": 5167373,
+      "positive_inside_footprint": 206895,
+      "within_3px_cells": 5160724,
+      "uncovered_cells": 6649,
+      "fraction_within_3px": 0.9987132726822701,
+      "universal_blocker": false,
+      "example_budget": 37654,
+      "overlap_lower_bound_at_example_budget": 0.8234184947150369,
+      "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+      "positive_support_definition": "finite values greater than zero",
+      "shared_overlap_with_catalogue_as_example": 0.997786449793402
+    }
+  },
+  "grid": {
+    "shape": [
+      3730,
+      3292
+    ],
+    "crs": "EPSG:32611",
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "sample_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "catalogue_sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+    "catalogue_positive_inside": 60988,
+    "sample_positive_matches_catalogue": true
+  },
+  "provenance_warning": "Mirrors are hash-pinned but not independently authenticated organizer files; the mirrored sample's positive labels conflict with the official description of a total-absence example.",
+  "scope_warning": "Two indexed public witnesses prove a stop only; this is not a complete organizer or fleet registry scan.",
+  "dense_witness_url": "https://github.com/buffedlizard55-lab/17GEMSDOE/blob/main/docs/downloads/17GEMSDOE_E-proba-multiscale_20260930T044527Z.tif",
+  "lattice_witness_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/main/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif"
+}

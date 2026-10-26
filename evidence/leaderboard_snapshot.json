@@ -1,0 +1,63 @@
+{
+  "schema": "public-leaderboard-snapshot-v1",
+  "observed_utc": "2026-10-26T21:55:40Z",
+  "source": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+  "observation_method": "Public leaderboard page response read through the web-fetch tool; provider caching and original page generation time are unknown.",
+  "evidence_class": "ORGANIZER-PUBLISHED PUBLIC LEADERBOARD, not a file-specific submission receipt",
+  "rank": 1,
+  "participant": "xiaofanhu",
+  "public_value": "0.4437",
+  "caveat": "The public leaderboard does not identify the TIFF or establish an organizer receipt for any portfolio file. Values can change.",
+  "top_ten": [
+    {
+      "rank": 1,
+      "participant": "xiaofanhu",
+      "public_value": "0.4437"
+    },
+    {
+      "rank": 2,
+      "participant": "cfld__",
+      "public_value": "0.3916"
+    },
+    {
+      "rank": 3,
+      "participant": "Batik Shirt Brothers",
+      "public_value": "0.3904"
+    },
+    {
+      "rank": 4,
+      "participant": "BrandenKMurray",
+      "public_value": "0.3724"
+    },
+    {
+      "rank": 5,
+      "participant": "No Fault of Our Own",
+      "public_value": "0.3561"
+    },
+    {
+      "rank": 6,
+      "participant": "joeyfezster",
+      "public_value": "0.3447"
+    },
+    {
+      "rank": 7,
+      "participant": "JerryDataWorks",
+      "public_value": "0.3418"
+    },
+    {
+      "rank": 8,
+      "participant": "alexoktaba",
+      "public_value": "0.3416"
+    },
+    {
+      "rank": 9,
+      "participant": "DARD",
+      "public_value": "0.3398"
+    },
+    {
+      "rank": 10,
+      "participant": "Azazel",
+      "public_value": "0.3379"
+    }
+  ]
+}

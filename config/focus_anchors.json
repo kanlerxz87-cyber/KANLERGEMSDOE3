@@ -1,0 +1,113 @@
+{
+  "evidence_note": "Values were supplied by the user; no organizer submission-page receipt linking a file hash to a value has been established. They are claims, not scores. TIFFs are historical research references, not submission recommendations.",
+  "anchors": [
+    {
+      "site": "GEMSDOE24",
+      "claimed_value": 0.2477,
+      "name": "h25-1-dotted-h19-5-d1-5",
+      "path": "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+      "blob_sha1": "cc1752f2ea48b23bd41232c1fdcdceb5f439e401",
+      "sha256": "68d0e2e4fcc594f9a23f56c44b885fee733d026d39be55e18ad2a07289525310",
+      "bytes": 1632732,
+      "reviewed_commit": "7ab1c8f77f0b4b8644e3929403a0dab65838b008",
+      "claim_source_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/07806249f4ed3efe70b4fbf866183c32392b7853/docs/index.html",
+      "claim_conflict": null
+    },
+    {
+      "site": "GEMSDOE25",
+      "claimed_value": 0.26,
+      "name": "dotted-h19-5-d2-8",
+      "path": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+      "blob_sha1": "c8d3a46481152bbdfd61b113484be979fde9d4c6",
+      "sha256": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8",
+      "bytes": 1603424,
+      "reviewed_commit": "af2b6f2543e5422a7e917638b70e038e6fd91cad",
+      "claim_source_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/07806249f4ed3efe70b4fbf866183c32392b7853/docs/index.html",
+      "claim_conflict": "A peer irregularity record says D2.8 was marked unscored; exact score-to-file attribution remains unresolved."
+    },
+    {
+      "site": "GEMSDOE27",
+      "claimed_value": 0.2449,
+      "name": "topo-gap-closure-t-v2-on-d1-5",
+      "path": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+      "blob_sha1": "c64e48b8bece14391fb59c1969c42c7efd718d39",
+      "sha256": "33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d",
+      "bytes": 1635084,
+      "reviewed_commit": "bef7ae8e8f63b69d299c9214c75988c8f5055f9c",
+      "claim_source_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/07806249f4ed3efe70b4fbf866183c32392b7853/docs/index.html",
+      "claim_conflict": null
+    },
+    {
+      "site": "GEMSDOE28",
+      "claimed_value": 0.271,
+      "name": "h36-1-rung30-blind-r1",
+      "path": "docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+      "blob_sha1": "d0fc9ebbda0b15c31208022dbd124d4b9b112108",
+      "sha256": "5556aa1438fd67376b60d5ffc99228ec09dcc11a8408298a743ccb88d6163641",
+      "bytes": 1590848,
+      "reviewed_commit": "2c839d10f57ec9b074829e93c84bc39935f52896",
+      "claim_source_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/07806249f4ed3efe70b4fbf866183c32392b7853/docs/index.html",
+      "claim_conflict": "An earlier H36-1 record says unscored/not slot-approved; timing and exact score-to-file attribution remain unresolved."
+    },
+    {
+      "site": "GEMSDOE30",
+      "claimed_value": 0.26,
+      "name": "d28-poisson300m-offcat-44090",
+      "path": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+      "blob_sha1": "a59665a7fad659dcc6a45e5e7e71059586c3247a",
+      "sha256": "8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd",
+      "bytes": 806758,
+      "reviewed_commit": "9c0d637c0171407196b61b780444bc772ce75438",
+      "claim_source_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/07806249f4ed3efe70b4fbf866183c32392b7853/docs/index.html",
+      "claim_conflict": null
+    },
+    {
+      "site": "GEMSDOE31",
+      "claimed_value": 0.2708,
+      "name": "h27-4-solo-d28",
+      "path": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+      "blob_sha1": "36c2aa32e0bba3d976d1ba76f3fb14903199262d",
+      "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+      "bytes": 199214,
+      "reviewed_commit": "776bf4668a8c10631908c9bba9443a8f11ce5036",
+      "claim_source_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/07806249f4ed3efe70b4fbf866183c32392b7853/docs/index.html",
+      "claim_conflict": "A peer irregularity cites an unscored H27-4 with the same experiment suffix; byte identity and attribution remain unresolved."
+    },
+    {
+      "site": "GEMSDOE32",
+      "claimed_value": 0.2778,
+      "name": "h33-h33-2-b2",
+      "path": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "blob_sha1": "17a76895f68174cc93f3cb1597d25686f6d6bc67",
+      "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+      "bytes": 219065,
+      "reviewed_commit": "07806249f4ed3efe70b4fbf866183c32392b7853",
+      "claim_source_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/07806249f4ed3efe70b4fbf866183c32392b7853/docs/index.html",
+      "claim_conflict": null
+    },
+    {
+      "site": "GEMSDOE33",
+      "claimed_value": 0.2632,
+      "name": "h33d-analog-tip-stepover-r30",
+      "path": "docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+      "blob_sha1": "901d9db3f008f0f5c3be9c314524ccc8e95fb43e",
+      "sha256": "87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757",
+      "bytes": 917544,
+      "reviewed_commit": "08380a2e6f2a76d733ee6144d6de33e2907c13b8",
+      "claim_source_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/07806249f4ed3efe70b4fbf866183c32392b7853/docs/index.html",
+      "claim_conflict": null
+    },
+    {
+      "site": "GEMSDOE36",
+      "claimed_value": 0.275,
+      "name": "anderson-geothermal-pinn-38854",
+      "path": "docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+      "blob_sha1": "e79b7bdb633369c724628e30efba6de60c1d25d9",
+      "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
+      "bytes": 318190,
+      "reviewed_commit": "f7ad7e61cf03842c6e6410a96ee5ee6cbbc6a08a",
+      "claim_source_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/07806249f4ed3efe70b4fbf866183c32392b7853/docs/index.html",
+      "claim_conflict": null
+    }
+  ]
+}

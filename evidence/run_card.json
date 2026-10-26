@@ -1,0 +1,37 @@
+{
+  "hypothesis": "UNASSIGNED; proposed only: scale-persistent magnetic–gravity interface under cover",
+  "mechanism": "Multi-scale axial alignment of magnetic and gravity gradients, conditioned on conductivity and basement-depth proxies; not implemented or tested in this run.",
+  "named_non_fault_mimic": "A lithologic contact or igneous intrusion; airborne survey line artifacts can also mimic magnetic lineaments.",
+  "holdout": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2 (pinned, not run)",
+    "withheld_positive_pixels": null,
+    "dti": null,
+    "ci95": null,
+    "leakage_canaries": "not run: pre-placement stop",
+    "fold_builder_status": "Not certified: pinned default uses 12-pixel chunks and quadrant-boundary erosion, not a proven buffer around whole original segments; correct/review upstream before running."
+  },
+  "registry": {
+    "preplacement": "STOP: shared positive-support definition makes the dense registered probability raster cover the entire mirrored footprint",
+    "dense_witness_sha256": "ab0a0a62eecf066a82713b09dd49f0f638a91fa3dd81f54cc34ae89afa3872be",
+    "dense_witness_footprint_coverage_3px": 1.0,
+    "candidate_surface_rank_correlation": null,
+    "candidate_final_dot_overlap": null,
+    "final_dots": "not placed; no complete registry audit claimed"
+  },
+  "raster_sha256": null,
+  "validator": {
+    "candidate_generated": false,
+    "no_nan_inside_footprint": null,
+    "range_0_to_1": null,
+    "crs_shape_transform_match": null,
+    "result": "not run; no candidate raster",
+    "shared_mask_check_status": "Local wrapper adds an in-footprint validity-mask check; shared template needs an upstream fix."
+  },
+  "submission_name": null,
+  "submission_note": null,
+  "verdict": "negative",
+  "reason": "Universal pre-placement duplicate blocker, no single method lane assigned, shared fold builder not certified for whole-segment local buffers, no holdout win, and no separately authorized selector.",
+  "experiments_run": 0,
+  "submission_slots_used": 0
+}

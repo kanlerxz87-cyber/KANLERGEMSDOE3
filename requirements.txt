@@ -1,0 +1,6 @@
+# Used for local geospatial audit and shared template; no GPU is required.
+numpy==2.3.4
+scipy==1.16.3
+rasterio==1.4.3
+scikit-learn==1.7.2
+pytest==8.4.2

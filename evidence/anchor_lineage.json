@@ -1,0 +1,29 @@
+{
+  "schema": "gems-anchor-lineage-v1",
+  "created_utc": "2026-10-26T21:45:32.733091+00:00",
+  "evidence_class": "RASTER-MEASUREMENT; no leaderboard score or hidden-label causation",
+  "base": {
+    "site": "GEMSDOE25",
+    "sha256": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8",
+    "positive_pixels": 44090
+  },
+  "child": {
+    "site": "GEMSDOE32",
+    "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+    "positive_pixels": 37654
+  },
+  "pixel_size_m": 100,
+  "catalogue_sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+  "child_is_subset_of_base": true,
+  "child_exactly_base_excluding_catalogue_distance_le_2px": true,
+  "removed_pixels": 6436,
+  "removed_distance_classes_px": {
+    "distance_0": 0,
+    "distance_1": 3891,
+    "distance_sqrt2": 1201,
+    "distance_2": 1344,
+    "distance_gt_2": 0
+  },
+  "child_at_most_2px_from_catalogue": 0,
+  "caveat": "Distances use the third-party mirrored catalogue; its hash does not authenticate organizer origin. These observations do not prove a score or causal effect."
+}
