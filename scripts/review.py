@@ -47,9 +47,26 @@ def build():
  write_page('archived-dashboard.html',body)
  write_page('archived-summary.html',body)
  for name in ('research','submission'):
-  text=html.escape((ROOT/'docs'/f'{name}.md').read_text())
-  text=re.sub(r'https://[^\s<>]+', lambda m: '<a href="'+m.group(0)+'">'+m.group(0)+'</a>', text)
+  raw=(ROOT/'docs'/f'{name}.md').read_text()
+  text=render_markdown_links(raw)
   write_page(name+'.html','<p class="stop"><strong>ARCHIVED PRE-EXPERIMENT SNAPSHOT.</strong> <a href="index.html">See the current dashboard</a>.</p><nav><a href="index.html">Executive summary</a></nav><article style="white-space:pre-wrap;overflow-wrap:anywhere">'+text+'</article>')
+
+def render_markdown_links(text):
+ """Escape Markdown text while rendering inline and bare HTTPS links safely."""
+ pattern=re.compile(r'\[([^]\n]+)\]\((https?://[^)\s]+)\)|(https?://[^\s<>]*[^\s<>.,;:!?])')
+ parts=[]
+ cursor=0
+ for match in pattern.finditer(text):
+  parts.append(html.escape(text[cursor:match.start()]))
+  if match.group(1) is not None:
+   label,url=match.group(1),match.group(2)
+  else:
+   label=url=match.group(3)
+  parts.append(f'<a href="{html.escape(url,quote=True)}">{html.escape(label)}</a>')
+  cursor=match.end()
+ parts.append(html.escape(text[cursor:]))
+ return ''.join(parts)
+
 
 def write_page(name,body):
  (ROOT/'docs'/name).write_text('''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GEMS · Evidence &amp; submission review</title><link rel="stylesheet" href="style.css"><main>'''+body+'</main></html>')
