@@ -52,9 +52,10 @@ scores from historical reports or proxy measurements.
    feature stack. This is a possible autonomous recovery route, **not a verified official download**.
    Small template/labels and nine historical rasters were recovered locally; feature stack and full
    registry were not. Raw data remain gitignored. Check organizer data-use rules/provenance before training.
-4. Internet is restricted to GitHub and package hosts. Official DrivenData, USGS, GDR, NLR and Dropbox
-   pages cannot be directly verified/downloaded in this environment. Their links are for provenance
-   follow-up, not a claim of line-by-line verification. No DrivenData authenticated session is available.
+4. The official DrivenData task/metric page and public leaderboard were fetched read-only; the data tab
+   redirected to login. The official USGS GeoDAWN release page and DOI were also checked. GDR, NLR and
+   Dropbox materials were not independently retrieved here. No authenticated DrivenData session is
+   available, and the login-gated competition feature package remains inaccessible in this environment.
 5. Restore full-registry surfaces and dots, not only nine winners. A dense lattice may make the overlap
    rule extremely restrictive; report that conflict rather than weakening the gate.
 6. Execute the preregistered canary/holdout comparison; record version, positive count, CI, hash, and
