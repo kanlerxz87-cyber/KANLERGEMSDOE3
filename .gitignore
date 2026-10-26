@@ -12,3 +12,4 @@ __pycache__/
 /data/reference/
 /data/*.partial
 /evidence/*.npy
+_site/
