@@ -39,7 +39,9 @@ and SHA-verified. Actual model inputs were the owner-cached radiometric and LiDA
 originals.** The sample mirror's positive pixels exactly match the known labels, despite the official
 sample description; use it only for grid/footprint, never as a prediction feature. Derived caches and
 shared-template code lack an established redistribution license; verify provenance/rights before
-any competition use. No physical fault or geothermal resource was independently confirmed.
+any competition use. The official null-outside format and the shared writer's zero-outside default
+conflict; the shared template remains unchanged and needs a central fix or organizer clarification
+before use. No physical fault or geothermal resource was independently confirmed.
 
 The prompt refers to a named single-method paragraph that was not identifiable. Our research lane
 was explicitly provisional, never claimed to be assigned. The frozen registry includes the nine focus

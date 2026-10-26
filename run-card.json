@@ -183,7 +183,8 @@
     "A catalogue-recovery holdout is not an estimate of the hidden leaderboard score.",
     "The frozen snapshot cannot cover all concurrent or unregistered rasters.",
     "Per-fold additive components retained; individual fold scores omitted because per-fold confidence intervals were not computed.",
-    "Paired ablation is not an evaluation of the prior best incumbent; no comparable incumbent was rerun."
+    "Paired ablation is not an evaluation of the prior best incumbent; no comparable incumbent was rerun.",
+    "Shared writer default zero-outside conflicts with official null-outside description and strict local validator; upstream template was not modified or cleared."
   ],
   "data_validation": {
     "grid": {

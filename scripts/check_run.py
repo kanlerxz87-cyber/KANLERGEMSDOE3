@@ -22,17 +22,28 @@ def check(card, lock):
     require(card['submission_slot_spent'] is False, 'unexpected slot claim')
     require(len(card['submission_note'])<=140, 'submission note too long')
     require(card['leakage_canary']['passed'] and card['oof_model_canary']['passed'], 'leakage canary failed')
+    expected=set(card['features']['names'])|{'profile_support'}
+    for name,canary,names in [('features',card['leakage_canary'],expected),
+                              ('out-of-fold model',card['oof_model_canary'],{'oof_model_probability'})]:
+        require(canary['threshold']==.9 and canary['two_polarities_checked'] and set(canary['features'])==names, f'{name}: incomplete canaries')
+        for feature,info in canary['features'].items():
+            aucs=[info['pooled_auc']]+[f['auc'] for f in info['folds']]
+            require(len(info['folds'])==4 and not info['leakage_suspected'] and
+                    all(math.isfinite(a) and .1<=a<=.9 for a in aucs), f'{name}/{feature}: canary threshold exceeded')
     require(all(not f['training_validation_overlap'] and not f['hidden_components_in_visible'] for f in card['fold_integrity']), 'fold isolation failed')
-    locked={r['id'] for r in lock['entries']}
+    locked={r['id']:r for r in lock['entries']}
     require(len(locked)==len(lock['entries'])==167, 'registry count or ID mismatch')
     require(set(card['surface_registry'])=={'out_of_fold_surface','full_fit_surface'}, 'missing surface')
     for name,s in card['surface_registry'].items():
         require(s['passed_frozen_snapshot'] and not s['global_registry_complete'], f'{name}: incorrect registry scope')
         require(s['checked']==167 and len(s['rows'])==167, f'{name}: missing comparisons')
-        require({r['id'] for r in s['rows']}==locked, f'{name}: reference identity mismatch')
+        require({r['id'] for r in s['rows']}==set(locked), f'{name}: reference identity mismatch')
+        require(all(r['file']==locked[r['id']]['file'] for r in s['rows']), f'{name}: reference path mismatch')
         require(all(math.isfinite(r['rho']) and abs(r['rho'])<=.9 for r in s['rows']), f'{name}: invalid or duplicate correlation')
         require(math.isclose(s['max_abs_rho'],max(abs(r['rho']) for r in s['rows']),rel_tol=1e-12), f'{name}: incorrect maximum')
     overlap=card['correlation_overlap_vs_registry']
+    require(overlap['registry_id'] in locked and overlap['registry_file']==locked[overlap['registry_id']]['file'] and
+            overlap['reference_sha256']==locked[overlap['registry_id']]['sha256'], 'lattice reference mismatch')
     require(overlap['duplicate'] and overlap['candidate_within_3px_of_reference']>.7, 'missing duplicate stop')
     require(overlap['candidate_dots']==37654 and overlap['other_final_rasters_checked']==0, 'unexpected final-dot audit')
     h=card['holdout_dti']

@@ -7,8 +7,10 @@ The exact cause of the prior range error is unknown without the rejected file an
 Inspect the saved file for NaN/Inf, a nodata sentinel, values below 0 or above 1, wrong bands, and
 metadata drift. Use one float32 band on the official sample CRS/shape/transform, finite [0,1] values
 inside the footprint, and verify the bytes after reopening. The official sample/specification describes
-outside-footprint NaN. All-finite zero outside is a conservative local compatibility precaution,
-not proof of portal acceptance and not a license to silently clip invalid predictions.
+null/NaN outside the footprint. The shared writer defaults to zero outside, but the separate strict
+template-mask validator rejects those valid outside pixels; this conflict needs a central template fix
+or organizer clarification before use. Do not assume either encoding explains the prior rejection,
+or silently clip invalid predictions.
 
 Before writing a submission, require a scientifically sound same-fold best-incumbent improvement,
 full registry novelty, trusted/eligible data and code rights, and the unchanged shared writer. A

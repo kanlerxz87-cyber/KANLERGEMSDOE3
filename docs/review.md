@@ -55,6 +55,17 @@ future improvement is established. A prior GEMSDOE24 report of HOLDOUT-DTI 0.163
 its reported value is not a directly comparable victory threshold. Do not treat its holdout as an
 organizer result or claim our lane exceeded it.
 
+## Shared writer versus the official footprint mask
+
+The published format describes null/NaN outside the footprint. The pinned GEMSDOE24 shared writer
+has an all-finite-zero exterior as its default, and its `format_valid` check treats the official
+outside-NaN condition as advisory. A separately integrated strict local validator requires outside
+pixels to be nodata and rejects a zero-outside file. A synthetic regression demonstrates both
+behaviors; neither establishes what the portal accepted or why an earlier file failed. The shared
+upstream template has **not** been modified here: the session is restricted to this repository branch,
+so no private writer fork or upstream fix is claimed. The inconsistency must be fixed once in the
+shared template, or clarified by the organizer, before any submission is contemplated.
+
 ## Data, licenses and access
 
 The six files were restored from pinned owner mirrors. SHA-256 and expected grids/bands were verified;

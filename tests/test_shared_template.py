@@ -13,7 +13,7 @@ sys.path.insert(0,str(ROOT/'.cache/template/GEMSDOE32/vendor'))
 try:
     from gems import holdout, metric
     from gems57 import evaluate_holdout
-    from gems.submission import write_submission
+    from gems.submission import write_submission, check_variants
 except ModuleNotFoundError:
     pytest.skip('Install locked shared template before these optional tests',allow_module_level=True)
 
@@ -65,14 +65,22 @@ def test_canonical_writer_serializes_and_rejects_invalid_inside():
         ref=Path(d)/'template.tif'; out=Path(d)/'smoke-not-a-submission.tif'
         profile=dict(driver='GTiff',width=10,height=8,count=1,dtype='float32',crs='EPSG:32611',transform=from_origin(0,800,100,100))
         template=np.zeros((8,10),np.float32);template[0,0]=np.nan
-        with rasterio.open(ref,'w',**profile) as ds:ds.write(template,1)
+        with rasterio.open(ref,'w',**{**profile,'nodata':np.nan}) as ds:ds.write(template,1)
         fp=np.ones((8,10),bool);fp[0,0]=False
         a=np.zeros((8,10),np.float32);a[2,3]=.75;a[0,0]=np.nan
-        result=write_submission(a,ref,out,outside='zero')
+        result=write_submission(a,ref,out)  # shared default is outside='zero'
         with rasterio.open(out) as ds:
             actual=ds.read(1)
             assert ds.count==1 and ds.dtypes[0]=='float32' and ds.transform==profile['transform']
             assert np.isfinite(actual).all() and actual[0,0]==0 and actual[2,3]==.75
+        # The shared writer's local default and strict official-mask policy disagree.
+        from scripts.validate_submission import validate
+        assert not validate(ref,out)['ok']
+        shared=check_variants(out,ref)['checks']['outside_is_nan_official_text']
+        assert not shared['pass'] and not shared['hard_requirement']
+        nan_out=Path(d)/'official-mask-smoke-not-a-submission.tif'
+        write_submission(a,ref,nan_out,outside='nan')
+        assert validate(ref,nan_out)['ok']
         for invalid in [np.nan,-.01,1.01,np.inf]:
             b=a.copy();b[2,3]=invalid
             with pytest.raises(ValueError):write_submission(b,ref,out,outside='zero')

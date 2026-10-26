@@ -126,7 +126,8 @@ def execute():
           'submission_note':'Bilateral K/Th displacement at LiDAR scarp; research only; DO NOT SUBMIT',
           'note':'Bilateral K/Th displacement at LiDAR scarp; research only; DO NOT SUBMIT',
           'notes':['A catalogue-recovery holdout is not an estimate of the hidden leaderboard score.',
-                   'The frozen snapshot cannot cover all concurrent or unregistered rasters.']}
+                   'The frozen snapshot cannot cover all concurrent or unregistered rasters.',
+                   'Shared writer default zero-outside conflicts with official null-outside description and strict local validator; upstream template was not modified or cleared.']}
     dump(card)
     try:
         print('Checking pinned inputs...',flush=True)
