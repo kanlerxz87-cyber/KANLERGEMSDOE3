@@ -2,13 +2,70 @@
   "hypothesis": "No lane assigned; historical winner forensics before candidate implementation",
   "mechanism": "Near-catalogue thinning may reduce uncredited prediction mass; causality unproven",
   "non_fault_mimic": "Lithologic contacts and airborne-survey processing seams",
-  "holdout": {"label": "HOLDOUT-DTI", "status": "NOT_RUN", "value": null, "evaluator_version": null, "withheld_positives": null, "ci95": null},
-  "registry": {"scope": "nine pinned historical winners only", "directed_pairs": 72, "minimum_overlap_3px": 0.8671895382207149, "candidate_surface_rank_correlation": null, "candidate_final_dot_overlap": null, "full_registry_checked": false},
+  "holdout": {
+    "label": "HOLDOUT-DTI",
+    "status": "NOT_RUN",
+    "value": null,
+    "evaluator_version": null,
+    "withheld_positives": null,
+    "ci95": null
+  },
+  "registry": {
+    "scope": "nine pinned historical winners only",
+    "directed_pairs": 72,
+    "minimum_overlap_3px": 0.8671895382207149,
+    "candidate_surface_rank_correlation": null,
+    "candidate_final_dot_overlap": null,
+    "full_registry_checked": false
+  },
   "raster_sha256": null,
-  "validator": {"status": "NO_NEW_RASTER", "no_nan_inside_footprint": null, "values_0_1": null, "crs_shape_transform_match": null, "historical_details": "audit.json"},
+  "validator": {
+    "status": "NO_NEW_RASTER",
+    "no_nan_inside_footprint": null,
+    "values_0_1": null,
+    "crs_shape_transform_match": null,
+    "historical_details": "audit.json",
+    "historical_sample_grid_audit": {
+      "template_provenance": "owner mirror; not organizer-authenticated",
+      "strict_format_pass": 2,
+      "strict_format_fail": 7,
+      "failed_sites": [
+        "GEMSDOE24",
+        "GEMSDOE25",
+        "GEMSDOE27",
+        "GEMSDOE28",
+        "GEMSDOE31",
+        "GEMSDOE32",
+        "GEMSDOE36"
+      ],
+      "failure_reason": "finite zero-valued cells outside the official sample footprint instead of null/nodata",
+      "passing_sites": [
+        "GEMSDOE30",
+        "GEMSDOE33"
+      ],
+      "not_a_portal_result": true
+    }
+  },
   "submission_name": null,
-  "note": "Negative audit: historical winners fail overlap gate; lane and compliant paired holdout are missing. Do not submit.",
+  "note": "No new raster; all nine historic winners fail 3px duplicate stop. Seven also fail outside-mask format. Do not submit.",
   "verdict": "negative",
   "experiments_run": 0,
-  "weekly_slots_used": 0
+  "weekly_slots_used": 0,
+  "score_estimate": {
+    "class": "PROJECTION",
+    "status": "not_estimable",
+    "value": null,
+    "reason": "No calibrated mapping to organizer receipts or same-evaluator holdout; user/peer historical claims are unverified."
+  },
+  "historical_raster_audit": {
+    "status": "reproduced locally for education only",
+    "source": "pinned participant GitHub mirrors; not organizer-authenticated",
+    "sha256_matches": 9,
+    "priority_winners": 9,
+    "directed_dot_overlap_pairs": 72,
+    "minimum_within_3px_overlap": 0.8671895382207149,
+    "maximum_within_3px_overlap": 1.0,
+    "uniqueness_rule_exceeded_by_all": true,
+    "surface_rank_correlation": "not measured; historical surfaces unavailable"
+  }
 }

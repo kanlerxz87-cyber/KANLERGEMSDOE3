@@ -39,6 +39,21 @@ class AuditTests(unittest.TestCase):
             self.assertFalse(validate(p,ref)['checks']['transform_match'])
             write(p,a,crs='EPSG:4326')
             self.assertFalse(validate(p,ref)['checks']['crs_match'])
+    def test_outside_footprint_must_follow_template_mask(self):
+        with tempfile.TemporaryDirectory() as d:
+            ref=Path(d)/'ref.tif'; bad=Path(d)/'zeros-outside.tif'; good=Path(d)/'nodata-outside.tif'
+            profile=dict(driver='GTiff',width=4,height=4,count=1,dtype='float32',crs='EPSG:32611',transform=from_origin(0,400,100,100),nodata=-9999.0)
+            footprint=np.ones((4,4),dtype='float32');footprint[0,0]=-9999.0
+            with rasterio.open(ref,'w',**profile) as ds:ds.write(footprint,1)
+            zeros=np.zeros((4,4),dtype='float32')
+            with rasterio.open(bad,'w',**{**profile,'nodata':None}) as ds:ds.write(zeros,1)
+            accepted=zeros.copy();accepted[0,0]=-9999.0
+            with rasterio.open(good,'w',**profile) as ds:ds.write(accepted,1)
+            self.assertFalse(validate(bad,ref)['format_pass'])
+            good_result=validate(good,ref)
+            self.assertTrue(good_result['format_pass'])
+            self.assertEqual(good_result['strict_template_validation']['valid_outside_footprint'],0)
+
     def test_report_fail_closed(self):
         root=Path(__file__).resolve().parents[1]
         j=json.loads((root/'docs/audit.json').read_text())
