@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@sparticuz/chromium": "153.0.0",
+    "puppeteer-core": "25.16.0"
+  },
+  "name": "kanler-gems-browser-verification",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node smoke.cjs"
+  }
+}

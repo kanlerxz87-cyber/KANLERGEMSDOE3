@@ -98,13 +98,14 @@
     "all_checks_passed": true
   },
   "holdout_metrics": {
-    "catalogue_hidden_mean": 0.0,
-    "catalogue_hidden_per_quadrant": {},
-    "sgmc_prevalence_calibrated_dti": 0.0,
-    "drift_corrected_holdout_mean": 0.0,
-    "drift_corrected_per_quadrant": {},
+    "catalogue_hidden_mean": null,
+    "catalogue_hidden_per_quadrant": null,
+    "sgmc_prevalence_calibrated_dti": null,
+    "drift_corrected_holdout_mean": null,
+    "drift_corrected_per_quadrant": null,
     "predicted_leaderboard_dti": null,
     "ei_drift_corrected": null,
     "slot_decision": "NEGATIVE-DO-NOT-SUBMIT"
-  }
+  },
+  "review_amendments": "evidence/review_amendments.json"
 }

@@ -34,3 +34,34 @@ def test_success_refresh_is_not_a_submission_receipt():
     assert not r['stale']
     assert r['leading_public_value']==0.4437
     assert 'not an artifact-specific' in r['evidence_class']
+
+
+def test_foreign_or_wrong_page_redirect_never_becomes_official_observation():
+    old={'leading_public_value':0.4437,'last_success_utc':'2026-10-26'}
+    for url in ['https://example.org/leaderboard/', 'http://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/', 'https://www.drivendata.org/competitions/999/leaderboard/']:
+        response=Response();response.url=url
+        r=refresh(old,lambda*a,**kw:response)
+        assert r['stale'] and r['leading_public_value']==0.4437
+        assert r['last_success_utc']=='2026-10-26'
+
+
+def test_cross_run_cache_preserves_newest_good_observation_on_failure():
+    from kanler.feed import select_snapshot,URL
+    old={'source':URL,'leading_public_value':0.4437,'last_success_utc':'2026-10-26'}
+    cache={**old,'leading_public_value':0.5,'last_success_utc':'2026-10-27T12:00:00+00:00'}
+    selected=select_snapshot(old,cache)
+    def fail(*a,**kw):raise requests.Timeout('unavailable')
+    result=refresh(selected,fail)
+    assert result['leading_public_value']==0.5 and result['stale']
+    assert result['last_success_utc']==cache['last_success_utc']
+    assert select_snapshot(cache,old)==cache
+    assert select_snapshot(old,{**cache,'source':'https://example.org'})==old
+    assert select_snapshot(old,{**cache,'leading_public_value':True})==old
+    assert select_snapshot(old,{**cache,'last_success_utc':'malformed'})==old
+
+
+def test_success_has_precise_updated_provenance_and_zero_is_a_valid_score():
+    r=refresh({},lambda*a,**kw:Response())
+    assert r['last_success_precision']=='ISO-8601 UTC instant'
+    assert r['observed_utc_day']==r['last_success_utc'][:10]
+    assert parse_leaderboard(HTML.replace('0.4437','0'))==0

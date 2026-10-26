@@ -38,18 +38,23 @@ def fetch_one(row):
         blob = hashlib.sha1(f'blob {len(b)}\0'.encode()+b).hexdigest()
         if blob != row['git_blob_sha']:
             raise ValueError('Cached blob mismatch')
-        return row['git_blob_sha'], {'status':'ok','sha256':hashlib.sha256(b).hexdigest(),'local':str(dest.relative_to(ROOT))}
+        digest = hashlib.sha256(b).hexdigest()
+        if row.get('sha256') and digest != row['sha256']:
+            raise ValueError('SHA-256 differs from frozen manifest')
+        return row['git_blob_sha'], {'status':'ok','sha256':digest,'local':str(dest.relative_to(ROOT))}
     except Exception as e:
         return row['git_blob_sha'], {'status':'failed','error':str(e)}
 
 
 def main():
+    if (ROOT/'evidence/run_card.json').exists():
+        raise SystemExit('Recorded experiment closed: use restore_registry.py; do not rebuild its snapshot.')
     pins = json.loads((ROOT/'registry/all_listed_site_pins.json').read_text())
     rows=[]
     for site,pin in pins.items():
         path=ROOT/'.cache/audit'/f'{site}-tree.json'
         tree=json.loads(path.read_text()) if path.exists() else json.loads(gh_bytes(f"repos/buffedlizard55-lab/{site}/git/trees/{pin['commit']}?recursive=1"))
-        if tree.get('truncated') or tree['sha']!=pin['commit']:
+        if tree.get('truncated') or tree['sha']not in (pin['commit'],pin.get('tree_sha')):
             raise ValueError(f'Tree not complete or changed: {site}')
         for f in tree['tree']:
             if f['type']=='blob' and f['path'].lower().endswith(('.tif','.tiff')) and not f['path'].startswith(('data/','.cache/')):

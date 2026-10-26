@@ -17,6 +17,7 @@ pluggy==1.7.0
 Pygments==2.21.0
 pyparsing==3.3.3
 pytest==9.1.1
+PyYAML==6.0.3
 rasterio==1.4.4
 requests==2.34.2
 scikit-learn==1.9.1

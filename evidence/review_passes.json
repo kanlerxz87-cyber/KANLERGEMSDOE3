@@ -19,6 +19,28 @@
         "The initial data/ ignore rule also matched docs/data; changed it to root-only /data/ before committing the published compact evidence"
       ],
       "scientific_outcome": "negative; not a leaderboard improvement; no further experiments allowed after the final-dot duplicate"
+    },
+    {
+      "pass": 2,
+      "phase": "Independent review and reporting corrections",
+      "status": "Corrections implemented; a separate correlation discrepancy was found and held for pass 3, not hidden",
+      "checks": [
+        "47 unit tests passed before the final added regression cases",
+        "13 shared TIFF checks and OOF value/CI/count were reproduced",
+        "All 1,921 frozen blobs passed git-blob/SHA-256 integrity checks",
+        "All 92 pinned refs independently verified as Commit objects",
+        "Chromium visited all 15 pages; actual TIFF/ZIP download hashes and clipboard success passed; no body overflow at 320/390/768/1440"
+      ],
+      "corrections": [
+        "Universal comparison fails closed for 18 quarantines",
+        "Legacy unmeasured metrics are null, not zero",
+        "Mobile new-file table is horizontally scrollable",
+        "Verification failures publish an explicit failed state",
+        "Pinned restoration does not refresh a stopped study",
+        "Persistent public-only feed and isolated CI/browser recipes implemented"
+      ],
+      "additional_finding": "A SciPy cross-check disagreed with the original reported surface correlations. A new full-registry measurement of the retained array used zero fits and zero dot placements; its original observation and root cause uncertainty are preserved.",
+      "parallel_integration": "Main advanced through other session merges during this study; pass 3 will isolate SSP1 to preserve all existing code/evidence."
     }
   ],
   "note": "This file is updated through three review passes. Technical defects are fixed without changing the fitted candidate pixels or turning a negative into a promoted file."

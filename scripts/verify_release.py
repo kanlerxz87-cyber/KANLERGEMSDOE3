@@ -9,6 +9,7 @@ This script cannot turn a negative scientific result into a submission approval.
 from __future__ import annotations
 import argparse
 import hashlib
+import math
 import json
 import re
 import sys
@@ -24,6 +25,8 @@ import numpy as np
 import rasterio
 from rasterio.io import MemoryFile
 from rasterio.transform import Affine
+from scipy.ndimage import distance_transform_edt
+from scipy.stats import spearmanr
 from gems32.submission import audit_geotiff
 from gems32 import holdout
 from kanler.audit import sha256,mask_sha,within3,read_comparable
@@ -56,7 +59,7 @@ def check_links(docs:Path):
             if target.is_dir():target/= 'index.html'
             assert target.exists(),f'Broken local link: {path.name} -> {link}'
             if parts.fragment and target.suffix=='.html':
-                assert unquote(parts.fragment) in parsed[target]['ids'],f'Broken anchor: {link}'
+                assert unquote(parts.fragment) in parsed[target].ids,f'Broken anchor: {link}'
             checked+=1
     return {'html_pages':len(parsed),'internal_links_and_assets_checked':checked}
 
@@ -82,7 +85,7 @@ def main():
     require('no_leaderboard_projection_written_as_score',c['leaderboard_estimate']is None and c['organizer_confirmed_submission_score']is None)
     require('no_slot_used',c['decision']['slot_used']is False)
     expected=promotion(c['decision']['gates'])
-    require('decision_is_fail_closed_and_consistent',expected['verdict']==c['verdict']and expected['ok_to_submit']==c['decision']['ok_to_submit'])
+    require('decision_is_fail_closed_and_consistent',expected['verdict']==c['verdict']and expected==c['decision'])
     masks=ROOT/'docs/data/validation_masks.npz'
     require('published_validation_masks_hash',sha256(masks)==geom['validation_masks_sha256'])
     with np.load(masks)as z:foot=z['footprint'];known=z['catalogue']
@@ -107,12 +110,23 @@ def main():
     legacy=bundle['holdout_metrics']
     require('unmeasured_legacy_metrics_are_null',all(legacy[k]is None for k in ('catalogue_hidden_mean','sgmc_prevalence_calibrated_dti','drift_corrected_holdout_mean')))
     surf=json.loads((ROOT/'evidence/surface_guard.json').read_text())
+    require('surface_report_matches_run_card',c['registry']['surface']=={k:v for k,v in surf.items()if k!='rows'})
+    require('surface_flags_fail_closed',surf['passed']==bool(surf['comparison_complete']and surf['correlation_threshold_clear_on_comparable_entries']))
+    require('frozen_registry_manifest_hash',sha256(ROOT/'registry/all_rasters.json')==c['registry']['manifest_sha256'])
     require('surface_inventory_count_consistent',surf['n_checked_files']==surf['n_manifest_files']==2729)
     require('quarantines_cannot_pass_universal_comparison',not surf['n_quarantined']or(c['decision']['gates']['surface_unique']is False and c['decision']['gates']['registry_snapshot_complete']is False))
     require('pixel_novelty_scoped_to_comparable_snapshot',c['registry']['final_dots']['exact_dot_mask_unique_within_comparable_snapshot'] and not c['registry']['final_dots']['exact_dot_mask_matches'])
     pins=json.loads((ROOT/'registry/template_pins.json').read_text())
     require('shared_tools_not_privately_forked',all(sha256(ROOT/r['path'])==r['sha256']for r in pins['files']))
     require('frozen_preregistration_hash',sha256(ROOT/'registry/hypotheses.json')==(ROOT/'evidence/preregistration_sha256.txt').read_text().split()[0])
+    ref_audit=json.loads((ROOT/'evidence/git_ref_audit.json').read_text())
+    require('commit_ref_types_independently_verified',ref_audit['n_pinned_repositories']==92 and all(r['object_type']=='Commit'and r['tree_sha']!=r['commit']for r in ref_audit['rows']))
+    marker='## Original project brief — read before each session'
+    archive=marker+(ROOT/'README.md').read_text().split(marker,1)[1]
+    require('full_original_brief_preserved',hashlib.sha256(archive.encode()).hexdigest()==(ROOT/'evidence/prompt_archive_sha256.txt').read_text().split()[0])
+    for relative in ['evidence/run_card.json','evidence/surface_guard.json','registry/template_pins.json']:
+        require('published_copy_'+Path(relative).stem,sha256(ROOT/relative)==sha256(ROOT/'docs/data'/Path(relative).name))
+    require('download_checksum_list_matches_actual_bytes',all(sha256(ROOT/'docs/downloads'/line.split('  ',1)[1])==line.split('  ',1)[0]for line in (ROOT/'docs/downloads/SHA256SUMS.txt').read_text().splitlines()))
     details['geometry_validation_basis']='Recorded owner-mirror template geometry + published integrity-pinned footprint/catalogue masks; NOT fresh organizer authentication'
     details['format_checks']=z_audit['checks']
     # Data are deliberately not committed. Only a local restored workspace can
@@ -129,8 +143,21 @@ def main():
         viol=c['registry']['final_dots']['checks'][0]
         row=next(r for r in registry['rasters']if r['site']==viol['site']and r['path']==viol['path'])
         ref,meta=read_comparable(ROOT/row['local'],ddir/'sample_submission.tif',foot)
-        measured=within3(final,(ref>0)&foot)
+        reference_mask=(ref>0)&foot
+        measured=float(np.mean(distance_transform_edt(~reference_mask)[final]<=3.0))
+        n=int(foot.sum());a=int(final.sum());b=int(reference_mask.sum());ab=int((final&reference_mask).sum())
+        phi=(ab*n-a*b)/math.sqrt(a*(n-a)*b*(n-b))
+        require('final_binary_spearman_independently_reproduced',abs(phi-viol['spearman'])<1e-12)
         require('final_dot_overlap_independently_reproduced',abs(measured-viol['fraction_candidate_dots_within_3px'])<1e-12)
+        details['final_dot_recheck']={'algorithm':'Euclidean distance transform, independent of the original cKDTree; exact binary phi correlation, independent of the rank implementation','fraction_within_3px':measured,'spearman':phi}
+        surface_path=ROOT/'.cache/gems_work/ssp1_surface.npy'
+        if surface_path.exists():
+            nearest=surf['nearest_raster'];nr=next(r for r in registry['rasters']if r['site']==nearest['site']and r['path']==nearest['path'])
+            na,_=read_comparable(ROOT/nr['local'],ddir/'sample_submission.tif',foot)
+            full_surface=np.load(surface_path,mmap_mode='r')
+            measured_rho=float(spearmanr(full_surface[foot],na[foot]).statistic)
+            require('nearest_recorded_surface_correlation_reproduced',abs(abs(measured_rho)-surf['max_abs_spearman'])<1e-12)
+            details['surface_recheck']={'scope':'Recorded nearest comparator only, not a second full correlation sweep','raster':nearest,'spearman':measured_rho}
         details['oof_recheck']={'scope':'Restored local inputs + saved OOF masks; full shared-evaluator rerun','HOLDOUT-DTI':result['pooled_dti'],'evaluator_version':result['evaluator_version'],'n_withheld_positives':result['n_withheld_positives'],'ci95_cluster_bootstrap':result['ci95_cluster_bootstrap']}
     else:
         details['oof_recheck']={'scope':'Offline CI: original restored inputs not present; synthetic evaluator tests and published OOF hash only. No claim of a fresh real-data reevaluation.'}
@@ -146,6 +173,9 @@ def main():
 
 if __name__=='__main__':
     try:main()
-    except (AssertionError,ValueError,KeyError,FileNotFoundError)as exc:
+    except (AssertionError,ValueError,KeyError,TypeError,FileNotFoundError)as exc:
+        failed={'status':'FAIL — release verification did not complete','verified_utc':datetime.now(timezone.utc).isoformat(),'failed_check':str(exc),'ok_to_submit':False}
+        for dest in (ROOT/'evidence/verification.json',ROOT/'docs/data/verification.json'):
+            dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(json.dumps(failed,indent=2)+'\n')
         print(f'RELEASE VERIFICATION FAILED: {exc}',file=sys.stderr)
         raise SystemExit(1)

@@ -43,5 +43,7 @@
       "sha256": "48f1921e435b153625c41092009361e3af20c2b4c142e69553dabcbdbb30a9bc"
     }
   ],
-  "policy": "Unmodified shared template. No private evaluator or writer fork. Feature cache absent in empty starting repository; canonical builder restores it once. No fitted catalogue channels are reused."
+  "policy": "Unmodified shared template. No private evaluator or writer fork. Feature cache absent in empty starting repository; canonical builder restores it once. No fitted catalogue channels are reused.",
+  "object_type": "Commit",
+  "tree_sha": "c77a802af73368840e44f9c3b8f99b07d32ff5b8"
 }

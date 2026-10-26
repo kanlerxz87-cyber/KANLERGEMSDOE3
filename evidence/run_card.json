@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "generated_utc": "2026-10-26T22:00:47.591005+00:00",
   "experiment_id": "SSP1-E1",
   "experiments_executed": 1,
@@ -562,7 +562,11 @@
       },
       "violations": [],
       "complete": true,
-      "passed": true
+      "passed": false,
+      "inventory_complete": true,
+      "comparison_complete": false,
+      "correlation_threshold_clear_on_comparable_entries": true,
+      "completion_semantics": "complete means inventory intake only; universal PASS requires comparison_complete and clear measured thresholds. Eighteen quarantines block certification."
     },
     "final_dots": {
       "stage": "final_dots",
@@ -587,7 +591,8 @@
     "universe_sites": 92,
     "universe_files": 2729,
     "universe_unique_blobs": 1921,
-    "scope": "All non-data GeoTIFFs in all 92 named repositories through GEMSDOE92 at frozen commits; no size cutoff. This includes prediction mirrors and quarantines nonprediction/incompatible grids explicitly. Unpublished files and later parallel changes are outside scope."
+    "scope": "All non-data GeoTIFFs in all 92 named repositories through GEMSDOE92 at frozen commits; no size cutoff. This includes prediction mirrors and quarantines nonprediction/incompatible grids explicitly. Unpublished files and later parallel changes are outside scope.",
+    "manifest_sha256": "8d4cd9b61744395446935c6d981ba3ce8261888663adce9891bcf7e2d432cc13"
   },
   "lattice_feasibility": {
     "measured_utc": "2026-10-26T21:48:41.933288+00:00",
@@ -711,7 +716,9 @@
     "ok_to_download": true,
     "ok_to_submit": false,
     "failed_or_unknown_gates": [
+      "surface_unique",
       "final_dots_unique",
+      "registry_snapshot_complete",
       "current_best_reproduced",
       "paired_holdout_improvement",
       "weekly_selector_approved"
@@ -719,9 +726,9 @@
     "gates": {
       "declared_lane": true,
       "leakage_canaries": true,
-      "surface_unique": true,
+      "surface_unique": false,
       "final_dots_unique": false,
-      "registry_snapshot_complete": true,
+      "registry_snapshot_complete": false,
       "saved_bytes_valid": true,
       "current_best_reproduced": false,
       "paired_holdout_improvement": false,
@@ -865,5 +872,6 @@
     "Official data binaries were not freshly authenticated against DrivenData; owner-mirror SHA-256 checks establish mirror identity, not organizer authenticity.",
     "No DrivenData session, submission receipt or authenticated weekly cap/usage is available.",
     "Feature AUC and a spatial bootstrap do not eliminate public-to-new-fault distribution shift."
-  ]
+  ],
+  "review_amendments": "evidence/review_amendments.json"
 }

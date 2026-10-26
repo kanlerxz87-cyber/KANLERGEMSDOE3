@@ -165,10 +165,11 @@
       "publisher": "buffedlizard55-lab",
       "kind": "owner-hosted research code, data mirrors, and prediction files; NOT an organizer source",
       "url": "https://github.com/buffedlizard55-lab/GEMSDOE32/tree/07806249f4ed3efe70b4fbf866183c32392b7853",
-      "status": "commit-pinned files and SHA-256 verified",
+      "status": "Commit-pinned files and SHA-256 verified; all 92 ref object types independently verified as Commit via GitHub GraphQL",
       "claims_supported": [
         "Evaluator, writer and shared feature builder were reused byte-for-byte.",
-        "All 92 listed repositories and every non-data GeoTIFF at frozen commits are indexed, not just favorable submissions."
+        "All 92 listed repositories and every non-data GeoTIFF at frozen commits are indexed, not just favorable submissions.",
+        "Root-tree OIDs are recorded separately from commit OIDs; the original frozen refs were not silently advanced."
       ],
       "limit": "No explicit root software license was found in the pinned template tree; permissive redistribution rights are not asserted. Peer scores and geological interpretations are not official facts."
     }

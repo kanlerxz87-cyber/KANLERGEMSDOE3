@@ -1,68 +1,83 @@
 # KANLER GEMS · fault discovery, with evidence
 
-**Read this README and its archived project brief at the beginning of every session.**
+**Read this README and its full archived project brief at the start of every session.**
 
-- **Website:** https://kanlerxz87-cyber.github.io/KANLERGEMSDOE3/
-- **Start here:** [Executive summary](docs/executive-summary.html) · [Submission instructions](docs/submission-guide.html) · [Research](research/scientific-review.md)
-- **Machine decision:** [one JSON run card](evidence/run_card.json) · [nine-site audit](evidence/nine_site_audit.json) · [source ledger](registry/sources.json)
+- **GitHub Pages:** https://kanlerxz87-cyber.github.io/KANLERGEMSDOE3/ — [deployment runs](https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/actions/workflows/pages.yml) are the authority on live deployment status.
+- **Start here:** [Executive summary](EXECUTIVE_SUMMARY.md) · [Website summary](docs/executive-summary.html) · [Submission instructions](docs/submission-guide.html)
+- **Evidence:** [one JSON run card](evidence/run_card.json) · [nine-site audit](evidence/nine_site_audit.json) · [official-source ledger](registry/sources.json) · [review passes](evidence/review_passes.json)
 
-## Outcome and non-negotiable distinction
+## Current outcome: negative — download yes, submit no
 
-The starting repository at `d795e4e` contained only `# KANLERGEMSDOE3`. No previous local pipeline, data, cached features, or completed next steps existed. This implementation restores hash-pinned owner mirrors, reuses the shared GEMSDOE32 template, tests a new signed scarp-profile hypothesis on buffered whole-segment holdouts, writes genuinely new prediction pixels, and makes an automated **promote / negative** decision. It does not manufacture a leaderboard estimate or spend a competition slot.
+The new **SSP1-E1 TIFF was independently generated, not copied or blended from an old prediction**. Its exact dot mask is new among the 2,711 comparable frozen registry entries, but it is **not protocol-lane unique** and is **not authorized for submission**. No competition slot was selected or used. The higher-scoring, fully lane-distinct objective has **not** been achieved.
 
-**A downloadable, range-valid TIFF is not automatically OK to submit.** The executive summary displays all three separately: download status, saved-byte format validation, and submission authorization. The current run's final status is read from `evidence/run_card.json`, never inferred from a filename. A negative result is a deliverable, not a request for a human inspector to finish validation.
+**HOLDOUT-DTI 0.0846443364**, spatial 95% CI **[0.0703840727, 0.0970412046]**, evaluator `GEMSDOE32-HIDE-RECOVER-v3.0`, **22,232 withheld positive-pixel events** (20,321 unique pixels across two draws). This is not a leaderboard prediction. The clean upstream current-best OOF comparator was not reproduced, and SSP1 does not beat its documented point estimate. Historical values such as 0.2778 remain **USER-REPORTED / NOT ORGANIZER-CONFIRMED** without an artifact-linked submission-page receipt.
 
-The literal registry rule has a demonstrable conflict at the fixed 37,654-dot budget: a registered spacing-five calibration lattice covers 99.8713% of the footprint within three pixels. Only 6,649 cells are uncovered. Any 37,654-distinct-dot map therefore has overlap **at least 1 − 6,649 / 37,654 = 82.3418%**, above the mandatory 70% ceiling. We do not move predictions to border gaps, exempt inconvenient registry entries, or change the rule to obtain a green badge. See [the measured proof](evidence/lattice_feasibility.json).
+[**Download the new research TIFF — DO NOT SUBMIT**](docs/downloads/gemsdoe32-kanler3-ssp1-e1-RESEARCH-20261026T220043Z-fbab7ef5-zeros.tif) · [Single-TIFF ZIP](docs/downloads/gemsdoe32-kanler3-ssp1-e1-RESEARCH-20261026T220043Z-fbab7ef5-zeros.zip)
 
-Historical artifact values in the brief—including 0.2778—are **user-reported, NOT ORGANIZER-CONFIRMED** without a submission-page receipt tied to a raster hash. The official public leaderboard observed on 2026-10-26 showed 0.4437; that public observation is not a receipt for any GEMSDOE raster. Local results are **HOLDOUT-DTI**, with evaluator version, withheld-positive count and spatial-block 95% CI. They are not projections of the hidden public/private score.
+SHA-256: `4e88158e8859416b874cc424dc106847f8eaab474794bbb1716e273f57839a27`
+
+The literal overlap rule conflicts with the fixed 37,654-dot budget. A registered spacing-five lattice leaves only 6,649 footprint cells farther than three pixels from its dots. Every distinct-pixel map at that budget must therefore overlap at least **82.3418%**, already above the 70% ceiling. The actual candidate overlap is **99.8752%**. Iteration stopped after this one fixed experiment; no lattice exemptions, boundary-gap targeting, alternative budget, or post-stop model fitting was used. [Counting proof](evidence/lattice_feasibility.json).
+
+A range-valid TIFF is not automatically OK to submit. All 13 unmodified shared saved-byte format checks pass, while the scientific and uniqueness gates reject the file automatically. A negative is a deliverable, not a request for a human inspector to finish validation.
+
+## What the nine-site review establishes
+
+The reported 0.2778 GEMSDOE32 file equals the 44,090-dot D2.8 parent **minus 6,436 dots within a two-pixel catalogue collar**, with zero additions. GEMSDOE25 and GEMSDOE30 have identical masks; GEMSDOE31 equals GEMSDOE28's solo variant. Removing redundant prediction mass can improve DTI, but without controlled organizer receipts and hidden truth the exact historical score cannot be causally explained. Only exact known-fault pixels, not a two-pixel collar, are officially excluded from scoring.
+
+The executive table provides a pinned reference download, claim provenance, estimate availability, pixel identity, lane-duplicate status, and recommendation for each requested site. It does not fabricate a precise hidden-score estimate. The official public leaderboard observed on 2026-10-26 showed 0.4437; that is a public observation, not a receipt for a GEMSDOE artifact. The prompt's 0.3195 / 0.4413 snapshots are stale.
 
 ## Core values
 
-- **Maximize P(Win):** favor honest out-of-region evidence and scientific falsification over optimistic estimates, duplicate submissions or leaderboard probing. Protect scarce slots and the final private-test selection.
-- **Own the Outcome:** restore missing inputs, audit the actual bytes, fix defects with tests, publish failures, and keep the UI consistent with the machine verdict. Do not hand off an unvalidated artifact as if inspection would make it competitive.
+- **Maximize P(Win):** prefer honest out-of-region evidence and falsification to optimistic projections, duplicates, or leaderboard probing. Protect scarce slots and private-test selection.
+- **Own the Outcome:** recover missing inputs, inspect actual bytes, fix defects with regression tests, publish failures, and keep the UI consistent with the machine verdict.
 
-## Reproduce on CPU
+## Verify the published release without downloading large data
 
-Python 3.11+, GitHub CLI (`gh`) authenticated for API access, about 8 GB free disk, and approximately 4 GB RAM are sufficient for this fixed CPU experiment. No GPU is needed for SSP1; this is not the organizer's U-Net.
+Python 3.11 and Node 22 are the tested environments. No GPU or DrivenData login is needed.
 
 ```bash
-python -m venv .venv
+python3 -m venv .venv
 .venv/bin/pip install -r requirements.lock
-# Reuse the pinned template and restore verified owner mirrors. No DrivenData password needed.
-.venv/bin/python scripts/restore_data.py --group core
-.venv/bin/python scripts/restore_required_extras.py
-.venv/bin/python scripts/build_features.py
-.venv/bin/python scripts/build_profile_features.py
-.venv/bin/python scripts/cache_registry.py
-.venv/bin/python scripts/cache_all_registry.py
-# A recorded stopped experiment is deliberately not overwritten or silently rerun.
-OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 .venv/bin/python scripts/run_experiment.py
-.venv/bin/python scripts/build_site.py
-.venv/bin/python scripts/verify_release.py
 .venv/bin/python -m pytest -q
+.venv/bin/python scripts/build_site.py
+.venv/bin/python scripts/verify_release.py --offline
+npm ci --prefix tools/browser
+npm test --prefix tools/browser
 ```
 
-`run_experiment.py` refuses to overwrite an existing run card. The published record is immutable evidence: a later experiment needs a newly preregistered run ID and its own budget, not deletion of a failed card. Rebuilding the site and verifying the saved artifact does not retrain or select a competition slot.
+The verifier reopens both real TIFFs, checks the exact grid/range/catalogue masks, ZIP content and hashes, claim/gate consistency, shared-tool hashes, and internal site links. CI explicitly states that it does **not** repeat real-data OOF evaluation without the restored inputs. Chromium visits all 15 pages, tests widths 320/390/768/1440, clicks the actual TIFF/ZIP downloads and verifies their bytes, and tests clipboard success and denial. Scratch screenshots and browser binaries stay in ignored `.cache/` and `node_modules/`.
 
-**Data placement is no longer the only blocker.** The inputs were recovered here. Remaining blockers are the literal lane-overlap contradiction, an honestly reproduced same-evaluator current-best OOF comparator, unknown current authenticated slot usage, and separate selector approval. Official-host binary authenticity and upstream software licensing are also not silently assumed. See [irregularities](registry/irregularities.json).
+## Repeat the shared OOF evaluation — not a new experiment
 
-### What is reused
+For the additional real-data check, use approximately 8 GB free disk, 4 GB RAM, Python 3.11 and an authenticated GitHub CLI. Restore the same hash-pinned owner mirrors, not newer branches:
 
-`src/gems32/`, `scripts/evaluate_holdout.py`, `scripts/submission_writer.py`, `scripts/build_features.py` and `scripts/restore_data.py` are pinned shared template files, not private evaluator forks. [Hashes and the upstream commit](registry/template_pins.json) are checked in tests. The empty checkout had no downloadable feature cache; the canonical builder reconstructs it once, and SSP1 reuses that cache. Large inputs, prediction registries, feature arrays, and fitted scratch arrays live under ignored `.cache/`.
+```bash
+.venv/bin/python scripts/restore_data.py --group core
+.venv/bin/python scripts/restore_required_extras.py
+.venv/bin/python scripts/restore_registry.py
+.venv/bin/python scripts/evaluate_holdout.py evidence/ssp1_oof_masks.npz --out .cache/audit/repeated-oof.json
+OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 .venv/bin/python scripts/verify_release.py
+```
 
-### What is new
+`restore_registry.py` checks every frozen git blob and SHA-256 without changing the snapshot. `evaluate_holdout.py` is the unmodified canonical wrapper; the retained fold-local NPZ, **not the full-catalogue final TIFF**, is the valid hide-and-recover input. The full verifier also repeats the lattice overlap measurement. These checks do not fit, tune, place new dots, or use a slot.
 
-`src/kanler/science.py` fits an antisymmetric step profile after projecting out a smooth quadratic terrain null. `scripts/run_experiment.py` uses only fold-visible fault supervision outside a spatial collar. It never blends or perturbs an old prediction raster. `src/kanler/audit.py` checks full-footprint Spearman, normalized prediction/mask identity, and exact three-pixel directional dot proximity. `src/kanler/gates.py` fails closed. The complete candidate list was frozen in [the preregistration](registry/hypotheses.json) before fitting.
+The original fixed fitting recipe is in `scripts/run_experiment.py`; one full fit plus eight fold fits formed **one** experiment. It refuses to overwrite an existing run card. **Do not delete the negative record to rerun it.** A later experiment requires a new coordinator-approved protocol/run ID and budget. The stricter corrected quarantine gate now stops any attempted new study before placement if universal comparison is incomplete. Shared feature construction can be read in `build_features.py` and `build_profile_features.py`; cached arrays and model scratch work are intentionally not committed.
 
-### Scoring and format
+## Provenance, limitations, and review corrections
 
-The official target is **fault presence**, not a map of confirmed geothermal vents. Use the [official problem description](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/) and [staff's exact known-pixel masking clarification](https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/2). The metric is pooled distance-weighted Tversky, α=0.2, β=0.8, triangular support 300 m on the 100 m grid. The evaluator has two draws over four quadrants; reported positive counts are **positive-pixel events**, not independent geological faults.
+The starting commit `d795e4e` contained only a one-line README: no prior pipeline or cache existed locally. The canonical 35-channel feature cache was reconstructed once because no distributed cache was available; SSP1 reuses it. `src/gems32/` and the four canonical wrappers are byte-for-byte upstream copies, checked against [template hashes](registry/template_pins.json), not private evaluator forks. All 92 existing snapshot refs were independently verified as **Commit** objects through GitHub GraphQL; distinct root-tree OIDs are recorded separately in [the ref audit](evidence/git_ref_audit.json).
 
-The unmodified writer creates both a full-grid-finite `-zeros.tif` and an outside-footprint-NaN `-nan.tif`. The former is the conservative range-check artifact; the latter follows the official sample's missing-data convention. Both are re-read from saved bytes and tested. A shared validator PASS is not a DrivenData acceptance receipt. Only this run's own small artifacts and receipts are published under `docs/downloads/`.
+[Pass-2 amendments](evidence/review_amendments.json) retain the original observation commit and make two reporting corrections: complete inventory is no longer confused with universal comparison completeness (18 incompatible entries fail closed), and unmeasured legacy fields are null rather than zero. **No TIFF pixels, hashes, holdout score/CI, overlap, or negative verdict changed.**
 
-### Freshness and access
+The official target is fault presence, not confirmed geothermal vents. Pooled distance-weighted Tversky uses α=0.2, β=0.8 and a 300 m triangular kernel on the 100 m grid. The SGMC catalogue score is a separate diagnostic, not hidden truth; the shared SGMC exclusion uses a cross-shaped dilation rather than a Euclidean disk. Feature-only AUC is a leakage canary, not a score. A spatial CI does not eliminate public-to-new-fault distribution shift.
 
-A scheduled GitHub Actions public feed checks the leaderboard without uploading anything. Failures preserve the last good observation and explicitly mark it stale. It never invents an authenticated weekly cap, a submission receipt, or a new model result. GitHub Pages deployment and CI use separate workflows. The sandbox's shell network allowlist does not permit arbitrary official-host downloads; public research pages were verified through the browsing tool, and data binaries came from pinned GitHub mirrors. No credentials or cookies are stored.
+Owner-mirror hashes establish identity to those mirrors, not fresh organizer-host authentication. The sample's 60,988 ones equal the catalogue despite its example description; only its finite mask and geometry were used. Derivative quantization, missing LiDAR tiles, original data authentication, current account slot capacity, clean current-best OOF reproduction, protocol contradiction, and upstream software redistribution licensing remain explicit limitations. [Irregularities](registry/irregularities.json) · [scientific review](research/scientific-review.md) · [next-session priorities](research/next-session.md).
+
+## Automation and delivery
+
+`.github/workflows/ci.yml` verifies pull requests and branch updates. `.github/workflows/pages.yml` publishes validated `docs/` on main and refreshes the public leaderboard every 12 hours or by manual workflow dispatch. Its Actions cache preserves the newest last-good official observation across jobs; network/login/format failures keep that value and mark it stale. The workflow never commits/pushes a branch, authenticates to DrivenData, trains a model, selects a slot, or submits anything. Authenticated receipts and remaining weekly capacity remain null.
+
+The local sandbox shell cannot fetch arbitrary official data hosts; official text was checked through the research browsing tool and binary inputs came from pinned GitHub mirrors. GitHub Pages is a static delivery surface, not a browser-side model-fitting service. See Actions for the actual deployment/check outcome, not an assumed success.
 
 ## Original project brief — read before each session
 

@@ -42,19 +42,27 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--refresh', action='store_true', help='Refresh peer tree pins; otherwise use the frozen snapshot')
     args = parser.parse_args()
+    if (ROOT/'evidence/run_card.json').exists():
+        raise SystemExit('This recorded experiment is closed; do not replace its registry snapshot. Use restore_registry.py to restore frozen bytes.')
     pins_path = ROOT / 'registry' / 'site_pins.json'
     pins = json.loads(pins_path.read_text()) if pins_path.exists() and not args.refresh else {}
     rows = []
     for site in SITES:
-        ref = pins.get(site,{}).get('commit','main')
-        tree = json.loads(gh_bytes(f'repos/buffedlizard55-lab/{site}/git/trees/{ref}?recursive=1'))
+        pin = pins.get(site)
+        if pin is None or not pin.get('tree_sha'):
+            ref = pin['commit'] if pin else 'main'
+            obj = json.loads(gh_bytes(f'repos/buffedlizard55-lab/{site}/commits/{ref}'))
+            pin = {'commit':obj['sha'], 'object_type':'Commit', 'tree_sha':obj['commit']['tree']['sha']}
+        tree = json.loads(gh_bytes(f"repos/buffedlizard55-lab/{site}/git/trees/{pin['tree_sha']}?recursive=1"))
         if tree.get('truncated'):
             raise RuntimeError(f'Truncated GitHub tree for {site}')
-        pins[site] = {'commit':tree['sha']}
+        if tree['sha'] != pin['tree_sha']:
+            raise RuntimeError(f'Unexpected root-tree object for {site}')
+        pins[site] = pin
         for f in tree['tree']:
             path = f['path']
             if f['type']=='blob' and path.lower().endswith(('.tif','.tiff')) and not path.startswith('data/'):
-                rows.append({'site':site,'commit':tree['sha'],'path':path,'bytes':f['size'],'git_blob_sha':f['sha']})
+                rows.append({'site':site,'commit':pin['commit'],'path':path,'bytes':f['size'],'git_blob_sha':f['sha']})
     pins_path.write_text(json.dumps(pins,indent=2)+'\n')
     results = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:

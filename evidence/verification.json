@@ -1,7 +1,6 @@
 {
-  "status": "FAIL \u2014 first-pass release verification",
-  "verified_utc": "2026-10-26T22:17:00.636242+00:00",
-  "failed_check": "unmeasured_legacy_metrics_are_null",
-  "scientific_verdict": "negative",
+  "status": "FAIL \u2014 release verification did not complete",
+  "verified_utc": "2026-10-26T22:36:41.426945+00:00",
+  "failed_check": "nearest_recorded_surface_correlation_reproduced",
   "ok_to_submit": false
 }

@@ -232,7 +232,7 @@
   },
   "violations": [],
   "complete": true,
-  "passed": true,
+  "passed": false,
   "rows": [
     {
       "site": "11GEMSDOE",
@@ -87202,5 +87202,9 @@
       "mask_sha256": "4ec3e6587fdd5fc79431d083ac9bc5554af7aabb85fe1d86a1596e75109c062c",
       "canonical_pixel_sha256": "0b281adb5c3c9536b21c2dd414d466164d227580f084b4acf2285cedd64fb9a3"
     }
-  ]
+  ],
+  "inventory_complete": true,
+  "comparison_complete": false,
+  "correlation_threshold_clear_on_comparable_entries": true,
+  "completion_semantics": "complete means inventory intake only; universal PASS requires comparison_complete and clear measured thresholds. Eighteen quarantines block certification."
 }

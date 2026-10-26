@@ -72,3 +72,14 @@ def test_lattice_pigeonhole_bound_not_heuristic():
     assert r['minimum_possible_overlap_for_any_distinct_pixel_map_at_this_budget']==pytest.approx(1-r['uncovered_pixels']/r['candidate_fixed_budget'])
     assert r['gate_is_mathematically_incompatible_with_budget']
     assert r['minimum_possible_overlap_for_any_distinct_pixel_map_at_this_budget']>0.70
+
+
+@pytest.mark.parametrize('count',[0,-1,1.5,True,'20',None])
+def test_score_requires_a_real_positive_integer_count(count):
+    with pytest.raises(ValueError):
+        score_record({'evaluator_version':'synthetic-test','n_withheld_positives':count,'pooled_dti':0.5,'ci95_cluster_bootstrap':[0.3,0.7]})
+
+
+def test_score_requires_a_nonempty_evaluator_version():
+    with pytest.raises(ValueError,match='version'):
+        score_record({'evaluator_version':'','n_withheld_positives':10,'pooled_dti':0.5,'ci95_cluster_bootstrap':[0.3,0.7]})
