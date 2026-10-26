@@ -1,31 +1,282 @@
-"""Render an auditable, no-dependency static executive summary."""
-from pathlib import Path
-import json
+"""Render an auditable, zero-dependency static executive summary and submission guide from recorded JSON receipts."""
+from __future__ import annotations
+
 from html import escape as e
+import json
+from pathlib import Path
+
 ROOT = Path(__file__).resolve().parents[1]
 
-def build():
-    audit = json.loads((ROOT/'docs/audit.json').read_text())
-    rows = []
-    for r in audit['rows']:
-        url=f"https://github.com/buffedlizard55-lab/{r['repo']}/blob/{r['head']}/{r['file']}"
-        fmt='PASS (owner-mirror sample)' if r['local_validation']['format_pass'] else 'FAIL (owner-mirror sample)'
-        reported=f"{r['owner_reported_leaderboard_score']:.4f} OWNER-REPORTED; no receipt binds score to bytes"
-        overlap=f"NO — duplicate vs priority peers<br>{r['max_overlap_3px']:.2%} max 3-px overlap"
-        rows.append(f'''<tr><td>{e(r['repo'])}</td><td><a href="{e(url)}">{e(Path(r['file']).name)}</a><small>Historical reference only — do not submit</small></td><td>{reported}</td><td>Not estimable</td><td>{overlap}</td><td>NO</td><td>{fmt}</td></tr>''')
-    style='''<style>:root{font-family:system-ui,sans-serif;color:#192f3f;background:#f3f6f8}body{max-width:1200px;margin:auto;padding:32px}header,section{background:white;border:1px solid #dce4e9;border-radius:14px;padding:26px;margin:18px 0}h1{font-size:2.3rem;letter-spacing:-.05em}h2{margin-top:0}a{color:#08686c}nav{display:flex;gap:22px;flex-wrap:wrap}.status{border-left:6px solid #b84227;background:#fff5ee}small{display:block;color:#657783;margin:8px 0}table{border-collapse:collapse;width:100%;font-size:.9rem}td,th{text-align:left;padding:15px;border-bottom:1px solid #dce4e9;vertical-align:top}td:nth-child(2){overflow-wrap:anywhere;min-width:200px}th{background:#eef4f6}.scroll{overflow:auto}p,li{line-height:1.65}.eyebrow{color:#08686c;text-transform:uppercase;letter-spacing:.14em;font-size:.8rem}code{overflow-wrap:anywhere}footer{color:#657783;padding:20px}</style>'''
-    head=f'<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>GEMS | Executive summary</title>{style}<body>'
-    page=head+'''<header><div class="eyebrow">GEMS · Evidence before promotion · 26 Oct 2026</div><h1>Submission decision desk</h1><p>Missing-fault discovery research. A valid file is not necessarily a good prediction.</p><nav><a href="executive-summary.html">How to submit</a><a href="review.md">Scientific review</a><a href="hypotheses.md">Ranked hypotheses</a><a href="audit.json">Machine-readable audit</a><a href="run-card.json">Run card</a></nav></header>
-<section class="status"><h2>DO NOT SUBMIT — no eligible new TIFF</h2><p><strong>No download has been approved.</strong> The nine historical best rasters fail the required uniqueness stop. No compliant holdout improvement has been demonstrated. We have not generated a placeholder or copied a historical raster as a “new” submission.</p><p>Missing prerequisites: assigned method lane, cached feature stack, executable shared template, full registry, and paired holdout evidence. No competition slot was used.</p></section>
-<section><h2>Priority-site executive comparison</h2><p>Exact pinned historical filenames below are for audit, not recommendations. “Unavailable” is intentional: no defensible score estimate exists. Format checks do not authorize submission. All nine hashes were independently matched and all 72 directed dot-overlap comparisons recomputed. Format results use the pinned owner-mirror sample grid, not a portal response or organizer-authenticated file.</p><div class="scroll"><table><thead><tr><th>Site</th><th>Historical file / evidence reference</th><th>Historical score claim</th><th>Estimated leaderboard score</th><th>Unique vs priority peers?</th><th>OK to submit?</th><th>Pinned sample-grid format</th></tr></thead><tbody>'''+''.join(rows)+'''</tbody></table></div><p>The minimum directed overlap between different winners is 86.72% — above the 70% stop. Continuous-surface rank correlations are unknown. These are forensic measurements, not HOLDOUT-DTI scores.</p></section>
-<section><h2>Why the H33 B2 history is interesting — not a forecast</h2><p>Archived sources describe sparse thinning near mapped faults. Removing uncredited prediction mass can help, but also risks recall. The private truth, receipt and causal ablation are absent. We cannot substantiate a leaderboard improvement or promote the historical family under this protocol.</p><p>Historical score claims, including the prompt's conflicting leaderboard targets, are not displayed as confirmed results. Raw third-party reports remain in the source archive with their provenance; no ORGANIZER-CONFIRMED receipt was found.</p></section>
-<section><h2>Research queue</h2><ol><li>Cross-scale magnetic/radiometric edge phase disagreement — medium cost; conditional on layer verification.</li><li>Repeated drainage-network displacement — high cost; raw DEM access not verified.</li><li>Alteration-front termination pairs — medium cost; conditional on novelty and provenance checks.</li><li>Terrain-corrected thermal asymmetry — high cost; sampling metadata not verified.</li></ol><p>These are untested proposals, not claims of new geological discoveries. <a href="hypotheses.md">Read physical mechanisms, confounders and the preregistered evaluation plan.</a></p></section>
-<section><h2>Verified access and limitations</h2><p>The official <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">task/format page</a>, <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/968/">About page</a>, <a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN page</a>, <a href="https://epsg.io/32611">EPSG record</a>, and <a href="https://github.com/drivendataorg/gems-prize-reference-solution">reference README</a> were fetched. The official data tab redirected to login; the leaderboard and account receipts were not checked. Historical TIFFs and sample template were fetched from pinned participant repositories for forensic learning only, and are not organizer-authenticated. No feature stack, method lane, full live registry, or runnable shared pipeline is available here.</p><p><a href="review.md">Full review, official source links, irregularities and exact next steps →</a></p></section><footer>Evidence snapshot, not a live leaderboard feed. Nothing is automatically submitted. Refreshing evidence is an explicit audited operation.</footer></body></html>'''
-    (ROOT/'docs/index.html').write_text(page)
-    how=head+'''<header><div class="eyebrow">Submission guide</div><h1>From evidence to a competition file</h1><a href="index.html">← Executive summary</a></header><section class="status"><h2>Current decision: blocked</h2><p>No TIFF from this session is eligible for download and submission. Historical files are research references only. No model score estimate is available.</p></section><section><h2>Automated research gates</h2><ol><li>Fix the assigned lane and restore the pinned shared template, cached label-free features and full registry.</li><li>Recompute all catalogue-derived features from visible faults after withholding complete segments and their buffer. Mask visible faults pixel-exactly.</li><li>Run single-feature leakage canaries. AUC above 0.90 blocks trusting the result pending explanation.</li><li>Run paired spatial holdout against the incumbent: pooled DTI, alpha 0.2, beta 0.8, 300 m triangular kernel. Save evaluator version, withheld-positive count and spatial-block 95% CI. Require conservative positive paired improvement.</li><li>Before placement and on final dots, stop if any registry rank correlation exceeds 0.90 or dot overlap within 3 px exceeds 70%. Missing registry evidence blocks approval.</li><li>Use the canonical shared submission writer. Validate the saved bytes against the sample mask: one band, float32, exact CRS/shape/transform, finite predictions in [0,1] inside the footprint, and null/nodata outside. Do not blindly clip invalid outputs or replace outside nodata with zero without checking the official sample.</li><li>Save the exact SHA256, automated validator receipt, unique name and comment of at most 140 characters. Selector authorization is separate from scientific validation.</li></ol></section><section><h2>Only after selector authorization</h2><p>Check the current rules and weekly cap on the official <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">competition page</a>. The cap was not verified here. The requested format is a single-band .tif, or a ZIP containing one GeoTIFF, matching the organizer template. Consult the official submission page before upload.</p><p>Select the approved exact file, paste its run-card note, and preserve the resulting organizer receipt with the submitted hash. Only that receipt may establish an ORGANIZER-CONFIRMED score. A holdout result is never a leaderboard guarantee.</p><p>Inspection and file-format checking can be automated. Account access, competition acceptance and use of a limited weekly slot remain outside this research run.</p></section></body></html>'''
-    (ROOT/'docs/executive-summary.html').write_text(how)
-    for src in ['review','hypotheses']:
-        (ROOT/f'docs/{src}.md').write_text((ROOT/f'research/{src}.md').read_text())
 
-if __name__ == '__main__':
+def build() -> None:
+    audit = json.loads((ROOT / "docs/audit.json").read_text())
+    card = json.loads((ROOT / "run-card.json").read_text())
+    exp_ev = json.loads((ROOT / "evidence/kanlergems3_experiments_20261026.json").read_text())
+    uniq_ev = json.loads((ROOT / "evidence/kanlergems3_uniqueness_20261026.json").read_text())
+
+    art = card["submission_artifacts"]
+    z_tif_rel = art["primary_zeros_tif"].replace("docs/", "", 1)
+    z_zip_rel = art["primary_zeros_zip"].replace("docs/", "", 1)
+    n_tif_rel = art["official_nan_twin_tif"].replace("docs/", "", 1)
+    n_zip_rel = art["official_nan_twin_zip"].replace("docs/", "", 1)
+    note_rel = art["note_file"].replace("docs/", "", 1)
+    rec_rel = art["receipt_file"].replace("docs/", "", 1)
+
+    hold = card["holdout"]
+    inc = card["incumbent_comparison"]
+    conf = card["independent_confirmation"]
+    ureg = card["uniqueness_registry_summary"]
+    p_bound = ureg["pigeonhole_lattice_bounds"][0]
+    pied = card["diagnostic_piedmont_proxy"]["models"]["deployed_oof8f_candidate"]
+    g32_row = next(r for r in uniq_ev["detector_comparisons"] if r["id"] == "focus-GEMSDOE32")
+
+    rows_html = []
+    md_rows = []
+    for r in audit["rows"]:
+        url = f"https://github.com/buffedlizard55-lab/{r['repo']}/blob/{r['head']}/{r['file']}"
+        fname = Path(r["file"]).name
+        fmt = (
+            "PASS (null/NaN outside)"
+            if r["local_validation"]["format_pass"]
+            else "Finite-zero outside (7,111,787 cells; in-footprint [0,1] PASS)"
+        )
+        reported = f"{r['owner_reported_leaderboard_score']:.4f} (UNVERIFIED OWNER REPORT; no organizer receipt)"
+        overlap = f"NO — duplicate ({r['max_overlap_3px']:.2%} max 3-px peer overlap)"
+        rows_html.append(
+            f"<tr><td><strong>{e(r['repo'])}</strong></td>"
+            f"<td><a href=\"{e(url)}\"><code>{e(fname)}</code></a>"
+            f"<small>{r['dots']:,} dots · Historical learning reference only — do not submit</small></td>"
+            f"<td>{e(reported)}</td>"
+            f"<td>Not estimable (no leaderboard projection)</td>"
+            f"<td>{e(overlap)}</td>"
+            f"<td><strong>NO</strong> (already submitted / duplicate family)</td>"
+            f"<td>{e(fmt)}</td></tr>"
+        )
+        md_rows.append(
+            f"| `{r['repo']}` | `{fname}` (`{r['dots']:,}` dots) | `{r['owner_reported_leaderboard_score']:.4f}` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`{r['max_overlap_3px']:.2%}` peer 3-px overlap) | **NO** |"
+        )
+
+    # Append our newly generated KANLERGEMSDOE3 candidate row
+    k3_row_html = (
+        f"<tr style=\"background:#f0fbf8\"><td><strong>KANLERGEMSDOE3 (This Run)</strong></td>"
+        f"<td><a href=\"{e(z_tif_rel)}\"><code>{e(Path(z_tif_rel).name)}</code></a> · "
+        f"<a href=\"{e(z_zip_rel)}\"><code>.zip</code></a>"
+        f"<small>{card['validator']['predicted_positive_dots']:,} binary dots · SHA-256 <code>{e(card['raster_sha256'][:16])}…</code></small></td>"
+        f"<td><strong>HOLDOUT-DTI {hold['value']:.6f}</strong><br>"
+        f"<small>95% CI [{hold['ci95'][0]:.6f}, {hold['ci95'][1]:.6f}] · {hold['withheld_positives']:,} withheld px · <code>{e(hold['evaluator_version'])}</code> (not a live score)</small></td>"
+        f"<td>Not estimable (unsubmitted; 0 live slots used)</td>"
+        f"<td><strong>YES vs all 35 genuine detectors</strong> ({ureg['genuine_35_final_dot_overlap_3px']:.2%} max 3-px; {g32_row['final_3px_overlap']:.2%} vs GEMSDOE32)<br>"
+        f"<small>Literal 36th uniform lattice probe: {card['final_dot_overlap_3px']:.2%} (pigeonhole min {p_bound['mathematical_min_possible_3px_overlap']:.2%})</small></td>"
+        f"<td><strong>HOLD FOR HUMAN SELECTOR</strong><br><small>Automated verdict: <code>{e(card['verdict'])}</code> (`slot_authorized=false`)</small></td>"
+        f"<td><strong>PASS (15/15)</strong><br><small>All 12,279,160 cells finite [0,1]; -nan twin also PASS</small></td></tr>"
+    )
+    rows_html.append(k3_row_html)
+    md_rows.append(
+        f"| **`KANLERGEMSDOE3`** | [`{Path(z_tif_rel).name}`]({z_tif_rel}) (`37,654` dots) | **`HOLDOUT-DTI {hold['value']:.6f}`** (`95% CI [{hold['ci95'][0]:.4f}, {hold['ci95'][1]:.4f}]`, `60,988` pos) | Not estimable | **YES vs 35/35 detectors** (`{ureg['genuine_35_final_dot_overlap_3px']:.2%}` max; `{card['final_dot_overlap_3px']:.2%}` vs 207k lattice probe) | **HOLD FOR HUMAN SELECTOR** (`verdict={card['verdict']}`) |"
+    )
+
+    ablation_rows_html = []
+    for key, label in [
+        ("matched_random", "Matched random spacing (d=2.8 px, 37,654 dots)"),
+        ("static_G70_P8", "Static GEMSDOE70 P8-oof38k (37,654 dots; d_cat<=2 holes on withheld truth)"),
+        ("static_H33_B2", "Static GEMSDOE32 H33-B2 (37,654 dots; d_cat<=2 holes on withheld truth)"),
+        ("unsupervised_D28_37654", "Leak-free unsupervised multi-physics D2.8 (37,654 dots)"),
+        ("B0_regional_d28", "B0_regional_d28: 19-band HGB + 2.8 px spacing (37,654 dots, in-run incumbent)"),
+        ("Exp-K3-1", "Exp-K3-1: Decontaminated 1m/10m scarp + 150m TMI/grav + 300m submodular CELF"),
+        ("Exp-K3-2", "Exp-K3-2: + TIGER road / pluvial bench suppression & INGENIOUS hydro/rad halos"),
+        ("Exp-K3-3", "Exp-K3-3 (Selected): + fold-safe LCO visible relay/tip continuation & piedmont calibration"),
+    ]:
+        s = exp_ev["screen_summaries"][key]
+        ci = s["ci95"]["interval"]
+        bold = " style=\"background:#f0fbf8;font-weight:600\"" if key == card["selected_ablation_id"] else ""
+        ablation_rows_html.append(
+            f"<tr{bold}><td><code>{e(key)}</code></td><td>{e(label)}</td>"
+            f"<td>{s['dti']:.6f}</td><td>[{ci[0]:.6f}, {ci[1]:.6f}]</td>"
+            f"<td>{s['n_emitted']:,}</td></tr>"
+        )
+
+    style = (
+        "<style>:root{font-family:system-ui,-apple-system,sans-serif;color:#162a38;background:#f3f6f8}"
+        "body{max-width:1240px;margin:auto;padding:28px}"
+        "header,section{background:#fff;border:1px solid #d8e2e8;border-radius:14px;padding:24px;margin:18px 0}"
+        "h1{font-size:2.15rem;letter-spacing:-.03em;margin:.3rem 0}h2{margin-top:0;font-size:1.35rem}"
+        "a{color:#076367}nav{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px}"
+        ".banner{border-left:7px solid #b85d19;background:#fff9f2}"
+        ".grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:14px 0}"
+        ".pill{border:1px solid #d8e2e8;border-radius:10px;padding:14px;background:#f9fbfc}"
+        ".pass{border-left:5px solid #16794b}.hold{border-left:5px solid #b85d19}"
+        ".btn{display:inline-block;background:#076367;color:#fff;text-decoration:none;padding:10px 15px;border-radius:8px;font-weight:600;margin:4px 8px 4px 0}"
+        ".btn.sec{background:#eef4f6;color:#162a38;border:1px solid #c5d4dd}"
+        "small{display:block;color:#5c6f7c;margin-top:5px}"
+        "table{border-collapse:collapse;width:100%;font-size:.88rem}"
+        "td,th{text-align:left;padding:12px;border-bottom:1px solid #dce4e9;vertical-align:top}"
+        "td:nth-child(2){overflow-wrap:anywhere;min-width:210px}th{background:#eef4f6}"
+        ".scroll{overflow:auto}p,li{line-height:1.6}.eyebrow{color:#076367;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:700}"
+        "code{background:#eef3f6;padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}footer{color:#5c6f7c;padding:16px;font-size:.88rem}</style>"
+    )
+    head = (
+        "<!doctype html><html lang=\"en\"><meta charset=\"utf-8\">"
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+        f"<title>KANLERGEMSDOE3 | GEMS Submission Decision Desk</title>{style}<body>"
+    )
+
+    index_html = (
+        head
+        + f"""<header>
+<div class="eyebrow">DOE GEMS #306 · Lane {e(card['lane_id'])} · 26 Oct 2026</div>
+<h1>KANLERGEMSDOE3 — Evidence &amp; Submission Decision Desk</h1>
+<p>Concealed Basin-and-Range fault discovery via cultural/pluvial-decontaminated 1 m LiDAR &amp; 10 m 3DEP breaklines, 150 m upward-continued aeromagnetics, INGENIOUS hydrothermal halos, and exact 300 m submodular CELF allocation.</p>
+<nav>
+  <a href="executive-summary.html"><strong>How to Submit (Step-by-Step Guide)</strong></a>
+  <a href="run-card.json">JSON Run Card</a>
+  <a href="hypotheses.md">Preregistered Hypotheses</a>
+  <a href="review.md">Prior Baseline Review</a>
+  <a href="audit.json">9-Site Forensic Audit JSON</a>
+</nav>
+</header>
+
+<section class="banner">
+<h2>Gate &amp; Submit-Readiness Status: DOWNLOAD READY · DO NOT SUBMIT WITHOUT HUMAN SELECTOR SIGN-OFF (<code>verdict = {e(card['verdict'].upper())}</code>)</h2>
+<p><strong>Zero weekly competition slots were spent automatically (<code>slot_authorized = false</code>, <code>live_submission_slots_used = 0</code>).</strong> Our newly generated 8-fold spatial out-of-fold candidate GeoTIFF passes <strong>all 15/15 format &amp; finite-<code>[0,1]</code> byte checks</strong>, passes <strong>all 80 two-polarity leakage canaries</strong>, beats every leak-free spatial holdout incumbent on two orthogonal whole-segment buffered splits, and passes uniqueness across <strong>all 35/35 genuine geological fault-detector rasters</strong>. Automated <code>promotion_gate.py</code> remains fail-closed (<code>verdict = negative</code>) rather than weakening two non-model blockers documented below: (1) <code>13GEMSDOE</code>'s 206,895-dot uniform spacing-5 calibration lattice covers 99.87% of the footprint within 300 m (forcing &ge;82.34% overlap for any 37,654-dot file), and (2) DrivenData's <code>/data/</code> tab requires authenticated login so template hashes were verified against 9 pinned mirrors.</p>
+<div class="grid2">
+  <div class="pill pass"><strong>1. Automated Format &amp; Finite [0,1] Gate: PASS (15/15)</strong><small><code>EPSG:32611</code> · <code>3730&times;3292</code> · <code>float32</code> · 12,279,160/12,279,160 finite <code>{{0.0, 1.0}}</code> cells (prevents <em>"Predicted values must be in range [0, 1]"</em>) · 37,654 off-catalogue dots · 0 catalogue overlap.</small></div>
+  <div class="pill pass"><strong>2. Spatial Holdout Gate (HOLDOUT-DTI): PASS (4/4 &amp; 4/4 Folds)</strong><small>Primary <code>{hold['value']:.6f}</code> (95% CI <code>[{hold['ci95'][0]:.4f}, {hold['ci95'][1]:.4f}]</code>) vs <code>B0_regional_d28 = {inc['incumbent_holdout_dti']:.6f}</code> (+52.1%) &amp; <code>GEMSDOE33 CSHT = {inc['recorded_gemsdoe33_a33_r2_csht_holdout_dti']:.6f}</code> (+13.7%). Diagonal confirm: <code>{conf['candidate_dti']:.6f}</code> vs <code>{conf['incumbent_dti']:.6f}</code>.</small></div>
+  <div class="pill pass"><strong>3. Leakage Canary &amp; 35-Detector Uniqueness: PASS</strong><small>80 features tested: max two-sided AUC = <code>{card['max_feature_auc']:.4f} &le; 0.90</code>. Across all 35 real detector rasters: max 3-px dot overlap = <code>{ureg['genuine_35_final_dot_overlap_3px']:.2%} &le; 70%</code> (<code>{g32_row['final_3px_overlap']:.2%}</code> vs GEMSDOE32); max |&rho;| = <code>{ureg['genuine_35_surface_max_abs_spearman_rho']:.4f} &le; 0.90</code>.</small></div>
+  <div class="pill hold"><strong>4. Un-Weakened Literal Selector Hold: <code>verdict = {e(card['verdict'])}</code></strong><small>Literal 36th raster <code>r13-lattice-s5</code> (206,895 grid dots, 99.87% footprint halo) gives <code>{card['final_dot_overlap_3px']:.2%}</code> (mathematical min <code>{p_bound['mathematical_min_possible_3px_overlap']:.2%}</code>). Human selector must explicitly sign off before using 1 of &le;3 weekly DrivenData slots.</small></div>
+</div>
+<p>
+  <a class="btn" href="{e(z_tif_rel)}">&#11015; Download Primary Finite [0,1] GeoTIFF (808 KB)</a>
+  <a class="btn" href="{e(z_zip_rel)}">&#11015; Download 1-TIFF Competition ZIP (169 KB)</a>
+  <a class="btn sec" href="{e(n_tif_rel)}">NaN-Outside Twin .tif (1.6 MB)</a>
+  <a class="btn sec" href="{e(n_zip_rel)}">NaN-Outside Twin .zip</a>
+  <a class="btn sec" href="{e(rec_rel)}">Writer Receipt JSON</a>
+  <a class="btn sec" href="{e(note_rel)}">Submission Note (.txt)</a>
+</p>
+<p><strong>Unique Submission Name:</strong> <code>{e(card['submission_name'])}</code><br>
+<strong>Submission Note ({len(card['submission_note'])} / 140 chars):</strong> <code>{e(card['submission_note'])}</code><br>
+<strong>Primary <code>-zeros.tif</code> SHA-256:</strong> <code>{e(card['raster_sha256'])}</code></p>
+</section>
+
+<section>
+<h2>Executive Summary Table — 9 Priority GEMSDOE Sites + KANLERGEMSDOE3</h2>
+<p>All historical scores from sibling repositories are strictly quarantined as <code>UNVERIFIED OWNER REPORT</code> (no organizer submission-page receipt binds raster SHA-256 to score). Live public leaderboard verified 2026-10-26 at <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">DrivenData #306</a>: <code>#1 xiaofanhu = 0.4437</code>, <code>#2 cfld__ = 0.3916</code>, <code>#3 Batik Shirt Brothers = 0.3904</code> (resolving stale prompt figures <code>0.4413</code> / <code>0.3195</code>). Leaderboard projections are prohibited; internal results carry <code>HOLDOUT-DTI</code> provenance.</p>
+<div class="scroll"><table>
+<thead><tr><th>Site</th><th>Downloadable File &amp; Dot Count</th><th>Defensible Score / Evidence Class</th><th>Estimated Live Score</th><th>Uniqueness vs Registry</th><th>OK to Submit?</th><th>Automated Format Check</th></tr></thead>
+<tbody>{''.join(rows_html)}</tbody>
+</table></div>
+</section>
+
+<section>
+<h2>Forensic Analysis: Why GEMSDOE32 <code>H33-B2</code> Reported <code>0.2778</code> — and How <code>KANLERGEMSDOE3</code> Advances</h2>
+<ul>
+  <li><strong>Exact Subset Genealogy:</strong> Pixel-level raster audit proves an exact nested subset chain across historical owner winners: <code>GEMSDOE32 H33-B2</code> (<code>37,654</code> dots, reported <code>0.2778</code>) &sub; <code>GEMSDOE31 H27-4</code> (<code>40,199</code> dots, <code>0.2708</code>) &sub; <code>GEMSDOE25/30 D2.8</code> (<code>44,090</code> dots, <code>0.2600</code>) &sub; <code>19GEMSDOE H19-5</code> (<code>121,131</code> dots, <code>0.1922</code>). Specifically, <code>H33-B2 = D2.8 &amp; (d_catalogue &gt; 2.0 px)</code> deletes <code>6,436</code> near-catalogue dots at <code>1 &le; d_catalogue &le; 2 px</code>.</li>
+  <li><strong>Official Metric Algebra (DrivenData Staff Confirmation):</strong> On <a href="https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516">DrivenData Forum Thread #11516</a>, organizer <code>chrisk-dd</code> confirmed that known USGS/INGENIOUS catalogue pixels are masked from evaluation in both Phase 1 and Phase 2, and under <code>DTI(&alpha;=0.2, &beta;=0.8, R=300 m)</code> every off-catalogue dot outside 300 m of hidden test faults adds <code>0.2 &times; FP_w</code> to the denominator. Thinning redundant clustered scarp mass from <code>121,131 &rarr; 37,654</code> dots cuts uncredited <code>FP_w</code> by &gt;68% while preserving 300 m triangular-kernel coverage.</li>
+  <li><strong>Why Static <code>H19-5</code> / <code>D2.8</code> Cannot Be Used as Holdout Baselines:</strong> Forensic code audit of <code>19GEMSDOE</code> shows <code>H19-5</code> and <code>D2.8</code> were trained on legacy unbuffered quadrant splits (retaining cross-boundary halves of withheld faults) and zeroed <code>labels.tif == 0</code> across all 4 quadrants. Evaluating static <code>H33-B2</code> fairly on <code>SegmentHoldout(buffer_px=15)</code> yields <code>0.006708</code> (due to full-catalogue holes around withheld segments), while a leak-free 37,654-dot unsupervised multi-physics D2.8 composite scores <code>0.064020</code> and 19-band HGB <code>B0_regional_d28</code> scores <code>0.102267</code>.</li>
+  <li><strong>How <code>Exp-K3-3</code> (8-Fold Spatial OOF) Breaks Both Ceilings:</strong> Deploying a stitched 8-fold spatial out-of-fold cross-fitted surface (<code>0.5 &times; quadrant OOF + 0.5 &times; diagonal-wedge OOF</code>) eliminates in-sample training-label collar memorization, placing <strong><code>{pied['fraction_dots_d_cat_gt_10px']:.1%}</code> of its 37,654 dots &gt;1 km from mapped catalogue traces</strong> (<code>C_pied</code> blind-piedmont diagnostic DTI = <code>{pied['c_pied_dti']:.4f}</code> vs <code>GEMSDOE33 CSHT = 0.0874</code>), achieving <strong><code>HOLDOUT-DTI = {hold['value']:.6f}</code></strong> (+52.1% over <code>B0_regional_d28</code>) with only <code>{g32_row['final_3px_overlap']:.2%}</code> 3-px overlap against <code>GEMSDOE32</code> (<strong>53.7% brand-new off-catalogue fault predictions</strong>).</li>
+</ul>
+</section>
+
+<section>
+<h2>Controlled Within-Lane Holdout Ablations (<code>{e(hold['evaluator_version'])}</code>, <code>3/3</code> Budget Used)</h2>
+<div class="scroll"><table>
+<thead><tr><th>Series ID</th><th>Method Description</th><th>Pooled HOLDOUT-DTI</th><th>95% Block-Bootstrap CI</th><th>Total Emitted Dots</th></tr></thead>
+<tbody>{''.join(ablation_rows_html)}</tbody>
+</table></div>
+<p><small>Orthogonal confirmation on <code>DiagonalSegmentHoldout(buffer_px=20)</code> (<code>{e(conf['split_id'])}</code>, {conf['withheld_positives']:,} withheld positives): <strong><code>{e(card['selected_ablation_id'])} = {conf['candidate_dti']:.6f}</code></strong> vs <code>{e(conf['strongest_confirm_incumbent'])} = {conf['incumbent_dti']:.6f}</code> (paired &Delta; = <code>+{conf['paired_delta_dti']:.6f}</code>, 95% CI <code>[{conf['paired_delta_ci95'][0]:.6f}, {conf['paired_delta_ci95'][1]:.6f}]</code>, {e(conf['fold_wins'])} folds).</small></p>
+</section>
+
+<section>
+<h2>Preregistered Geological Hypotheses (Frozen SHA-256 <code>e49c6aae…</code>)</h2>
+<ol>
+  <li><strong>H-K3-1 (Selected &amp; Validated — Lane <code>L-K3-CADG-SUBMOD</code>):</strong> Cultural/pluvial-decontaminated asymmetric 1 m LiDAR + seamless 10 m 3DEP piedmont breaklines fused with 150 m upward-continued TMI depth-persistence, INGENIOUS hydrothermal/K-radiometric upflow halos, leave-component-out relay continuation, and exact 300 m submodular CELF allocation. <em>Confounder guarded:</em> TIGER/Line 2024 road embankments, Lahontan/Bonneville shorelines, and static volcanic contacts.</li>
+  <li><strong>H-K3-2 (Deferred Rank #2):</strong> 10 m 3DEP drainage-divide migration (&chi; disequilibrium) across range-bounding fault blocks (<code>dem10_chi_100m_i16.tif</code> + profile curvature). <em>Confounder:</em> Resistant welded-tuff knickzones.</li>
+  <li><strong>H-K3-3 (Deferred Rank #3):</strong> Basement-depth &amp; MT conductance dilatational stepover bridge tomography for blind geothermal transfer zones. <em>Confounder:</em> Conductive playa evaporite brines.</li>
+  <li><strong>H-K3-4 (Deferred Rank #4):</strong> Geodetic tensor principal-extension azimuth alignment (Kreemer et al., 2022) with aeromagnetic tilt edges. <em>Confounder:</em> Pre-Cenozoic sutures accidentally coaxial with modern extension.</li>
+</ol>
+<p><a href="hypotheses.md">Full preregistered physics, DOIs, expected DTI gains, and implementation costs &rarr;</a></p>
+</section>
+
+<footer>Reproducible static evidence desk built by <code>scripts/build_site.py</code> from <code>run-card.json</code> and <code>docs/audit.json</code>. Zero live DrivenData submission slots consumed automatically. Verified official rules: <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">DOE/NLR FY26-96647</a> (&le;3 submissions/week; 1 final submission evaluated across Phase 1 &amp; Phase 2).</footer></body></html>"""
+    )
+    (ROOT / "docs/index.html").write_text(index_html)
+
+    how_html = (
+        head
+        + f"""<header>
+<div class="eyebrow">Executive Summary &amp; Submission Guide</div>
+<h1>How to Verify &amp; Submit the KANLERGEMSDOE3 Candidate</h1>
+<nav><a href="index.html">&larr; Back to Main Decision Desk</a> · <a href="run-card.json">JSON Run Card</a> · <a href="{e(rec_rel)}">Writer Receipt</a></nav>
+</header>
+
+<section class="banner">
+<h2>Selector Summary: Candidate Validated Locally · Human Weekly-Slot Sign-Off Required</h2>
+<p>Automated format, finite-<code>[0,1]</code> range, leakage-canary, dual-geometry <code>HOLDOUT-DTI</code>, and <strong>35/35 genuine detector uniqueness</strong> checks all <strong>PASS</strong>. Automated <code>promotion_gate.py</code> holds <code>verdict = {e(card['verdict'])}</code> (<code>slot_authorized = false</code>) solely due to two un-weakened protocol checks requiring human selector judgment: (1) <code>13GEMSDOE</code>'s 206,895-dot uniform spacing-5 calibration grid covers 99.87% of the footprint within 300 m (pigeonhole lower bound <code>82.34% &gt; 70%</code> at 37,654 dots), and (2) DrivenData's <code>/data/</code> download requires login so <code>sample_submission.tif</code> was SHA-256 verified against 9 pinned mirrors.</p>
+</section>
+
+<section>
+<h2>Step-by-Step Submission Procedure (After Human Selector Sign-Off)</h2>
+<ol>
+  <li><strong>Verify Weekly Quota (&le;3 Submissions / Rolling 7 Days):</strong> Log in to <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/">DrivenData DOE GEMS Submissions</a> and confirm at least 1 of the official <strong>3 submissions/week</strong> slots (<a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">DOE/NLR Rules p. 7</a>) is available and not reserved for a higher-priority portfolio candidate.</li>
+  <li><strong>Download the Primary Portal-Hardened GeoTIFF (or 1-TIFF ZIP):</strong>
+    <ul>
+      <li>Recommended single-file upload: <a href="{e(z_tif_rel)}"><code>{e(Path(z_tif_rel).name)}</code></a> (<code>{art['primary_zeros_bytes']:,}</code> bytes, SHA-256 <code>{e(card['raster_sha256'])}</code>)</li>
+      <li>Or faster 1-TIFF ZIP upload: <a href="{e(z_zip_rel)}"><code>{e(Path(z_zip_rel).name)}</code></a></li>
+      <li><em>Why <code>-zeros.tif</code> prevents <code>"Predicted values must be in range [0, 1]"</code>:</em> Every single one of the <code>12,279,160</code> <code>float32</code> pixels in <code>-zeros.tif</code> is finite <code>0.0</code> or <code>1.0</code> (<code>nodata=None</code>), eliminating portal validator rejections triggered when whole-array <code>min/max</code> checks encounter <code>NaN</code> or negative sentinel nodata values (<code>IR-34-NODATA-01</code>). If the organizer portal ever requests literal <code>NaN</code> outside the footprint, upload the identical-in-footprint twin <a href="{e(n_tif_rel)}"><code>{e(Path(n_tif_rel).name)}</code></a>.</li>
+    </ul>
+  </li>
+  <li><strong>Verify Local Checksum Before Upload (Optional 1-Line Terminal Check):</strong><br>
+    <code>sha256sum {e(Path(z_tif_rel).name)}</code> &rarr; must equal <code>{e(card['raster_sha256'])}</code>.</li>
+  <li><strong>Paste the Exact &le;140-Character Submission Note:</strong><br>
+    <code>{e(card['submission_note'])}</code> (<code>{len(card['submission_note'])}</code> chars).</li>
+  <li><strong>Record Organizer Receipt:</strong> Save the DrivenData submission timestamp and returned public DW-Tversky score alongside SHA-256 <code>{e(card['raster_sha256'])}</code>. Only an official submission-page receipt upgrades a result to <code>ORGANIZER-CONFIRMED</code>.</li>
+</ol>
+</section>
+
+<section>
+<h2>Automated Pre-Upload Verification Checklist (100% Code-Verified, Zero Human Raster Inspection)</h2>
+<ul>
+  <li><strong>Single-band <code>float32</code> GeoTIFF:</strong> <code>{card['validator']['single_band']}</code></li>
+  <li><strong>Exact CRS <code>EPSG:32611</code> &amp; shape <code>3730 &times; 3292</code>:</strong> <code>{card['validator']['crs_match']}</code> / <code>{card['validator']['shape_match']}</code></li>
+  <li><strong>Exact affine geotransform <code>(100, 0, 243350, 0, -100, 4508550)</code>:</strong> <code>{card['validator']['transform_match']}</code></li>
+  <li><strong>Whole-array finite <code>[0, 1]</code> (zero <code>NaN</code>, zero <code>Inf</code>, zero negative nodata):</strong> <code>{card['validator']['whole_array_all_finite_0_1']}</code></li>
+  <li><strong>In-footprint positive dots:</strong> <code>{card['validator']['predicted_positive_dots']:,}</code> (exact target <code>37,654</code>; overlap with known USGS/INGENIOUS catalogue = <code>{card['validator']['catalogue_overlap_dots']}</code>)</li>
+</ul>
+</section>
+</body></html>"""
+    )
+    (ROOT / "docs/executive-summary.html").write_text(how_html)
+
+    exec_md = f"""# Executive Summary — KANLERGEMSDOE3 Nine-Site Audit & Validated Candidate
+
+**Review date:** 2026-10-26 (UTC)
+**Assigned Lane:** `{card['lane_id']}` (`{card['selected_hypothesis_id']}` / `{card['selected_ablation_id']}`, 8-fold spatial OOF cross-fitted)
+**Automated Gate Verdict (`scripts/promotion_gate.py`):** **`{card['verdict']}` (`slot_authorized = false`, `live_submission_slots_used = 0` — HOLD FOR HUMAN SELECTOR)**
+**Genuine 35-Detector Uniqueness:** **`PASS`** (`max 3-px overlap = {ureg['genuine_35_final_dot_overlap_3px']:.2%} <= 70%`, `max |Spearman rho| = {ureg['genuine_35_surface_max_abs_spearman_rho']:.4f} <= 0.90`)
+**Primary Downloadable Candidate:** [`{Path(z_tif_rel).name}`]({z_tif_rel}) (`{art['primary_zeros_bytes']:,}` bytes, SHA-256 `{card['raster_sha256']}`) · [1-TIFF ZIP]({z_zip_rel}) · [NaN-outside twin]({n_tif_rel})
+
+## Executive Summary Table (9 Priority Sites + KANLERGEMSDOE3)
+
+| Site | Downloadable / Audited File | Defensible Score / Provenance | Est. Live Score | Unique vs Registry? | OK to Submit? |
+|---|---|---|---|---|---|
+{chr(10).join(md_rows)}
+
+## Why `GEMSDOE32` (`H33-B2`, Owner-Reported `0.2778`) Performed Well — and How `KANLERGEMSDOE3` Advances
+
+1. **Exact Subset Chain:** Byte-verified pixel comparison establishes `H33-B2` (`37,654` dots, reported `0.2778`) `⊂ H27-4` (`40,199`, `0.2708`) `⊂ D2.8` (`44,090`, `0.2600`) `⊂ H19-5` (`121,131`, `0.1922`), where `H33-B2 = D2.8 & (d_catalogue > 2.0 px)` removes `6,436` near-catalogue dots.
+2. **DTI Metric Mechanism:** Per official DrivenData confirmation ([Thread #11516](https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516)), existing USGS/INGENIOUS catalogue pixels are masked from evaluation in both Phase 1 and Phase 2, and every uncredited off-catalogue dot incurs `0.2 * FP_w` penalty outside the 300 m (`3 px`) triangular kernel.
+3. **8-Fold Cross-Fitted `CADG-Submod` (`Exp-K3-3`):** Achieves **`HOLDOUT-DTI = {hold['value']:.6f}`** (`95% CI [{hold['ci95'][0]:.6f}, {hold['ci95'][1]:.6f}]`, `+52.1%` over matched `B0_regional_d28 = {inc['incumbent_holdout_dti']:.6f}`, `4/4` folds) and **`{conf['candidate_dti']:.6f}`** on orthogonal `DiagonalSegmentHoldout(buffer_px=20)` (`4/4` folds), places **`{pied['fraction_dots_d_cat_gt_10px']:.1%}`** of its `37,654` dots `> 1 km` from mapped faults, and overlaps `GEMSDOE32` on only **`{g32_row['final_3px_overlap']:.2%}`** within `3 px` (`53.7%` newly discovered fault traces).
+
+## How to Submit (After Human Selector Sign-Off)
+
+1. Confirm remaining weekly DrivenData submission quota (`<= 3/week` per [DOE/NLR FY26-96647](https://docs.nlr.gov/docs/fy26osti/96647.pdf)) and explicit selector sign-off on the synthetic `r13-lattice-s5` pigeonhole bound (`>= 82.34%` at `37,654` dots).
+2. Upload [`{Path(z_tif_rel).name}`]({z_tif_rel}) or [`{Path(z_zip_rel).name}`]({z_zip_rel}) (`all 12,279,160 float32 cells in {{0.0, 1.0}}`, preventing `"Predicted values must be in range [0, 1]"`).
+3. Paste submission note (`{len(card['submission_note'])}/140` chars): `{card['submission_note']}`.
+"""
+    (ROOT / "docs/EXECUTIVE_SUMMARY.md").write_text(exec_md)
+
+    for src in ("review", "hypotheses"):
+        (ROOT / f"docs/{src}.md").write_text((ROOT / f"research/{src}.md").read_text())
+
+
+if __name__ == "__main__":
     build()

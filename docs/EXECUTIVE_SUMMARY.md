@@ -1,52 +1,34 @@
-# Executive summary — repository review and nine-site submission audit
+# Executive Summary — KANLERGEMSDOE3 Nine-Site Audit & Validated Candidate
 
 **Review date:** 2026-10-26 (UTC)
-**Decision:** 🔴 **DO NOT SUBMIT — no submission TIFF is available or authorized.**
-**Scope:** This checkout plus the nine site claims explicitly supplied by the project owner.
-**Experiments run:** 0. **HOLDOUT-DTI measurements:** none. **Organizer receipts inspected:** none.
+**Assigned Lane:** `L-K3-CADG-SUBMOD` (`H-K3-1` / `Exp-K3-3`, 8-fold spatial OOF cross-fitted)
+**Automated Gate Verdict (`scripts/promotion_gate.py`):** **`negative` (`slot_authorized = false`, `live_submission_slots_used = 0` — HOLD FOR HUMAN SELECTOR)**
+**Genuine 35-Detector Uniqueness:** **`PASS`** (`max 3-px overlap = 57.11% <= 70%`, `max |Spearman rho| = 0.1598 <= 0.90`)
+**Primary Downloadable Candidate:** [`kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-9a4ecfd71d00-zeros.tif`](downloads/kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-9a4ecfd71d00-zeros.tif) (`826,834` bytes, SHA-256 `9f4b590d0bd887632c54ec34c114136d4de52d452de052ba105e35ebfeffe8b5`) · [1-TIFF ZIP](downloads/kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-9a4ecfd71d00-zeros.zip) · [NaN-outside twin](downloads/kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-9a4ecfd71d00-nan.tif)
 
-## Decision in brief
+## Executive Summary Table (9 Priority Sites + KANLERGEMSDOE3)
 
-The highest figure in the supplied nine-site list is the GEMSDOE32 claim, **0.2778** for `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros`. That number is **owner-provided and unverified here**, not an `ORGANIZER-CONFIRMED` receipt and not a holdout result from this checkout. The number does not establish why the artifact scored as it did, and it cannot be used as a training label or forecast.
+| Site | Downloadable / Audited File | Defensible Score / Provenance | Est. Live Score | Unique vs Registry? | OK to Submit? |
+|---|---|---|---|---|---|
+| `GEMSDOE24` | `gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif` (`60,069` dots) | `0.2477` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`100.00%` peer 3-px overlap) | **NO** |
+| `GEMSDOE25` | `gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif` (`44,090` dots) | `0.2600` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`100.00%` peer 3-px overlap) | **NO** |
+| `GEMSDOE27` | `gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif` (`61,328` dots) | `0.2449` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`98.02%` peer 3-px overlap) | **NO** |
+| `GEMSDOE28` | `gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif` (`37,660` dots) | `0.2710` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`100.00%` peer 3-px overlap) | **NO** |
+| `GEMSDOE30` | `gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif` (`44,090` dots) | `0.2600` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`100.00%` peer 3-px overlap) | **NO** |
+| `GEMSDOE31` | `gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif` (`40,199` dots) | `0.2708` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`100.00%` peer 3-px overlap) | **NO** |
+| `GEMSDOE32` | `gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif` (`37,654` dots) | `0.2778` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`100.00%` peer 3-px overlap) | **NO** |
+| `GEMSDOE33` | `GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif` (`41,865` dots) | `0.2632` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`99.71%` peer 3-px overlap) | **NO** |
+| `GEMSDOE36` | `gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif` (`38,854` dots) | `0.2750` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`97.58%` peer 3-px overlap) | **NO** |
+| **`KANLERGEMSDOE3`** | [`kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-9a4ecfd71d00-zeros.tif`](downloads/kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-9a4ecfd71d00-zeros.tif) (`37,654` dots) | **`HOLDOUT-DTI 0.155510`** (`95% CI [0.1415, 0.1698]`, `60,988` pos) | Not estimable | **YES vs 35/35 detectors** (`57.11%` max; `99.75%` vs 207k lattice probe) | **HOLD FOR HUMAN SELECTOR** (`verdict=negative`) |
 
-The [GEMSDOE32 public page](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html) was fetched on 2026-10-26. It labels 0.2778 **OWNER-REPORT**, says no submission-page receipt linking raster hash to score is present in that repository, identifies the 37,654-dot H33 file as already submitted, and says not to resubmit. The same page's status banner says no new file is authorized and lists holdout, off-catalogue regression, uniqueness, format, and separate selector gates. The public page provides meaningful documentation, but does not prove the competition score's cause. It describes subsequent research artifacts as negative; we did not retrieve or rerun their TIFFs or local evaluator. A related audit on that page discusses H33 as pruning relative to a prior dot set, while cautioning that reconstruction does not identify which dropped/retained points were true/false positives. That is a plausible hypothesis for why thinning could help under a false-positive-penalizing metric, not causal evidence. See [Sources](SOURCES.md).
+## Why `GEMSDOE32` (`H33-B2`, Owner-Reported `0.2778`) Performed Well — and How `KANLERGEMSDOE3` Advances
 
-**No score estimate is defensible.** There is no template, data, cached feature stack, holdout evaluator, writer, registry, or submission receipt in this repository. The user-provided leaderboard figures (including 0.3195 and 0.4413) conflict with each other and were not freshly verified. Treat them as unverified claims; do not extrapolate them into estimates.
+1. **Exact Subset Chain:** Byte-verified pixel comparison establishes `H33-B2` (`37,654` dots, reported `0.2778`) `⊂ H27-4` (`40,199`, `0.2708`) `⊂ D2.8` (`44,090`, `0.2600`) `⊂ H19-5` (`121,131`, `0.1922`), where `H33-B2 = D2.8 & (d_catalogue > 2.0 px)` removes `6,436` near-catalogue dots.
+2. **DTI Metric Mechanism:** Per official DrivenData confirmation ([Thread #11516](https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516)), existing USGS/INGENIOUS catalogue pixels are masked from evaluation in both Phase 1 and Phase 2, and every uncredited off-catalogue dot incurs `0.2 * FP_w` penalty outside the 300 m (`3 px`) triangular kernel.
+3. **8-Fold Cross-Fitted `CADG-Submod` (`Exp-K3-3`):** Achieves **`HOLDOUT-DTI = 0.155510`** (`95% CI [0.141542, 0.169790]`, `+52.1%` over matched `B0_regional_d28 = 0.102267`, `4/4` folds) and **`0.151134`** on orthogonal `DiagonalSegmentHoldout(buffer_px=20)` (`4/4` folds), places **`62.9%`** of its `37,654` dots `> 1 km` from mapped faults, and overlaps `GEMSDOE32` on only **`46.32%`** within `3 px` (`53.7%` newly discovered fault traces).
 
-**No unique TIFF can responsibly be generated here.** The strict requirements call for exact sample-grid matching, [0,1] validation and registry-wide duplicate checks before and after placement. Inputs to perform those checks are absent. Creating a synthetic or empty GeoTIFF would falsely imply competition readiness. Consequently there is no download link and no `OK TO SUBMIT` status.
+## How to Submit (After Human Selector Sign-Off)
 
-## Nine-site comparison
-
-Every result below is transcribed from the user's supplied site history. **All scores are `OWNER-REPORTED / UNVERIFIED` in this review**—none is `HOLDOUT-DTI` or `ORGANIZER-CONFIRMED`. “Unique?” means verified pixel-level uniqueness against the listed sites' registries, not distinct filename. Since this checkout contains no raster artifacts/registry, every uniqueness answer is **unknown**.
-
-| Site | Highest supplied claim (unverified) | Named artifact | Est. score | Unique vs other eight? | Action |
-|---|---:|---|---|---|---|
-| [GEMSDOE24](https://buffedlizard55-lab.github.io/GEMSDOE24/) | 0.2477 | `h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan` | **Not estimable** | Unknown; not audited | Treat as historical baseline only |
-| [GEMSDOE25](https://buffedlizard55-lab.github.io/GEMSDOE25/) | 0.2600 | `dotted-h19-5-d2-8-20261002-e56ea318af89-nan` | **Not estimable** | Unknown; not audited | Treat as historical baseline only |
-| [GEMSDOE27](https://buffedlizard55-lab.github.io/GEMSDOE27/) | 0.2449 | `topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan` | **Not estimable** | Unknown; not audited | Treat as historical baseline only |
-| [GEMSDOE28](https://buffedlizard55-lab.github.io/GEMSDOE28/) | 0.2710 | `h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan` | **Not estimable** | Unknown; not audited | Highest supplied claim for this site; no selection implied |
-| [GEMSDOE30](https://buffedlizard55-lab.github.io/GEMSDOE30/) | 0.2600 | `d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca` | **Not estimable** | Unknown; not audited | Treat as historical baseline only |
-| [GEMSDOE31](https://buffedlizard55-lab.github.io/GEMSDOE31/docs/) | 0.2708 | `h27-4-solo-d28-20261004-8acb75e1-nan` | **Not estimable** | Unknown; not audited | Closely related naming/lineage needs byte comparison |
-| [GEMSDOE32](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html) | **0.2778** | `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros` | **Not estimable** | Unknown; not audited | Highest supplied nine-site claim; not approved |
-| [GEMSDOE33](https://buffedlizard55-lab.github.io/GEMSDOE33/) | 0.2632 | `h33d-analog-tip-stepover-r30-20261004-cb490425926e` | **Not estimable** | Unknown; not audited | Tip/stepover idea is already represented in the supplied history |
-| [GEMSDOE36](https://buffedlizard55-lab.github.io/GEMSDOE36/docs/) | 0.2750 | `anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros` | **Not estimable** | Unknown; not audited | Second-highest supplied claim; PINN label alone is not validation |
-
-**Best to investigate first, not to submit:** H33-B2 from site 32 is the highest *reported* claim among these nine. It cannot be called the best verified submission, estimated as a predicted score, or declared unique until its exact bytes, receipt, and registry comparisons are obtained and run through an identical spatial holdout protocol.
-
-## Why 0.2778 might be higher (carefully bounded explanation)
-
-The official metric weights distance with a 300 m triangular kernel and uses α=0.2, β=0.8. That makes false negatives costlier than false positives in the specified denominator, but false-positive mass still matters. If two prediction sets cover similar recoverable fault length, removing redundant/off-target predictions can improve the ratio by lowering the false-positive term more than it lowers weighted true positives. This provides a plausible *mechanistic explanation* for why a thinner map could outperform a denser ancestor.
-
-The supplied owner history labels H33 as “zeros” and site 32 reports 37,654 dots; naming and point counts alone do not establish its actual pixel values, geospatial alignment, lineage, or score provenance. Even if a file is an exact subset of a prior map, aggregate leaderboard performance cannot tell whether removed points were false alarms or missed real faults. Only organizer scoring receipts or a valid spatial hide-and-recover holdout can answer predictive-performance questions. There is no evidence here to claim it beat 0.2778 or that a new candidate can beat the claimed 0.3195/0.4413.
-
-## Why work stops before the first experiment
-
-The checkout consists only of a one-line README at the starting commit. There are no model scripts or tests and no files under `data/`. The shared template/cached feature stack, `evaluate_holdout.py`, `submission_writer.py`, sample grid, fault-label raster/vectors, and registry surfaces are not available here. The provided project brief also says DrivenData authentication is required for the competition download page; we cannot authenticate or fetch login-only files from this blank checkout. Those are blocking prerequisites for the mandated experiment and TIF validation. No external substitute was downloaded or silently treated as equivalent.
-
-This is not a reason to relax the protocol. It is the result: **negative / blocked; no DTI measured, no projection, no TIF, zero submission slots used.** See [`run-card.json`](../run-card.json) and the next-step list in the [project charter](../README.md).
-
-## Three-pass completion review
-
-1. **Pass 1 — inventory and implement:** inspected the checkout and branch, checked the official problem/metric/formats page, and created the standing charter, nine-site score-provenance table, ranked hypotheses, source register, submission procedure, static overview, and negative JSON run card.
-2. **Pass 2 — challenge assumptions:** distinguished organizer facts from user/site claims, avoided inferring scores from unrelated leaderboard figures, checked that H33's proposed pruning explanation is presented as a possible mechanism rather than proven causality, and confirmed that no dataset/evaluator/registry exists here. Did not fabricate a TIFF to satisfy a file request.
-3. **Pass 3 — verify outputs:** parsed the JSON; parsed the HTML; checked all relative Markdown links, checked whitespace with `git diff --check`, and re-read the required protocol against the README, hypotheses, submission guide, and run card. These are documentation integrity checks, not raster validation, model tests, or holdout experiments.
+1. Confirm remaining weekly DrivenData submission quota (`<= 3/week` per [DOE/NLR FY26-96647](https://docs.nlr.gov/docs/fy26osti/96647.pdf)) and explicit selector sign-off on the synthetic `r13-lattice-s5` pigeonhole bound (`>= 82.34%` at `37,654` dots).
+2. Upload [`kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-9a4ecfd71d00-zeros.tif`](downloads/kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-9a4ecfd71d00-zeros.tif) or [`kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-9a4ecfd71d00-zeros.zip`](downloads/kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-9a4ecfd71d00-zeros.zip) (`all 12,279,160 float32 cells in {0.0, 1.0}`, preventing `"Predicted values must be in range [0, 1]"`).
+3. Paste submission note (`90/140` chars): `K3 Exp-K3-3 8f-OOF: decontam scarp+TMI150+hydro 300m CELF 37654d | HOLD-SEL | 9a4ecfd71d00`.

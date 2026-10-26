@@ -1,6 +1,7 @@
 """Forensics only; never writes, repairs, promotes, or scores a submission."""
 import hashlib
 import json
+import os
 from pathlib import Path
 import numpy as np
 import rasterio
@@ -8,6 +9,15 @@ from scipy.ndimage import distance_transform_edt
 from validate_submission import validate as validate_template
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def _resolve_data_dir() -> Path:
+    if "GEMS_DATA_DIR" in os.environ:
+        return Path(os.environ["GEMS_DATA_DIR"])
+    if (ROOT / "data" / "sample_submission.tif").is_file():
+        return ROOT / "data"
+    return ROOT / ".cache" / "gems_data"
+
 
 def validate(path, template):
     # Keep whole-array diagnostics for the reported portal range error, but use
@@ -41,10 +51,11 @@ def overlap(candidate, reference):
 
 def main():
     archived = json.loads((ROOT/'sources/GEMSDOE32/evidence/focus_site_winner_overlap_20261026.json').read_text())
+    data_dir = _resolve_data_dir()
     rows, masks, metadata = [], {}, {}
     for r in archived['historical_winners']:
-        p = ROOT/'data'/f"{r['repo']}.tif"
-        v = validate(p, ROOT/'data/sample_submission.tif')
+        p = data_dir / f"{r['repo']}.tif"
+        v = validate(p, data_dir / 'sample_submission.tif')
         if v['sha256'] != r['sha256']:
             raise ValueError('Pinned raster hash mismatch: '+r['repo'])
         with rasterio.open(p) as ds:

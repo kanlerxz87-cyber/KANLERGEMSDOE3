@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "frozen_utc": "2026-10-26T22:25:00Z",
+  "repository": "kanlerxz87-cyber/KANLERGEMSDOE3",
+  "branch": "arena/994d43be-kanlergemsdoe3",
+  "lane_id": "L-K3-CADG-SUBMOD",
+  "lane_title": "Cultural/Pluvial-Decontaminated Asymmetric Piedmont Scarp x Upward-Continued Potential-Field Persistence x Hydrothermal Alteration Halo + 300 m Submodular DTI Allocation",
+  "selected_hypothesis_id": "H-K3-1",
+  "max_experiments_budget": 3,
+  "max_wall_clock_hours": 2.0,
+  "dot_budget_full_footprint": 37654,
+  "catalogue_collar_px": 2.05,
+  "submodular_min_self_spacing_px": 2.5,
+  "primary_holdout_split": {
+    "id": "quadrant-buffered-15px-v1",
+    "evaluator": "vendor/gems24_template/holdout.py:SegmentHoldout",
+    "buffer_px": 15,
+    "buffer_m": 1500,
+    "alpha": 0.2,
+    "beta": 0.8,
+    "kernel": "triangular",
+    "radius_m": 300
+  },
+  "independent_confirmation_split": {
+    "id": "diagonal-wedge-buffered-20px-confirm-v1",
+    "evaluator": "evaluate_holdout.py:DiagonalSegmentHoldout",
+    "buffer_px": 20,
+    "buffer_m": 2000,
+    "alpha": 0.2,
+    "beta": 0.8,
+    "kernel": "triangular",
+    "radius_m": 300
+  },
+  "protocol_thresholds": {
+    "leakage_canary_max_two_sided_auc": 0.90,
+    "registry_max_abs_spearman_rho": 0.90,
+    "registry_max_3px_dot_overlap": 0.70,
+    "max_submission_note_chars": 140
+  },
+  "planned_experiments": [
+    {
+      "id": "Exp-K3-1",
+      "name": "Pure Multi-Physics Asymmetric Scarp + Upward-Continued Potential-Field OOF + 300 m Submodular CELF",
+      "description": "Out-of-fold HistGradientBoostingClassifier on Group A (1m LiDAR signed scarp polarity asymmetry |downface-upface|/(downface+upface+4), native has_lidar=NaN mask, seamless 10m 3DEP curvature/lineaments, fluvial chi/ksn knickzones, 100m Sato Hessian ridges) + Group B (19-band geophysics + TMI_up150 depth-persistence ratio + Miller-Singh tilt edge + basin-margin depth_to_base_surf habitat), allocated via lazy-greedy 300 m submodular DTI coverage (37,654 binary dots)."
+    },
+    {
+      "id": "Exp-K3-2",
+      "name": "+ TIGER Road-Cut / Pluvial Shoreline Decontamination & Hydrothermal/Radiometric Alteration Halo",
+      "description": "Adds Group C: Census TIGER/Line 2024 road-embankment scarp decontamination, Pleistocene Lake Lahontan (1332 m) & Bonneville (1463/1552 m) contour bench suppression, GeoDAWN K/Th/U alteration ratios, and label-free INGENIOUS 2 m temperature probes (F2mDAB), spring/well silica-cation geothermometers, and sinter/tufa/travertine upflow seals."
+    },
+    {
+      "id": "Exp-K3-3",
+      "name": "Full CADG-Submod: + Fold-Safe Visible-Catalogue Tip/Relay Continuation & Piedmont-Basin Habitat Weighting",
+      "description": "Adds strictly fold-local visible-only structural continuation features (band-passed relay/step-over zone indicator 300 m..3500 m, directional tip propagation lobe, and visible segment host length — all computed exclusively from fold['visible'] and gated by single-feature canary AUC <= 0.90) plus piedmont/basin-margin sample upweighting (depth_to_base_surf >= 200 m) to align off-catalogue predictions with concealed Great Basin geothermal fault habitat."
+    }
+  ]
+}

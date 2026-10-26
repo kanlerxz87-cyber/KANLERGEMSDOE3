@@ -1,0 +1,777 @@
+{
+  "evaluator_version": "gems-segment-pooled-v1",
+  "split_id": "quadrant-buffered-15px-v1",
+  "threshold_two_sided_auc": 0.9,
+  "tested_features_count": 80,
+  "max_feature_auc": 0.629638,
+  "leakage_suspected": false,
+  "top_5_features_by_auc": [
+    {
+      "feature": "rad_K",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.412017,
+      "two_sided_pooled_auc": 0.587983,
+      "max_two_sided_fold_auc": 0.629638,
+      "max_canary_auc": 0.629638,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "rad_Th",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.435397,
+      "two_sided_pooled_auc": 0.564603,
+      "max_two_sided_fold_auc": 0.625053,
+      "max_canary_auc": 0.625053,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "rad_TC",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.427327,
+      "two_sided_pooled_auc": 0.572673,
+      "max_two_sided_fold_auc": 0.624256,
+      "max_canary_auc": 0.624256,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "tc",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.427347,
+      "two_sided_pooled_auc": 0.572653,
+      "max_two_sided_fold_auc": 0.624188,
+      "max_canary_auc": 0.624188,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "det_elev_slope",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.572579,
+      "two_sided_pooled_auc": 0.572579,
+      "max_two_sided_fold_auc": 0.621206,
+      "max_canary_auc": 0.621206,
+      "leakage_suspected": false
+    }
+  ],
+  "all_features": [
+    {
+      "feature": "mag_anom",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.497529,
+      "two_sided_pooled_auc": 0.502471,
+      "max_two_sided_fold_auc": 0.545386,
+      "max_canary_auc": 0.545386,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "rtp",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.507551,
+      "two_sided_pooled_auc": 0.507551,
+      "max_two_sided_fold_auc": 0.527762,
+      "max_canary_auc": 0.527762,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "tmi_hg",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.518642,
+      "two_sided_pooled_auc": 0.518642,
+      "max_two_sided_fold_auc": 0.552546,
+      "max_canary_auc": 0.552546,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "geod_2ndinv",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.540709,
+      "two_sided_pooled_auc": 0.540709,
+      "max_two_sided_fold_auc": 0.561583,
+      "max_canary_auc": 0.561583,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "iso_grav_anom_slope",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.544284,
+      "two_sided_pooled_auc": 0.544284,
+      "max_two_sided_fold_auc": 0.599472,
+      "max_canary_auc": 0.599472,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "tc",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.427347,
+      "two_sided_pooled_auc": 0.572653,
+      "max_two_sided_fold_auc": 0.624188,
+      "max_canary_auc": 0.624188,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "geod_shearrate",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.536099,
+      "two_sided_pooled_auc": 0.536099,
+      "max_two_sided_fold_auc": 0.567934,
+      "max_canary_auc": 0.567934,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "geod_dilaterate",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.526879,
+      "two_sided_pooled_auc": 0.526879,
+      "max_two_sided_fold_auc": 0.562091,
+      "max_canary_auc": 0.562091,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "tmi_vg",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.48708,
+      "two_sided_pooled_auc": 0.51292,
+      "max_two_sided_fold_auc": 0.523732,
+      "max_canary_auc": 0.523732,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "deq_n100a15",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.524234,
+      "two_sided_pooled_auc": 0.524234,
+      "max_two_sided_fold_auc": 0.541753,
+      "max_canary_auc": 0.541753,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "iso_grav_anom_vg",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.536394,
+      "two_sided_pooled_auc": 0.536394,
+      "max_two_sided_fold_auc": 0.556732,
+      "max_canary_auc": 0.556732,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "det_elev",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.487027,
+      "two_sided_pooled_auc": 0.512973,
+      "max_two_sided_fold_auc": 0.581812,
+      "max_canary_auc": 0.581812,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "iso_grav_anom",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.47222,
+      "two_sided_pooled_auc": 0.52778,
+      "max_two_sided_fold_auc": 0.536667,
+      "max_canary_auc": 0.536667,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "tmi",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.495305,
+      "two_sided_pooled_auc": 0.504695,
+      "max_two_sided_fold_auc": 0.526439,
+      "max_canary_auc": 0.526439,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "depth_to_base_surf",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.504094,
+      "two_sided_pooled_auc": 0.504094,
+      "max_two_sided_fold_auc": 0.530522,
+      "max_canary_auc": 0.530522,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "ieq_n100a15",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.549731,
+      "two_sided_pooled_auc": 0.549731,
+      "max_two_sided_fold_auc": 0.601091,
+      "max_canary_auc": 0.601091,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "cond_surf",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.490611,
+      "two_sided_pooled_auc": 0.509389,
+      "max_two_sided_fold_auc": 0.546607,
+      "max_canary_auc": 0.546607,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "iso_grav_anom_hg",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.502721,
+      "two_sided_pooled_auc": 0.502721,
+      "max_two_sided_fold_auc": 0.596305,
+      "max_canary_auc": 0.596305,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "det_elev_slope",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.572579,
+      "two_sided_pooled_auc": 0.572579,
+      "max_two_sided_fold_auc": 0.621206,
+      "max_canary_auc": 0.621206,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "tmi_up150",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.493373,
+      "two_sided_pooled_auc": 0.506627,
+      "max_two_sided_fold_auc": 0.52636,
+      "max_canary_auc": 0.52636,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "tmi_up150_grad",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.518451,
+      "two_sided_pooled_auc": 0.518451,
+      "max_two_sided_fold_auc": 0.544405,
+      "max_canary_auc": 0.544405,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "mag_depth_persistence_150m",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.51694,
+      "two_sided_pooled_auc": 0.51694,
+      "max_two_sided_fold_auc": 0.540337,
+      "max_canary_auc": 0.540337,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "mag_tilt_edge",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.499322,
+      "two_sided_pooled_auc": 0.500678,
+      "max_two_sided_fold_auc": 0.507217,
+      "max_canary_auc": 0.507217,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "grav_tilt_edge",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.520045,
+      "two_sided_pooled_auc": 0.520045,
+      "max_two_sided_fold_auc": 0.540902,
+      "max_canary_auc": 0.540902,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "basement_grad",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.535796,
+      "two_sided_pooled_auc": 0.535796,
+      "max_two_sided_fold_auc": 0.577968,
+      "max_canary_auc": 0.577968,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "piedmont_margin_score",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.540936,
+      "two_sided_pooled_auc": 0.540936,
+      "max_two_sided_fold_auc": 0.567155,
+      "max_canary_auc": 0.567155,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "cond_surf_grad",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.502319,
+      "two_sided_pooled_auc": 0.502319,
+      "max_two_sided_fold_auc": 0.51465,
+      "max_canary_auc": 0.51465,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "has_lidar",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.513594,
+      "two_sided_pooled_auc": 0.513594,
+      "max_two_sided_fold_auc": 0.526427,
+      "max_canary_auc": 0.526427,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "lidar_ex_max",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.559134,
+      "two_sided_pooled_auc": 0.559134,
+      "max_two_sided_fold_auc": 0.578602,
+      "max_canary_auc": 0.578602,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "lidar_step_max",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.560758,
+      "two_sided_pooled_auc": 0.560758,
+      "max_two_sided_fold_auc": 0.58377,
+      "max_canary_auc": 0.58377,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "lidar_lapneg_max",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.564484,
+      "two_sided_pooled_auc": 0.564484,
+      "max_two_sided_fold_auc": 0.592344,
+      "max_canary_auc": 0.592344,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "lidar_lappos_max",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.568336,
+      "two_sided_pooled_auc": 0.568336,
+      "max_two_sided_fold_auc": 0.595778,
+      "max_canary_auc": 0.595778,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "lidar_downface_max",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.577085,
+      "two_sided_pooled_auc": 0.577085,
+      "max_two_sided_fold_auc": 0.598449,
+      "max_canary_auc": 0.598449,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "lidar_upface_max",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.58156,
+      "two_sided_pooled_auc": 0.58156,
+      "max_two_sided_fold_auc": 0.606807,
+      "max_canary_auc": 0.606807,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "lidar_relief",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.565007,
+      "two_sided_pooled_auc": 0.565007,
+      "max_two_sided_fold_auc": 0.612086,
+      "max_canary_auc": 0.612086,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "lidar_coh100",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.50461,
+      "two_sided_pooled_auc": 0.50461,
+      "max_two_sided_fold_auc": 0.521387,
+      "max_canary_auc": 0.521387,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "lidar_scarp_asymmetry",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.569126,
+      "two_sided_pooled_auc": 0.569126,
+      "max_two_sided_fold_auc": 0.584451,
+      "max_canary_auc": 0.584451,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "lidar_asymmetric_step",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.56424,
+      "two_sided_pooled_auc": 0.56424,
+      "max_two_sided_fold_auc": 0.585178,
+      "max_canary_auc": 0.585178,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "lidar_crest_toe_dipole",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.566926,
+      "two_sided_pooled_auc": 0.566926,
+      "max_two_sided_fold_auc": 0.595339,
+      "max_canary_auc": 0.595339,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "lidar_scarp_sharpness",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.532611,
+      "two_sided_pooled_auc": 0.532611,
+      "max_two_sided_fold_auc": 0.567997,
+      "max_canary_auc": 0.567997,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "topo10_slope_p90",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.574563,
+      "two_sided_pooled_auc": 0.574563,
+      "max_two_sided_fold_auc": 0.610187,
+      "max_canary_auc": 0.610187,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "topo10_slope_max",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.577204,
+      "two_sided_pooled_auc": 0.577204,
+      "max_two_sided_fold_auc": 0.608607,
+      "max_canary_auc": 0.608607,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "topo10_steep_frac",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.551599,
+      "two_sided_pooled_auc": 0.551599,
+      "max_two_sided_fold_auc": 0.587877,
+      "max_canary_auc": 0.587877,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "topo10_slope_std",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.588682,
+      "two_sided_pooled_auc": 0.588682,
+      "max_two_sided_fold_auc": 0.598508,
+      "max_canary_auc": 0.598508,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "topo10_relief_local",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.57348,
+      "two_sided_pooled_auc": 0.57348,
+      "max_two_sided_fold_auc": 0.618179,
+      "max_canary_auc": 0.618179,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "topo10_curv_prof_absmax",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.580258,
+      "two_sided_pooled_auc": 0.580258,
+      "max_two_sided_fold_auc": 0.590214,
+      "max_canary_auc": 0.590214,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "topo10_aspect_coherence",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.516386,
+      "two_sided_pooled_auc": 0.516386,
+      "max_two_sided_fold_auc": 0.539628,
+      "max_canary_auc": 0.539628,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "topo10_hs_lineament",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.575086,
+      "two_sided_pooled_auc": 0.575086,
+      "max_two_sided_fold_auc": 0.596312,
+      "max_canary_auc": 0.596312,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "topo10_hs_dog",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.513498,
+      "two_sided_pooled_auc": 0.513498,
+      "max_two_sided_fold_auc": 0.54255,
+      "max_canary_auc": 0.54255,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "topo10_curv_dog",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.519818,
+      "two_sided_pooled_auc": 0.519818,
+      "max_two_sided_fold_auc": 0.5516,
+      "max_canary_auc": 0.5516,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "chi_step_max",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.542502,
+      "two_sided_pooled_auc": 0.542502,
+      "max_two_sided_fold_auc": 0.595906,
+      "max_canary_auc": 0.595906,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "chi_ksn_max",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.566873,
+      "two_sided_pooled_auc": 0.566873,
+      "max_two_sided_fold_auc": 0.593811,
+      "max_canary_auc": 0.593811,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "chi_log10_area",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.489783,
+      "two_sided_pooled_auc": 0.510217,
+      "max_two_sided_fold_auc": 0.550038,
+      "max_canary_auc": 0.550038,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "chi_zmean_m",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.505942,
+      "two_sided_pooled_auc": 0.505942,
+      "max_two_sided_fold_auc": 0.580133,
+      "max_canary_auc": 0.580133,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "chi_tectonic_step_ratio",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.518477,
+      "two_sided_pooled_auc": 0.518477,
+      "max_two_sided_fold_auc": 0.560154,
+      "max_canary_auc": 0.560154,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "det_elev_ridge_s1p2",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.50861,
+      "two_sided_pooled_auc": 0.50861,
+      "max_two_sided_fold_auc": 0.530928,
+      "max_canary_auc": 0.530928,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "det_elev_ridge_s2p5",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.507664,
+      "two_sided_pooled_auc": 0.507664,
+      "max_two_sided_fold_auc": 0.537248,
+      "max_canary_auc": 0.537248,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "tiger_road_logdist",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.471823,
+      "two_sided_pooled_auc": 0.528177,
+      "max_two_sided_fold_auc": 0.561937,
+      "max_canary_auc": 0.561937,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "lidar_step_road_decontam",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.551974,
+      "two_sided_pooled_auc": 0.551974,
+      "max_two_sided_fold_auc": 0.571828,
+      "max_canary_auc": 0.571828,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "topo10_curv_road_decontam",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.561726,
+      "two_sided_pooled_auc": 0.561726,
+      "max_two_sided_fold_auc": 0.569825,
+      "max_canary_auc": 0.569825,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "pluvial_shoreline_elev_dist_m",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.437989,
+      "two_sided_pooled_auc": 0.562011,
+      "max_two_sided_fold_auc": 0.620612,
+      "max_canary_auc": 0.620612,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "pluvial_bench_mimic_score",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.558962,
+      "two_sided_pooled_auc": 0.558962,
+      "max_two_sided_fold_auc": 0.611189,
+      "max_canary_auc": 0.611189,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "rad_K",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.412017,
+      "two_sided_pooled_auc": 0.587983,
+      "max_two_sided_fold_auc": 0.629638,
+      "max_canary_auc": 0.629638,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "rad_Th",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.435397,
+      "two_sided_pooled_auc": 0.564603,
+      "max_two_sided_fold_auc": 0.625053,
+      "max_canary_auc": 0.625053,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "rad_U",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.471811,
+      "two_sided_pooled_auc": 0.528189,
+      "max_two_sided_fold_auc": 0.56146,
+      "max_canary_auc": 0.56146,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "rad_TC",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.427327,
+      "two_sided_pooled_auc": 0.572673,
+      "max_two_sided_fold_auc": 0.624256,
+      "max_canary_auc": 0.624256,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "ext_ThK",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.488899,
+      "two_sided_pooled_auc": 0.511101,
+      "max_two_sided_fold_auc": 0.563308,
+      "max_canary_auc": 0.563308,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "ext_UK",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.558667,
+      "two_sided_pooled_auc": 0.558667,
+      "max_two_sided_fold_auc": 0.595916,
+      "max_canary_auc": 0.595916,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "ext_UTh",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.554464,
+      "two_sided_pooled_auc": 0.554464,
+      "max_two_sided_fold_auc": 0.614714,
+      "max_canary_auc": 0.614714,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "rad_K_alteration_halo",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.429749,
+      "two_sided_pooled_auc": 0.570251,
+      "max_two_sided_fold_auc": 0.608702,
+      "max_canary_auc": 0.608702,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "tmi_demag_trough",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.512115,
+      "two_sided_pooled_auc": 0.512115,
+      "max_two_sided_fold_auc": 0.529501,
+      "max_canary_auc": 0.529501,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "probe2m_dab_s5",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.529309,
+      "two_sided_pooled_auc": 0.529309,
+      "max_two_sided_fold_auc": 0.550744,
+      "max_canary_auc": 0.550744,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "probe2m_dab_s14",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.528213,
+      "two_sided_pooled_auc": 0.528213,
+      "max_two_sided_fold_auc": 0.570817,
+      "max_canary_auc": 0.570817,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "gdr_thermal_upflow_s5",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.510684,
+      "two_sided_pooled_auc": 0.510684,
+      "max_two_sided_fold_auc": 0.531387,
+      "max_canary_auc": 0.531387,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "gdr_thermal_upflow_s16",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.509105,
+      "two_sided_pooled_auc": 0.509105,
+      "max_two_sided_fold_auc": 0.541282,
+      "max_canary_auc": 0.541282,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "paleo_sinter_tufa_s5",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.500875,
+      "two_sided_pooled_auc": 0.500875,
+      "max_two_sided_fold_auc": 0.513229,
+      "max_canary_auc": 0.513229,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "paleo_sinter_tufa_s14",
+      "group": "label_free_cached",
+      "raw_pooled_auc": 0.488769,
+      "two_sided_pooled_auc": 0.511231,
+      "max_two_sided_fold_auc": 0.532181,
+      "max_canary_auc": 0.532181,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "vis_relay_band_300_3500m",
+      "group": "fold_visible_only_continuation",
+      "raw_pooled_auc": 0.52204,
+      "two_sided_pooled_auc": 0.52204,
+      "max_two_sided_fold_auc": 0.559664,
+      "max_canary_auc": 0.559664,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "vis_tip_propagation_lobe",
+      "group": "fold_visible_only_continuation",
+      "raw_pooled_auc": 0.511998,
+      "two_sided_pooled_auc": 0.511998,
+      "max_two_sided_fold_auc": 0.52548,
+      "max_canary_auc": 0.52548,
+      "leakage_suspected": false
+    },
+    {
+      "feature": "vis_belt_density_2p5km",
+      "group": "fold_visible_only_continuation",
+      "raw_pooled_auc": 0.513983,
+      "two_sided_pooled_auc": 0.513983,
+      "max_two_sided_fold_auc": 0.528259,
+      "max_canary_auc": 0.528259,
+      "leakage_suspected": false
+    }
+  ]
+}
