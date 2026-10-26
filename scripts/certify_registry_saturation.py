@@ -10,6 +10,8 @@ from __future__ import annotations
 
 import argparse
 from datetime import datetime, timezone
+import importlib
+import importlib.util
 import json
 from pathlib import Path
 import sys
@@ -60,8 +62,19 @@ def measure(restore: bool = False) -> dict:
         raise FileNotFoundError("shared template absent or changed; use --restore")
     ensure_file(WITNESS, WITNESS_SHA, WITNESS_REPO, WITNESS_REF, WITNESS_PATH, restore)
     ensure_file(SAMPLE, recovery.SAMPLE_SHA, SAMPLE_REPO, SAMPLE_REF, SAMPLE_PATH, restore)
-    sys.path.insert(0, str(recovery.TEMPLATE / "src"))
-    from gems57.uniqueness import saturation_certificate
+    # Isolate this verified package name from other concurrently installed
+    # template versions that may already be present in sys.modules.
+    package_dir = recovery.TEMPLATE / 'src/gems57'
+    spec = importlib.util.spec_from_file_location(
+        '_pinned_gems57_saturation', package_dir / '__init__.py',
+        submodule_search_locations=[str(package_dir)],
+    )
+    if spec is None or spec.loader is None:
+        raise ImportError('cannot load verified shared template package')
+    package = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = package
+    spec.loader.exec_module(package)
+    saturation_certificate = importlib.import_module(f'{spec.name}.uniqueness').saturation_certificate
 
     with rasterio.open(SAMPLE) as sample:
         footprint = sample.dataset_mask() > 0

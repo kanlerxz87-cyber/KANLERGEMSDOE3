@@ -1,7 +1,9 @@
 # Preregistered research shortlist — not validated discoveries
 
 2026-10-26. Ranking is qualitative expected information gain/DTI potential, **not a score projection**.
-No hypothesis has been implemented or run. No unique method lane was supplied. The recovered shared
+This recovery-session shortlist has not been implemented or run. A separate [preregistered bilateral
+hypothesis](preregistration.md) was tested by a concurrent session and stopped as a duplicate; its
+[run card](../evidence/run-card.json) is preserved. No unique method lane was supplied. The recovered shared
 cache contains 19 pinned participant-mirror bands, but official provenance, licenses, and individual
 band semantics are not independently authenticated. Novelty across every sibling implementation is
 **not established**. H19/H33 thinning, Euler, geothermal-conduit, multiphysics and scarp variants

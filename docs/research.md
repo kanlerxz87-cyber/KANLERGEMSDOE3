@@ -2,7 +2,13 @@
 
 ## Decision: DO NOT SUBMIT
 
-There is **no new eligible TIFF, no new score estimate, and no competition upload**. The single method lane referenced in the parallel-run protocol was not included in the request. More importantly, an independently verified registry witness makes the inherited literal uniqueness check impossible to pass for any nonempty candidate within the mirrored sample footprint. Stopping before candidate placement is required; the research deliverable is negative, not a claim that the geology failed.
+There is **no eligible TIFF, no new leaderboard estimate, and no competition upload in this recovery session**. The single method lane referenced in the parallel-run protocol was not included in the request. More importantly, an independently verified registry witness makes the inherited literal uniqueness check impossible to pass for any nonempty candidate within the mirrored sample footprint. Stopping before further candidate placement is required; the recovery deliverable is negative, not a claim that the geology failed.
+
+## Prior parallel work preserved
+
+A concurrent provisional bilateral K/Th–LiDAR experiment reported **HOLDOUT-DTI 0.1133855**, 95% CI **[0.1006053, 0.1262007]**, `gems57-pooled-hide-v2`, 60,988 withheld positives. Its paired delta against its same-fold feature ablation was **+0.0009773**, 95% CI **[−0.0005962, +0.0026773]**; the comparable best-incumbent gate remains untested. Its 37,654 in-memory dots had 100% overlap with a registered lattice; that lane did not write a TIFF. See its [record](../evidence/run-card.json) and the [preserved prior review](../archive/recovery/concurrent-main-research-review.md).
+
+A separate GPC-3 research TIFF already on main had 37,654 of 37,654 dots within 3 pixels of that lattice ([independent audit](../evidence/parallel-lattice-audit.json)). The other session reported **HOLDOUT-DTI 0.1376815**, 95% CI **[0.1255670, 0.1503305]**, `gems-segment-pooled-v1`, 60,988 positives; we did not rerun it, and the evaluator is not demonstrated interchangeable with the bilateral evaluator. The TIFF is research-only and **not an eligible submission**. These historical experiments are distinct from this session's data recovery; neither used a competition slot or supplies an organizer receipt.
 
 ## What was recovered and measured
 

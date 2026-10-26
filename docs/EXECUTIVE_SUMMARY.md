@@ -1,6 +1,6 @@
 # Executive decision — DO NOT SUBMIT
 
-**No newly generated TIFF is approved, and no candidate score estimate exists.** The nine historical files below are pinned references for learning, not downloads to submit. Their user/owner-reported values are not `ORGANIZER-CONFIRMED` receipts or comparable `HOLDOUT-DTI` results. The live [official leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) is a separate source, not a forecast.
+**No TIFF is approved, and no candidate leaderboard estimate exists.** A previous parallel GPC-3 research TIFF already on main is also a duplicate against the registered lattice and is not approved. A separate bilateral experiment ended in an in-memory duplicate stop. Their prior research results are preserved in the [scientific review](review.md). The nine historical files below are pinned references for learning, not downloads to submit. Their user/owner-reported values are not `ORGANIZER-CONFIRMED` receipts or comparable `HOLDOUT-DTI` results. The live [official leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) is a separate source, not a forecast.
 
 | Priority site | Historical leader in supplied list — unverified owner report | Historical artifact family | Candidate score estimate | Unique vs priority peers? | Submit? |
 |---|---:|---|---|---|---|
@@ -20,4 +20,4 @@ The H33 family is the highest supplied focus-site report, not a proven causal or
 
 The shared template and its 19-band cache were recovered and hash checked from a participant mirror, but official provenance, licenses, and sample identity remain unverified. The pinned registry also contains a full-footprint continuous diagnostic which makes **any** nonempty candidate fail the shared template's literal positive-cell dot rule. It is not established to be a previously submitted dot raster; clarify registry scope without silently weakening the gate. The requested single-method lane is also missing. See the [scientific review](review.md), [source register](SOURCES.md), and [submission guide](SUBMISSION_GUIDE.md).
 
-No geological experiment or competition slot was used. Format validation is not scientific promotion; promotion is not selector or slot authorization.
+No geological experiment or competition slot was used in this recovery session; earlier parallel research is preserved separately. Format validation is not scientific promotion; promotion is not selector or slot authorization.

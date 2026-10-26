@@ -2,7 +2,7 @@
 
 ## Current decision: DO NOT SUBMIT
 
-There is **no new approved competition TIFF** to download from this project. The historical references are not unique under the requested threshold. Do not rename, perturb or upload one as a fresh entry. No current candidate score estimate exists.
+There is **no approved competition TIFF** to download from this project. A previously committed GPC-3 research TIFF and the historical references fail the requested uniqueness threshold; the prior bilateral experiment did not write a TIFF. Do not rename, perturb or upload any of them as a fresh entry. No current candidate leaderboard estimate exists.
 
 ## Required automated evidence before a future selector can approve a file
 

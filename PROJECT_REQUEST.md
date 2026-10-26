@@ -1,6 +1,6 @@
 # Standing project request — operational transcription
 
-Read this before every session. This is a condensed operational transcription of the long user request, not a verbatim archive. The complete original wording remains in the Arena conversation. Do not treat this condensation as permission to ignore any original constraint.
+Read this before every session. This is a condensed operational transcription of the long user request, not a verbatim archive. The supplied request is archived in the expandable section of [README.md](README.md). Do not treat this condensation as permission to ignore any original constraint.
 
 ## Outcome and urgency
 

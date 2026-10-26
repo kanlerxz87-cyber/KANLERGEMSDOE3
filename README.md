@@ -1,14 +1,20 @@
 # KANLERGEMSDOE3 — evidence before submission
 
-**Start every session by reading this README, [project request](PROJECT_REQUEST.md), [standing requirements](research/standing-requirements.md), [scientific review](research/review.md), and the [current run card](run-card.json).** The full supplied request and historical score list are archived in the expandable section below. They are historical instructions and claims, not verified competition receipts; `PROJECT_REQUEST.md` is a shorter working digest.
+**Start every session by reading this README, [project request](PROJECT_REQUEST.md), [standing requirements](research/standing-requirements.md), [scientific review](research/review.md), and the [current experiment run card](evidence/run-card.json).** The full supplied request and historical score list are archived in the expandable section below. They are historical instructions and claims, not verified competition receipts; `PROJECT_REQUEST.md` is a shorter working digest. The separate [recovery-session card](evidence/recovery-run-card.json) records the additional negative result below.
 
 ## Current executive decision: DO NOT SUBMIT
 
 [Executive dashboard](docs/index.html) · [How to submit](docs/executive-summary.html) · [Ranked hypotheses](research/hypotheses.md) · [Measured raster audit](docs/audit.json) · [Official source register](docs/SOURCES.md) · [Live organizer leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/)
 
-**No new eligible TIFF, validated score estimate, or approved download exists.** The nine historic priority winners are duplicates under the requested overlap stop; their reported values are not organizer receipts. A full-footprint *continuous diagnostic* appears in a pinned registry. The shared template treats every positive cell as a dot: under that literal interpretation, it blocks **every nonempty candidate**. Whether that diagnostic belongs in the dot comparison is unresolved and cannot be silently changed. The prompt also references a single-method lane but supplies no identifiable lane paragraph. [Reproducible certificate](evidence/registry_saturation_20261026.json).
+**No eligible TIFF, validated leaderboard estimate, or approved download exists.** The nine historic priority winners are duplicates under the requested overlap stop; their reported values are not organizer receipts. A full-footprint *continuous diagnostic* appears in a pinned registry. The shared template treats every positive cell as a dot: under that literal interpretation, it blocks **every nonempty candidate**. Whether that diagnostic belongs in the dot comparison is unresolved and cannot be silently changed. The prompt also references a single-method lane but supplies no identifiable lane paragraph. [Reproducible certificate](evidence/registry_saturation_20261026.json).
 
-We recovered the original shared evaluator/writer and rebuilt all 19 cached bands from SHA-pinned participant mirrors. This is real data/tool preparation, **not** an experiment, an organizer-authenticated download, license clearance or a new model. The mirrored sample conflicts with the organizer's description of an all-absence sample, so its provenance needs resolution. No geological experiment or weekly slot was used. The requested winning submission remains unfinished.
+In this recovery session we recovered the original 57GEMSDOE evaluator/writer and rebuilt all 19 cached bands from SHA-pinned participant mirrors. This is data/tool preparation, **not** an organizer-authenticated download, license clearance or a new model. The mirrored sample conflicts with the organizer's description of an all-absence sample. This recovery session ran no geological experiment or weekly submission; the requested winning submission remains unfinished.
+
+### Prior parallel experiments preserved on main
+
+- A provisional bilateral radiometric/LiDAR experiment reported **HOLDOUT-DTI 0.1134**, 95% CI **[0.1006, 0.1262]**, `gems57-pooled-hide-v2`, 60,988 withheld positives. Its paired difference versus an ablation was **+0.0010**, 95% CI **[−0.0006, +0.0027]**; the best comparable incumbent was not tested. Its in-memory final dots had 100% overlap with a registered lattice, and no TIFF was written by that lane. See its [run card](evidence/run-card.json).
+- A separate GPC-3 research TIFF already exists on main. Its reported **HOLDOUT-DTI 0.1377**, 95% CI **[0.1256, 0.1503]**, `gems-segment-pooled-v1`, 60,988 positives, was not independently replayed here. It also has **100%** directed overlap with a lattice and is **not eligible to submit**. The two evaluator versions are not directly interchangeable; the new dense-witness certificate is an independent, broader conditional stop. See the [parallel audit](evidence/parallel-lattice-audit.json).
+- Those research results predate this recovery session. Neither is an organizer receipt, a calibrated leaderboard forecast, proof of a discovery, or authorization to upload.
 
 ## Parallel-run protocol — standing starting point
 
@@ -30,8 +36,9 @@ python -m venv .venv
 .venv/bin/python scripts/restore_audit_data.py                       # small pinned historic references
 .venv/bin/python scripts/certify_registry_saturation.py --restore  # geometric witness, not a score
 .venv/bin/python scripts/audit_rasters.py
-.venv/bin/python -m unittest discover -s tests -v
+OPENBLAS_NUM_THREADS=1 .venv/bin/pytest -q
 .venv/bin/python scripts/review.py && .venv/bin/python scripts/build_site.py
+.venv/bin/python scripts/build_site.py --check
 python -m http.server 8000 --bind 0.0.0.0 --directory docs
 ```
 

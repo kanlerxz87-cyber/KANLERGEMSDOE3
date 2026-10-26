@@ -1,0 +1,39 @@
+{
+  "ok": false,
+  "errors": [
+    "outside-footprint valid pixels=7111787; expected null/nodata"
+  ],
+  "validator": "submission-format-v1",
+  "template": "data/sample_submission.tif",
+  "candidate": "docs/downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.tif",
+  "bands": 1,
+  "dtype": [
+    "float32"
+  ],
+  "crs": "EPSG:32611",
+  "shape": [
+    3730,
+    3292
+  ],
+  "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "footprint_pixels": 5167373,
+  "nonfinite_inside": 0,
+  "finite_range_inside": [
+    0.0,
+    1.0
+  ],
+  "valid_outside_footprint": 7111787,
+  "candidate_sha256": "16ec0585a884224460f0e5d09e7448a54ab5a3348db92279452a9a4e0453b0f7",
+  "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+  "interpretation": "Strict local null-outside policy only; not a portal receipt or proof of a prior rejection cause."
+}

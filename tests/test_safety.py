@@ -1,6 +1,8 @@
 import hashlib
+import importlib.util
 import io
 import json
+import subprocess
 import sys
 import tarfile
 import tempfile
@@ -64,8 +66,10 @@ class RestoreTests(unittest.TestCase):
         pins = json.loads((ROOT / 'registry/shared_template_pins.json').read_text())
         if not verify_template(pins):
             self.skipTest('shared template absent; restore with scripts/restore_shared_template.py')
-        sys.path.insert(0, str(ROOT / '.cache/template57/src'))
-        from gems57 import metric
+        metric_path = ROOT / '.cache/template57/src/gems57/metric.py'
+        spec = importlib.util.spec_from_file_location('_verified_template57_metric', metric_path)
+        metric = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(metric)
         p = np.zeros((7, 7), np.float32); p[3, 3] = 1
         truth = np.zeros((7, 7), bool)
         truth[3, 2] = truth[3, 4] = truth[2, 3] = True
@@ -129,6 +133,24 @@ class ValidatorTests(unittest.TestCase):
         self.assertTrue(r['ok'], r['errors'])
         self.assertTrue(r['raw_whole_grid_finite_in_range'])
         self.assertEqual(r['valid_outside_footprint'], 0)
+
+    def test_both_cli_forms_are_local_only_and_check_expected_dots(self):
+        self.write(self.ref, np.zeros((4, 4)))
+        pred = np.zeros((4, 4)); pred[1, 1] = 1
+        self.write(self.pred, pred)
+        script = str(ROOT / 'scripts/validate_submission.py')
+        commands = [[str(self.ref), str(self.pred)], [str(self.pred), '--template', str(self.ref)]]
+        for args in commands:
+            result = subprocess.run([sys.executable, script, *args, '--expected-dots', '1'],
+                                    capture_output=True, text=True, check=True)
+            out = json.loads(result.stdout)
+            self.assertTrue(out['ok'])
+            self.assertFalse(out['portal_acceptance_verified'])
+            self.assertFalse(out['submission_authorized'])
+            failed = subprocess.run([sys.executable, script, *args, '--expected-dots', '2'],
+                                    capture_output=True, text=True)
+            self.assertEqual(failed.returncode, 1)
+            self.assertFalse(json.loads(failed.stdout)['ok'])
 
     def test_external_mask_is_not_a_standalone_tiff(self):
         template = np.zeros((4, 4)); template[0, 0] = -9999

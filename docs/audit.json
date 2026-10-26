@@ -29,8 +29,8 @@
           "warnings": [],
           "validator": "submission-format-v2",
           "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
-          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
-          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE24.tif",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE24.tif",
           "bands": 1,
           "dtype": [
             "float32"
@@ -100,8 +100,8 @@
           "warnings": [],
           "validator": "submission-format-v2",
           "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
-          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
-          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE25.tif",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE25.tif",
           "bands": 1,
           "dtype": [
             "float32"
@@ -171,8 +171,8 @@
           "warnings": [],
           "validator": "submission-format-v2",
           "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
-          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
-          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE27.tif",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE27.tif",
           "bands": 1,
           "dtype": [
             "float32"
@@ -242,8 +242,8 @@
           "warnings": [],
           "validator": "submission-format-v2",
           "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
-          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
-          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE28.tif",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE28.tif",
           "bands": 1,
           "dtype": [
             "float32"
@@ -313,8 +313,8 @@
           ],
           "validator": "submission-format-v2",
           "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
-          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
-          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE30.tif",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE30.tif",
           "bands": 1,
           "dtype": [
             "float32"
@@ -384,8 +384,8 @@
           "warnings": [],
           "validator": "submission-format-v2",
           "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
-          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
-          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE31.tif",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE31.tif",
           "bands": 1,
           "dtype": [
             "float32"
@@ -455,8 +455,8 @@
           "warnings": [],
           "validator": "submission-format-v2",
           "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
-          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
-          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE32.tif",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE32.tif",
           "bands": 1,
           "dtype": [
             "float32"
@@ -526,8 +526,8 @@
           ],
           "validator": "submission-format-v2",
           "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
-          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
-          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE33.tif",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE33.tif",
           "bands": 1,
           "dtype": [
             "float32"
@@ -597,8 +597,8 @@
           "warnings": [],
           "validator": "submission-format-v2",
           "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
-          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
-          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE36.tif",
+          "template": "data/sample_submission.tif",
+          "candidate": "data/GEMSDOE36.tif",
           "bands": 1,
           "dtype": [
             "float32"

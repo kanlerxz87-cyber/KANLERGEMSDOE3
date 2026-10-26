@@ -1,0 +1,138 @@
+{
+  "description": "Pinned upstream template files, fetched unchanged to .cache for use; no private fork. Git blob SHA-1 verifies the tree content. Repositories have no GitHub-recognized open-source license; review reuse rights before distribution.",
+  "files": [
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "7ab1c8f77f0b4b8644e3929403a0dab65838b008",
+      "path": "src/gems/__init__.py",
+      "blob_sha": "32f3c742d9c3387814be5f030db0ecc53faa8818",
+      "bytes": 410
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "7ab1c8f77f0b4b8644e3929403a0dab65838b008",
+      "path": "src/gems/holdout.py",
+      "blob_sha": "fce2bfa88828eb5bcb89c39cc8424090c484d834",
+      "bytes": 26813
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "7ab1c8f77f0b4b8644e3929403a0dab65838b008",
+      "path": "src/gems/metric.py",
+      "blob_sha": "b590ce19f367df59174a07768248ba72f6aafd44",
+      "bytes": 9544
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "7ab1c8f77f0b4b8644e3929403a0dab65838b008",
+      "path": "src/gems/novelty.py",
+      "blob_sha": "0358cc41f5b7ddd792d8c70f9fbd32954dd66b49",
+      "bytes": 16191
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "7ab1c8f77f0b4b8644e3929403a0dab65838b008",
+      "path": "src/gems/emission.py",
+      "blob_sha": "1ee3ddd0a11c05d6d3c1b1bdadedaaf73e514252",
+      "bytes": 9996
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "7ab1c8f77f0b4b8644e3929403a0dab65838b008",
+      "path": "src/gems/submission.py",
+      "blob_sha": "349368ec0d7501b8b494c50acc39b3580f691855",
+      "bytes": 10863
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "7ab1c8f77f0b4b8644e3929403a0dab65838b008",
+      "path": "src/gems/validator.py",
+      "blob_sha": "e98fab4bde46ca2c926d0b4790777badd5369218",
+      "bytes": 396
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "7ab1c8f77f0b4b8644e3929403a0dab65838b008",
+      "path": "scripts/evaluate_holdout.py",
+      "blob_sha": "c880b0576c3bc0bdf6657c5671e47cf7d5c40e71",
+      "bytes": 15684
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "7ab1c8f77f0b4b8644e3929403a0dab65838b008",
+      "path": "scripts/submission_writer.py",
+      "blob_sha": "f5c5d2384a884f2928ec18368577c06a126a6852",
+      "bytes": 1632
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE32",
+      "ref": "07806249f4ed3efe70b4fbf866183c32392b7853",
+      "path": "vendor/gems57/__init__.py",
+      "blob_sha": "964b55b3be184774e11956963b3e0e10b6580c7b",
+      "bytes": 641
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE32",
+      "ref": "07806249f4ed3efe70b4fbf866183c32392b7853",
+      "path": "vendor/gems57/evaluate_holdout.py",
+      "blob_sha": "9c65eb9de1468fecfc909d9b2c1348bed52f67ca",
+      "bytes": 7490
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE32",
+      "ref": "07806249f4ed3efe70b4fbf866183c32392b7853",
+      "path": "vendor/gems57/holdout.py",
+      "blob_sha": "8c71ef3055cfdf130fd9ea617c986b232632f401",
+      "bytes": 14883
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE32",
+      "ref": "07806249f4ed3efe70b4fbf866183c32392b7853",
+      "path": "vendor/gems57/metric.py",
+      "blob_sha": "67008aae6782b6fece2c4dafdf99a5b59dc9e5fd",
+      "bytes": 9895
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE32",
+      "ref": "07806249f4ed3efe70b4fbf866183c32392b7853",
+      "path": "vendor/gems57/spatial.py",
+      "blob_sha": "ebb32c2617bf4da74bb3e851e0f0080a9bb9c8d8",
+      "bytes": 9879
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE32",
+      "ref": "07806249f4ed3efe70b4fbf866183c32392b7853",
+      "path": "vendor/gems57/submission_writer.py",
+      "blob_sha": "5a04a2b0d5d4137f0aad39d862889ef1b92198ea",
+      "bytes": 6387
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE32",
+      "ref": "07806249f4ed3efe70b4fbf866183c32392b7853",
+      "path": "vendor/gems57/grid.py",
+      "blob_sha": "e909e5a219ff242245e24477653a42306401495d",
+      "bytes": 8704
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE32",
+      "ref": "07806249f4ed3efe70b4fbf866183c32392b7853",
+      "path": "vendor/gems57/gates.py",
+      "blob_sha": "cf7cbda418a6b0f80bbdc44a2e12822a97215963",
+      "bytes": 10238
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE32",
+      "ref": "07806249f4ed3efe70b4fbf866183c32392b7853",
+      "path": "vendor/gems57/validate.py",
+      "blob_sha": "6729226367b1b927ca1c17b469b1bb774680a654",
+      "bytes": 4765
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE32",
+      "ref": "07806249f4ed3efe70b4fbf866183c32392b7853",
+      "path": "vendor/gems57/network.py",
+      "blob_sha": "3df35ca834dacbb8e7377c09f82f2ad5b64462bc",
+      "bytes": 9095
+    }
+  ]
+}

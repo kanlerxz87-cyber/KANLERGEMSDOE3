@@ -1,0 +1,87 @@
+{
+  "disclaimer": "Historical values were supplied by the user and repeated by owner sites. No matching submission-page receipt tying score to file SHA-256 is available here; these are not organizer-confirmed scores or predictions for a new file.",
+  "source": "https://buffedlizard55-lab.github.io/GEMSDOE24/docs/portfolio-executive-summary.md",
+  "sites": [
+    {
+      "site": "GEMSDOE24",
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "46f663dad1a1c3d8231e5de5dbad4ee4d19e8d56",
+      "file": "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif",
+      "owner_reported_score": 0.2477,
+      "git_blob_sha": "6b6d31807e501af4749bbaeb43702450893fd720",
+      "sha256": "3e0730e8d4f7db095dd80246a98cba3bc0fc9a28f436b91db27ca34df4d0d1ce"
+    },
+    {
+      "site": "GEMSDOE25",
+      "repo": "buffedlizard55-lab/GEMSDOE25",
+      "ref": "fac6dbe5852baa0f0125d00ecc5cb1c16872741a",
+      "file": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif",
+      "owner_reported_score": 0.26,
+      "git_blob_sha": "bfb7e86d046dd178c3d6ab60522861b5464dd420",
+      "sha256": "3e78737f0da8dd2ca66cc6caac0ce8eeefcd6715707f8d1bd3091845cd9bcc30"
+    },
+    {
+      "site": "GEMSDOE27",
+      "repo": "buffedlizard55-lab/GEMSDOE27",
+      "ref": "cf8b4c201f2cc2ef649b6ca7cd32f235c2f6743a",
+      "file": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+      "owner_reported_score": 0.2449,
+      "git_blob_sha": "49ad427035b2267dcd3e8acee10bdc85d5dbe322",
+      "sha256": "a9bf76b57453a5b3af74c8eef837df53c29a0931162aa540b8763220b36ba3bb"
+    },
+    {
+      "site": "GEMSDOE28",
+      "repo": "buffedlizard55-lab/GEMSDOE28",
+      "ref": "12ec4fea4c97a7887a7ca8a06f9bd94c7609ea07",
+      "file": "docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif",
+      "owner_reported_score": 0.271,
+      "git_blob_sha": "10b2354d4ac8af863419284f1e694a02db180711",
+      "sha256": "7c74270ad48fa0b865163853046a6d3815967c5bf37bbda5b74ca7fa22583a32"
+    },
+    {
+      "site": "GEMSDOE30",
+      "repo": "buffedlizard55-lab/GEMSDOE30",
+      "ref": "35ce8911e2c3287eed973eacd12c252e8cb3f34c",
+      "file": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+      "owner_reported_score": 0.26,
+      "git_blob_sha": "a59665a7fad659dcc6a45e5e7e71059586c3247a",
+      "sha256": "8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd"
+    },
+    {
+      "site": "GEMSDOE31",
+      "repo": "buffedlizard55-lab/GEMSDOE31",
+      "ref": "784d3ae2dc1d247323378074257eba4353b3d087",
+      "file": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif",
+      "owner_reported_score": 0.2708,
+      "git_blob_sha": "40df0d6d854542aefc00f1fed87d4e9c7719fa63",
+      "sha256": "acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6"
+    },
+    {
+      "site": "GEMSDOE32",
+      "repo": "buffedlizard55-lab/GEMSDOE32",
+      "ref": "8b00ee91b9d6d7ef0e3762eb7bc0c92bee0928d1",
+      "file": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "owner_reported_score": 0.2778,
+      "git_blob_sha": "17a76895f68174cc93f3cb1597d25686f6d6bc67",
+      "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9"
+    },
+    {
+      "site": "GEMSDOE33",
+      "repo": "buffedlizard55-lab/GEMSDOE33",
+      "ref": "adf1f45ae0030de5e63d07655eaeb1a0ea4d96f3",
+      "file": "docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+      "owner_reported_score": 0.2632,
+      "git_blob_sha": "901d9db3f008f0f5c3be9c314524ccc8e95fb43e",
+      "sha256": "87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757"
+    },
+    {
+      "site": "GEMSDOE36",
+      "repo": "buffedlizard55-lab/GEMSDOE36",
+      "ref": "6dae4545076c4e5fc2be1cf348fe740ba9508a1d",
+      "file": "docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+      "owner_reported_score": 0.275,
+      "git_blob_sha": "e79b7bdb633369c724628e30efba6de60c1d25d9",
+      "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a"
+    }
+  ]
+}

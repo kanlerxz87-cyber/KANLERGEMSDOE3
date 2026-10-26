@@ -14,6 +14,14 @@ def validate(path, template):
     # specifies null/NaN outside bounds, but portal treatment of sample-mask
     # exterior cells and nodata is not established by this check.
     strict = validate_template(Path(template), Path(path))
+    # Avoid recording machine-specific absolute workspace paths in the audit.
+    for key in ('template', 'candidate'):
+        raw = strict.get(key)
+        if raw:
+            try:
+                strict[key] = str(Path(raw).resolve().relative_to(ROOT))
+            except ValueError:
+                strict[key] = Path(raw).name
     with rasterio.open(template) as ref, rasterio.open(path) as ds:
         a = ds.read(1)
         finite = np.isfinite(a)

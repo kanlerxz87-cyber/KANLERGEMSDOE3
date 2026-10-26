@@ -2,6 +2,7 @@
 """Conservatively check saved GeoTIFF bytes against a sample's data mask.
 
 Usage: python scripts/validate_submission.py template.tif candidate.tif
+   or: python scripts/validate_submission.py candidate.tif --template template.tif
 The sample mask is a *local conservative* interpretation of outside-footprint
 nulls, not proof of DrivenData portal behavior. Never clips or repairs data.
 The sample's provenance must be verified separately; this checks format only.
@@ -113,14 +114,33 @@ def validate(template_path: Path, candidate_path: Path) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("template", type=Path)
-    parser.add_argument("candidate", type=Path)
+    parser.add_argument("first", type=Path, help="template if followed by a candidate, otherwise the candidate")
+    parser.add_argument("second", type=Path, nargs="?", help="candidate when the first argument is the template")
+    parser.add_argument("--template", type=Path, help="template for the one-positional-argument form")
+    parser.add_argument("--expected-dots", type=int, help="optional expected count of pixels equal to one")
     args = parser.parse_args()
+    if args.second is not None and args.template is not None:
+        parser.error("use either template candidate, or candidate --template template")
+    candidate = args.second if args.second is not None else args.first
+    template = args.first if args.second is not None else (args.template or Path(__file__).resolve().parents[1] / 'data/raw/sample_submission.tif')
     try:
-        result = validate(args.template, args.candidate)
+        result = validate(template, candidate)
+        if args.expected_dots is not None:
+            if args.expected_dots < 0:
+                raise ValueError("expected-dots must be nonnegative")
+            with rasterio.open(candidate) as src:
+                dots = int((src.read(1, masked=False) == 1.0).sum())
+            result['positive_dots_eq1'] = dots
+            result['dots_match_expected'] = dots == args.expected_dots
+            if not result['dots_match_expected']:
+                result['errors'].append('positive dot count does not match expected count')
+                result['ok'] = False
     except Exception as exc:
         print(json.dumps({"ok": False, "errors": [f"Unable to validate: {exc}"], "validator": VERSION}, indent=2))
         return 2
+    result['portal_acceptance_verified'] = False
+    result['submission_authorized'] = False
+    result['validator_verdict'] = 'PASS_LOCAL_SAMPLE_POLICY_ONLY' if result['ok'] else 'FAIL_LOCAL_SAMPLE_POLICY'
     print(json.dumps(result, indent=2, allow_nan=False))
     return 0 if result["ok"] else 1
 

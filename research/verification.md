@@ -4,7 +4,7 @@
 
 - Read the standing request, nine-site reviews, previous next steps, source snapshots and run cards. Confirmed the method lane referenced by the prompt is not identifiable.
 - Retrieved the official problem description, organizer masking clarification, public leaderboard, official rules PDF, USGS GeoDAWN release and GDR #1391 landing page. The official data tab redirected to login. No account-specific receipt/quota was obtained.
-- Recovered the shared 57GEMSDOE code under ignored `.cache/`; verified all required file hashes against immutable pins. Reassembled a public participant feature mirror from five checked parts and called the original shared `cache_bands`; all 19 resulting hashes matched the shared receipt. Independently repeated bridge recovery in a clean work directory. No model was trained or evaluated.
+- Recovered the shared 57GEMSDOE code under ignored `.cache/`; verified all required file hashes against immutable pins. Reassembled a public participant feature mirror from five checked parts and called the original shared `cache_bands`; all 19 resulting hashes matched the shared receipt. Independently repeated bridge recovery in a clean work directory. No model was trained or evaluated in this recovery session; separate prior parallel experiments are preserved.
 - Restored a pinned 716-entry participant registry manifest. Using a hash-verified full-footprint diagnostic and the shared saturation function, certified a conditional universal duplicate blocker under the shared positive-cell-as-dot convention. This is not an assertion that the diagnostic is an actual prior dot submission. No candidate or slot was created.
 - Re-ran the existing independent nine-winner SHA, grid and 72 directed overlap audit; every directed pair exceeds the stop. The minimum overlap is a geometry measurement, not a score.
 
@@ -20,8 +20,9 @@
 
 - Updated the executive page, nine-site table, source register, submission guide, research shortlist, run card and README to distinguish measured geometry, historical reports, local format policy and organizer facts. The README archives the supplied request under an expandable historical section. All unverified candidate scores and hashes remain null.
 - The official PDF describes three weekly submissions and generative-AI disclosure; the authenticated remaining quota is unknown. The direct official leaderboard link is live, while the static site is not an automated feed.
-- Rebuilt the static site, ran the complete unit suite and checked JSON/HTML, links, source pins and Git diff as recorded in the final PR. Shared-template synthetic tests do not count as geological experiments and do not produce a competition score.
-- Core outcome is still blocked: no assigned lane, no resolution of the registry representation conflict, no authenticated sample/provenance, no paired holdout, no eligible new TIFF and no competition submission. A separate selector must decide any real slot.
+- Integrated the latest main branch without discarding concurrent bilateral and GPC-3 experiment receipts or the research TIFF. The dashboard distinguishes those earlier experiments from this unrun recovery session; both existing final-dot results remain duplicate stops.
+- Reproduced the full-footprint certificate after isolating the exact shared Python package, bootstrapped both other pinned shared templates, rebuilt the static site and ran **83 tests successfully** (including the shared-template integration tests). JSON, internal links, generated-site consistency and Git whitespace were checked. Synthetic tests do not count as geological experiments or competition scores; Rasterio emitted deprecation warnings only.
+- Core outcome is still blocked: no assigned lane, no resolution of the registry representation conflict, no authenticated sample/provenance, no paired improvement against the best comparable incumbent, no eligible TIFF and no competition submission in this session. A separate selector must decide any real slot.
 
 ## Continuation
 
