@@ -1,0 +1,54 @@
+{
+  "kind": "readiness audit; no geological experiment run",
+  "hypothesis": null,
+  "mechanism": null,
+  "non_fault_mimic": null,
+  "holdout": {
+    "class": "HOLDOUT-DTI",
+    "status": "NOT RUN",
+    "evaluator_version": null,
+    "withheld_positives": null,
+    "value": null,
+    "ci95": null
+  },
+  "correlation_overlap_vs_registry": {
+    "status": "NOT RUN; no candidate surface or dots",
+    "surface_max_rank_correlation": null,
+    "final_max_rank_correlation": null,
+    "surface_dot_overlap_3px": null,
+    "final_dot_overlap_3px": null
+  },
+  "raster_sha256": null,
+  "validator": {
+    "status": "NOT RUN; no raster generated",
+    "single_band": null,
+    "all_finite": null,
+    "range_0_1": null,
+    "crs_match": null,
+    "shape_match": null,
+    "transform_match": null,
+    "no_nan_inside_footprint": null,
+    "values_in_0_1_inside_footprint": null,
+    "reason": "Not run: no candidate GeoTIFF or official sample template in this checkout."
+  },
+  "submission_name": null,
+  "submission_note": "Readiness audit only; no new raster; missing lane and validated shared inputs. DO NOT SUBMIT.",
+  "experiments_run": 0,
+  "slot_authorized": false,
+  "verdict": "negative",
+  "blockers": [
+    "Single-method lane paragraph missing from the request and empty base repository",
+    "No local cached feature stack or integrated shared evaluator/writer",
+    "Input mirrors discoverable but not organizer-authenticated",
+    "No same-evaluator incumbent comparison, feature canaries or registry comparisons run",
+    "No organizer receipt or authenticated weekly-cap check",
+    "Official competition data page redirected to DrivenData login during this session; no authorized input files downloaded",
+    "Current mutable GEMSDOE pages contain conflicting upload-selector/uniqueness claims; no participant promotion flag is accepted here"
+  ],
+  "score_estimate": {
+    "class": "PROJECTION",
+    "status": "not_estimable",
+    "value": null,
+    "reason": "No calibrated same-evaluator/organizer-receipt mapping; user/site historical numbers remain unverified."
+  }
+}
