@@ -1,17 +1,16 @@
 {
-  "verified_utc": "2026-10-26T23:03:11.898782+00:00",
-  "main_commit_integrated": "0051d33293264d5e7b1638bb1aa412156f03f40f",
-  "n_existing_files_checked": 434,
-  "n_preserved_byte_for_byte": 431,
+  "verified_utc": "2026-10-26T23:10:09.221727+00:00",
+  "main_commit_integrated": "9ebfc4bbfbedf39bb2633a524dd49e9192dd3889",
+  "n_existing_files_checked": 463,
+  "n_preserved_byte_for_byte": 461,
   "intentional_existing_file_changes": [
     "README.md",
-    "docs/index.html",
-    "scripts/build_site.py"
+    "docs/source-status.js"
   ],
   "all_prior_root_evidence_code_and_research_artifacts_preserved": true,
   "ssp1_namespace": "studies/ssp1",
   "published_portal": "docs/ssp1",
-  "method": "Git blob SHA-1 recomputed from every working file against the integrated main tree; only README/dashboard linking and its generator changed",
+  "method": "Git blob SHA-1 recomputed for every existing main file. Only the README and optional entry-point JS are changed. Model code, generated root HTML, its generator, raw evidence and artifacts are byte-identical to the integrated main.",
   "rows": [
     {
       "path": ".github/workflows/checks.yml",
@@ -25,7 +24,7 @@
     },
     {
       "path": ".gitignore",
-      "original_blob": "0621a51f5aa19c463af0a6c2173a1ac1f285bdc8",
+      "original_blob": "758cb6a6719736168ac8d72f1896aae3d041ad60",
       "preserved": true
     },
     {
@@ -45,7 +44,7 @@
     },
     {
       "path": "README.md",
-      "original_blob": "e6ad57e9778120aedea221a2e8731766cdd6d064",
+      "original_blob": "910e55e280be9f962d331d86742a3592341f11a6",
       "preserved": false
     },
     {
@@ -250,7 +249,7 @@
     },
     {
       "path": "docs/archived-research.html",
-      "original_blob": "12d67165682caf3fc51e7f64632180d9175dcb76",
+      "original_blob": "b96472f93c27261e493600b3c0418be9a949edd2",
       "preserved": true
     },
     {
@@ -384,8 +383,38 @@
       "preserved": true
     },
     {
+      "path": "docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.tif",
+      "original_blob": "9e93ccbb33e0f523e1646637cbbdd12ce2deb08c",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.zip",
+      "original_blob": "aebd6b959af4504fd1423a8cf5f88d3cb5d7b92f",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.json",
+      "original_blob": "5aa27a17c84f353d49b614876a4fc8b867bc3224",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif",
+      "original_blob": "cb12b8e81f3b187b78face3293fcfb66233985e0",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.zip",
+      "original_blob": "07fc0e49ab3c69edb39a602c5095ec33423d1c13",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf.run-card.json",
+      "original_blob": "b666ce95c7bbcce00b5f68bb73f9567a859a41eb",
+      "preserved": true
+    },
+    {
       "path": "docs/executive-summary.html",
-      "original_blob": "8821c5f63b1cac37418f15f00ca843412b7bc0be",
+      "original_blob": "ac1f1b109d1449c9fd8743f9c67623078055f55b",
       "preserved": true
     },
     {
@@ -400,18 +429,18 @@
     },
     {
       "path": "docs/hypotheses.html",
-      "original_blob": "e143ec65e51f5600aacbda53bd16f36912b9cdf9",
+      "original_blob": "d571c4cba17d024ace5bc48c709261103ef9c5d4",
       "preserved": true
     },
     {
       "path": "docs/hypotheses.md",
-      "original_blob": "5533aa4a203e8aec0dde4bbe7601deb662e4c30d",
+      "original_blob": "0581ed251d5cd1e9b9ea9fe5d7b96d5080de84e3",
       "preserved": true
     },
     {
       "path": "docs/index.html",
-      "original_blob": "6429a572721510a23a21bf4ca27e779758b5de72",
-      "preserved": false
+      "original_blob": "386106f3d401c46e04f98e5fa8da5cf81964463a",
+      "preserved": true
     },
     {
       "path": "docs/k3h1-run-card.json",
@@ -420,7 +449,12 @@
     },
     {
       "path": "docs/k3h1.html",
-      "original_blob": "7d00250b8dbe0744e1c1179237af3563816d2a06",
+      "original_blob": "13642426cb38b0ccba7f5a198267dbc3e098fac9",
+      "preserved": true
+    },
+    {
+      "path": "docs/kanler-h1-run-card.json",
+      "original_blob": "b666ce95c7bbcce00b5f68bb73f9567a859a41eb",
       "preserved": true
     },
     {
@@ -474,6 +508,11 @@
       "preserved": true
     },
     {
+      "path": "docs/preregistration_kanler_h1.md",
+      "original_blob": "6d35d1ae9480d7c9aab0ee9dc82fdce03236a0f5",
+      "preserved": true
+    },
+    {
       "path": "docs/previous-charter.md",
       "original_blob": "458bb7983fb65943596a0cc6d61e2a770d4245e1",
       "preserved": true
@@ -485,12 +524,12 @@
     },
     {
       "path": "docs/research.html",
-      "original_blob": "e07a226bcc854dcb0be2df4d5473e607933470e2",
+      "original_blob": "e24bb997bcb5b385992349e7082dc5b53cc1a962",
       "preserved": true
     },
     {
       "path": "docs/research.md",
-      "original_blob": "52173c8012bfe5fe254ac08ee2548e28eba2a3fd",
+      "original_blob": "741bc63fa3792674134701f8fdf9087677049765",
       "preserved": true
     },
     {
@@ -520,7 +559,7 @@
     },
     {
       "path": "docs/review.md",
-      "original_blob": "52173c8012bfe5fe254ac08ee2548e28eba2a3fd",
+      "original_blob": "741bc63fa3792674134701f8fdf9087677049765",
       "preserved": true
     },
     {
@@ -531,11 +570,11 @@
     {
       "path": "docs/source-status.js",
       "original_blob": "9735d5105b3bcebb26639c78783c2bdebcb5412c",
-      "preserved": true
+      "preserved": false
     },
     {
       "path": "docs/sources.html",
-      "original_blob": "b78b4d123f6ee930d3e8e3d199717a96257955e0",
+      "original_blob": "fedde68203799bc4e2066b8f34b0dd8be7390e0a",
       "preserved": true
     },
     {
@@ -550,7 +589,7 @@
     },
     {
       "path": "docs/submission.html",
-      "original_blob": "8821c5f63b1cac37418f15f00ca843412b7bc0be",
+      "original_blob": "ac1f1b109d1449c9fd8743f9c67623078055f55b",
       "preserved": true
     },
     {
@@ -560,7 +599,12 @@
     },
     {
       "path": "docs/summary.html",
-      "original_blob": "42a31ab0d133ff5e20fe62ace411799d50dd6852",
+      "original_blob": "758ce83787ffb2feead2b77f82946fbd3e4195f8",
+      "preserved": true
+    },
+    {
+      "path": "docs/verification.md",
+      "original_blob": "0c4fa7346a4d2e9da32471b73df8ec6983c31823",
       "preserved": true
     },
     {
@@ -644,6 +688,11 @@
       "preserved": true
     },
     {
+      "path": "evidence/feature_cache.json",
+      "original_blob": "85e6fe29f49c42b493e156f49459b15f7a2c5c11",
+      "preserved": true
+    },
+    {
       "path": "evidence/feature_cache_recovery_20261026.json",
       "original_blob": "2facc7ab6e88aee574d07bc016b62ea301508bde",
       "preserved": true
@@ -666,6 +715,46 @@
     {
       "path": "evidence/k3h1-run-card.json",
       "original_blob": "86c1546c572f1b59ae10bee22d01205c0015fcd5",
+      "preserved": true
+    },
+    {
+      "path": "evidence/kanler_h1/canary.json",
+      "original_blob": "871fa103ca1cb4998b2d53483de96d7c409c0a1f",
+      "preserved": true
+    },
+    {
+      "path": "evidence/kanler_h1/exp1_unsupervised.json",
+      "original_blob": "2e3afd545047a05cd13142e9e0449a94446699f8",
+      "preserved": true
+    },
+    {
+      "path": "evidence/kanler_h1/exp2_pu_oof.json",
+      "original_blob": "15630e6c0dd1dec11581ff16c09e650ec5ee1dea",
+      "preserved": true
+    },
+    {
+      "path": "evidence/kanler_h1/exp3_celf_and_confirmation.json",
+      "original_blob": "af4b823f5a30e1142368d0189b97c5afd0e53fcb",
+      "preserved": true
+    },
+    {
+      "path": "evidence/kanler_h1/lines.json",
+      "original_blob": "a990e1fd484fff1fbc2a423cb77e0a1ec2c6781c",
+      "preserved": true
+    },
+    {
+      "path": "evidence/kanler_h1/run-card.json",
+      "original_blob": "b666ce95c7bbcce00b5f68bb73f9567a859a41eb",
+      "preserved": true
+    },
+    {
+      "path": "evidence/kanler_h1/run_summary.json",
+      "original_blob": "a0f03119b2bfd4fa587a638f14ea3830b4c83b36",
+      "preserved": true
+    },
+    {
+      "path": "evidence/kanler_h1/uniqueness_417_rasters.json",
+      "original_blob": "2d5335b32c23277cb780857325f11ff2860ee307",
       "preserved": true
     },
     {
@@ -716,6 +805,11 @@
     {
       "path": "evidence/recovery-run-card.json",
       "original_blob": "25587cee97678409cd63f61208084c17ae1e6e33",
+      "preserved": true
+    },
+    {
+      "path": "evidence/registry_refreshed.json",
+      "original_blob": "3ff578d1e65be5c34943600a2d12386d9846fd83",
       "preserved": true
     },
     {
@@ -1280,7 +1374,7 @@
     },
     {
       "path": "pyproject.toml",
-      "original_blob": "58ad3145984d015096152ee33ac61d392fb0e559",
+      "original_blob": "378bb3bee02c8081440c3db469952ae5c0fecafe",
       "preserved": true
     },
     {
@@ -1340,7 +1434,7 @@
     },
     {
       "path": "requirements.txt",
-      "original_blob": "8c0a6ccdc412b6e3ea8ccb3fe8fde97258cc6151",
+      "original_blob": "f84c6e7ae80d095170491689e89909c2d1bad59f",
       "preserved": true
     },
     {
@@ -1370,7 +1464,7 @@
     },
     {
       "path": "research/hypotheses.md",
-      "original_blob": "5533aa4a203e8aec0dde4bbe7601deb662e4c30d",
+      "original_blob": "0581ed251d5cd1e9b9ea9fe5d7b96d5080de84e3",
       "preserved": true
     },
     {
@@ -1394,13 +1488,18 @@
       "preserved": true
     },
     {
+      "path": "research/preregistration_kanler_h1.md",
+      "original_blob": "6d35d1ae9480d7c9aab0ee9dc82fdce03236a0f5",
+      "preserved": true
+    },
+    {
       "path": "research/registry-lock.json",
       "original_blob": "185a01799c3570abd52ad1a0bedcc28afb5001dc",
       "preserved": true
     },
     {
       "path": "research/review.md",
-      "original_blob": "52173c8012bfe5fe254ac08ee2548e28eba2a3fd",
+      "original_blob": "741bc63fa3792674134701f8fdf9087677049765",
       "preserved": true
     },
     {
@@ -1420,7 +1519,7 @@
     },
     {
       "path": "research/verification.md",
-      "original_blob": "cc5f43720606369b1568fe780ad9593005e01035",
+      "original_blob": "0c4fa7346a4d2e9da32471b73df8ec6983c31823",
       "preserved": true
     },
     {
@@ -1470,8 +1569,8 @@
     },
     {
       "path": "scripts/build_site.py",
-      "original_blob": "d2d4551bcfce1ed2c2f076a8d89bcfaf308f3487",
-      "preserved": false
+      "original_blob": "6b027d2998e9fdf972ac2f3ac6efa532e16ad264",
+      "preserved": true
     },
     {
       "path": "scripts/build_site_previous.py",
@@ -1504,8 +1603,13 @@
       "preserved": true
     },
     {
+      "path": "scripts/download_competition_data.py",
+      "original_blob": "cecdc191a940e583ea14fb6450a108261463f6ae",
+      "preserved": true
+    },
+    {
       "path": "scripts/download_competition_data.sh",
-      "original_blob": "c8830360d5157a5a2aebce858944d0584fc12a39",
+      "original_blob": "0a974768dcad04083984624cbb5b4ec61652f5f5",
       "preserved": true
     },
     {
@@ -1654,6 +1758,11 @@
       "preserved": true
     },
     {
+      "path": "scripts/run_kanler_h1.py",
+      "original_blob": "c3431b8afc70be18aaff18e3790364f191ef98bd",
+      "preserved": true
+    },
+    {
       "path": "scripts/submission_writer.py",
       "original_blob": "cf146cc8bbd8d2bf839ad9e9aa0f458665037453",
       "preserved": true
@@ -1665,7 +1774,12 @@
     },
     {
       "path": "scripts/validate_submission.py",
-      "original_blob": "60fa6002a94657c1e8d7bccec2fc12e80ff37e02",
+      "original_blob": "ad63b0d5450b7afb3fbe87dfba3e0afbf9ab3d6b",
+      "preserved": true
+    },
+    {
+      "path": "scripts/write_run_card.py",
+      "original_blob": "d87e8917835e5d4a3a458ef9dd4898b89c8541ad",
       "preserved": true
     },
     {
@@ -1914,6 +2028,26 @@
       "preserved": true
     },
     {
+      "path": "src/kanler_gems/__init__.py",
+      "original_blob": "e975aa47010a8fd8fac32afcd5f0533c7fb955ec",
+      "preserved": true
+    },
+    {
+      "path": "src/kanler_gems/h1_dcap_lhc.py",
+      "original_blob": "5e0eaa3d91c7062f242bdffa3c0aaffd17928cbe",
+      "preserved": true
+    },
+    {
+      "path": "src/kanler_gems/registry_uniqueness.py",
+      "original_blob": "080c9e3496a13013e9f97eba0e47aecea3b69fac",
+      "preserved": true
+    },
+    {
+      "path": "src/kanler_gems/template_fixes.py",
+      "original_blob": "aedd719cb095cb9e7c7f9572948fe5cdd3c0d156",
+      "preserved": true
+    },
+    {
       "path": "tests/conftest.py",
       "original_blob": "bf3eca12daeca4b54104846647690b7e5c326687",
       "preserved": true
@@ -1951,6 +2085,11 @@
     {
       "path": "tests/test_k3h1.py",
       "original_blob": "5f83badf8413ab62c85ffd996c5170f3e2709bb6",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_kanler_h1.py",
+      "original_blob": "f6e85bdfbe2f2e942141f110a49d6555a066f174",
       "preserved": true
     },
     {
@@ -2016,6 +2155,11 @@
     {
       "path": "tests/test_template_pins.py",
       "original_blob": "de1725d47ff237be27360a270bf8b64d218ab699",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_vendor_template_fixes.py",
+      "original_blob": "5b5baa441cf01fc21050d0f68f444d681e79a582",
       "preserved": true
     },
     {
@@ -2184,5 +2328,5 @@
       "preserved": true
     }
   ],
-  "previous_integrated_main": "4338f12e30e90904f95e414faeb301f2c98fa394"
+  "previous_integrated_main": "0051d33293264d5e7b1638bb1aa412156f03f40f"
 }

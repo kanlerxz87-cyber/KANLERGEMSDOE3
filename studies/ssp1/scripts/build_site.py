@@ -204,7 +204,7 @@ def main():
     for source in copies:
         p=ROOT/source
         if p.exists():shutil.copyfile(p,DOCS/'data'/p.name)
-    for name in ['verification.json','review_passes.json','review_amendments.json','git_ref_audit.json','surface_recheck.json','browser_checks.json','requirements_matrix.json','integration_audit.json']:
+    for name in ['verification.json','review_passes.json','review_amendments.json','git_ref_audit.json','surface_recheck.json','browser_checks.json','requirements_matrix.json','integration_audit.json','parallel_scope_audit.json']:
         p=ROOT/'evidence'/name
         if p.exists():shutil.copyfile(p,DOCS/'data'/name)
     preview(c)

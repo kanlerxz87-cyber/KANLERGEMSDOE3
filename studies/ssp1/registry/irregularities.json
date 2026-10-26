@@ -121,6 +121,14 @@
       "title": "Parallel sessions merged main during this study",
       "finding": "Main advanced from the initial one-line README through other lane merges while SSP1 was running. Those lanes have different evaluators and independent negative artifacts.",
       "action": "Isolate SSP1 under studies/ssp1, preserve all prior root code/evidence, and publish its portal at docs/ssp1. Do not mix evaluator scores or overwrite another lane run card."
+    },
+    {
+      "id": "IR-17",
+      "severity": "blocker",
+      "title": "A newly merged sibling detector-only uniqueness pass omits a mandatory lattice",
+      "evidence": "evidence/parallel_scope_audit.json",
+      "finding": "The new main README calls DCAP unique against 415 detectors while excluding the disclosed calibration lattice. Read-only KD-tree and EDT agree its saved TIFF has 99.997344% proximity to the pinned 13GEMSDOE lattice (>70%). This is not another SSP1 model experiment.",
+      "action": "Keep sibling raw evidence untouched but qualify the claim prominently in the root README/dashboard. No promotion, no lattice exemption, no fits or new dot placements."
     }
   ]
 }

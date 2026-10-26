@@ -72,11 +72,13 @@
       ],
       "promotion": "negative; no weekly slot selected or used",
       "post_parallel_merge_recheck": {
-        "main_commit": "0051d33293264d5e7b1638bb1aa412156f03f40f",
-        "root_tests_passed": 102,
+        "main_commit": "9ebfc4bbfbedf39bb2633a524dd49e9192dd3889",
+        "verified_utc": "2026-10-26T23:10:09.223990+00:00",
+        "root_tests_passed": 107,
         "root_tests_skipped": 1,
         "ssp1_tests_passed": 58,
-        "source_and_generated_dashboard": "Rebuilt from auto-merged source to preserve both SSP1 and K3-H1 links; prior evidence unchanged"
+        "parallel_safe_entry_point": "Root generator and generated HTML now match main exactly. Only README and optional shared JS add the SSP1 link and qualify a narrower detector-only pass.",
+        "readonly_sibling_audit": "KD-tree/EDT agree 99.997344% mandatory-lattice overlap for the sibling DCAP saved TIFF; no models/dots changed"
       }
     }
   ],

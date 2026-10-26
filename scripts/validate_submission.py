@@ -25,7 +25,7 @@ except ImportError as exc:
 VERSION = "submission-format-v2"
 
 
-def validate(template_path: Path, candidate_path: Path) -> dict:
+def validate(template_path: Path, candidate_path: Path, allow_zero_outside: bool = False) -> dict:
     errors: list[str] = []
     warnings: list[str] = []
     with rasterio.open(template_path) as ref, rasterio.open(candidate_path) as src:
@@ -75,9 +75,15 @@ def validate(template_path: Path, candidate_path: Path) -> dict:
         # NaN is explicitly permitted outside the area; masked finite nodata is
         # locally treated as null. Infinity is not NaN or a valid probability.
         outside = ~footprint
-        outside_valid_count = int((candidate_mask & outside & ~np.isnan(arr)).sum())
+        outside_vals = arr[outside]
+        outside_valid_mask = candidate_mask & outside & ~np.isnan(arr)
+        outside_valid_count = int(outside_valid_mask.sum())
+        outside_nonzero_count = int((outside_valid_mask & (arr != 0.0)).sum())
         if outside_valid_count:
-            errors.append(f"outside-footprint unmasked non-null pixels={outside_valid_count}; local policy expects null/nodata")
+            if allow_zero_outside and outside_nonzero_count == 0 and np.isfinite(outside_vals).all():
+                warnings.append(f"outside-footprint finite zeros={outside_valid_count} permitted by --allow-zero-outside")
+            else:
+                errors.append(f"outside-footprint unmasked non-null pixels={outside_valid_count}; local policy expects null/nodata")
         infinity_count = int(np.isinf(arr).sum())
         if infinity_count:
             errors.append(f"infinite pixels anywhere in TIFF={infinity_count}")
@@ -105,6 +111,7 @@ def validate(template_path: Path, candidate_path: Path) -> dict:
             "nonfinite_inside": nonfinite_inside,
             "finite_range_inside": [float(finite_in.min()), float(finite_in.max())] if finite_in.size else None,
             "valid_outside_footprint": outside_valid_count,
+            "outside_nonzero_count": outside_nonzero_count,
             "nan_pixels_whole_grid": nan_count,
             "infinite_pixels_whole_grid": infinity_count,
             "finite_out_of_range_whole_grid": finite_out_of_range,
@@ -118,29 +125,30 @@ def main() -> int:
     parser.add_argument("second", type=Path, nargs="?", help="candidate when the first argument is the template")
     parser.add_argument("--template", type=Path, help="template for the one-positional-argument form")
     parser.add_argument("--expected-dots", type=int, help="optional expected count of pixels equal to one")
+    parser.add_argument("--allow-zero-outside", action="store_true", help="permit finite 0.0 outside footprint (-zeros.tif variant)")
     args = parser.parse_args()
     if args.second is not None and args.template is not None:
         parser.error("use either template candidate, or candidate --template template")
     candidate = args.second if args.second is not None else args.first
-    template = args.first if args.second is not None else (args.template or Path(__file__).resolve().parents[1] / 'data/raw/sample_submission.tif')
+    template = args.first if args.second is not None else (args.template or Path(__file__).resolve().parents[1] / "data/raw/sample_submission.tif")
     try:
-        result = validate(template, candidate)
+        result = validate(template, candidate, allow_zero_outside=args.allow_zero_outside)
         if args.expected_dots is not None:
             if args.expected_dots < 0:
                 raise ValueError("expected-dots must be nonnegative")
             with rasterio.open(candidate) as src:
                 dots = int((src.read(1, masked=False) == 1.0).sum())
-            result['positive_dots_eq1'] = dots
-            result['dots_match_expected'] = dots == args.expected_dots
-            if not result['dots_match_expected']:
-                result['errors'].append('positive dot count does not match expected count')
-                result['ok'] = False
+            result["positive_dots_eq1"] = dots
+            result["dots_match_expected"] = dots == args.expected_dots
+            if not result["dots_match_expected"]:
+                result["errors"].append("positive dot count does not match expected count")
+                result["ok"] = False
     except Exception as exc:
         print(json.dumps({"ok": False, "errors": [f"Unable to validate: {exc}"], "validator": VERSION}, indent=2))
         return 2
-    result['portal_acceptance_verified'] = False
-    result['submission_authorized'] = False
-    result['validator_verdict'] = 'PASS_LOCAL_SAMPLE_POLICY_ONLY' if result['ok'] else 'FAIL_LOCAL_SAMPLE_POLICY'
+    result["portal_acceptance_verified"] = False
+    result["submission_authorized"] = False
+    result["validator_verdict"] = "PASS_LOCAL_SAMPLE_POLICY_ONLY" if result["ok"] else "FAIL_LOCAL_SAMPLE_POLICY"
     print(json.dumps(result, indent=2, allow_nan=False))
     return 0 if result["ok"] else 1
 

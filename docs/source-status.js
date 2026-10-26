@@ -14,3 +14,32 @@
     .catch(() => { el.textContent = 'GitHub source freshness could not be checked. The evidence and leaderboard snapshot may be stale.'; })
     .finally(() => window.clearTimeout(timeout));
 })();
+
+/* Parallel-safe SSP1 entry point: leave the other lane's generated HTML intact. */
+(() => {
+  const scriptURL = document.currentScript ? document.currentScript.src : window.location.href;
+  const mount = () => {
+    const main = document.querySelector('main');
+    if (!main || document.getElementById('ssp1-study-link')) return;
+    const section = document.createElement('section');
+    section.id = 'ssp1-study-link';
+    section.className = 'wrap';
+    section.setAttribute('aria-label', 'SSP1 research result and strict all-registry gate');
+    const panel = document.createElement('div');
+    panel.className = 'panel';
+    panel.style.padding = '20px';
+    panel.style.marginTop = '20px';
+    const title = document.createElement('h2');
+    const link = document.createElement('a');
+    link.href = new URL('ssp1/executive-summary.html', scriptURL).href;
+    link.textContent = 'New SSP1 TIFF: research download YES · submit NO';
+    title.append(link);
+    const note = document.createElement('p');
+    note.textContent = 'Independently generated pixels, but 99.8752% registered-lattice overlap. Detector-only uniqueness passes below do not satisfy the mandatory all-registry rule. Open the nine-site review, audited download and negative run card.';
+    panel.append(title, note);
+    section.append(panel);
+    main.prepend(section);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount, {once: true});
+  else mount();
+})();

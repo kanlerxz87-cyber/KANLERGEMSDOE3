@@ -1,0 +1,19 @@
+{
+  "verified_utc": "2026-10-26T23:08:35.483360+00:00",
+  "scope": "Read-only saved-byte cross-check of a new sibling claim; not another experiment or a new registry freeze",
+  "file": "docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif",
+  "sha256": "5e5a7b2925876a86473a50d523ee2d31b18da8b17809dcb00fa075cf817ea386",
+  "n_dots_inside_ssp1_retained_footprint": 37654,
+  "reference": {
+    "site": "13GEMSDOE",
+    "commit": "92ee6f074323f161eed837b80ec3ee5b662e26f5",
+    "path": "docs/downloads/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2"
+  },
+  "within3_all_registry_mandatory_witness": 0.9999734423965582,
+  "independent_edt_agrees": true,
+  "strict_uniqueness": "FAIL; a detector-only pass cannot omit a mandatory lattice",
+  "new_model_fits": 0,
+  "new_dot_placements": 0,
+  "sibling_original_evidence_preserved": true
+}

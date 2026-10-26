@@ -7,6 +7,7 @@ __pycache__/
 /data/*.tif
 /data/*.tiff
 /data/*.npy
+/data/official/
 /data/raw/
 /data/raw_parts/
 /data/external/

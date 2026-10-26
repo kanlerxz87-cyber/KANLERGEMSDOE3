@@ -15,7 +15,9 @@ def test_isolated_negative_portal_is_current_and_downloads_the_measured_bytes():
     assert hashlib.sha256(artifact.read_bytes()).hexdigest() == c['raster_sha256']
     assert c['verdict'] == 'negative' and c['decision']['ok_to_submit'] is False
     assert len(list((ROOT/'docs/ssp1').rglob('*.html'))) == 15
-    assert 'ssp1/executive-summary.html' in (ROOT/'docs/index.html').read_text()
+    assert 'source-status.js' in (ROOT/'docs/index.html').read_text()
+    assert 'ssp1/executive-summary.html' in (ROOT/'docs/source-status.js').read_text()
+    assert 'Detector-only uniqueness passes' in (ROOT/'docs/source-status.js').read_text()
 
 
 def test_parallel_evaluators_and_cards_are_not_overwritten_or_combined():
