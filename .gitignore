@@ -1,0 +1,10 @@
+# Local environments, restored data and regenerable caches (never commit competition data)
+.venv/
+.cache/
+data/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.partial
+*.assembling
+.DS_Store

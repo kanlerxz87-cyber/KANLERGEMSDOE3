@@ -1,0 +1,33 @@
+{
+  "protocol": "parallel-run-v1",
+  "hypothesis": "RTP-guided offset matching of K/Th/U radiometric textures may detect concealed fault discontinuities.",
+  "mechanism": "Estimate along-strike texture displacement across independent magnetic lineaments, then test label-free relief/cover context.",
+  "named_non_fault_process": "Depositional alluvial-fan boundaries can juxtapose radiometric textures without fault displacement.",
+  "lane": "No method paragraph was assigned in the prompt; hypotheses are proposed only, not selected or run.",
+  "holdout_dti": null,
+  "holdout_status": "NOT RUN: literal registry saturation is a universal pre-placement stop; no evaluator, withheld positives or CI exists for this candidate.",
+  "leakage_canary": null,
+  "leakage_canary_status": "NOT RUN; every input and derived feature must be tested in each valid holdout before any future run is trusted.",
+  "correlation_overlap_vs_registry": {
+    "surface_spearman": null,
+    "final_spearman": null,
+    "final_dot_overlap": null,
+    "reason": "No candidate surface or final dots were created; one verified positive-everywhere registry witness proves any nonempty candidate will have 1.0 overlap.",
+    "witness_sha256": "ab0a0a62eecf066a82713b09dd49f0f638a91fa3dd81f54cc34ae89afa3872be",
+    "witness_footprint_positive_cells": 5167373,
+    "allowed_cells_uncovered": 0,
+    "registry_scope": "Single decisive public witness, not a complete scan."
+  },
+  "raster_sha256": null,
+  "raster_filename": null,
+  "validator_output": null,
+  "validator_status": "NOT RUN: no new candidate bytes exist; shared template format validator is available for future files.",
+  "submission_name": null,
+  "submission_note": "STOP: literal registry uniqueness is impossible; no new TIFF and no weekly slot used.",
+  "verdict": "negative",
+  "ok_to_submit": false,
+  "new_experiments": 0,
+  "competition_slots_used": 0,
+  "evidence": "evidence/audit.json",
+  "audited_utc": "2026-10-26T21:44:35.965257+00:00"
+}
