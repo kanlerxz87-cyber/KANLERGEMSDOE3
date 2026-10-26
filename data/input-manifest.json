@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "description": "Integrity-pinned owner mirrors, not organizer-authenticated. Bulk files are not committed. SHA-256 pins from GEMSDOE32/registry/data_manifest.json at 07806249f4ed3efe70b4fbf866183c32392b7853 and GEMSDOE24 registry.",
+  "source_manifest": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/07806249f4ed3efe70b4fbf866183c32392b7853/registry/data_manifest.json",
+  "inputs": [
+    {"id":"training_features","dest":"training_features.tif","repo":"buffedlizard55-lab/GEMSDOE","ref":"c0c06ac82178f26b94fce3397036ef8f12a2f3a0","parts":["data/bridge/gems-geodawn-numerical-features.tif.part-000","data/bridge/gems-geodawn-numerical-features.tif.part-001","data/bridge/gems-geodawn-numerical-features.tif.part-002","data/bridge/gems-geodawn-numerical-features.tif.part-003","data/bridge/gems-geodawn-numerical-features.tif.part-004"],"bytes":418912844,"sha256":"4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5"},
+    {"id":"labels","dest":"labels.tif","repo":"buffedlizard55-lab/GEMSDOE24","ref":"07345ea0604953d7efb858d9cfbc21e20c7aca0b","path":"data/bridge/labels.tif","bytes":425830,"sha256":"7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093"},
+    {"id":"sample_submission","dest":"sample_submission.tif","repo":"buffedlizard55-lab/GEMSDOE24","ref":"07345ea0604953d7efb858d9cfbc21e20c7aca0b","path":"data/bridge/sample_submission.tif","bytes":1599597,"sha256":"2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc"},
+    {"id":"lidar_cached","dest":"external/lidar_scarp_features_u8.tif","repo":"buffedlizard55-lab/GEMSDOE24","ref":"07345ea0604953d7efb858d9cfbc21e20c7aca0b","path":"data/external/lidar_scarp_features_u8.tif","bytes":36943606,"sha256":"d580bb8bdcdb941e32fefb8b38044bc5bf04e199bf2e83498c3576e6fc465568"},
+    {"id":"geodawn_radiometric_cached","dest":"external/geodawn_rad_u8.tif","repo":"buffedlizard55-lab/GEMSDOE24","ref":"07345ea0604953d7efb858d9cfbc21e20c7aca0b","path":"data/external/geodawn_rad_u8.tif","bytes":26612970,"sha256":"c22420f75999030d7cc65c9e31e50d232ea6158423bca051613a18a8b20ba682"},
+    {"id":"calibration_lattice","dest":"reference/lattice.tif","repo":"buffedlizard55-lab/GEMSDOE24","ref":"7ab1c8f77f0b4b8644e3929403a0dab65838b008","path":"inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif","bytes":1706456,"sha256":"b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2"}
+  ]
+}

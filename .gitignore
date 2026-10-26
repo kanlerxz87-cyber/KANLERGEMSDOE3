@@ -1,0 +1,14 @@
+.venv/
+.cache/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+/data/*.tif
+/data/*.tiff
+/data/*.npy
+/data/raw_parts/
+/data/external/
+/data/prepared/
+/data/reference/
+/data/*.partial
+/evidence/*.npy
