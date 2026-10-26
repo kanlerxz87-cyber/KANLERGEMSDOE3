@@ -60,7 +60,7 @@ class AuditTests(unittest.TestCase):
         self.assertEqual(len(j['rows']),9);self.assertEqual(len(j['pairs']),72)
         self.assertTrue(all(r['max_overlap_3px']>.7 and not r['unique_under_protocol'] for r in j['rows']))
         card=json.loads((root/'docs/run-card.json').read_text())
-        self.assertEqual(card['verdict'],'negative');self.assertLessEqual(len(card['note']),140)
+        self.assertEqual(card['verdict'],'negative');self.assertLessEqual(len(card['submission_note']),140)
         self.assertIsNone(card['raster_sha256'])
         build()
         page=(root/'docs/index.html').read_text()

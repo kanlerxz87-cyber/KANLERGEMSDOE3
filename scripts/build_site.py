@@ -1,31 +1,107 @@
-"""Render an auditable, no-dependency static executive summary."""
-from pathlib import Path
+"""Render the evidence dashboard; never create, promote or submit a TIFF."""
+from __future__ import annotations
+
+from html import escape
 import json
-from html import escape as e
+from pathlib import Path
+
+import markdown
+
 ROOT = Path(__file__).resolve().parents[1]
+DOCS = ROOT / 'docs'
+
+
+def page(title: str, content: str, *, hero: bool = False) -> str:
+    title = escape(title)
+    banner = '''<div class="hero shell"><div class="eyebrow">GEMS research · evidence snapshot · 26 October 2026</div>
+<h1>Make the next submission count.</h1><p>A decision desk for missing-fault research, independent verification and careful use of limited competition submissions.</p>
+<div class="actions"><a class="button" href="executive-summary.html">How to submit safely</a><a class="button secondary" href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">Open live leaderboard ↗</a></div></div>''' if hero else ''
+    return f'''<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{title} | GEMS decision desk</title><link rel="stylesheet" href="style.css"></head>
+<body><a class="skip" href="#main">Skip to content</a><header class="top"><div class="shell topbar"><div class="brand">GEMS<span> / </span>DECISION DESK</div><nav aria-label="Main navigation"><a href="index.html">Overview</a><a href="executive-summary.html">Submission guide</a><a href="research.html">Scientific review</a><a href="hypotheses.html">Hypotheses</a><a href="sources.html">Sources</a></nav></div>{banner}</header>
+<main class="shell" id="main">{content}</main><footer><div class="shell">Evidence snapshot, not a live score feed. No file is automatically submitted. <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">View the official leaderboard</a>.</div></footer></body></html>'''
+
+
+def render_markdown(source: Path) -> str:
+    text = source.read_text(encoding='utf-8')
+    # The published site can be served from docs/ alone; copy these small
+    # evidence documents into docs/data rather than relying on parent paths.
+    replacements = {
+        '../evidence/registry_saturation_20261026.json': 'data/registry_saturation.json',
+        '../evidence/feature_cache_recovery_20261026.json': 'data/feature_cache_recovery.json',
+        '../registry/shared_template_pins.json': 'data/shared_template_pins.json',
+        '../docs/audit.json': 'audit.json',
+        'review.md': 'research.html',
+        'hypotheses.md': 'hypotheses.html',
+        'SOURCES.md': 'sources.html',
+        'SUBMISSION_GUIDE.md': 'executive-summary.html',
+    }
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+    body = markdown.markdown(text, extensions=['tables', 'fenced_code', 'sane_lists'])
+    # Tables are scrollable without forcing the rest of the page to overflow.
+    body = body.replace('<table>', '<div class="scroll"><table>').replace('</table>', '</table></div>')
+    return f'<article class="panel doc">{body}</article>'
+
 
 def build():
-    audit = json.loads((ROOT/'docs/audit.json').read_text())
+    audit = json.loads((DOCS / 'audit.json').read_text(encoding='utf-8'))
+    card = json.loads((ROOT / 'run-card.json').read_text(encoding='utf-8'))
+    if card.get('verdict') != 'negative' or card.get('raster_sha256') is not None:
+        raise ValueError('This evidence-only dashboard cannot publish a promoted candidate; use an independent selector and publisher.')
     rows = []
     for r in audit['rows']:
-        url=f"https://github.com/buffedlizard55-lab/{r['repo']}/blob/{r['head']}/{r['file']}"
-        fmt='PASS (owner-mirror sample)' if r['local_validation']['format_pass'] else 'FAIL (owner-mirror sample)'
-        reported=f"{r['owner_reported_leaderboard_score']:.4f} OWNER-REPORTED; no receipt binds score to bytes"
-        overlap=f"NO — duplicate vs priority peers<br>{r['max_overlap_3px']:.2%} max 3-px overlap"
-        rows.append(f'''<tr><td>{e(r['repo'])}</td><td><a href="{e(url)}">{e(Path(r['file']).name)}</a><small>Historical reference only — do not submit</small></td><td>{reported}</td><td>Not estimable</td><td>{overlap}</td><td>NO</td><td>{fmt}</td></tr>''')
-    style='''<style>:root{font-family:system-ui,sans-serif;color:#192f3f;background:#f3f6f8}body{max-width:1200px;margin:auto;padding:32px}header,section{background:white;border:1px solid #dce4e9;border-radius:14px;padding:26px;margin:18px 0}h1{font-size:2.3rem;letter-spacing:-.05em}h2{margin-top:0}a{color:#08686c}nav{display:flex;gap:22px;flex-wrap:wrap}.status{border-left:6px solid #b84227;background:#fff5ee}small{display:block;color:#657783;margin:8px 0}table{border-collapse:collapse;width:100%;font-size:.9rem}td,th{text-align:left;padding:15px;border-bottom:1px solid #dce4e9;vertical-align:top}td:nth-child(2){overflow-wrap:anywhere;min-width:200px}th{background:#eef4f6}.scroll{overflow:auto}p,li{line-height:1.65}.eyebrow{color:#08686c;text-transform:uppercase;letter-spacing:.14em;font-size:.8rem}code{overflow-wrap:anywhere}footer{color:#657783;padding:20px}</style>'''
-    head=f'<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>GEMS | Executive summary</title>{style}<body>'
-    page=head+'''<header><div class="eyebrow">GEMS · Evidence before promotion · 26 Oct 2026</div><h1>Submission decision desk</h1><p>Missing-fault discovery research. A valid file is not necessarily a good prediction.</p><nav><a href="executive-summary.html">How to submit</a><a href="review.md">Scientific review</a><a href="hypotheses.md">Ranked hypotheses</a><a href="audit.json">Machine-readable audit</a><a href="run-card.json">Run card</a></nav></header>
-<section class="status"><h2>DO NOT SUBMIT — no eligible new TIFF</h2><p><strong>No download has been approved.</strong> The nine historical best rasters fail the required uniqueness stop. No compliant holdout improvement has been demonstrated. We have not generated a placeholder or copied a historical raster as a “new” submission.</p><p>Missing prerequisites: assigned method lane, cached feature stack, executable shared template, full registry, and paired holdout evidence. No competition slot was used.</p></section>
-<section><h2>Priority-site executive comparison</h2><p>Exact pinned historical filenames below are for audit, not recommendations. “Unavailable” is intentional: no defensible score estimate exists. Format checks do not authorize submission. All nine hashes were independently matched and all 72 directed dot-overlap comparisons recomputed. Format results use the pinned owner-mirror sample grid, not a portal response or organizer-authenticated file.</p><div class="scroll"><table><thead><tr><th>Site</th><th>Historical file / evidence reference</th><th>Historical score claim</th><th>Estimated leaderboard score</th><th>Unique vs priority peers?</th><th>OK to submit?</th><th>Pinned sample-grid format</th></tr></thead><tbody>'''+''.join(rows)+'''</tbody></table></div><p>The minimum directed overlap between different winners is 86.72% — above the 70% stop. Continuous-surface rank correlations are unknown. These are forensic measurements, not HOLDOUT-DTI scores.</p></section>
-<section><h2>Why the H33 B2 history is interesting — not a forecast</h2><p>Archived sources describe sparse thinning near mapped faults. Removing uncredited prediction mass can help, but also risks recall. The private truth, receipt and causal ablation are absent. We cannot substantiate a leaderboard improvement or promote the historical family under this protocol.</p><p>Historical score claims, including the prompt's conflicting leaderboard targets, are not displayed as confirmed results. Raw third-party reports remain in the source archive with their provenance; no ORGANIZER-CONFIRMED receipt was found.</p></section>
-<section><h2>Research queue</h2><ol><li>Cross-scale magnetic/radiometric edge phase disagreement — medium cost; conditional on layer verification.</li><li>Repeated drainage-network displacement — high cost; raw DEM access not verified.</li><li>Alteration-front termination pairs — medium cost; conditional on novelty and provenance checks.</li><li>Terrain-corrected thermal asymmetry — high cost; sampling metadata not verified.</li></ol><p>These are untested proposals, not claims of new geological discoveries. <a href="hypotheses.md">Read physical mechanisms, confounders and the preregistered evaluation plan.</a></p></section>
-<section><h2>Verified access and limitations</h2><p>The official <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">task/format page</a>, <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/968/">About page</a>, <a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN page</a>, <a href="https://epsg.io/32611">EPSG record</a>, and <a href="https://github.com/drivendataorg/gems-prize-reference-solution">reference README</a> were fetched. The official data tab redirected to login; the leaderboard and account receipts were not checked. Historical TIFFs and sample template were fetched from pinned participant repositories for forensic learning only, and are not organizer-authenticated. No feature stack, method lane, full live registry, or runnable shared pipeline is available here.</p><p><a href="review.md">Full review, official source links, irregularities and exact next steps →</a></p></section><footer>Evidence snapshot, not a live leaderboard feed. Nothing is automatically submitted. Refreshing evidence is an explicit audited operation.</footer></body></html>'''
-    (ROOT/'docs/index.html').write_text(page)
-    how=head+'''<header><div class="eyebrow">Submission guide</div><h1>From evidence to a competition file</h1><a href="index.html">← Executive summary</a></header><section class="status"><h2>Current decision: blocked</h2><p>No TIFF from this session is eligible for download and submission. Historical files are research references only. No model score estimate is available.</p></section><section><h2>Automated research gates</h2><ol><li>Fix the assigned lane and restore the pinned shared template, cached label-free features and full registry.</li><li>Recompute all catalogue-derived features from visible faults after withholding complete segments and their buffer. Mask visible faults pixel-exactly.</li><li>Run single-feature leakage canaries. AUC above 0.90 blocks trusting the result pending explanation.</li><li>Run paired spatial holdout against the incumbent: pooled DTI, alpha 0.2, beta 0.8, 300 m triangular kernel. Save evaluator version, withheld-positive count and spatial-block 95% CI. Require conservative positive paired improvement.</li><li>Before placement and on final dots, stop if any registry rank correlation exceeds 0.90 or dot overlap within 3 px exceeds 70%. Missing registry evidence blocks approval.</li><li>Use the canonical shared submission writer. Validate the saved bytes against the sample mask: one band, float32, exact CRS/shape/transform, finite predictions in [0,1] inside the footprint, and null/nodata outside. Do not blindly clip invalid outputs or replace outside nodata with zero without checking the official sample.</li><li>Save the exact SHA256, automated validator receipt, unique name and comment of at most 140 characters. Selector authorization is separate from scientific validation.</li></ol></section><section><h2>Only after selector authorization</h2><p>Check the current rules and weekly cap on the official <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">competition page</a>. The cap was not verified here. The requested format is a single-band .tif, or a ZIP containing one GeoTIFF, matching the organizer template. Consult the official submission page before upload.</p><p>Select the approved exact file, paste its run-card note, and preserve the resulting organizer receipt with the submitted hash. Only that receipt may establish an ORGANIZER-CONFIRMED score. A holdout result is never a leaderboard guarantee.</p><p>Inspection and file-format checking can be automated. Account access, competition acceptance and use of a limited weekly slot remain outside this research run.</p></section></body></html>'''
-    (ROOT/'docs/executive-summary.html').write_text(how)
-    for src in ['review','hypotheses']:
-        (ROOT/f'docs/{src}.md').write_text((ROOT/f'research/{src}.md').read_text())
+        url = f"https://github.com/buffedlizard55-lab/{r['repo']}/blob/{r['head']}/{r['file']}"
+        site_path = {'GEMSDOE31': 'docs/', 'GEMSDOE32': 'docs/index.html', 'GEMSDOE36': 'docs/'}.get(r['repo'], '')
+        site_url = f"https://buffedlizard55-lab.github.io/{r['repo']}/{site_path}"
+        fmt = 'Meets local mask policy' if r['local_validation']['format_pass'] else 'Does not meet local mask policy'
+        overlap = f"{r['max_overlap_3px']:.2%} max directed overlap"
+        rows.append(f'''<tr><td><a href="{escape(site_url)}">{escape(r['repo'])}</a></td>
+<td class="file"><a href="{escape(url)}">{escape(Path(r['file']).name)}</a><small>Historical reference variant; score is not bound to these bytes.</small></td>
+<td>{r['owner_reported_leaderboard_score']:.4f}<small>Unverified user/owner report</small></td><td>Not estimable</td>
+<td><strong>No</strong><small>{overlap}; exceeds stop</small></td><td><span class="pill stop-pill">NO</span></td>
+<td>{escape(fmt)}<small>Not a portal verdict</small></td></tr>''')
+
+    content = '''<section class="status" aria-labelledby="decision"><div class="label">Current decision</div><h2 id="decision">DO NOT SUBMIT — no eligible new TIFF</h2>
+<p><strong>Approved download: none.</strong> No new candidate has passed the required holdout and uniqueness gates. Historical files below are for learning, not for upload.</p>
+<p>The assigned method lane is missing. A continuous registry diagnostic also triggers the shared template’s literal overlap stop for every nonempty footprint candidate; its inclusion as a dot raster is unresolved. <a href="research.html">See the evidence and caveat</a>.</p></section>
+<div class="cards"><div class="card"><span class="kicker">Candidate estimate</span><strong>Not estimable</strong><small>No compliant holdout or organizer receipt.</small></div><div class="card"><span class="kicker">Priority-site winners</span><strong>All fail overlap stop</strong><small>Measured against other historical winners.</small></div><div class="card"><span class="kicker">Shared inputs</span><strong>Cache recovered, not authenticated</strong><small>Participant mirror; sample identity and license unresolved.</small></div></div>
+<section class="panel"><h2>Priority-site executive comparison</h2><p>These are the highest historical items in the supplied list, not approved submissions. Values are unverified user/owner reports; no receipt links them to the referenced TIFF bytes. A local sample-mask result is not an organizer rejection or acceptance.</p><div class="scroll"><table><thead><tr><th>Site</th><th>Historical file reference</th><th>Historical claim</th><th>Estimate</th><th>Unique vs peers?</th><th>OK to submit?</th><th>Local format check</th></tr></thead><tbody>''' + ''.join(rows) + '''</tbody></table></div>
+<div class="note">All 72 directed winner-to-winner 3-pixel comparisons exceed the 70% stop; the minimum is 86.72%. Continuous-surface correlations and the complete current registry remain unchecked. <a href="audit.json">Inspect the measured audit</a>.</div></section>
+<div class="columns"><section class="panel"><h2>Why did the H33 family stand out?</h2><p>Its reported historical value is the highest in the supplied nine-site list. Sparse thinning might reduce uncredited predictions, but can also reduce fault coverage. There is no receipt or controlled ablation to prove why it performed as reported.</p><p>DrivenData staff confirm the known-fault mask is pixel-exact, without a 300 m buffer. Nearby unmasked predictions can be penalized, but new-fault truth can also occur nearby. <a href="https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/4">Read the clarification</a>.</p></section>
+<section class="panel"><h2>What must happen next?</h2><ol><li>Resolve the missing lane and continuous-diagnostic registry scope without relaxing the stop locally.</li><li>Verify data/code licenses and the true organizer sample; the mirrored sample differs from the published description.</li><li>Refresh the complete registry, then run canaries and paired spatial holdout before a separate selector considers a slot.</li></ol><p><a href="hypotheses.html">See the ranked research hypotheses →</a></p></section></div>
+<section class="panel"><h2>Rules, sources and confidence</h2><p>The organizer requires a single-band float32 GeoTIFF on the matching grid, with probabilities in [0,1] and null/NaN outside the bounds. The rules PDF describes three submissions per week; the current account quota is not known. The same selected submission is used in both prize rounds.</p><p>The shared cache is byte-matched to a participant template, not independently authenticated to the organizer. The previous portal range error cannot be diagnosed without its exact file. <a href="sources.html">Review official sources and limitations →</a></p><p><a href="run-card.json">Current run card</a> · <a href="data/registry_saturation.json">Registry certificate</a> · <a href="data/feature_cache_recovery.json">Cache recovery receipt</a></p></section>'''
+    (DOCS / 'index.html').write_text(page('Executive summary', content, hero=True), encoding='utf-8')
+
+    # Keep one authoritative run card; both site paths are deterministic copies.
+    data_dir = DOCS / 'data'
+    data_dir.mkdir(exist_ok=True)
+    card_text = json.dumps(card, indent=2, allow_nan=False) + '\n'
+    for p in (DOCS / 'run-card.json', data_dir / 'run_card.json'):
+        p.write_text(card_text, encoding='utf-8')
+    for src, dst in [
+        ('evidence/registry_saturation_20261026.json', 'registry_saturation.json'),
+        ('evidence/feature_cache_recovery_20261026.json', 'feature_cache_recovery.json'),
+        ('registry/shared_template_pins.json', 'shared_template_pins.json'),
+    ]:
+        (data_dir / dst).write_text((ROOT / src).read_text(encoding='utf-8'), encoding='utf-8')
+    # Keep markdown copies for auditable text; render accessible HTML subpages.
+    for src, md_name, html_names, title in [
+        (ROOT / 'research/review.md', 'review.md', ['research.html'], 'Scientific review'),
+        (ROOT / 'research/hypotheses.md', 'hypotheses.md', ['hypotheses.html'], 'Research hypotheses'),
+        (DOCS / 'SOURCES.md', None, ['sources.html'], 'Source register'),
+        (DOCS / 'SUBMISSION_GUIDE.md', None, ['executive-summary.html', 'submission.html'], 'Submission guide'),
+        (DOCS / 'EXECUTIVE_SUMMARY.md', None, ['summary.html'], 'Executive summary'),
+    ]:
+        if md_name:
+            (DOCS / md_name).write_text(src.read_text(encoding='utf-8'), encoding='utf-8')
+        html = page(title, render_markdown(src))
+        for name in html_names:
+            (DOCS / name).write_text(html, encoding='utf-8')
+    (DOCS / 'research.md').write_text((ROOT / 'research/review.md').read_text(encoding='utf-8'), encoding='utf-8')
+    (DOCS / 'submission.md').write_text((DOCS / 'SUBMISSION_GUIDE.md').read_text(encoding='utf-8'), encoding='utf-8')
+
 
 if __name__ == '__main__':
     build()

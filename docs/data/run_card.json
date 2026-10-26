@@ -1,54 +1,53 @@
 {
-  "kind": "readiness audit; no geological experiment run",
-  "hypothesis": null,
-  "mechanism": null,
-  "non_fault_mimic": null,
+  "hypothesis": "Cross-scale magnetic/radiometric edge phase disagreement; proposed only, not assigned or tested.",
+  "mechanism": "A persistent deeper magnetic edge with a local radiometric polarity change might indicate an obscured structural boundary; causality is unverified.",
+  "non_fault_mimic": "Igneous contacts, changes in surface lithology, and airborne-survey processing seams.",
   "holdout": {
     "class": "HOLDOUT-DTI",
-    "status": "NOT RUN",
+    "status": "NOT RUN: missing lane and literal registry saturation stop",
     "evaluator_version": null,
     "withheld_positives": null,
     "value": null,
     "ci95": null
   },
   "correlation_overlap_vs_registry": {
-    "status": "NOT RUN; no candidate surface or dots",
-    "surface_max_rank_correlation": null,
-    "final_max_rank_correlation": null,
-    "surface_dot_overlap_3px": null,
-    "final_dot_overlap_3px": null
+    "candidate_surface_rank_correlation": null,
+    "candidate_final_dot_overlap_3px": null,
+    "candidate_checked": false,
+    "prior_winner_minimum_directed_overlap_3px": 0.8671895382207149,
+    "prior_winner_pairs": 72,
+    "saturation_witness_overlap_for_any_nonempty_footprint_set_if_positive_cells_are_dots": 1.0,
+    "saturation_witness_sha256": "975c217ef803a45041077a219ba460134a8c84c8ea9f7ffc0414ddb47cb54ccd",
+    "witness_is_continuous_diagnostic": true,
+    "complete_current_registry_checked": false,
+    "evidence": "evidence/registry_saturation_20261026.json"
   },
   "raster_sha256": null,
   "validator": {
-    "status": "NOT RUN; no raster generated",
-    "single_band": null,
-    "all_finite": null,
-    "range_0_1": null,
+    "status": "NOT RUN: no new candidate raster",
+    "no_nan_inside_footprint": null,
+    "values_in_0_1_inside_footprint": null,
     "crs_match": null,
     "shape_match": null,
     "transform_match": null,
-    "no_nan_inside_footprint": null,
-    "values_in_0_1_inside_footprint": null,
-    "reason": "Not run: no candidate GeoTIFF or official sample template in this checkout."
+    "portal_acceptance": null
   },
   "submission_name": null,
-  "submission_note": "Readiness audit only; no new raster; missing lane and validated shared inputs. DO NOT SUBMIT.",
-  "experiments_run": 0,
-  "slot_authorized": false,
+  "submission_note": "No candidate: lane and registry saturation unresolved. Do not submit.",
   "verdict": "negative",
+  "experiments_run": 0,
+  "weekly_slots_used": 0,
+  "score_estimate": null,
   "blockers": [
-    "Single-method lane paragraph missing from the request and empty base repository",
-    "No local cached feature stack or integrated shared evaluator/writer",
-    "Input mirrors discoverable but not organizer-authenticated",
-    "No same-evaluator incumbent comparison, feature canaries or registry comparisons run",
-    "No organizer receipt or authenticated weekly-cap check",
-    "Official competition data page redirected to DrivenData login during this session; no authorized input files downloaded",
-    "Current mutable GEMSDOE pages contain conflicting upload-selector/uniqueness claims; no participant promotion flag is accepted here"
+    "Assigned single-method lane was not supplied.",
+    "The shared positive-cell dot definition makes a full-footprint registry diagnostic a universal overlap blocker; its scope is unresolved.",
+    "The participant-mirror sample differs from the organizer's published sample description; official provenance and licenses are unverified.",
+    "No comparable candidate holdout, per-feature canaries, current complete registry, selector authorization or organizer receipt exists."
   ],
-  "score_estimate": {
-    "class": "PROJECTION",
-    "status": "not_estimable",
-    "value": null,
-    "reason": "No calibrated same-evaluator/organizer-receipt mapping; user/site historical numbers remain unverified."
+  "recovered_for_research": {
+    "shared_template_commit": "822a0ce5546c7b6749cdd82eb145b6b3e616603d",
+    "cached_bands_hash_matched": 19,
+    "participant_mirror_only": true,
+    "receipt": "evidence/feature_cache_recovery_20261026.json"
   }
 }

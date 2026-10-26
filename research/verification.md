@@ -1,29 +1,28 @@
 # Three-pass verification record — 26 October 2026
 
-## Pass 1 — implement/review the requested work
+## Pass 1 — recovery and implementation
 
-- Inspected the starting commit: it contained only the one-line README. Integrated the concurrent main review and its pinned site evidence before continuing.
-- Reviewed pinned source trees for GEMSDOE24/25/27/28/30/31/32/33/36 and directly fetched current owner Pages to flag changing or contradictory selector statements.
-- Fetched official DrivenData task/About pages, official data tab (redirected to login), USGS GeoDAWN page, EPSG:32611 record and reference-solution README. The official leaderboard, GDR page and NLR PDF were not verified.
-- Restored nine exact historical TIFFs plus an owner-mirror sample and labels into ignored `data/` for forensic learning only. No historic file was treated as a candidate. Verified all 9 SHA-256 values against pinned manifests and recomputed 72 directed Euclidean ≤3 px overlap comparisons.
-- Built a prioritized historical scorecard (owner-reported claims only), no-submit decision, research hypotheses, official source notes, submission instructions and JSON card. No TIF was generated.
+- Read the standing request, nine-site reviews, previous next steps, source snapshots and run cards. Confirmed the method lane referenced by the prompt is not identifiable.
+- Retrieved the official problem description, organizer masking clarification, public leaderboard, official rules PDF, USGS GeoDAWN release and GDR #1391 landing page. The official data tab redirected to login. No account-specific receipt/quota was obtained.
+- Recovered the shared 57GEMSDOE code under ignored `.cache/`; verified all required file hashes against immutable pins. Reassembled a public participant feature mirror from five checked parts and called the original shared `cache_bands`; all 19 resulting hashes matched the shared receipt. Independently repeated bridge recovery in a clean work directory. No model was trained or evaluated.
+- Restored a pinned 716-entry participant registry manifest. Using a hash-verified full-footprint diagnostic and the shared saturation function, certified a conditional universal duplicate blocker under the shared positive-cell-as-dot convention. This is not an assertion that the diagnostic is an actual prior dot submission. No candidate or slot was created.
+- Re-ran the existing independent nine-winner SHA, grid and 72 directed overlap audit; every directed pair exceeds the stop. The minimum overlap is a geometry measurement, not a score.
 
-## Pass 2 — adversarial review and bug fix
+## Pass 2 — adversarial bug and assumption review
 
-- Confirmed every historical winner exceeds the 70% overlap stop; minimum cross-winner directed overlap is 86.718954%. Continuous surfaces/full registry are not present; their correlation remains unknown.
-- Compared all nine historical rasters to the pinned sample footprint. Found the old audit’s whole-array range/finiteness checks could call finite zeros outside the footprint a format pass even though the official description requires null/NaN outside.
-- Fixed the shared local audit/report path to use `scripts/validate_submission.py` against the sample mask. Added a regression test for zero-outside rejection and nodata-outside acceptance.
-- Strict sample-mask result: 2/9 historical files pass; 7/9 fail because finite zeros are stored outside the footprint. This owner-mirror check is not a portal result or organizer authentication.
-- Installed rasterio/numpy/scipy in ignored `.venv`; no global environment or Git-tracked dataset was modified. All downloaded audit rasters and labels remain ignored under `data/`.
+- Corrected the prior report's overstatement that the 7 sample-mask failures were confirmed organizer-format violations. They are conservative local policy failures; portal handling is unknown. Preserved the public description's actual null/NaN-outside-bounds wording.
+- Verified that DrivenData staff describe a pixel-exact known-fault mask, not a 300 m buffer; new-fault truth can occur near known traces and near-fault thinning remains only a hypothesis. Rejected an incorrect simplification of the distance-weighted Tversky denominator and recorded a synthetic counterexample to a shared-template prose inequality; the shared metric's exact and brute-force functions agreed on that case. No private template fork was made.
+- Fixed local format-validator false passes for an empty or ambiguous template footprint, infinity and external `.msk` sidecars. Added explicit whole-grid raw-range diagnostics and synthetic standalone internal-mask coverage. Exact uploaded bytes remain unavailable, so the user's portal error remains unexplained.
+- Fixed the local schema gate to apply the specified **positive** correlation threshold instead of absolute correlation. A complete, self-asserted card can no longer be returned as a scientific promotion; schema completeness and slot authorization remain distinct. Added threshold, type, CI, note and malformed-input tests.
+- Changed snapshot review to verify recorded evidence hashes rather than silently recompute and bless them. Added tests for hash-pinned archive extraction, traversal/missing/duplicate members, and unchanged snapshot manifests.
 
-## Pass 3 — full requirement reconciliation
+## Pass 3 — request reconciliation and final verification
 
-- Ran `scripts/audit_rasters.py`, `scripts/build_site.py`, JSON parses, HTML/local-link checks, and the full unit suite: **15 tests pass**.
-- Ran `scripts/validate_submission.py` against all nine historic files and the pinned owner-mirror sample. The range error’s cause for the user’s previously uploaded file remains unknown because its bytes/receipt were not supplied.
-- Historical 0.2778, the user’s 0.3195/0.4413 leaderboard targets, and every per-site score remain owner-reported/unverified; score estimate is not estimable.
-- No assigned method lane, official training feature stack, cached features, integrated shared evaluator/writer, complete raster registry, paired holdout evidence, or current slot receipt/quota was available. Therefore no candidate experiment, new TIFF, portal submission or slot selection occurred. The requested high-scoring unique submission is **not yet fulfilled**; the negative readiness/duplicate findings are the honest deliverable.
-- PR #5, containing the evidence review, was merged to `main`; the session branch was fast-forwarded to concurrent `main` reviews and retained.
+- Updated the executive page, nine-site table, source register, submission guide, research shortlist, run card and README to distinguish measured geometry, historical reports, local format policy and organizer facts. The README archives the supplied request under an expandable historical section. All unverified candidate scores and hashes remain null.
+- The official PDF describes three weekly submissions and generative-AI disclosure; the authenticated remaining quota is unknown. The direct official leaderboard link is live, while the static site is not an automated feed.
+- Rebuilt the static site, ran the complete unit suite and checked JSON/HTML, links, source pins and Git diff as recorded in the final PR. Shared-template synthetic tests do not count as geological experiments and do not produce a competition score.
+- Core outcome is still blocked: no assigned lane, no resolution of the registry representation conflict, no authenticated sample/provenance, no paired holdout, no eligible new TIFF and no competition submission. A separate selector must decide any real slot.
 
-## Remaining work
+## Continuation
 
-Obtain the missing method paragraph/lane. Restore or verify authorized data access and the canonical shared cache/evaluator/writer; do not treat owner mirrors as organizer-authenticated. Restore the complete current registry. Then pre-register one of the hypotheses, run feature-alone canaries and buffered whole-segment holdout, test surface and final-dot uniqueness, validate the exact output against the official sample, and let a separate selector decide whether a weekly slot is available. No leaderboard projection is a substitute for an organizer receipt.
+Resolve the lane and common registry policy; obtain/verify licensed organizer data and the true sample; refresh the full registry; then conduct feature canaries and the prespecified shared holdout within the experiment/time budget. Do not reinterpret a negative readiness result as a score or a successful entry.

@@ -1,36 +1,53 @@
 {
-  "hypothesis": "No geological hypothesis was tested. The preregistered candidates are documented in docs/HYPOTHESES.md; no single lane was selected because the referenced method paragraph is not identifiable in the prompt and the shared template/data are absent.",
-  "mechanism": "Not tested. No cached feature stack or shared holdout/evaluator tooling is present in this checkout.",
-  "named_non_fault_process_that_could_mimic_it": "Not applicable to a tested candidate; each proposed candidate lists a named confounder in docs/HYPOTHESES.md.",
-  "holdout_dti": {
-    "label": "HOLDOUT-DTI",
-    "value": null,
-    "confidence_interval_95": null,
+  "hypothesis": "Cross-scale magnetic/radiometric edge phase disagreement; proposed only, not assigned or tested.",
+  "mechanism": "A persistent deeper magnetic edge with a local radiometric polarity change might indicate an obscured structural boundary; causality is unverified.",
+  "non_fault_mimic": "Igneous contacts, changes in surface lithology, and airborne-survey processing seams.",
+  "holdout": {
+    "class": "HOLDOUT-DTI",
+    "status": "NOT RUN: missing lane and literal registry saturation stop",
     "evaluator_version": null,
     "withheld_positives": null,
-    "status": "NOT RUN — required shared evaluator, input rasters and labels absent"
+    "value": null,
+    "ci95": null
   },
   "correlation_overlap_vs_registry": {
-    "surface_rank_correlation_max_abs": null,
-    "final_dot_overlap_max_within_3px": null,
-    "status": "NOT RUN — registry rasters absent"
+    "candidate_surface_rank_correlation": null,
+    "candidate_final_dot_overlap_3px": null,
+    "candidate_checked": false,
+    "prior_winner_minimum_directed_overlap_3px": 0.8671895382207149,
+    "prior_winner_pairs": 72,
+    "saturation_witness_overlap_for_any_nonempty_footprint_set_if_positive_cells_are_dots": 1.0,
+    "saturation_witness_sha256": "975c217ef803a45041077a219ba460134a8c84c8ea9f7ffc0414ddb47cb54ccd",
+    "witness_is_continuous_diagnostic": true,
+    "complete_current_registry_checked": false,
+    "evidence": "evidence/registry_saturation_20261026.json"
   },
   "raster_sha256": null,
-  "validator_output": {
-    "status": "NOT RUN — no candidate raster generated",
+  "validator": {
+    "status": "NOT RUN: no new candidate raster",
     "no_nan_inside_footprint": null,
-    "values_in_0_1": null,
-    "crs_shape_transform_match_template": null
+    "values_in_0_1_inside_footprint": null,
+    "crs_match": null,
+    "shape_match": null,
+    "transform_match": null,
+    "portal_acceptance": null
   },
   "submission_name": null,
-  "submission_note": "No TIFF generated; do not download or submit a placeholder.",
+  "submission_note": "No candidate: lane and registry saturation unresolved. Do not submit.",
   "verdict": "negative",
-  "experiments_used": 0,
-  "submission_slots_used": 0,
-  "limitations": [
-    "Checkout has only the initial README; model code, data, cached feature stack and tests are absent.",
-    "Shared evaluate_holdout.py and submission_writer.py are absent.",
-    "No sample template, labels, complete registry, or authenticated organizer receipt is available.",
-    "The exact single-method paragraph required to define this lane is not identifiable in the supplied prompt."
-  ]
+  "experiments_run": 0,
+  "weekly_slots_used": 0,
+  "score_estimate": null,
+  "blockers": [
+    "Assigned single-method lane was not supplied.",
+    "The shared positive-cell dot definition makes a full-footprint registry diagnostic a universal overlap blocker; its scope is unresolved.",
+    "The participant-mirror sample differs from the organizer's published sample description; official provenance and licenses are unverified.",
+    "No comparable candidate holdout, per-feature canaries, current complete registry, selector authorization or organizer receipt exists."
+  ],
+  "recovered_for_research": {
+    "shared_template_commit": "822a0ce5546c7b6749cdd82eb145b6b3e616603d",
+    "cached_bands_hash_matched": 19,
+    "participant_mirror_only": true,
+    "receipt": "evidence/feature_cache_recovery_20261026.json"
+  }
 }
