@@ -1,0 +1,36 @@
+{
+  "hypothesis": "No geological hypothesis was tested. The preregistered candidates are documented in docs/HYPOTHESES.md; no single lane was selected because the referenced method paragraph is not identifiable in the prompt and the shared template/data are absent.",
+  "mechanism": "Not tested. No cached feature stack or shared holdout/evaluator tooling is present in this checkout.",
+  "named_non_fault_process_that_could_mimic_it": "Not applicable to a tested candidate; each proposed candidate lists a named confounder in docs/HYPOTHESES.md.",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "value": null,
+    "confidence_interval_95": null,
+    "evaluator_version": null,
+    "withheld_positives": null,
+    "status": "NOT RUN — required shared evaluator, input rasters and labels absent"
+  },
+  "correlation_overlap_vs_registry": {
+    "surface_rank_correlation_max_abs": null,
+    "final_dot_overlap_max_within_3px": null,
+    "status": "NOT RUN — registry rasters absent"
+  },
+  "raster_sha256": null,
+  "validator_output": {
+    "status": "NOT RUN — no candidate raster generated",
+    "no_nan_inside_footprint": null,
+    "values_in_0_1": null,
+    "crs_shape_transform_match_template": null
+  },
+  "submission_name": null,
+  "submission_note": "No TIFF generated; do not download or submit a placeholder.",
+  "verdict": "negative",
+  "experiments_used": 0,
+  "submission_slots_used": 0,
+  "limitations": [
+    "Checkout has only the initial README; model code, data, cached feature stack and tests are absent.",
+    "Shared evaluate_holdout.py and submission_writer.py are absent.",
+    "No sample template, labels, complete registry, or authenticated organizer receipt is available.",
+    "The exact single-method paragraph required to define this lane is not identifiable in the supplied prompt."
+  ]
+}

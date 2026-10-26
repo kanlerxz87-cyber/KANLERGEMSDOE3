@@ -42,8 +42,8 @@ The snapshots of the canonical shared scripts import dependencies that have not 
 
 ## Website and publication
 
-The static site is in `docs/`. A GitHub Actions Pages workflow is included. Actual deployment depends
-on repository Pages settings and workflow permissions; a merged workflow is not proof of a live URL.
+The static site is in `docs/`. The existing legacy Pages configuration publishes main at the root; the root index redirects to docs/.
+A verification workflow is retained; actual publication status must be checked rather than assumed.
 The home page prominently separates file-format validity from scientific eligibility. There is deliberately
 no approved-TIFF download link while validation is blocked.
 
@@ -54,3 +54,12 @@ leaderboard forecasts, duplicated raster tweaks or spending scarce submission sl
 
 **Own the Outcome:** preserve evidence, automate checks, expose blockers, and document the next concrete
 experiment rather than claim unperformed training or verification.
+
+## Concurrent-main integration
+
+Main changed during this run. Its evidence archive, gate/schema tests, source reports and standing
+`PROJECT_REQUEST.md` were merged without deleting them. The previous active dashboard is preserved at
+[parallel review](docs/parallel-review-dashboard.html), with its README at
+[parallel review README](docs/parallel-review-readme.md). `scripts/review.py` now rebuilds archived
+dashboards rather than overwriting the active independent-raster-audit summary. The active run card
+for this session is `docs/run-card.json`; other run cards remain historical evidence.
