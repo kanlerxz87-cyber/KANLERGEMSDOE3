@@ -5,6 +5,7 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     env:
       GH_TOKEN: ${{ github.token }}
       OPENBLAS_NUM_THREADS: '1'
@@ -14,9 +15,31 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: pip
       - run: pip install -r requirements.txt
       - run: python scripts/install_template.py
-      - run: bash scripts/bootstrap_template.sh
-      - run: pytest -q
+      - run: PYTHON=python bash scripts/bootstrap_template.sh
+      - run: python scripts/restore_instruments.py --profile saturation57
+      - run: python -m pytest -q
       - run: python scripts/check_run.py
-      - run: python scripts/review.py && python scripts/build_site.py && git diff --exit-code
+      - run: python scripts/review.py && python scripts/build_site.py --check && git diff --exit-code
+      - run: git diff --check
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tools/browser/package-lock.json
+      - run: npm ci --prefix tools/browser --no-audit --no-fund
+      - name: Desktop, mobile and fail-closed feed scenarios
+        run: node tests/browser_smoke.mjs --serve
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-ui-review
+          path: data/ui-review/
+          retention-days: 7

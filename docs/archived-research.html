@@ -1,73 +1,131 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GEMS · Evidence &amp; submission review</title><link rel="stylesheet" href="style.css"><main><p class="stop"><strong>ARCHIVED SNAPSHOT.</strong> <a href="index.html">See the current dashboard</a>.</p><article style="white-space:pre-wrap;overflow-wrap:anywhere"># Scientific Review, Focus-Site Audit &amp; PhD Analysis of `0.2778` (`2026-10-26`)
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GEMS · Evidence &amp; submission review</title><link rel="stylesheet" href="style.css"><main><p class="stop"><strong>ARCHIVED SNAPSHOT.</strong> <a href="index.html">See the current dashboard</a>.</p><article style="white-space:pre-wrap;overflow-wrap:anywhere"># Executive scientific review — 26 October 2026
 
-## 1. Executive Summary Across `KANLERGEMSDOE3`, All 9 Focus Sites &amp; Broader Portfolio
+## Decision
 
-We reviewed all **9 focus repositories** (`GEMSDOE24`, `GEMSDOE25`, `GEMSDOE27`, `GEMSDOE28`, `GEMSDOE30`, `GEMSDOE31`, `GEMSDOE32`, `GEMSDOE33`, `GEMSDOE36`) plus key non-family portfolio benchmarks (`19GEMSDOE`, `GEMSDOE63`, `GEMSDOE70`, `GEMSDOE76`, `GEMSDOE92`), restored the hash-pinned competition + public USGS/DOE external stack + **417 downloadable/calibration rasters (`389` unique SHA-256 digests)** autonomously via git smart HTTP, fixed shared template bugs (`IR-TEMPLATE-CODELOAD-01`, `IR-TEMPLATE-ROOT-DEPTH-03`), and executed our frozen 3-experiment geological lane **`KANLER-H1` (`DCAP-LHC`)**.
+**DO NOT SUBMIT. No genuinely new, scientifically qualified TIFF exists in this session.** No geological experiment or submission slot was used. The requested winning submission is not yet delivered. A negative result is preferable to a renamed historical raster or a fabricated score estimate.
 
-### Headline Decision
-- **Generated Unique Session Deliverable (`KANLERGEMSDOE3`):**
-  - Primary all-finite file: [`docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif`](downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif) (`139,196 B`, SHA-256 `5e5a7b2925876a86473a50d523ee2d31b18da8b17809dcb00fa075cf817ea386`, ZIP [`kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.zip`](downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.zip)).
-  - Companion template-`NaN` twin: [`docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.tif`](downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.tif) (`351,761 B`, SHA-256 `97279cabe47a7e81eb47dc4caa1cbf0fd3143b451beb3a3440032e504f8a8db5`, byte-identical `37,654` in-footprint dots).
-  - **Automated Gate Status:** **`VERDICT: NEGATIVE` — OK TO DOWNLOAD FOR RESEARCH &amp; INDEPENDENT VERIFICATION; DO NOT SPEND A WEEKLY LIVE DRIVENDATA SLOT.**
-    - **PASS (`G1` Format &amp; `[0, 1]` Range):** Single-band `float32`, `EPSG:32611`, `3730 × 3292`, exact geotransform `(100, 0, 243350, 0, -100, 4508550)`, `0` `NaN`/`Inf` inside footprint, values strictly in `[0.0, 1.0]`, `0` positive pixels on `labels.tif`.
-    - **PASS (`G2` Leakage Canary):** All 10 input lines &amp; surfaces have `max(AUC, 1 - AUC) &lt;= 0.7577 &lt;= 0.90`.
-    - **PASS (`G5` Final-Dot Detector Uniqueness):** Maximum within-3-px dot overlap is **`58.47% &lt;= 70%`** across all `415` genuine detector rasters (`39.74%` vs `GEMSDOE32` `0.2778`; `36.24%` vs `GEMSDOE31 H31-X`; `43.45%` vs `GEMSDOE24 D1.5`); continuous-surface `max |Spearman| = 0.1599 &lt;= 0.90`; final-dot `max |Spearman| = 0.0408 &lt;= 0.90`.
-    - **FAIL (`G3` Global Holdout Incumbent Gate):** `HOLDOUT-DTI = 0.1253` (`95% CI [0.1080, 0.1414]`, `gems57-pooled-hide-v2`, `n = 60,988` withheld positives) decisively beat `CTRL` (`0.0671`, paired `+0.0582`) and `SLOPE` (`0.0486`, paired `+0.0767`), **beat `REF_H31X` in Quadrant 3 (Walker Lane / Hawthorne-Tonopah: `0.1726` vs `0.1602`, `+0.0124`)**, and **lifted low-slope piedmont (`&lt;= 6°`) off-catalogue `SGMC` discovery `+28.1%` over `REF_H31X` (`0.0569` vs `0.0444`)**, but trailed `REF_H31X` (`0.1674`) globally because `47.4%` of Quadrant 1 lacks 1 m 3DEP LiDAR coverage (`IR-KANLER-LIDAR-COVERAGE-STARVATION`, starving Quadrant 1 from `9,823` to `3,296` dots) and `Band 12 det_elev` detrending troughs clipped range-front toes (`IR-KANLER-DETELEV-TROUGH`).
-- **Best Historical Portfolio Submission (Reference Only — Already Submitted):**
-  - `GEMSDOE32` `gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif` (`37,654` dots, SHA-256 `c55bafc4...`) = **`0.2778` (`OWNER-REPORTED` leaderboard score; no organizer upload receipt stored in repo)**. All 9 historical focus-site winners belong to the same `19GEMSDOE` `H19-5` dot-thinned family (`86.72%–100.00%` 3-px mutual overlap) and **must not** be re-submitted as new candidates.
+This session starts from the populated review repository at `f82397e`, not from an empty checkout. The old “only data placement remains” claim is inaccurate. Data placement has now been completed from pinned participant mirrors, but independent scientific and provenance gates still fail.
 
----
+## What this session actually completed
 
-## 2. Complete Cross-Site Comparison Table (Focus Sites + Portfolio Context)
+- Restored the complete core multiband input (19 bands), labels, existing-fault alias, sample template and SGMC proxy through public Git transport. Every byte stream matches the shared manifest&#x27;s SHA-256 and size. This is **mirror integrity, not organizer authentication**.
+- Ran the **unmodified shared** `prepare_data.py`, producing sanitized raw-band copies. The full shared 35-channel feature stack was **not** regenerated. Its source receipt exists, but its bytes and expected digest were not published in the pinned tree.
+- Independently checked CRS, shape and transform of core features, labels and proxy against the sample. See [input audit](../evidence/input-integrity.json). Raw missing/sentinel values affect 3,073 footprint pixels across one or more bands; 58,171 is the count summed across bands, not the count of distinct missing pixels. They must never become negative prediction values.
+- Restored and source-locked 13 unmodified shared-tool/dependency files from <a href="https://github.com/buffedlizard55-lab/GEMSDOE32/tree/400b60d4a6d99f425ee90504e6c4552227556dd1">GEMSDOE32 at an immutable commit</a>. No private metric or writer fork was introduced.
+- Reproduced a shared evaluator bookkeeping defect using a synthetic fixture: a nonempty prediction in a zero-truth cell is recorded in that cell&#x27;s FP count but omitted from pooled spatial-block FP totals. Existing <a href="https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41">upstream issue #41</a> already tracks it; we did not open a duplicate. **This is not evidence that the historical leaderboard results were affected.** The local runner fails closed until a central repair is pinned.
+- Confirmed that the shared hide-and-recover entry point binarizes nonzero soft inputs. Do not describe its output as evaluation of the original probabilities. <a href="https://github.com/buffedlizard55-lab/GEMSDOE32/issues/37">Existing upstream issue #37</a>.
+- Refreshed immutable source-commit observations for all nine priority repositories. This feed detects source changes; it does not turn homepage approval labels into this project&#x27;s approval or authenticate score claims.
 
-Every numerical figure is strictly labeled by evidence class per Protocol Rule 3 (`HOLDOUT-DTI`, `OWNER-REPORTED`, `PROJECTION`, or `NOT AVAILABLE`; zero `ORGANIZER-CONFIRMED` portal receipts exist in any public repository).
+## Concurrent main reconciliation — no silent evidence mixing
 
-| Site / Repo | Primary File (Pinned Reference / Download) | Dots | Confirmed / Reported Leaderboard Score | Shared `HOLDOUT-DTI` (`gems57-pooled-hide-v2`, $N=60,988$) | Uniqueness Status (`&lt;=70%` 3-px &amp; `|rho|&lt;=0.90`) | Approved to Submit Live? |
-|---|---|---:|---|---|---|---|
-| **`KANLERGEMSDOE3` (This Run — `KANLER-H1`)** | `docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif` (+ `-nan.tif` twin) | `37,654` | Not submitted (`0` slots used) | **`0.1253` `[0.1080, 0.1414]`** (`HOLDOUT-DTI`; Q3 `0.1726`; confirm `0.1107` on $N=29,965$) | **UNIQUE vs all 415 detector rasters** (`max 58.47%` 3-px; `39.74%` vs `H33`; `|rho|=0.1599`) | **NO (`verdict: negative` — research download only; trailed `0.1674` holdout best in Q1)** |
-| **`GEMSDOE32` (Historical Best)** | `gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif` *(latest 2026-10-26 lane `H50 TM-SPI`: `HOLDOUT-DTI 0.0126`, negative)* | `37,654` | **`0.2778` (`OWNER-REPORTED` — Highest Focus Score)** | `0.0067` handicapped fixed-dot (`B2` pre-pruned on full cat); `H50 = 0.0126` | Historical `B2`: **DUPLICATE** (`98.49%` vs `28/36`, `100%` subset of `D2.8`). `H50`: `18.5%` | **NO** (`B2` already submitted / family duplicate; `H50` failed holdout) |
-| **`GEMSDOE36`** | `gemsdoe36-atbe-b2-h33-plus1200-20261005-872264e3-zeros.tif` *(2026-10-26 `H36-R3`: negative)* | `38,854` | `0.2750` (`OWNER-REPORTED`) | Not run on `B2+1200`; `H36-R3` negative | **DUPLICATE** (`96.91%` 3-px vs `GEMSDOE32`) | **NO** |
-| **`GEMSDOE28`** | `gemsdoe28-h28c-edgerelief-37660-20261004-f8ba1dc8-zeros.tif` *(2026-10-26 `CSPD`: `HOLDOUT-DTI 0.0369`, negative)* | `37,660` | `0.2710` (`OWNER-REPORTED`) | `CSPD = 0.0369 [0.0258, 0.0493]` | Historical: **DUPLICATE** (`98.49%` vs `GEMSDOE32`) | **NO** |
-| **`GEMSDOE31` (Holdout Incumbent)** | Historical: `gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif`; **2026-10-26 `H31-X`:** `gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif` | `40,199` / `37,654` | Historical `h27-4`: `0.2708` (`OWNER-REPORTED`); `H31-X`: unsubmitted | **`H31-X = 0.1661 [0.1499, 0.1821]`** (`0.1674` local repro; confirm `0.1462`) — **Portfolio Holdout Best** | Historical: `100%` subset of `D2.8`. `H31-X`: `63.05%` final dots (`86.31%` pre-placement `top-K` vs `D1.5`) | **NO** (`H31-X` marked `verdict: negative` on pre-placement `top-K` &amp; 5-px lattice gate) |
-| **`GEMSDOE33`** | `gemsdoe33-stepover-b1-20261004-d9777b8d-nan.tif` *(2026-10-26 `DPPS`: `HOLDOUT-DTI 0.0954`, negative)* | `41,865` | `0.2632` (`OWNER-REPORTED`) | `DPPS = 0.0954` | Historical: **DUPLICATE** (`96.26%` vs `GEMSDOE31`) | **NO** |
-| **`GEMSDOE25`** | `gems25-h25-1-dotted-h19-5-d2-8-20261002-e56ea318af89-allfinite.tif` | `44,090` | `0.2600` (`OWNER-REPORTED`) | Legacy `B1` only | **DUPLICATE** (`100.00%` identical mask to `GEMSDOE30`) | **NO** |
-| **`GEMSDOE30`** | `gems24-h25-1-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif` | `44,090` | `0.2600` (`OWNER-REPORTED`) | Not run (`0` new exps on 2026-10-26) | **DUPLICATE** (`100.00%` identical mask to `GEMSDOE25`) | **NO** |
-| **`GEMSDOE24`** | `gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif` | `60,069` | `0.2477` (`OWNER-REPORTED`) | `H24-R5` (`0.0593` on `n=29,880`) | **DUPLICATE** (`96.59%` vs `GEMSDOE27`) | **NO** |
-| **`GEMSDOE27`** | `gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif` *(also `H29-S`: `0.2190` live)* | `61,328` | `0.2449` (`OWNER-REPORTED`); `H29-S = 0.2190` | `H31-1 = 0.0473` (40-cell CV) | Historical `t-v2`: **DUPLICATE** (`94.67%` vs `GEMSDOE24`); `H29-S`: unique | **NO** |
-| *Broader Portfolio Context: `GEMSDOE70`* | `gems70-p5-dual-submod300-oof38k` / `P9` (`72`-feature LOQO HGB + 300 m submodular) | `37,654` | **`0.2478` (`OWNER-REPORTED` — Best Non-`H19-5` Live Score)** | `P9 = 0.1100` (`gems57-pooled-hide-v2`) | Genuine non-`H19-5` family (`~39–45%` vs `H33`) | Context benchmark |
-| *Broader Portfolio Context: `19GEMSDOE`* | `gems19-h19-5-powerlaw-budget-multiline-corroborated-20260930-e27054cf-nan.tif` | `121,131` | `0.1922` (`OWNER-REPORTED`) | Ancestor ridge surface | Ancestor of all 9 focus winners | Context benchmark |
+Main `4338f12` was integrated on this session’s fixed branch. It contains prior
+bilateral/GPC experiments, a quarantined research TIFF, alternative pinned tool
+versions and registry-saturation measurements. They are preserved. This session’s
+zero-experiment claim is **not** a repository-wide claim. The last geological
+card remains `evidence/run-card.json`; the present review’s negative card is
+`evidence/session-7d1e577d-run-card.json`. Their scopes must not be merged into a
+fictional new experiment or a new high-scoring artifact.
 
----
+The prior bilateral card records **0.1134 HOLDOUT-DTI**, evaluator
+`gems57-pooled-hide-v2`, 60,988 withheld positives, 95% CI [0.1006, 0.1262]. Its
+matched ablation difference CI includes zero, and its final dots hit 100% overlap
+with a registered binary calibration lattice. These numbers were checked for
+internal arithmetic/identity consistency, not independently rerun here. They do
+not qualify a model or calibrate a leaderboard forecast. The separate GPC TIFF
+also failed the lattice gate. No lattice exemption or smaller evasive dot budget
+was adopted.
 
-## 3. PhD-Level Analysis: Why &amp; How `GEMSDOE32` (`0.2778`) Won — and How to Beat `0.2778` Toward `0.33–0.4437`
+We independently reproduced the separate **full-footprint diagnostic** receipt:
+all 5,167,373 allowed pixels have finite positive diagnostic support. Under the
+older shared tool’s positive-cell-as-dot rule this forces 100% forward overlap
+for every nonempty footprint candidate. It is a continuous diagnostic, not an
+established submitted dot mask. Our geometry CLI requires explicit companion dots
+for soft surfaces and fails closed if those are absent; it does not discard that
+registry entry or declare novelty. The representation ambiguity requires a
+protocol/registry decision, not silent threshold relaxation.
 
-### 3.1 Exact Mathematical &amp; Physical Mechanism Behind `0.2778`
-`GEMSDOE32`&#x27;s `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif` (`0.2778` `OWNER-REPORTED`) did **not** win by discovering a better raw probability surface than `19GEMSDOE` — its `37,654` positive pixels are an **exact subset** of `19GEMSDOE` `H19-5` (`121,131` px = `0.1922`) and `GEMSDOE25/30` `D2.8` (`44,090` px = `0.2600`). Its `+0.0856` (`+44.5%` relative) jump from `0.1922` to `0.2778` comes from three exact properties of the **Distance-Weighted Tversky Index** ($\alpha = 0.2, \beta = 0.8$, $R = 300\text{ m} = 3\text{ px}$, $k(d) = \max(0, 1 - d/3)$):
+A second independent provenance check found that the pinned mirror sample has
+60,988 positive catalogue pixels and equals the label raster inside the footprint.
+The official format page was re-fetched and describes an all-absence sample.
+That discrepancy does not prove a particular portal rejection mechanism, but it
+prevents treating this mirror as authenticated organizer template evidence. The
+sample’s values are not used as training labels. See `sample-provenance-check.json`
+in evidence and the source ledger.
 
-$$\text{DTI}(p, G) = \frac{\sum_{g \in G} \max_{x: d(x,g)\le 3} p(x)\,k(d(x,g))}{\sum_{g \in G} \max_{x} p(x)k(d(x,g)) + 0.2\sum_{x} p(x)\big[1 - \max_{g \in G} k(d(x,g))\big] + 0.8\,\text{FN}_w}$$
+Source verification also caught a 533-byte API quota-error body that had been
+mistakenly stored as the shared restoration script. Before publication, all 13
+source files were restored through Git and compared with the immutable tree’s
+blob identities as well as SHA-256. Tests now require every numerical dependency
+in the lock and real importable shared entry points. No geological experiment had
+used the erroneous restoration file; no score/TIFF is being retroactively validated.
 
-1. **`MAX`-vs-`SUM` Operator Asymmetry (Why `d = 2.8 px` Dot Thinning Jumped `0.1922 -&gt; 0.2600`):**
-   - Weighted true positives $\text{TP}_w$ take the **pointwise maximum** $\max_x p(x)k(d(x,g))$ over the 300 m disk around each truth pixel $g$, whereas weighted false positives $\text{FP}_w$ take the **linear sum** $\sum_x p(x)(1 - q(x))$ over all predicted pixels!
-   - Consequently, a continuous 1-pixel ridge of length $L$ emits mass $L$, whereas discrete binary `{0, 1}` dots spaced every $s = 2.8\text{ px}$ along the same 1D ridge cut false-positive mass by $1 / 2.8 = 64.3\%$ ($121,131 \to 44,090$ dots) while retaining mean triangular-kernel line coverage $c(s) = 1 - s/12 = 1 - 2.8/12 = 76.7\%$ on every true fault trace!
-2. **Pixel-Exact Catalogue Masking &amp; Scarp-Flank Depletion (`chrisk-dd #11516`, Jumping `0.2600 -&gt; 0.2708 -&gt; 0.2778`):**
-   - DrivenData staff confirmed (`#11516/2` &amp; `#11516/4`) that mapped `USGS/INGENIOUS` fault pixels (`labels.tif`) are masked **pixel-exactly (`0 m` buffer)**: predictions $1\text{–}2\text{ px}$ ($100\text{–}200\text{ m}$) off a mapped fault trace receive **zero mask protection** and pay full $+1.0$ $\text{FP}_w$ unless a *new* unmapped fault lies within $300\text{ m}$.
-   - Because topographic/geophysical scarps are $200\text{–}400\text{ m}$ wide while rasterized `labels.tif` centerlines are $100\text{ m}$ (`1 px`) wide, `D2.8` placed `6,436` dots inside $0 &lt; d_{\text{cat}} \le 2\text{ px}$ (`3,891` at $d = 1\text{ px}$, `2,545` at $1 &lt; d \le 2\text{ px}$). Live-Ledger Inversion across 111 scored rasters (`GEMSDOE32 H47`, LOO MAE `0.0219`) shows hidden new-fault density in $0 &lt; d_{\text{cat}} \le 2\text{ px}$ is depleted by $93\text{–}99\%$ (NLR/USGS geologists did not digitize redundant parallel lines 100 m beside existing QFFD traces, and genuine splay tips starting at $d_{\text{cat}} = 1\text{ px}$ still receive $k(1\text{–}2\text{ px}) = 0.33\text{–}0.67$ credit from dots placed at $d_{\text{cat}} &gt; 2\text{ px}$). Deleting those `6,436` pure-FP flank dots removed $\approx 1,280$ denominator units ($0.2\,\Delta\text{FP}_w$) at near-zero $\text{TP}_w$ cost, lifting `0.2600 -&gt; 0.2778` (`+0.0178`).
-3. **Why Naive Additions Regressed (`GEMSDOE36 = 0.2750`, `GEMSDOE33 = 0.2632`):**
-   - By exact fractional calculus of $\text{DTI}$, adding an isolated binary dot must achieve expected kernel hit credit $k_{\text{new}} &gt; \frac{\alpha\,\text{DTI}}{1 - \alpha\,\text{DTI}} \approx 0.0588$ just to break even at `0.2778`. Uncorroborated geometric tip/stepover extrapolations fell below `5.9%` precision and diluted the score.
+## Nine-site historical comparison
 
-### 3.2 Can We Generate a Submission Scoring Higher Than `0.2778` (Toward `0.33–0.4437`)? — PhD Judgment
-**Yes — in principle and structurally, `0.2778` is far below the physical ceiling of the GeoDAWN + 3DEP 1 m stack (as proven by the official live leaderboard <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/</a> where `#1 xiaofanhu = 0.4437`, `#2 cfld__ = 0.3916`, `#5 = 0.3561`, and `#20 = 0.3273` on `2026-10-26`), BUT doing so without copying `H19-5` requires solving four coupled problems simultaneously:**
+The nine historical raster hashes and all 72 directed pairwise Euclidean-within-3-pixel overlaps were independently recomputed from the restored bytes. **Every winner exceeds the requested 70% stop against another winner**; even the smallest directed pairwise overlap exceeds it. These are geometric measurements, not model scores. Hash changes caused by nodata, compression or renaming do not establish semantic novelty.
 
-1. **Why `H19-5 -&gt; B2` Hits a Hard Ceiling Around `~0.28`:**
-   - `H19-5` relied heavily on a catalogue-proximity power-law prior (`L1`) plus coarse isotropic openness/worms, missing (a) unmapped range fronts far from existing QFFD traces (`GEMSDOE31 H31-X` beat `H33` on off-catalogue `SGMC` `0.1209 vs 0.0940` and achieved `0.1661` `HOLDOUT-DTI`), (b) sub-meter 1 m 3DEP LiDAR Holocene fan scarplets (`&lt; 1.5 m` throw), and (c) dipping normal-fault potential-field offsets (`500–1,500 m` basinward in the hanging wall).
-2. **What `KANLER-H1` Proved Today — Both the Breakthrough and the Exact Bottleneck:**
-   - In **Quadrant 3 (Walker Lane / Hawthorne-Tonopah)** — where 1 m 3DEP LiDAR coverage is `92.9%` complete — `KANLER-H1` (`H1_MULTI`) achieved **`HOLDOUT-DTI = 0.1726`**, **beating `REF_H31X` (`0.1602`) by `+0.0124`** while maintaining **only `39.74%` 3-px dot overlap with `GEMSDOE32` (`0.2778`)** and **`36.24%` with `H31-X`**!
-   - Furthermore, on low-slope piedmont/basin faults (`slope &lt;= 6°`), `KANLER-H1` boosted off-catalogue fault discovery **`+28.1%` over `H31-X` (`0.0569` vs `0.0444`)**.
-   - **Why `KANLER-H1` lost globally (`0.1253` vs `0.1674`) — Two Exact Diagnosed Bugs for `KANLER-H1.1`:**
-     1. **`IR-KANLER-LIDAR-COVERAGE-STARVATION`:** Quadrant 1 (Winnemucca NE) has `47.4%` missing 1 m LiDAR (`valid == 0`), vs `&lt; 7.1%` missing in Quadrants 2–3. Because `H1_MULTI`&#x27;s synergy sum was not divided by the per-pixel active-sensor count, pixels inside the LiDAR polygon achieved a `+0.40` higher score ceiling, starving Quadrant 1 from `9,823` dots down to `3,296` dots (`0.0707` vs `0.2212`)!
-     2. **`IR-KANLER-DETELEV-TROUGH`:** `Band 12` (`det_elev`, median `-75.6 m`, min `-590.0 m`) is high-pass detrended residual elevation rather than orthometric DEM elevation. At sharp range-front piedmont junctions, `det_elev` dips into a negative high-pass trough before rebounding toward `0` in the basin center, causing `z0 &gt; z_dn + 0.15` to clip true range-front toes!
-3. **Exact Path to Beat `0.1674` Holdout Best &amp; `0.2778` Live:**
-   - **Step A (Coverage-Invariant Normalization):** Normalize multi-sensor synergy strictly within the two sensor-availability strata (`lidar_valid == 1` vs `lidar_valid == 0`) via conditional quantile matching so missing 3DEP tiles never starve northern quadrants.
-   - **Step B (Slope-Asymmetry Without Detrended-Elevation Sign Clipping):** Replace `det_elev(0) &gt; det_elev(+3u)` with pure slope-drop asymmetry $s(-3\hat{u}) &gt; s(+3\hat{u}) + \Delta s$ (since `Band 19 det_elev_slope` is non-negative `[0°, 62.6°]` and immune to detrending troughs!), preserving 100% of `H31-X`&#x27;s `0.2212` Quadrant-1 range-front recall while keeping `KANLER-H1`&#x27;s `0.1726` Quadrant-3 multi-physics gain.
-   - **Step C (Multi-Scale Spatial Convolutional / Gabor Receptive Fields Under SAR-PU Loss):** Top leaderboard teams (`0.35–0.44`) exploit `3–10 km` 2D spatial context (U-Net / ConvNeXt / multi-scale Gabor banks trained with 300 m differentiable soft-DTI + Positive-Unlabeled loss on spatially blocked folds) rather than 1-pixel or 3-pixel local stencils, capturing en-echelon fault continuity across alluvial wash gaps before 300 m Dinkelbach/submodular dot thinning.
+The user-provided historical best is the H33 B2 file on GEMSDOE32, with the **unverified owner-reported claim** `0.2778`. There is no submission-page receipt binding this score to these bytes. No historical file is recommended for a real slot. See the site table and [machine audit](../docs/audit.json) for every exact file, hash, encoding check and overlap. Estimates remain **not estimable**, not zero.
+
+## Why might H33 B2 have performed better?
+
+The participant sources describe an H19-descended sparse-dot family with catalogue-distance thinning. The pinned B2 raster has 37,654 positive pixels. All of its dots are within 3 pixels of the GEMSDOE24, 25, 27, 30 and 31 reference dots; coverage against the other priority references is also extremely high. This supports shared geometric ancestry, not a new physical discovery mechanism.
+
+The <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#performance-metric">official DTI equations</a> explain a plausible **emission-efficiency** mechanism. A truth pixel takes the maximum distance-weighted prediction credit, while uncredited prediction mass adds FP penalty. Removing redundant dots can reduce FP without losing much coverage; removing the wrong dots increases FN. The triangular kernel has zero credit exactly at its 300 m boundary. Therefore maximizing dot count, drawing thick ridges, or picking the largest magnetic gradient is not inherently optimal.
+
+However, the historical score differences do not isolate which deleted dots mattered. They lack paired out-of-fold ablation, a score-to-file receipt and the hidden truth. The family may mostly encode the same ridges and differ in emission budget. It is not scientifically defensible to claim a causal B2 gain, reconstruct hidden labels from past scores, guarantee a result above the reported history, or project a leaderboard ceiling.
+
+The <a href="https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/2">DrivenData Staff clarification</a> states that **existing fault pixels** are excluded in both rounds. It does not justify applying a broad exclusion collar around hidden faults. Fold-local catalogue features must be rebuilt from visible faults only; a final TIFF already zeroed with all known labels is not a legitimate hide-and-recover prediction for those withheld labels.
+
+## Score provenance and current official observation
+
+The <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">official public leaderboard</a> fetched on 26 October lists xiaofanhu first with displayed value `0.4437`. This is an **official-page observation, not a submission-page receipt** and not a forecast for any project artifact. It is not relabelled as ORGANIZER-CONFIRMED per-file evidence. The prompt&#x27;s `0.3195` and `0.4413` statements should no longer be treated as verified current targets.
+
+No new HOLDOUT-DTI result exists. No ORGANIZER-CONFIRMED submission-page receipt was obtained. Geometric overlap, input counts, source freshness and synthetic operator tests must never be presented as either score class. A future holdout result must include evaluator version, withheld-positive count and spatial-block 95% CI; promotion also needs a positive paired improvement on identical folds against a recorded incumbent.
+
+## Correction to the earlier format verdict
+
+The official <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#submission-format">submission-format page</a> requires a single float32 band, the EPSG:32611/100 m reference grid, confidence values in `[0,1]`, and null/NaN outside bounds. The official <a href="https://github.com/drivendataorg/gems-prize-reference-solution/blob/aebe92f7c8a990f0e3443451b7a825d9afd6336b/unet-mc-cv-reference-solution.ipynb">reference notebook</a> is not the format authority: its output cell omits an explicit nodata argument and may inherit a different numeric dtype.
+
+The previous audit overinterpreted “outside bounds” as a proven requirement to match every masked pixel of an unauthenticated sample and categorically called seven historical zero-outside files invalid. That portal-rejection conclusion was not established. Conversely, a shared writer&#x27;s all-finite output is not proof that the portal accepts the bounds encoding.
+
+The validator now reports **two named local profiles**:
+
+1. `template-mask`: finite unmasked `[0,1]` predictions inside; null/masked/NaN outside the sample mask.
+2. `finite-grid`: finite `[0,1]` values across the entire grid and zeros outside the sample mask.
+
+The historical seven zero-outside files pass the second local profile; two NaN-outside files pass the first. Neither outcome is a portal receipt or permission to submit. A finite negative nodata sentinel can pass the mask profile while failing a portal-wide numeric scan. Infinite unmasked padding is not accepted as null/NaN. The exact bytes of the user&#x27;s rejected file are absent, so its range-error cause remains unknown. Do not silently clip or repair a candidate to conceal a modelling bug.
+
+## Geological reasoning and research limitations
+
+The official task is missing **fault** discovery. A magnetic or thermal anomaly is not proof of a fault, and a fault is not proof of a commercially useful geothermal vent. <a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN metadata</a> distinguish surface radiometric information from subsurface magnetic information and explicitly warn about variable terrain clearance. Flight geometry, levelling seams, lithologic contacts, lake shorelines and drainage evolution are serious alternative processes, not cosmetic caveats.
+
+The ranked shortlist targets interactions and topology rather than another H19/H33 thinning pass. None is implemented or cleared as globally novel. <a href="https://gdr.openei.org/submissions/1391">GDR #1391</a> is now verified as a public CC BY 4.0 resource index, including shallow probes and paleogeothermal deposits; an attempted probe ZIP fetch failed. Official source links exist, but required binary coverage, season and depth metadata are not verified. New-data variants are not called viable on that basis alone.
+
+Hide-and-recover of mapped faults also has a population-shift limitation: mapped/exposed faults may not represent concealed faults selected by the competition experts. A good holdout result is necessary under this protocol, not a calibrated estimate of leaderboard performance. Canary AUC below the leakage threshold is not proof of no leakage; feature provenance must still be audited.
+
+## Remaining gates / next session
+
+Resolve the binary-lattice/continuous-diagnostic registry scope explicitly and authenticate the mirror sample before treating the later gates as actionable. Do not exempt either reference silently.
+
+1. Resolve the absent lane paragraph through the parallel coordinator; no geological method is silently claimed here.
+2. Pin a centrally corrected shared evaluator after upstream issue #41 is resolved; do not patch vendor copies privately.
+3. Obtain the canonical feature-stack bytes and expected digest, plus the complete submission/surface registry. A filtered priority-site manifest is not complete, even when every listed download succeeds.
+4. Record the same-evaluator, same-fold incumbent; generate fold-local features after whole-segment buffered withholding; run single-feature canaries.
+5. Test at most three experiments in two hours. Check surface correlation **and preview-dot overlap before writing**, then final correlations and dot overlaps. Stop on any literal duplicate threshold.
+6. Only an improving, genuinely distinct candidate is written through the shared writer into a research directory; validate the saved bytes and exact hash automatically. No human raster inspector is a required gate.
+7. The separate selector checks the account&#x27;s actual remaining weekly cap. The official rules specify three submissions per week, but no account quota or slot has been authorized. Preserve the eventual submission-page receipt, and disclose AI assistance as required in the narrative.
+
+Full verified-source excerpts and their limited scope are in [official claims](../evidence/official-claims-20261026.json). No claim is made that all external files, the entire rules PDF, all sibling repositories or the live account state have been verified line by line.
+
+## Final concurrent-study scope
+
+Additional main `9ebfc4b` and `1fcc140` introduced K3-H1, DCAP-LHC and the isolated
+SSP1 archive. Their negative findings are preserved, not counted as this review&#x27;s
+experiments. The four root-archive TIFFs all fail an independently replayed
+literal binary-lattice check; GPC additionally retains 4,115 mirrored catalogue
+positives. SSP1 remains separately scoped and explicitly negative. See the
+integration review and `evidence/inherited_literal_audit.json`; “detector-only
+uniqueness” is not the user&#x27;s all-registry rule. The older break-even emission
+example is conditional on its toy marginal-credit assumptions, not a substitute
+for recomputing pooled ground-truth credit and prediction mass with the shared
+metric. No positive release publisher or new authorized candidate was implemented.
 </article></main></html>

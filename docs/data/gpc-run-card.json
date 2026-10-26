@@ -1,0 +1,182 @@
+{
+  "schema": "kanler3.run_card.v1",
+  "generated_utc": "2026-10-26T21:59:46.220042+00:00",
+  "hypothesis": "Faults missing from the USGS/INGENIOUS catalogue juxtapose basement and basin fill, so the unit-gradient directions of RTP magnetics, isostatic gravity, depth-to-basement and detrended elevation agree across the same line (mean/min pairwise |cos|, double-angle consensus, cross-scale persistence, zero-crossing concordance) even where each field's gradient magnitude is weak; adding these 15 label-free phase features to the matched 59-feature base stack raises pooled HOLDOUT-DTI.",
+  "mechanism": "src/kanler3/gpc.py: per-field Gaussian-smoothed unit gradients at 1 px and 3 px, pairwise absolute/signed direction cosines, double-angle consensus resultant and >=25-degree consensus count, Laplacian zero-crossing mean, local relative sharpness.",
+  "named_non_fault_mimic": "Lithologic contacts, playa shorelines, volcanic flow edges and survey flight-line seams, which can align at most two fields and should fail the minimum-pairwise and >=3-field consensus terms.",
+  "holdout": {
+    "label": "HOLDOUT-DTI",
+    "evaluator_version": "gems-segment-pooled-v1",
+    "dti": 0.13768146095927028,
+    "ci95": [
+      0.12556696397411837,
+      0.15033051643851372
+    ],
+    "withheld_positives": 60988,
+    "best_arm": "EXP-2",
+    "all_arms": {
+      "B0": 0.1325077166096257,
+      "EXP-1": 0.13722424539644612,
+      "EXP-2": 0.13768146095927028,
+      "EXP-3": 0.13722424539644612
+    },
+    "paired_vs_B0": {
+      "evaluator_version": "gems-segment-pooled-v1",
+      "candidate_dti": 0.13768146095927028,
+      "baseline_dti": 0.1325077166096257,
+      "paired_delta_dti": 0.005173744349644571,
+      "paired_delta_ci95": [
+        0.00038985465706070367,
+        0.010042402460633317
+      ],
+      "ci95_strictly_positive": true,
+      "fold_wins": 3,
+      "n_folds": 4,
+      "min_fold_delta": -0.0011267664364018187,
+      "folds": [
+        {
+          "fold": "NW",
+          "candidate_dti": 0.1570781028451278,
+          "baseline_dti": 0.14247775734640256,
+          "delta_dti": 0.014600345498725242,
+          "candidate_wins": true
+        },
+        {
+          "fold": "NE_LidarGapHeavy",
+          "candidate_dti": 0.17268013393167522,
+          "baseline_dti": 0.16224433406774239,
+          "delta_dti": 0.010435799863932838,
+          "candidate_wins": true
+        },
+        {
+          "fold": "SW",
+          "candidate_dti": 0.09337902529475485,
+          "baseline_dti": 0.09450579173115667,
+          "delta_dti": -0.0011267664364018187,
+          "candidate_wins": false
+        },
+        {
+          "fold": "SE",
+          "candidate_dti": 0.15023939805904646,
+          "baseline_dti": 0.14765543625674418,
+          "delta_dti": 0.002583961802302276,
+          "candidate_wins": true
+        }
+      ]
+    }
+  },
+  "leaderboard_estimate": "NOT ESTIMABLE from holdout (different truth set); no projection is written as a score",
+  "owner_reported_focus9_best": {
+    "site": "GEMSDOE32",
+    "score": 0.2778,
+    "label": "OWNER-REPORTED"
+  },
+  "uniqueness_vs_focus9": [
+    {
+      "site": "GEMSDOE24",
+      "name": "h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan",
+      "score_owner_reported": 0.2477,
+      "surface_spearman": 0.0962104285089524,
+      "dot_overlap_within_3px": 0.45145270090827005,
+      "candidate_dots": 37654,
+      "reference_dots": 60069,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE25",
+      "name": "dotted-h19-5-d2-8-20261002-e56ea318af89-nan",
+      "score_owner_reported": 0.26,
+      "surface_spearman": 0.08101572520842233,
+      "dot_overlap_within_3px": 0.43557125405003455,
+      "candidate_dots": 37654,
+      "reference_dots": 44090,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE27",
+      "name": "topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan",
+      "score_owner_reported": 0.2449,
+      "surface_spearman": 0.09731820677189723,
+      "dot_overlap_within_3px": 0.46255377914696977,
+      "candidate_dots": 37654,
+      "reference_dots": 61328,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE28",
+      "name": "h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan",
+      "score_owner_reported": 0.271,
+      "surface_spearman": 0.06868272169235314,
+      "dot_overlap_within_3px": 0.3537472778456472,
+      "candidate_dots": 37654,
+      "reference_dots": 37660,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE30",
+      "name": "d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca",
+      "score_owner_reported": 0.26,
+      "surface_spearman": 0.08101572520842233,
+      "dot_overlap_within_3px": 0.43557125405003455,
+      "candidate_dots": 37654,
+      "reference_dots": 44090,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE31",
+      "name": "h27-4-solo-d28-20261004-8acb75e1-nan",
+      "score_owner_reported": 0.2708,
+      "surface_spearman": 0.07140068558703346,
+      "dot_overlap_within_3px": 0.3609443883783927,
+      "candidate_dots": 37654,
+      "reference_dots": 40199,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE32",
+      "name": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros",
+      "score_owner_reported": 0.2778,
+      "surface_spearman": 0.0650672552701706,
+      "dot_overlap_within_3px": 0.30177404790991663,
+      "candidate_dots": 37654,
+      "reference_dots": 37654,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE33",
+      "name": "h33d-analog-tip-stepover-r30-20261004-cb490425926e",
+      "score_owner_reported": 0.2632,
+      "surface_spearman": 0.07458858573278912,
+      "dot_overlap_within_3px": 0.38872364157858397,
+      "candidate_dots": 37654,
+      "reference_dots": 41865,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE36",
+      "name": "anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros",
+      "score_owner_reported": 0.275,
+      "surface_spearman": 0.06544157461082903,
+      "dot_overlap_within_3px": 0.3050671907367079,
+      "candidate_dots": 37654,
+      "reference_dots": 38854,
+      "duplicate": false
+    }
+  ],
+  "unique_vs_focus9": true,
+  "raster_sha256": "16ec0585a884224460f0e5d09e7448a54ab5a3348db92279452a9a4e0453b0f7",
+  "content_id": "84217adc42be",
+  "dots": 37654,
+  "submission_name": "kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be",
+  "submission_note": "GPC-3 EXP-2 phase-concordance 37654d | HOLDOUT-DTI 0.1377 | NEGATIVE do not submit",
+  "note_chars": 82,
+  "tif": "docs/downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.tif",
+  "zip": "docs/downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.zip",
+  "verdict": "negative",
+  "ok_to_submit": false,
+  "download_research": false,
+  "all_registry_novelty_verdict": "duplicate",
+  "registered_lattice_overlap_3px": 1.0,
+  "independent_lattice_audit": "evidence/parallel-lattice-audit.json",
+  "status_update": "Nine-champion uniqueness does not satisfy the literal all-registry rule; 100% overlap with a registered lattice. Do not submit."
+}

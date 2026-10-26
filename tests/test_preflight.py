@@ -48,4 +48,6 @@ def test_stack_provenance_must_match_actual_bytes(tmp_path: Path):
             'lane': {'explicitly_assigned': True, 'assigned_method': 'declared lane'}}
     assert inspect(data, work, manifest, card)['ready_for_experiment'] is False
     card['feature_cache']['sha256'] = sha(b'actual')
-    assert inspect(data, work, manifest, card)['ready_for_experiment'] is True
+    result = inspect(data, work, manifest, card)
+    assert result['inputs_cache_lane_present'] is True
+    assert result['ready_for_experiment'] is False  # inventories never authorize science

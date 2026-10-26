@@ -9,6 +9,7 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     env:
       GH_TOKEN: ${{ github.token }}
       OPENBLAS_NUM_THREADS: '1'
@@ -18,11 +19,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: pip
       - run: pip install -r requirements.txt
       - run: python scripts/install_template.py
-      - run: bash scripts/bootstrap_template.sh
-      - run: pytest -q
-      - run: python scripts/review.py && python scripts/build_site.py && git diff --exit-code
+      - run: PYTHON=python bash scripts/bootstrap_template.sh
+      - run: python scripts/restore_instruments.py --profile saturation57
+      - run: python -m pytest -q
+      - run: python scripts/check_run.py
+      - run: python scripts/review.py && python scripts/build_site.py --check && git diff --exit-code
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs

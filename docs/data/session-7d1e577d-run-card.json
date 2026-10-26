@@ -1,0 +1,109 @@
+{
+  "hypothesis": "NOT TESTED: cross-scale edge phase disagreement is a conditional proposal, not an assigned lane.",
+  "mechanism": "Proposed signed magnetic/radiometric edge interaction for concealed structures; only data integrity and shared-tool operators were audited.",
+  "non_fault_mimic": "Intrusive lithologic contacts and airborne-survey levelling seams.",
+  "holdout": {
+    "label": "HOLDOUT-DTI",
+    "status": "NOT_RUN",
+    "value": null,
+    "ci95": null,
+    "evaluator_version": null,
+    "withheld_positives": null,
+    "reason": "No assigned lane, canonical cache or same-fold incumbent; the pinned shared evaluator also fails an operator audit."
+  },
+  "registry": {
+    "scope": "Nine pinned historical winners; not the complete competition registry",
+    "candidate_surface_rank_correlation": null,
+    "candidate_final_rank_correlation": null,
+    "candidate_preview_dot_overlap_3px": null,
+    "candidate_final_dot_overlap_3px": null,
+    "full_registry_checked": false,
+    "historical_directed_pairs": 72,
+    "historical_minimum_overlap_3px": 0.8671895382207149,
+    "historical_winners_stopped_as_duplicate": 9,
+    "numbers_are_geometric_audit_not_scores": true,
+    "conditional_saturation_reproduced": true,
+    "saturation_replay": "evidence/session-7d1e577d-registry-replay.json",
+    "saturation_scope": "100% coverage only under the older tool\u2019s positive-cell-as-dot convention; continuous diagnostic has no established companion dot mask. No exception is inferred.",
+    "inherited_root_artifacts_checked": 4,
+    "inherited_root_artifacts_exceeding_literal_overlap_stop": 4
+  },
+  "raster_sha256": null,
+  "validator": {
+    "status": "NO_NEW_RASTER",
+    "no_nan_inside_footprint": null,
+    "values_0_1": null,
+    "crs_shape_transform_match": null,
+    "saved_bytes_validated": false,
+    "organizer_acceptance": "NOT_TESTED",
+    "historical_details": "audit.json",
+    "historical_local_encoding_profiles": {
+      "template_mask_pass": 2,
+      "finite_grid_pass": 7,
+      "note": "Local profile compatibility only. Earlier categorical rejection of all zero-outside files is withdrawn; portal acceptance remains unknown."
+    }
+  },
+  "submission_name": null,
+  "submission_note": "No new TIFF: missing lane/cache/incumbent; historical entries duplicate. Shared evaluator repair required. No slot authorized.",
+  "note": "No new TIFF: missing lane/cache/incumbent; historical entries duplicate. Shared evaluator repair required. No slot authorized.",
+  "verdict": "negative",
+  "experiments_run": 0,
+  "weekly_slots_used": 0,
+  "score_estimate": {
+    "value": null,
+    "status": "NOT_ESTIMABLE",
+    "reason": "No calibrated mapping from valid holdout results to organizer submission receipts."
+  },
+  "data_recovery": {
+    "core_feature_stack_source": "Participant-mirrored 19-band raw GeoTIFF, not the shared derived cache",
+    "core_features_sha256": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5",
+    "organizer_authenticated": false,
+    "raw_bands_prepared_with_shared_tool": true,
+    "derived_35_channel_cache_rebuilt": false,
+    "mirror_sample_matches_published_absence_description": false,
+    "sample_provenance_audit": "evidence/sample-provenance-check.json"
+  },
+  "shared_tools": {
+    "repository": "buffedlizard55-lab/GEMSDOE32",
+    "commit": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+    "unmodified_source_files": 13,
+    "operator_audit_passed": false,
+    "blocking_issue": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41",
+    "private_metric_or_writer_fork_created": false
+  },
+  "selector": {
+    "slot_authorized": false,
+    "published_weekly_limit": 3,
+    "account_remaining_cap": null
+  },
+  "limitations": [
+    "Missing single-method lane paragraph",
+    "Shared cached feature stack bytes/digest unavailable",
+    "Central shared-evaluator defect unresolved",
+    "Full submission/surface registry incomplete",
+    "No same-evaluator, same-fold incumbent",
+    "Organizer-template and account slot evidence unavailable",
+    "Dense binary calibration lattice is not exempt from the literal registry rule; soft-diagnostic dot representation remains unresolved",
+    "Mirror sample contains 60,988 catalogue positives despite the official all-absence sample description"
+  ],
+  "session_id": "7d1e577d",
+  "session_started_utc": "2026-10-26T21:57:00+00:00",
+  "session_deadline_utc": "2026-10-26T23:57:00+00:00",
+  "parallel_context": {
+    "integrated_main_commit": "4338f12e30e90904f95e414faeb301f2c98fa394",
+    "last_geological_card": "evidence/run-card.json",
+    "separate_parallel_research_tiff_exists": true,
+    "parallel_tiff_eligible": false,
+    "prior_model_results_rerun_in_this_session": false,
+    "note": "This card is scoped to the review session, not the repository-wide experiment or artifact total.",
+    "additional_integrated_main_commits": [
+      "9ebfc4bbfbedf39bb2633a524dd49e9192dd3889",
+      "1fcc140e56b886c7d059bb78aa30dcf034396301",
+      "9a24c598da83da43665cf11da51c0c9766fea7f3"
+    ],
+    "literal_root_artifact_audit": "evidence/inherited_literal_audit.json",
+    "separate_ssp1_study": "studies/ssp1/evidence/run_card.json"
+  },
+  "local_verification": "evidence/session-7d1e577d-verification.json",
+  "session_scientific_work_sealed_utc": "2026-10-26T23:30:55+00:00"
+}

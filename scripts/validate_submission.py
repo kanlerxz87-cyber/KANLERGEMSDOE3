@@ -1,154 +1,150 @@
 #!/usr/bin/env python3
-"""Conservatively check saved GeoTIFF bytes against a sample's data mask.
+"""Read-only saved-byte validation with two explicit LOCAL encoding profiles.
 
-Usage: python scripts/validate_submission.py template.tif candidate.tif
-   or: python scripts/validate_submission.py candidate.tif --template template.tif
-The sample mask is a *local conservative* interpretation of outside-footprint
-nulls, not proof of DrivenData portal behavior. Never clips or repairs data.
-The sample's provenance must be verified separately; this checks format only.
+The official task requires float32, one band, the reference grid, probabilities
+in [0,1], and null/NaN outside bounds. A participant-mirror mask is not organizer
+authentication. `template-mask` requires null/masked padding; `finite-grid`
+requires finite [0,1] everywhere and zero padding. Neither guarantees portal
+acceptance, scientific eligibility or authorization to spend a submission slot.
+No file is clipped, repaired, rewritten or promoted by this tool.
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
-import sys
 from pathlib import Path
 
-try:
-    import numpy as np
-    import rasterio
-except ImportError as exc:
-    print(json.dumps({"ok": False, "error": f"Missing dependency: {exc}", "validator": "submission-format-v2"}, indent=2))
-    sys.exit(2)
+import numpy as np
+import rasterio
+
+VERSION = "submission-format-v3-explicit-encoding-standalone"
+PROFILES = ("template-mask", "finite-grid")
 
 
-VERSION = "submission-format-v2"
+def digest(path: Path) -> str:
+    result = hashlib.sha256()
+    with path.open("rb") as src:
+        for chunk in iter(lambda: src.read(1 << 20), b""):
+            result.update(chunk)
+    return result.hexdigest()
 
 
-def validate(template_path: Path, candidate_path: Path, allow_zero_outside: bool = False) -> dict:
+def validate(template_path: Path, candidate_path: Path, profile: str = "template-mask", expected_dots: int | None = None, *, allow_zero_outside: bool | None = None) -> dict:
+    if allow_zero_outside is not None and type(allow_zero_outside) is not bool:
+        raise ValueError("Legacy allow_zero_outside flag must be a boolean")
+    if allow_zero_outside is not None and profile != "template-mask":
+        raise ValueError("Use a named profile or the legacy flag, not both")
+    if profile not in PROFILES:
+        raise ValueError("Unknown encoding profile")
+    if expected_dots is not None and (type(expected_dots) is not int or expected_dots < 0):
+        raise ValueError("Expected positive-pixel count must be a nonnegative integer")
+    template_path, candidate_path = Path(template_path), Path(candidate_path)
     errors: list[str] = []
-    warnings: list[str] = []
     with rasterio.open(template_path) as ref, rasterio.open(candidate_path) as src:
-        if ref.count != 1:
-            errors.append(f"template bands={ref.count}; expected exactly 1")
-        if src.driver != "GTiff":
-            errors.append(f"candidate driver={src.driver}; expected GTiff")
-        if src.count != 1:
-            errors.append(f"candidate bands={src.count}; expected exactly 1")
-        if src.width != ref.width or src.height != ref.height:
-            errors.append(f"shape candidate={(src.height, src.width)} template={(ref.height, ref.width)}")
-        if src.crs != ref.crs:
-            errors.append(f"CRS candidate={src.crs}; template={ref.crs}")
-        if src.transform != ref.transform:
-            errors.append(f"transform candidate={src.transform}; template={ref.transform}")
-        if src.dtypes != ("float32",):
-            errors.append(f"dtype candidate={src.dtypes}; expected float32")
-        if ref.crs is None or ref.crs.to_epsg() != 32611:
-            errors.append(f"template CRS must identify as EPSG:32611; found {ref.crs}")
-        # A sidecar mask is not part of a standalone single-TIFF upload.
-        if any(str(p).lower().endswith(".msk") for p in src.files):
-            errors.append("candidate depends on an external .msk sidecar; the TIFF must stand alone")
-        if src.width != ref.width or src.height != ref.height or ref.count != 1 or src.count != 1:
-            return {"ok": False, "errors": errors, "warnings": warnings,
-                    "template": str(template_path), "candidate": str(candidate_path), "validator": VERSION}
-
-        footprint = ref.dataset_mask() > 0
-        ref_values = ref.read(1, masked=False)
+        template_values = ref.read(1)
+        template_mask = ref.dataset_mask() > 0
+        checks = {
+            "template_single_band": ref.count == 1,
+            "single_band": src.count == 1,
+            "shape_match": src.shape == ref.shape,
+            "crs_match": src.crs is not None and src.crs == ref.crs,
+            "transform_match": src.transform == ref.transform,
+            "dtype_float32": src.dtypes == ("float32",),
+            "template_epsg_32611": ref.crs is not None and ref.crs.to_epsg() == 32611,
+            "template_100m_grid": ref.transform.a == 100 and ref.transform.e == -100 and ref.transform.b == 0 and ref.transform.d == 0,
+            "template_mask_unambiguous": not bool((template_mask & ~np.isfinite(template_values)).any()),
+            "standalone_without_sidecars": all(Path(name).resolve() == candidate_path.resolve() for name in src.files),
+        }
+        errors.extend(key for key, ok in checks.items() if not ok)
+        sha = digest(candidate_path)
+        base = {
+            "validator": VERSION, "encoding_profile": profile,
+            "template": str(template_path), "candidate": str(candidate_path),
+            "template_sha256": digest(template_path), "candidate_sha256": sha, "sha256": sha,
+            "organizer_acceptance": "NOT_TESTED", "portal_acceptance_verified": False,
+            "submission_authorized": False, "slot_authorized": False, "checks": checks,
+        }
+        if not checks["shape_match"]:
+            return {**base, "ok": False, "errors": errors}
+        footprint = template_mask & np.isfinite(template_values)
         if not footprint.any():
-            errors.append("template footprint is empty; cannot validate predictions")
-        if not np.isfinite(ref_values[footprint]).all():
-            errors.append("template mask includes non-finite sample pixels; footprint is ambiguous")
-
-        arr = src.read(1, masked=False)
+            return {**base, "ok": False, "errors": errors + ["empty_template_footprint"]}
+        values = src.read(1, masked=False)
         candidate_mask = src.dataset_mask() > 0
-        inside_values = arr[footprint]
-        missing_inside = int((~candidate_mask[footprint]).sum())
-        if missing_inside:
-            errors.append(f"masked/nodata in-footprint pixels={missing_inside}")
-        nonfinite_inside = int((~np.isfinite(inside_values)).sum())
-        if nonfinite_inside:
-            errors.append(f"non-finite in-footprint pixels={nonfinite_inside}")
-        finite_in = inside_values[np.isfinite(inside_values)]
-        if finite_in.size and (float(finite_in.min()) < 0 or float(finite_in.max()) > 1):
-            errors.append(f"in-footprint range=[{float(finite_in.min())}, {float(finite_in.max())}]; expected [0,1]")
-
-        # NaN is explicitly permitted outside the area; masked finite nodata is
-        # locally treated as null. Infinity is not NaN or a valid probability.
+        finite = np.isfinite(values)
+        inside = values[footprint]
+        finite_inside = inside[np.isfinite(inside)]
+        inside_ok = bool(candidate_mask[footprint].all() and np.isfinite(inside).all() and ((inside >= 0) & (inside <= 1)).all())
         outside = ~footprint
-        outside_vals = arr[outside]
-        outside_valid_mask = candidate_mask & outside & ~np.isnan(arr)
-        outside_valid_count = int(outside_valid_mask.sum())
-        outside_nonzero_count = int((outside_valid_mask & (arr != 0.0)).sum())
-        if outside_valid_count:
-            if allow_zero_outside and outside_nonzero_count == 0 and np.isfinite(outside_vals).all():
-                warnings.append(f"outside-footprint finite zeros={outside_valid_count} permitted by --allow-zero-outside")
-            else:
-                errors.append(f"outside-footprint unmasked non-null pixels={outside_valid_count}; local policy expects null/nodata")
-        infinity_count = int(np.isinf(arr).sum())
-        if infinity_count:
-            errors.append(f"infinite pixels anywhere in TIFF={infinity_count}")
-
-        nan_count = int(np.isnan(arr).sum())
-        finite_out_of_range = int((np.isfinite(arr) & ((arr < 0) | (arr > 1))).sum())
-        whole_grid_in_range = nan_count == 0 and infinity_count == 0 and finite_out_of_range == 0
-        if not whole_grid_in_range:
-            warnings.append("raw whole-grid values include non-finite or out-of-range cells; portal handling of nodata/masks is unverified")
-
+        valid_outside = candidate_mask[outside] & finite[outside]
+        null_outside = bool(np.all((~candidate_mask[outside]) | np.isnan(values[outside])))
+        full_range = bool(finite.all() and ((values >= 0) & (values <= 1)).all())
+        zeros_outside = bool(np.all(values[outside] == 0))
+        no_infinity = not bool(np.isinf(values).any())
+        positive_pixels = int((np.isfinite(inside) & (inside > 0)).sum())
+        encodings = {
+            "template-mask": inside_ok and null_outside and no_infinity,
+            "finite-grid": inside_ok and full_range and zeros_outside,
+        }
+        if allow_zero_outside is True and not encodings["template-mask"] and encodings["finite-grid"]:
+            profile = "finite-grid"
+        base["encoding_profile"] = profile
+        base["legacy_allow_zero_outside"] = allow_zero_outside
+        checks.update(
+            no_nan_inside_footprint=bool(np.isfinite(inside).all()),
+            no_masked_inside_footprint=bool(candidate_mask[footprint].all()),
+            inside_range_0_1=bool(((inside >= 0) & (inside <= 1)).all()),
+            no_infinite_pixels_anywhere=no_infinity,
+            selected_encoding=bool(encodings[profile]),
+            expected_positive_pixels_match=expected_dots is None or expected_dots == positive_pixels,
+        )
+        for key in ("no_nan_inside_footprint", "no_masked_inside_footprint", "inside_range_0_1", "no_infinite_pixels_anywhere", "selected_encoding", "expected_positive_pixels_match"):
+            if not checks[key]:
+                errors.append(key)
+        structural_ok = all(checks[key] for key in (
+            "template_single_band", "single_band", "shape_match", "crs_match", "transform_match", "dtype_float32",
+            "template_epsg_32611", "template_100m_grid", "template_mask_unambiguous", "standalone_without_sidecars",
+        ))
         return {
-            "ok": not errors,
-            "errors": errors,
-            "warnings": warnings,
-            "validator": VERSION,
-            "policy": "conservative sample-mask check; not an organizer acceptance or submission approval",
-            "template": str(template_path),
-            "candidate": str(candidate_path),
-            "bands": src.count,
-            "dtype": list(src.dtypes),
-            "crs": str(src.crs),
-            "shape": [src.height, src.width],
-            "transform": list(src.transform),
-            "footprint_pixels": int(footprint.sum()),
-            "nonfinite_inside": nonfinite_inside,
-            "finite_range_inside": [float(finite_in.min()), float(finite_in.max())] if finite_in.size else None,
-            "valid_outside_footprint": outside_valid_count,
-            "outside_nonzero_count": outside_nonzero_count,
-            "nan_pixels_whole_grid": nan_count,
-            "infinite_pixels_whole_grid": infinity_count,
-            "finite_out_of_range_whole_grid": finite_out_of_range,
-            "raw_whole_grid_finite_in_range": whole_grid_in_range,
+            **base, "ok": not errors, "errors": errors,
+            "bands": src.count, "dtype": list(src.dtypes), "crs": str(src.crs),
+            "shape": list(src.shape), "transform": list(src.transform),
+            "footprint_pixels": int(footprint.sum()), "positive_pixels": positive_pixels,
+            "nonfinite_inside": int((~np.isfinite(inside)).sum()),
+            "masked_inside": int((~candidate_mask[footprint]).sum()),
+            "infinite_pixels_whole_grid": int(np.isinf(values).sum()),
+            "finite_range_inside": [float(finite_inside.min()), float(finite_inside.max())] if finite_inside.size else None,
+            "valid_outside_footprint": int(valid_outside.sum()),
+            "outside_null_or_nan": bool(null_outside and no_infinity),
+            "entire_grid_finite_range_0_1": full_range, "raw_whole_grid_finite_in_range": full_range,
+            "local_encoding_compatibility": {key: bool(value and structural_ok) for key, value in encodings.items()},
+            "note": "Local contract only. A finite nodata sentinel may pass template-mask but fail a portal-wide range scan. Positive-pixel count is not an invented dot mask for soft-surface uniqueness. No scientific or portal approval.",
         }
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("first", type=Path, help="template if followed by a candidate, otherwise the candidate")
-    parser.add_argument("second", type=Path, nargs="?", help="candidate when the first argument is the template")
-    parser.add_argument("--template", type=Path, help="template for the one-positional-argument form")
-    parser.add_argument("--expected-dots", type=int, help="optional expected count of pixels equal to one")
-    parser.add_argument("--allow-zero-outside", action="store_true", help="permit finite 0.0 outside footprint (-zeros.tif variant)")
+    parser.add_argument("first", type=Path, help="Template then candidate; or candidate with --template")
+    parser.add_argument("second", type=Path, nargs="?")
+    parser.add_argument("--template", type=Path)
+    parser.add_argument("--profile", choices=PROFILES, default="template-mask")
+    parser.add_argument("--expected-dots", type=int, help="Optional positive-pixel count check; not a soft-surface dot definition")
+    parser.add_argument("--allow-zero-outside", action="store_true", default=None, help="Legacy opt-in: select finite-grid only if the saved file passes it; never portal approval")
     args = parser.parse_args()
-    if args.second is not None and args.template is not None:
-        parser.error("use either template candidate, or candidate --template template")
-    candidate = args.second if args.second is not None else args.first
-    template = args.first if args.second is not None else (args.template or Path(__file__).resolve().parents[1] / "data/raw/sample_submission.tif")
+    if args.template is not None:
+        if args.second is not None:
+            parser.error("Use either TEMPLATE CANDIDATE or CANDIDATE --template TEMPLATE")
+        template, candidate = args.template, args.first
+    else:
+        if args.second is None:
+            parser.error("Supply both TEMPLATE CANDIDATE or use --template")
+        template, candidate = args.first, args.second
     try:
-        result = validate(template, candidate, allow_zero_outside=args.allow_zero_outside)
-        if args.expected_dots is not None:
-            if args.expected_dots < 0:
-                raise ValueError("expected-dots must be nonnegative")
-            with rasterio.open(candidate) as src:
-                dots = int((src.read(1, masked=False) == 1.0).sum())
-            result["positive_dots_eq1"] = dots
-            result["dots_match_expected"] = dots == args.expected_dots
-            if not result["dots_match_expected"]:
-                result["errors"].append("positive dot count does not match expected count")
-                result["ok"] = False
+        result = validate(template, candidate, args.profile, args.expected_dots, allow_zero_outside=args.allow_zero_outside)
     except Exception as exc:
-        print(json.dumps({"ok": False, "errors": [f"Unable to validate: {exc}"], "validator": VERSION}, indent=2))
+        print(json.dumps({"ok": False, "errors": [f"Unable to validate: {exc}"], "validator": VERSION, "portal_acceptance_verified": False, "submission_authorized": False}, indent=2))
         return 2
-    result["portal_acceptance_verified"] = False
-    result["submission_authorized"] = False
-    result["validator_verdict"] = "PASS_LOCAL_SAMPLE_POLICY_ONLY" if result["ok"] else "FAIL_LOCAL_SAMPLE_POLICY"
     print(json.dumps(result, indent=2, allow_nan=False))
     return 0 if result["ok"] else 1
 

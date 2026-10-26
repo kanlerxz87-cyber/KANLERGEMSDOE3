@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Research hypotheses | GEMS Evidence Lab</title><meta name="description" content="Evidence-led fault mapping research and submission readiness.">
+<link rel="stylesheet" href="experiment.css"></head><body>
+<header class="top"><div class="wrap top-inner"><a class="brand" href="index.html"><span class="mark">G</span><span><strong>GEMS</strong><small>Evidence lab / KANLERGEMSDOE3</small></span></a>
+<nav aria-label="Main navigation"><a href="index.html#kanler-h1">KANLER-H1</a><a href="index.html#results">Experiments</a><a href="index.html#comparison">Site comparison</a><a href="index.html#sources">Sources</a><a href="k3h1.html">K3-H1 lane</a><a class="nav-cta" href="executive-summary.html">Submission guide ↗</a></nav></div></header>
+<main><div class="wrap"><article class="panel panel-pad markdown-page"><h1>Five Untried Geological Hypotheses &amp; <code>KANLER-H1</code> Experimental Report (<code>2026-10-26</code>)</h1>
+<p>Full pre-registration (frozen prior to data restoration and holdout evaluation) is archived in <a href="preregistration_kanler_h1.md"><code>research/preregistration_kanler_h1.md</code></a>. Below is the complete specification of all five untried geological hypotheses, their expected DTI / implementation-cost ranking, official external data verification, and the complete 3-experiment outcome for Rank #1 (<code>KANLER-H1: DCAP-LHC</code>).</p>
+<hr />
+<h2>1. Ranked Candidate Hypotheses</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: right;">Rank</th>
+<th>ID</th>
+<th>Hypothesis</th>
+<th>Specific Layers</th>
+<th>Physical Transform &amp; Missing-Fault Mechanism</th>
+<th>Non-Fault Mimic &amp; Veto</th>
+<th>Expected Gain &amp; Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><strong>1</strong></td>
+<td><strong><code>KANLER-H1</code></strong></td>
+<td><strong>Dip-Coupled Asymmetric Piedmont-Scarp, Road-Vetoed 1m LiDAR &amp; Hydrothermal-Magnetic Conduit (<code>DCAP-LHC</code>)</strong></td>
+<td><code>B12 det_elev</code>, <code>B19 det_elev_slope</code>, <code>B05 iso_grav_anom_slope</code>, <code>B15 depth_to_base_surf</code>, <code>B03 tmi_hg</code>, <code>B09 tmi_vg</code>, <code>B17 cond_surf</code>, <code>B04/B07/B10</code> strain/EQ, 3DEP 1m <code>step_max/upface/downface/coh100</code>, GeoDAWN <code>K/Th/TMI_up150</code>, GDR <code>#1391</code> paleo/2m probes, Census <code>tiger_road_distance_m</code></td>
+<td><strong>(L1)</strong> Scale-normalized concave-up break $-\nabla\ln(s+2^\circ)\cdot\hat{u}<em>{\text{down}}$ integrated 600 m along strike; <strong>(L2)</strong> Andersonian $50^\circ\text{–}60^\circ$ normal-fault hanging-wall projection $\max</em>{d\in{0,5,10,14}\text{ px}} R_{\text{grav,base}}(x+d\hat{u}_{\text{down}})$; <strong>(L3)</strong> single-facing 1m LiDAR scarplets; <strong>(L4)</strong> upward-continued magnetic tilt-zero $\exp(-</td>
+<td>\theta_{\text{tilt}}</td>
+<td>/0.35)$ + <code>K/Th</code> + playa-debiased $</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><code>KANLER-H2</code></td>
+<td>Upward-Continued Magnetic Euler-Tilt &amp; Magnetite-Destruction Trough (<code>ETD-MDT</code>)</td>
+<td><code>B02 rtp</code>, <code>B03 tmi_hg</code>, <code>B09 tmi_vg</code>, <code>B14 tmi</code>, GeoDAWN <code>TMI_up150</code>, <code>K</code>, <code>Th</code>, <code>U</code>, <code>B05</code></td>
+<td>Structural Index $N=0.5$ contact depth consistency (<code>0 m</code> vs <code>+150 m</code> upward continuation) paired with cross-strike $\partial_{nn}\text{RTP} &gt; 0$ magnetite-leaching trough + <code>K/Th</code> adularia-sericite enrichment along blind hydrothermal fault damage zones.</td>
+<td>Mafic volcanic flow margins (<code>derived_gdr_volcanics</code>) and circular pluton aureoles (closed-ring curvature veto).</td>
+<td><strong>Rank #2</strong> — Strong blind-basin precision, moderate whole-survey recall; core physics integrated into <code>H1</code> Line 4. Low cost.</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><code>KANLER-H3</code></td>
+<td>Multi-Catchment Wineglass-Facet &amp; Knickpoint Alignment (<code>WF-KPA</code>)</td>
+<td><code>B12 det_elev</code>, <code>B19 det_elev_slope</code>, 1m LiDAR <code>relief</code>, <code>ex_max</code>, <code>cross_max</code></td>
+<td>Colinear alignment across adjacent catchments of truncated planar interfluve triangular facets + incised channel-mouth longitudinal knickpoints ($-\partial_{ss}z &gt; 0$) over 3 km strike windows. Catches pre-Holocene range fronts buried at the toe by young fan aggradation (<code>Qfy</code>).</td>
+<td>Resistant dipping tuff hogbacks/cuestas and ~1,330 m Lake Lahontan wave-cut cliffs (constant-contour elevation veto).</td>
+<td><strong>Rank #3</strong> — High range-front recall, zero basin sensitivity; Medium compute cost.</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><code>KANLER-H4</code></td>
+<td>Transtensional Riedel-Relay Azimuthal Steered Detector (<code>RCSD-BRIDGE</code>)</td>
+<td><code>B04 geod_2ndinv</code>, <code>B07 geod_shearrate</code>, <code>B08 geod_dilaterate</code>, <code>B10/B16</code> seismicity, <code>B05</code>, <code>B12</code></td>
+<td>Steers 100 m anisotropic Steger ridge filters specifically along local Coulomb R-shear ($\psi \pm 15^\circ$) and normal-relay ($\psi \pm 45^\circ$) azimuths derived from $\frac{1}{2}\arctan(\dot{\gamma}/\dot{\Delta})$ in elevated swarm seismicity (<code>ieq - deq</code>) zones. Catches short oblique Walker Lane stepover splays.</td>
+<td>10–25 km GPS/seismic interpolation kernels (used strictly as azimuth prior, never raw amplitude).</td>
+<td><strong>Rank #4</strong> — Moderate gain in Walker Lane, Low cost.</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><code>KANLER-H5</code></td>
+<td>Upslope-Backprojected Sinter/Tufa &amp; 2m Thermal Feeder Inversion (<code>PHT-SPI</code>)</td>
+<td>GDR <code>#1391</code> <code>paleo_geothermal_regional</code>, <code>2m_temperature_probe</code>, <code>B17 cond_surf</code>, GeoDAWN <code>U/Th</code>, <code>B05</code></td>
+<td>Back-projects shallow thermal/outflow anomalies upslope (<code>+\nabla z</code>) against lateral groundwater flow to the nearest potential-field feeder contact. Directly targets blind geothermal upflow conduits (~39% of Great Basin systems; Faulds et al., 2021).</td>
+<td>Lateral stratabound warm outflow plumes in permeable Quaternary gravel channels.</td>
+<td><strong>Rank #5</strong> — High district precision, sparse (<code>&lt;5%</code> footprint) standalone coverage; Low cost.</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>2. Official Free External Data Verification</h2>
+<p>All external datasets used in <code>KANLER-H1</code> are free, publicly licensed US Government (<code>CC0</code> / Public Domain) or DOE OpenEI (<code>CC-BY-4.0</code>) releases verified live on <code>2026-10-26</code> and SHA-256-pinned on the exact <code>EPSG:32611</code> <code>3730 × 3292</code> 100 m grid:</p>
+<ol>
+<li><strong>USGS 3DEP 1 m Digital Elevation Model (<code>lidar_scarp_features_u8.tif</code>, SHA <code>d580bb8b...</code>):</strong> Public Domain (<code>https://www.usgs.gov/3d-elevation-program</code>, 706 tiles covering <code>75.37%</code> of footprint; explicitly referenced in DOE GEMS Official Rules <code>96647.pdf</code> Sec. 1.2).</li>
+<li><strong>USGS GeoDAWN Airborne Magnetic &amp; Radiometric Survey (<code>geodawn_rad_u8.tif</code> SHA <code>c22420f7...</code>, <code>geodawn_extensions_u8.tif</code> SHA <code>a35a9c6d...</code>):</strong> <code>CC0</code> Public Domain (<code>doi:10.5066/P93LGLVQ</code>, <code>https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and</code>).</li>
+<li><strong>DOE / GBCGE INGENIOUS Regional Dataset (<code>derived_gdr_2m_probes_100m_u8.tif</code> SHA <code>7ac3cfdf...</code>, <code>derived_gdr_paleo_100m_u8.tif</code> SHA <code>d6a3609b...</code>):</strong> <code>CC-BY-4.0</code> (<code>doi:10.15121/1881483</code>, <code>https://gdr.openei.org/submissions/1391</code> — zero label-distance columns used).</li>
+<li><strong>US Census Bureau TIGER/Line 2024 Roads (<code>tiger_road_distance_m.tif</code>, SHA <code>e5350423...</code>):</strong> US Government Public Domain (<code>https://www2.census.gov/geo/tiger/TIGER2024/ROADS/</code>).</li>
+<li><strong>USGS State Geologic Map Compilation (<code>derived_sgmc_faults_100m_u8.tif</code>, SHA <code>26d142c4...</code>):</strong> US Government Public Domain (<code>https://mrdata.usgs.gov/geology/state/</code>), used <strong>strictly as an off-catalogue evaluation diagnostic (<code>d_cat &gt; 300 m</code>, <code>61,664</code> pixels)</strong> and <strong>never</strong> as a model feature.</li>
+</ol>
+<hr />
+<h2>3. Complete <code>KANLER-H1</code> 3-Experiment Results (<code>gems57-pooled-hide-v2</code>)</h2>
+<h3>3.1 Single-Feature Leakage Canary (<code>Protocol Rule 4</code> — Ceiling <code>AUC &lt;= 0.90</code>)</h3>
+<p>All 10 individual lines and composite surfaces passed (<code>all_pass = true</code> in <code>evidence/kanler_h1/canary.json</code>):
+- <code>J_ASYM</code>: <code>AUC_cat = 0.6366</code>, <code>AUC_sgmc = 0.5816</code>
+- <code>SUB_DIP</code>: <code>AUC_cat = 0.5429</code>, <code>AUC_sgmc = 0.4105</code>
+- <code>LIDAR_SCARP</code>: <code>AUC_cat = 0.5897</code>, <code>AUC_sgmc = 0.4514</code>
+- <code>BLIND_CONDUIT</code>: <code>AUC_cat = 0.5207</code>, <code>AUC_sgmc = 0.4773</code>
+- <code>TECT_CTX</code>: <code>AUC_cat = 0.5685</code>, <code>AUC_sgmc = 0.4804</code>
+- <code>H1_JASYM</code>: <code>AUC_cat = 0.6415</code>, <code>AUC_sgmc = 0.5687</code>
+- <code>H1_MULTI</code>: <code>AUC_cat = 0.6528</code>, <code>AUC_sgmc = 0.5037</code>
+- Controls <code>CTRL</code> (<code>0.5261</code>), <code>SLOPE</code> (<code>0.5582</code> cat / <code>0.7577</code> SGMC), <code>REF_H31X</code> (<code>0.6423</code>).</p>
+<h3>3.2 Holdout Experiments (<code>EXP-1</code>, <code>EXP-2</code>, <code>EXP-3</code>, <code>withheld_positives = 60,988</code>, <code>buffer_px = 80</code>)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Experiment / Arm</th>
+<th>Emitter</th>
+<th style="text-align: right;">Q0 (<code>29,319</code>)</th>
+<th style="text-align: right;">Q1 (<code>12,596</code>)</th>
+<th style="text-align: right;">Q2 (<code>9,473</code>)</th>
+<th style="text-align: right;">Q3 (<code>9,600</code>)</th>
+<th>Pooled <code>HOLDOUT-DTI</code> (<code>95% CI</code>)</th>
+<th>Confirm <code>seed=3103</code> ($N=29,965$)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>EXP-1: H1_MULTI</code> (Winner)</strong></td>
+<td><code>2.8 px</code> Poisson</td>
+<td style="text-align: right;"><code>0.1210</code></td>
+<td style="text-align: right;"><code>0.0707</code></td>
+<td style="text-align: right;"><code>0.1520</code></td>
+<td style="text-align: right;"><strong><code>0.1726</code></strong></td>
+<td><strong><code>0.1253</code> <code>[0.1080, 0.1414]</code></strong></td>
+<td><strong><code>0.1107</code> <code>[0.0929, 0.1274]</code></strong></td>
+</tr>
+<tr>
+<td><code>EXP-1: H1_JASYM</code></td>
+<td><code>2.8 px</code> Poisson</td>
+<td style="text-align: right;"><code>0.1139</code></td>
+<td style="text-align: right;"><code>0.1480</code></td>
+<td style="text-align: right;"><code>0.0989</code></td>
+<td style="text-align: right;"><code>0.1420</code></td>
+<td><code>0.1242</code> <code>[0.1095, 0.1391]</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>EXP-2: H1_PU_OOF</code> (<code>SAR-PU</code> OOF)</td>
+<td><code>2.8 px</code> Poisson</td>
+<td style="text-align: right;"><code>0.1188</code></td>
+<td style="text-align: right;"><code>0.0327</code></td>
+<td style="text-align: right;"><code>0.1437</code></td>
+<td style="text-align: right;"><code>0.1698</code></td>
+<td><code>0.1159</code> <code>[0.0958, 0.1345]</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>EXP-3: H1_MULTI_CELF</code> (300 m Submod)</td>
+<td><code>300 m</code> <code>CELF</code></td>
+<td style="text-align: right;"><code>0.1191</code></td>
+<td style="text-align: right;"><code>0.0743</code></td>
+<td style="text-align: right;"><code>0.1498</code></td>
+<td style="text-align: right;"><code>0.1465</code></td>
+<td><code>0.1211</code> <code>[0.1045, 0.1369]</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>REF_H31X</code> (Portfolio Holdout Best)</td>
+<td><code>2.8 px</code> Poisson</td>
+<td style="text-align: right;"><code>0.1456</code></td>
+<td style="text-align: right;"><code>0.2212</code></td>
+<td style="text-align: right;"><code>0.1680</code></td>
+<td style="text-align: right;"><code>0.1602</code></td>
+<td><strong><code>0.1674</code> <code>[0.1518, 0.1840]</code></strong></td>
+<td><strong><code>0.1476</code> <code>[0.1289, 0.1654]</code></strong></td>
+</tr>
+<tr>
+<td><code>CTRL</code> (<code>|tmi_hg|</code> ridge)</td>
+<td><code>2.8 px</code> Poisson</td>
+<td style="text-align: right;"><code>0.0910</code></td>
+<td style="text-align: right;"><code>0.0149</code></td>
+<td style="text-align: right;"><code>0.0859</code></td>
+<td style="text-align: right;"><code>0.0323</code></td>
+<td><code>0.0671</code> <code>[0.0501, 0.0846]</code></td>
+<td><code>0.0656</code> <code>[0.0493, 0.0827]</code></td>
+</tr>
+<tr>
+<td><code>SLOPE</code> (<code>det_elev_slope</code>)</td>
+<td><code>2.8 px</code> Poisson</td>
+<td style="text-align: right;"><code>0.0396</code></td>
+<td style="text-align: right;"><code>0.0596</code></td>
+<td style="text-align: right;"><code>0.0579</code></td>
+<td style="text-align: right;"><code>0.0512</code></td>
+<td><code>0.0486</code> <code>[0.0408, 0.0565]</code></td>
+<td><code>0.0478</code> <code>[0.0385, 0.0574]</code></td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.3 Key Post-Run Scientific Diagnosis (Why <code>verdict = negative</code> Is Preserved Without Retuning)</h3>
+<ol>
+<li><strong>Genuine Walker Lane &amp; Piedmont Breakthrough:</strong> Where 1 m LiDAR is present (<code>92.9%</code> in Q3), <code>H1_MULTI</code> <strong>beat <code>REF_H31X</code> (<code>0.1726 vs 0.1602</code>)</strong>, and across the entire survey <code>H1_MULTI</code> boosted low-slope piedmont (<code>&lt;= 6°</code>) off-catalogue <code>SGMC</code> discovery <strong><code>+28.1%</code> over <code>REF_H31X</code> (<code>0.0569 vs 0.0444</code>)</strong> while maintaining <strong><code>&lt;= 58.47%</code></strong> 3-px dot overlap with every single detector raster in the 417-raster registry (<code>39.74%</code> vs <code>GEMSDOE32</code> <code>0.2778</code>).</li>
+<li><strong>Exact Cause of Quadrant-1 Deficit:</strong> <code>47.4%</code> of Quadrant 1 has <code>lidar_valid == 0</code>, starving Q1 of dots (<code>3,296</code> vs <code>9,823</code>) when <code>r_lidar</code> enters an un-normalized global sum; additionally, <code>Band 12 det_elev</code> has negative high-pass troughs at steep range-front toes. Per Protocol Rules 5 &amp; 6 (<code>budget = 3</code> experiments, zero post-holdout retuning), we preserve the honest <code>verdict: "negative"</code> receipt and document the exact 2-line sensor-availability quantile fix for <code>KANLER-H1.1</code>.</li>
+</ol></article></div></main><footer><div class="wrap"><span>GEMS Evidence Lab &nbsp; / &nbsp; Maximize P(Win) · Own the Outcome</span><span>Research snapshot · No competition slot spent</span></div></footer>
+<script src="source-status.js" defer></script></body></html>

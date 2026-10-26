@@ -5,3 +5,6 @@ scikit-learn==1.6.1
 scikit-image==0.25.2
 pytest==8.3.5
 Markdown==3.9
+
+# Rasterio 1.4.x uses affine multiplication; pin the compatible stable API.
+affine==2.4.0

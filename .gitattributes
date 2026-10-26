@@ -1,0 +1,6 @@
+# Preserve the imported score ledger's exact bytes; its CSV append uses CRLF.
+# Do not normalize its hash-bearing source record merely to satisfy diff --check.
+registry/score-ledger-gemsdoe32.csv whitespace=cr-at-eol
+
+# Keep the SSP1 upstream shared source byte-identical, including its EOF padding.
+studies/ssp1/src/gems32/holdout.py whitespace=-blank-at-eof

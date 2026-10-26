@@ -1,0 +1,33 @@
+name: Refresh participant source observations
+on:
+  schedule:
+    - cron: '17 3,15 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: participant-source-review
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Refresh pinned public source commits (not scores or approval)
+        run: python scripts/sync_focus_feed.py
+      - name: Build the explicitly blocked review artifact
+        if: always()
+        run: python scripts/build_site.py
+      - name: Publish review artifact, never a competition submission
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: participant-source-observations
+          path: docs/
+          retention-days: 14
