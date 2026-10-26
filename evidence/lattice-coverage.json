@@ -1,0 +1,17 @@
+{
+  "reference_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+  "footprint_pixels": 5167373,
+  "lattice_dots": 206895,
+  "radius_px": 3,
+  "covered_footprint_pixels": 5160724,
+  "uncovered_footprint_pixels": 6649,
+  "first_budget_for_forced_greater_than_70_percent": 22164,
+  "preregistered_budget": 37654,
+  "guaranteed_minimum_overlap_at_budget": 0.8234184947150369,
+  "proof": "At most uncovered distinct candidate cells can lie outside coverage, so overlap >= max(0, N - uncovered) / N.",
+  "caveats": [
+    "This is a mathematical bound, not an observed candidate overlap.",
+    "It does not rule out lower-density candidates.",
+    "Coverage and hash establish mirror identity, not organizer authentication."
+  ]
+}

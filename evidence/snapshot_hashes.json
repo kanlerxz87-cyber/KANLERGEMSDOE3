@@ -172,6 +172,10 @@
     "sha256": "89d4e23523298e28c644f315201da32d3319779dc082c2b2513a0d760d5d1e44"
   },
   {
+    "path": "evidence/upstream/GEMSDOE31/registry/raster_registry.json",
+    "sha256": "e1f10c7bf4c0b9c61a427a6106a0073ca2ea449f6d30b2b787931fbda2d2e104"
+  },
+  {
     "path": "evidence/upstream/GEMSDOE31/registry/template_pins.json",
     "sha256": "de953c958cb08091ee47740aec28b36824ce7801b4f1713e339122fe2ec3e4d3"
   },
