@@ -16,12 +16,50 @@
           "shape_match": true,
           "transform_match": true,
           "all_finite": true,
-          "range_0_1": true
+          "range_0_1": true,
+          "outside_footprint_is_null": false,
+          "inside_footprint_schema": false
         },
-        "format_pass": true,
+        "format_pass": false,
+        "strict_template_validation": {
+          "ok": false,
+          "errors": [
+            "outside-footprint valid pixels=7111787; expected null/nodata"
+          ],
+          "validator": "submission-format-v1",
+          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
+          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE24.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 7111787
+        },
         "sha256": "3e0730e8d4f7db095dd80246a98cba3bc0fc9a28f436b91db27ca34df4d0d1ce",
         "nonfinite_count": 0,
-        "note": "Format only; not scientific validation or permission to submit."
+        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -43,12 +81,50 @@
           "shape_match": true,
           "transform_match": true,
           "all_finite": true,
-          "range_0_1": true
+          "range_0_1": true,
+          "outside_footprint_is_null": false,
+          "inside_footprint_schema": false
         },
-        "format_pass": true,
+        "format_pass": false,
+        "strict_template_validation": {
+          "ok": false,
+          "errors": [
+            "outside-footprint valid pixels=7111787; expected null/nodata"
+          ],
+          "validator": "submission-format-v1",
+          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
+          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE25.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 7111787
+        },
         "sha256": "3e78737f0da8dd2ca66cc6caac0ce8eeefcd6715707f8d1bd3091845cd9bcc30",
         "nonfinite_count": 0,
-        "note": "Format only; not scientific validation or permission to submit."
+        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -70,12 +146,50 @@
           "shape_match": true,
           "transform_match": true,
           "all_finite": true,
-          "range_0_1": true
+          "range_0_1": true,
+          "outside_footprint_is_null": false,
+          "inside_footprint_schema": false
         },
-        "format_pass": true,
+        "format_pass": false,
+        "strict_template_validation": {
+          "ok": false,
+          "errors": [
+            "outside-footprint valid pixels=7111787; expected null/nodata"
+          ],
+          "validator": "submission-format-v1",
+          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
+          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE27.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 7111787
+        },
         "sha256": "a9bf76b57453a5b3af74c8eef837df53c29a0931162aa540b8763220b36ba3bb",
         "nonfinite_count": 0,
-        "note": "Format only; not scientific validation or permission to submit."
+        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 0.9801884946517089,
       "unique_under_protocol": false,
@@ -97,12 +211,50 @@
           "shape_match": true,
           "transform_match": true,
           "all_finite": true,
-          "range_0_1": true
+          "range_0_1": true,
+          "outside_footprint_is_null": false,
+          "inside_footprint_schema": false
         },
-        "format_pass": true,
+        "format_pass": false,
+        "strict_template_validation": {
+          "ok": false,
+          "errors": [
+            "outside-footprint valid pixels=7111787; expected null/nodata"
+          ],
+          "validator": "submission-format-v1",
+          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
+          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE28.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 7111787
+        },
         "sha256": "7c74270ad48fa0b865163853046a6d3815967c5bf37bbda5b74ca7fa22583a32",
         "nonfinite_count": 0,
-        "note": "Format only; not scientific validation or permission to submit."
+        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -124,12 +276,48 @@
           "shape_match": true,
           "transform_match": true,
           "all_finite": false,
-          "range_0_1": false
+          "range_0_1": false,
+          "outside_footprint_is_null": true,
+          "inside_footprint_schema": true
         },
-        "format_pass": false,
+        "format_pass": true,
+        "strict_template_validation": {
+          "ok": true,
+          "errors": [],
+          "validator": "submission-format-v1",
+          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
+          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE30.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 0
+        },
         "sha256": "5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32",
         "nonfinite_count": 7111787,
-        "note": "Format only; not scientific validation or permission to submit."
+        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -151,12 +339,50 @@
           "shape_match": true,
           "transform_match": true,
           "all_finite": true,
-          "range_0_1": true
+          "range_0_1": true,
+          "outside_footprint_is_null": false,
+          "inside_footprint_schema": false
         },
-        "format_pass": true,
+        "format_pass": false,
+        "strict_template_validation": {
+          "ok": false,
+          "errors": [
+            "outside-footprint valid pixels=7111787; expected null/nodata"
+          ],
+          "validator": "submission-format-v1",
+          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
+          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE31.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 7111787
+        },
         "sha256": "acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6",
         "nonfinite_count": 0,
-        "note": "Format only; not scientific validation or permission to submit."
+        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -178,12 +404,50 @@
           "shape_match": true,
           "transform_match": true,
           "all_finite": true,
-          "range_0_1": true
+          "range_0_1": true,
+          "outside_footprint_is_null": false,
+          "inside_footprint_schema": false
         },
-        "format_pass": true,
+        "format_pass": false,
+        "strict_template_validation": {
+          "ok": false,
+          "errors": [
+            "outside-footprint valid pixels=7111787; expected null/nodata"
+          ],
+          "validator": "submission-format-v1",
+          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
+          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE32.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 7111787
+        },
         "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
         "nonfinite_count": 0,
-        "note": "Format only; not scientific validation or permission to submit."
+        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 1.0,
       "unique_under_protocol": false,
@@ -205,12 +469,48 @@
           "shape_match": true,
           "transform_match": true,
           "all_finite": false,
-          "range_0_1": false
+          "range_0_1": false,
+          "outside_footprint_is_null": true,
+          "inside_footprint_schema": true
         },
-        "format_pass": false,
+        "format_pass": true,
+        "strict_template_validation": {
+          "ok": true,
+          "errors": [],
+          "validator": "submission-format-v1",
+          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
+          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE33.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 0
+        },
         "sha256": "bc3af2a5fcb4b49bc5845a2d7dc3da23daf41ce75e4c64da3337c0c8c93cc12c",
         "nonfinite_count": 7111787,
-        "note": "Format only; not scientific validation or permission to submit."
+        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 0.9970858712528365,
       "unique_under_protocol": false,
@@ -232,12 +532,50 @@
           "shape_match": true,
           "transform_match": true,
           "all_finite": true,
-          "range_0_1": true
+          "range_0_1": true,
+          "outside_footprint_is_null": false,
+          "inside_footprint_schema": false
         },
-        "format_pass": true,
+        "format_pass": false,
+        "strict_template_validation": {
+          "ok": false,
+          "errors": [
+            "outside-footprint valid pixels=7111787; expected null/nodata"
+          ],
+          "validator": "submission-format-v1",
+          "template": "/home/user/KANLERGEMSDOE3/data/sample_submission.tif",
+          "candidate": "/home/user/KANLERGEMSDOE3/data/GEMSDOE36.tif",
+          "bands": 1,
+          "dtype": [
+            "float32"
+          ],
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "footprint_pixels": 5167373,
+          "nonfinite_inside": 0,
+          "finite_range_inside": [
+            0.0,
+            1.0
+          ],
+          "valid_outside_footprint": 7111787
+        },
         "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
         "nonfinite_count": 0,
-        "note": "Format only; not scientific validation or permission to submit."
+        "note": "Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit."
       },
       "max_overlap_3px": 0.9757811293560509,
       "unique_under_protocol": false,

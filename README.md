@@ -9,8 +9,10 @@
 [Ranked hypotheses](research/hypotheses.md) · [Independent audit](docs/audit.json)
 
 No new eligible TIFF or score estimate exists. Nine historical best masks were restored from pinned
-GitHub mirrors and hash-checked. All 72 directed overlap comparisons exceed the requested 70% stop.
-No historical artifact is being relabelled as a unique entry. No weekly slot was consumed.
+GitHub mirrors and hash-checked for forensic learning. All 72 directed overlap comparisons exceed the
+requested 70% stop. Strict validation against the owner-mirror sample mask passes for only 2/9 historical
+rasters; the other 7 use valid zeros outside the footprint rather than null/nodata. No historical artifact
+is being relabelled as a unique entry. No weekly slot was consumed.
 This is a **negative research deliverable**, not a completed high-scoring model.
 
 The initial checkout contained only this README's title. Claims in the project request about an existing

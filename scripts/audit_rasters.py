@@ -5,10 +5,16 @@ from pathlib import Path
 import numpy as np
 import rasterio
 from scipy.ndimage import distance_transform_edt
+from validate_submission import validate as validate_template
 
 ROOT = Path(__file__).resolve().parents[1]
 
 def validate(path, template):
+    # Keep whole-array diagnostics for the reported portal range error, but use
+    # the canonical sample-template validator for the actual format decision.
+    # The competition format permits null/NaN outside its footprint; zeros there
+    # are not equivalent to a null mask merely because they lie in [0, 1].
+    strict = validate_template(Path(template), Path(path))
     with rasterio.open(template) as ref, rasterio.open(path) as ds:
         a = ds.read(1)
         finite = np.isfinite(a)
@@ -19,11 +25,14 @@ def validate(path, template):
             'transform_match': ds.transform == ref.transform,
             'all_finite': bool(finite.all()),
             'range_0_1': bool(finite.all() and (a >= 0).all() and (a <= 1).all()),
+            'outside_footprint_is_null': strict.get('valid_outside_footprint') == 0,
+            'inside_footprint_schema': strict.get('ok') is True,
         }
-        return {'checks': checks, 'format_pass': all(checks.values()),
+        return {'checks': checks, 'format_pass': strict.get('ok') is True,
+                'strict_template_validation': strict,
                 'sha256': hashlib.sha256(Path(path).read_bytes()).hexdigest(),
                 'nonfinite_count': int((~finite).sum()),
-                'note': 'Format only; not scientific validation or permission to submit.'}
+                'note': 'Strict format against the pinned owner-mirror sample grid; not organizer-authenticated, scientific validation, or permission to submit.'}
 
 def overlap(candidate, reference):
     if candidate.shape != reference.shape or not candidate.any() or not reference.any():
