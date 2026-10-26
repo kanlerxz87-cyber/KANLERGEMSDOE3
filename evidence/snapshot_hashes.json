@@ -1,0 +1,370 @@
+[
+  {
+    "path": "evidence/upstream/GEMSDOE24/README.md",
+    "sha256": "dcd83a1c878cf60ce230d1c6d8bee120db0bfb814089650ec742f7a3c8565168"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE24/docs/executive-summary.html",
+    "sha256": "87c5cb313074f036035fe63f5f429c0247b08e37489c386e8875ae19fa2653ec"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE24/docs/index.html",
+    "sha256": "861c2b589379c8e7a9a5ff36bbf7a67d9c4623ee4e7248c9f16bb3f371b817b6"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE24/executive-summary.html",
+    "sha256": "b176902baa5d265883d47ff1b9870eadad5dd6ade790440965bed9a7c0655f83"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE24/index.html",
+    "sha256": "a1716d246a7833bebe2e2bd87c73cde77b96cfd3c8a5e2f6d6ec945a448da850"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE24/registry/live_scores.json",
+    "sha256": "b66db0610d7a873e1abd901104239ddbe4d766c4a3d1d473c95d4783a920146a"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE24/scripts/evaluate_holdout.py",
+    "sha256": "66fbe1a696c0fe48b1d277619eaf810aa2d91866a92bc2a5d819c49fe4143da1"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE24/scripts/submission_writer.py",
+    "sha256": "1bca5559952f540b5eb2b4223491e4fd1bdef6a1494857a0d3e6204e466bd45b"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE24/tree.json",
+    "sha256": "3e9903bed30aa9259f0bbf55ea839ebb1b263750efaec3af460f1e9fe95cd8b2"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE25/README.md",
+    "sha256": "1925eeaf1a45ce901615e228a71e39dd61714cfa7b6b5b3ad93f6d98473bd06f"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE25/docs/executive-summary.html",
+    "sha256": "cee4b91b8262261251ba52a1868c2313fc31df0e7f8dc4cec40f3dfaa479d104"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE25/docs/index.html",
+    "sha256": "c60e7c58838e8f2a33efaf0a796ddcdae57f14bac63654d3adcb37affbd8d57f"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE25/index.html",
+    "sha256": "0f1a0e7f6746265e5227e89067f1503fa89e8be62f6d2b7e59b994eb72c87540"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE25/registry/data_manifest.json",
+    "sha256": "5a0f9b95efd7a8e77f2e0a3162fda235f8dd0253cef187165ad7c0c003321c66"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE25/registry/live_scores.json",
+    "sha256": "da07ce0537e89b17b482382c794ea899c8c8a6e3d49f3c2a53b477fc0e6da44d"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE25/tree.json",
+    "sha256": "19e882d27423c65a970d4d40bd6fdb2a6dbdbb385cdae043c3609f0cc395421b"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE27/README.md",
+    "sha256": "8adb9b0e0dbcace7f322bbbfbda6a11d806ef7d546eda1d9c7a6451b5de1493b"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE27/docs/executive-summary.html",
+    "sha256": "972b17ad384fd19f2f6690ea1f1c4893e9d418f6cd5f2575ac3a4d40e407950d"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE27/docs/index.html",
+    "sha256": "4a363ba3c7b21fd1c5b0e4b0dd822992e478a7ac3377735825132f3251b31594"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE27/index.html",
+    "sha256": "de5ffe4e86444646cfc74944a27b1edfde5d5d7d4d3fcaddb9e5f73c5c26d73b"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE27/registry/hypotheses.json",
+    "sha256": "a2b2eb5ff0654059b61f4324b4ab2b7fe418b19fe6854889144240d580733c90"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE27/registry/live_scores.json",
+    "sha256": "7bb10b2bbed7738ee2fc63d555560a7de079626d2a9ec2753f786cbc65b92d23"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE27/tree.json",
+    "sha256": "4adeba9c4fe105977012c3fc6a8ec36144d52abaafab48684d491068fc0ca208"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE28/README.md",
+    "sha256": "a4cad06519e5e8908bf929a9c6e6a281b5861b58715bb54fc7c77510dfe1f00c"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE28/docs/executive-summary.html",
+    "sha256": "a323a17b015a85741f02cc57012ddbfc11d4854e5f51c895b8329ad582a81afc"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE28/docs/index.html",
+    "sha256": "711fb69dae61fd24ad54c9e50dfab59c4c78199b0181d4f7b55bdbfa8ae75bd1"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE28/executive-summary.html",
+    "sha256": "10fb3c8c076841c7bc2af12d2ad3e81fd09c3fe6f0ab4f3272499e90746bfebd"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE28/index.html",
+    "sha256": "72575dc7f334397b5ee555d171d2fcfd916cf1a98da63d6dfedfb4ff06498b4a"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE28/registry/data_manifest.json",
+    "sha256": "cd31840ccff6ce889f342d54332401e6861342ae7e1462df2272c1236482d16a"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE28/registry/hypotheses.json",
+    "sha256": "ae19ebdd16085c577e24900e0ae9bdc61be8f268bb3cb8dc0365ba4adda19fb8"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE28/registry/live_scores.json",
+    "sha256": "ae67e0d6bba22efbdfe2813497de8ade2bb1a2b5a60ed6a5fda63d292588d4e7"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE28/tree.json",
+    "sha256": "f9f9a838981a0b1ba5f140969dfdd5e48d266df1c4e69f306a2b4558b1b40fad"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE30/README.md",
+    "sha256": "609f0e1d986f54589e01fd87624d0d6c70bd96dddc850f88113b8b9c78dd45c5"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE30/docs/executive-summary.html",
+    "sha256": "46dc509a5682dc515c74192d4fab0e85438140ff38f03d6855014fcb55169c60"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE30/docs/index.html",
+    "sha256": "7b24402562566eeec7f4045c9e9bdf1e3196720192cc5943d961fdf7491f785c"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE30/executive-summary.html",
+    "sha256": "1a381420d55f9ce973b6d94ea6edb9dcc93da559784f0556a27ae2a329d3c26c"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE30/index.html",
+    "sha256": "685b4763c5aee7d0d59139570073b5ba51ff71fb9db848b1eddd30239956fc03"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE30/tree.json",
+    "sha256": "a8c4d59e79355586ca74f1b7c8cb4bb7bf432b51eb31053a4ece5137d9f2e7df"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE31/README.md",
+    "sha256": "c9dd201007d269beaec816d5c53337382be7daf8d7de3750dbc10eac26280830"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE31/docs/executive-summary.html",
+    "sha256": "8f00696abb7ab62e1d0589cfd2819b1513a00658f1660299000b253fc48ead6f"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE31/docs/index.html",
+    "sha256": "bd3d5c60043bca35b7d73699928547ec88327b7389674d988035891ea7f290ca"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE31/index.html",
+    "sha256": "317a591311da033cfa38d9d71b3e51d0f13cf1127c5cf03adbbfc9b413049045"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE31/registry/data_manifest.json",
+    "sha256": "89d4e23523298e28c644f315201da32d3319779dc082c2b2513a0d760d5d1e44"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE31/registry/raster_registry.json",
+    "sha256": "e1f10c7bf4c0b9c61a427a6106a0073ca2ea449f6d30b2b787931fbda2d2e104"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE31/registry/template_pins.json",
+    "sha256": "de953c958cb08091ee47740aec28b36824ce7801b4f1713e339122fe2ec3e4d3"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE31/scripts/evaluate_holdout.py",
+    "sha256": "8114d61a29b7d6b84bcc76855541f051ab6a8fa0253998488ba058c756ef8aaf"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE31/scripts/submission_writer.py",
+    "sha256": "407ffbdff1b7c61a5c146a98bf54faac2fa6aed5be61466ae13cedaf232cee4c"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE31/tree.json",
+    "sha256": "d7bb67ede2310f467f2b2a494592754976ffafc2ca843bb1c0e1d9e767c7f7e2"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE31/vendor/gems57/evaluate_holdout.py",
+    "sha256": "ad86640b46f3c5fc6b1aceec4c4bfc82d03e35008b37ab2a8ad6076e6810ff3a"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE31/vendor/gems57/submission_writer.py",
+    "sha256": "41220185ac2823fe5358603d38f2a915ea3e5f1ab1f94f0b237295b38b4a2565"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE31/vendor/template57/test_evaluate_holdout.py",
+    "sha256": "2e354c977536dcf85dd6230420c1ca2ffec525f7068941e1206736b73061cf68"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE32/README.md",
+    "sha256": "d958e87937034f9b2ed2b27f782cf63055bd8484d799505f745aa9eba79c2878"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE32/docs/executive-summary.html",
+    "sha256": "c8e7265f25320b213d8a9ce7519ba50081107cd7f506315699d316a6f39b35c9"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE32/docs/index.html",
+    "sha256": "44e6e51b871df82da9355c1cdacb51954e4579b9f6193992d0ed17c66a2bcd4d"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE32/evidence/h32_winning_run_card.json",
+    "sha256": "a212d96cee69c9cf54b635392f07c9b1ba03dfdd2a6c67a54842f1005bafdc04"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE32/evidence/review_run_card_20261026.json",
+    "sha256": "f6dec141963ca6c61facd033c13a4b256b718c3d29dcc797da818d17fd3b56ff"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE32/executive-summary.html",
+    "sha256": "8bb0bd52dfe6d913b22f8ae9ae1158a2498b814f2d65bcb51d3a291b0bb74906"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE32/index.html",
+    "sha256": "fac0b1cd3eea7f112330b94a505999884fa08df79fb40da3f87d9ed8ce9d73fb"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE32/registry/current_status.json",
+    "sha256": "7122e26f2cce203b57557451ddea3b1eb4f9106901d6d49a281212c7729c1737"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE32/registry/data_manifest.json",
+    "sha256": "e28b33ba35216e6b699bc0dd7a61926706276b558d21d2152f044b366b4cf795"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE32/registry/hypotheses.json",
+    "sha256": "93c0b559dc6b171f776ccf57753c78359e4b9de1373076ee6e56af55f31ffa03"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE32/scripts/evaluate_holdout.py",
+    "sha256": "d786273021c86b62af2504060309554218ca1442ed84d717f13334dddeea892c"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE32/scripts/submission_writer.py",
+    "sha256": "cf7eb9948cfe5032e1db2362ddd5a075c2c744bb33ebbcfb2ba2b5ebd1b1de9b"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE32/tree.json",
+    "sha256": "be5771fa7039797a0fc131f9cc0d2c1f2de7de409495d2b9679ee1ec37ed31c8"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE32/vendor/gems57/evaluate_holdout.py",
+    "sha256": "ad86640b46f3c5fc6b1aceec4c4bfc82d03e35008b37ab2a8ad6076e6810ff3a"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE32/vendor/gems57/submission_writer.py",
+    "sha256": "41220185ac2823fe5358603d38f2a915ea3e5f1ab1f94f0b237295b38b4a2565"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE32/vendor/template57/test_evaluate_holdout.py",
+    "sha256": "2e354c977536dcf85dd6230420c1ca2ffec525f7068941e1206736b73061cf68"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE33/README.md",
+    "sha256": "c49c95e0e39a1c9ae9199a23d7b23057a4c397f50a5a97c62bd0f52b4d268043"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE33/docs/executive-summary.html",
+    "sha256": "417d67347923df904fcdb9026c4314b38599926601d519fe82d02c10e9518397"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE33/docs/index.html",
+    "sha256": "d221602f7db489a861aedbbba57491886b69d9095aa6602505b94cc2996694de"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE33/evaluate_holdout.py",
+    "sha256": "51dd3aa1315b5fd195c2c5301b6bd65826d07390372eae991408367b92fcb099"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE33/index.html",
+    "sha256": "8adf6a087f93f378de538d8908b52745cb59409ea5ace9f811278ce9a1548848"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE33/registry/data_manifest.json",
+    "sha256": "446679f5f68084837f7b4e274f19b1162db2dc00576e59667e2f68efb85930a0"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE33/registry/hypotheses.json",
+    "sha256": "f25c9cc43eb179cf294aee441c898bfe846088095539a25e7d2178e822c3bf71"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE33/registry/live_scores.json",
+    "sha256": "ddaa1d0161bb08c38f90dbb6a52a7b6292322f588199c9f5659a9134faecb2e1"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE33/scripts/evaluate_holdout.py",
+    "sha256": "3d87f7aa4a611246d8c9b7d411f77732c4f3211b643e76a7d73d5ec489c2cd2e"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE33/scripts/submission_writer.py",
+    "sha256": "7ba67965f4cae1d74406864e8255a0ab95b3dcdf492011d61947f649d86b17c6"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE33/submission_writer.py",
+    "sha256": "06c85f287ddcc42e6e89c22b98c8edb21567421f6945e93ff47613cb629ccaa4"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE33/tree.json",
+    "sha256": "37c83353037f31a4adbb046114e8af8bb83f28e7eb8a4cf5e78c05f823cd350c"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE33/vendor/gems57/evaluate_holdout.py",
+    "sha256": "ad86640b46f3c5fc6b1aceec4c4bfc82d03e35008b37ab2a8ad6076e6810ff3a"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE33/vendor/gems57/submission_writer.py",
+    "sha256": "41220185ac2823fe5358603d38f2a915ea3e5f1ab1f94f0b237295b38b4a2565"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE36/README.md",
+    "sha256": "2a0d226cf54ad0f156bf71027e43cf2df96c5aa65ed22a03361b34435f1a6ee8"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE36/docs/executive-summary.html",
+    "sha256": "799542c2ba2fc6dc0d52f5fbfc9a938159d02d49ad1e999c144efe2512a221f3"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE36/docs/index.html",
+    "sha256": "124722d013dbf7ecabd5d0df53e376e3444aa80a128c3814500787aa432ce356"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE36/index.html",
+    "sha256": "7167063f8b8c90fbf6fe6429ec4d1df118b7aa85dd030e5ccc245a13b0cd9ef5"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE36/registry/data_manifest.json",
+    "sha256": "ed854b467c257ba3698a5b96eef1aabba622e431aebc4ed2fbfca2775c836b02"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE36/registry/template_pins.json",
+    "sha256": "078a6ac411b0bb2ad8578bb46f825356a10d4e7b356ae053b5ff37a01d2418c9"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE36/scripts/evaluate_holdout.py",
+    "sha256": "c4b2196445f91b05598ef6bee733384b2f6dc900dd355ffcac05b4e218be8f8d"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE36/scripts/submission_writer.py",
+    "sha256": "552621e4f1a8836922cbd0557c56e409b22e98d90d8b091baaa77a2fa0ef0717"
+  },
+  {
+    "path": "evidence/upstream/GEMSDOE36/tree.json",
+    "sha256": "53d6b62280d15e11c9fffd6b55caf71353b386d9ef77f04b6ab6f8b62222d1d1"
+  },
+  {
+    "path": "evidence/upstream/gems-prize-reference-solution/README.md",
+    "sha256": "cfa4d55559c9128313beb9417eae7e0a94c31677132afb1120f9e86222804239"
+  },
+  {
+    "path": "evidence/upstream/gems-prize-reference-solution/tree.json",
+    "sha256": "c9dccdd8b8bd37511c6672cfed500c834f8f12a05c57051d641b94ce203ef550"
+  }
+]

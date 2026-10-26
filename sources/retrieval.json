@@ -1,0 +1,293 @@
+[
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE24",
+    "path": "README.md",
+    "sha": "1734c392b1b6063f1a711bf12f90d25a9b773cab",
+    "status": "retrieved",
+    "sha256": "dcd83a1c878cf60ce230d1c6d8bee120db0bfb814089650ec742f7a3c8565168",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE24",
+    "path": "docs/index.html",
+    "sha": "44f6b8877def10669efe0504291bb89900f3fc61",
+    "status": "retrieved",
+    "sha256": "861c2b589379c8e7a9a5ff36bbf7a67d9c4623ee4e7248c9f16bb3f371b817b6",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE24",
+    "path": "docs/score-ledger.csv",
+    "status": "unavailable"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE25",
+    "path": "README.md",
+    "sha": "0dc843831e740ab8658acc6d370c5845db04763e",
+    "status": "retrieved",
+    "sha256": "1925eeaf1a45ce901615e228a71e39dd61714cfa7b6b5b3ad93f6d98473bd06f",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE25",
+    "path": "docs/index.html",
+    "sha": "88350127063e774eb58d9c7e646e7d78d33df247",
+    "status": "retrieved",
+    "sha256": "c60e7c58838e8f2a33efaf0a796ddcdae57f14bac63654d3adcb37affbd8d57f",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE25",
+    "path": "docs/score-ledger.csv",
+    "status": "unavailable"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE27",
+    "path": "README.md",
+    "sha": "3a168122b5e6bcd5d41c149adf3d89bd472ff840",
+    "status": "retrieved",
+    "sha256": "8adb9b0e0dbcace7f322bbbfbda6a11d806ef7d546eda1d9c7a6451b5de1493b",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE27",
+    "path": "docs/index.html",
+    "sha": "efb75b6650d4a5ffed9199b30ee6538c31373259",
+    "status": "retrieved",
+    "sha256": "4a363ba3c7b21fd1c5b0e4b0dd822992e478a7ac3377735825132f3251b31594",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE27",
+    "path": "docs/score-ledger.csv",
+    "status": "unavailable"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE28",
+    "path": "README.md",
+    "sha": "1979fb56c345f2f5b020dacf9eae85b507b1a854",
+    "status": "retrieved",
+    "sha256": "a4cad06519e5e8908bf929a9c6e6a281b5861b58715bb54fc7c77510dfe1f00c",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE28",
+    "path": "docs/index.html",
+    "sha": "0c9a2100e7b17388cb3857f08e795e13366da0ff",
+    "status": "retrieved",
+    "sha256": "711fb69dae61fd24ad54c9e50dfab59c4c78199b0181d4f7b55bdbfa8ae75bd1",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE28",
+    "path": "docs/score-ledger.csv",
+    "status": "unavailable"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE30",
+    "path": "README.md",
+    "sha": "c7360f6df16897ef16082ccdb983c7f3498c7c97",
+    "status": "retrieved",
+    "sha256": "609f0e1d986f54589e01fd87624d0d6c70bd96dddc850f88113b8b9c78dd45c5",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE30",
+    "path": "docs/index.html",
+    "sha": "bef375416cb29f515401034957c38b8727e1d4ef",
+    "status": "retrieved",
+    "sha256": "7b24402562566eeec7f4045c9e9bdf1e3196720192cc5943d961fdf7491f785c",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE30",
+    "path": "docs/score-ledger.csv",
+    "sha": "9ad8aa9de613f95ea76327af9464ed62d6fbceec",
+    "status": "retrieved",
+    "sha256": "0c1954adce0b9cf8f1ea24af73c6ed21f3c1152983e47cbe2bd1c7f021066586",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE31",
+    "path": "README.md",
+    "sha": "1b347517e2090f3b9bc286892cf9ccfb5e9dc103",
+    "status": "retrieved",
+    "sha256": "c9dd201007d269beaec816d5c53337382be7daf8d7de3750dbc10eac26280830",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE31",
+    "path": "docs/index.html",
+    "sha": "3a95da4d27fcb38021264143e1dcda6c246d6a05",
+    "status": "retrieved",
+    "sha256": "bd3d5c60043bca35b7d73699928547ec88327b7389674d988035891ea7f290ca",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE31",
+    "path": "docs/score-ledger.csv",
+    "status": "unavailable"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE32",
+    "path": "README.md",
+    "sha": "95166dd3f33ef1df1b0c4dc0f990153918137d09",
+    "status": "retrieved",
+    "sha256": "d958e87937034f9b2ed2b27f782cf63055bd8484d799505f745aa9eba79c2878",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE32",
+    "path": "docs/index.html",
+    "sha": "706899e48e05f09c8afd8774b5b3768bb6161bcf",
+    "status": "retrieved",
+    "sha256": "44e6e51b871df82da9355c1cdacb51954e4579b9f6193992d0ed17c66a2bcd4d",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE32",
+    "path": "docs/score-ledger.csv",
+    "sha": "9cd8a366c0a09458d359136df194ffb830723911",
+    "status": "retrieved",
+    "sha256": "65a2c962a25370e2661d2deaf18c87ff884d6d66468b73be989899384ed404ed",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE33",
+    "path": "README.md",
+    "sha": "f7b6f3938d442fc76c53e9e00e0d54e72d880fd0",
+    "status": "retrieved",
+    "sha256": "c49c95e0e39a1c9ae9199a23d7b23057a4c397f50a5a97c62bd0f52b4d268043",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE33",
+    "path": "docs/index.html",
+    "sha": "c042b2b384cd62d2f980dddfa3b2d5778f413b3b",
+    "status": "retrieved",
+    "sha256": "d221602f7db489a861aedbbba57491886b69d9095aa6602505b94cc2996694de",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE33",
+    "path": "docs/score-ledger.csv",
+    "status": "unavailable"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE36",
+    "path": "README.md",
+    "sha": "9e15699da6bdd0a731095132568aefc85483dbb8",
+    "status": "retrieved",
+    "sha256": "2a0d226cf54ad0f156bf71027e43cf2df96c5aa65ed22a03361b34435f1a6ee8",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE36",
+    "path": "docs/index.html",
+    "sha": "4d89edff7ffd340d518a6844b14d246d2150c2a3",
+    "status": "retrieved",
+    "sha256": "124722d013dbf7ecabd5d0df53e376e3444aa80a128c3814500787aa432ce356",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE36",
+    "path": "docs/score-ledger.csv",
+    "status": "unavailable"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE32",
+    "path": "evidence/h33_holdout.json",
+    "sha": "9f4a79a8e6fee38cc23d3eb03cca1c7a19c29358",
+    "status": "retrieved",
+    "sha256": "45d3e86ecbc3caa98b5a29a4ae0dd1702d55950df117802bd6e4d3066bddca7b",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE32",
+    "path": "evidence/h33_candidates.json",
+    "sha": "375ed7858cdaaeeb7fd23b15ff7f7457ad06fdcc",
+    "status": "retrieved",
+    "sha256": "d9336421437308876fc3440cd3ff6a4371e2ebb56ab790fccc1076bf7eb4edf6",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE32",
+    "path": "evidence/h33_validation.json",
+    "sha": "29a11d5a65154a310364474957de3fd14a7a8ed7",
+    "status": "retrieved",
+    "sha256": "74d416a733cddbb3bc841680bb5d01270fd7958b18cba710786484c0e397348a",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE32",
+    "path": "docs/research/why-02778-analysis-20261025.md",
+    "sha": "d4d30a91c1354fb3c9253d18c8eef80c3672e2ce",
+    "status": "retrieved",
+    "sha256": "64ade01d873df342e48f63b9cf956bb4580d9d444e8c3c1580d0c24b556b0ea4",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE32",
+    "path": "scripts/evaluate_holdout.py",
+    "sha": "7773e40cda724395a323e54da4f607b0e9e59a2e",
+    "status": "retrieved",
+    "sha256": "d786273021c86b62af2504060309554218ca1442ed84d717f13334dddeea892c",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE32",
+    "path": "scripts/submission_writer.py",
+    "sha": "c3cc5cf23056d46e577c00ecec39a6f01c771260",
+    "status": "retrieved",
+    "sha256": "cf7eb9948cfe5032e1db2362ddd5a075c2c744bb33ebbcfb2ba2b5ebd1b1de9b",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE32",
+    "path": "vendor/PROVENANCE.json",
+    "sha": "0dd2337982e97c8ba957b1189b7c9c41c5be4614",
+    "status": "retrieved",
+    "sha256": "6790e3a5a2ea0fc6ebcdb560ddc40a0dca202f3e2d621ede315f69e153449b5d",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE32",
+    "path": "registry/data_manifest.json",
+    "sha": "9b291ec7f020ef406bb1aebf20faf98ae73dc679",
+    "status": "retrieved",
+    "sha256": "e28b33ba35216e6b699bc0dd7a61926706276b558d21d2152f044b366b4cf795",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE32",
+    "path": "registry/feature_receipt.json",
+    "sha": "264940211353f505f246f3435e98fc15433b8fbc",
+    "status": "retrieved",
+    "sha256": "abcff44f5f1fe73787caf7e4fcbb43ed240890fc03c73467297a79698928c2a6",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE32",
+    "path": "scripts/restore_data.py",
+    "sha": "44749878e7e96ee5aaa9071b4e6e01d03c9ed872",
+    "status": "retrieved",
+    "sha256": "46d97fd30dea0b7ae62e0286f837059ad08828e7f74d49498693dc7dce50670f",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "buffedlizard55-lab/GEMSDOE32",
+    "path": "evidence/focus_site_winner_overlap_20261026.json",
+    "sha": "5361001f694f8fbbf49efc88f5aae80f43b4c808",
+    "status": "retrieved",
+    "sha256": "2dcc60b5e65209ac351f86a5afc47a60befd466e0814ddf0d03dee169234cc6f",
+    "retrieval_date_utc": "2026-10-26"
+  },
+  {
+    "repo": "drivendataorg/gems-prize-reference-solution",
+    "path": "README.md",
+    "sha": "a8814f99c395d12a8e1c3731c738e61d7dca06b5",
+    "status": "retrieved",
+    "sha256": "cfa4d55559c9128313beb9417eae7e0a94c31677132afb1120f9e86222804239",
+    "retrieval_date_utc": "2026-10-26"
+  }
+]

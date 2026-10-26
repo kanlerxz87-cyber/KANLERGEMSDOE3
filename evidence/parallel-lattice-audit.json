@@ -1,0 +1,15 @@
+{
+  "generated_utc": "2026-10-26T22:07:31.949596+00:00",
+  "source_commit": "50488287492b3e973818dba86bb9fd839ebc4337",
+  "candidate": "docs/downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.tif",
+  "candidate_sha256": "16ec0585a884224460f0e5d09e7448a54ab5a3348db92279452a9a4e0453b0f7",
+  "expected_owner_sha256": "16ec0585a884224460f0e5d09e7448a54ab5a3348db92279452a9a4e0453b0f7",
+  "reference": "registry-160: 13GEMSDOE spacing-5 lattice",
+  "reference_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+  "grid_matches_mirror": true,
+  "candidate_dots": 37654,
+  "within_3px": 37654,
+  "candidate_overlap": 1.0,
+  "duplicate": true,
+  "interpretation": "Independent comparison of an existing parallel research artifact, not another candidate experiment. A nine-champion pass does not satisfy the literal all-registry rule."
+}

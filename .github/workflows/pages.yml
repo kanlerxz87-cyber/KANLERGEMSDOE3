@@ -1,0 +1,28 @@
+name: Verify and package static review
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: python scripts/install_template.py
+      - run: bash scripts/bootstrap_template.sh
+      - run: pytest -q
+      - run: python scripts/review.py && python scripts/build_site.py && git diff --exit-code
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs

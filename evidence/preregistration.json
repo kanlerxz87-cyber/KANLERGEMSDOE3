@@ -1,0 +1,33 @@
+{
+  "schema": "kanler3.preregistration.v1",
+  "locked_utc": "2026-10-26T21:45:00Z",
+  "repo": "KANLERGEMSDOE3",
+  "lane_id": "GPC-3",
+  "lane_name": "Amplitude-Invariant Gradient-Phase Concordance (GPC) multi-field fault detection",
+  "hypothesis": "Faults missing from the USGS/INGENIOUS catalogue juxtapose basement and basin fill, so the unit-gradient directions of RTP magnetics, isostatic gravity, depth-to-basement and detrended elevation agree across the same line (mean/min pairwise |cos|, double-angle consensus, cross-scale persistence, zero-crossing concordance) even where each field's gradient magnitude is weak; adding these 15 label-free phase features to the matched 59-feature base stack raises pooled HOLDOUT-DTI.",
+  "mechanism": "src/kanler3/gpc.py: per-field Gaussian-smoothed unit gradients at 1 px and 3 px, pairwise absolute/signed direction cosines, double-angle consensus resultant and >=25-degree consensus count, Laplacian zero-crossing mean, local relative sharpness.",
+  "named_non_fault_mimic": "Lithologic contacts, playa shorelines, volcanic flow edges and survey flight-line seams, which can align at most two fields and should fail the minimum-pairwise and >=3-field consensus terms.",
+  "evaluator_version": "gems-segment-pooled-v1",
+  "evaluator": "src/gems/holdout.py SegmentHoldout (vendored byte-for-byte from GEMSDOE24@fc2bc6f via GEMSDOE36 registry/template_pins.json), buffer_px=15 (1500 m), whole 8-connected segments withheld, visible faults masked pixel-exactly, pooled DTI alpha=0.2 beta=0.8 300 m triangular kernel",
+  "total_dot_budget": 37654,
+  "hgb": {"max_iter": 250, "learning_rate": 0.06, "max_leaf_nodes": 48, "min_samples_leaf": 200, "l2_regularization": 1.0, "early_stopping": false, "random_state": 20261026},
+  "n_pos_cap": 50000,
+  "n_neg_cap": 300000,
+  "arms": {
+    "B0": "59-feature base stack (control)",
+    "EXP-1": "B0 + all 15 GPC features",
+    "EXP-2": "B0 + 12 GPC concordance features (no consensus cos2/sin2, no signed RTP-gravity polarity)",
+    "EXP-3": "EXP-1 surface with emission restricted to >2 px from visible catalogue (fold-local)"
+  },
+  "gpc_concordance_subset": ["gpc_mean_absdot_s1", "gpc_mean_absdot_s3", "gpc_min_absdot_s1", "gpc_consensus_R_s1", "gpc_consensus_R_s3", "gpc_consensus_count_s1", "gpc_crossscale_orient", "gpc_crossscale_product", "gpc_local_sharpness", "gpc_zerocross_mean", "gpc_pair_rtpgrav_abs_s1", "gpc_pair_baseelev_abs_s1"],
+  "gates": {
+    "canary_max_two_polarity_auc": 0.90,
+    "promotion": "paired 95% CI vs B0 strictly positive AND pooled HOLDOUT-DTI above recorded same-evaluator group best",
+    "recorded_group_best": {"name": "GEMSDOE24 DPRF1 (site-reported, same evaluator gems-segment-pooled-v1, 60988 withheld)", "holdout_dti": 0.16379, "source": "https://buffedlizard55-lab.github.io/GEMSDOE24/ fetched 2026-10-26"},
+    "surface_max_abs_spearman_vs_focus9": 0.90,
+    "dot_overlap_max_within_3px_vs_focus9": 0.70,
+    "format": "whole-array finite [0,1], CRS/shape/transform = template, single-band float32, -zeros variant"
+  },
+  "budget": {"max_experiments": 3, "max_walltime_hours": 2},
+  "banned_inputs": ["derived_sgmc_faults", "qfaults", "any prior submission/registry raster as feature or target", "dist_known_fault_px"]
+}
