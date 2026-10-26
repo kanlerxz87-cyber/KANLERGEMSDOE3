@@ -16,6 +16,49 @@ This session starts from the populated review repository at `f82397e`, not from 
 - Confirmed that the shared hide-and-recover entry point binarizes nonzero soft inputs. Do not describe its output as evaluation of the original probabilities. [Existing upstream issue #37](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/37).
 - Refreshed immutable source-commit observations for all nine priority repositories. This feed detects source changes; it does not turn homepage approval labels into this project's approval or authenticate score claims.
 
+## Concurrent main reconciliation — no silent evidence mixing
+
+Main `4338f12` was integrated on this session’s fixed branch. It contains prior
+bilateral/GPC experiments, a quarantined research TIFF, alternative pinned tool
+versions and registry-saturation measurements. They are preserved. This session’s
+zero-experiment claim is **not** a repository-wide claim. The last geological
+card remains `evidence/run-card.json`; the present review’s negative card is
+`evidence/session-7d1e577d-run-card.json`. Their scopes must not be merged into a
+fictional new experiment or a new high-scoring artifact.
+
+The prior bilateral card records **0.1134 HOLDOUT-DTI**, evaluator
+`gems57-pooled-hide-v2`, 60,988 withheld positives, 95% CI [0.1006, 0.1262]. Its
+matched ablation difference CI includes zero, and its final dots hit 100% overlap
+with a registered binary calibration lattice. These numbers were checked for
+internal arithmetic/identity consistency, not independently rerun here. They do
+not qualify a model or calibrate a leaderboard forecast. The separate GPC TIFF
+also failed the lattice gate. No lattice exemption or smaller evasive dot budget
+was adopted.
+
+We independently reproduced the separate **full-footprint diagnostic** receipt:
+all 5,167,373 allowed pixels have finite positive diagnostic support. Under the
+older shared tool’s positive-cell-as-dot rule this forces 100% forward overlap
+for every nonempty footprint candidate. It is a continuous diagnostic, not an
+established submitted dot mask. Our geometry CLI requires explicit companion dots
+for soft surfaces and fails closed if those are absent; it does not discard that
+registry entry or declare novelty. The representation ambiguity requires a
+protocol/registry decision, not silent threshold relaxation.
+
+A second independent provenance check found that the pinned mirror sample has
+60,988 positive catalogue pixels and equals the label raster inside the footprint.
+The official format page was re-fetched and describes an all-absence sample.
+That discrepancy does not prove a particular portal rejection mechanism, but it
+prevents treating this mirror as authenticated organizer template evidence. The
+sample’s values are not used as training labels. See `sample-provenance-check.json`
+in evidence and the source ledger.
+
+Source verification also caught a 533-byte API quota-error body that had been
+mistakenly stored as the shared restoration script. Before publication, all 13
+source files were restored through Git and compared with the immutable tree’s
+blob identities as well as SHA-256. Tests now require every numerical dependency
+in the lock and real importable shared entry points. No geological experiment had
+used the erroneous restoration file; no score/TIFF is being retroactively validated.
+
 ## Nine-site historical comparison
 
 The nine historical raster hashes and all 72 directed pairwise Euclidean-within-3-pixel overlaps were independently recomputed from the restored bytes. **Every winner exceeds the requested 70% stop against another winner**; even the smallest directed pairwise overlap exceeds it. These are geometric measurements, not model scores. Hash changes caused by nodata, compression or renaming do not establish semantic novelty.
@@ -60,6 +103,8 @@ The ranked shortlist targets interactions and topology rather than another H19/H
 Hide-and-recover of mapped faults also has a population-shift limitation: mapped/exposed faults may not represent concealed faults selected by the competition experts. A good holdout result is necessary under this protocol, not a calibrated estimate of leaderboard performance. Canary AUC below the leakage threshold is not proof of no leakage; feature provenance must still be audited.
 
 ## Remaining gates / next session
+
+Resolve the binary-lattice/continuous-diagnostic registry scope explicitly and authenticate the mirror sample before treating the later gates as actionable. Do not exempt either reference silently.
 
 1. Resolve the absent lane paragraph through the parallel coordinator; no geological method is silently claimed here.
 2. Pin a centrally corrected shared evaluator after upstream issue #41 is resolved; do not patch vendor copies privately.

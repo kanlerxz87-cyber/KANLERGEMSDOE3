@@ -2,7 +2,7 @@
 
 **Start every session by reading this README (including the full user request below),
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
-[session config](config/research-session.json) and [active run card](docs/run-card.json).**
+[session config](config/research-session.json) and [last geological run card](docs/run-card.json) and [this review’s negative card](evidence/session-7d1e577d-run-card.json).**
 
 ## Executive decision: DO NOT SUBMIT
 
@@ -10,18 +10,19 @@
 [How to submit](docs/executive-summary.html) · [Research queue](docs/research.html) ·
 [Official-source ledger](docs/sources.html) · [Machine audit](docs/audit.json)
 
-**There is no new qualified TIFF to download, no new HOLDOUT-DTI result, and no defensible
-leaderboard estimate.** No geological experiment or weekly slot was used. The requested
-competition-winning artifact is not yet delivered; do not relabel a historic raster to fill the gap.
+**There is no qualified TIFF to download and no defensible leaderboard estimate.** This review
+session ran no geological experiment, generated no new TIFF and spent no weekly slot. Concurrent
+main contains other sessions’ negative model results and a quarantined research TIFF; those are
+preserved, not claimed as this session’s work. The requested winning artifact is not delivered.
 
 ### Progress in this session
 
 - Restored the complete 19-band core feature raster, labels, sample and SGMC proxy from immutable,
-  hash-pinned participant mirrors. **Data placement is now completed**, but mirror integrity is not
+  hash-pinned participant mirrors. **Core-mirror data placement is completed**, but mirror integrity is not
   organizer authentication. Large inputs remain ignored, not copied into Git.
 - Ran the **unmodified shared** raw-band preparation. Did not privately rebuild the shared derived
   35-channel feature stack; its cached bytes and expected digest remain unavailable.
-- Restored 13 unmodified shared evaluator/writer/dependency files with a checked source lock.
+- Restored 13 unmodified shared evaluator/writer/dependency files with SHA-256 and immutable Git-tree blob identity checks.
   Synthetic tests independently reproduce the existing [shared empty-truth FP defect](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41).
   Real evaluation remains blocked pending a central fix. No private numerical fork was introduced.
 - Independently reconfirmed all nine historic winner hashes and all 72 directed geometric overlaps.
@@ -41,6 +42,9 @@ competition-winning artifact is not yet delivered; do not relabel a historic ras
 The prompt references a single-method lane paragraph, but no identifiable method assignment is
 present. Do not invent one. Also missing: canonical cached feature bytes/digest, a correct pinned
 shared evaluator, complete raster/surface registry, and a same-evaluator/same-fold incumbent.
+The binary calibration lattice is not exempt, and the soft-diagnostic dot representation must be
+resolved without silently weakening the registry. The mirror sample contains 60,988 catalogue
+positives despite the official total-absence sample description ([independent check](evidence/sample-provenance-check.json)).
 Official template provenance and the account's remaining weekly cap must be established before a
 separate selector authorizes any upload. No human visual raster inspection is a required gate.
 
@@ -55,8 +59,12 @@ bash scripts/download_competition_data.sh   # pinned public mirror; ~420 MB core
 .venv/bin/python scripts/preflight.py          # expected nonzero: missing scientific prerequisites
 .venv/bin/python scripts/restore_audit_data.py # historical learning only; never a candidate
 .venv/bin/python scripts/audit_rasters.py
-.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python scripts/install_template.py # inherited shared pins; sources only
+PYTHON=.venv/bin/python bash scripts/bootstrap_template.sh
+.venv/bin/python scripts/restore_instruments.py --profile saturation57
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q
 .venv/bin/python scripts/build_site.py
+.venv/bin/python scripts/build_site.py --check
 .venv/bin/python -m http.server 8000 --bind 0.0.0.0 --directory docs
 ```
 
@@ -70,6 +78,32 @@ quota or credentials. The site checks public GitHub source changes read-only (ca
 showing errors as unknown. **This is not an authenticated live leaderboard/approval feed.** Official
 score observations remain dated and distinct from submission-page receipts. Scheduled CI publishes
 source-review artifacts, not automatic scientific approvals or account submissions.
+
+### Browser review (Node 22)
+
+```sh
+npm ci --prefix tools/browser --no-audit --no-fund
+node tests/browser_smoke.mjs --serve
+```
+
+This starts and closes a temporary test server on port 8000. If a preview already uses
+that port, set `GEMS_PREVIEW_URL=http://127.0.0.1:8001` for this test command only.
+Browser binaries and screenshots stay ignored; CI uploads the UI report for seven days.
+Tests mock source API success/change/quota failures and storage restrictions, not scores.
+
+### Concurrent work preserved, not silently mixed
+
+Main `4338f12` introduced parallel bilateral/GPC experiments, other source pins, a
+research-only TIFF and registry-saturation evidence. The last geological run/card remains
+canonical at `evidence/run-card.json` and identical root/docs aliases. This session’s
+separate card is `evidence/session-7d1e577d-run-card.json`. It records zero new geological
+runs; the repository-wide history is not zero. No result is promoted.
+
+The full-footprint diagnostic saturation was independently reproduced using unchanged
+shared instruments; its implication is conditional on counting all positive soft cells
+as dots. That definition is unresolved, not silently waived. See the
+[integration review](research/integration-2026-10-26.md) and scoped replay receipt.
+Conflicting main-side files were retained in `archive/integration-4338f12/` before merging.
 
 ## Publication and three-pass review
 

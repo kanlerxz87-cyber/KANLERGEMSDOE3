@@ -1,0 +1,13 @@
+{
+  "kind": "DATA_PROVENANCE_AUDIT_NOT_MODEL_RESULT",
+  "sample_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+  "footprint_pixels": 5167373,
+  "sample_positive_pixels": 60988,
+  "label_positive_pixels_inside_same_footprint": 60988,
+  "sample_equals_catalogue_labels_inside_footprint": true,
+  "official_description": "A sample submission that predicts total fault absence is provided for your reference on the data download page.",
+  "official_source": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#submission-format",
+  "official_rechecked_date_utc": "2026-10-26",
+  "organizer_authenticated": false,
+  "finding": "Pinned mirror sample does not match the organizer description of an all-absence sample. Its grid remains useful for scoped research checks; do not authenticate its mask or origin from a hash alone. No sample values are used as training labels."
+}

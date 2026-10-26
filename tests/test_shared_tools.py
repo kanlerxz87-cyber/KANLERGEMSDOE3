@@ -48,6 +48,40 @@ class SharedToolTests(unittest.TestCase):
             self.assertTrue(callable(load_tool(name).main), name)
         self.assertTrue(callable(load_tool('restore_data').restore_entry))
 
+    def test_every_numerical_dependency_must_remain_in_the_lock(self):
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / 'template'
+            shutil.copytree(TEMPLATE, target)
+            original = json.loads((target / 'PROVENANCE.json').read_text())
+            for index in range(len(original['files'])):
+                altered = {**original, 'files': original['files'][:index] + original['files'][index + 1:]}
+                (target / 'PROVENANCE.json').write_text(json.dumps(altered))
+                self.assertFalse(verify_template(target)['ok'])
+
+    def test_foreign_package_cannot_silently_supply_numerical_dependencies(self):
+        import types
+        from unittest.mock import patch
+        foreign = types.ModuleType('gems32.foreign')
+        foreign.__file__ = '/tmp/other-template/gems32/foreign.py'
+        with patch.dict('sys.modules', {'gems32.foreign': foreign}):
+            with self.assertRaisesRegex(ValueError, 'different gems32 package'):
+                load_tool('evaluate_holdout')
+
+    def test_preparation_adapter_preserves_inherited_tracked_receipt(self):
+        import types
+        from unittest.mock import patch
+        from scripts import prepare_data
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'data').mkdir()
+            historical = root / 'data/prepared_manifest.json'
+            historical.write_text('inherited historical receipt')
+            tool = types.SimpleNamespace(prepare=lambda: {'grid': {}, 'counts': {}})
+            with patch.object(prepare_data, 'ROOT', root), patch.object(prepare_data, 'load_tool', lambda name: tool):
+                prepare_data.main()
+            self.assertEqual(historical.read_text(), 'inherited historical receipt')
+            self.assertTrue((root / 'data/prepared/prepared_manifest.json').is_file())
+
     def test_absent_or_empty_lock_is_negative(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -100,7 +134,7 @@ class SharedToolTests(unittest.TestCase):
 
     def test_single_active_run_card(self):
         self.assertEqual(json.loads((ROOT / "run-card.json").read_text()), json.loads((ROOT / "docs/run-card.json").read_text()))
-        card = json.loads((ROOT / "docs/run-card.json").read_text())
+        card = json.loads((ROOT / "evidence/session-7d1e577d-run-card.json").read_text())
         self.assertEqual(card["verdict"], "negative")
         self.assertIsNone(card["holdout"]["value"])
         self.assertIsNone(card["raster_sha256"])

@@ -9,7 +9,7 @@ No defensible numerical improvement estimate is available. Benefit ranks are qua
 - **Layers:** Core TMI/RTP; upward-continued TMI at 150 m; GeoDAWN K/Th/U or ratio grids.
 - **Physical signature / transform:** Persistent magnetic edges with signed edge-normal radiometric derivative reversal or termination, rather than coincident large gradient magnitudes.
 - **Why an unmapped fault:** A buried discontinuity might remain visible at depth while shallow alteration changes across a concealed segment. Catalogue distance is not used as positive evidence.
-- **Difference from implemented methods:** Not implemented in this checkout. A signed interaction/termination test differs conceptually from the archived H19/H33 dot thinning and simple pixelwise fusion; peer code and complete-registry novelty remain unverified.
+- **Difference from implemented methods:** The specified signed cross-scale/radiometric termination interaction was not implemented or tested in this review session. Concurrent main now contains GPC phase-concordance features; direct code and registry comparison is required before calling the proposed disagreement mechanism distinct. It is not another H19/H33 dot-thinning claim.
 - **Named non-fault mimic / confounder:** Intrusive lithologic contacts or flight-block levelling seams.
 - **Availability now:** Conditional. Core mirror restored; derived bands and shared cache must be verified. Official GeoDAWN metadata obtained, original archive bytes not obtained.
 - **Estimated cost (conditional):** Medium

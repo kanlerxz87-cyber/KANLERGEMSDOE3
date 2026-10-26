@@ -1,27 +1,17 @@
-# Nine-site review register
+# Nine priority sites — evidence register
 
-The following URLs are the nine requested project pages. They are useful for locating the owners' project histories, but are **not official competition score receipts**. The figures in [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md) came from the user-provided historical list and are explicitly unverified. This review does not assert current page contents or current leaderboard rank. The distinct file path, byte hash, receipt, complete registry comparison, holdout metric and submitted note were not available in this checkout.
+The current [executive comparison](index.html) and [machine audit](audit.json) are authoritative for this checkout. Historical values below are user/owner-reported, without an organizer receipt binding them to the exact bytes. They are neither current score estimates nor `HOLDOUT-DTI` measurements.
 
-| Site | User-provided highest historical score claim | History item | Current audit status |
+| Site | Supplied historical value, unverified | Summary | Local peer-dot stop |
 |---|---:|---|---|
-| [24](https://buffedlizard55-lab.github.io/GEMSDOE24/) | 0.2477 | H25-1 dotted H19-5 d1.5 | Owner claim only; bytes/receipt/novelty not inspected |
-| [25](https://buffedlizard55-lab.github.io/GEMSDOE25/) | 0.2600 | Dotted H19-5 d2.8 | Owner claim only; bytes/receipt/novelty not inspected |
-| [27](https://buffedlizard55-lab.github.io/GEMSDOE27/) | 0.2449 | Topographic gap closure | Owner claim only; bytes/receipt/novelty not inspected |
-| [28](https://buffedlizard55-lab.github.io/GEMSDOE28/) | 0.2710 | H36-1 rung30 blind r1 | Owner claim only; bytes/receipt/novelty not inspected |
-| [30](https://buffedlizard55-lab.github.io/GEMSDOE30/) | 0.2600 | D28 Poisson 300 m off-catalogue | Owner claim only; bytes/receipt/novelty not inspected |
-| [31](https://buffedlizard55-lab.github.io/GEMSDOE31/docs/) | 0.2708 | H27-4 solo D28 | Owner claim only; bytes/receipt/novelty not inspected |
-| [32](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html) | 0.2778 | H33/H33-2 B2 | Page fetched 2026-10-26; labels OWNER-REPORT and states no receipt/hash binding; file not downloaded or compared |
-| [33](https://buffedlizard55-lab.github.io/GEMSDOE33/) | 0.2632 | Analog tip/stepover r30 | Owner claim only; bytes/receipt/novelty not inspected |
-| [36](https://buffedlizard55-lab.github.io/GEMSDOE36/docs/) | 0.2750 | Anderson geothermal PINN | Owner claim only; bytes/receipt/novelty not inspected |
+| [24](https://buffedlizard55-lab.github.io/GEMSDOE24/) | 0.2477 | Dotted H19-5 d1.5 | Fails |
+| [25](https://buffedlizard55-lab.github.io/GEMSDOE25/) | 0.2600 | Wider d2.8 spacing | Fails |
+| [27](https://buffedlizard55-lab.github.io/GEMSDOE27/) | 0.2449 | Topographic gap closure | Fails |
+| [28](https://buffedlizard55-lab.github.io/GEMSDOE28/) | 0.2710 | H36-1 rung30 | Fails |
+| [30](https://buffedlizard55-lab.github.io/GEMSDOE30/) | 0.2600 | D2.8 Poisson | Fails |
+| [31](https://buffedlizard55-lab.github.io/GEMSDOE31/docs/) | 0.2708 | H27-4 solo | Fails |
+| [32](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html) | 0.2778 | H33 B2 thin | Fails |
+| [33](https://buffedlizard55-lab.github.io/GEMSDOE33/) | 0.2632 | Tip/stepover | Fails |
+| [36](https://buffedlizard55-lab.github.io/GEMSDOE36/docs/) | 0.2750 | Geothermal PINN-named | Fails |
 
-## Interpretation limits
-
-- The scores are not labelled `HOLDOUT-DTI` because no controlled holdout evaluator, withheld-positive count, or 95% confidence interval accompanied them in this checkout.
-- They are not labelled `ORGANIZER-CONFIRMED` because no submission-page receipt was available.
-- Comparisons between related submissions can be informative only if data splits, evaluator version, file bytes, probability calibration, and scoring protocol match. Names like “blind,” “PINN,” “zeros,” or “unique” do not prove those properties.
-- The input prompt also lists other leader figures (0.3195 and 0.4413); these conflict and were not verified. No “current leader” assertion is made.
-- Pixel-level uniqueness is **unknown for every row**. Do not state that a submission is unique based only on names, claims, site separation, or hash difference.
-
-## What would make this register decision-grade
-
-For every artifact, capture immutable file URL and SHA-256; organizer receipt binding the score to that file; exact evaluator and test version; feature/surface lineage; full pairwise surface correlation and final-dot 3-pixel overlap against every registry raster; and the same spatial hide-and-recover DTI evaluation. Until then the table is a research index, not an upload recommendation.
+All 72 directed comparisons of the nine pinned winner masks exceed 70% within 3 pixels; the minimum is 86.718954%. These are measured geometries, not scores. The selected TIFFs are reference variants; a score-to-hash receipt, complete registry, historical surfaces and causal attribution remain unavailable. No file is approved for submission. The local sample-mask format policy is not a portal verdict.

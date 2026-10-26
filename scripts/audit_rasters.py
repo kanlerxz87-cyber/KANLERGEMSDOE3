@@ -24,8 +24,8 @@ def validate(path, template):
             'transform_match': ds.transform == ref.transform,
             'all_finite': bool(finite.all()),
             'range_0_1': bool(finite.all() and (a >= 0).all() and (a <= 1).all()),
-            'outside_footprint_is_null': strict.get('valid_outside_footprint') == 0,
-            'inside_footprint_schema': strict.get('ok') is True,
+            'outside_footprint_is_null': strict.get('outside_null_or_nan') is True,
+            'inside_footprint_schema': all(strict.get('checks', {}).get(key) is True for key in ('no_nan_inside_footprint', 'no_masked_inside_footprint', 'inside_range_0_1')),
         }
         return {'checks': checks, 'format_pass': strict.get('ok') is True,
                 'encoding_profiles': strict.get('local_encoding_compatibility', {}),
@@ -43,6 +43,9 @@ def overlap(candidate, reference):
 def main():
     archived = json.loads((ROOT/'sources/GEMSDOE32/evidence/focus_site_winner_overlap_20261026.json').read_text())
     rows, masks, metadata = [], {}, {}
+    with rasterio.open(ROOT/'data/sample_submission.tif') as template:
+        footprint = (template.dataset_mask() > 0) & np.isfinite(template.read(1))
+        expected_grid = (template.crs, template.shape, template.transform)
     for r in archived['historical_winners']:
         p = ROOT/'data'/f"{r['repo']}.tif"
         v = validate(p, ROOT/'data/sample_submission.tif')
@@ -50,8 +53,12 @@ def main():
             raise ValueError('Pinned raster hash mismatch: '+r['repo'])
         with rasterio.open(p) as ds:
             a = ds.read(1)
-            masks[r['repo']] = np.isfinite(a) & (a > 0)
             metadata[r['repo']] = (ds.crs, ds.shape, ds.transform)
+            if metadata[r['repo']] != expected_grid or not np.isfinite(a[footprint]).all() or not np.isin(a[footprint], (0, 1)).all():
+                raise ValueError('Historical dot field is not binary/finite on the template grid: '+r['repo'])
+            masks[r['repo']] = (a > 0) & footprint
+            if not masks[r['repo']].any():
+                raise ValueError('Empty historical dots are not a comparable reference: '+r['repo'])
         rows.append({**r, 'local_validation': v})
     if len(set(metadata.values())) != 1:
         raise ValueError('Registry grids differ; no silent resampling allowed')

@@ -1,18 +1,52 @@
 # Start-of-session requirements
 
 Before changing this project, read:
-1. `README.md`, including its full standing user-request section (also `PROJECT_PROMPT.md`).
-2. `config/research-session.json`, `research/review.md`, and the active `docs/run-card.json`.
-3. `research/verification.md` for previous passes, bugs, and uncompleted requirements.
+1. `README.md`, including its full standing user request (also `PROJECT_PROMPT.md`).
+2. `PROJECT_REQUEST.md` and `research/standing-requirements.md` for the compact standing rules.
+3. `config/research-session.json`, `research/review.md`, and `research/verification.md`.
+4. `evidence/run-card.json` (last geological run, negative) and
+   `evidence/session-7d1e577d-run-card.json` (this review session, no model run).
 
-Keep **Maximize P(Win)** and **Own the Outcome** explicit. Do not confuse file format, model quality, semantic novelty, and slot authorization. Read-only source freshness is not scientific approval.
+Keep **Maximize P(Win)** and **Own the Outcome** explicit. File format, model quality,
+semantic novelty, evidence authenticity and weekly-slot authorization are separate.
+Read-only source freshness and a complete JSON schema never authorize promotion.
 
-The current outcome is negative. The core mirror data and unmodified shared tools were restored, but no candidate model/unique TIFF was produced. Do not repeat obsolete statements that the repository is empty or that core data placement alone prevents training. Check actual files and hashes.
+The requested high-scoring, genuinely unique TIFF has not been delivered. Core mirror
+inputs and several pinned shared tool versions were recovered. Concurrent main already
+contains other sessions' experiments and a quarantined research TIFF. Do not claim the
+repository has no model/TIFF or attribute those runs to this review session. The active
+geological card is `evidence/run-card.json`; all root/docs aliases must match it. Keep
+session-specific negative cards explicitly scoped, not competing approval authorities.
 
-No geological method lane was identified in the request. Do not silently claim another parallel session's lane. Do not privately regenerate the canonical cached feature stack, fork a metric/writer, convert unverified historical claims into scores, or use a real slot without a separate selector. The existing shared evaluator defect is tracked centrally at GEMSDOE32 issue #41; pin a corrected upstream commit instead of editing vendor files.
+No assigned single-method paragraph was identified in the user request. Do not claim a
+parallel lane implicitly. Never reset the fixed session clock or hide experiments. Do
+not privately regenerate the canonical 35-channel cache, fork a metric/writer, turn an
+unverified owner claim into a score, or spend a real slot without a separate selector.
 
-All `vendor/shared-template` files listed in `PROVENANCE.json` must stay byte-identical to their upstream commit. Local adapters may do transport, input checks, orchestration, and reporting only. New numerical methods/evaluation require the lane and protocol prerequisites. The default two-hour/three-experiment budget is per session; never reset a ledger to hide experiments.
+All 13 files locked by `vendor/shared-template/PROVENANCE.json` must remain byte-identical
+to upstream Git blobs and SHA-256. The gems32 operator defect is tracked centrally in
+GEMSDOE32 issue #41; pin a repaired central source instead of editing vendor bytes.
+Inherited gems/gems57 pins are different instruments, not interchangeable evidence.
+The mirror sample's catalogue positives conflict with the official absence-sample
+wording. Hash identity is not organizer authentication or a permissive code license.
 
-Readiness/validator/operator audits intentionally return nonzero for negative findings. Do not suppress their exit status or present a passing unit suite as a passing scientific experiment. Rebuild the static site deterministically from checked-in receipts; archive builders must not overwrite active pages.
+Do not exempt dense binary lattices or continuous diagnostics from the registry rule.
+The former blocks the recorded dot budgets; the latter saturates an older tool's
+positive-cell-as-dot convention. Soft surfaces need explicit companion dots before
+our geometry CLI can compare them. An undefined representation is blocked, not unique.
 
-Keep input rasters, bare transport caches, raw-band copies, browser binaries and research outputs ignored under `data/` or `.cache/`. Never commit large datasets merely to get a green dashboard. Preserve existing evidence and concurrent work; the active JSON run card must remain identifiable.
+Local adapters may perform transport, prerequisites, saved-byte validation, orchestration
+and reporting. New geological experiments require the lane and scientific prerequisites.
+Negative audit/preflight exits are intentional; passing synthetic/UI tests is not a
+passing scientific experiment. Preserve concurrent work and prior negative evidence.
+
+Keep large rasters, feature arrays, bare Git caches, browser binaries and outputs ignored
+under `data/` or `.cache/`. Small receipts/manifests may be tracked. Do not commit datasets
+just to make a dashboard green. Legacy archive builders must not overwrite active pages
+or silently recompute the recorded evidence-pinning manifest.
+
+Reproduce the pinned optional instruments, run `python -m pytest -q`, build with
+`python scripts/build_site.py`, and verify with `python scripts/build_site.py --check`.
+Run the desktop/mobile browser smoke test from the README after UI changes. Use the
+process tools for a preview bound to 0.0.0.0; browser application URLs must not target
+localhost. Preserve the existing main/root Pages configuration and root redirect.

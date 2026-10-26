@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import re
 import sys
 from pathlib import Path
 
@@ -20,7 +21,7 @@ from scipy.stats import rankdata
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from scripts.github_source import sha256_file
+from scripts.github_source import sha256_file, source_path
 
 
 CORRELATION_LIMIT = 0.90
@@ -79,6 +80,46 @@ def raster(path: Path, template: Path) -> tuple[np.ndarray, np.ndarray]:
         return values, foot
 
 
+
+def registry_entries(manifest: dict) -> list[dict]:
+    """Validate the declared inventory; never infer global completeness from it."""
+    if not isinstance(manifest, dict) or type(manifest.get("complete")) is not bool:
+        raise ValueError("Registry must declare a literal boolean complete flag")
+    count = manifest.get("expected_count")
+    if type(count) is not int or count <= 0:
+        raise ValueError("Registry expected_count must be a positive integer")
+    rows = manifest.get("rasters")
+    if not isinstance(rows, list) or not rows:
+        raise ValueError("Nonempty raster inventory required")
+    ids, paths = set(), set()
+    for row in rows:
+        if not isinstance(row, dict) or not isinstance(row.get("id"), str) or not row["id"].strip():
+            raise ValueError("Every registry raster needs a nonempty identity")
+        if row["id"] in ids:
+            raise ValueError("Duplicate registry ID: " + row["id"])
+        ids.add(row["id"])
+        for path_key, hash_key in (("path", "sha256"), ("dots_path", "dots_sha256")):
+            if path_key == "dots_path" and row.get(path_key) is None and row.get(hash_key) is None:
+                continue
+            if not isinstance(row.get(path_key), str) or not isinstance(row.get(hash_key), str) or not re.fullmatch(r"[0-9a-f]{64}", row[hash_key]):
+                raise ValueError("Every registry file/companion needs a relative path and SHA-256")
+            member = Path(source_path(row[path_key]))
+            if member.suffix.lower() not in (".tif", ".tiff"):
+                raise ValueError("Registry paths must identify GeoTIFF files")
+            if path_key == "path":
+                if member.as_posix() in paths:
+                    raise ValueError("Repeated registry file path")
+                paths.add(member.as_posix())
+    return rows
+
+
+def member_path(manifest_path: Path, name: str) -> Path:
+    path = (manifest_path.parent / source_path(name)).resolve()
+    if not path.is_relative_to(manifest_path.parent.resolve()):
+        raise ValueError("Registry member symlink escapes its inventory directory")
+    return path
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--surface", type=Path, required=True)
@@ -89,22 +130,23 @@ def main() -> int:
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
     manifest = json.loads(args.registry.read_text())
+    entries = registry_entries(manifest)
     surface, foot = raster(args.surface, args.template)
     dots, _ = raster(args.dots, args.template)
     rows = []
-    for entry in manifest["rasters"]:
-        path = (args.registry.parent / entry["path"]).resolve()
+    for entry in entries:
+        path = member_path(args.registry, entry["path"])
         if sha256_file(path) != entry["sha256"]:
             raise ValueError("Registry hash mismatch: " + entry["id"])
         reference, _ = raster(path, args.template)
         reference_dots = None
         if entry.get("dots_path") is not None:
-            dots_path = (args.registry.parent / entry["dots_path"]).resolve()
+            dots_path = member_path(args.registry, entry["dots_path"])
             if sha256_file(dots_path) != entry.get("dots_sha256"):
                 raise ValueError("Registry companion-dot hash mismatch: " + entry["id"])
             reference_dots, _ = raster(dots_path, args.template)
         rows.append({"id": entry["id"], "sha256": entry["sha256"], **compare(surface, dots, reference, foot, reference_dots)})
-    result = {"kind": "GEOMETRIC_AUDIT_NOT_SCORE", "stage": args.stage, "surface_sha256": sha256_file(args.surface), "dots_sha256": sha256_file(args.dots), "template_sha256": sha256_file(args.template), "comparisons": rows, **decision(rows, manifest.get("complete"), manifest.get("expected_count", -1))}
+    result = {"kind": "GEOMETRIC_AUDIT_NOT_SCORE", "stage": args.stage, "registry_manifest_sha256": sha256_file(args.registry), "surface_sha256": sha256_file(args.surface), "dots_sha256": sha256_file(args.dots), "template_sha256": sha256_file(args.template), "comparisons": rows, **decision(rows, manifest.get("complete"), manifest.get("expected_count", -1))}
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
     print(json.dumps(result, indent=2))

@@ -18,7 +18,7 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from scripts.github_source import GitHubSource
+from scripts.github_source import GitHubSource, source_path
 
 SITES = (24, 25, 27, 28, 30, 31, 32, 33, 36)
 
@@ -94,12 +94,48 @@ def refresh_one(number: int, cache: Path | None = None) -> dict:
         return {**result, "status": "UNKNOWN_REFRESH_FAILED", "error": str(exc), "commit": None}
 
 
+
+def retain_last_success(rows: list[dict], previous: dict) -> list[dict]:
+    """Keep old source identity on failures, never its approval/score fields."""
+    previous_rows = previous.get("rows", []) if isinstance(previous, dict) else []
+    if not isinstance(previous_rows, list):
+        previous_rows = []
+    prior = {row.get("repository"): row for row in previous_rows if isinstance(row, dict)}
+    output = []
+    for current in rows:
+        row = {**current, "scientific_approval": False, "accepted_score": None}
+        if row.get("status") == "UNKNOWN_REFRESH_FAILED":
+            old = prior.get(row.get("repository"), {})
+            old = old if old.get("status") == "PINNED_SOURCE_ONLY" else old.get("last_successful_source", {})
+            if isinstance(old, dict) and isinstance(old.get("commit"), str) and re.fullmatch(r"[0-9a-f]{40}", old["commit"]):
+                page = old.get("source_page")
+                try:
+                    if not isinstance(page, str):
+                        raise ValueError("Missing old source page")
+                    source_path(page)
+                except ValueError:
+                    pass
+                else:
+                    row["last_successful_source"] = {
+                        "commit": old["commit"], "source_page": page,
+                        "source_url": f"https://github.com/{row['repository']}/blob/{old['commit']}/{page}",
+                        "checked_utc": old.get("checked_utc", previous.get("checked_utc")),
+                    }
+        output.append(row)
+    return output
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "docs" / "data" / "focus-feed.json")
     args = parser.parse_args()
+    try:
+        previous = json.loads(args.output.read_text())
+    except (OSError, ValueError):
+        previous = {}
     with ThreadPoolExecutor(max_workers=3) as pool:
         rows = list(pool.map(refresh_one, SITES))
+    rows = retain_last_success(rows, previous)
     report = {"schema_version": 1, "checked_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"), "kind": "PARTICIPANT_SOURCE_CHANGE_FEED_NOT_SCORE_RECEIPTS", "rows": rows, "all_refreshed": all(row["status"] == "PINNED_SOURCE_ONLY" for row in rows), "registry_complete": False}
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")

@@ -40,7 +40,7 @@ def interval(value, lower: float, upper: float) -> bool:
 def assess(card):
     failures = []
     if not isinstance(card, dict):
-        return {"verdict": "negative", "failures": ["run card must be an object"], "slot_authorized": False}
+        return {"verdict": "negative", "schema_status": "incomplete", "failures": ["run card must be an object"], "promotion_evaluated": False, "slot_authorized": False}
     failures.extend(field for field in REQUIRED_TRUE if card.get(field) is not True)
     for field in ("surface_max_rank_correlation", "final_max_rank_correlation"):
         value = card.get(field)
@@ -86,7 +86,9 @@ def assess(card):
     note = card.get("submission_note")
     if not isinstance(note, str) or not 0 < len(note.strip()) <= len(note) <= 140 or any(ord(c) < 32 for c in note):
         failures.append("submission_note")
-    return {"verdict": "negative" if failures else "promote", "failures": failures, "slot_authorized": False, "scope": "Schema decision only; does not authenticate a card, publish a file or spend a competition slot."}
+    # Preserve main's safety quarantine: a complete schema is not authenticated
+    # scientific evidence. This helper has no promotion implementation.
+    return {"verdict": "negative", "schema_status": "incomplete" if failures else "complete", "failures": failures, "promotion_evaluated": False, "slot_authorized": False, "scope": "Schema validation only; does not authenticate evidence, promote, publish or spend a competition slot."}
 
 
 def main() -> int:
@@ -100,7 +102,7 @@ def main() -> int:
     else:
         result = assess(card)
     print(json.dumps(result, indent=2, allow_nan=False))
-    return 1 if result["verdict"] == "negative" else 0
+    return 1 if result["failures"] else 0
 
 
 if __name__ == "__main__":

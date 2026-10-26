@@ -7,7 +7,7 @@
       "id": "TARGET",
       "claim": "The prediction target is geological faults indicative of geothermal resources, not direct classification of geothermal vents.",
       "source": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
-      "quote": "develop models and algorithms that provide accurate information about the presence of structures that are indicative of geothermal resources—namely, geological faults",
+      "quote": "develop models and algorithms that provide accurate information about the presence of structures that are indicative of geothermal resources\u2014namely, geological faults",
       "verified_scope": "Official task page; no model performance claim."
     },
     {
@@ -25,8 +25,8 @@
       "claim": "Published DTI uses alpha=0.2, beta=0.8 and a 300 m triangular kernel; false negatives receive the larger penalty.",
       "source": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#performance-metric",
       "quotes": [
-        "where the range 𝑅 is 300 meters (i.e., 3 pixels at 100m resolution).",
-        "For this competition, we set 𝛼=0.2 and 𝛽=0.8, which reduces the penalty for false positive predictions and increases the penalty for false negative predictions."
+        "where the range \ud835\udc45 is 300 meters (i.e., 3 pixels at 100m resolution).",
+        "For this competition, we set \ud835\udefc=0.2 and \ud835\udefd=0.8, which reduces the penalty for false positive predictions and increases the penalty for false negative predictions."
       ],
       "verified_scope": "Metric definition. No estimate of this project's leaderboard score."
     },
@@ -96,6 +96,13 @@
         "https://gdr.openei.org/files/1391/wellspringdata.gdb.zip"
       ],
       "binary_obtainability": "Official index/resource links verified; probe ZIP fetch returned HTTP 500 via fetch_page. No source ZIP was downloaded. Coverage/season/depth adequacy remain unverified, so no hypothesis requiring these new bytes is cleared as viable."
+    },
+    {
+      "id": "SAMPLE_DESCRIPTION",
+      "claim": "The organizer describes its sample as predicting total fault absence. The independently checked participant mirror contains catalogue positives instead; mirror provenance remains unresolved.",
+      "source": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#submission-format",
+      "quote": "A sample submission that predicts total fault absence is provided for your reference on the data download page.",
+      "verified_scope": "Official page chunk 1 re-fetched 26 October. Local byte/count audit is evidence/sample-provenance-check.json, not organizer authentication."
     }
   ]
 }

@@ -5,7 +5,7 @@
     "layers": "Core TMI/RTP; upward-continued TMI at 150 m; GeoDAWN K/Th/U or ratio grids.",
     "signature": "Persistent magnetic edges with signed edge-normal radiometric derivative reversal or termination, rather than coincident large gradient magnitudes.",
     "missing_fault_rationale": "A buried discontinuity might remain visible at depth while shallow alteration changes across a concealed segment. Catalogue distance is not used as positive evidence.",
-    "difference": "Not implemented in this checkout. A signed interaction/termination test differs conceptually from the archived H19/H33 dot thinning and simple pixelwise fusion; peer code and complete-registry novelty remain unverified.",
+    "difference": "The specified signed cross-scale/radiometric termination interaction was not implemented or tested in this review session. Concurrent main now contains GPC phase-concordance features; direct code and registry comparison is required before calling the proposed disagreement mechanism distinct. It is not another H19/H33 dot-thinning claim.",
     "non_fault_mimic": "Intrusive lithologic contacts or flight-block levelling seams.",
     "cost": "Medium",
     "expected_improvement": "Highest qualitative information-gain potential in this shortlist; no numeric DTI projection.",

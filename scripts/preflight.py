@@ -3,8 +3,11 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 from datetime import datetime, timezone
 import json
+import math
+import re
 from pathlib import Path
 import sys
 
@@ -55,9 +58,19 @@ def assess(config: dict, root: Path = ROOT, now: datetime | None = None) -> dict
     registry = config.get("registry") if isinstance(config.get("registry"), dict) else {}
     if registry.get("complete") is not True:
         failures.append("Complete raster/surface registry not available")
+    if registry.get("reference_dot_definition_verified") is not True:
+        failures.append("Registry dot representation/saturation unresolved; no diagnostic or lattice is silently exempt")
     incumbent = config.get("same_evaluator_incumbent")
-    if not isinstance(incumbent, dict) or not all(incumbent.get(key) is not None for key in ("evaluator_version", "fold_sha256", "value", "ci95", "withheld_positives")):
-        failures.append("Same-evaluator, same-fold incumbent evidence absent")
+    incumbent_ok = False
+    if isinstance(incumbent, dict):
+        score, ci, count = incumbent.get("value"), incumbent.get("ci95"), incumbent.get("withheld_positives")
+        incumbent_ok = (isinstance(incumbent.get("evaluator_version"), str) and bool(incumbent["evaluator_version"].strip())
+                        and isinstance(incumbent.get("fold_sha256"), str) and bool(re.fullmatch(r"[0-9a-f]{64}", incumbent["fold_sha256"]))
+                        and type(count) is int and count > 0 and type(score) in (int, float) and math.isfinite(score)
+                        and isinstance(ci, list) and len(ci) == 2 and all(type(x) in (int, float) and math.isfinite(x) for x in ci)
+                        and 0 <= ci[0] <= score <= ci[1] <= 1)
+    if not incumbent_ok:
+        failures.append("Same-evaluator, same-fold incumbent evidence absent or malformed")
     experiments = config.get("geological_experiments")
     ledger_ok = isinstance(experiments, list)
     if not ledger_ok:
@@ -78,16 +91,55 @@ def assess(config: dict, root: Path = ROOT, now: datetime | None = None) -> dict
     return {"schema_version": 1, "research_ready": not failures, "submit_ready": False, "slot_authorized": False, "experiments_used": len(experiments), "submission_slots_used": 0, "resolved": resolved, "failures": failures, "submission_failures": submission_failures, "template": lock, "input_integrity": input_rows, "input_organizer_authenticated": False, "holdout_dti": None, "leaderboard_estimate": None, "scope": "Automated prerequisites only; not a score, no human raster inspection required."}
 
 
+
+def digest(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+def inspect(data: Path, work: Path, manifest: dict, card: dict) -> dict:
+    files = []
+    for entry in manifest["files"]:
+        path = data / entry["dest"]
+        actual = digest(path) if path.is_file() else None
+        files.append({"id": entry["id"], "file": str(path), "sha256": actual,
+                      "verified_against_owner_mirror": actual == entry["sha256"]})
+    stack = work / "feature_stack.npy"
+    stack_sha = digest(stack) if stack.is_file() else None
+    declared = card.get("feature_cache", {})
+    stack_ok = (isinstance(declared, dict) and declared.get("provenance_verified") is True
+                and stack_sha is not None and stack_sha == declared.get("sha256"))
+    lane = card.get("lane", {})
+    lane_ok = (isinstance(lane, dict) and lane.get("explicitly_assigned") is True
+               and isinstance(lane.get("assigned_method"), str) and bool(lane["assigned_method"].strip()))
+    return {"core": files, "mirror_authentication": "not established from organizer",
+            "feature_stack": {"file": str(stack), "present": stack.is_file(),
+                              "sha256": stack_sha, "provenance_verified": stack_ok},
+            "explicit_method_lane": lane_ok,
+            "inputs_cache_lane_present": bool(files) and all(x["verified_against_owner_mirror"] for x in files) and stack_ok and lane_ok,
+            "ready_for_experiment": False,
+            "note": "Inventory only. Use assess() for full session prerequisites; inventory never authorizes an experiment or slot."}
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=ROOT / "config" / "research-session.json")
     parser.add_argument("--out", type=Path, default=ROOT / "docs" / "data" / "readiness.json")
     args = parser.parse_args()
-    result = assess(json.loads(args.config.read_text()))
+    try:
+        result = assess(json.loads(args.config.read_text()))
+        exit_code = 0 if result["research_ready"] else 1
+    except Exception as exc:
+        result = {"schema_version": 1, "research_ready": False, "submit_ready": False, "slot_authorized": False,
+                  "failures": ["Prerequisite audit failed: " + str(exc)]}
+        exit_code = 2
+    # Replace even an old successful receipt when the current audit cannot run.
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
     print(json.dumps(result, indent=2))
-    return 0 if result["research_ready"] else 1
+    return exit_code
 
 
 if __name__ == "__main__":

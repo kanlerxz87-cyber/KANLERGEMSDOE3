@@ -22,7 +22,9 @@ def main() -> int:
     result = tool.prepare()
     # Upstream also writes inside its own data/ directory. Keep the durable
     # report with this project's ignored inputs, not in the source-locked files.
-    (ROOT / "data" / "prepared_manifest.json").write_text(json.dumps(result, indent=2) + "\n")
+    output = ROOT / "data" / "prepared" / "prepared_manifest.json"
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps({"status": "RAW_BANDS_PREPARED", "feature_stack_rebuilt": False, "grid": result["grid"], "counts": result["counts"]}, indent=2))
     return 0
 

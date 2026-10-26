@@ -86,7 +86,7 @@ try {
   await page.screenshot({ path: path.join(output, 'desktop.png'), fullPage: true });
   checks.push('desktop: nine sites, four hypotheses, historical ranking and no approved download');
   await page.locator('details').last().evaluate(element => { element.open = true; });
-  for (const name of ['executive-summary.html', 'submission.html', 'research.html', 'sources.html', ...feed.rows.map(row => `sites/${row.site}.html`)]) {
+  for (const name of ['executive-summary.html', 'submission.html', 'research.html', 'hypotheses.html', 'summary.html', 'sources.html', ...feed.rows.map(row => `sites/${row.site}.html`)]) {
     const result = await page.goto(base + '/' + name, { waitUntil: 'networkidle' });
     assert.equal(result.status(), 200, name);
     assert.equal(await page.locator('h1').count(), 1, name);

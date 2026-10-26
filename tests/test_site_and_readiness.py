@@ -9,7 +9,7 @@ from urllib.parse import unquote, urlsplit
 from scripts.build_site import build
 from scripts.preflight import assess
 from scripts.review import build as build_archive
-from scripts.sync_focus_feed import Links
+from scripts.sync_focus_feed import Links, retain_last_success
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
@@ -101,6 +101,44 @@ class SiteAndReadinessTests(unittest.TestCase):
             result = assess(config)
             self.assertFalse(result["research_ready"])
             self.assertFalse(result["submit_ready"])
+
+    def test_failed_refresh_preserves_only_last_good_source_not_approval(self):
+        repo = "buffedlizard55-lab/GEMSDOE32"
+        previous = {"checked_utc": "old", "rows": [{"repository": repo, "commit": "a" * 40,
+                    "status": "PINNED_SOURCE_ONLY", "source_page": "docs/index.html", "accepted_score": .99, "scientific_approval": True}]}
+        failed = [{"repository": repo, "status": "UNKNOWN_REFRESH_FAILED", "commit": None}]
+        row = retain_last_success(failed, previous)[0]
+        self.assertIsNone(row["commit"])
+        self.assertIsNone(row["accepted_score"])
+        self.assertFalse(row["scientific_approval"])
+        self.assertEqual(row["last_successful_source"]["commit"], "a" * 40)
+        self.assertEqual(row["last_successful_source"]["checked_utc"], "old")
+        again = retain_last_success(failed, {"rows": [row]})[0]
+        self.assertEqual(again["last_successful_source"], row["last_successful_source"])
+
+    def test_malformed_incumbent_metadata_never_clears_its_prerequisite(self):
+        import copy
+        config = json.loads((ROOT / "config/research-session.json").read_text())
+        good = {"evaluator_version": "synthetic-metadata-only", "fold_sha256": "a" * 64,
+                "withheld_positives": 10, "value": .2, "ci95": [.1, .3]}
+        for field, bad in (("value", True), ("ci95", [.3, .4]), ("fold_sha256", "wrong"), ("withheld_positives", 0), ("evaluator_version", " ")):
+            changed = copy.deepcopy(config); changed["same_evaluator_incumbent"] = {**good, field: bad}
+            self.assertTrue(any("incumbent" in failure for failure in assess(changed)["failures"]))
+
+    def test_failed_preflight_cli_overwrites_stale_positive_receipt(self):
+        import subprocess
+        import sys
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            config, output = Path(directory) / "bad.json", Path(directory) / "receipt.json"
+            config.write_text("not json")
+            output.write_text('{"research_ready":true,"submit_ready":true}')
+            run = subprocess.run([sys.executable, str(ROOT / "scripts/preflight.py"), "--config", str(config), "--out", str(output)], capture_output=True, text=True)
+            self.assertEqual(run.returncode, 2)
+            result = json.loads(output.read_text())
+            self.assertFalse(result["research_ready"])
+            self.assertFalse(result["submit_ready"])
+            self.assertFalse(result["slot_authorized"])
 
 
 if __name__ == "__main__":

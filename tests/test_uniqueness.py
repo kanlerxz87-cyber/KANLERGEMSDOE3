@@ -2,7 +2,7 @@ import unittest
 
 import numpy as np
 
-from scripts.check_uniqueness import compare, decision
+from scripts.check_uniqueness import compare, decision, registry_entries
 
 
 class UniquenessTests(unittest.TestCase):
@@ -95,6 +95,21 @@ class UniquenessTests(unittest.TestCase):
         foot[-1, -1] = False
         surface[-1, -1] = reference[-1, -1] = np.nan
         self.assertTrue(compare(surface, dots, reference, foot)["comparable"])
+
+    def test_registry_schema_rejects_duplicate_ids_paths_and_unsafe_members(self):
+        import copy
+        valid = {"complete": True, "expected_count": 1, "rasters": [{"id": "r1", "path": "rasters/r1.tif", "sha256": "a" * 64}]}
+        self.assertEqual(len(registry_entries(valid)), 1)
+        for field, bad in (("expected_count", True), ("complete", "true"), ("rasters", [])):
+            altered = copy.deepcopy(valid); altered[field] = bad
+            with self.assertRaises(ValueError): registry_entries(altered)
+        for key, value in (("path", "../private.tif"), ("path", "/absolute.tif"), ("sha256", "garbage"), ("dots_path", "companion.tif")):
+            altered = copy.deepcopy(valid); altered["rasters"][0][key] = value
+            with self.assertRaises(ValueError): registry_entries(altered)
+        altered = copy.deepcopy(valid); altered["rasters"] *= 2
+        with self.assertRaisesRegex(ValueError, "Duplicate registry ID"): registry_entries(altered)
+        altered = copy.deepcopy(valid); altered["rasters"].append({**altered["rasters"][0], "id": "other"})
+        with self.assertRaisesRegex(ValueError, "Repeated registry file path"): registry_entries(altered)
 
 
 if __name__ == "__main__":

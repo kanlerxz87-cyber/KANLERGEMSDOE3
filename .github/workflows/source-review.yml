@@ -22,6 +22,7 @@ jobs:
       - name: Refresh pinned public source commits (not scores or approval)
         run: python scripts/sync_focus_feed.py
       - name: Build the explicitly blocked review artifact
+        if: always()
         run: python scripts/build_site.py
       - name: Publish review artifact, never a competition submission
         if: always()
