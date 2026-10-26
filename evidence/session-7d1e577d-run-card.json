@@ -24,7 +24,9 @@
     "numbers_are_geometric_audit_not_scores": true,
     "conditional_saturation_reproduced": true,
     "saturation_replay": "evidence/session-7d1e577d-registry-replay.json",
-    "saturation_scope": "100% coverage only under the older tool\u2019s positive-cell-as-dot convention; continuous diagnostic has no established companion dot mask. No exception is inferred."
+    "saturation_scope": "100% coverage only under the older tool\u2019s positive-cell-as-dot convention; continuous diagnostic has no established companion dot mask. No exception is inferred.",
+    "inherited_root_artifacts_checked": 4,
+    "inherited_root_artifacts_exceeding_literal_overlap_stop": 4
   },
   "raster_sha256": null,
   "validator": {
@@ -93,6 +95,14 @@
     "separate_parallel_research_tiff_exists": true,
     "parallel_tiff_eligible": false,
     "prior_model_results_rerun_in_this_session": false,
-    "note": "This card is scoped to the review session, not the repository-wide experiment or artifact total."
-  }
+    "note": "This card is scoped to the review session, not the repository-wide experiment or artifact total.",
+    "additional_integrated_main_commits": [
+      "9ebfc4bbfbedf39bb2633a524dd49e9192dd3889",
+      "1fcc140e56b886c7d059bb78aa30dcf034396301"
+    ],
+    "literal_root_artifact_audit": "evidence/inherited_literal_audit.json",
+    "separate_ssp1_study": "studies/ssp1/evidence/run_card.json"
+  },
+  "local_verification": "evidence/session-7d1e577d-verification.json",
+  "session_scientific_work_sealed_utc": "2026-10-26T23:30:55+00:00"
 }

@@ -1,0 +1,152 @@
+{
+  "preregistered_utc": "2026-10-26T21:44:31.769229+00:00",
+  "scope": "Starting commit d795e4e has only a README, so none is implemented here. Similar physics exists in peers: novelty is a hypothesis, not a claim of worldwide originality. Registry gates decide empirical lane distinctness.",
+  "lane": "SSP1 \u2014 residualized signed normal-direction scarp-profile likelihood; no incumbent blend, no catalogue distance feature, no coordinate feature",
+  "lane_assignment": "Autonomously declared because the prompt refers to a method paragraph but supplies none. No external parallel-run coordinator assignment is claimed.",
+  "ranked_candidates": [
+    {
+      "id": "SSP1",
+      "rank": 1,
+      "hypothesis": "An antisymmetric step left after removing a smooth terrain profile identifies narrow fault scarps that a generic ridge detector confuses with symmetric ridges and valleys.",
+      "layers": [
+        "Cached official-band detrended elevation (band 12)",
+        "Cached isostatic gravity anomaly (band 13)",
+        "Cached detrended slope (band 19)",
+        "Owner-derived 1 m LiDAR scarp aggregates",
+        "Owner-quantized GeoDAWN K and Th channels"
+      ],
+      "signature": "Sample nine heights along the local gradient normal; project both the observed profile and tanh step templates off [1,t,t^2]; use normalized reduction in squared residual and signed step amplitude at widths 0.7 and 1.4 px. Add tangent persistence and independent gravity-gradient alignment. K and Th are contrast controls, NOT a ratio of physical concentrations.",
+      "why_uncatalogued": "The transform uses no fault positions. Buried or subtle scarps may be nominated wherever the observed cross-section has the target shape, including away from catalogue traces. Whether it transfers to expert new faults is unknown.",
+      "contrast": "Peer H19/H25/H33 emphasize ridge evidence, thinning, catalogue collars or analogue tip geometry; this lane explicitly fits a step against a smooth null before learning. It is not a union or perturbation of their rasters.",
+      "mimic": "Alluvial-fan terrace or paleoshoreline break; road embankment; lithologic contact",
+      "expected_DTI_improvement": "Highest qualitative priority, not a numerical score projection; falsifiable on withheld segments",
+      "implementation_cost": "Medium: label-free profile transforms and eight buffered fits on existing CPU-accessible layers",
+      "new_external_data_required": false,
+      "sources": [
+        "DD-PROBLEM",
+        "USGS-GEODAWN",
+        "GDR-1391"
+      ],
+      "status": "selected single lane, parameters frozen before results"
+    },
+    {
+      "id": "MCP2",
+      "rank": 2,
+      "hypothesis": "A spatial offset between magnetic and gravity edge centrelines identifies covered structural boundaries rather than exposed lithologic contacts.",
+      "layers": [
+        "Cached RTP band 2",
+        "Cached isostatic gravity band 13",
+        "Cached basement-depth band 15"
+      ],
+      "signature": "Normal-direction cross-correlation of bandpassed gravity and RTP gradients; encode the peak lag and confidence, not just edge magnitude",
+      "why_uncatalogued": "May detect covered structures with little topographic expression; does not extend known traces",
+      "contrast": "Existing tilt, worm-persistence and Euler families detect coincident edges; this proposal tests a displaced cross-profile signature. Cross-site novelty remains unproven.",
+      "mimic": "Dipping intrusive contact, remanent magnetization, survey-height artefact",
+      "expected_DTI_improvement": "Second qualitative priority; hidden-fault transfer uncertain, no numerical projection",
+      "implementation_cost": "Medium-high; derivative stability and survey seams must be controlled",
+      "new_external_data_required": false,
+      "sources": [
+        "DD-PROBLEM",
+        "USGS-GEODAWN"
+      ],
+      "status": "not executed; outside selected lane"
+    },
+    {
+      "id": "RBN3",
+      "rank": 3,
+      "hypothesis": "Narrow low-relief conductive breaches, rather than broad conductive basins, distinguish permeable structural necks in sediment cover.",
+      "layers": [
+        "Cached conductivity band 17",
+        "Cached basement-depth band 15",
+        "Cached detrended elevation band 12",
+        "Cached gravity band 13"
+      ],
+      "signature": "Scale-normalized conductivity Hessian saddle plus a one-dimensional neck-width test at an independently detected gravity step",
+      "why_uncatalogued": "Catalogue-independent, designed for covered basin interiors rather than already mapped mountain fronts",
+      "contrast": "Unlike prior simple clay-cap, strain-saddle and geothermal favorability multiplication, test a neck versus smooth-basin null. Similarity to peer saddles is a risk, not certified novelty.",
+      "mimic": "Saline groundwater channel or sedimentary facies boundary",
+      "expected_DTI_improvement": "Third qualitative priority; conductivity resolution may be too coarse",
+      "implementation_cost": "Low-medium using existing stack; no new bytes required",
+      "new_external_data_required": false,
+      "sources": [
+        "DD-PROBLEM",
+        "GDR-1391"
+      ],
+      "status": "not executed; outside selected lane"
+    },
+    {
+      "id": "RSC4",
+      "rank": 4,
+      "hypothesis": "A radiometrically quiet scarp whose step persists across terrain-smoothing scales is more structural than an erosional lithology boundary.",
+      "layers": [
+        "Cached detrended elevation band 12",
+        "Owner-quantized K, Th and U",
+        "Owner LiDAR step and coherence aggregates"
+      ],
+      "signature": "Topographic step persistence conditional on low cross-normal rank-contrast in all radiometric channels; use ranks only, not invented concentration ratios",
+      "why_uncatalogued": "Does not consult the catalogue; preferentially tests subtle breaks within a uniform surface unit",
+      "contrast": "Tests radiometric absence as a nuisance-model control rather than positive radiometric alteration fusion. Existing radiometric-scarp methods mean novelty must still be measured.",
+      "mimic": "Uniform-lithology fluvial terrace, agricultural grading or road cut",
+      "expected_DTI_improvement": "Fourth qualitative priority; radiometric quietness is not evidence of a fault by itself",
+      "implementation_cost": "Low with existing cached layers",
+      "new_external_data_required": false,
+      "sources": [
+        "USGS-GEODAWN",
+        "DD-PROBLEM"
+      ],
+      "status": "not executed; outside selected lane"
+    }
+  ],
+  "frozen_experiment": {
+    "id": "SSP1-E1",
+    "step_widths_px": [
+      0.7,
+      1.4
+    ],
+    "profile_offsets_px": [
+      -4,
+      -3,
+      -2,
+      -1,
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "model": "HistGradientBoostingClassifier; max_iter=70, max_leaf_nodes=15, learning_rate=0.08, l2_regularization=10, min_samples_leaf=60; early_stopping=false",
+    "training": "Only visible faults outside held quadrant plus 15 px collar; negatives >3 px from visible faults; no full-catalogue derived features",
+    "emission": "Priority greedy exclusion at 2.8 px; fixed 37654 full-footprint dot budget, fold area-scaled budget; exact visible-pixel mask only",
+    "canary": "Every supplied model feature alone, AUC on hidden positives versus sampled unlabeled holdout pixels; either-direction AUC >0.90 blocks",
+    "primary": "Pinned shared GEMSDOE32-HIDE-RECOVER-v3.0 pooled DTI, alpha 0.2 beta 0.8, triangular radius 300 m; paired spatial-block 95% CI",
+    "promotion": "Format AND complete registry AND surface AND final-dot uniqueness AND leakage canaries AND paired holdout win against reproducible current best AND selector approval; otherwise negative",
+    "leaderboard_estimate": null,
+    "budget": {
+      "maximum_experiments": 3,
+      "maximum_wall_hours": 2,
+      "stop_on_lane_duplicate": true
+    },
+    "slot_policy": "No upload and no selection. Weekly cap and usage cannot be read without DrivenData authentication.",
+    "feature_names": [
+      "step_r2_w0p7",
+      "step_amplitude_w0p7",
+      "step_r2_w1p4",
+      "step_amplitude_w1p4",
+      "residual_odd_fraction",
+      "profile_residual_rms",
+      "tangent_step_persistence",
+      "gravity_topography_gradient_cosine",
+      "gravity_gradient_magnitude",
+      "K_encoded_cross_normal_contrast",
+      "Th_encoded_cross_normal_contrast",
+      "lidar_step_clipped_m_per_m",
+      "lidar_upface_clipped_m_per_m",
+      "lidar_step_asymmetry_clipped_m_per_m",
+      "lidar_coherence",
+      "lidar_relief_clipped_m",
+      "cached_detrended_slope"
+    ],
+    "max_training_positive_pixels": 24000,
+    "max_training_unlabeled_pixels": 96000
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "passes": [
+    {
+      "pass": 1,
+      "phase": "Implementation and first verification",
+      "status": "implemented; defects found for pass 2, not final approval",
+      "checks": [
+        "One fixed SSP1 experiment completed with a negative verdict and no slot use",
+        "New TIFF/ZIP generated and all 13 shared saved-byte format checks passed",
+        "28 unit tests passed",
+        "Desktop 1440px and mobile 390px Chromium smoke checks: no body overflow, no JavaScript errors, no failed page asset requests",
+        "Nine-site file identity and full frozen registry intake completed"
+      ],
+      "defects_found": [
+        "Shared writer legacy metric fields defaulted to unmeasured zero values because the caller did not explicitly supply nulls",
+        "The first surface report distinguished quarantine counts but conflated complete inventory with complete universal comparability in PASS gates",
+        "The small new-file table was cramped on mobile",
+        "The verifier left a RUNNING self-link after an early failure instead of an explicit failed verification state",
+        "The initial data/ ignore rule also matched docs/data; changed it to root-only /data/ before committing the published compact evidence"
+      ],
+      "scientific_outcome": "negative; not a leaderboard improvement; no further experiments allowed after the final-dot duplicate"
+    },
+    {
+      "pass": 2,
+      "phase": "Independent review and reporting corrections",
+      "status": "Corrections implemented; a separate correlation discrepancy was found and held for pass 3, not hidden",
+      "checks": [
+        "47 unit tests passed before the final added regression cases",
+        "13 shared TIFF checks and OOF value/CI/count were reproduced",
+        "All 1,921 frozen blobs passed git-blob/SHA-256 integrity checks",
+        "All 92 pinned refs independently verified as Commit objects",
+        "Chromium visited all 15 pages; actual TIFF/ZIP download hashes and clipboard success passed; no body overflow at 320/390/768/1440"
+      ],
+      "corrections": [
+        "Universal comparison fails closed for 18 quarantines",
+        "Legacy unmeasured metrics are null, not zero",
+        "Mobile new-file table is horizontally scrollable",
+        "Verification failures publish an explicit failed state",
+        "Pinned restoration does not refresh a stopped study",
+        "Persistent public-only feed and isolated CI/browser recipes implemented"
+      ],
+      "additional_finding": "A SciPy cross-check disagreed with the original reported surface correlations. A new full-registry measurement of the retained array used zero fits and zero dot placements; its original observation and root cause uncertainty are preserved.",
+      "parallel_integration": "Main advanced through other session merges during this study; pass 3 will isolate SSP1 to preserve all existing code/evidence."
+    },
+    {
+      "pass": 3,
+      "phase": "Full requirements recheck and parallel-safe integration",
+      "status": "Local technical/reproducibility and browser checks PASS; scientific verdict remains negative; subsequent remote CI/PR/deployment receipts are recorded by GitHub, not assumed here",
+      "verified_utc": "2026-10-26T22:57:58.148892+00:00",
+      "unit_tests": {
+        "isolated_ssp1_passed": 58,
+        "existing_root_passed": 84,
+        "existing_root_skipped": 1,
+        "skip_scope": "An optional upstream cache-dependent test; no claim of replaying every other lane model"
+      },
+      "checks": [
+        "58 SSP1 tests and 84 root tests passed, with one optional root skip",
+        "Unmodified evaluate_holdout.py reproduced OOF DTI/CI/count exactly",
+        "Independent EDT and exact binary phi reproduced the first final-dot duplicate",
+        "A full fixed-array registry recheck read 1,921 blobs / 2,729 entries; zero fits and zero placements; max |rho| 0.4370705022; 18 quarantines still block certification",
+        "Original correlation discrepancy and unknown cause retained as IR-15",
+        "Actual published /ssp1/ subpath: all 15 Chromium pages, widths 320/390/768/1440, exact TIFF/ZIP hashes, clipboard success and denial all passed; no JS errors or failed responses",
+        "All previous main files were checked against Git blobs; only README/dashboard linking and its generator intentionally changed",
+        "All shared G32 template hashes and the archived prompt remain intact",
+        "Root site rebuild/check and isolated saved-byte/link/gate verification passed"
+      ],
+      "unmet_objectives": [
+        "No higher-scoring protocol-unique authorized submission",
+        "No clean paired current-best OOF reproduction",
+        "No organizer-linked historical score receipts or authenticated remaining slots",
+        "No fresh official-host binary authentication or resolved software licensing"
+      ],
+      "promotion": "negative; no weekly slot selected or used",
+      "post_parallel_merge_recheck": {
+        "main_commit": "9ebfc4bbfbedf39bb2633a524dd49e9192dd3889",
+        "verified_utc": "2026-10-26T23:10:09.223990+00:00",
+        "root_tests_passed": 107,
+        "root_tests_skipped": 1,
+        "ssp1_tests_passed": 58,
+        "parallel_safe_entry_point": "Root generator and generated HTML now match main exactly. Only README and optional shared JS add the SSP1 link and qualify a narrower detector-only pass.",
+        "readonly_sibling_audit": "KD-tree/EDT agree 99.997344% mandatory-lattice overlap for the sibling DCAP saved TIFF; no models/dots changed"
+      }
+    }
+  ],
+  "note": "This file is updated through three review passes. Technical defects are fixed without changing the fitted candidate pixels or turning a negative into a promoted file."
+}

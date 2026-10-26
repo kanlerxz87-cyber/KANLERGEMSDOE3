@@ -115,3 +115,16 @@ Resolve the binary-lattice/continuous-diagnostic registry scope explicitly and a
 7. The separate selector checks the account's actual remaining weekly cap. The official rules specify three submissions per week, but no account quota or slot has been authorized. Preserve the eventual submission-page receipt, and disclose AI assistance as required in the narrative.
 
 Full verified-source excerpts and their limited scope are in [official claims](../evidence/official-claims-20261026.json). No claim is made that all external files, the entire rules PDF, all sibling repositories or the live account state have been verified line by line.
+
+## Final concurrent-study scope
+
+Additional main `9ebfc4b` and `1fcc140` introduced K3-H1, DCAP-LHC and the isolated
+SSP1 archive. Their negative findings are preserved, not counted as this review's
+experiments. The four root-archive TIFFs all fail an independently replayed
+literal binary-lattice check; GPC additionally retains 4,115 mirrored catalogue
+positives. SSP1 remains separately scoped and explicitly negative. See the
+integration review and `evidence/inherited_literal_audit.json`; “detector-only
+uniqueness” is not the user's all-registry rule. The older break-even emission
+example is conditional on its toy marginal-credit assumptions, not a substitute
+for recomputing pooled ground-truth credit and prediction mass with the shared
+metric. No positive release publisher or new authorized candidate was implemented.

@@ -4,7 +4,7 @@ Before changing this project, read:
 1. `README.md`, including its full standing user request (also `PROJECT_PROMPT.md`).
 2. `PROJECT_REQUEST.md` and `research/standing-requirements.md` for the compact standing rules.
 3. `config/research-session.json`, `research/review.md`, and `research/verification.md`.
-4. `evidence/run-card.json` (last geological run, negative) and
+4. `evidence/run-card.json` (preserved canonical bilateral run, negative) and
    `evidence/session-7d1e577d-run-card.json` (this review session, no model run).
 
 Keep **Maximize P(Win)** and **Own the Outcome** explicit. File format, model quality,
@@ -14,8 +14,8 @@ Read-only source freshness and a complete JSON schema never authorize promotion.
 The requested high-scoring, genuinely unique TIFF has not been delivered. Core mirror
 inputs and several pinned shared tool versions were recovered. Concurrent main already
 contains other sessions' experiments and a quarantined research TIFF. Do not claim the
-repository has no model/TIFF or attribute those runs to this review session. The active
-geological card is `evidence/run-card.json`; all root/docs aliases must match it. Keep
+repository has no model/TIFF or attribute those runs to this review session. The preserved canonical
+bilateral card is `evidence/run-card.json`; all root/docs aliases must match it. Keep
 session-specific negative cards explicitly scoped, not competing approval authorities.
 
 No assigned single-method paragraph was identified in the user request. Do not claim a

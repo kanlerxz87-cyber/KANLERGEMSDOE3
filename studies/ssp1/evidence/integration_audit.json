@@ -1,0 +1,2332 @@
+{
+  "verified_utc": "2026-10-26T23:10:09.221727+00:00",
+  "main_commit_integrated": "9ebfc4bbfbedf39bb2633a524dd49e9192dd3889",
+  "n_existing_files_checked": 463,
+  "n_preserved_byte_for_byte": 461,
+  "intentional_existing_file_changes": [
+    "README.md",
+    "docs/source-status.js"
+  ],
+  "all_prior_root_evidence_code_and_research_artifacts_preserved": true,
+  "ssp1_namespace": "studies/ssp1",
+  "published_portal": "docs/ssp1",
+  "method": "Git blob SHA-1 recomputed for every existing main file. Only the README and optional entry-point JS are changed. Model code, generated root HTML, its generator, raw evidence and artifacts are byte-identical to the integrated main.",
+  "rows": [
+    {
+      "path": ".github/workflows/checks.yml",
+      "original_blob": "e3b9f37f45fd10b54f18f418ed06c30ede72d5c0",
+      "preserved": true
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "original_blob": "84606f7627ba1fc149c86df4676ebb78763a28fe",
+      "preserved": true
+    },
+    {
+      "path": ".gitignore",
+      "original_blob": "758cb6a6719736168ac8d72f1896aae3d041ad60",
+      "preserved": true
+    },
+    {
+      "path": ".nojekyll",
+      "original_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "preserved": true
+    },
+    {
+      "path": "AGENTS.md",
+      "original_blob": "53e3e42abf3333d9735198b82949ce673341a806",
+      "preserved": true
+    },
+    {
+      "path": "PROJECT_REQUEST.md",
+      "original_blob": "94c993e2dce303a06548f26f4bf9bcde6bfe2e81",
+      "preserved": true
+    },
+    {
+      "path": "README.md",
+      "original_blob": "910e55e280be9f962d331d86742a3592341f11a6",
+      "preserved": false
+    },
+    {
+      "path": "archive/gpc3/README-before-lattice-audit.md",
+      "original_blob": "5c3ae18dd4ae457752091dd6827425308da352a0",
+      "preserved": true
+    },
+    {
+      "path": "archive/gpc3/build_site.py",
+      "original_blob": "061f10aba5bf734f0ef236bd3b8d592ac2da8bad",
+      "preserved": true
+    },
+    {
+      "path": "archive/gpc3/executive-before-lattice-audit.html",
+      "original_blob": "9481e3ea051e0bb6dd5a95ed4952f2b2de5b3424",
+      "preserved": true
+    },
+    {
+      "path": "archive/gpc3/index-before-lattice-audit.html",
+      "original_blob": "bb69fb9a3ab4f2156aacd774a13c1646ef6725c7",
+      "preserved": true
+    },
+    {
+      "path": "archive/gpc3/run-card-before-lattice-audit.json",
+      "original_blob": "47c93f5a3aa6bba4ca3197f84bd074ebd6638235",
+      "preserved": true
+    },
+    {
+      "path": "archive/observatory/README_md.snapshot",
+      "original_blob": "8db6a73841834f7d7fd3c7cdef986c04df6ec247",
+      "preserved": true
+    },
+    {
+      "path": "archive/observatory/_github_workflows_pages_yml.snapshot",
+      "original_blob": "b1337f55cf8690e97cd7c77fa8a035689f002c2a",
+      "preserved": true
+    },
+    {
+      "path": "archive/observatory/docs_executive-summary_html.snapshot",
+      "original_blob": "044da2a5f400dc2fb4815e8a6ba3083d42caf332",
+      "preserved": true
+    },
+    {
+      "path": "archive/observatory/docs_index_html.snapshot",
+      "original_blob": "1d5fde25f003f22d5609febaf99027b7eca1a164",
+      "preserved": true
+    },
+    {
+      "path": "archive/observatory/docs_research_html.snapshot",
+      "original_blob": "99023322c7934c38f92fb90a5390e88c33ef0ba6",
+      "preserved": true
+    },
+    {
+      "path": "archive/observatory/scripts_build_site_py.snapshot",
+      "original_blob": "c5f1687d9cf6851cc79c3d5c96adeec19021bbc3",
+      "preserved": true
+    },
+    {
+      "path": "archive/parallel-forensic/build_site.py",
+      "original_blob": "496862b7385e9e142e134029658f9e11c57646ee",
+      "preserved": true
+    },
+    {
+      "path": "archive/parallel-forensic/validate_submission.py",
+      "original_blob": "7aaf4ec2d92b2a237b50c7cf027acfec4db931b8",
+      "preserved": true
+    },
+    {
+      "path": "archive/recovery/README.md",
+      "original_blob": "bcf5484be71a224ddc4d5637494cf341741328d0",
+      "preserved": true
+    },
+    {
+      "path": "archive/recovery/concurrent-main-README.md",
+      "original_blob": "707e3c8c7f8f6cd52e1a621282bd786f54a6ab9e",
+      "preserved": true
+    },
+    {
+      "path": "archive/recovery/concurrent-main-research-review.md",
+      "original_blob": "c8bbf06062296920131d95f7fb0ef9fdf6650ef5",
+      "preserved": true
+    },
+    {
+      "path": "archive/recovery/concurrent-main-verification.md",
+      "original_blob": "54ce5868ab356afe256ef8d54f078b41d586e88c",
+      "preserved": true
+    },
+    {
+      "path": "archive/recovery/decision-site-builder.py.snapshot",
+      "original_blob": "6932ea1ccd56070580dd2d38f4b6dae2ac988cf8",
+      "preserved": true
+    },
+    {
+      "path": "data/.gitkeep",
+      "original_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "preserved": true
+    },
+    {
+      "path": "data/README.md",
+      "original_blob": "041425c08709762ccc0349de2c157ab665fd54a7",
+      "preserved": true
+    },
+    {
+      "path": "data/core-manifest.json",
+      "original_blob": "89252d63409503a07f604bf49d42e70fcb9f4dae",
+      "preserved": true
+    },
+    {
+      "path": "data/historical-manifest.json",
+      "original_blob": "8812040a4daf4e6165e8963dcfbdd5a8e8de0c58",
+      "preserved": true
+    },
+    {
+      "path": "data/input-manifest.json",
+      "original_blob": "f9e1ecf8acbcd0edc47a0f8ac7b1dcb56429cdab",
+      "preserved": true
+    },
+    {
+      "path": "data/prepared_manifest.json",
+      "original_blob": "485da28666e4e70fd0798805f71073eeb1a573a5",
+      "preserved": true
+    },
+    {
+      "path": "data/shared-tool-hashes.txt",
+      "original_blob": "3c75b463e6ac9e7667d3ce02a37464781426e036",
+      "preserved": true
+    },
+    {
+      "path": "docs/.nojekyll",
+      "original_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "preserved": true
+    },
+    {
+      "path": "docs/EXECUTIVE_SUMMARY.md",
+      "original_blob": "e426823bee2c2b0fff0748c8719d1dccad7d9083",
+      "preserved": true
+    },
+    {
+      "path": "docs/HYPOTHESES.md",
+      "original_blob": "c05ed2500e6d2706ac29695b3f30fded4dbfad78",
+      "preserved": true
+    },
+    {
+      "path": "docs/SITE_REVIEW.md",
+      "original_blob": "40ba9f7c9cc6c2ceeae50d8d9e1fe47ead068b9f",
+      "preserved": true
+    },
+    {
+      "path": "docs/SOURCES.md",
+      "original_blob": "3ddbfd1f190652a280d38b8a8e675067ce5d371b",
+      "preserved": true
+    },
+    {
+      "path": "docs/SUBMISSION_GUIDE.md",
+      "original_blob": "60838958e1468d55828855b466db5a4f307a19ed",
+      "preserved": true
+    },
+    {
+      "path": "docs/archive/EXECUTIVE_SUMMARY-before-run.md",
+      "original_blob": "e163b9481421d984304501b7a9e86bfba9cfbbee",
+      "preserved": true
+    },
+    {
+      "path": "docs/archive/README-before-run.md",
+      "original_blob": "33d2f295d52e21f199a55a980dea5688d53782b2",
+      "preserved": true
+    },
+    {
+      "path": "docs/archive/SOURCES-before-run.md",
+      "original_blob": "e6cac7832ad1d4c1b6e0f13bd40eed2b7fbc7f1e",
+      "preserved": true
+    },
+    {
+      "path": "docs/archive/SUBMISSION_GUIDE-before-run.md",
+      "original_blob": "675ec1955eed3f99b4ac2a8ca63305b1fbf51efb",
+      "preserved": true
+    },
+    {
+      "path": "docs/archive/concurrent-main-executive.md",
+      "original_blob": "f49666e8fe1ef2698d5672ddeaf55c6e3acbcd87",
+      "preserved": true
+    },
+    {
+      "path": "docs/archive/concurrent-main-readme.md",
+      "original_blob": "4564f4558a6e2401ea0c5af424b344914e0bb263",
+      "preserved": true
+    },
+    {
+      "path": "docs/archive/concurrent-main-research.md",
+      "original_blob": "afb7a2d72e4a4e798b6e8226c78728aca521e742",
+      "preserved": true
+    },
+    {
+      "path": "docs/archive/concurrent-main-sources.md",
+      "original_blob": "8dedf1283b75a54122e4d613e5906d18a0995f5c",
+      "preserved": true
+    },
+    {
+      "path": "docs/archived-dashboard.html",
+      "original_blob": "4473eccb82c2480fadeb68a272c6e7e2bcce2877",
+      "preserved": true
+    },
+    {
+      "path": "docs/archived-research.html",
+      "original_blob": "b96472f93c27261e493600b3c0418be9a949edd2",
+      "preserved": true
+    },
+    {
+      "path": "docs/archived-summary.html",
+      "original_blob": "4473eccb82c2480fadeb68a272c6e7e2bcce2877",
+      "preserved": true
+    },
+    {
+      "path": "docs/assets/feed.js",
+      "original_blob": "b11f3de864e4d91118c932af7be567715921ec4c",
+      "preserved": true
+    },
+    {
+      "path": "docs/assets/style.css",
+      "original_blob": "9d2f4105ef188439c31bdb8a2be652eb559b6eff",
+      "preserved": true
+    },
+    {
+      "path": "docs/audit.json",
+      "original_blob": "0a65dd85553a54545044d08b3438ff721fb19391",
+      "preserved": true
+    },
+    {
+      "path": "docs/concurrent-main-dashboard.html",
+      "original_blob": "3c68ee585953eff013c1067e86f6977282f06410",
+      "preserved": true
+    },
+    {
+      "path": "docs/concurrent-main-readme.md",
+      "original_blob": "4564f4558a6e2401ea0c5af424b344914e0bb263",
+      "preserved": true
+    },
+    {
+      "path": "docs/concurrent-main-submission-guide.html",
+      "original_blob": "c780c9a9aaaed7a3d72f9f390b9e4d2728551442",
+      "preserved": true
+    },
+    {
+      "path": "docs/data/feature_cache_recovery.json",
+      "original_blob": "2facc7ab6e88aee574d07bc016b62ea301508bde",
+      "preserved": true
+    },
+    {
+      "path": "docs/data/feed.json",
+      "original_blob": "0b2329d29a001bd5651c1702c6f227670dd2fed0",
+      "preserved": true
+    },
+    {
+      "path": "docs/data/focus9_family.json",
+      "original_blob": "7a950600f4b901e11b369b9d98437d74fb06fcad",
+      "preserved": true
+    },
+    {
+      "path": "docs/data/k3h1-uniqueness-summary.json",
+      "original_blob": "562a9b60a61ad909655f774cdda375daeb5f0326",
+      "preserved": true
+    },
+    {
+      "path": "docs/data/parallel-candidate-audit.json",
+      "original_blob": "9fc2145e2c85df7d1dab7be384f2dcde72957a6f",
+      "preserved": true
+    },
+    {
+      "path": "docs/data/portfolio-audit.json",
+      "original_blob": "4e9c6ce35e67f7bbe2e08a9b4352b3d1484a9088",
+      "preserved": true
+    },
+    {
+      "path": "docs/data/recovery-run-card.json",
+      "original_blob": "25587cee97678409cd63f61208084c17ae1e6e33",
+      "preserved": true
+    },
+    {
+      "path": "docs/data/registry_saturation.json",
+      "original_blob": "81f58c5459b03b8f9e50dadc814b8865ca193a73",
+      "preserved": true
+    },
+    {
+      "path": "docs/data/run-card.json",
+      "original_blob": "1dd30707398aaab3237fed6d3dd062d597703111",
+      "preserved": true
+    },
+    {
+      "path": "docs/data/run_card.json",
+      "original_blob": "1dd30707398aaab3237fed6d3dd062d597703111",
+      "preserved": true
+    },
+    {
+      "path": "docs/data/shared_template_pins.json",
+      "original_blob": "305ca9121179659998c3f20df9f9913f215e5e24",
+      "preserved": true
+    },
+    {
+      "path": "docs/data/sites.json",
+      "original_blob": "5fccffa09a9b871fa1222507c5dee1af65758878",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/README.md",
+      "original_blob": "61e70b74a3e5912de38ae740513acb961cd0f4bb",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.tif",
+      "original_blob": "a20846dce0cc7d4bcbe654fb6b71e6f3099a3a88",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.zip",
+      "original_blob": "3e341a45a276bf845a6d87067261f39c34c577a5",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be.run-card.json",
+      "original_blob": "f9cbb7dbbd4a53ad56a0083a2e1bfa07cf30f96e",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.json",
+      "original_blob": "decd4b9353a79d70341f7a1bc7f7c06fd18df4f3",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.tif",
+      "original_blob": "b8654cd8cc31adf1f610e693f628b0814fa59490",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.zip",
+      "original_blob": "96dd6f5acfd4361dc5857ff4db0dfe10c2c1fb83",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.tif",
+      "original_blob": "9e93ccbb33e0f523e1646637cbbdd12ce2deb08c",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.zip",
+      "original_blob": "aebd6b959af4504fd1423a8cf5f88d3cb5d7b92f",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.json",
+      "original_blob": "5aa27a17c84f353d49b614876a4fc8b867bc3224",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif",
+      "original_blob": "cb12b8e81f3b187b78face3293fcfb66233985e0",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.zip",
+      "original_blob": "07fc0e49ab3c69edb39a602c5095ec33423d1c13",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf.run-card.json",
+      "original_blob": "b666ce95c7bbcce00b5f68bb73f9567a859a41eb",
+      "preserved": true
+    },
+    {
+      "path": "docs/executive-summary.html",
+      "original_blob": "ac1f1b109d1449c9fd8743f9c67623078055f55b",
+      "preserved": true
+    },
+    {
+      "path": "docs/executive-summary.md",
+      "original_blob": "679966d4f83d7a17d3bbf6e747edf4250576916e",
+      "preserved": true
+    },
+    {
+      "path": "docs/experiment.css",
+      "original_blob": "ed6aa0cf769c7af1c978b37f262c8ba91bdddd58",
+      "preserved": true
+    },
+    {
+      "path": "docs/hypotheses.html",
+      "original_blob": "d571c4cba17d024ace5bc48c709261103ef9c5d4",
+      "preserved": true
+    },
+    {
+      "path": "docs/hypotheses.md",
+      "original_blob": "0581ed251d5cd1e9b9ea9fe5d7b96d5080de84e3",
+      "preserved": true
+    },
+    {
+      "path": "docs/index.html",
+      "original_blob": "386106f3d401c46e04f98e5fa8da5cf81964463a",
+      "preserved": true
+    },
+    {
+      "path": "docs/k3h1-run-card.json",
+      "original_blob": "86c1546c572f1b59ae10bee22d01205c0015fcd5",
+      "preserved": true
+    },
+    {
+      "path": "docs/k3h1.html",
+      "original_blob": "13642426cb38b0ccba7f5a198267dbc3e098fac9",
+      "preserved": true
+    },
+    {
+      "path": "docs/kanler-h1-run-card.json",
+      "original_blob": "b666ce95c7bbcce00b5f68bb73f9567a859a41eb",
+      "preserved": true
+    },
+    {
+      "path": "docs/legacy-audit-dashboard.html",
+      "original_blob": "62cb701f7cfb7ed1c344e121ee80952ba91395f7",
+      "preserved": true
+    },
+    {
+      "path": "docs/legacy-submission-guide.html",
+      "original_blob": "e3390240771144cfc1285fce7074c71de1ccf6a6",
+      "preserved": true
+    },
+    {
+      "path": "docs/parallel-forensic-executive-summary.html",
+      "original_blob": "c780c9a9aaaed7a3d72f9f390b9e4d2728551442",
+      "preserved": true
+    },
+    {
+      "path": "docs/parallel-forensic-index.html",
+      "original_blob": "3c68ee585953eff013c1067e86f6977282f06410",
+      "preserved": true
+    },
+    {
+      "path": "docs/parallel-gpc-dashboard.html",
+      "original_blob": "42bbb40cc9f5e9947ea969cc3822c46d70c6cc7f",
+      "preserved": true
+    },
+    {
+      "path": "docs/parallel-gpc-readme.md",
+      "original_blob": "90a08219ed81480f7db147515a5606299ff4f3d0",
+      "preserved": true
+    },
+    {
+      "path": "docs/parallel-gpc-submission-guide.html",
+      "original_blob": "0178031d774dcd2cd196889750089172f605fa9a",
+      "preserved": true
+    },
+    {
+      "path": "docs/parallel-lattice-audit.json",
+      "original_blob": "d4cb84fe9280f2a97fe80a5fa7b20a7cae6ada72",
+      "preserved": true
+    },
+    {
+      "path": "docs/parallel-review-dashboard.html",
+      "original_blob": "812d9bdb521e3d78073efc6494f0de81fc0c2385",
+      "preserved": true
+    },
+    {
+      "path": "docs/parallel-review-readme.md",
+      "original_blob": "db51089bdbd38bb210cb6774c30987c1f6711eb8",
+      "preserved": true
+    },
+    {
+      "path": "docs/preregistration_kanler_h1.md",
+      "original_blob": "6d35d1ae9480d7c9aab0ee9dc82fdce03236a0f5",
+      "preserved": true
+    },
+    {
+      "path": "docs/previous-charter.md",
+      "original_blob": "458bb7983fb65943596a0cc6d61e2a770d4245e1",
+      "preserved": true
+    },
+    {
+      "path": "docs/prior-review.html",
+      "original_blob": "739374d05b2602f667260a0f16264dfb4ee1bc84",
+      "preserved": true
+    },
+    {
+      "path": "docs/research.html",
+      "original_blob": "e24bb997bcb5b385992349e7082dc5b53cc1a962",
+      "preserved": true
+    },
+    {
+      "path": "docs/research.md",
+      "original_blob": "741bc63fa3792674134701f8fdf9087677049765",
+      "preserved": true
+    },
+    {
+      "path": "docs/research/hypotheses.md",
+      "original_blob": "6479017ccf9a8ed8799f90e49667f3ec6ccc7950",
+      "preserved": true
+    },
+    {
+      "path": "docs/research/known_irregularities.md",
+      "original_blob": "8a78c42fd8b43f18bf9ee6a6829b38d58434b459",
+      "preserved": true
+    },
+    {
+      "path": "docs/research/results.md",
+      "original_blob": "8df134710fccacdf7fbfad3222beca3d99e17da5",
+      "preserved": true
+    },
+    {
+      "path": "docs/research/sources.md",
+      "original_blob": "32e3038e24c2d3936ef0cdbebd396c9db565a266",
+      "preserved": true
+    },
+    {
+      "path": "docs/research/why-02778.md",
+      "original_blob": "83292e8fc7a75e15103cfaf25b576872043eccc1",
+      "preserved": true
+    },
+    {
+      "path": "docs/review.md",
+      "original_blob": "741bc63fa3792674134701f8fdf9087677049765",
+      "preserved": true
+    },
+    {
+      "path": "docs/run-card.json",
+      "original_blob": "1dd30707398aaab3237fed6d3dd062d597703111",
+      "preserved": true
+    },
+    {
+      "path": "docs/source-status.js",
+      "original_blob": "9735d5105b3bcebb26639c78783c2bdebcb5412c",
+      "preserved": false
+    },
+    {
+      "path": "docs/sources.html",
+      "original_blob": "fedde68203799bc4e2066b8f34b0dd8be7390e0a",
+      "preserved": true
+    },
+    {
+      "path": "docs/style.css",
+      "original_blob": "f93ecb2f5d63c98d86e2b9c71114ec11435990cc",
+      "preserved": true
+    },
+    {
+      "path": "docs/submission-guide.md",
+      "original_blob": "15377d6c5ec98d6b21d7d743b08e8d8a7d6620b1",
+      "preserved": true
+    },
+    {
+      "path": "docs/submission.html",
+      "original_blob": "ac1f1b109d1449c9fd8743f9c67623078055f55b",
+      "preserved": true
+    },
+    {
+      "path": "docs/submission.md",
+      "original_blob": "60838958e1468d55828855b466db5a4f307a19ed",
+      "preserved": true
+    },
+    {
+      "path": "docs/summary.html",
+      "original_blob": "758ce83787ffb2feead2b77f82946fbd3e4195f8",
+      "preserved": true
+    },
+    {
+      "path": "docs/verification.md",
+      "original_blob": "0c4fa7346a4d2e9da32471b73df8ec6983c31823",
+      "preserved": true
+    },
+    {
+      "path": "evidence/archive/initial-readiness-run-card.json",
+      "original_blob": "633908f902088c89584b049a12f46f942506bd4f",
+      "preserved": true
+    },
+    {
+      "path": "evidence/archive/portfolio-readiness-docs-run-card.json",
+      "original_blob": "281bcd549f6c6a7e41f7af1d3b21ff576f9c4695",
+      "preserved": true
+    },
+    {
+      "path": "evidence/archive/previous-docs-run-card.json",
+      "original_blob": "b3d37e79647b35c9edc5c340f211b5e86d84a520",
+      "preserved": true
+    },
+    {
+      "path": "evidence/archive/recovery-readiness-docs-run-card.json",
+      "original_blob": "e8d842a08e721f78f6e63e26886c35a07e48f0e4",
+      "preserved": true
+    },
+    {
+      "path": "evidence/concurrent-main/build_site.py.snapshot",
+      "original_blob": "496862b7385e9e142e134029658f9e11c57646ee",
+      "preserved": true
+    },
+    {
+      "path": "evidence/concurrent-main/gpc-build_site.py.snapshot",
+      "original_blob": "84370a35b0fe271e2952b8f1a655e8a7912fa936",
+      "preserved": true
+    },
+    {
+      "path": "evidence/concurrent-main/gpc-runner.py.snapshot",
+      "original_blob": "d2eca447cafd494f1ce828d29135513dd19e7810",
+      "preserved": true
+    },
+    {
+      "path": "evidence/concurrent-main/observatory-portfolio-audit.json",
+      "original_blob": "4e9c6ce35e67f7bbe2e08a9b4352b3d1484a9088",
+      "preserved": true
+    },
+    {
+      "path": "evidence/concurrent-main/observatory-run-card.json",
+      "original_blob": "bf5b24ececae91a6e2540601052635c7782f42eb",
+      "preserved": true
+    },
+    {
+      "path": "evidence/concurrent-main/unrun-audit-session-card.json",
+      "original_blob": "a6c20e54a54e63def41f022172d43652f2c5ab01",
+      "preserved": true
+    },
+    {
+      "path": "evidence/data_preparation.json",
+      "original_blob": "f603affbe0f08093cdcc06d5341c61f7d17b5883",
+      "preserved": true
+    },
+    {
+      "path": "evidence/e1_holdout.json",
+      "original_blob": "1ece8dd5810f4b2267e00e27033e88c161fc23c6",
+      "preserved": true
+    },
+    {
+      "path": "evidence/e2_unique.json",
+      "original_blob": "2be950161eeec981be2f7e1d00a808af40a292fe",
+      "preserved": true
+    },
+    {
+      "path": "evidence/e3_canary.json",
+      "original_blob": "ce780fd239a790917a616f1066b27e093479cca3",
+      "preserved": true
+    },
+    {
+      "path": "evidence/e3_hybrid.json",
+      "original_blob": "6ae3325e4a4e5f685754906300180f7c1ec76a29",
+      "preserved": true
+    },
+    {
+      "path": "evidence/experiment_log.json",
+      "original_blob": "4cd1ee647f6e7b5b04e11f53443641deee1b699d",
+      "preserved": true
+    },
+    {
+      "path": "evidence/feature_cache.json",
+      "original_blob": "85e6fe29f49c42b493e156f49459b15f7a2c5c11",
+      "preserved": true
+    },
+    {
+      "path": "evidence/feature_cache_recovery_20261026.json",
+      "original_blob": "2facc7ab6e88aee574d07bc016b62ea301508bde",
+      "preserved": true
+    },
+    {
+      "path": "evidence/focus9_family.json",
+      "original_blob": "7a950600f4b901e11b369b9d98437d74fb06fcad",
+      "preserved": true
+    },
+    {
+      "path": "evidence/forensics_focus9.json",
+      "original_blob": "4253ea05fd92a77dc4ba2073c4da2920c0167004",
+      "preserved": true
+    },
+    {
+      "path": "evidence/holdout_experiments.json",
+      "original_blob": "9c4b98c46ad15c72589434d945a8ba5f2aa2ccf5",
+      "preserved": true
+    },
+    {
+      "path": "evidence/k3h1-run-card.json",
+      "original_blob": "86c1546c572f1b59ae10bee22d01205c0015fcd5",
+      "preserved": true
+    },
+    {
+      "path": "evidence/kanler_h1/canary.json",
+      "original_blob": "871fa103ca1cb4998b2d53483de96d7c409c0a1f",
+      "preserved": true
+    },
+    {
+      "path": "evidence/kanler_h1/exp1_unsupervised.json",
+      "original_blob": "2e3afd545047a05cd13142e9e0449a94446699f8",
+      "preserved": true
+    },
+    {
+      "path": "evidence/kanler_h1/exp2_pu_oof.json",
+      "original_blob": "15630e6c0dd1dec11581ff16c09e650ec5ee1dea",
+      "preserved": true
+    },
+    {
+      "path": "evidence/kanler_h1/exp3_celf_and_confirmation.json",
+      "original_blob": "af4b823f5a30e1142368d0189b97c5afd0e53fcb",
+      "preserved": true
+    },
+    {
+      "path": "evidence/kanler_h1/lines.json",
+      "original_blob": "a990e1fd484fff1fbc2a423cb77e0a1ec2c6781c",
+      "preserved": true
+    },
+    {
+      "path": "evidence/kanler_h1/run-card.json",
+      "original_blob": "b666ce95c7bbcce00b5f68bb73f9567a859a41eb",
+      "preserved": true
+    },
+    {
+      "path": "evidence/kanler_h1/run_summary.json",
+      "original_blob": "a0f03119b2bfd4fa587a638f14ea3830b4c83b36",
+      "preserved": true
+    },
+    {
+      "path": "evidence/kanler_h1/uniqueness_417_rasters.json",
+      "original_blob": "2d5335b32c23277cb780857325f11ff2860ee307",
+      "preserved": true
+    },
+    {
+      "path": "evidence/lattice-coverage.json",
+      "original_blob": "cc7cfb90b316c29203762410fc2c1f161e0caad7",
+      "preserved": true
+    },
+    {
+      "path": "evidence/leaderboard-snapshot.json",
+      "original_blob": "49182113cc1c8610a94dcde958749500743c45e3",
+      "preserved": true
+    },
+    {
+      "path": "evidence/leakage_canary.json",
+      "original_blob": "21a678fa0f54106d5dafd6fa891da88f10689375",
+      "preserved": true
+    },
+    {
+      "path": "evidence/mirror-preparation.json",
+      "original_blob": "c5274491cc7a82629352574938bed890bab9ef35",
+      "preserved": true
+    },
+    {
+      "path": "evidence/parallel-candidate-audit.json",
+      "original_blob": "9fc2145e2c85df7d1dab7be384f2dcde72957a6f",
+      "preserved": true
+    },
+    {
+      "path": "evidence/parallel-format-audit.json",
+      "original_blob": "c9846046a0548af2e235425aaefbadd4a97af539",
+      "preserved": true
+    },
+    {
+      "path": "evidence/parallel-lattice-audit.json",
+      "original_blob": "d4cb84fe9280f2a97fe80a5fa7b20a7cae6ada72",
+      "preserved": true
+    },
+    {
+      "path": "evidence/portfolio-audit.json",
+      "original_blob": "5edde39b635b8f90356b7cd482c347e6eaeaafc6",
+      "preserved": true
+    },
+    {
+      "path": "evidence/preregistration.json",
+      "original_blob": "8ca356ecc107eede04f46d923872c952000f6bde",
+      "preserved": true
+    },
+    {
+      "path": "evidence/recovery-run-card.json",
+      "original_blob": "25587cee97678409cd63f61208084c17ae1e6e33",
+      "preserved": true
+    },
+    {
+      "path": "evidence/registry_refreshed.json",
+      "original_blob": "3ff578d1e65be5c34943600a2d12386d9846fd83",
+      "preserved": true
+    },
+    {
+      "path": "evidence/registry_saturation_20261026.json",
+      "original_blob": "81f58c5459b03b8f9e50dadc814b8865ca193a73",
+      "preserved": true
+    },
+    {
+      "path": "evidence/review-log.md",
+      "original_blob": "c212adbbdb1be2328ffc4072480af5e6b58d544b",
+      "preserved": true
+    },
+    {
+      "path": "evidence/review_passes.md",
+      "original_blob": "afb2660a122162b4407de4f5909d3406939791ce",
+      "preserved": true
+    },
+    {
+      "path": "evidence/review_passes_current.md",
+      "original_blob": "c78d05f7c31b8f50ffd49e74afe4a2864504997b",
+      "preserved": true
+    },
+    {
+      "path": "evidence/run-01-error.json",
+      "original_blob": "383c7133e4d59b3eed41b141ad26937c790ea3d3",
+      "preserved": true
+    },
+    {
+      "path": "evidence/run-card.json",
+      "original_blob": "1dd30707398aaab3237fed6d3dd062d597703111",
+      "preserved": true
+    },
+    {
+      "path": "evidence/run_card.json",
+      "original_blob": "f9cbb7dbbd4a53ad56a0083a2e1bfa07cf30f96e",
+      "preserved": true
+    },
+    {
+      "path": "evidence/snapshot_hashes.json",
+      "original_blob": "a26a75bc590fa51057e4c006bd843c44463e6cff",
+      "preserved": true
+    },
+    {
+      "path": "evidence/uniqueness_final.json",
+      "original_blob": "05a9b7aed105e763004fe5dbefb5cc9ea82f8856",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE24/README.md",
+      "original_blob": "1734c392b1b6063f1a711bf12f90d25a9b773cab",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE24/docs/executive-summary.html",
+      "original_blob": "0a81882ec243aa8ddef7044f31b5b1ffe6daa775",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE24/docs/index.html",
+      "original_blob": "44f6b8877def10669efe0504291bb89900f3fc61",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE24/executive-summary.html",
+      "original_blob": "4ec079d4bc50e4ed5170c23ffb9f33b7e83b8244",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE24/index.html",
+      "original_blob": "35064fc10dd290d4a81ea8c0548072a414a89d53",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE24/registry/live_scores.json",
+      "original_blob": "b903e93797cc3b638ed5f0917e97b67e7ead7254",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE24/scripts/evaluate_holdout.py",
+      "original_blob": "c880b0576c3bc0bdf6657c5671e47cf7d5c40e71",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE24/scripts/submission_writer.py",
+      "original_blob": "f5c5d2384a884f2928ec18368577c06a126a6852",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE24/tree.json",
+      "original_blob": "f52a6152a742b79bfc63fdddd190e32cc89aafed",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE25/README.md",
+      "original_blob": "0dc843831e740ab8658acc6d370c5845db04763e",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE25/docs/executive-summary.html",
+      "original_blob": "9ad67066c198ab6bf2a4f62b876a9f35f440b9ca",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE25/docs/index.html",
+      "original_blob": "88350127063e774eb58d9c7e646e7d78d33df247",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE25/index.html",
+      "original_blob": "fc98c66e48681f24fbbe88b557cd3b621275f246",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE25/registry/data_manifest.json",
+      "original_blob": "89768a4165f05a1c538e03c93822eac3347f758a",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE25/registry/live_scores.json",
+      "original_blob": "a8140596b383163245d14dcb523d5181b12c8ce7",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE25/tree.json",
+      "original_blob": "2873c5b48b139a90b9712b9f3dda45a9bdbcbe8a",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE27/README.md",
+      "original_blob": "3a168122b5e6bcd5d41c149adf3d89bd472ff840",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE27/docs/executive-summary.html",
+      "original_blob": "f480c53c219def5cde905110f7836fd1e28e233a",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE27/docs/index.html",
+      "original_blob": "efb75b6650d4a5ffed9199b30ee6538c31373259",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE27/index.html",
+      "original_blob": "473c1f40c209cf13e5c72094a1c0cb0ee1823c86",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE27/registry/hypotheses.json",
+      "original_blob": "2f2f55ac26928c6d9d25f1641be33086a3c5c245",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE27/registry/live_scores.json",
+      "original_blob": "757c3ea99fefcd9819243d9f7a5f6d486478b4af",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE27/tree.json",
+      "original_blob": "301ad18ade2b17e058bb98a6f301421dd2fd4943",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE28/README.md",
+      "original_blob": "1979fb56c345f2f5b020dacf9eae85b507b1a854",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE28/docs/executive-summary.html",
+      "original_blob": "f94655671bdc35af823e286d97905d834e9faa7b",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE28/docs/index.html",
+      "original_blob": "0c9a2100e7b17388cb3857f08e795e13366da0ff",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE28/executive-summary.html",
+      "original_blob": "0ee3cb57c6a56c76e41258d3962dea83954d1312",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE28/index.html",
+      "original_blob": "a19acdf8bf4d50c73a6ca08776ca03b209f00e2a",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE28/registry/data_manifest.json",
+      "original_blob": "5fb8c3acc74973e90cf6af2a3048ce606e6783c8",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE28/registry/hypotheses.json",
+      "original_blob": "39f4df066b805c8bbceaa9beaa2495ea09efa15a",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE28/registry/live_scores.json",
+      "original_blob": "58cc809ea12970d066bea4275afa432e24c87845",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE28/tree.json",
+      "original_blob": "9c3327610b4c0f92889f39ff0bfb966ee115ad6b",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE30/README.md",
+      "original_blob": "c7360f6df16897ef16082ccdb983c7f3498c7c97",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE30/docs/executive-summary.html",
+      "original_blob": "39ba698f4bd300df658c367ffd2141aa24b505bc",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE30/docs/index.html",
+      "original_blob": "bef375416cb29f515401034957c38b8727e1d4ef",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE30/executive-summary.html",
+      "original_blob": "f17000410b0827be3e7ea164ac6e0d7fb45a7621",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE30/index.html",
+      "original_blob": "6c99eb3c7cf1423dc2d8b709fdf63715785e560a",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE30/tree.json",
+      "original_blob": "375666e2c34c3370c8f3ec22c93309b2797ceaed",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE31/README.md",
+      "original_blob": "1b347517e2090f3b9bc286892cf9ccfb5e9dc103",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE31/docs/executive-summary.html",
+      "original_blob": "5dfae549be8b3be0835775d85fc1bdc83f1e000a",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE31/docs/index.html",
+      "original_blob": "3a95da4d27fcb38021264143e1dcda6c246d6a05",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE31/index.html",
+      "original_blob": "406fd5ff8373e1822055e7e03b25c06dd5aa82df",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE31/registry/data_manifest.json",
+      "original_blob": "a38f3d05018b1229f8432a7c1cd6f17cbcfb38be",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE31/registry/raster_registry.json",
+      "original_blob": "cdfd65dedc82d20aa331b8a0600eeb0d5b621f6e",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE31/registry/template_pins.json",
+      "original_blob": "2eec019f80e0a8c5174ad459d5b610950de046db",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE31/scripts/evaluate_holdout.py",
+      "original_blob": "bcc573675c6acdc4e369ad592d835bbfee64fe84",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE31/scripts/submission_writer.py",
+      "original_blob": "7c4498580e992d69947aba08ec6d44e985697d29",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE31/tree.json",
+      "original_blob": "f32b1a57ba19c2c639ad4e2475310b8e9f25328a",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE31/vendor/gems57/evaluate_holdout.py",
+      "original_blob": "9c65eb9de1468fecfc909d9b2c1348bed52f67ca",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE31/vendor/gems57/submission_writer.py",
+      "original_blob": "5a04a2b0d5d4137f0aad39d862889ef1b92198ea",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE31/vendor/template57/test_evaluate_holdout.py",
+      "original_blob": "3e63938a79a7f4adb73d21ea578a7fabbda04c6e",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE32/README.md",
+      "original_blob": "95166dd3f33ef1df1b0c4dc0f990153918137d09",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE32/docs/executive-summary.html",
+      "original_blob": "694c942012ce1defc46bc369cf179530bf6304e4",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE32/docs/index.html",
+      "original_blob": "706899e48e05f09c8afd8774b5b3768bb6161bcf",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE32/evidence/h32_winning_run_card.json",
+      "original_blob": "a2f5287ef22afe4a1b1b3ce08eaa257792776378",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE32/evidence/review_run_card_20261026.json",
+      "original_blob": "1f75bfe0313234284b12c83738fe7110136d3e1b",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE32/executive-summary.html",
+      "original_blob": "065382c1949dd9fc0f34cedb09a8ce6475f9a6c3",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE32/index.html",
+      "original_blob": "7313f6d977ab3456cfea617b042174a42bdd2be6",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE32/registry/current_status.json",
+      "original_blob": "d9ae71563f9caf59551aa02b1ceee4e5eb1507d6",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE32/registry/data_manifest.json",
+      "original_blob": "9b291ec7f020ef406bb1aebf20faf98ae73dc679",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE32/registry/hypotheses.json",
+      "original_blob": "cf7fc6beaa130fb1d546ad4695cc6f3b5646fd29",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE32/scripts/evaluate_holdout.py",
+      "original_blob": "7773e40cda724395a323e54da4f607b0e9e59a2e",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE32/scripts/submission_writer.py",
+      "original_blob": "c3cc5cf23056d46e577c00ecec39a6f01c771260",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE32/tree.json",
+      "original_blob": "8227258fbcd78bb98f81b75f469d922a123d65c7",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE32/vendor/gems57/evaluate_holdout.py",
+      "original_blob": "9c65eb9de1468fecfc909d9b2c1348bed52f67ca",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE32/vendor/gems57/submission_writer.py",
+      "original_blob": "5a04a2b0d5d4137f0aad39d862889ef1b92198ea",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE32/vendor/template57/test_evaluate_holdout.py",
+      "original_blob": "3e63938a79a7f4adb73d21ea578a7fabbda04c6e",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE33/README.md",
+      "original_blob": "f7b6f3938d442fc76c53e9e00e0d54e72d880fd0",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE33/docs/executive-summary.html",
+      "original_blob": "1cf352becdfdf05a91f4fc39a9e522af2f28fa85",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE33/docs/index.html",
+      "original_blob": "c042b2b384cd62d2f980dddfa3b2d5778f413b3b",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE33/evaluate_holdout.py",
+      "original_blob": "26a879dfc6648ff1326d4bb9a7bf7c38c6161d13",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE33/index.html",
+      "original_blob": "48a4c81ca99bf768f0b7a484514aa454a284e2da",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE33/registry/data_manifest.json",
+      "original_blob": "5a5771acd6365e285edcc19f24f154d3cf03c9c7",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE33/registry/hypotheses.json",
+      "original_blob": "d03e6fae3a9b2d460a74b8148c18f7d60696d232",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE33/registry/live_scores.json",
+      "original_blob": "93a84d9ddef49ba2df25ef22b18d65975d08073a",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE33/scripts/evaluate_holdout.py",
+      "original_blob": "80472c07999b8163b8f4fd377e4d374abf32986b",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE33/scripts/submission_writer.py",
+      "original_blob": "6f26b561d209f2f879939ed2d2ebd360eacf402a",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE33/submission_writer.py",
+      "original_blob": "977456c9d4d93561da6961aa2da486c71686f4af",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE33/tree.json",
+      "original_blob": "f67a19aa52a74573a713abf31bf99a805d8fd837",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE33/vendor/gems57/evaluate_holdout.py",
+      "original_blob": "9c65eb9de1468fecfc909d9b2c1348bed52f67ca",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE33/vendor/gems57/submission_writer.py",
+      "original_blob": "5a04a2b0d5d4137f0aad39d862889ef1b92198ea",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE36/README.md",
+      "original_blob": "9e15699da6bdd0a731095132568aefc85483dbb8",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE36/docs/executive-summary.html",
+      "original_blob": "a369e03433cff257c2c7b3add015f63e0cbee9ec",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE36/docs/index.html",
+      "original_blob": "4d89edff7ffd340d518a6844b14d246d2150c2a3",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE36/index.html",
+      "original_blob": "7418f17985fd2b2328d14c922782cae4c8311b8f",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE36/registry/data_manifest.json",
+      "original_blob": "0469596bbb420a8199fe7062595129cf3d35c2ca",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE36/registry/template_pins.json",
+      "original_blob": "e8ebf5174e93c238a8fe37910f3605fd84f4711b",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE36/scripts/evaluate_holdout.py",
+      "original_blob": "c99c7e591c3b8a9a839f4ee78ea45b0424d7dc42",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE36/scripts/submission_writer.py",
+      "original_blob": "cf146cc8bbd8d2bf839ad9e9aa0f458665037453",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/GEMSDOE36/tree.json",
+      "original_blob": "5b0d0ebd445174855297f588f31ee8066394d6f9",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/gems-prize-reference-solution/README.md",
+      "original_blob": "a8814f99c395d12a8e1c3731c738e61d7dca06b5",
+      "preserved": true
+    },
+    {
+      "path": "evidence/upstream/gems-prize-reference-solution/tree.json",
+      "original_blob": "0273726bf41b6f3eb97c93a98bf1d8c7569d9dc8",
+      "preserved": true
+    },
+    {
+      "path": "evidence/validator_final.json",
+      "original_blob": "cb905769adf5db5cbf1c33b69e8f1531cf79bcc5",
+      "preserved": true
+    },
+    {
+      "path": "evidence/validator_output.json",
+      "original_blob": "51d12587880875222b1af50788cca776de817646",
+      "preserved": true
+    },
+    {
+      "path": "index.html",
+      "original_blob": "e4d9bcf4df85068d00f5d7674b4e25dd3cdcd42b",
+      "preserved": true
+    },
+    {
+      "path": "kgems/__init__.py",
+      "original_blob": "cfffd67dfaf17da2e1430fc440f61bf01150cf52",
+      "preserved": true
+    },
+    {
+      "path": "kgems/allocate.py",
+      "original_blob": "596c1f5011e444f53cd3bed7b5950210bb1a9848",
+      "preserved": true
+    },
+    {
+      "path": "kgems/asgt.py",
+      "original_blob": "dc5240d80d1f8a12ad4f4d5ffa935c2e79a64f84",
+      "preserved": true
+    },
+    {
+      "path": "kgems/common.py",
+      "original_blob": "30d1ad89c8e6f18bf0328df08da3ec0db779a49d",
+      "preserved": true
+    },
+    {
+      "path": "kgems/lli.py",
+      "original_blob": "69b6c82d3df588b7868ae5640619f9f6b94e131c",
+      "preserved": true
+    },
+    {
+      "path": "knowledge/official-sources-k3h1-20261026.md",
+      "original_blob": "189e384ba772c5efa819f3f80c5979acd9abc23a",
+      "preserved": true
+    },
+    {
+      "path": "knowledge/portfolio-review.md",
+      "original_blob": "2da9fa1ac440d8655f8340221a1f470715a89aa8",
+      "preserved": true
+    },
+    {
+      "path": "knowledge/preregistration-2026-10-26.md",
+      "original_blob": "7755ed9e5f2e63622e2cb83f69e8ad376656e0c2",
+      "preserved": true
+    },
+    {
+      "path": "pyproject.toml",
+      "original_blob": "378bb3bee02c8081440c3db469952ae5c0fecafe",
+      "preserved": true
+    },
+    {
+      "path": "pytest.ini",
+      "original_blob": "b1ba61e846883b62326c9503e25afaed94d9c554",
+      "preserved": true
+    },
+    {
+      "path": "registry/SOURCE_COMMIT_GEMSDOE32.txt",
+      "original_blob": "d31da55543cce2d967056f9a4b3cac7bf944d7d3",
+      "preserved": true
+    },
+    {
+      "path": "registry/data_manifest.json",
+      "original_blob": "0469596bbb420a8199fe7062595129cf3d35c2ca",
+      "preserved": true
+    },
+    {
+      "path": "registry/focus9_champions.json",
+      "original_blob": "51b4e9a1c738bbb8173b15c0bbd640e245d8dfb8",
+      "preserved": true
+    },
+    {
+      "path": "registry/focus_registry_manifest.json",
+      "original_blob": "9774d539f7851bd7d7e82bc4f6caae35fb51688e",
+      "preserved": true
+    },
+    {
+      "path": "registry/live_ledger_inversion_gemsdoe32.json",
+      "original_blob": "384b6334395fd3b7c070dae2a13280d76eb4f2d1",
+      "preserved": true
+    },
+    {
+      "path": "registry/live_ledger_rasters.json",
+      "original_blob": "c34e9000d8b844fe39c7c0c4a6f852502d875824",
+      "preserved": true
+    },
+    {
+      "path": "registry/registry_index.json",
+      "original_blob": "5b613748d3a9cf58faf2388f3266ab8aa4f478c2",
+      "preserved": true
+    },
+    {
+      "path": "registry/score-ledger-gemsdoe32.csv",
+      "original_blob": "9cd8a366c0a09458d359136df194ffb830723911",
+      "preserved": true
+    },
+    {
+      "path": "registry/shared_template_pins.json",
+      "original_blob": "305ca9121179659998c3f20df9f9913f215e5e24",
+      "preserved": true
+    },
+    {
+      "path": "registry/template_pins.json",
+      "original_blob": "e8ebf5174e93c238a8fe37910f3605fd84f4711b",
+      "preserved": true
+    },
+    {
+      "path": "requirements.txt",
+      "original_blob": "f84c6e7ae80d095170491689e89909c2d1bad59f",
+      "preserved": true
+    },
+    {
+      "path": "research/archive/concurrent-main-review.md",
+      "original_blob": "afb7a2d72e4a4e798b6e8226c78728aca521e742",
+      "preserved": true
+    },
+    {
+      "path": "research/archive/concurrent-main-verification.md",
+      "original_blob": "1d05433fae88ac3e459cb1c8f098f529349513ab",
+      "preserved": true
+    },
+    {
+      "path": "research/archive/previous-hypotheses.md",
+      "original_blob": "9ac6703f4c9836908d2112d9e154652321eef41a",
+      "preserved": true
+    },
+    {
+      "path": "research/archive/previous-review.md",
+      "original_blob": "65c58714cb912212015ccbf5a591d1719f979eb2",
+      "preserved": true
+    },
+    {
+      "path": "research/historical-sites.json",
+      "original_blob": "e17fd6248d14be50631f20a5b745bf2949e4e100",
+      "preserved": true
+    },
+    {
+      "path": "research/hypotheses.md",
+      "original_blob": "0581ed251d5cd1e9b9ea9fe5d7b96d5080de84e3",
+      "preserved": true
+    },
+    {
+      "path": "research/k3h1-report.md",
+      "original_blob": "5ccc12c43b8b6128128773a15e8d6fd64d776250",
+      "preserved": true
+    },
+    {
+      "path": "research/k3h1-review-passes.md",
+      "original_blob": "05df14106a730d2e1e80cd76c82b096b0d97a123",
+      "preserved": true
+    },
+    {
+      "path": "research/preregistration-20261026.md",
+      "original_blob": "fd4368e2aa89a0e38ba66743603919747082acfe",
+      "preserved": true
+    },
+    {
+      "path": "research/preregistration.md",
+      "original_blob": "06e29edc9b30d6c0f6b0690f2883a4f9c9e9e283",
+      "preserved": true
+    },
+    {
+      "path": "research/preregistration_kanler_h1.md",
+      "original_blob": "6d35d1ae9480d7c9aab0ee9dc82fdce03236a0f5",
+      "preserved": true
+    },
+    {
+      "path": "research/registry-lock.json",
+      "original_blob": "185a01799c3570abd52ad1a0bedcc28afb5001dc",
+      "preserved": true
+    },
+    {
+      "path": "research/review.md",
+      "original_blob": "741bc63fa3792674134701f8fdf9087677049765",
+      "preserved": true
+    },
+    {
+      "path": "research/shared-template-conflict.md",
+      "original_blob": "492b9b5d9a3be8b0f3407d9e96bfd14706d4bf8e",
+      "preserved": true
+    },
+    {
+      "path": "research/standing-requirements.md",
+      "original_blob": "aaca4e0597349cd437629865d7080cc531f01e3c",
+      "preserved": true
+    },
+    {
+      "path": "research/template-lock.json",
+      "original_blob": "4384c2c04b126aae7680bf890bb1e633733e3bd5",
+      "preserved": true
+    },
+    {
+      "path": "research/verification.md",
+      "original_blob": "0c4fa7346a4d2e9da32471b73df8ec6983c31823",
+      "preserved": true
+    },
+    {
+      "path": "run-card.json",
+      "original_blob": "1dd30707398aaab3237fed6d3dd062d597703111",
+      "preserved": true
+    },
+    {
+      "path": "scripts/analyze_portfolio.py",
+      "original_blob": "b3ccfe68a8eb1f6c9b4a454d63732d15afa2ccd5",
+      "preserved": true
+    },
+    {
+      "path": "scripts/audit_history.py",
+      "original_blob": "61573d3360f2154ec76ad4b384a858e4604131ad",
+      "preserved": true
+    },
+    {
+      "path": "scripts/audit_parallel_candidate.py",
+      "original_blob": "0b677f6d1ec38c99711f1c078269a02ad62cb6e8",
+      "preserved": true
+    },
+    {
+      "path": "scripts/audit_parallel_format.py",
+      "original_blob": "3ce0db41be2b3f6591bcdc748560e7d930350cb3",
+      "preserved": true
+    },
+    {
+      "path": "scripts/audit_parallel_lattice.py",
+      "original_blob": "d480e80ddde4792dbae0da9eab655e148b6ad6c3",
+      "preserved": true
+    },
+    {
+      "path": "scripts/audit_rasters.py",
+      "original_blob": "8ecd466dbf44be889ab690b80e3b8f9ceabf555e",
+      "preserved": true
+    },
+    {
+      "path": "scripts/bootstrap_template.sh",
+      "original_blob": "4358f192bc7c47e2c25b602ae3546d035eb7ce69",
+      "preserved": true
+    },
+    {
+      "path": "scripts/build_run_card.py",
+      "original_blob": "1d0e798ea3dd79545da0dfd4147a2af77804ce38",
+      "preserved": true
+    },
+    {
+      "path": "scripts/build_site.py",
+      "original_blob": "6b027d2998e9fdf972ac2f3ac6efa532e16ad264",
+      "preserved": true
+    },
+    {
+      "path": "scripts/build_site_previous.py",
+      "original_blob": "2944c4ed0c7525fc9dd92be0042cb9001c244f07",
+      "preserved": true
+    },
+    {
+      "path": "scripts/certify_registry_saturation.py",
+      "original_blob": "c01384f61dfb504b985a53e46b0fd1a611728599",
+      "preserved": true
+    },
+    {
+      "path": "scripts/check_lattice.py",
+      "original_blob": "393736ec9015abbeec74e5f01dd2c75a2b53607f",
+      "preserved": true
+    },
+    {
+      "path": "scripts/check_parallel_audit.py",
+      "original_blob": "00f19e08553cc0fa8d6bb2539012ff745e2168c1",
+      "preserved": true
+    },
+    {
+      "path": "scripts/check_run.py",
+      "original_blob": "a4623f3ea5b5f191c10f9d32be0552b6439f3253",
+      "preserved": true
+    },
+    {
+      "path": "scripts/download_bilateral_data.sh",
+      "original_blob": "27347ddf774fd642d6954ba091fa415436bc4db4",
+      "preserved": true
+    },
+    {
+      "path": "scripts/download_competition_data.py",
+      "original_blob": "cecdc191a940e583ea14fb6450a108261463f6ae",
+      "preserved": true
+    },
+    {
+      "path": "scripts/download_competition_data.sh",
+      "original_blob": "0a974768dcad04083984624cbb5b4ec61652f5f5",
+      "preserved": true
+    },
+    {
+      "path": "scripts/evaluate_holdout.py",
+      "original_blob": "c7dae310f6952e551b98abb1fa0ccfc95961036f",
+      "preserved": true
+    },
+    {
+      "path": "scripts/fetch_bilateral_registry.py",
+      "original_blob": "52f790a961c8eaa134ef860963c4f7bb7395882a",
+      "preserved": true
+    },
+    {
+      "path": "scripts/fetch_registry.py",
+      "original_blob": "28f98647c96396918f1f598e9f5a59f90d44b78c",
+      "preserved": true
+    },
+    {
+      "path": "scripts/finalize_candidate.py",
+      "original_blob": "78bccf6a2776973c3451f991337067d96bf36d7e",
+      "preserved": true
+    },
+    {
+      "path": "scripts/forensics_focus9.py",
+      "original_blob": "5582cf068417a5f32180030d8845daad88339218",
+      "preserved": true
+    },
+    {
+      "path": "scripts/install_template.py",
+      "original_blob": "5b4a1bba21f749bd8af2cfb1302c9c09d9be050b",
+      "preserved": true
+    },
+    {
+      "path": "scripts/k3_fetch_registry.py",
+      "original_blob": "5868d10f705da2f8e6b6720090cc3b9c823a871c",
+      "preserved": true
+    },
+    {
+      "path": "scripts/parallel_download_competition_data.sh",
+      "original_blob": "f2a4bdd2972397194223c169105cabd9efa1c3b3",
+      "preserved": true
+    },
+    {
+      "path": "scripts/parallel_prepare_data.py",
+      "original_blob": "a8af99ba22f62542d8aedfb1d34b590cce6f9167",
+      "preserved": true
+    },
+    {
+      "path": "scripts/portal_check.py",
+      "original_blob": "9c20cd7c8ee37e914bf467648376f04e401e737d",
+      "preserved": true
+    },
+    {
+      "path": "scripts/preflight.py",
+      "original_blob": "dbbca01c166bae20fc55bbaa6331cedbb520ab24",
+      "preserved": true
+    },
+    {
+      "path": "scripts/prepare_bilateral_data.py",
+      "original_blob": "a1cfd965cdc6828e51d7c64327c06e59824a4e69",
+      "preserved": true
+    },
+    {
+      "path": "scripts/prepare_data.py",
+      "original_blob": "34812e9dacada90a370acab5b8ecc623a9ba1d63",
+      "preserved": true
+    },
+    {
+      "path": "scripts/promotion_gate.py",
+      "original_blob": "51054c5faf363841a5cb135e6b65ce81bdcbc028",
+      "preserved": true
+    },
+    {
+      "path": "scripts/readiness.py",
+      "original_blob": "85d875914f07987066dd6f0add96d5ea7e9d616b",
+      "preserved": true
+    },
+    {
+      "path": "scripts/refresh_feed.py",
+      "original_blob": "6fb07e5cd58867dae17774bfdd2cb6e30e30b22c",
+      "preserved": true
+    },
+    {
+      "path": "scripts/refresh_sources.py",
+      "original_blob": "c93959146936caea708e08ef223ba181550dca1e",
+      "preserved": true
+    },
+    {
+      "path": "scripts/registry_cache.py",
+      "original_blob": "fcd65aa4576d51b21101e887e1210a8c8307fa4c",
+      "preserved": true
+    },
+    {
+      "path": "scripts/reopen_with_template.py",
+      "original_blob": "aecd4d30437b214c63a4046624e8714014dbeff0",
+      "preserved": true
+    },
+    {
+      "path": "scripts/restore_audit_data.py",
+      "original_blob": "d74ddc92b68706d8ea74d54e05b7754885dd8c66",
+      "preserved": true
+    },
+    {
+      "path": "scripts/restore_bilateral_data.py",
+      "original_blob": "b59a070b937863d9375032275b92e8072b038bb8",
+      "preserved": true
+    },
+    {
+      "path": "scripts/restore_data.py",
+      "original_blob": "0136e80edfb0c79ec0d6e688a17d3d042bea3d62",
+      "preserved": true
+    },
+    {
+      "path": "scripts/restore_shared_template.py",
+      "original_blob": "1b378792cd48791ddfed812e4128fe5283882533",
+      "preserved": true
+    },
+    {
+      "path": "scripts/review.py",
+      "original_blob": "30bdca7e02b65de417df530a60bfb76edda443e0",
+      "preserved": true
+    },
+    {
+      "path": "scripts/run_e1_holdout.py",
+      "original_blob": "159411cdb27bf2deb39e142b8c965416a87a6b47",
+      "preserved": true
+    },
+    {
+      "path": "scripts/run_e2_unique.py",
+      "original_blob": "c9591a4e7c0481c13e722c790afb16531f5e0733",
+      "preserved": true
+    },
+    {
+      "path": "scripts/run_e3_canary.py",
+      "original_blob": "f1de2647a091a2e99676492d394b01eb5ffa462e",
+      "preserved": true
+    },
+    {
+      "path": "scripts/run_e3_hybrid.py",
+      "original_blob": "316b70fb0e5f13e508c5da6aec43c552257529b1",
+      "preserved": true
+    },
+    {
+      "path": "scripts/run_experiment.py",
+      "original_blob": "135db9a78d5cf43e8fd642666ff350cff2ea5ced",
+      "preserved": true
+    },
+    {
+      "path": "scripts/run_kanler_h1.py",
+      "original_blob": "c3431b8afc70be18aaff18e3790364f191ef98bd",
+      "preserved": true
+    },
+    {
+      "path": "scripts/submission_writer.py",
+      "original_blob": "cf146cc8bbd8d2bf839ad9e9aa0f458665037453",
+      "preserved": true
+    },
+    {
+      "path": "scripts/uniqueness_gate.py",
+      "original_blob": "09b66de03c0d06a65790d7b98490abfb4d43adb3",
+      "preserved": true
+    },
+    {
+      "path": "scripts/validate_submission.py",
+      "original_blob": "ad63b0d5450b7afb3fbe87dfba3e0afbf9ab3d6b",
+      "preserved": true
+    },
+    {
+      "path": "scripts/write_run_card.py",
+      "original_blob": "d87e8917835e5d4a3a458ef9dd4898b89c8541ad",
+      "preserved": true
+    },
+    {
+      "path": "site/index.template.html",
+      "original_blob": "a778fb3727ebc6b39fbd354e1027292741ee0f05",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE24/README.md",
+      "original_blob": "1734c392b1b6063f1a711bf12f90d25a9b773cab",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE24/docs/index.html",
+      "original_blob": "44f6b8877def10669efe0504291bb89900f3fc61",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE25/README.md",
+      "original_blob": "0dc843831e740ab8658acc6d370c5845db04763e",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE25/docs/index.html",
+      "original_blob": "88350127063e774eb58d9c7e646e7d78d33df247",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE27/README.md",
+      "original_blob": "3a168122b5e6bcd5d41c149adf3d89bd472ff840",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE27/docs/index.html",
+      "original_blob": "efb75b6650d4a5ffed9199b30ee6538c31373259",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE28/README.md",
+      "original_blob": "1979fb56c345f2f5b020dacf9eae85b507b1a854",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE28/docs/index.html",
+      "original_blob": "0c9a2100e7b17388cb3857f08e795e13366da0ff",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE30/README.md",
+      "original_blob": "c7360f6df16897ef16082ccdb983c7f3498c7c97",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE30/docs/index.html",
+      "original_blob": "bef375416cb29f515401034957c38b8727e1d4ef",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE30/docs/score-ledger.csv",
+      "original_blob": "9ad8aa9de613f95ea76327af9464ed62d6fbceec",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE31/README.md",
+      "original_blob": "1b347517e2090f3b9bc286892cf9ccfb5e9dc103",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE31/docs/index.html",
+      "original_blob": "3a95da4d27fcb38021264143e1dcda6c246d6a05",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE32/README.md",
+      "original_blob": "95166dd3f33ef1df1b0c4dc0f990153918137d09",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE32/docs/index.html",
+      "original_blob": "706899e48e05f09c8afd8774b5b3768bb6161bcf",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE32/docs/research/why-02778-analysis-20261025.md",
+      "original_blob": "d4d30a91c1354fb3c9253d18c8eef80c3672e2ce",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE32/docs/score-ledger.csv",
+      "original_blob": "9cd8a366c0a09458d359136df194ffb830723911",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE32/evidence/focus_site_winner_overlap_20261026.json",
+      "original_blob": "5361001f694f8fbbf49efc88f5aae80f43b4c808",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE32/evidence/h33_candidates.json",
+      "original_blob": "375ed7858cdaaeeb7fd23b15ff7f7457ad06fdcc",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE32/evidence/h33_holdout.json",
+      "original_blob": "9f4a79a8e6fee38cc23d3eb03cca1c7a19c29358",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE32/evidence/h33_validation.json",
+      "original_blob": "29a11d5a65154a310364474957de3fd14a7a8ed7",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE32/registry/data_manifest.json",
+      "original_blob": "9b291ec7f020ef406bb1aebf20faf98ae73dc679",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE32/registry/feature_receipt.json",
+      "original_blob": "264940211353f505f246f3435e98fc15433b8fbc",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE32/scripts/evaluate_holdout.py",
+      "original_blob": "7773e40cda724395a323e54da4f607b0e9e59a2e",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE32/scripts/restore_data.py",
+      "original_blob": "44749878e7e96ee5aaa9071b4e6e01d03c9ed872",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE32/scripts/submission_writer.py",
+      "original_blob": "c3cc5cf23056d46e577c00ecec39a6f01c771260",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE32/vendor/PROVENANCE.json",
+      "original_blob": "0dd2337982e97c8ba957b1189b7c9c41c5be4614",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE33/README.md",
+      "original_blob": "f7b6f3938d442fc76c53e9e00e0d54e72d880fd0",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE33/docs/index.html",
+      "original_blob": "c042b2b384cd62d2f980dddfa3b2d5778f413b3b",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE36/README.md",
+      "original_blob": "9e15699da6bdd0a731095132568aefc85483dbb8",
+      "preserved": true
+    },
+    {
+      "path": "sources/GEMSDOE36/docs/index.html",
+      "original_blob": "4d89edff7ffd340d518a6844b14d246d2150c2a3",
+      "preserved": true
+    },
+    {
+      "path": "sources/gems-prize-reference-solution/README.md",
+      "original_blob": "a8814f99c395d12a8e1c3731c738e61d7dca06b5",
+      "preserved": true
+    },
+    {
+      "path": "sources/retrieval.json",
+      "original_blob": "7c68d3a7e74b12b55492a9ca2930b3a2a1cda777",
+      "preserved": true
+    },
+    {
+      "path": "src/gems/__init__.py",
+      "original_blob": "32f3c742d9c3387814be5f030db0ecc53faa8818",
+      "preserved": true
+    },
+    {
+      "path": "src/gems/footprint.py",
+      "original_blob": "7714693c789cdd38a0b913073dbc46fdd346d961",
+      "preserved": true
+    },
+    {
+      "path": "src/gems/holdout.py",
+      "original_blob": "fce2bfa88828eb5bcb89c39cc8424090c484d834",
+      "preserved": true
+    },
+    {
+      "path": "src/gems/metric.py",
+      "original_blob": "b590ce19f367df59174a07768248ba72f6aafd44",
+      "preserved": true
+    },
+    {
+      "path": "src/gems/novelty.py",
+      "original_blob": "f62529b1fedf8952f7722675691650c3dead1712",
+      "preserved": true
+    },
+    {
+      "path": "src/gems/paths.py",
+      "original_blob": "e689c71a7812f3d11d092a0a27d83ac278b5cef3",
+      "preserved": true
+    },
+    {
+      "path": "src/gems/submission.py",
+      "original_blob": "83355843e0f137b09f85fbbb11d7e86325b8c08e",
+      "preserved": true
+    },
+    {
+      "path": "src/gems/validator.py",
+      "original_blob": "e98fab4bde46ca2c926d0b4790777badd5369218",
+      "preserved": true
+    },
+    {
+      "path": "src/gems_project/__init__.py",
+      "original_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "preserved": true
+    },
+    {
+      "path": "src/gems_project/features.py",
+      "original_blob": "cecb0db9071af8f7547b115e5a9de272e8ecc6ea",
+      "preserved": true
+    },
+    {
+      "path": "src/kanler3/__init__.py",
+      "original_blob": "e0f450dba072420e2542b560e1c6807ef54151b1",
+      "preserved": true
+    },
+    {
+      "path": "src/kanler3/emission.py",
+      "original_blob": "903d9111f4b22c2f0142447f543b472aa23e7823",
+      "preserved": true
+    },
+    {
+      "path": "src/kanler3/features.py",
+      "original_blob": "bc3990e3f204cecb95a88644d267e91d997107b2",
+      "preserved": true
+    },
+    {
+      "path": "src/kanler3/gpc.py",
+      "original_blob": "badbec5fa54d82ab92646181cf85b78c15b3a6c4",
+      "preserved": true
+    },
+    {
+      "path": "src/kanler3/paths.py",
+      "original_blob": "06f433feb0a19cf6074b18c40c9b62e10a615c4c",
+      "preserved": true
+    },
+    {
+      "path": "src/kanler_gems/__init__.py",
+      "original_blob": "e975aa47010a8fd8fac32afcd5f0533c7fb955ec",
+      "preserved": true
+    },
+    {
+      "path": "src/kanler_gems/h1_dcap_lhc.py",
+      "original_blob": "5e0eaa3d91c7062f242bdffa3c0aaffd17928cbe",
+      "preserved": true
+    },
+    {
+      "path": "src/kanler_gems/registry_uniqueness.py",
+      "original_blob": "080c9e3496a13013e9f97eba0e47aecea3b69fac",
+      "preserved": true
+    },
+    {
+      "path": "src/kanler_gems/template_fixes.py",
+      "original_blob": "aedd719cb095cb9e7c7f9572948fe5cdd3c0d156",
+      "preserved": true
+    },
+    {
+      "path": "tests/conftest.py",
+      "original_blob": "bf3eca12daeca4b54104846647690b7e5c326687",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_audit.py",
+      "original_blob": "c24ecdd857eb066a8d4728cd440aa658ba0ddb7f",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_audit_history.py",
+      "original_blob": "94f029d082ca1716c6aea690c9e5a4cb341fe14f",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_features.py",
+      "original_blob": "2a44591f173ec7060b67d6d4d7f3f28ab67f75a8",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_feed.py",
+      "original_blob": "d6e560db91bd61526e4a984dde77825a3431358d",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_gpc.py",
+      "original_blob": "394819332a747b9fcbdc500e7d20c548449240fe",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_install_template.py",
+      "original_blob": "ad2fa301db6d343620af000352dba02176c9edbf",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_k3h1.py",
+      "original_blob": "5f83badf8413ab62c85ffd996c5170f3e2709bb6",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_kanler_h1.py",
+      "original_blob": "f6e85bdfbe2f2e942141f110a49d6555a066f174",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_metric_and_format.py",
+      "original_blob": "8623fe5dad05f7b09def734ce4324cf7c9e99742",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_parallel_audit.py",
+      "original_blob": "b7ee69bb9c4ad065146cce639ed3a6f57602ccab",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_parallel_candidate_audit.py",
+      "original_blob": "257683cad3e53f9ed45d19e68dd3d47f1dbf2c26",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_preflight.py",
+      "original_blob": "eb1c3d3d61cc86f4b7c8b5f4cc39629baec85287",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_readiness.py",
+      "original_blob": "79a2ab50dac530687a2e8fa5f4a73e22dc45c8e7",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_recovery_site.py",
+      "original_blob": "e467111eee97093db57677590512f52dfe59f6d9",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_review.py",
+      "original_blob": "2ead9d743711389b95264d1b5e37fbeb263ef8ed",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_run_card.py",
+      "original_blob": "33e4f6e05178189f80447969d0bfc8371b943556",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_safety.py",
+      "original_blob": "e59e0b49f36dfa3130e191c52add931c4f278cff",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_shared_auditor.py",
+      "original_blob": "e72e6a930691227ef08ef6d641314422178be63a",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_shared_template.py",
+      "original_blob": "b7206abf795f1522794b8aa0d4443a046d52da18",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_site.py",
+      "original_blob": "74a014ccc29977e74fe41f0cb677c3f28d04bd6e",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_template_pins.py",
+      "original_blob": "de1725d47ff237be27360a270bf8b64d218ab699",
+      "preserved": true
+    },
+    {
+      "path": "tests/test_vendor_template_fixes.py",
+      "original_blob": "5b5baa441cf01fc21050d0f68f444d681e79a582",
+      "preserved": true
+    },
+    {
+      "path": "vendor/PROVENANCE.json",
+      "original_blob": "0dd2337982e97c8ba957b1189b7c9c41c5be4614",
+      "preserved": true
+    },
+    {
+      "path": "vendor/README.md",
+      "original_blob": "0c98c30d464b82604135287cbf64f5870ca46e3f",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems32lli/PROVENANCE.json",
+      "original_blob": "1dd19d8db49b976c24876e5670621bb5b65515af",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems32lli/__init__.py",
+      "original_blob": "82fdf2c9ca532e90e8c61c8acd8404f94957b5b1",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems32lli/ledger_inversion.py",
+      "original_blob": "333a088fd2c5d2035818c6951f0d7e82136a0a9a",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems32lli/metric.py",
+      "original_blob": "33b32da8909811f4ef004c556ecdcdc44c564ebe",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems32lli/run_live_ledger_inversion_reference.py",
+      "original_blob": "ae96acc12f57880e94313c9ad65aadc97fd095b2",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/__init__.py",
+      "original_blob": "964b55b3be184774e11956963b3e0e10b6580c7b",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/anatomy.py",
+      "original_blob": "8245b7ecbb9bb16f7d8c3c0f6b67c3ddf6f19cea",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/damagezone_envelope.py",
+      "original_blob": "126f84b17a807a5e3e4bd7e2dd5c2b32395044e5",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/emit.py",
+      "original_blob": "025eeb2cc697a8a0fbee5096119eebcb69b8b1ed",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/evaluate_holdout.py",
+      "original_blob": "9c65eb9de1468fecfc909d9b2c1348bed52f67ca",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/evaluator_provenance.py",
+      "original_blob": "99a3047cfe80bb039694ef999f3e51e7f3684170",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/faultzone.py",
+      "original_blob": "f1453067f335f8956c31d04d1959605936688748",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/fit.py",
+      "original_blob": "dd21072b82759575560b55a201eafc3729880b06",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/fitting.py",
+      "original_blob": "fb2a04f716ba487923a5721d9e8cacb309ca2c9a",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/gates.py",
+      "original_blob": "cf7cbda418a6b0f80bbdc44a2e12822a97215963",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/geo.py",
+      "original_blob": "ddb9ca2211277e9cd6ee78528c6be0483e27e554",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/grid.py",
+      "original_blob": "e909e5a219ff242245e24477653a42306401495d",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/holdout.py",
+      "original_blob": "8c71ef3055cfdf130fd9ea617c986b232632f401",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/metric.py",
+      "original_blob": "67008aae6782b6fece2c4dafdf99a5b59dc9e5fd",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/network.py",
+      "original_blob": "3df35ca834dacbb8e7377c09f82f2ad5b64462bc",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/offcatalogue.py",
+      "original_blob": "d0e30a6054a2693dd8910295f2ab08696a9680a4",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/prepare_data.py",
+      "original_blob": "5813d7491929a24e4f2ee56934e67d18355d2752",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/relay_bend_anatomy.py",
+      "original_blob": "2eb52c1d26c321f05c557385a67d9806261191f8",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/spatial.py",
+      "original_blob": "ebb32c2617bf4da74bb3e851e0f0080a9bb9c8d8",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/strand_orientation.py",
+      "original_blob": "811c694fb18d0120e99725760f60d60ce5292432",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/strike_zone.py",
+      "original_blob": "a773824922e0e2325debce81773b5cedc2505d1c",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/submission_writer.py",
+      "original_blob": "5a04a2b0d5d4137f0aad39d862889ef1b92198ea",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/uniqueness.py",
+      "original_blob": "71d66ff89aa3a5cfdaeffb11fe09fa2609cc73e5",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/validate.py",
+      "original_blob": "6729226367b1b927ca1c17b469b1bb774680a654",
+      "preserved": true
+    },
+    {
+      "path": "vendor/template57/prepare_data.py",
+      "original_blob": "5813d7491929a24e4f2ee56934e67d18355d2752",
+      "preserved": true
+    },
+    {
+      "path": "vendor/template57/test_evaluate_holdout.py",
+      "original_blob": "3e63938a79a7f4adb73d21ea578a7fabbda04c6e",
+      "preserved": true
+    }
+  ],
+  "previous_integrated_main": "0051d33293264d5e7b1638bb1aa412156f03f40f"
+}

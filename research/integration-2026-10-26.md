@@ -17,7 +17,7 @@ model/experiment/artifact totals are therefore **not zero**.
 
 | Record | Meaning | Not permission for |
 |---|---|---|
-| `evidence/run-card.json` and exact root/docs aliases | Last recorded geological run from a parallel session; negative | Upload or a claim that it was rerun here |
+| `evidence/run-card.json` and exact root/docs aliases | Preserved canonical bilateral run from a parallel session; negative | Upload or a claim that it was rerun here |
 | `evidence/session-7d1e577d-run-card.json` | This review’s scoped negative run card, no model result | Inventing an assigned lane or a new TIFF |
 | `evidence/run_card.json` / the archived GPC artifact card | Prior, separate GPC run | Mixing evaluator versions or claiming all-registry novelty |
 | `evidence/shared_tool_audit.json` | Synthetic probe of the 13-file gems32 instrument pin | A HOLDOUT-DTI model score |
@@ -102,3 +102,29 @@ placement remains” claim. After resolving the lane, registry representation,
 central gems32 defect, cache and incumbent, a new authorized session must run the
 scientific experiment and implement/test an evidence-authenticating release path.
 Do not reset this session’s clock or relax its gates to manufacture a deliverable.
+
+## Later concurrent main: 9ebfc4b and 1fcc140
+
+The subsequent K3-H1/DCAP-LHC integration added three root-archive TIFF files
+(two are alternate encodings of one DCAP-LHC prediction), all with negative run
+cards. The source/evidence and bytes remain unchanged. `audit_inherited_artifacts.py`
+independently measures these and GPC against the original pinned binary lattice;
+all four exceed the literal overlap stop. This is intentionally not the other
+sessions’ detector-only/like-for-like gate. GPC also contains 4,115 positive pixels
+on the mirrored catalogue, contrary to any unqualified final-file visible-mask
+assertion. No masking/encoding rewrite or evasive relocation was performed.
+
+`1fcc140` adds the separately namespaced SSP1 study, mirrored at `docs/ssp1/`.
+Its own negative decision, raster encodings, source, scientific receipts and
+requirements lock are preserved. The root page has a stable, explicitly negative
+link; the original source-status script remains byte-identical and does not
+replace the executive hero. Its evaluator and the bilateral evaluator are not
+directly comparable. The four-file root audit does not silently count SSP1 as one
+of those four, or claim to have rerun its model.
+
+Operational guards were added only to inherited root training/finalizer/card CLI
+entry points to prevent rewriting frozen, already-run sessions. Numerical helper
+functions and upstream source pins were not patched. Pure geometry, format,
+source-refresh and verification tools remain runnable. The imported ledger's
+CRLF append is preserved byte-for-byte; `.gitattributes` recognizes CR-at-EOL
+rather than normalizing a hash-bearing source record.

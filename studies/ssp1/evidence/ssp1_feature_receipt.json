@@ -1,0 +1,51 @@
+{
+  "method": "SSP1",
+  "features": [
+    "step_r2_w0p7",
+    "step_amplitude_w0p7",
+    "step_r2_w1p4",
+    "step_amplitude_w1p4",
+    "residual_odd_fraction",
+    "profile_residual_rms",
+    "tangent_step_persistence",
+    "gravity_topography_gradient_cosine",
+    "gravity_gradient_magnitude",
+    "K_encoded_cross_normal_contrast",
+    "Th_encoded_cross_normal_contrast",
+    "lidar_step_clipped_m_per_m",
+    "lidar_upface_clipped_m_per_m",
+    "lidar_step_asymmetry_clipped_m_per_m",
+    "lidar_coherence",
+    "lidar_relief_clipped_m",
+    "cached_detrended_slope"
+  ],
+  "shape": [
+    3730,
+    3292,
+    17
+  ],
+  "geometry": {
+    "shape": [
+      3730,
+      3292
+    ],
+    "crs": "EPSG:32611",
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ]
+  },
+  "catalogue_based_features": [],
+  "peer_prediction_features": [],
+  "shared_cache": "/home/user/KANLERGEMSDOE3/.cache/gems_work/feature_stack.npy",
+  "shared_cache_sha256": "f95486ffa937e0237c53c5e7f59e49cc142825ae5ea56b166d64dcbfeef5bdc0",
+  "footprint_pixels": 5167373,
+  "lidar_available_pixels": 3893184,
+  "seconds": 32.58,
+  "feature_file": "/home/user/KANLERGEMSDOE3/.cache/gems_work/ssp1_features.npy",
+  "feature_file_sha256": "4983e7b230c0a33037a7e4e11dbb72413947a65f68d7c2341952e774d6a929b7"
+}

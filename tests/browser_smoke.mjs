@@ -103,7 +103,7 @@ try {
   const table = await mobilePage.locator('#comparison .table-wrap').evaluate(element => ({ client: element.clientWidth, scroll: element.scrollWidth }));
   assert.ok(table.scroll > table.client, 'The wide table must scroll locally on mobile');
   await mobilePage.screenshot({ path: path.join(output, 'mobile.png'), fullPage: true });
-  for (const name of ['executive-summary.html', 'sources.html', 'research.html', 'sites/GEMSDOE32.html']) {
+  for (const name of ['executive-summary.html', 'sources.html', 'research.html', 'parallel-research.html', 'k3h1.html', 'sites/GEMSDOE32.html']) {
     await mobilePage.goto(base + '/' + name, { waitUntil: 'networkidle' });
     await noGlobalOverflow(mobilePage, 'mobile ' + name);
   }
@@ -118,6 +118,15 @@ try {
     assert.equal(await current.locator('a[download]').count(), 0);
     assert.match(await current.locator('.file-unavailable').innerText(), /DO NOT SUBMIT/);
     checks.push(`${mode} source feed never authorizes an upload`);
+    if (mode === 'unavailable') {
+      await current.locator('#refresh-sources').click();
+      await current.waitForFunction(() => !document.getElementById('refresh-sources').disabled);
+      assert.equal(isolated.gemsRequestCount, 9, 'Failed requests must back off instead of exhausting the public quota');
+      await current.reload({ waitUntil: 'networkidle' });
+      await current.locator('#feed-summary').filter({ hasText: '9 unknown' }).waitFor();
+      assert.equal(isolated.gemsRequestCount, 9, 'A reload must not bypass the failure backoff');
+      checks.push('unavailable source retries and reloads are backed off for one hour');
+    }
     await isolated.close();
   }
 
@@ -136,6 +145,20 @@ try {
   assert.equal(blockedStorage.gemsRequestCount, 18, 'expired memory cache must be refreshed even when storage is disabled');
   checks.push('source cache expires after one hour, including storage-disabled fallback');
   await blockedStorage.close();
+
+  const timed = await context();
+  const timedPage = await timed.newPage();
+  await timedPage.clock.install({ time: new Date('2026-10-26T12:00:00Z') });
+  await timedPage.goto(base + '/', { waitUntil: 'networkidle' });
+  await timedPage.locator('#feed-summary').filter({ hasText: '9 unchanged' }).waitFor();
+  const before = await timedPage.locator('.freshness').evaluateAll(elements => elements.map(el => el.title));
+  assert.equal(timed.gemsRequestCount, 9);
+  await timedPage.clock.fastForward(3602000);
+  await timedPage.waitForFunction(previous => [...document.querySelectorAll('.freshness')].every((el, index) => el.title !== previous[index]), before);
+  assert.equal(timed.gemsRequestCount, 18);
+  assert.equal(await timedPage.locator('a[download]').count(), 0);
+  checks.push('visible pages automatically refresh at cache expiry without manual input or approval');
+  await timed.close();
 
   const report = { kind: 'BROWSER_UI_TEST_NOT_MODEL_RESULT', status: 'PASS', checks, source_network: 'GitHub API mocked to exercise unchanged, changed, quota failure and disabled storage; not a live score verification', screenshots: 'data/ui-review (ignored; not submission files)' };
   await fs.writeFile(path.join(output, 'browser-checks.json'), JSON.stringify(report, null, 2) + '\n');

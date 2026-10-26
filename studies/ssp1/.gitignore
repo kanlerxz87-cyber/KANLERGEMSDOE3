@@ -1,0 +1,14 @@
+# Regenerable competition data, environments and downloaded peer artifacts
+.cache/
+.venv/
+/data/
+__pycache__/
+.pytest_cache/
+*.pyc
+node_modules/
+coverage/
+# Only explicitly published compact artifacts belong under docs/downloads.
+
+# Workspace-only cache/environment links; never part of the study release
+/.cache
+/.venv

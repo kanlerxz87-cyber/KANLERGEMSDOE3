@@ -1,0 +1,15 @@
+{
+  "measured_utc": "2026-10-26T21:48:41.933288+00:00",
+  "source": ".cache/registry/GEMSDOE24/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+  "footprint_pixels": 5167373,
+  "registry_dots": 206895,
+  "pixels_within_3px": 5160724,
+  "covered_fraction": 0.9987132726822701,
+  "uncovered_pixels": 6649,
+  "candidate_fixed_budget": 37654,
+  "minimum_possible_overlap_for_any_distinct_pixel_map_at_this_budget": 0.8234184947150369,
+  "proof": "At most U distinct emitted pixels can be outside the registry 3px dilation. For N dots, overlap >= max(0, 1-U/N). No prediction or scientific assumption is used.",
+  "literal_threshold": 0.7,
+  "gate_is_mathematically_incompatible_with_budget": true,
+  "policy": "Do not relocate predictions into uncovered border pixels or exempt a registry to game the rule. Negative is a deliverable."
+}

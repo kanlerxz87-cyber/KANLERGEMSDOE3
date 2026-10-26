@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "verified_utc": "2026-10-26T22:56:09.304Z",
+  "browser": "Chromium HeadlessChrome/153.0.8010.0",
+  "pages_visited": [
+    "audit.html",
+    "executive-summary.html",
+    "index.html",
+    "research.html",
+    "sites/GEMSDOE24.html",
+    "sites/GEMSDOE25.html",
+    "sites/GEMSDOE27.html",
+    "sites/GEMSDOE28.html",
+    "sites/GEMSDOE30.html",
+    "sites/GEMSDOE31.html",
+    "sites/GEMSDOE32.html",
+    "sites/GEMSDOE33.html",
+    "sites/GEMSDOE36.html",
+    "sources.html",
+    "submission-guide.html"
+  ],
+  "responsive": [
+    {
+      "width": 1440,
+      "body": 1440,
+      "viewport": 1440,
+      "scrollableTables": [
+        false,
+        false
+      ]
+    },
+    {
+      "width": 768,
+      "body": 768,
+      "viewport": 768,
+      "scrollableTables": [
+        true,
+        true
+      ]
+    },
+    {
+      "width": 390,
+      "body": 390,
+      "viewport": 390,
+      "scrollableTables": [
+        true,
+        true
+      ]
+    },
+    {
+      "width": 320,
+      "body": 320,
+      "viewport": 320,
+      "scrollableTables": [
+        true,
+        true
+      ]
+    }
+  ],
+  "downloads": [
+    {
+      "filename": "gemsdoe32-kanler3-ssp1-e1-RESEARCH-20261026T220043Z-fbab7ef5-zeros.tif",
+      "bytes": 201555,
+      "sha256": "4e88158e8859416b874cc424dc106847f8eaab474794bbb1716e273f57839a27"
+    },
+    {
+      "filename": "gemsdoe32-kanler3-ssp1-e1-RESEARCH-20261026T220043Z-fbab7ef5-zeros.zip",
+      "bytes": 166063,
+      "sha256": "6d4e75c64872be21c1df79490f1a23a6977fb172958bc08e1f1a0b3c46487321"
+    }
+  ],
+  "clipboard_note_characters": 98,
+  "clipboard_denial_fallback_tested": true,
+  "javascript_errors": [],
+  "failed_responses": [],
+  "scientific_verdict": "negative",
+  "ok_to_submit": false,
+  "scope": "Browser delivery checks only; these cannot override a negative scientific run"
+}

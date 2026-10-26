@@ -2,7 +2,7 @@
 
 **Start every session by reading this README (including the full user request below),
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
-[session config](config/research-session.json) and [last geological run card](docs/run-card.json) and [this review’s negative card](evidence/session-7d1e577d-run-card.json).**
+[session config](config/research-session.json) and [preserved bilateral run card](docs/run-card.json) and [this review’s negative card](evidence/session-7d1e577d-run-card.json).**
 
 ## Executive decision: DO NOT SUBMIT
 
@@ -12,7 +12,7 @@
 
 **There is no qualified TIFF to download and no defensible leaderboard estimate.** This review
 session ran no geological experiment, generated no new TIFF and spent no weekly slot. Concurrent
-main contains other sessions’ negative model results and a quarantined research TIFF; those are
+main contains other sessions’ negative model results and quarantined research TIFFs; those are
 preserved, not claimed as this session’s work. The requested winning artifact is not delivered.
 
 ### Progress in this session
@@ -46,7 +46,8 @@ The binary calibration lattice is not exempt, and the soft-diagnostic dot repres
 resolved without silently weakening the registry. The mirror sample contains 60,988 catalogue
 positives despite the official total-absence sample description ([independent check](evidence/sample-provenance-check.json)).
 Official template provenance and the account's remaining weekly cap must be established before a
-separate selector authorizes any upload. No human visual raster inspection is a required gate.
+separate selector authorizes any upload. A positive, evidence-authenticating release publisher
+also remains unimplemented. No human visual raster inspection is a required gate.
 
 ## Reproduce: data → instrument audit → readiness → site
 
@@ -75,7 +76,8 @@ companion dot mask. Empty/constant/missing comparisons do not establish novelty.
 
 `python scripts/sync_focus_feed.py` refreshes immutable participant source commits without a REST
 quota or credentials. The site checks public GitHub source changes read-only (cached up to one hour),
-showing errors as unknown. **This is not an authenticated live leaderboard/approval feed.** Official
+showing errors as unknown. Visible pages refresh automatically at cache expiry; failed checks
+back off across reloads instead of exhausting the anonymous API quota. **This is not an authenticated live leaderboard/approval feed.** Official
 score observations remain dated and distinct from submission-page receipts. Scheduled CI publishes
 source-review artifacts, not automatic scientific approvals or account submissions.
 
@@ -93,17 +95,26 @@ Tests mock source API success/change/quota failures and storage restrictions, no
 
 ### Concurrent work preserved, not silently mixed
 
-Main `4338f12` introduced parallel bilateral/GPC experiments, other source pins, a
-research-only TIFF and registry-saturation evidence. The last geological run/card remains
+Main `4338f12`, `9ebfc4b` and `1fcc140` introduced parallel bilateral/GPC,
+K3-H1, DCAP-LHC and isolated SSP1 studies, other source pins, research-only TIFFs
+and registry-saturation evidence. The preserved canonical bilateral run/card remains
 canonical at `evidence/run-card.json` and identical root/docs aliases. This session’s
 separate card is `evidence/session-7d1e577d-run-card.json`. It records zero new geological
 runs; the repository-wide history is not zero. No result is promoted.
+
+All four root-archive TIFF files were independently replayed against the required
+binary lattice and fail the literal overlap stop. The GPC file also retains 4,115
+positive pixels on the mirrored catalogue. Their source cards/bytes were not rewritten.
+See `evidence/inherited_literal_audit.json` and the research-only archive page.
 
 The full-footprint diagnostic saturation was independently reproduced using unchanged
 shared instruments; its implication is conditional on counting all positive soft cells
 as dots. That definition is unresolved, not silently waived. See the
 [integration review](research/integration-2026-10-26.md) and scoped replay receipt.
-Conflicting main-side files were retained in `archive/integration-4338f12/` before merging.
+Main-side conflict versions are retained under `archive/integration-*/`. The SSP1
+portal is isolated at `docs/ssp1/` with source/evidence at `studies/ssp1/`; its
+evaluator and the canonical bilateral evaluator are **not directly comparable**.
+The full public source-status script and its explicit negative study entry point remain.
 
 ## Publication and three-pass review
 
