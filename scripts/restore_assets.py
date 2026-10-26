@@ -94,10 +94,15 @@ def restore_core(features: bool, external: bool = False) -> list[dict]:
     for e in pin["files"]:
         if e["group"] == "external" and not external:
             continue
+        relative = Path(e["dest"])
+        if relative.is_absolute() or ".." in relative.parts:
+            raise ValueError("unsafe destination in data manifest")
         if e["id"] == "training_features":
             if not features:
                 continue
-            dest = CACHE / "data" / e["dest"]
+            if len(e["parts"]) != len(PART_SHA):
+                raise ValueError("feature part count differs from pinned part hashes")
+            dest = CACHE / "data" / relative
             if dest.exists() and digest(dest) == e["sha256"]:
                 receipts.append({"path": str(dest.relative_to(ROOT)), "sha256": e["sha256"], "status": "verified cached"})
                 continue
@@ -121,7 +126,7 @@ def restore_core(features: bool, external: bool = False) -> list[dict]:
                 tmp.unlink(missing_ok=True)
             receipts.append({"path": str(dest.relative_to(ROOT)), "sha256": e["sha256"], "status": "assembled"})
         else:
-            receipts.append(fetch(e["repo"], e["ref"], e["path"], CACHE / "data" / e["dest"], e["sha256"]))
+            receipts.append(fetch(e["repo"], e["ref"], e["path"], CACHE / "data" / relative, e["sha256"]))
     return receipts
 
 
@@ -140,6 +145,9 @@ def main() -> int:
     parser.add_argument("--features", action="store_true", help="also restore the 419 MB feature raster")
     parser.add_argument("--external", action="store_true", help="also restore pinned public derived geological inputs")
     args = parser.parse_args()
+    # Never leave an earlier success receipt masquerading as this failed attempt.
+    CACHE.mkdir(parents=True, exist_ok=True)
+    (CACHE / "restore_receipt.json").unlink(missing_ok=True)
     if not shutil.which("gh"):
         parser.error("GitHub CLI (gh) is required; this script never asks for credentials")
     receipts = []

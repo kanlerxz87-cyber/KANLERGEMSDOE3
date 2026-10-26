@@ -1,34 +1,54 @@
-# Preregistered research shortlist — not validated discoveries
+# Ranked geological hypotheses — preregistration, not discoveries
 
-2026-10-26. Ranking is qualitative expected information gain/DTI potential, **not a score projection**.
-No hypothesis has been implemented or run. No unique method lane was supplied. All are distinct
-from this checkout's initial one-line README; novelty across every sibling implementation is
-**not established**. H19/H33 thinning, Euler, geothermal-conduit, multiphysics and scarp variants
-already appear in the reviewed sibling sources and should not simply be renamed.
+**Status:** research proposals only; none implemented or evaluated. Ranking is qualitative expected
+information gain and possible HOLDOUT-DTI upside, **not a numerical prediction**. The request refers to
+a single-method paragraph but does not identify one. A shortlist is not an assigned lane. The literal
+registry witness described in the [review](review.md) blocks **every nonempty candidate** before
+placement, so no model experiment, output TIFF or slot selection was performed.
 
-| Rank | Candidate, layers and physical signature | Missing-fault rationale and confounder | Novelty test / cost / viability |
+| Rank | Layers and proposed physical signature | Missing-fault rationale; non-fault mimic | Difference, expected upside and approximate cost |
 |---|---|---|---|
-| 1 | **Cross-scale edge phase disagreement**: GeoDAWN magnetic grid, upward continuation at several heights, radiometric Th/K. Find persistent magnetic horizontal-gradient axes whose radiometric cross-edge polarity changes locally, not generic gradient maxima. | A buried structural discontinuity may retain a deeper magnetic edge while surface alteration cuts across it; could locate concealed segments absent from mapped surface traces. Intrusive contacts or survey seams can mimic it. | Compare with existing Euler, tilt, magnetic-worm and alteration code before claiming novelty. Medium cost; existing owner-mirrored layers are listed, official provenance and exact band definitions still need verification. Conditional, not cleared. |
-| 2 | **Valley-network displacement consistency**: bare-earth DEM, local drainage graph, paired upstream/downstream curvature extrema, repeated signed lateral offsets across separate tributaries. | A cross-valley fault could produce coherent displacement without an obvious scarp, providing evidence beyond mapped catalogue proximity. Stream capture, fan avulsion or roads can mimic it. | Graph-level repeated displacement differs from generic DEM ridge extraction; review hydro/conduit implementations for duplication. High cost; raw DEM coverage not obtained here. USGS 3DEP is the proposed free official source; direct obtainability unverified under host restriction. Not viable yet. |
-| 3 | **Alteration-front termination pairs**: GeoDAWN K/Th/U ratios and magnetic analytic signal; pair abrupt along-strike terminations on opposite sides of an independently detected edge. | An unmapped transverse structure may compartmentalize alteration rather than coincide with its strongest anomaly. Lithologic boundaries and erosional unconformities mimic it. | Explicit termination pairing differs conceptually from pixelwise fusion but sibling implementation search is incomplete. Medium cost; ratios are present in the mirror manifest, not organizer-authenticated. Conditional. |
-| 4 | **Drainage-normal thermal asymmetry**: GDR shallow-probe residual temperatures, elevation, slope/aspect and drainage position; test cross-line residual sign consistency after terrain correction, never nearest-hot-point distance alone. | Focused upflow may produce a narrow anomaly away from mapped traces. Groundwater advection, seasonality and land use mimic it. | Must differ from existing geothermal-conduit and PINN work. High cost; GDR #1391 is the proposed official source, but seasonal sampling metadata/coverage and direct download not verified. Not viable yet. |
+| **1** | **Cross-line radiometric texture displacement**: use independent magnetic RTP/gradient axes, then correlate windows of K, Th and U texture on opposite sides of each axis to infer coherent along-strike offsets and their uncertainty; condition on detrended relief. | A fault concealed beneath cover can displace a continuous geochemical pattern even if its trace is not mapped. Alluvial-fan/lithologic boundaries, alteration unrelated to faulting, airborne seams and terrain clearance can create similar breaks. | Unlike a pointwise magnetic+radiometric edge or simple ratio fusion, score a **paired displacement** of textures, never distance to known traces. This distinction is conceptual, not a proven literature-wide invention. Highest qualitative expected benefit/information among this shortlist; moderate CPU/memory cost. |
+| 2 | **Cross-scale magnetic-pattern offset coherence**: compare magnetic RTP, TMI and gradients across multiple smoothing scales; test whether opposite-side patterns have a consistent lateral shift along a line, rather than simply selecting gradient peaks. | A buried fault can offset magnetic stratigraphy; intrusive contacts, remanent magnetization and flight-line noise also generate lineaments. | Cross-line *matched offset* rather than magnetic-worm magnitude or a named Euler derivative. High-to-medium expected information; medium CPU cost. Might correlate with hypothesis 1; full-registry comparison remains essential. |
+| 3 | **Repeated relief/lineament termination pairs**: pair changes in detrended elevation/slope and owner-mirrored LiDAR scarp features across an independently oriented geophysical line. Seek a repeated, consistent termination pattern, not proximity to a mapped fault. | Concealed faulting can juxtapose or terminate buried/eroded geomorphic signatures. Drainage capture, erosion, fan boundaries and roads are non-fault alternatives. | Pairwise termination and coherence differs from raw scarp or knickpoint scores, but sibling implementation overlap must be checked. Medium expected information; moderate-to-high cost. Missing LiDAR coverage must be recorded, not imputed as geology. |
+| 4 | **Terrain-adjusted shallow-temperature asymmetry**: relate independently modeled topographic/cover context and GDR 2 m probe temperatures across candidate geophysical lineaments, with geographic and seasonal uncertainty. | A permeable fault can focus warm fluid away from mapped traces; groundwater transport, season, weather, land use and measurement campaigns can mimic it. It is **not** proof of a vent or of geothermal resource. | Test local cross-line contrast, not nearest-hot-spring distance or a renamed PINN. Lower confidence due to sparse biased sampling and overlap with geothermal-conduit work; high feature-engineering cost. |
 
-## Prespecified next experiment (only after a lane is assigned)
+## Availability and limitations
 
-Use the shared template evaluator/writer; the retrieved scripts are source snapshots, not executable
-standalone tools. Resolve their dependencies and pin a template commit rather than making a private
-metric. Restore cached label-free features with recorded hashes. For each withheld whole segment,
-remove the buffered segment from the visible catalogue **before** creating any distance, orientation,
-tip, density or masking feature. Never zero withheld positives with the full catalogue.
+- USGS [GeoDAWN data release](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and)
+  lists magnetic and radiometric data under CC0 1.0; its overview was fetched. The 4-band K/Th/U/total-count
+  `geodawn_rad_u8.tif` derivative was **actually restored from an owner GitHub mirror** and verified against
+  its pinned hash and grid; it is quantized, and its full processing lineage, licensed use and raw official
+  download have not been independently authenticated. Official webpage availability is not equivalent to
+  verification of every raw raster's download/coverage. Our priority concept uses this derivative only as a
+  proposed input and is not cleared to train.
+- The same owner mirror restored a 19-band core feature stack (including RTP, TMI, detrended elevation
+  and slope) and a 12-band LiDAR-derived product. The core image is hash-pinned, **not an organizer-authenticated
+  competition download**. The LiDAR product's `valid` band and missing tiles need explicit handling.
+  The official organizer [data page](https://www.drivendata.org/competitions/306/competition-doe-gems/data/)
+  redirected to login; no credentials were requested or used.
+- [GDR / INGENIOUS #1391](https://gdr.openei.org/submissions/1391) was checked and lists CC BY 4.0.
+  A 2 m temperature-probe archive was retrieved and hash-verified from the owner mirror; raw-site download,
+  individual observation licensing, temporal corrections and utility inside the scoring footprint remain
+  unverified. The related mirrored wells/springs CSV contains a `dist_known_fault_px` column: **never use it**
+  as a predictor or canary shortcut. Any fault-catalogue-derived or fault-proxy information must be rebuilt
+  fold-locally from visible faults, or excluded.
+- USGS research supports the general plausibility of [concealed fault signatures in aeromagnetics](https://www.usgs.gov/publications/high-resolution-aeromagnetic-data-a-new-tool-mapping-intrabasinal-faults-example)
+  and [blind geothermal systems](https://www.usgs.gov/publications/discovery-a-blind-geothermal-system-southern-gabbs-valley-western-nevada-through),
+  not the claimed novelty or predictive performance of these proposals. No method can be called genuinely
+  novel across all sibling work without a full search and independent replication.
 
-Run each feature alone as a leakage canary: AUC >0.90 is a stop pending explanation, not an achievement.
-Compare candidate and incumbent on identical spatial folds, pooled alpha=0.2, beta=0.8 DTI with the
-300 m triangular kernel, recording evaluator version, withheld-positive count and spatial-block
-bootstrap 95% CI including paired difference CI. Require the paired improvement lower bound >0
-as a conservative research gate. Check rank correlation on the continuous surface before placement
-and on final output, and directed dot overlap against the **complete** registry at both stages.
-Missing surfaces or incomplete registry means unknown, not unique. Stop on rho >0.90 or overlap >0.70.
-At most three experiments or two hours. No weekly slot is used in this process.
+## Prespecified experiment, if the protocol conflict is resolved
 
-The target is missing **fault traces**, not direct vent classification. Thermal/geochemical evidence
-may inform fault discovery but is not the competition's hidden target by itself.
+For rank 1, first document the assigned lane and perform the surface uniqueness gate with the **complete
+applicable registry**, without changing the literal rule. Then hide whole fault segments with spatial
+buffers, rebuild every catalogue-derived feature solely from the visible catalogue, and mask visible
+faults pixel-exactly. Use the unchanged pinned shared `evaluate_holdout.py` and `submission_writer.py`;
+any shared defect belongs in the upstream template, not a private fork. Run every feature singly as an
+AUC leakage canary; >0.90 requires investigation and blocks trust. Compare candidate and best baseline
+on the same folds and pooled DTI (α=.2, β=.8, triangular 300 m kernel), recording evaluator version,
+withheld-positive count and spatial-block bootstrap 95% CIs including the **paired** improvement CI.
+Repeat the complete literal uniqueness check on final dots and validate the exact saved bytes. Require
+an improvement over the current same-evaluator holdout best and a separate selector; no weekly slot is
+spent by research. Maximum three experiments or two hours. The reference supplies CPU as well as GPU
+options; no GPU was detected in this environment, but GPU is not a prerequisite for every experiment.

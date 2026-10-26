@@ -26,10 +26,15 @@ def binary_spearman(a: np.ndarray, b: np.ndarray, footprint_count: int) -> float
     Binary midranks are affine transforms of binary values, so their Pearson
     correlation is Spearman's rho. a and b must already be footprint-masked.
     """
-    na, nb = int(a.sum()), int(b.sum())
-    both = int((a & b).sum())
+    a, b = np.asarray(a, dtype=bool), np.asarray(b, dtype=bool)
+    if a.shape != b.shape:
+        raise ValueError("binary correlation masks must share a grid")
     n = int(footprint_count)
-    if n <= 0 or na in (0, n) or nb in (0, n):
+    na, nb = int(a.sum()), int(b.sum())
+    if n < 0 or n > a.size or na > n or nb > n:
+        raise ValueError("binary counts exceed the specified footprint")
+    both = int((a & b).sum())
+    if n == 0 or na in (0, n) or nb in (0, n):
         return None
     return (n * both - na * nb) / math.sqrt(na * (n - na) * nb * (n - nb))
 
@@ -60,6 +65,8 @@ def run() -> dict:
         soft = ref.read(1)
         witness_on_foot = int((np.isfinite(soft) & (soft > 0) & footprint).sum())
     del soft
+    if not certificate["universal_overlap_blocker"] or witness_on_foot != int(footprint.sum()):
+        raise ValueError("Pinned witness no longer establishes the published full-footprint stop; do not reuse the prior conclusion")
     with rasterio.open(lattice_path) as ref:
         if (ref.shape, ref.crs, ref.transform) != expected or ref.count != 1:
             raise ValueError("lattice grid mismatch")
@@ -160,6 +167,14 @@ def main() -> int:
     target = ROOT / "evidence/audit.json"
     target.parent.mkdir(exist_ok=True)
     target.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
+    card_path = ROOT / "evidence/run-card.json"
+    if card_path.is_file():
+        card = json.loads(card_path.read_text())
+        card["audited_utc"] = result["audited_utc"]
+        card["correlation_overlap_vs_registry"]["witness_sha256"] = result["saturation_witness"]["witness_sha256"]
+        card["correlation_overlap_vs_registry"]["witness_footprint_positive_cells"] = result["saturation_witness"]["positive_inside_footprint"]
+        card["correlation_overlap_vs_registry"]["allowed_cells_uncovered"] = result["saturation_witness"]["uncovered_allowed_pixels"]
+        card_path.write_text(json.dumps(card, indent=2, allow_nan=False) + "\n")
     print("AUDIT COMPLETE: universal blocker =", result["saturation_witness"]["universal_overlap_blocker"])
     print("Historical lineage:", json.dumps(result["lineage"]))
     print("Saved evidence/audit.json; no candidate TIFF generated; no submission slot used.")

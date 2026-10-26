@@ -1,26 +1,48 @@
-# Three-pass verification record
+# Verification record — current continuation, 26 October 2026 UTC
 
-## Pass 1 — implementation
-- Initial branch/repository checked: only a one-line README, no existing work to continue.
-- Retrieved priority-site docs/READMEs, selected shared-tool/evidence snapshots, official reference README.
-- Retrieved all nine pinned historical TIFFs and small template/labels mirrors; each historical SHA256 matched.
-- Independently recomputed 72 directed Euclidean <=3 px overlap comparisons on identical grids.
-- Built static executive summary, submission guide, four-hypothesis preregistration and continuation review.
+The three passes below concern this continuation. The [earlier independent audit](../evidence/review_passes.md)
+and archived reports remain preserved; they predate some recovered inputs and this universal witness.
 
-## Pass 2 — adversarial review
-- Checked directionality (overlap is not symmetric), Euclidean versus square-buffer distance and <=3 px boundary.
-- Empty masks fail rather than being called unique. Grid mismatch fails rather than resampling silently.
-- Format validator rejects NaN, Inf, below-zero and above-one values and mismatched CRS/transform.
-- Found no cached stack or complete registry: do not claim scientific validation or candidate uniqueness.
-- Environment disallowed global pip installs: used an isolated ignored virtual environment.
-- Removed the hard-coded workspace path from the source refresh utility; matched requirement versions to installed ones.
+## Pass 1 — implement and reproduce
 
-## Pass 3 — original-request reconciliation
-- Tests pass; site rebuilds deterministically; source bytes checked against their Git blob IDs.
-- Numbers in geometric audit are not labelled as scores. No holdout or organizer result invented.
-- Full continuous-surface and full-registry tests are missing, explicitly null, not marked passed.
-- End run card is negative; no raster hash/name invented; comment <=140 characters; zero slots used.
-- Original long prompt is condensed, not verbatim archived; explicitly labelled as such.
-- Not fulfilled: new validated TIFF, high-scoring model, score estimate, assigned lane, full official-source
-  verification and current feed. These cannot be honestly manufactured from this checkout and access.
-- Automated CI and Pages workflow added; actual cloud deployment remains separately observable.
+- Integrated concurrent main-branch research without discarding earlier evidence. Restored 49 pinned public
+  owner-mirror assets, including unchanged shared template files, core stack, optional external derivatives,
+  two registry witnesses and nine historical rasters. Hash verification shows mirror integrity only.
+- Re-ran the shared saturation certificate, 72 directed geometric comparisons, exact binary correlations
+  and decoded-mask lineage. Confirmed the universal positive-everywhere witness and independent lattice
+  bound. Saved a negative current run card with null holdout/raster fields and no submission authorization.
+- Built the current static executive desk, guide, sources, hypotheses and one-witness saved-byte preflight.
+  Initial tests exposed a site-generator field-name mismatch and a test calling `binary_spearman` without
+  its footprint count. Both were fixed and the suite rerun.
+
+## Pass 2 — adversarial validation
+
+- Tested inclusive distance boundary, directionality, empty masks, invalid range and grid metadata, exact
+  Spearman on tied binary masks, corrupt hashes, interrupted atomic restore, non-finite JSON, missing
+  inventory, canary thresholds, matching folds, CI and budget/selector gates.
+- Hardened manifest paths, stale restore receipts, already-loaded foreign template submodules and numeric
+  gate types. A historical all-finite B2 file passes local format checks but the shared literal support
+  test reports 100% witness overlap at both supplied surface and final-dot phases; it is rejected.
+  A NaN-outside historical file produces strict JSON and fails the project's all-finite policy. Neither
+  outcome is a portal acceptance test or a new submission.
+- A synthetic two-truth-cell example disproved a shared `metric.py` **docstring** marginal-credit claim;
+  it did not demonstrate an exact-evaluator defect. Upstream issue creation was denied by the GitHub
+  integration, so [the defect and proposed correction](../docs/SHARED_TEMPLATE_ISSUE.md) are recorded
+  without modifying or forking the shared code.
+
+## Pass 3 — requirements, site and reproducibility
+
+- Confirmed all nine historical score values are explicitly unverified owner claims, no projection is
+  called a score, official sources are linked, and the leaderboard is identified as a dated public
+  context snapshot rather than a file-bound submission receipt. The top hypothesis is only proposed.
+- Kept the user-requested whole-segment holdout, visible-only features, individual leakage canaries,
+  pooled DTI/95% CI, complete-registry two-phase gate, unchanged shared writer, budget and separate slot
+  selector as outstanding requirements. No full holdout, experiment or candidate TIFF is claimed.
+- A clean no-cache copy passed **27 tests (three optional integration checks skipped)** and rebuilt the
+  static pages without network access. With pinned assets restored, the full local suite exercised those
+  integration checks. HTTP smoke checks returned 200 for the root, landing page, guide, hypotheses,
+  review, CSS and audit JSON; relative links and accessible landmarks were machine checked. These are
+  not a manual accessibility audit, portal acceptance test or scientific experiment.
+- The exact long original user prompt is not available in the surviving context; the README faithfully
+  embeds the available operational transcription rather than claiming a verbatim archive. Resolve the
+  literal uniqueness conflict and assign the missing lane before any new scientific placement.

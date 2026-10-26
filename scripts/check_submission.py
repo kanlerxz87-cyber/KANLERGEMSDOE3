@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 from pathlib import Path
 import sys
 
@@ -21,6 +22,19 @@ sys.path.insert(0, str(ROOT / "src"))
 from gems_audit.assets import CACHE, load_template, sha256, verify, verify_core  # noqa: E402
 
 WITNESS_SHA = "ab0a0a62eecf066a82713b09dd49f0f638a91fa3dd81f54cc34ae89afa3872be"
+
+
+def json_safe(value):
+    """Preserve invalid numeric metadata explicitly instead of emitting invalid JSON."""
+    if isinstance(value, dict):
+        return {k: json_safe(v) for k, v in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [json_safe(v) for v in value]
+    if isinstance(value, np.generic):
+        return json_safe(value.item())
+    if isinstance(value, float) and not math.isfinite(value):
+        return "NaN" if math.isnan(value) else ("Infinity" if value > 0 else "-Infinity")
+    return value
 
 
 def rank_rho(a, b, footprint):
@@ -52,8 +66,12 @@ def inspect(candidate: Path, surface: Path | None = None) -> dict:
         witness_values = src.read(1)
 
     format_report = gates.format_report(candidate, CACHE / "data/sample_submission.tif", footprint=fp)
+    # A mismatched grid still produces a useful failure receipt, without applying
+    # reference masks to incompatible arrays. Never resample to make it pass.
+    with rasterio.open(candidate) as candidate_ds:
+        same_shape = candidate_ds.shape == expected[0]
     # The shared validator also enforces the conservative all-finite project policy.
-    validator = validate.validate(candidate, fp, known)
+    validator = validate.validate(candidate, fp, known) if same_shape else validate.validate(candidate)
     surface_report = {"performed": False, "pass": False, "reason": "No pre-placement surface supplied."}
     if surface is not None:
         with rasterio.open(surface) as src:
@@ -63,10 +81,13 @@ def inspect(candidate: Path, surface: Path | None = None) -> dict:
         if not np.isfinite(field[fp]).all() or (field[fp] < 0).any() or (field[fp] > 1).any():
             raise ValueError("surface must already be finite and in [0,1] inside the footprint")
         rho = rank_rho(field, witness_values, fp)
+        has_support = bool(((field > 0) & fp).any())
+        overlap = uniqueness.dot_overlap(np.where(fp, field, 0), witness_values) if has_support else None
+        duplicate = None if not has_support else bool(overlap > 0.70 or (rho is not None and rho > 0.90))
         surface_report = {"performed": True, "sha256": sha256(surface),
-                          "spearman_vs_witness": rho,
-                          "pass": False,
-                          "reason": "One witness cannot establish a complete registry surface pass; undefined ranks also fail closed."}
+                          "spearman_vs_witness": rho, "overlap_vs_witness": overlap,
+                          "duplicate": duplicate, "pass": False,
+                          "reason": "One witness cannot establish a complete registry surface pass; empty support and undefined ranks also fail closed."}
     final = {"performed": False, "overlap_vs_witness": None, "spearman_vs_witness": None,
              "duplicate": None, "pass": False,
              "reason": "Invalid file or empty support cannot pass."}
@@ -98,7 +119,7 @@ def main() -> int:
     args = p.parse_args()
     try:
         result = inspect(args.candidate, args.surface)
-        text = json.dumps(result, indent=2, allow_nan=False) + "\n"
+        text = json.dumps(json_safe(result), indent=2, allow_nan=False) + "\n"
     except (OSError, ValueError, RuntimeError) as exc:
         print(f"PREFLIGHT ERROR (NOT APPROVED): {exc}", file=sys.stderr)
         return 1

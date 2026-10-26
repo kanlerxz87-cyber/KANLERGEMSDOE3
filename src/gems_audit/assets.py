@@ -34,19 +34,30 @@ def load_template():
         if Path(name).is_absolute() or ".." in Path(name).parts:
             raise ValueError("unsafe template pin path")
         verify(CACHE / "template" / name, expected)
-    # Fail if another package with this name has already been imported.
-    existing = sys.modules.get("gems57")
+    # Refuse a previously loaded alternative parent OR submodule. Prioritize
+    # the verified vendor directory even if sys.path was already modified.
     expected_dir = (CACHE / "template/vendor/gems57").resolve()
-    if existing and Path(existing.__file__).resolve().parent != expected_dir:
-        raise RuntimeError("different gems57 package already loaded; refusing private fork")
+    def check_loaded():
+        for name, module in list(sys.modules.items()):
+            if name == "gems57" or name.startswith("gems57."):
+                location = getattr(module, "__file__", None)
+                if not location or not Path(location).resolve().is_relative_to(expected_dir):
+                    raise RuntimeError(f"different {name} package already loaded; refusing private fork")
+    check_loaded()
     vendor = str(expected_dir.parent)
-    if vendor not in sys.path:
-        sys.path.insert(0, vendor)
-    return importlib.import_module("gems57")
+    if vendor in sys.path:
+        sys.path.remove(vendor)
+    sys.path.insert(0, vendor)
+    result = importlib.import_module("gems57")
+    check_loaded()
+    return result
 
 
 def verify_core() -> None:
     pins = json.loads((ROOT / "registry/data_pins.json").read_text())["files"]
     for row in pins:
         if row["group"] == "core" and row["id"] != "training_features":
-            verify(CACHE / "data" / row["dest"], row["sha256"])
+            destination = Path(row["dest"])
+            if destination.is_absolute() or ".." in destination.parts:
+                raise ValueError("unsafe destination in data manifest")
+            verify(CACHE / "data" / destination, row["sha256"])

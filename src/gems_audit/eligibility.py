@@ -1,8 +1,8 @@
-"""Fail-closed research eligibility gate; slot selection is deliberately separate.
+"""Structural, fail-closed RESEARCH gate; real slot selection is separate.
 
-This checks a run card's structure and claims. It is not a substitute for
-replaying the shared template or authenticating an organizer receipt. A caller
-must independently verify that the evidence is hash-bound to actual artifacts.
+Callers must independently replay the unchanged shared tools and verify that
+receipts are hash-bound to actual artifacts. This schema check cannot itself
+authenticate a manifest, holdout, organizer receipt, or weekly allocation.
 """
 from __future__ import annotations
 
@@ -28,17 +28,20 @@ def _registry(a, phase, artifact_sha):
         return False
     n, checked = a.get("registry_rasters_expected"), a.get("registry_rasters_checked")
     valid_counts = type(n) is int and type(checked) is int and n > 0 and checked == n
-    common = (a.get("phase") == phase and a.get("complete_accessible_scan") is True and valid_counts
-              and a.get("missing_or_invalid") == 0 and a.get("source_errors") == []
-              and a.get("duplicate_count") == 0 and _number(a.get("worst_spearman_full_footprint"), -1, .90)
-              and a.get("artifact_sha256") == artifact_sha and _sha(artifact_sha))
-    if phase == "final":
-        common = common and _number(a.get("worst_dot_overlap"), 0, .70)
-    return bool(common)
+    missing, duplicates, positives = a.get("missing_or_invalid"), a.get("duplicate_count"), a.get("candidate_positive_pixels")
+    return bool(a.get("phase") == phase and a.get("complete_applicable_registry") is True
+                and a.get("complete_accessible_scan") is True and valid_counts
+                and type(missing) is int and missing == 0 and a.get("source_errors") == []
+                and type(duplicates) is int and duplicates == 0
+                and type(positives) is int and positives > 0
+                and _number(a.get("worst_spearman_full_footprint"), -1, .90)
+                and _number(a.get("worst_dot_overlap"), 0, .70)
+                and _sha(a.get("registry_manifest_sha256"))
+                and a.get("artifact_sha256") == artifact_sha and _sha(artifact_sha))
 
 
 def decide(card):
-    """Return transparent automated research gates; never approve a competition slot."""
+    """Check a claimed run-card schema; never approve a competition submission."""
     if not isinstance(card, dict):
         card = {}
     candidate_sha, surface_sha = card.get("raster_sha256"), card.get("surface_sha256")
@@ -46,7 +49,7 @@ def decide(card):
     features = card.get("features_used")
     canary = card.get("feature_canary")
     canary_ok = (isinstance(features, list) and len(features) > 0
-                 and all(isinstance(s, str) and s for s in features)
+                 and all(isinstance(s, str) and s.strip() for s in features)
                  and len(set(features)) == len(features) and isinstance(canary, dict)
                  and set(features) == set(canary)
                  and all(_number(canary[s], .5, .90) for s in features))
@@ -56,6 +59,10 @@ def decide(card):
     holdout_ok = (
         ho.get("evidence_class") == "HOLDOUT-DTI" and isinstance(ho.get("evaluator_version"), str)
         and bool(ho.get("evaluator_version")) and type(withheld) is int and withheld > 0
+        and ho.get("whole_segment_buffered") is True and ho.get("catalogue_features_visible_only") is True
+        and ho.get("visible_faults_masked_pixel_exact") is True
+        and (ho.get("alpha"), ho.get("beta"), ho.get("kernel_m"), ho.get("kernel"), ho.get("aggregation"))
+            == (.2, .8, 300, "triangular", "pooled")
         and _sha(ho.get("folds_sha256")) and _number(ho.get("dti"), 0, 1) and _ci(ho.get("ci95"), 0, 1)
         and baseline.get("evidence_class") == "HOLDOUT-DTI"
         and baseline.get("evaluator_version") == ho.get("evaluator_version")
@@ -66,19 +73,34 @@ def decide(card):
         and ho.get("dti", 0) > baseline.get("dti", 1)
         and _ci(ho.get("paired_delta_ci95"), -1, 1) and ho["paired_delta_ci95"][0] > 0
     )
+    surface, final = card.get("surface_registry"), card.get("final_registry")
+    same_inventory = (isinstance(surface, dict) and isinstance(final, dict)
+                      and _sha(surface.get("registry_manifest_sha256"))
+                      and surface.get("registry_manifest_sha256") == final.get("registry_manifest_sha256"))
+    final_count_bound = isinstance(final, dict) and final.get("candidate_positive_pixels") == card.get("candidate_positive_pixels")
     name, note = card.get("submission_name"), card.get("submission_note")
+    positives, experiments = card.get("candidate_positive_pixels"), card.get("experiment_count")
+    lane = card.get("method_lane")
     gates = {
+        "assigned_lane_and_shared_template": (isinstance(lane, str) and bool(lane.strip())
+                                               and _sha(card.get("shared_template_manifest_sha256"))
+                                               and card.get("template_provenance_verified") is True),
         "pinned_candidate_and_exact_on_disk_format": (_sha(candidate_sha) and fmt.get("sha256") == candidate_sha
-                                                       and fmt.get("all_checks_passed") is True),
+                                                       and fmt.get("all_checks_passed") is True
+                                                       and type(positives) is int and positives > 0),
         "each_feature_canary_at_most_0_90": bool(canary_ok),
-        "surface_full_registry": _registry(card.get("surface_registry"), "surface", surface_sha),
-        "final_full_registry": _registry(card.get("final_registry"), "final", candidate_sha),
+        "surface_full_registry": _registry(surface, "surface", surface_sha),
+        "final_full_registry": _registry(final, "final", candidate_sha) and final_count_bound,
+        "same_registry_both_phases": bool(same_inventory),
         "matched_holdout_beats_current_best_with_paired_ci": bool(holdout_ok),
+        "experiment_and_time_budget": (type(experiments) is int and 1 <= experiments <= 3
+                                       and _number(card.get("elapsed_minutes"), 0, 120)),
         "name_and_note_at_most_140_chars": (isinstance(name, str) and 0 < len(name.strip()) <= 140
                                               and isinstance(note, str) and 0 < len(note.strip()) <= 140),
     }
     eligible = all(gates.values())
     return {"gates": gates, "eligible_for_separate_selector": eligible,
             "verdict": "promote" if eligible else "negative",
-            "selector_approval": False, "ok_to_submit": False,
-            "caveat": "Structural gate only; receipts must be independently verified. Slot selection is not performed here."}
+            "failures": [k for k, passed in gates.items() if not passed],
+            "selector_approval": False, "slot_authorized": False, "ok_to_submit": False,
+            "caveat": "Structural gate only; claims and receipts must be independently verified. Slot selection is not performed here."}
