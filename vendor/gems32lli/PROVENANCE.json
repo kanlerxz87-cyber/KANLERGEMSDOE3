@@ -1,0 +1,18 @@
+{
+ "source_repo": "buffedlizard55-lab/GEMSDOE32",
+ "source_commit": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+ "source_paths": {
+  "vendor/gems32lli/ledger_inversion.py": "src/gems32/ledger_inversion.py",
+  "vendor/gems32lli/metric.py": "src/gems32/metric.py",
+  "vendor/gems32lli/run_live_ledger_inversion_reference.py": "scripts/run_live_ledger_inversion.py",
+  "registry/live_ledger_inversion_gemsdoe32.json": "evidence/live_ledger_inversion.json"
+ },
+ "why": "Reuse the shared Live-Ledger Inversion (LLI) projection instrument instead of writing a private one (parallel-run protocol rule 2)",
+ "modified": false,
+ "sha256": {
+  "vendor/gems32lli/ledger_inversion.py": "370c324e310c6ac809efd5bde162d93c6f5048cf860e725e3012701db85985cd",
+  "vendor/gems32lli/metric.py": "382de3eb6d77d549e01bafa718fd01f5a7132263be0b6925dbd5a40a24025289",
+  "vendor/gems32lli/run_live_ledger_inversion_reference.py": "07aa09b748878add3ae98b0a911108698638fe0bd01535184ba67b250920a070",
+  "registry/live_ledger_inversion_gemsdoe32.json": "6d889997044e3d062163ee0d458273cfa12534eeb7c6ec11a0b578385c5d546d"
+ }
+}

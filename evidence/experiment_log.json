@@ -1,0 +1,26 @@
+{
+ "schema_version": 1,
+ "source": "file modification times (UTC) recorded once at 2026-10-26T22:35Z; seconds = runner self-timing",
+ "preregistration": {"path": "research/preregistration-20261026.md", "written_utc": "2026-10-26T22:18:36Z", "sha256": "4f7f80a98209677fee679128f4e26c0d35fef1b1eac26f1eecbffa30dabf4c9e",
+                     "edited_after_first_experiment": false},
+ "experiments": [
+  {"id": "E1", "evidence": "evidence/e1_holdout.json", "finished_utc": "2026-10-26T22:21:04Z", "seconds": 50.6},
+  {"id": "E2", "evidence": "evidence/e2_unique.json", "finished_utc": "2026-10-26T22:23:45Z", "seconds": 35.8},
+  {"id": "E3", "evidence": "evidence/e3_hybrid.json", "finished_utc": "2026-10-26T22:25:47Z", "seconds": 51.4}
+ ],
+ "post_experiment_checks": [
+  {"id": "final TIF via shared writer", "path": "docs/downloads/kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.tif", "finished_utc": "2026-10-26T22:26:34Z"},
+  {"id": "final uniqueness gate (registry bytes)", "evidence": "evidence/uniqueness_final.json", "finished_utc": "2026-10-26T22:32:54Z"},
+  {"id": "E3 leakage canary (diagnostic, not an experiment)", "evidence": "evidence/e3_canary.json", "finished_utc": "2026-10-26T22:35:18Z"}
+ ],
+ "budget": {"max_experiments": 3, "experiments_used": 3, "max_wall_clock_h": 2, "first_experiment_start_utc": "2026-10-26T22:20:13Z",
+            "last_experiment_end_utc": "2026-10-26T22:25:47Z", "stopped_because": "experiment-count cap reached"},
+ "deviations": [
+  {"id": "IR-K3-E3-DEV-01", "what": "E3 changed the CORE SELECTION RULE, not only budget/share: core = H19-5 network pixels ranked by the ASGT score (own NMS placement) instead of ASGT dots that happen to fall inside the H19-5 3-px buffer.",
+   "why": "E2 showed ASGT dots fill only 28-35% of the H19-5 buffer, so the pre-registered core share (<=69.5%) could never be filled and every E2 file projected 0.066-0.118.",
+   "effect_on_verdict": "none: verdict rules (format, uniqueness, HOLDOUT vs best control, PROJECTION vs champion same fit) were applied unchanged."},
+  {"id": "IR-K3-E3-LEAK-01", "what": "E3's core inherits H19-5, which GEMSDOE19 built with the full catalogue (tip/relay stress).",
+   "why": "the core must sit on the network the ledger rewards",
+   "effect_on_verdict": "E3 and C1 holdout values are both leak-advantaged; only the paired difference is interpretable. visible_only_features=false in the run card."}
+ ]
+}

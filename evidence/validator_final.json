@@ -1,0 +1,63 @@
+{
+ "candidate": "docs/downloads/kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.tif",
+ "official_format": {
+  "ok": true,
+  "problems": [],
+  "likely_range_error_causes": [],
+  "meta": {
+   "bands": 1,
+   "dtype": "float32",
+   "crs": "EPSG:32611",
+   "shape": [
+    3730,
+    3292
+   ],
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "nodata": null,
+   "compress": "deflate"
+  },
+  "footprint_pixels": 5167373,
+  "nan_inside_footprint": 0,
+  "nan_outside_footprint": 0,
+  "finite_outside_footprint": 7111787,
+  "infinite_pixels": 0,
+  "finite_below_0": 0,
+  "finite_above_1": 0,
+  "positive_pixels_inside": 48559
+ },
+ "submit_safe": {
+  "ok": true,
+  "checks": {
+   "single_band": true,
+   "dtype_float32": true,
+   "dimensions_3730x3292": true,
+   "crs_epsg_32611": true,
+   "transform_matches_sample_submission": true,
+   "no_nan_anywhere": true,
+   "no_inf_anywhere": true,
+   "no_sentinel_values": true,
+   "range_0_1_guaranteed": true,
+   "min_ge_0": true,
+   "max_le_1": true,
+   "in_footprint_all_finite": true,
+   "in_footprint_range_0_1": true,
+   "outside_footprint_zero": true,
+   "zero_dots_on_mapped_catalogue": true
+  },
+  "sha256": "4a5b0b480be26df52f77b735487cbe5af192262587237b6514d520dc2698b01f",
+  "bytes": 172965,
+  "emitted_positive_pixels": 48559,
+  "min": 0.0,
+  "max": 1.0,
+  "validator": "vendor/gems57/validate.py (shared, unchanged)"
+ },
+ "ok_to_upload": true,
+ "validator_version": "kanler3-validate-v2 (official-spec + shared gems57 export policy)"
+}

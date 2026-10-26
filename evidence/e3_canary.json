@@ -1,0 +1,30 @@
+{
+ "schema_version": 1,
+ "threshold": 0.9,
+ "split": "gems57 buffered_component_draw seed 20 (same as E1/E3)",
+ "n_pos": 11321,
+ "n_neg": 45284,
+ "features": {
+  "neg_distance_to_H19_5": {
+   "raw_auc": 0.63396,
+   "oriented_auc": 0.63396
+  },
+  "H19_5_member": {
+   "raw_auc": 0.48782,
+   "oriented_auc": 0.51218
+  },
+  "neg_distance_to_E3_holdout_dots": {
+   "raw_auc": 0.60733,
+   "oriented_auc": 0.60733
+  },
+  "E3_score_ASGT_visible": {
+   "raw_auc": 0.61406,
+   "oriented_auc": 0.61406
+  }
+ },
+ "max_feature": "neg_distance_to_H19_5",
+ "max_oriented_auc": 0.63396,
+ "passed": true,
+ "note": "H19-5 was built by GEMSDOE19 from the full catalogue, so E3/C1 holdout values are leak-advantaged even when the canary passes; only the paired E3-C1 difference is interpretable.",
+ "seconds": 21.1
+}

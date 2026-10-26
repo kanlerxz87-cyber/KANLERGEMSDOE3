@@ -21,3 +21,8 @@ _site/
 /data/template*_*.json
 /data/cache_check.json
 /data/saturation_local.json
+# K3-H1 lane local caches (registry TIFFs, packed buffers, scratch) — regenerate with scripts/k3_fetch_registry.py + scripts/registry_cache.py
+/data/bridge/
+/data/registry/
+/data/registry_cache/
+/data/work/

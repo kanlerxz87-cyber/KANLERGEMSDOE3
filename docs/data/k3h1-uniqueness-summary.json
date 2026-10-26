@@ -1,0 +1,198 @@
+{
+ "schema_version": 1,
+ "evidence_class": "REGISTRY-MEASUREMENT",
+ "generated_utc": "2026-10-26T22:32:54Z",
+ "candidate": "kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.tif",
+ "candidate_file_sha256": "4a5b0b480be26df52f77b735487cbe5af192262587237b6514d520dc2698b01f",
+ "candidate_decoded_sha256": "059c44dc71a226a0ff72e221940f8b94d50f34f00d776258206981fc22b1a34e",
+ "my_scored_dots": 48559,
+ "rho_limit": 0.9,
+ "overlap_limit": 0.7,
+ "registry_rasters_listed": 435,
+ "registry_rasters_compared": 433,
+ "registry_rasters_not_comparable": [
+  {
+   "submission": "GEMS_r5-geom-horse-ensemble_20260929T154852Z_ccbe1de0_site_e96e942f",
+   "repo": "14GEMSDOE",
+   "error": "ValueError: grid mismatch (not a valid competition-grid raster)"
+  },
+  {
+   "submission": "GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif",
+   "repo": "GEMSDOE36",
+   "error": "ValueError: grid mismatch (not a valid competition-grid raster)"
+  }
+ ],
+ "space_filling_rasters": [
+  {
+   "submission": "20261001_r13-lattice-s5_v2_nan-outside",
+   "repo": "13GEMSDOE",
+   "buffer_share": 0.9987132726822701,
+   "overlap": 0.998579,
+   "spearman": 0.00054
+  },
+  {
+   "submission": "h23-b-dti-optimal-emission-10pct-20261002-86176698-nan",
+   "repo": "GEMSDOE22",
+   "buffer_share": 0.5343281779736048,
+   "overlap": 0.819683,
+   "spearman": 0.163457
+  },
+  {
+   "submission": "pindrop-v4-discovery-20260925T152423Z-37f9d5b855",
+   "repo": "GEMSDOE3",
+   "buffer_share": 0.7341343464077394,
+   "overlap": 0.774789,
+   "spearman": 0.003436
+  },
+  {
+   "submission": "pindrop-v4-nodes-20260925T152420Z-f347b70daa",
+   "repo": "GEMSDOE3",
+   "buffer_share": 0.7350464152674869,
+   "overlap": 0.815317,
+   "spearman": 0.01336
+  },
+  {
+   "submission": "ovtr-ml-cover-tau3p0-20261012-nan",
+   "repo": "GEMSDOE67",
+   "buffer_share": 0.5481466114406682,
+   "overlap": 0.792747,
+   "spearman": 0.01652
+  },
+  {
+   "submission": "gems85-h85-edti-collar35-skel-r33-20261021-d97b248e-zeros",
+   "repo": "GEMSDOE77",
+   "buffer_share": 0.5536799840073476,
+   "overlap": 0.712288,
+   "spearman": 0.015724
+  }
+ ],
+ "worst_overlap_non_space_filling": {
+  "value": 0.69499,
+  "submission": "h19-5-powerlaw-budget-multiline-corroborated-20260930-e27054cf-nan",
+  "repo": "19GEMSDOE"
+ },
+ "worst_spearman_final_dots": {
+  "value": 0.4323,
+  "submission": "h19-5-powerlaw-budget-multiline-corroborated-20260930-e27054cf-nan",
+  "repo": "19GEMSDOE"
+ },
+ "worst_spearman_surface_preplacement": {
+  "value": 0.146447,
+  "submission": "h23-b-dti-optimal-emission-10pct-20261002-86176698-nan",
+  "repo": "GEMSDOE22"
+ },
+ "byte_unique": true,
+ "pixel_unique": true,
+ "duplicates_non_space_filling": 0,
+ "duplicates_by_rho_any_raster": 0,
+ "literal_rule_blocked_only_by_space_filling": true,
+ "unique": true,
+ "spearman_shortcut_checks": [
+  {
+   "submission": "gems-structural-area06-v1",
+   "phi": 0.008508818274135669,
+   "scipy_dots": 0.00850881827413537,
+   "surface_fast": 0.09307746600973395,
+   "scipy_surface": 0.09307746600973299
+  },
+  {
+   "submission": "r7-nms3-dem10-scarp_0c9199f14e62",
+   "phi": 0.030728764232751185,
+   "scipy_dots": 0.030728764232750456,
+   "surface_fast": 0.047657344382026824,
+   "scipy_surface": 0.04765734438202668
+  },
+  {
+   "submission": "20261001_r13-lattice-s5_v2_nan-outside",
+   "phi": 0.0005397798456399736,
+   "scipy_dots": 0.0005397798456400387,
+   "surface_fast": 0.0007295230371574653,
+   "scipy_surface": 0.0007295230371574527
+  }
+ ],
+ "scope": "433 comparable rasters restored from the GEMSDOE focus-site manifests and the scored live ledger (participant mirrors, SHA-256 verified). Not an organizer-complete registry.",
+ "seconds": 338.2,
+ "focus_sites": [
+  {
+   "site": "GEMSDOE24",
+   "submission": "h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan",
+   "sha256": "68d0e2e4fcc594f9a23f56c44b885fee733d026d39be55e18ad2a07289525310",
+   "owner_reported_live_score": 0.2477,
+   "their_dots": 60069,
+   "candidate_overlap_3px": 0.695,
+   "candidate_spearman": 0.3694
+  },
+  {
+   "site": "GEMSDOE25",
+   "submission": "dotted-h19-5-d2-8-20261002-e56ea318af89-nan",
+   "sha256": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8",
+   "owner_reported_live_score": 0.26,
+   "their_dots": 44090,
+   "candidate_overlap_3px": 0.695,
+   "candidate_spearman": 0.3679
+  },
+  {
+   "site": "GEMSDOE27",
+   "submission": "topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan",
+   "sha256": "33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d",
+   "owner_reported_live_score": 0.2449,
+   "their_dots": 61328,
+   "candidate_overlap_3px": 0.695,
+   "candidate_spearman": 0.3654
+  },
+  {
+   "site": "GEMSDOE28",
+   "submission": "h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan",
+   "sha256": "5556aa1438fd67376b60d5ffc99228ec09dcc11a8408298a743ccb88d6163641",
+   "owner_reported_live_score": 0.271,
+   "their_dots": 37660,
+   "candidate_overlap_3px": 0.6944,
+   "candidate_spearman": 0.3688
+  },
+  {
+   "site": "GEMSDOE30",
+   "submission": "d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca",
+   "sha256": "8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd",
+   "owner_reported_live_score": 0.26,
+   "their_dots": 44090,
+   "candidate_overlap_3px": 0.695,
+   "candidate_spearman": 0.3679
+  },
+  {
+   "site": "GEMSDOE31",
+   "submission": "h27-4-solo-d28-20261004-8acb75e1-nan",
+   "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+   "owner_reported_live_score": 0.2708,
+   "their_dots": 40199,
+   "candidate_overlap_3px": 0.6948,
+   "candidate_spearman": 0.386
+  },
+  {
+   "site": "GEMSDOE32",
+   "submission": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros",
+   "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+   "owner_reported_live_score": 0.2778,
+   "their_dots": 37654,
+   "candidate_overlap_3px": 0.6937,
+   "candidate_spearman": 0.3993
+  },
+  {
+   "site": "GEMSDOE33",
+   "submission": "h33d-analog-tip-stepover-r30-20261004-cb490425926e",
+   "sha256": "87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757",
+   "owner_reported_live_score": 0.2632,
+   "their_dots": 41865,
+   "candidate_overlap_3px": 0.695,
+   "candidate_spearman": 0.3852
+  },
+  {
+   "site": "GEMSDOE36",
+   "submission": "anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros",
+   "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
+   "owner_reported_live_score": 0.275,
+   "their_dots": 38854,
+   "candidate_overlap_3px": 0.695,
+   "candidate_spearman": 0.3929
+  }
+ ]
+}
