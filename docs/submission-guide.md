@@ -1,3 +1,5 @@
+> **Historical snapshot — superseded.** This earlier review predates the restored shared template, feature stack, and decisive positive-everywhere witness. Some data/uniqueness statements below are now stale. See the [current executive desk](index.html), [scientific review](review.html), and [current run card](data/current-run-card.json). The stop/no-submit decision remains in force.
+
 # Submission guide — fail-closed
 
 ## Current decision

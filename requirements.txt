@@ -1,3 +1,6 @@
+# Reproducible local audit and the unchanged shared template's optional fit helpers.
 numpy==2.4.6
 scipy==1.17.1
 rasterio==1.4.4
+scikit-learn==1.9.1
+pandas==3.1.0

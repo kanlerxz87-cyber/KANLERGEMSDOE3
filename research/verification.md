@@ -1,29 +1,51 @@
-# Three-pass verification record — 26 October 2026
+# Verification record — current continuation, 26 October 2026 UTC
 
-## Pass 1 — implement/review the requested work
+The three passes below concern this continuation. The [earlier independent audit](../evidence/review_passes.md)
+and archived reports remain preserved; they predate some recovered inputs and this universal witness.
 
-- Inspected the starting commit: it contained only the one-line README. Integrated the concurrent main review and its pinned site evidence before continuing.
-- Reviewed pinned source trees for GEMSDOE24/25/27/28/30/31/32/33/36 and directly fetched current owner Pages to flag changing or contradictory selector statements.
-- Fetched official DrivenData task/About pages, official data tab (redirected to login), USGS GeoDAWN page, EPSG:32611 record and reference-solution README. The official leaderboard, GDR page and NLR PDF were not verified.
-- Restored nine exact historical TIFFs plus an owner-mirror sample and labels into ignored `data/` for forensic learning only. No historic file was treated as a candidate. Verified all 9 SHA-256 values against pinned manifests and recomputed 72 directed Euclidean ≤3 px overlap comparisons.
-- Built a prioritized historical scorecard (owner-reported claims only), no-submit decision, research hypotheses, official source notes, submission instructions and JSON card. No TIF was generated.
+## Pass 1 — implement and reproduce
 
-## Pass 2 — adversarial review and bug fix
+- Integrated concurrent main-branch research without discarding earlier evidence. Restored 49 pinned public
+  owner-mirror assets, including unchanged shared template files, core stack, optional external derivatives,
+  two registry witnesses and nine historical rasters. Hash verification shows mirror integrity only.
+- Re-ran the shared saturation certificate, 72 directed geometric comparisons, exact binary correlations
+  and decoded-mask lineage. Confirmed the universal positive-everywhere witness and independent lattice
+  bound. Saved a negative current run card with null holdout/raster fields and no submission authorization.
+- Built the current static executive desk, guide, sources, hypotheses and one-witness saved-byte preflight.
+  Initial tests exposed a site-generator field-name mismatch and a test calling `binary_spearman` without
+  its footprint count. Both were fixed and the suite rerun.
 
-- Confirmed every historical winner exceeds the 70% overlap stop; minimum cross-winner directed overlap is 86.718954%. Continuous surfaces/full registry are not present; their correlation remains unknown.
-- Compared all nine historical rasters to the pinned sample footprint. Found the old audit’s whole-array range/finiteness checks could call finite zeros outside the footprint a format pass even though the official description requires null/NaN outside.
-- Fixed the shared local audit/report path to use `scripts/validate_submission.py` against the sample mask. Added a regression test for zero-outside rejection and nodata-outside acceptance.
-- Strict sample-mask result: 2/9 historical files pass; 7/9 fail because finite zeros are stored outside the footprint. This owner-mirror check is not a portal result or organizer authentication.
-- Installed rasterio/numpy/scipy in ignored `.venv`; no global environment or Git-tracked dataset was modified. All downloaded audit rasters and labels remain ignored under `data/`.
+## Pass 2 — adversarial validation
 
-## Pass 3 — full requirement reconciliation
+- Tested inclusive distance boundary, directionality, empty masks, invalid range and grid metadata, exact
+  Spearman on tied binary masks, corrupt hashes, interrupted atomic restore, non-finite JSON, missing
+  inventory, canary thresholds, matching folds, CI and budget/selector gates.
+- Hardened manifest paths, stale restore receipts, already-loaded foreign template submodules and numeric
+  gate types. A historical all-finite B2 file passes the shared project's local format check but the literal
+  support test reports 100% witness overlap at both supplied surface and final-dot phases; it is rejected.
+  A NaN-outside historical file produces strict JSON and fails the shared project's all-finite policy.
+- Integrated the concurrent independent sample-mask-aware audit. It applies a different outside-nodata
+  interpretation: two of nine pass that local policy while seven files are all-finite. The official
+  outside-bounds wording is not automatically identical to the irregular mirror footprint; neither local
+  interpretation is a portal acceptance test or a new submission.
+- A synthetic two-truth-cell example disproved a shared `metric.py` **docstring** marginal-credit claim;
+  it did not demonstrate an exact-evaluator defect. Upstream issue creation was denied by the GitHub
+  integration, so [the defect and proposed correction](../docs/SHARED_TEMPLATE_ISSUE.md) are recorded
+  without modifying or forking the shared code.
 
-- Ran `scripts/audit_rasters.py`, `scripts/build_site.py`, JSON parses, HTML/local-link checks, and the full unit suite: **15 tests pass**.
-- Ran `scripts/validate_submission.py` against all nine historic files and the pinned owner-mirror sample. The range error’s cause for the user’s previously uploaded file remains unknown because its bytes/receipt were not supplied.
-- Historical 0.2778, the user’s 0.3195/0.4413 leaderboard targets, and every per-site score remain owner-reported/unverified; score estimate is not estimable.
-- No assigned method lane, official training feature stack, cached features, integrated shared evaluator/writer, complete raster registry, paired holdout evidence, or current slot receipt/quota was available. Therefore no candidate experiment, new TIFF, portal submission or slot selection occurred. The requested high-scoring unique submission is **not yet fulfilled**; the negative readiness/duplicate findings are the honest deliverable.
-- PR #5, containing the evidence review, was merged to `main`; the session branch was fast-forwarded to concurrent `main` reviews and retained.
+## Pass 3 — requirements, site and reproducibility
 
-## Remaining work
-
-Obtain the missing method paragraph/lane. Restore or verify authorized data access and the canonical shared cache/evaluator/writer; do not treat owner mirrors as organizer-authenticated. Restore the complete current registry. Then pre-register one of the hypotheses, run feature-alone canaries and buffered whole-segment holdout, test surface and final-dot uniqueness, validate the exact output against the official sample, and let a separate selector decide whether a weekly slot is available. No leaderboard projection is a substitute for an organizer receipt.
+- Confirmed all nine historical score values are explicitly unverified owner claims, no projection is
+  called a score, official sources are linked, and the leaderboard is identified as a dated public
+  context snapshot rather than a file-bound submission receipt. The top hypothesis is only proposed.
+- Kept the user-requested whole-segment holdout, visible-only features, individual leakage canaries,
+  pooled DTI/95% CI, complete-registry two-phase gate, unchanged shared writer, budget and separate slot
+  selector as outstanding requirements. No full holdout, experiment or candidate TIFF is claimed.
+- A clean no-cache copy passed **29 tests (three optional integration checks skipped)** and rebuilt the
+  static pages without network access. With pinned assets restored, all 29 local tests passed, including
+  those integration checks. HTTP smoke checks returned 200 for the root, landing page, guide, hypotheses,
+  review, CSS and audit JSON; relative links and accessible landmarks were machine checked. These are
+  not a manual accessibility audit, portal acceptance test or scientific experiment.
+- The exact long original user prompt is not available in the surviving context; the README faithfully
+  embeds the available operational transcription rather than claiming a verbatim archive. Resolve the
+  literal uniqueness conflict and assign the missing lane before any new scientific placement.

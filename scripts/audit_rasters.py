@@ -5,12 +5,15 @@ from pathlib import Path
 import numpy as np
 import rasterio
 from scipy.ndimage import distance_transform_edt
-from validate_submission import validate as validate_submission
+try:  # Support both `python scripts/audit_rasters.py` and package imports.
+    from .validate_submission import validate as validate_submission
+except ImportError:
+    from validate_submission import validate as validate_submission
 
 ROOT = Path(__file__).resolve().parents[1]
 
 def validate(path, template):
-    """Apply the shared template-mask-aware format validator to immutable bytes."""
+    """Apply the local sample-mask-aware policy to immutable bytes (not the shared writer)."""
     result = validate_submission(Path(template), Path(path))
     checks = {
         'single_band': result.get('bands') == 1,

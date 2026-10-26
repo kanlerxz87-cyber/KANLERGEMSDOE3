@@ -1,82 +1,97 @@
-# Executive scientific review — 2026-10-26
+# Executive scientific review — 26 October 2026 UTC
 
-## What was actually found
+## Decision
 
-The initial repository at d795e4e contained only `README.md` with one heading. The merged branch now has research/docs, review scripts and tests, archived upstream code, and an ignored forensic mirror under `data/`; these do not form a training pipeline. There is still no organizer-authenticated feature package, cached feature stack, holdout split, complete registry or integrated prediction runner. The claimed “single remaining blocker is data placement” does not describe this repository.
+**Negative. No new TIFF exists; nothing is authorized to download for submission or upload. No weekly
+slot was used and no model/holdout experiment was run.** This is not a high-scoring-model claim.
+The user’s literal parallel-run rule requires a stop for any registry raster with >70% of candidate dots
+within 3 pixels. A locally restored and SHA-verified prior is positive in **all 5,167,373 footprint cells**.
+Under the unchanged shared template’s `finite & (value > 0)` support definition, every nonempty candidate
+inside the footprint is within zero pixels of that raster. Its directed overlap is 100%, including after
+masking the catalogue (5,106,385 eligible cells). One witness is enough to prove rejection; we have **not**
+claimed to complete the registry. See the reproducible [audit](../evidence/audit.json) and
+[run card](../evidence/run-card.json).
 
-Nine sibling READMEs and docs homepages and selected GEMSDOE32 evidence were fetched through GitHub.
-`sources/retrieval.json` records successful/failed paths and Git blob IDs. These snapshots are third-party
-project claims, not official competition verification. Missing CSV paths are not evidence that a site
-has no score ledger elsewhere.
+An independent spacing-5 lattice covers 5,160,724 of 5,167,373 cells within 3 pixels. At least 30% of a
+candidate's dots would have to occupy the 6,649 uncovered cells; more than 22,163 distinct dots must
+therefore fail against this prior alone. This remains a blocker for many historical-size candidates even
+if a future authorized protocol explicitly revises the dense-surface rule. No exemption, rethresholding,
+or unapproved reinterpretation was silently introduced.
 
-The independent forensics used nine pinned TIFFs whose SHA256 hashes match the sibling audit manifest.
-All share an identical grid. All 72 directed pairs exceed the protocol overlap stop; the minimum is
-86.718954%. These are **geometric audit numbers, not scores**. Exact masks can match despite different
-compression, nodata handling or byte hashes. Therefore these historical files cannot satisfy the new
-uniqueness requirement. GEMSDOE32's 37,654-positive in-footprint mask is an exact subset of GEMSDOE31's
-40,199-positive mask: 2,545 were removed and none added. This verifies raster geometry, not score
-causation or organizer provenance. Continuous surfaces were not restored and their correlation remains
-unknown. No candidate was placed, generated or promoted; geological experiment count is zero.
+## Historical comparison, not a leaderboard receipt
 
-## Why the reported H33 B2 result might be better
+The previous reviews recovered nine historical TIFFs. This session re-verified their hashes and computed
+72 directed pairwise overlaps and exact binary Spearman correlations on the valid footprint. Every directed
+overlap between the nine is above 70%. These are **geometric registry measurements, not HOLDOUT-DTI scores**.
+The main [executive summary](../docs/index.html) reports the nine owner-provided historical highs with
+explicit unverified labels and links to exact pinned files for research only. No identified organizer
+submission-page receipt ties any of these scores to a TIFF hash; lack of such a receipt is not proof a
+submission was never scored. The latest checked public leaderboard snapshot was 0.4437 on 26 October 2026;
+it is context, not an accepted file-bound result under the project receipt rule, and it may change. No new leaderboard score can be estimated
+reliably from this audit.
 
-The sibling's corrected analysis attributes the reported 0.2778 to a sparse H19-5 descendant with
-near-catalogue thinning. Lower uncredited prediction mass can improve a precision/recall-style metric,
-but aggressive thinning can also destroy recall. This is a plausible explanation, **not an identified
-causal mechanism**. Private truth and organizer receipt are absent. There is no basis to guarantee a
-higher score, reverse-engineer hidden labels, or infer that matching past dot budgets generalizes.
-The sibling explicitly withdrew earlier hidden-truth inversion and score-ceiling calculations.
+The exact decoded masks establish: GEMSDOE25 = GEMSDOE30 on the footprint; GEMSDOE31 = GEMSDOE25 after
+removing its 1-pixel mapped-catalogue collar; GEMSDOE32 = GEMSDOE25 after removing its 2-pixel collar.
+That removes 3,891 dots from 25 to 31 and a further 2,545 from 31 to 32. GEMSDOE36 contains all 37,654
+GEMSDOE32 dots plus 1,200 others. Mask identity is not byte identity or proof of method causality. Sparse
+thinning plausibly reduces uncredited prediction mass but could remove true positives; without paired,
+leakage-free ablation and private labels, the reported 0.2778 cannot be causally attributed or forecast.
 
-The official leaderboard page was fetched on 2026-10-26 and displayed 0.4437 at rank 1. The prompt's
-0.3195 and 0.4413 values are lower than this point-in-time public snapshot. Do not treat any of these
-public numbers as a private/final award score or as a new-candidate estimate; leaderboard values can
-change and must be date-stamped.
+## Inputs, provenance and trustworthy classes
 
-## High-scoring validation is separate from valid file format
+The original base commit contained only a README title; the claim that this checkout already had a fully
+integrated GPU pipeline was not true at that point. Concurrent review work on main was integrated without
+deleting its evidence archive. This continuation recovered, verified and cached an owner-mirrored sample,
+catalogue, 19-band feature raster, selected geological inputs and an unchanged shared template pinned to
+`buffedlizard55-lab/GEMSDOE31@597b04cd1afb65d1ebbe3e9417fd952be48e3d74`. The cache is gitignored and
+reconstructible with `scripts/restore_assets.py`. SHA-256 pin checks establish **mirror integrity**, not
+organizer authorization, raw-data provenance, license clearance, leakage safety, or fitness for training.
+The mirror sample has 60,988 positive pixels and reproduces the provided catalogue; use its grid and
+footprint only, never its positives as a prediction or a feature.
 
-A finite [0,1] single-band file on the template grid may pass format checks while performing poorly.
-The shared template-aware validator was run against nine pinned historical TIFFs: every file has finite
-in-footprint values in [0,1], while GEMSDOE30 and GEMSDOE33 alone pass the local outside-footprint
-nodata check. The other seven have 7,111,787 finite/valid pixels outside the template footprint.
-These local results neither establish organizer acceptance nor authorize edits or reuse; do not silently
-repair historical files. The project validator rejects invalid values rather than clipping. A score
-estimate is unavailable until a compliant paired spatial holdout is run. Do not extrapolate leaderboard
-scores from historical reports or proxy measurements.
+The official [data tab](https://www.drivendata.org/competitions/306/competition-doe-gems/data/) redirected
+to login. Official problem, leaderboard and geological overview pages were read through the web tool, while
+the sandbox command network is limited to GitHub and package registries. A public page fetch is not an
+authenticated download. No participant was asked for credentials. A GPU is not available here (`nvidia-smi`
+not found), but the [official reference](https://github.com/drivendataorg/gems-prize-reference-solution)
+also supports CPU execution.
 
-## Limitations and exact continuation
+- **REGISTRY-MEASUREMENT:** reproducible raster support/overlap/lineage counts; not predictive performance.
+- **HOLDOUT-DTI:** only a pooled, spatially withheld result with evaluator version, withheld count and CI;
+  none produced in this session.
+- **ORGANIZER-CONFIRMED:** only a number copied from a submission receipt tied to exact bytes; none found.
+- **Owner report / projection:** useful lead, not a score established by this review; never silently relabel.
 
-1. Identify the missing single-method lane before a parallel scientific run. The shortlist is not lane allocation.
-2. Recover the canonical shared template and cached features. The fetched writer/evaluator import
-   `gems32`; copying those two scripts alone is not an executable pipeline. No private evaluator was made.
-3. The sibling data manifest exposes pinned GitHub mirror parts, including a roughly 419 MB numerical
-   feature stack. This is a possible autonomous recovery route, **not a verified official download**.
-   Small template/labels and nine historical rasters were recovered locally; feature stack and full
-   registry were not. Raw data remain gitignored. Check organizer data-use rules/provenance before training.
-4. The official DrivenData task/metric page and public leaderboard were fetched read-only; the data tab
-   redirected to login. The official USGS GeoDAWN release page and DOI were also checked. GDR, NLR and
-   Dropbox materials were not independently retrieved here. No authenticated DrivenData session is
-   available, and the login-gated competition feature package remains inaccessible in this environment.
-5. Restore full-registry surfaces and dots, not only nine winners. A dense lattice may make the overlap
-   rule extremely restrictive; report that conflict rather than weakening the gate.
-6. Execute the preregistered canary/holdout comparison; record version, positive count, CI, hash, and
-   complete registry comparisons. Only a separate selector may authorize a weekly slot after checking
-   the current submission-page cap. No automatic contest submission is implemented or attempted.
-7. Preserve the exact submitted hash and official submission receipt. Without them, use “unverified
-   historical report,” not ORGANIZER-CONFIRMED. A research metric must be labelled HOLDOUT-DTI.
+The [official metric and grid rules](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/)
+require float32 single-band probabilities [0,1], EPSG:32611 on the supplied 100 m grid, with a 300 m
+triangular distance kernel and Tversky α=.2, β=.8. The organizer requires data outside the bounds to be null or NaN; the pinned shared project
+writer instead enforces an **all-finite** local export policy. Their treatment of the irregular internal
+footprint is not automatically equivalent, and these are not the same guarantee. A concurrent independent
+review found seven historical rasters all-finite and two passing its separate sample-mask/nodata format
+policy. Those local tests express different assumptions; neither is portal acceptance. Check the current
+official wording and exact output bytes. Never clip invalid predictions to hide an error.
+See the [exact metric guardrails](../docs/METRIC.md). A synthetic counterexample also revealed a
+[shared-template docstring defect](../docs/SHARED_TEMPLATE_ISSUE.md), not a demonstrated evaluator defect;
+upstream issue creation was denied by the GitHub integration. No private fork was introduced.
 
-## Sources and trust boundaries
+## Remaining steps, without overriding the stop
 
-- Official organizer code actually retrieved: https://github.com/drivendataorg/gems-prize-reference-solution
-  (`sources/gems-prize-reference-solution/README.md`). It explicitly supports CPU-only operation;
-  GPU is advantageous, not an absolute prerequisite.
-- Official competition/problem: https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/
-- Official leaderboard: https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/
-- Official rules/data: https://www.drivendata.org/competitions/306/competition-doe-gems/
-  and https://www.drivendata.org/competitions/306/competition-doe-gems/data/
-- Proposed official GeoDAWN: https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and
-- Proposed official GDR: https://gdr.openei.org/submissions/1391
-- Proposed official format report: https://docs.nlr.gov/docs/fy26osti/96647.pdf
-- Third-party corrected explanation: https://github.com/buffedlizard55-lab/GEMSDOE32/blob/main/docs/research/why-02778-analysis-20261025.md
-- Third-party pinned raster inventory: https://github.com/buffedlizard55-lab/GEMSDOE32/blob/main/evidence/focus_site_winner_overlap_20261026.json
+1. Preserve the literal witness and request an **explicit protocol clarification** if research should
+   proceed despite it. The method-lane paragraph is missing, and no lane was assigned in this run.
+2. Obtain and document the authorized official inputs, actual source licensing, full applicable registry,
+   same-evaluator incumbent and any training permissions. Hash pins alone do not establish these.
+3. Only if the protocol permits: validate the [ranked hypotheses](hypotheses.md) using whole-segment,
+   buffered, visible-only feature reconstruction; test individual-feature AUC; run matched pooled DTI
+   with 95% block-bootstrap CI and paired improvement; repeat surface and final uniqueness; use the
+   unchanged shared writer and validate its saved output. Maximum three experiments/two hours.
+4. A separate selector checks weekly cap and slot authorization. It—not this research run—may choose an
+   eligible file. Preserve the exact uploaded SHA and organizer receipt. No automatic upload exists here.
 
-All external scientific mechanisms in the shortlist are hypotheses, not literature-verified findings.
+Core sources: [official problem](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/),
+[competition](https://www.drivendata.org/competitions/306/competition-doe-gems/),
+[leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/),
+[reference solution](https://github.com/drivendataorg/gems-prize-reference-solution),
+[owner's prior review](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/research/arena9-results-and-nine-site-executive-summary.md),
+[USGS GeoDAWN release](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and),
+and [GDR INGENIOUS](https://gdr.openei.org/submissions/1391). Original archived reviews are snapshots and
+may describe an earlier state; this page and the current run card supersede their status statements.

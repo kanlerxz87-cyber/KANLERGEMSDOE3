@@ -1,0 +1,97 @@
+{
+  "schema": "gems-focus-historical-v1",
+  "provenance": "Filenames, hashes and owner claims from GEMSDOE32 focus_site_winner_overlap_20261026.json. Claims are not organizer receipts. Encodings may differ from the upload; prediction identity is checked separately.",
+  "source": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9155d44d9bc3d57f96fbf9f7db2d18e083ab6e2b/evidence/focus_site_winner_overlap_20261026.json",
+  "files": [
+    {
+      "site": "GEMSDOE24",
+      "ref": "063b04e2ff3154d0ffd017bb5723f4f717d1754d",
+      "path": "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif",
+      "sha256": "3e0730e8d4f7db095dd80246a98cba3bc0fc9a28f436b91db27ca34df4d0d1ce",
+      "owner_claim_not_receipt": 0.2477,
+      "expected_positive_pixels": 60069,
+      "page": "https://buffedlizard55-lab.github.io/GEMSDOE24/",
+      "source": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/063b04e2ff3154d0ffd017bb5723f4f717d1754d/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif"
+    },
+    {
+      "site": "GEMSDOE25",
+      "ref": "78064a194f97fee45b0d81b1bb3b6385729c5c2b",
+      "path": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif",
+      "sha256": "3e78737f0da8dd2ca66cc6caac0ce8eeefcd6715707f8d1bd3091845cd9bcc30",
+      "owner_claim_not_receipt": 0.26,
+      "expected_positive_pixels": 44090,
+      "page": "https://buffedlizard55-lab.github.io/GEMSDOE25/",
+      "source": "https://github.com/buffedlizard55-lab/GEMSDOE25/blob/78064a194f97fee45b0d81b1bb3b6385729c5c2b/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif"
+    },
+    {
+      "site": "GEMSDOE27",
+      "ref": "cf8b4c201f2cc2ef649b6ca7cd32f235c2f6743a",
+      "path": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+      "sha256": "a9bf76b57453a5b3af74c8eef837df53c29a0931162aa540b8763220b36ba3bb",
+      "owner_claim_not_receipt": 0.2449,
+      "expected_positive_pixels": 61328,
+      "page": "https://buffedlizard55-lab.github.io/GEMSDOE27/",
+      "source": "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/cf8b4c201f2cc2ef649b6ca7cd32f235c2f6743a/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif"
+    },
+    {
+      "site": "GEMSDOE28",
+      "ref": "12ec4fea4c97a7887a7ca8a06f9bd94c7609ea07",
+      "path": "docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif",
+      "sha256": "7c74270ad48fa0b865163853046a6d3815967c5bf37bbda5b74ca7fa22583a32",
+      "owner_claim_not_receipt": 0.271,
+      "expected_positive_pixels": 37660,
+      "page": "https://buffedlizard55-lab.github.io/GEMSDOE28/",
+      "source": "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/12ec4fea4c97a7887a7ca8a06f9bd94c7609ea07/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif"
+    },
+    {
+      "site": "GEMSDOE30",
+      "ref": "35ce8911e2c3287eed973eacd12c252e8cb3f34c",
+      "path": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif",
+      "sha256": "5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32",
+      "owner_claim_not_receipt": 0.26,
+      "expected_positive_pixels": 44090,
+      "page": "https://buffedlizard55-lab.github.io/GEMSDOE30/",
+      "source": "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/35ce8911e2c3287eed973eacd12c252e8cb3f34c/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif"
+    },
+    {
+      "site": "GEMSDOE31",
+      "ref": "78f9bf3ae82e5c78ca348aa37c0660c339e72f0e",
+      "path": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif",
+      "sha256": "acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6",
+      "owner_claim_not_receipt": 0.2708,
+      "expected_positive_pixels": 40199,
+      "page": "https://buffedlizard55-lab.github.io/GEMSDOE31/docs/",
+      "source": "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/78f9bf3ae82e5c78ca348aa37c0660c339e72f0e/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif"
+    },
+    {
+      "site": "GEMSDOE32",
+      "ref": "9155d44d9bc3d57f96fbf9f7db2d18e083ab6e2b",
+      "path": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+      "owner_claim_not_receipt": 0.2778,
+      "expected_positive_pixels": 37654,
+      "page": "https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html",
+      "source": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9155d44d9bc3d57f96fbf9f7db2d18e083ab6e2b/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif"
+    },
+    {
+      "site": "GEMSDOE33",
+      "ref": "0384d793b5a23151425f45505ac745b54f84c7c9",
+      "path": "docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif",
+      "sha256": "bc3af2a5fcb4b49bc5845a2d7dc3da23daf41ce75e4c64da3337c0c8c93cc12c",
+      "owner_claim_not_receipt": 0.2632,
+      "expected_positive_pixels": 41865,
+      "page": "https://buffedlizard55-lab.github.io/GEMSDOE33/",
+      "source": "https://github.com/buffedlizard55-lab/GEMSDOE33/blob/0384d793b5a23151425f45505ac745b54f84c7c9/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif"
+    },
+    {
+      "site": "GEMSDOE36",
+      "ref": "2c78770e0544259082b0b6b73ce8e4d0749c175d",
+      "path": "docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+      "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
+      "owner_claim_not_receipt": 0.275,
+      "expected_positive_pixels": 38854,
+      "page": "https://buffedlizard55-lab.github.io/GEMSDOE36/docs/",
+      "source": "https://github.com/buffedlizard55-lab/GEMSDOE36/blob/2c78770e0544259082b0b6b73ce8e4d0749c175d/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif"
+    }
+  ]
+}

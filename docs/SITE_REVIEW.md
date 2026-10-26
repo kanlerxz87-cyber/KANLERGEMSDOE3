@@ -1,3 +1,5 @@
+> **Historical snapshot — superseded.** This earlier review predates the restored shared template, feature stack, and decisive positive-everywhere witness. Some data/uniqueness statements below are now stale. See the [current executive desk](index.html), [scientific review](review.html), and [current run card](data/current-run-card.json). The stop/no-submit decision remains in force.
+
 # Nine-site review register
 
 The following URLs are the nine requested project pages. They are useful for locating the owners' project histories, but are **not official competition score receipts**. The figures in [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md) came from the user-provided historical list and are explicitly unverified. This review does not assert current page contents or current leaderboard rank. The distinct file path, byte hash, receipt, complete registry comparison, holdout metric and submitted note were not available in this checkout.

@@ -1,3 +1,5 @@
+> **Historical snapshot — superseded.** This earlier review predates the restored shared template, feature stack, and decisive positive-everywhere witness. Some data/uniqueness statements below are now stale. See the [current executive desk](index.html), [scientific review](review.html), and [current run card](data/current-run-card.json). The stop/no-submit decision remains in force.
+
 # Executive review — GEMSDOE24/25/27/28/30/31/32/33/36
 
 **Reviewed:** 2026-10-26 (UTC) · **Repository:** `KANLERGEMSDOE3` · **Starting checkout:** initial commit `d795e4e`; current branch also integrates concurrent `origin/main` review assets · **Decision:** no submission file is available or approved from this checkout.

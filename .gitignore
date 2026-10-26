@@ -1,5 +1,11 @@
+# Restored competition data and all regenerable caches are not committed.
 data/*
 !data/.gitkeep
-__pycache__/
-*.pyc
 .venv/
+.cache/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.partial
+*.assembling
+.DS_Store
