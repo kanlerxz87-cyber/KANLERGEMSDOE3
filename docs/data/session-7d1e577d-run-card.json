@@ -98,7 +98,8 @@
     "note": "This card is scoped to the review session, not the repository-wide experiment or artifact total.",
     "additional_integrated_main_commits": [
       "9ebfc4bbfbedf39bb2633a524dd49e9192dd3889",
-      "1fcc140e56b886c7d059bb78aa30dcf034396301"
+      "1fcc140e56b886c7d059bb78aa30dcf034396301",
+      "9a24c598da83da43665cf11da51c0c9766fea7f3"
     ],
     "literal_root_artifact_audit": "evidence/inherited_literal_audit.json",
     "separate_ssp1_study": "studies/ssp1/evidence/run_card.json"

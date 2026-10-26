@@ -1,12 +1,13 @@
 {
   "schema_version": 1,
   "kind": "SOFTWARE_AND_EVIDENCE_REVIEW_NOT_MODEL_PROMOTION",
-  "checked_utc": "2026-10-26T23:30:55+00:00",
+  "checked_utc": "2026-10-26T23:33:54+00:00",
   "session_id": "7d1e577d",
   "integrated_main_commits": [
     "4338f12e30e90904f95e414faeb301f2c98fa394",
     "9ebfc4bbfbedf39bb2633a524dd49e9192dd3889",
-    "1fcc140e56b886c7d059bb78aa30dcf034396301"
+    "1fcc140e56b886c7d059bb78aa30dcf034396301",
+    "9a24c598da83da43665cf11da51c0c9766fea7f3"
   ],
   "passes": 3,
   "root_pytest": {
@@ -17,12 +18,13 @@
     "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q"
   },
   "ssp1_isolated_pytest": {
-    "passed": 58,
+    "passed": 64,
     "failed": 0,
     "skipped": 0,
     "warnings": 9,
     "environment": "Separate ignored venv installed from studies/ssp1/requirements.lock; not root numerical dependencies",
-    "warning_scope": "Affine 3.0.1 matrix-multiplication deprecation in inherited pinned environment; source and lock unchanged"
+    "warning_scope": "Affine 3.0.1 matrix-multiplication deprecation in inherited pinned environment; source and lock unchanged",
+    "requirements_sha256": "b869166ac3d5693ffd4a21483e35a4fb23208318a25441f38627bada4a6e9b60"
   },
   "browser": {
     "kind": "BROWSER_UI_TEST_NOT_MODEL_RESULT",
@@ -118,5 +120,9 @@
     "docs/assets/site.js": "f52ac845e482cb0861f028202beb540ffd0ca1acb8d2b12778ff4c26aa58d8d3",
     "docs/assets/site.css": "6978b12a64b6f8e9649fb4dd906087e7801c9a0b40da1a34e7bf3c6c797bdda3",
     "tests/browser_smoke.mjs": "514cd2a95a2fb35ec858f3a91c17256d8bb0cefc54c9336d84b1967e20bd436f"
+  },
+  "recursive_html_link_asset_audit": {
+    "pages": 47,
+    "failures": 0
   }
 }

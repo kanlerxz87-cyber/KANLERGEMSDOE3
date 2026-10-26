@@ -97,7 +97,7 @@ Tests mock source API success/change/quota failures and storage restrictions, no
 
 Main `4338f12`, `9ebfc4b` and `1fcc140` introduced parallel bilateral/GPC,
 K3-H1, DCAP-LHC and isolated SSP1 studies, other source pins, research-only TIFFs
-and registry-saturation evidence. The preserved canonical bilateral run/card remains
+and registry-saturation evidence. SSP1 maintenance `9a24c59` is also retained. The preserved canonical bilateral run/card remains
 canonical at `evidence/run-card.json` and identical root/docs aliases. This session’s
 separate card is `evidence/session-7d1e577d-run-card.json`. It records zero new geological
 runs; the repository-wide history is not zero. No result is promoted.

@@ -128,3 +128,10 @@ functions and upstream source pins were not patched. Pure geometry, format,
 source-refresh and verification tools remain runnable. The imported ledger's
 CRLF append is preserved byte-for-byte; `.gitattributes` recognizes CR-at-EOL
 rather than normalizing a hash-bearing source record.
+
+The subsequent SSP1 maintenance merge `9a24c59` is also preserved: safe inline-cell
+public table parsing, deployment evidence and removal of a Pages-settings write.
+It changes no root model card/TIFF. Its locked environment passes 64 tests (nine
+inherited affine deprecation warnings), independently of the root 161-test run.
+The extra upstream holdout EOF blank line is preserved through a narrowly scoped
+whitespace attribute; the source itself remains unchanged.

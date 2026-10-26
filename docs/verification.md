@@ -59,7 +59,8 @@ check, source refresh, local format PASS or green CI is not promotion or slot pe
 
 ## Pass 3 — reconciliation and requirement-by-requirement review
 
-- Integrated concurrent main `4338f12`, `9ebfc4b` and `1fcc140` on the fixed Arena
+- Integrated concurrent main `4338f12`, `9ebfc4b`, `1fcc140` and SSP1 maintenance
+  `9a24c59` on the fixed Arena
   branch, preserving their evidence and code. Main-side versions of 46 conflicted
   paths/instances are archived under `archive/integration-*/`; prior review prose
   remains under `evidence/history/`. This is not a claim to have independently
