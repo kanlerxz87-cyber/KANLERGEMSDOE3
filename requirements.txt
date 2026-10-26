@@ -1,5 +1,5 @@
-# Only for raster audits and tests; the site builder/feed use Python's standard library.
-numpy>=1.26,<3
-scipy>=1.11,<2
-rasterio>=1.3,<2
-pytest>=8,<10
+# Geospatial audit and integration tests; the site builder/feed use the standard library.
+numpy==2.4.6
+scipy==1.17.1
+rasterio==1.4.4
+pytest==9.1.1

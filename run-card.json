@@ -1,0 +1,35 @@
+{
+  "hypothesis": "No geological hypothesis was tested. The preregistered candidates are documented in docs/HYPOTHESES.md; no single lane was selected because the referenced method paragraph is not identifiable in the prompt and the shared template/data are absent.",
+  "mechanism": "Not tested. No cached feature stack or canonical integrated holdout/evaluator runner is present in this checkout; archived upstream source copies and a historical-raster validator are not an executable scientific pipeline.",
+  "named_non_fault_process_that_could_mimic_it": "Not applicable to a tested candidate; each proposed candidate lists a named confounder in docs/HYPOTHESES.md.",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "value": null,
+    "confidence_interval_95": null,
+    "evaluator_version": null,
+    "withheld_positives": null,
+    "status": "NOT RUN — no organizer-authenticated competition features or canonical integrated holdout evaluator; mirror labels are forensic-only"
+  },
+  "correlation_overlap_vs_registry": {
+    "surface_rank_correlation_max_abs": null,
+    "final_dot_overlap_max_within_3px": null,
+    "status": "Candidate comparison NOT RUN — no candidate surface exists; forensic audit of nine pinned historical winners completed (72 directed final-dot comparisons, minimum 86.718954% overlap within 3 px). Full registry/surfaces remain absent."
+  },
+  "raster_sha256": null,
+  "validator_output": {
+    "status": "NOT RUN — no candidate raster generated",
+    "no_nan_inside_footprint": null,
+    "values_in_0_1": null,
+    "crs_shape_transform_match_template": null
+  },
+  "submission_name": null,
+  "submission_note": "No new candidate TIFF generated; historical mirrored TIFFs were audited forensically only and must not be copied or resubmitted.",
+  "verdict": "negative",
+  "experiments_used": 0,
+  "submission_slots_used": 0,
+  "limitations": [
+    "The initial checkout contained only a README; the current branch has documentation, tests, audit scripts, archived upstream evaluator/writer copies, and ignored forensic mirrors, but no integrated model/prediction pipeline or cached feature stack.",
+    "The sample template, label mirrors and nine historical winner rasters are present for offline audit only; organizer-authenticated competition features, full registry, and score receipts are unavailable.",
+    "The exact single-method paragraph required to define this lane is not identifiable in the supplied prompt."
+  ]
+}

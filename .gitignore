@@ -1,6 +1,10 @@
-# Regenerable local inputs and Python tooling; published evidence stays small.
+# Regenerable inputs and Python tooling; only explicitly pinned manifests are tracked.
 .cache/
-data/competition/
+data/*
+!data/.gitkeep
+!data/core-manifest.json
+!data/historical-manifest.json
+!data/shared-tool-hashes.txt
 .venv/
 __pycache__/
 .pytest_cache/

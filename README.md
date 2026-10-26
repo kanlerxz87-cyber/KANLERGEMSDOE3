@@ -160,6 +160,7 @@ python scripts/audit_history.py \
 python scripts/readiness.py                     # fail-closed; never selects a slot
 python scripts/build_site.py
 python -m pytest -q
+python -m unittest discover -s tests -v         # concurrent review suite
 python -m http.server 8000 --bind 0.0.0.0 --directory docs
 ```
 
@@ -180,6 +181,20 @@ re-audit all current rasters, or upload anything.
 * [USGS GeoDAWN release](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and)
 * [USGS 3DEP](https://www.usgs.gov/3d-elevation-program) · [USGS fault database](https://www.usgs.gov/programs/earthquake-hazards/faults)
 * [DOE GDR INGENIOUS compilation](https://gdr.openei.org/submissions/1391) · [EPSG:32611](https://epsg.io/32611)
+
+## Concurrent-main review preserved
+
+Other reviews reached `main` while this work was in progress. Their
+[standing project request](PROJECT_REQUEST.md), [independent audit](docs/audit.json),
+[review dashboard](docs/concurrent-main-dashboard.html), [research](docs/archived-research.html),
+[source snapshots](evidence/upstream/), and [prior README](docs/concurrent-main-readme.md)
+are preserved. The independent audit compared historical representation variants
+against the owner-mirror footprint and found that some zeros-outside files do not
+meet the strict null-outside interpretation; this is not an organizer portal
+receipt. The active run card for **this** session is
+[`evidence/run-card.json`](evidence/run-card.json); other cards record earlier
+reviews and must not be interpreted as new candidate approvals. The other review
+builder now writes archived research rather than overwriting the active site.
 
 See the [source catalog](docs/sources.html), [next steps and irregularities](knowledge/portfolio-review.md),
 and the [user-facing submission guide](docs/executive-summary.html). The official

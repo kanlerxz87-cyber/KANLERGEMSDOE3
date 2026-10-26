@@ -1,6 +1,7 @@
 # Project operating instructions
 
-Before every work session, read `README.md` and the current `evidence/run-card.json`.
+Before every work session, read `README.md`, `PROJECT_REQUEST.md`,
+`research/standing-requirements.md`, and the current `evidence/run-card.json`.
 The README contains the standing user brief, scientific gates and parallel-run
 protocol. Preserve the distinction between unverified historical claims, public
 leaderboard observations, HOLDOUT-DTI with evaluator/count/CI, and organizer

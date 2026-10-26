@@ -51,6 +51,13 @@ def generated_files() -> dict[Path, str]:
             ROOT / "docs/data/run-card.json": card_path.read_text()}
 
 
+def build() -> None:
+    """Rebuild current pages; retained for the concurrent audit's test harness."""
+    for path, contents in generated_files().items():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(contents)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="Fail if committed site differs from its sources")

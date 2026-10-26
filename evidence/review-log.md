@@ -59,3 +59,19 @@ Date: 2026-10-26 UTC. This is a record of work, not a candidate scoring receipt.
   be verified from GitHub Actions rather than assumed.
 * The saved run card remains **negative**, with no candidate, SHA, candidate
   HOLDOUT-DTI, proposed name, leaderboard forecast or slot spent.
+
+## Concurrent-main integration
+
+While the PR was prepared, `main` advanced through several independent review
+merges. Their source snapshots, project request, scripts, evidence, run cards and
+15-test `unittest` suite were preserved. The previous active dashboard, README,
+research and static generator were archived and linked rather than silently
+replaced. The older review builder was redirected away from the active research
+page and taught not to include ignored `__pycache__` bytes in its source manifest.
+Their strict owner-mirror format audit found seven of nine selected historical
+file variants had finite outside-footprint values; this is not a portal result.
+
+After integration, **43 pytest tests passed** including the prior review's tests;
+its standalone `unittest` suite also passed **15 tests**. The site builder passed
+`--check`, and Chromium desktop/mobile checks were repeated. The scientific
+verdict, zero experiments and no-upload decision did not change.
