@@ -117,3 +117,19 @@ of the saved band's validity mask; it does not modify the shared tool. The
 shared template's format gate should be corrected upstream as well, with an
 in-footprint validity-mask regression test. This local supplemental check is
 not an organizer receipt and is not a private copy of the shared gate.
+
+### Exterior-policy conflict from the parallel-main review
+
+The official problem says the GeoTIFF has the same bounds as the training data
+and **data outside the bounds is null or NaN**. The phrase does not resolve
+whether the sample's no-coverage cells *inside its rectangular bounds* must
+also be null. The shared gate instead requires all values finite and zero
+outside the sample-derived footprint. The parallel review's separate
+`validate_submission.py` interprets the sample footprint exterior as null.
+On historical B2, the shared all-finite check passes, while the stricter
+reference-footprint-null check reports 7,111,787 finite exterior cells and
+fails. Conversely, a TIFF with NaNs in that exterior can pass the latter and
+fail the shared all-finite check. Neither result proves portal acceptance or
+rejection. The combined wrapper reports both and fails closed if they do not
+both pass; reconcile the shared template and obtain organizer clarification
+before promoting any candidate.

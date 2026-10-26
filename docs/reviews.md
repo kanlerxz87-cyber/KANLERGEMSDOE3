@@ -20,6 +20,11 @@ competition submission occurred.
   safely JSON-serializes NaN/inf diagnostics; the shared template still needs
   that regression/fix upstream. Also stopped calling a known-fault positive a
   *format* failure: it is informational, since those pixels are score-masked.
+- Reconciled the parallel main review: its sample-footprint-null validator and
+  the shared all-finite gate disagree for the mirrored sample exterior. The
+  wrapper reports both and fails closed instead of choosing one interpretation;
+  official wording says outside the bounds is null/NaN, and the exact meaning
+  of the no-coverage footprint needs organizer clarification.
 - Tested official-formula shared DTI arithmetic against brute force and found an
   upstream prose inequality that fails when one dot covers several truth
   cells. The exact two-sided implementation is not shown to fail by this.

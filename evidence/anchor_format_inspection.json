@@ -1,6 +1,47 @@
 {
-  "schema": "gems-format-inspection-v1",
-  "local_format_ok": true,
+  "schema": "gems-format-inspection-v2",
+  "local_format_ok": false,
+  "shared_all_finite_policy_ok": true,
+  "reference_footprint_null_policy_ok": false,
+  "policies_disagree": true,
+  "reference_mask_report": {
+    "ok": false,
+    "errors": [
+      "outside-footprint valid pixels=7111787; expected null/nodata"
+    ],
+    "validator": "submission-format-v1",
+    "template": "/home/user/KANLERGEMSDOE3/.cache/data/sample_submission.tif",
+    "candidate": ".cache/data/anchors/GEMSDOE32.tif",
+    "bands": 1,
+    "dtype": [
+      "float32"
+    ],
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "footprint_pixels": 5167373,
+    "nonfinite_inside": 0,
+    "finite_range_inside": [
+      0.0,
+      1.0
+    ],
+    "valid_outside_footprint": 7111787,
+    "infinite_outside_footprint": 0,
+    "policy_note": "Local interpretation: mirror/reference footprint exterior is null; organizer wording refers to bounds and requires independent confirmation."
+  },
   "report": {
     "path": ".cache/data/anchors/GEMSDOE32.tif",
     "bytes": 219065,
@@ -108,5 +149,5 @@
   "positive_known_fault_pixels_informational": 0,
   "submit_approved": false,
   "reference_origin": "public mirror; not independently organizer-authenticated",
-  "note": "Shared all-finite policy is stricter than the public spec about NaN outside the footprint; portal behavior and the original error cause are not established. Passing is not a slot or uniqueness decision."
+  "note": "Official text says outside the bounds is null or NaN. Whether that means the sample footprint inside its rectangular bounds requires clarification. The shared all-finite and reference-mask policies can disagree; neither is an organizer receipt or slot/uniqueness decision."
 }

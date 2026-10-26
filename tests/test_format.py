@@ -41,6 +41,8 @@ def tiny(tmp_path, monkeypatch):
 
 def test_valid_saved_bytes_and_known_positive_are_not_format_error(tiny):
     cache,sample,tmp=tiny
+    # Full-rectangle sample allows both local exterior policies to agree.
+    write_raster(sample,np.zeros((4,5),np.float32))
     a=np.zeros((4,5),np.float32);a[2,2]=1
     candidate=tmp/'candidate.tif';write_raster(candidate,a)
     result=wrapper.run(candidate,sample,cache)
@@ -63,7 +65,19 @@ def test_nan_outside_fails_shared_stricter_policy(tiny):
     cache,sample,tmp=tiny
     a=np.zeros((4,5),np.float32);a[0,0]=np.nan
     candidate=tmp/'outside.tif';write_raster(candidate,a,nodata=np.nan)
-    assert not wrapper.run(candidate,sample,cache)['local_format_ok']
+    result=wrapper.run(candidate,sample,cache)
+    assert result['reference_footprint_null_policy_ok']
+    assert not result['shared_all_finite_policy_ok']
+    assert result['policies_disagree'] and not result['local_format_ok']
+
+
+def test_finite_exterior_is_shared_pass_but_reference_mask_failure(tiny):
+    cache,sample,tmp=tiny
+    candidate=tmp/'finite-exterior.tif';write_raster(candidate,np.zeros((4,5),np.float32))
+    result=wrapper.run(candidate,sample,cache)
+    assert result['shared_all_finite_policy_ok']
+    assert not result['reference_footprint_null_policy_ok']
+    assert result['policies_disagree'] and not result['local_format_ok']
 
 
 @pytest.mark.parametrize('kind',['shape','crs','transform','dtype','bands'])

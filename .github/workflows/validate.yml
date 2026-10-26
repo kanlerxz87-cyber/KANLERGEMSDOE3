@@ -19,7 +19,20 @@ jobs:
       - name: Restore hash-pinned public core, shared tools and nine anchors
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python scripts/restore_workspace.py --fetch --anchors
+        shell: bash
+        run: |
+          set +e
+          python scripts/restore_workspace.py --fetch --anchors > restore.log 2>&1
+          status=$?
+          cat restore.log
+          if [ "$status" -ne 0 ]; then
+            # Surface a concise diagnosis as a check annotation even when raw
+            # Actions log downloads are unavailable in the research sandbox.
+            message=$(tail -n 2 restore.log | tr '\n' ' ' | cut -c1-700)
+            message=${message//'%'/'%25'}
+            echo "::error title=Public input restoration failed::$message"
+            exit "$status"
+          fi
       - name: Unit and real-input evidence tests
         run: python -m pytest -q
       - run: node tests/test_browser.js

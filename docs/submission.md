@@ -19,9 +19,11 @@ renamed previous TIFF is not a new, genuinely unique candidate.
    **HOLDOUT-DTI**, evaluator version, withheld positive count, and paired
    spatial 95% CI. A holdout score is not a leaderboard score.
 4. Recheck the final dot raster against the full accessible registry, and run
-   the saved-byte single-band float32/georeferencing/range/validity-mask gates
-   against the official reference. Record SHA-256. Do not normalize sentinels,
-   hide NaNs, or assume a local format pass means portal acceptance.
+   saved-byte single-band float32/georeferencing/range/validity-mask gates
+   against the official reference. Resolve the documented all-finite versus
+   reference-footprint-null policy conflict upstream first; neither local check
+   proves portal acceptance. Record SHA-256 and never normalize sentinels or
+   hide invalid in-footprint values.
 5. Run the separate promotion/weekly-slot selector. Only it can authorize a
    slot; this research workflow never auto-uploads.
 

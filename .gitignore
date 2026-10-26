@@ -7,3 +7,7 @@ __pycache__/
 *.py[cod]
 data/raw/
 data/prepared/
+
+# Preserve the parallel review's data convention.
+data/*
+!data/.gitkeep

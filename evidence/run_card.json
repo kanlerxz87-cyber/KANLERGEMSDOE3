@@ -26,7 +26,8 @@
     "range_0_to_1": null,
     "crs_shape_transform_match": null,
     "result": "not run; no candidate raster",
-    "shared_mask_check_status": "Local wrapper adds an in-footprint validity-mask check; shared template needs an upstream fix."
+    "shared_mask_check_status": "Local wrapper adds an in-footprint validity-mask check; shared template needs an upstream fix.",
+    "outside_policy_status": "Shared all-finite and reference-footprint-null checks conflict for the mirrored sample; combined wrapper fails closed pending upstream and organizer clarification."
   },
   "submission_name": null,
   "submission_note": null,

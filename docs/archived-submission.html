@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GEMS · Evidence &amp; submission review</title><link rel="stylesheet" href="style.css"><main><p><strong>Historical parallel-review snapshot;</strong> use the <a href="../index.html">current dashboard</a> for today's decision.</p><nav><a href="archived-dashboard.html">Archived summary</a></nav><article style="white-space:pre-wrap;overflow-wrap:anywhere"># Submission guide
+
+**Current verdict: NOT OK TO SUBMIT. No new candidate or filename exists.**
+The historical TIFF links in the executive summary are references only. A
+renamed previous TIFF is not a new, genuinely unique candidate.
+
+## Required automatic gates before any download is enabled
+
+1. Assign exactly one method lane and resolve the literal pre-placement
+   registry stop explicitly; do not exclude dense prior surfaces or change a
+   threshold without authorization. Check **every accessible registry raster**
+   for surface Spearman &gt;0.90 or forward dot overlap &gt;70% within 3 pixels.
+2. Fix/review the shared fold builder upstream, hide whole original fault
+   segments with local buffers, rebuild all catalogue-derived features from
+   visible faults, and mask visible faults pixel-exactly in scoring. Every
+   feature is a leakage canary; oriented AUC &gt;0.90 stops the run pending audit.
+3. Compare the candidate and same-evaluator best on identical folds using
+   pooled 300 m triangular-kernel Tversky (`alpha=0.2`, `beta=0.8`). Report
+   **HOLDOUT-DTI**, evaluator version, withheld positive count, and paired
+   spatial 95% CI. A holdout score is not a leaderboard score.
+4. Recheck the final dot raster against the full accessible registry, and run
+   saved-byte single-band float32/georeferencing/range/validity-mask gates
+   against the official reference. Resolve the documented all-finite versus
+   reference-footprint-null policy conflict upstream first; neither local check
+   proves portal acceptance. Record SHA-256 and never normalize sentinels or
+   hide invalid in-footprint values.
+5. Run the separate promotion/weekly-slot selector. Only it can authorize a
+   slot; this research workflow never auto-uploads.
+
+## If a future file is promoted
+
+- Give the *new* artifact a unique, descriptive filename such as
+  `gems-&lt;lane&gt;-&lt;UTC-date&gt;-&lt;hash-prefix&gt;.tif`; derive the hash prefix from the
+  actual saved bytes. This is a naming pattern, **not** a current filename.
+- The run card must provide a truthful note of at most 140 characters, without
+  representing a holdout or projection as an organizer score. No final note is
+  assigned while the verdict is negative.
+- Open the official <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/">submission page</a>,
+  sign in, choose **Make new submission**, upload the exact approved TIFF (or
+  ZIP containing only it), and enter the provided note. Confirm the current
+  allowance on that page before using a slot.
+- Preserve the exact local file hash and the organizer&#x27;s submission-page
+  receipt together. A public leaderboard ranking alone does not identify the
+  file and cannot establish the attribution.
+
+See the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">official problem/format description</a>
+and [source register](sources.md). The previous `[0, 1]` upload error is not
+diagnosable without the rejected file or receipt.
+</article></main></html>

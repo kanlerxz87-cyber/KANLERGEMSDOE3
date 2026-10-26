@@ -20,8 +20,10 @@ def run(candidate: Path, sample: Path, cache: Path) -> dict:
     sys.path.insert(0, str(cache / 'template/src'))
     from gems57.gates import format_report
     from gems57.validate import validate
+    from validate_submission import validate as validate_reference_mask
     with rasterio.open(sample) as ref:
-        footprint = np.isfinite(ref.read(1))
+        values = ref.read(1)
+        footprint = np.isfinite(values) & (ref.read_masks(1) > 0)
         grid = (ref.shape, ref.crs, ref.transform)
     with rasterio.open(cache / 'data/existing_faults.tif') as labels:
         if (labels.shape, labels.crs, labels.transform) != grid:
@@ -46,13 +48,23 @@ def run(candidate: Path, sample: Path, cache: Path) -> dict:
         masked_inside = None
     # A nodata tag such as 0 can mask valid cells while the raw pixel values
     # remain in [0,1]. Reject missing cells inside the footprint independently.
-    local_ok = bool(fmt['ok'] and detailed['all_checks_passed'] and masked_inside == 0)
-    return {'schema': 'gems-format-inspection-v1', 'local_format_ok': local_ok,
+    allfinite_ok = bool(fmt['ok'] and detailed['all_checks_passed'] and masked_inside == 0)
+    reference_mask = validate_reference_mask(sample, candidate)
+    reference_mask_ok = bool(reference_mask['ok'])
+    # The shared policy requires a finite zero exterior, while the independent
+    # reference-mask policy requires a null exterior. Do not silently select a
+    # winner when they disagree; upstream/organizer clarification is required.
+    local_ok = allfinite_ok and reference_mask_ok
+    return {'schema': 'gems-format-inspection-v2', 'local_format_ok': local_ok,
+            'shared_all_finite_policy_ok': allfinite_ok,
+            'reference_footprint_null_policy_ok': reference_mask_ok,
+            'policies_disagree': allfinite_ok != reference_mask_ok,
+            'reference_mask_report': reference_mask,
             'report': fmt, 'detailed': detailed, 'masked_inside_footprint': masked_inside,
             'positive_known_fault_pixels_informational': known_positive,
             'submit_approved': False,
             'reference_origin': ('public mirror; not independently organizer-authenticated' if sample.resolve() == (cache / 'data/sample_submission.tif').resolve() else 'caller-supplied; not authenticated by this tool'),
-            'note': 'Shared all-finite policy is stricter than the public spec about NaN outside the footprint; portal behavior and the original error cause are not established. Passing is not a slot or uniqueness decision.'}
+            'note': 'Official text says outside the bounds is null or NaN. Whether that means the sample footprint inside its rectangular bounds requires clarification. The shared all-finite and reference-mask policies can disagree; neither is an organizer receipt or slot/uniqueness decision.'}
 
 
 def json_safe(value):

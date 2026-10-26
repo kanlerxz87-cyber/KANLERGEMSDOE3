@@ -11,13 +11,15 @@
 ## Read at the beginning of every session
 
 The user's priorities include **Maximize P(Win)** and **Own the Outcome**.
-Read [the standing protocol](docs/protocol.md), then this README, the run card,
-and the latest evidence before doing work. Follow all current user instructions.
+Read [the standing protocol](docs/protocol.md), [PROJECT_REQUEST.md](PROJECT_REQUEST.md),
+then this README, the run card, and the latest evidence before doing work.
+Follow all current user instructions.
 
 The full, verbatim original request was not available in this session's
-compacted context. `docs/protocol.md` is a **non-verbatim operational summary**,
-not a substitute transcript; we will not invent or label a reconstruction as
-verbatim. If the original is later supplied, preserve it exactly with its date.
+compacted context. `PROJECT_REQUEST.md` and `docs/protocol.md` are **non-verbatim
+operational summaries**, not a substitute transcript; we will not invent or
+label a reconstruction as verbatim. If the original is later supplied,
+preserve it exactly with its date.
 
 ## What was established
 
@@ -48,9 +50,9 @@ verbatim. If the original is later supplied, preserve it exactly with its date.
 - The pinned fold builder uses 12-pixel chunks and quadrant-boundary erosion,
   not a demonstrated local buffer around whole original fault segments.
   The shared template needs an upstream correction/review before a valid
-  experiment. Its shared format gate also needs an in-footprint validity-mask
-  fix; this repo's wrapper adds a supplemental fail-closed mask check without
-  forking that gate. Details: [analysis](docs/analysis.md).
+  experiment. Its format gate also needs an in-footprint validity-mask fix and
+  clarification of the all-finite exterior against the reference-null policy;
+  this repo reports both without forking the shared gate. Details: [analysis](docs/analysis.md).
 
 **No model experiment ran.** A missing assigned method lane, the literal
 uniqueness STOP, and unverified buffered-fold construction prevent progression.
@@ -87,17 +89,25 @@ If `--sample` is omitted, the inspector uses the **unauthenticated public
 mirror**, clearly identified in its report. It compares the saved bytes with
 the reference and pinned grid, checks one float32 band, CRS, shape, transform,
 finite values in `[0,1]`, no in-footprint masked cells, and the shared more
-conservative all-finite/zero-exterior policy. It never clips or repairs pixels.
-Official text permits outside-footprint NaNs; the local precaution and past
-portal error cause are not proof of what the organizer accepts.
+all-finite/zero-exterior policy and, separately, the parallel review's
+reference-footprint-null policy. The organizer says data **outside the bounds**
+must be null or NaN, but it is not established whether that wording refers to
+the sample's interior no-coverage footprint as well as its rectangular bounds.
+The two local policies disagree for the mirrored sample; the wrapper fails
+closed when they do. Neither policy proves portal acceptance or the cause of
+the past error, and no pixels are clipped or repaired.
 
 ## Site, data and tests
 
 The root `index.html` is a static, accessible GitHub Pages site configured for
-`main` root `/`; `scripts/build_site.py` renders four fail-closed pages from the
+`main` root `/`; `scripts/build_site.py` renders five fail-closed pages from the
 recorded evidence. It refuses to turn a negative run card into a positive
-banner. See [submission instructions](docs/submission.md),
-[ranked hypotheses](docs/hypotheses.md) and the [source register](docs/sources.md).
+banner. The independent parallel-main evidence, tests and review remain
+preserved, with conflicting snapshots in [the archive](docs/concurrent-main/README.md).
+The single current run card is `evidence/run_card.json`; other run cards are
+historical. See [submission instructions](docs/submission.md),
+[ranked hypotheses](docs/hypotheses.md), the parallel [research shortlist](research/hypotheses.md)
+and the [source register](docs/sources.md).
 
 ```bash
 python scripts/build_site.py          # regenerate pages
