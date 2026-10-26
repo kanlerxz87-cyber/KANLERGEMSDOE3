@@ -1,0 +1,74 @@
+{
+  "schema": "peer-freshness-v1",
+  "checked_utc": "2026-10-26T22:06:13.864687Z",
+  "reviewed_utc": "2026-10-26T21:40:00Z",
+  "status": "fresh",
+  "changed_count": 8,
+  "error_count": 0,
+  "sites": [
+    {
+      "site": "GEMSDOE24",
+      "reviewed_head": "7ab1c8f77f0b4b8644e3929403a0dab65838b008",
+      "current_head": "a433b430b74b813a9118ebd4ec438b12cbc69f46",
+      "changed": true,
+      "error": null
+    },
+    {
+      "site": "GEMSDOE25",
+      "reviewed_head": "af2b6f2543e5422a7e917638b70e038e6fd91cad",
+      "current_head": "c04766ff224f879d7204d2e6c45bffd8c7f01966",
+      "changed": true,
+      "error": null
+    },
+    {
+      "site": "GEMSDOE27",
+      "reviewed_head": "bef7ae8e8f63b69d299c9214c75988c8f5055f9c",
+      "current_head": "21687996529d4e3bcb83e7d8ac56fa29864acf97",
+      "changed": true,
+      "error": null
+    },
+    {
+      "site": "GEMSDOE28",
+      "reviewed_head": "2c839d10f57ec9b074829e93c84bc39935f52896",
+      "current_head": "ec1d501fd12c8dee9dc062726003639dec9382ff",
+      "changed": true,
+      "error": null
+    },
+    {
+      "site": "GEMSDOE30",
+      "reviewed_head": "9c0d637c0171407196b61b780444bc772ce75438",
+      "current_head": "9c0d637c0171407196b61b780444bc772ce75438",
+      "changed": false,
+      "error": null
+    },
+    {
+      "site": "GEMSDOE31",
+      "reviewed_head": "2a7cd0c8f1c30341a3a655a01a1ff5bff67b23d2",
+      "current_head": "e14b466b88601149e30ed8decb2fa753ca040beb",
+      "changed": true,
+      "error": null
+    },
+    {
+      "site": "GEMSDOE32",
+      "reviewed_head": "07806249f4ed3efe70b4fbf866183c32392b7853",
+      "current_head": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+      "changed": true,
+      "error": null
+    },
+    {
+      "site": "GEMSDOE33",
+      "reviewed_head": "1d99d73fe14d9a87126ffca2db52c69336d6099b",
+      "current_head": "efa438d3104893c3e8aedf3817ac22167b1c681a",
+      "changed": true,
+      "error": null
+    },
+    {
+      "site": "GEMSDOE36",
+      "reviewed_head": "b90418f852615aa0974cf9a53b92fa569ed133fc",
+      "current_head": "79ddf4aa6fd5fa93887345f4bffeb6edd9d76401",
+      "changed": true,
+      "error": null
+    }
+  ],
+  "note": "Head checks only; no updated raster, score, holdout, or scientific evidence was validated."
+}

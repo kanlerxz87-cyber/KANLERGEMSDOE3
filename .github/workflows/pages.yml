@@ -1,0 +1,47 @@
+name: Publish evidence brief
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - name: Build pages and refresh public feeds
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/build_site.py
+          mkdir -p site-build
+          cp index.html executive-summary.html site-build/
+          cp -R assets data research site-build/
+          touch site-build/.nojekyll
+          python3 scripts/update_feed.py --out site-build/data/live_feed.json --allow-error
+          python3 scripts/update_peer_feed.py --out site-build/data/peer_feed.json --allow-error
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site-build
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,11 @@
+{
+  "schema": "leaderboard-feed-v1",
+  "status": "snapshot",
+  "source": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+  "last_success_utc": "2026-10-26T22:01:00Z",
+  "checked_utc": "2026-10-26T22:01:00Z",
+  "public_leader": "0.4437",
+  "source_body_sha256": null,
+  "evidence_class": "ORGANIZER-PUBLISHED-LEADERBOARD",
+  "note": "Public leaderboard observed via page retrieval at approximately the given minute; body hash unavailable. Not a submission-page receipt, candidate score, or forecast."
+}
