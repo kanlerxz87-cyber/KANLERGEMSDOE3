@@ -65,3 +65,33 @@ def test_success_has_precise_updated_provenance_and_zero_is_a_valid_score():
     assert r['last_success_precision']=='ISO-8601 UTC instant'
     assert r['observed_utc_day']==r['last_success_utc'][:10]
     assert parse_leaderboard(HTML.replace('0.4437','0'))==0
+
+
+def test_inline_score_fragments_match_browser_text_without_invented_spaces():
+    html=HTML.replace('0.4437','<span>0.</span><strong>4437</strong>').replace('DW-Tversky','DW-<span>Tversky</span>')
+    assert parse_leaderboard(html)==0.4437
+    assert parse_leaderboard(html.replace('Tversky','TVERSKY'))==0.4437
+
+
+def test_rank_one_cannot_be_borrowed_from_an_unrelated_trailing_table():
+    html=HTML.replace('#1','#11')+'<table><tr><td>#1</td><td>unrelated</td><td>0.9999</td></tr></table>'
+    with pytest.raises(ValueError):parse_leaderboard(html)
+
+
+def test_conflicting_metric_tables_fail_closed_but_identical_responsive_twins_agree():
+    assert parse_leaderboard(HTML+HTML)==0.4437
+    with pytest.raises(ValueError):parse_leaderboard(HTML+HTML.replace('0.4437','0.5'))
+
+
+def test_parse_failure_has_a_bounded_public_shape_not_a_new_observation():
+    response=Response();response.text=HTML.replace('#1','#11')
+    old={'leading_public_value':0.4437,'last_success_utc':'2026-10-26'}
+    result=refresh(old,lambda*a,**kw:response)
+    assert result['stale'] and result['leading_public_value']==0.4437
+    assert result['parse_diagnostic']['n_tables']==1
+    assert len(result['parse_diagnostic']['first_column_samples'])<=5
+
+
+def test_private_header_or_malformed_table_never_fabricates_a_public_observation():
+    with pytest.raises(ValueError):parse_leaderboard(HTML.replace('public','private'))
+    with pytest.raises(ValueError):parse_leaderboard('<table><tr><td>broken</tr></td></table>')
