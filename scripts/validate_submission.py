@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Validate a submission GeoTIFF: shared-template checks PLUS whole-array [0,1].
+"""Report local template-mask and whole-array range checks, never upload approval.
 
-The portal error 'Predicted values must be in range [0, 1]' is checked on the
-entire array (including outside the footprint), not only inside it: a file
-with NaN outside the footprint fails this validator by design. Use the
--zeros variant (outside=0, nodata=None) for upload.
+A previous portal reported a range error, but its exact validation behavior and
+file bytes are unknown. A finite-zero outside encoding passes a whole-array range
+check yet conflicts with the written null/NaN-outside specification. This CLI
+reports both checks separately and fails closed if either fails. It does not
+authenticate a template or establish organizer portal acceptance.
 """
 from __future__ import annotations
 import argparse, json, sys
@@ -91,13 +92,18 @@ def main() -> int:
         checks["whole_array_in_0_1"] = whole_range
         checks["nodata_is_nan"] = bool(nodata is not None and np.isnan(nodata))
         checks["positive_dots_eq1"] = dots
-        checks["portal_range_ok"] = bool(whole_finite and whole_range)
+        checks["whole_array_numeric_range_ok"] = bool(whole_finite and whole_range)
         if args.expected_dots is not None:
             checks["dots_match_expected"] = bool(dots == args.expected_dots)
-    ok = bool(checks.get("format_valid")) and checks["portal_range_ok"]
+    strict = validate(args.template, args.submission)
+    checks["strict_template_mask_check"] = strict
+    checks["portal_acceptance_verified"] = False
+    checks["submission_authorized"] = False
+    checks["interpretation"] = "Local checks only; organizer template and portal behavior are not authenticated."
+    ok = bool(checks.get("format_valid")) and checks["whole_array_numeric_range_ok"] and strict["ok"]
     if args.expected_dots is not None:
         ok = ok and checks["dots_match_expected"]
-    checks["validator_verdict"] = "PASS" if ok else "FAIL"
+    checks["validator_verdict"] = "PASS_LOCAL_ONLY" if ok else "FAIL_OR_CONFLICT"
     print(json.dumps(checks, indent=2, default=str))
     return 0 if ok else 1
 

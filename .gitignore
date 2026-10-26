@@ -1,8 +1,14 @@
-.venv/
+# Regenerable inputs and Python tooling; only explicitly pinned manifests are tracked.
 .cache/
+data/*
+!data/.gitkeep
+!data/core-manifest.json
+!data/historical-manifest.json
+!data/shared-tool-hashes.txt
+.venv/
 __pycache__/
-*.pyc
-data/raw/
-data/restore_receipt.json
 .pytest_cache/
+*.py[cod]
+*.partial
 *.egg-info/
+!data/prepared_manifest.json

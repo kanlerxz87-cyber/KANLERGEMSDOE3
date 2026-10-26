@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
-"""GPC-3 lane runner: canary -> segment holdout (B0/EXP-1/2/3) -> final unique TIF.
+"""Archived GPC-3 runner; execution is blocked after the three-experiment budget.
 
-Protocol (parallel-run): reuse vendored gems template (SegmentHoldout
-gems-segment-pooled-v1, submission writer, novelty), leakage canary per GPC
-feature, pre-placement surface + final-dot uniqueness vs the 9 focus champions,
-whole-array [0,1] validation. Verdict is fail-closed: promote only if the
-preregistered gates pass; otherwise the TIF is a research artifact labelled
-DO NOT SUBMIT. All scores are HOLDOUT-DTI unless labelled OWNER-REPORTED.
+Its former nine-champion uniqueness test was narrower than the literal all-registry
+rule. The existing TIFF is 100% within three pixels of a registered lattice, so it
+is a duplicate. The original runner is preserved under evidence/concurrent-main/.
+Do not infer current authorization from its historical partial checks.
 """
 from __future__ import annotations
 
@@ -211,6 +209,7 @@ def registry_rows(surface2d, dots, grid) -> list[dict]:
 
 
 def phase_final(store, grid, holdout_res: dict) -> dict:
+    raise RuntimeError("Archived runner cannot emit: all-registry novelty and lane assignment are unresolved.")
     from gems.submission import scored_content_id, write_submission, zip_single
     from kanler3.emission import emit_dots
     from kanler3.gpc import GPC_FEATURE_NAMES
@@ -292,6 +291,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--phase", choices=["canary", "holdout", "final", "all"], default="all")
     args = ap.parse_args()
+    raise SystemExit("Archived GPC-3 run already used its three-experiment budget; no further run or emission is authorized.")
     store, grid = build_store()
     print(f"[main] features={len(store.names)} n_fp={grid.n_fp}", flush=True)
     if args.phase in ("canary", "all"):
