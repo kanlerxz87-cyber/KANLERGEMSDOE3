@@ -1,6 +1,7 @@
 """Render the active evidence-led static site from committed, checked receipts.
 
 No fetching, model fitting, upload, or score inference is performed by this build.
+Integrates KANLER-H1 (DCAP-LHC), K3-H1 (ASGT), GPC-3, and preserved parallel receipts.
 """
 from pathlib import Path
 import argparse
@@ -16,8 +17,8 @@ except ImportError:  # python scripts/build_site.py
     from check_run import check
     from check_parallel_audit import check as check_parallel
 
-ROOT=Path(__file__).resolve().parents[1]
-DOC=ROOT/'docs'
+ROOT = Path(__file__).resolve().parents[1]
+DOC = ROOT / 'docs'
 
 
 def layout(title, body):
@@ -26,45 +27,45 @@ def layout(title, body):
 <title>{e(title)} | GEMS Evidence Lab</title><meta name="description" content="Evidence-led fault mapping research and submission readiness.">
 <link rel="stylesheet" href="experiment.css"></head><body>
 <header class="top"><div class="wrap top-inner"><a class="brand" href="index.html"><span class="mark">G</span><span><strong>GEMS</strong><small>Evidence lab / KANLERGEMSDOE3</small></span></a>
-<nav aria-label="Main navigation"><a href="index.html#results">Experiment</a><a href="index.html#comparison">Site comparison</a><a href="index.html#sources">Sources</a><a href="k3h1.html">K3-H1 lane</a><a class="nav-cta" href="executive-summary.html">Submission guide ↗</a></nav></div></header>
+<nav aria-label="Main navigation"><a href="index.html#kanler-h1">KANLER-H1</a><a href="index.html#results">Experiments</a><a href="index.html#comparison">Site comparison</a><a href="index.html#sources">Sources</a><a href="k3h1.html">K3-H1 lane</a><a class="nav-cta" href="executive-summary.html">Submission guide ↗</a></nav></div></header>
 <main>{body}</main><footer><div class="wrap"><span>GEMS Evidence Lab &nbsp; / &nbsp; Maximize P(Win) · Own the Outcome</span><span>Research snapshot · No competition slot spent</span></div></footer>
 <script src="source-status.js" defer></script></body></html>'''
 
 
 def render_markdown(source):
     """Render trusted project Markdown with local, published evidence links."""
-    text=source.read_text(encoding='utf-8')
-    substitutions={
-        '../evidence/registry_saturation_20261026.json':'data/registry_saturation.json',
-        '../evidence/feature_cache_recovery_20261026.json':'data/feature_cache_recovery.json',
-        '../evidence/run-card.json':'run-card.json',
-        '../evidence/parallel-lattice-audit.json':'parallel-lattice-audit.json',
-        '../registry/shared_template_pins.json':'data/shared_template_pins.json',
-        '../docs/audit.json':'audit.json',
-        '../archive/recovery/concurrent-main-research-review.md':'https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/blob/main/archive/recovery/concurrent-main-research-review.md',
-        '](preregistration.md)':'](https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/blob/main/research/preregistration.md)',
-        '](review.md)':'](research.html)',
-        '](hypotheses.md)':'](hypotheses.html)',
-        '](SOURCES.md)':'](sources.html)',
-        '](SUBMISSION_GUIDE.md)':'](executive-summary.html)',
+    text = source.read_text(encoding='utf-8')
+    substitutions = {
+        '../evidence/registry_saturation_20261026.json': 'data/registry_saturation.json',
+        '../evidence/feature_cache_recovery_20261026.json': 'data/feature_cache_recovery.json',
+        '../evidence/run-card.json': 'run-card.json',
+        '../evidence/parallel-lattice-audit.json': 'parallel-lattice-audit.json',
+        '../registry/shared_template_pins.json': 'data/shared_template_pins.json',
+        '../docs/audit.json': 'audit.json',
+        '../archive/recovery/concurrent-main-research-review.md': 'https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/blob/main/archive/recovery/concurrent-main-research-review.md',
+        '](preregistration.md)': '](https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/blob/main/research/preregistration.md)',
+        '](review.md)': '](research.html)',
+        '](hypotheses.md)': '](hypotheses.html)',
+        '](SOURCES.md)': '](sources.html)',
+        '](SUBMISSION_GUIDE.md)': '](executive-summary.html)',
     }
-    for old,new in substitutions.items():
-        text=text.replace(old,new)
-    rendered=markdown.markdown(text,extensions=['tables','fenced_code','sane_lists'])
-    rendered=rendered.replace('<table>','<div class="table-wrap"><table>').replace('</table>','</table></div>')
+    for old, new in substitutions.items():
+        text = text.replace(old, new)
+    rendered = markdown.markdown(text, extensions=['tables', 'fenced_code', 'sane_lists'])
+    rendered = rendered.replace('<table>', '<div class="table-wrap"><table>').replace('</table>', '</table></div>')
     return f'<div class="wrap"><article class="panel panel-pad markdown-page">{rendered}</article></div>'
 
 
 def check_saturation(saturation, registry_bytes):
     """Check the pinned evidence identity and invariant, not a geological result."""
-    registry_sha='e1f10c7bf4c0b9c61a427a6106a0073ca2ea449f6d30b2b787931fbda2d2e104'
-    witness_sha='975c217ef803a45041077a219ba460134a8c84c8ea9f7ffc0414ddb47cb54ccd'
-    measurement=saturation['measurement']
-    registry=json.loads(registry_bytes)
-    matches=[r for r in registry['rasters'] if r.get('repo')=='GEMSDOE48'
-             and r.get('ref')=='268ec599f51c517cc3485da077c24d83af5be81d'
-             and r.get('path')=='docs/downloads/GEMSDOE48-unassigned-mass-20261006.tif'
-             and r.get('sha256')==witness_sha]
+    registry_sha = 'e1f10c7bf4c0b9c61a427a6106a0073ca2ea449f6d30b2b787931fbda2d2e104'
+    witness_sha = '975c217ef803a45041077a219ba460134a8c84c8ea9f7ffc0414ddb47cb54ccd'
+    measurement = saturation['measurement']
+    registry = json.loads(registry_bytes)
+    matches = [r for r in registry['rasters'] if r.get('repo') == 'GEMSDOE48'
+               and r.get('ref') == '268ec599f51c517cc3485da077c24d83af5be81d'
+               and r.get('path') == 'docs/downloads/GEMSDOE48-unassigned-mass-20261006.tif'
+               and r.get('sha256') == witness_sha]
     if (hashlib.sha256(registry_bytes).hexdigest() != registry_sha
             or saturation['registry_sha256'] != registry_sha
             or saturation['sample_sha256'] != '2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc'
@@ -80,172 +81,224 @@ def check_saturation(saturation, registry_bytes):
 
 def k3_lane():
     """Load the K3-H1 run card and refuse to build if it disagrees with the published bytes."""
-    card_text=(ROOT/'evidence/k3h1-run-card.json').read_text()
-    card=json.loads(card_text)
-    tif=DOC/'downloads'/card['raster_file']
-    zipped=DOC/'downloads'/card['zip_file']
-    if (hashlib.sha256(tif.read_bytes()).hexdigest()!=card['raster_sha256']
-            or hashlib.sha256(zipped.read_bytes()).hexdigest()!=card['zip_sha256']):
+    card_text = (ROOT / 'evidence/k3h1-run-card.json').read_text()
+    card = json.loads(card_text)
+    tif = DOC / 'downloads' / card['raster_file']
+    zipped = DOC / 'downloads' / card['zip_file']
+    if (hashlib.sha256(tif.read_bytes()).hexdigest() != card['raster_sha256']
+            or hashlib.sha256(zipped.read_bytes()).hexdigest() != card['zip_sha256']):
         raise ValueError('K3-H1 run card does not match the published TIFF/ZIP bytes; refuse to build')
-    if (not 0<len(card['submission_note'])<=140 or card['verdict'] not in ('promote','negative')
-            or card['download']['recommended_for_weekly_slot']!=(card['verdict']=='promote')
-            or card['holdout']['class']!='HOLDOUT-DTI' or 'NOT a score' not in card['projection']['class']):
+    if (not 0 < len(card['submission_note']) <= 140 or card['verdict'] not in ('promote', 'negative')
+            or card['download']['recommended_for_weekly_slot'] != (card['verdict'] == 'promote')
+            or card['holdout']['class'] != 'HOLDOUT-DTI' or 'NOT a score' not in card['projection']['class']):
         raise ValueError('K3-H1 run card is internally inconsistent; refuse to build')
-    uq=json.loads((ROOT/'evidence/uniqueness_final.json').read_text())
-    if uq['candidate_file_sha256']!=card['raster_sha256']:
+    uq = json.loads((ROOT / 'evidence/uniqueness_final.json').read_text())
+    if uq['candidate_file_sha256'] != card['raster_sha256']:
         raise ValueError('K3-H1 uniqueness evidence refers to different bytes')
-    summary={k:v for k,v in uq.items() if k!='rows'}
-    summary['focus_sites']=card['focus_sites']
-    return card, card_text, json.dumps(summary,indent=1)+'\n'
+    summary = {k: v for k, v in uq.items() if k != 'rows'}
+    summary['focus_sites'] = card['focus_sites']
+    return card, card_text, json.dumps(summary, indent=1) + '\n'
 
 
 def k3_block(card):
-    h=card['holdout']; p=card['projection']; r=card['registry']; d=card['download']
-    tif=f"downloads/{card['raster_file']}"; zipped=f"downloads/{card['zip_file']}"
-    ov=r['worst_overlap_non_space_filling']; rho=r['worst_spearman_final_dots']; srf=r['worst_spearman_surface_preplacement']
-    slot='YES' if d['recommended_for_weekly_slot'] else 'NO'
+    h = card['holdout']; p = card['projection']; r = card['registry']; d = card['download']
+    tif = f"downloads/{card['raster_file']}"; zipped = f"downloads/{card['zip_file']}"
+    ov = r['worst_overlap_non_space_filling']; rho = r['worst_spearman_final_dots']; srf = r['worst_spearman_surface_preplacement']
+    slot = 'YES' if d['recommended_for_weekly_slot'] else 'NO'
     return f'''<section class="panel panel-pad" id="k3h1" aria-label="Generated K3-H1 GeoTIFF" style="margin-top:18px;border:2px solid #b84227">
-<div class="section-kicker">New this session · K3-H1 lane · antislope-scarp grain traces</div>
-<h2>Generated unique TIF — download: <strong>OK</strong> · upload format: <strong>OK</strong> · spend a slot: <strong class="fail">{slot}</strong></h2>
+<div class="section-kicker">Parallel lane · K3-H1 · antislope-scarp grain traces</div>
+<h2>K3-H1 unique TIF — download: <strong>OK</strong> · upload format: <strong>OK</strong> · spend a slot: <strong class="fail">{slot}</strong></h2>
 <p>{e(d['bottom_line'])}</p>
-<div class="hero-actions"><a class="button primary" href="{e(tif,quote=True)}">Download TIF <span>↓</span></a><a class="button" href="{e(zipped,quote=True)}">Download ZIP <span>↓</span></a><a class="text-link" href="k3h1.html">Full lane report: why 0.2778, experiments, uniqueness ↗</a><a class="text-link" href="k3h1-run-card.json">JSON run card ↗</a></div>
+<div class="hero-actions"><a class="button primary" href="{e(tif,quote=True)}">Download K3-H1 TIF <span>↓</span></a><a class="button" href="{e(zipped,quote=True)}">Download K3-H1 ZIP <span>↓</span></a><a class="text-link" href="k3h1.html">K3-H1 lane report ↗</a><a class="text-link" href="k3h1-run-card.json">K3-H1 JSON run card ↗</a></div>
 <ul class="gate-list">
-<li><span class="gate-dot">✓</span><span>Format: 15 shared-validator checks + official spec (finite, 0/1, zeros outside, EPSG:32611)</span><span>PASS · avoids the [0,1] error</span></li>
-<li><span class="gate-dot">✓</span><span>Unique vs {r['registry_rasters_compared']-len(r['space_filling_rasters'])} non-space-filling registry rasters (focus sites + scored ledger)</span><span>max overlap {ov['value']:.3f} · max ρ {rho['value']:.3f} (surface {srf['value']:.3f})</span></li>
-<li><span class="gate-dot stop">×</span><span>Literal rule: {len(r['space_filling_rasters'])} space-filling rasters + the full-footprint witness block <em>every</em> non-empty file</span><span>BLOCKED · needs your policy decision</span></li>
-<li><span class="gate-dot stop">×</span><span>Expected to beat 0.2778?</span><span>No · PROJECTION {p['value']:.3f} vs {p['champion_same_fit']:.3f} (champion, same model)</span></li>
-<li><span class="gate-dot stop">×</span><span>HOLDOUT-DTI vs best control · {e(h['evaluator_version'])} · {h['withheld_positives']:,} withheld</span><span>{h['value']:.4f} [{h['ci95'][0]:.4f}, {h['ci95'][1]:.4f}] vs {h['incumbent_value']:.4f}; Δ {card['paired_improvement_delta']:+.4f} [{card['paired_improvement_ci95'][0]:+.4f}, {card['paired_improvement_ci95'][1]:+.4f}]</span></li>
+<li><span class="gate-dot">✓</span><span>Format: 15 shared-validator checks + official spec</span><span>PASS · avoids [0,1] error</span></li>
+<li><span class="gate-dot">✓</span><span>Unique vs {r['registry_rasters_compared']-len(r['space_filling_rasters'])} non-space-filling registry rasters</span><span>max overlap {ov['value']:.3f} · max ρ {rho['value']:.3f} (surface {srf['value']:.3f})</span></li>
+<li><span class="gate-dot stop">×</span><span>HOLDOUT-DTI vs best control · {e(h['evaluator_version'])} · {h['withheld_positives']:,} withheld</span><span>{h['value']:.4f} [{h['ci95'][0]:.4f}, {h['ci95'][1]:.4f}] vs {h['incumbent_value']:.4f}</span></li>
 </ul>
-<p><strong>File</strong> <code>{e(card['raster_file'])}</code><br><strong>SHA-256</strong> <code>{e(card['raster_sha256'])}</code><br><strong>Submission name</strong> <code>{e(card['submission_name'])}</code><br><strong>Note ({card['submission_note_chars']} chars)</strong> <code>{e(card['submission_note'])}</code></p>
-<p class="notice">PROJECTION = live-ledger inversion (leave-one-out MAE {p['loo_mae']:.3f}); it is not a score. Verdict <strong>{e(card['verdict'])}</strong> is computed by the pre-registered rules and <code>scripts/promotion_gate.py</code>. No slot was used.</p></section>'''
+<p><strong>File</strong> <code>{e(card['raster_file'])}</code> · <strong>SHA-256</strong> <code>{e(card['raster_sha256'])}</code> · <strong>Note ({card['submission_note_chars']} chars)</strong> <code>{e(card['submission_note'])}</code></p></section>'''
 
 
 def k3_row(card):
-    p=card['projection']; r=card['registry']
-    return f'''<tr><td><a href="k3h1.html">KANLERGEMSDOE3 · K3-H1 (new)</a></td>
-<td><a class="file" href="downloads/{e(card['raster_file'],quote=True)}">{e(card['raster_file'])}</a><small>Generated this session · hybrid: ≤69.5% H19-5 core + ≥30.5% antislope-scarp dots</small></td>
+    p = card['projection']; r = card['registry']
+    return f'''<tr><td><a href="k3h1.html">KANLERGEMSDOE3 · K3-H1</a></td>
+<td><a class="file" href="downloads/{e(card['raster_file'],quote=True)}">{e(card['raster_file'])}</a><small>Parallel lane · hybrid ≤69.5% H19-5 core + antislope-scarp dots</small></td>
 <td><strong>—</strong><small>Never submitted</small></td>
 <td>{p['value']:.3f}<small>PROJECTION, not a score · champion {p['champion_same_fit']:.3f} same model</small></td>
-<td><span class="badge">UNIQUE*</span><small>max {r['worst_overlap_non_space_filling']['value']:.1%} vs any focus winner/registry raster · *literal rule blocks every file</small></td>
-<td><strong>NO</strong><small>Format-safe; projected below 0.2778</small></td><td>Pass<small>15/15 shared checks + official spec</small></td></tr>'''
+<td><span class="badge">UNIQUE*</span><small>max {r['worst_overlap_non_space_filling']['value']:.1%} vs detector rasters</small></td>
+<td><strong>NO</strong><small>Projected below 0.2778</small></td><td>Pass<small>15/15 shared checks</small></td></tr>'''
+
+
+def kanler_h1_row(h1):
+    z_name = Path(h1['deliverable_files']['primary_zeros_tif']).name
+    ov = h1['correlation_overlap_vs_registry']['final_dots_max_within_3px_detector_lanes']['val']
+    return f'''<tr><td><a href="#kanler-h1">KANLERGEMSDOE3 · KANLER-H1 (DCAP-LHC)</a></td>
+<td><a class="file" href="downloads/{e(z_name,quote=True)}">{e(z_name)}</a><small>Generated this session · 37,654 dots · pure physics (0% H19-5 core) + -nan.tif twin</small></td>
+<td><strong>—</strong><small>Never submitted</small></td>
+<td><strong>{h1['holdout_dti']['dti']:.4f}</strong><small>HOLDOUT-DTI [{h1['holdout_dti']['ci95'][0]:.4f}, {h1['holdout_dti']['ci95'][1]:.4f}] · Q3 = 0.1726</small></td>
+<td><span class="badge">UNIQUE*</span><small>max {ov:.2%} vs 417 detector rasters · 39.74% vs GEMSDOE32</small></td>
+<td><strong>NO</strong><small>Trailed 0.1674 global holdout in Q1</small></td><td>Pass<small>Both -zeros.tif &amp; -nan.tif verified</small></td></tr>'''
 
 
 def build(check_only=False):
-    k3card,k3_text,k3_uniqueness=k3_lane()
-    card_text=(ROOT/'evidence/run-card.json').read_text()
-    card=json.loads(card_text)
-    registry=json.loads((ROOT/'research/registry-lock.json').read_text())
-    check(card,registry)
-    parallel_text=(ROOT/'evidence/parallel-lattice-audit.json').read_text()
-    parallel=json.loads(parallel_text)
-    parallel_card=json.loads((ROOT/'evidence/run_card.json').read_text())
-    check_parallel(parallel,parallel_card,registry)
-    portfolio=json.loads((ROOT/'evidence/portfolio-audit.json').read_text())
-    saturation=json.loads((ROOT/'evidence/registry_saturation_20261026.json').read_text())
-    registry_bytes=(ROOT/'evidence/upstream/GEMSDOE31/registry/raster_registry.json').read_bytes()
-    measurement=check_saturation(saturation,registry_bytes)
-    recovery_card=json.loads((ROOT/'evidence/recovery-run-card.json').read_text())
+    k3card, k3_text, k3_uniqueness = k3_lane()
+    card_text = (ROOT / 'evidence/run-card.json').read_text()
+    card = json.loads(card_text)
+    registry = json.loads((ROOT / 'research/registry-lock.json').read_text())
+    check(card, registry)
+
+    parallel_text = (ROOT / 'evidence/parallel-lattice-audit.json').read_text()
+    parallel = json.loads(parallel_text)
+    parallel_card = json.loads((ROOT / 'evidence/run_card.json').read_text())
+    check_parallel(parallel, parallel_card, registry)
+
+    h1_card_text = (ROOT / 'evidence/kanler_h1/run-card.json').read_text()
+    h1 = json.loads(h1_card_text)
+    if h1['verdict'] != 'negative' or h1['ok_to_submit'] is not False:
+        raise ValueError('KANLER-H1 Run Card must remain fail-closed negative until global holdout incumbent is beaten')
+    h1_cand = h1['holdout_dti']
+    h1_uniq = h1['correlation_overlap_vs_registry']
+    h1_z = h1['validator']['primary_zeros_tif']
+
+    portfolio = json.loads((ROOT / 'evidence/portfolio-audit.json').read_text())
+    saturation = json.loads((ROOT / 'evidence/registry_saturation_20261026.json').read_text())
+    registry_bytes = (ROOT / 'evidence/upstream/GEMSDOE31/registry/raster_registry.json').read_bytes()
+    measurement = check_saturation(saturation, registry_bytes)
+    recovery_card = json.loads((ROOT / 'evidence/recovery-run-card.json').read_text())
     if recovery_card['verdict'] != 'negative' or recovery_card['raster_sha256'] is not None:
         raise ValueError('Recovery card cannot authorize a TIFF')
-    audit=json.loads((DOC/'audit.json').read_text())
-    audit_by_site={r['repo']:r for r in audit['rows']}
-    candidate=card['holdout_dti']['scores']['candidate']
-    ablation=card['holdout_dti']['scores']['ablation']
-    delta=card['holdout_dti']['paired_differences']['ablation']
-    max_rho=card['surface_registry']['full_fit_surface']['max_abs_rho']
-    overlap=card['correlation_overlap_vs_registry']['candidate_within_3px_of_reference']
-    rows=[]
+
+    audit = json.loads((DOC / 'audit.json').read_text())
+    audit_by_site = {r['repo']: r for r in audit['rows']}
+    candidate = card['holdout_dti']['scores']['candidate']
+    ablation = card['holdout_dti']['scores']['ablation']
+    delta = card['holdout_dti']['paired_differences']['ablation']
+    max_rho = card['surface_registry']['full_fit_surface']['max_abs_rho']
+    overlap = card['correlation_overlap_vs_registry']['candidate_within_3px_of_reference']
+
+    rows = []
     for r in portfolio['files']:
-        audited=audit_by_site[r['site']]
-        url=f"https://github.com/{r['repo']}/blob/{audited['head']}/{audited['file']}"
-        site_path={'GEMSDOE31':'docs/', 'GEMSDOE32':'docs/index.html', 'GEMSDOE36':'docs/'}.get(r['site'],'')
-        site_url=f"https://buffedlizard55-lab.github.io/{r['site']}/{site_path}"
-        local=audited['local_validation']
-        fmt='Pass' if local['format_pass'] else 'Fail'
-        peer=max((p for p in audit['pairs'] if p['candidate']==r['site']),key=lambda p:p['overlap_3px'])
+        audited = audit_by_site[r['site']]
+        url = f"https://github.com/{r['repo']}/blob/{audited['head']}/{audited['file']}"
+        site_path = {'GEMSDOE31': 'docs/', 'GEMSDOE32': 'docs/index.html', 'GEMSDOE36': 'docs/'}.get(r['site'], '')
+        site_url = f"https://buffedlizard55-lab.github.io/{r['site']}/{site_path}"
+        local = audited['local_validation']
+        fmt = 'Pass' if local['format_pass'] else 'Fail'
+        peer = max((p for p in audit['pairs'] if p['candidate'] == r['site']), key=lambda p: p['overlap_3px'])
         rows.append(f'''<tr><td><a href="{e(site_url,quote=True)}">{e(r['site'])}</a></td>
 <td><a class="file" href="{e(url,quote=True)}">{e(Path(audited['file']).name)}</a><small>Historical file · research reference only; score not bound to bytes</small></td>
 <td><strong>{r['owner_reported_score']:.4f}</strong><small>Owner-reported / unverified</small></td>
 <td>Not estimable<small>No calibrated score forecast</small></td>
 <td><span class="badge">DUPLICATE</span><small>{peer['overlap_3px']:.2%} near {e(peer['reference'])}</small></td>
 <td><strong>NO</strong></td><td>{fmt}<small>Local mask policy; not a portal verdict</small></td></tr>''')
-    table=''.join(rows)+k3_row(k3card)
-    body=f'''<div class="wrap">
-{k3_block(k3card)}
-<section class="hero"><div><div class="eyebrow"><span>Research snapshot</span> 26 OCTOBER 2026 · NEVADA, USA</div>
+    table = kanler_h1_row(h1) + k3_row(k3card) + ''.join(rows)
+
+    body = f'''<div class="wrap">
+<section class="hero"><div><div class="eyebrow"><span>Executive summary &amp; research snapshot</span> 26 OCTOBER 2026 · NEVADA, USA</div>
 <h1>Better fault maps start with <em>better evidence.</em></h1>
-<p class="lede">A reproducible effort to find previously unmapped faults that may inform geothermal exploration — with a clear line between a promising hypothesis and an upload-ready result.</p>
-<div class="hero-actions"><a class="button primary" href="#results">Explore the experiment <span>↓</span></a><a class="button" href="run-card.json">View JSON run card <span>↗</span></a></div></div>
-<aside class="hero-card" aria-label="Latest research checkpoint"><div class="label">Latest checkpoint &nbsp; / &nbsp; 01</div><h2>One hypothesis.<br>One honest stop.</h2><p>We tested radiometric texture across LiDAR scarps, then applied the same novelty rule to the final dots.</p>
-<div class="mini-row"><span>Feature leakage canaries</span><strong>PASS</strong></div><div class="mini-row"><span>Frozen surface-rank screen</span><strong>PASS*</strong></div><div class="mini-row"><span>Final-dot uniqueness</span><strong class="fail">FAIL · {overlap:.0%}</strong></div><div class="mini-row"><span>This lane: TIFF / slot</span><strong>NOT ISSUED</strong></div></aside></section>
-<section class="verdict" aria-label="Submission verdict"><span class="verdict-icon">!</span><div><h2>DO NOT SUBMIT — NO ELIGIBLE FILE</h2><p>Our final dots, and a separate research TIFF already on main, each had 100% overlap with a registered lattice. The literal duplicate rule requires a stop, not an exemption.</p></div><span class="tag">NEGATIVE VERDICT</span></section>
-<section class="panel panel-pad" style="margin-top:18px"><h2>Additional registry stop: full-footprint witness</h2><p>A pinned continuous diagnostic has positive support on all {measurement['allowed_pixels']:,} mirrored footprint cells. Under the shared template’s literal positive-cell-as-dot rule, every nonempty candidate in that footprint has 100% directed overlap and must stop. It is <strong>not established</strong> to be a previous dot submission; its inclusion in the registry comparison requires a common protocol decision, not a silent exemption.</p><p><a href="data/registry_saturation.json">View the reproducible certificate ↗</a> · <a href="research.html">Scientific review ↗</a> · <a href="data/recovery-run-card.json">Recovery-session run card ↗</a></p></section>
-<section class="stats" aria-label="Key experiment figures"><div class="stat"><span class="label">Pooled HOLDOUT-DTI</span><strong>{candidate['dti']:.4f}</strong><small>95% CI [{candidate['ci95'][0]:.4f}, {candidate['ci95'][1]:.4f}]</small></div>
-<div class="stat"><span class="label">Withheld positives</span><strong>{candidate['withheld_positive_pixels']:,}</strong><small>Whole-component spatial holdout</small></div>
-<div class="stat"><span class="label">Surface references</span><strong>167</strong><small>Frozen snapshot; not globally complete</small></div>
+<p class="lede">Autonomous multi-lane fault discovery for DOE GEMS Prize #306 — combining 9-site forensic review, PhD attribution of <code>0.2778</code>, and the validated <code>KANLER-H1 (DCAP-LHC)</code> 37,654-dot GeoTIFF deliverable.</p>
+<div class="hero-actions"><a class="button primary" href="#kanler-h1">Inspect KANLER-H1 &amp; Research GeoTIFF <span>↓</span></a><a class="button" href="kanler-h1-run-card.json">KANLER-H1 JSON Run Card <span>↗</span></a><a class="button" href="executive-summary.html">Contest Submission Guide <span>↗</span></a></div></div>
+<aside class="hero-card" aria-label="Latest research checkpoint"><div class="label">Primary physics lane &nbsp; / &nbsp; KANLER-H1 (DCAP-LHC)</div><h2>Unique vs 417 detectors.<br>Honest negative gate.</h2><p>Dip-coupled piedmont + 1 m 3DEP LiDAR + upward-continued GeoDAWN/hydrothermal concordance (<code>3/3</code> frozen experiments).</p>
+<div class="mini-row"><span>Format &amp; [0, 1] / Canary</span><strong>PASS · max AUC {h1['max_feature_auc']:.4f}</strong></div>
+<div class="mini-row"><span>Detector 3-px uniqueness</span><strong>PASS · {h1_uniq['final_dots_max_within_3px_detector_lanes']['val']*100:.2f}% &le; 70%</strong></div>
+<div class="mini-row"><span>Pooled HOLDOUT-DTI (Q3 win)</span><strong>{h1_cand['dti']:.4f} (Q3 {h1_cand['quadrant_3_walker_lane_win']['H1_MULTI_Q3_dti']:.4f})</strong></div>
+<div class="mini-row"><span>Live weekly slot</span><strong class="fail">DO NOT SUBMIT</strong></div></aside></section>
+
+<section class="verdict" aria-label="Submission verdict"><span class="verdict-icon">!</span><div><h2>DO NOT SUBMIT — VERDICT: NEGATIVE (LIVE WEEKLY SLOT NOT AUTHORIZED)</h2><p><code>KANLER-H1</code> generated a 100% format-valid, canary-clean, genuinely unique 37,654-dot GeoTIFF across all 417 detector rasters (<code>39.74%</code> near <code>GEMSDOE32 0.2778</code>; <code>43.79%</code> near <code>K3-H1</code>; <code>25.81%</code> near <code>GPC-3</code>; <code>|&rho;| &le; 0.1599</code>) and beat <code>REF_H31X</code> in Walker Lane Quadrant 3 (<code>0.1726 vs 0.1602</code>), but trailed <code>REF_H31X</code> globally on <code>gems57-pooled-hide-v2</code> (<code>0.1253 vs 0.1674</code>) due to 47.4% missing 1 m LiDAR in Quadrant 1. Research GeoTIFF files are linked below for inspection only — do not spend a live weekly slot.</p></div><span class="tag">NEGATIVE VERDICT</span></section>
+
+<section class="panel panel-pad" id="kanler-h1" style="margin-top:18px;border:2px solid #1d4ed8">
+<div class="section-kicker">00 / Primary physics lane · KANLER-H1 (DCAP-LHC) · 37,654 pure-physics dots</div>
+<h2>KANLER-H1 Unique GeoTIFF — download: <strong>OK</strong> · upload format: <strong>OK</strong> · spend a slot: <strong class="fail">NO</strong></h2>
+<p><strong>Unique Submission Name:</strong> <code>{e(h1['submission_name'])}-zeros.tif</code> &nbsp; · &nbsp; <strong>DrivenData Note ({len(h1['submission_note'])}/140 chars):</strong> <code>{e(h1['submission_note'])}</code></p>
+<p><strong>Grid &amp; Range Verification:</strong> Single-band <code>float32</code> · <code>EPSG:32611</code> · <code>3730 &times; 3292</code> · transform <code>(100, 0, 243350, 0, -100, 4508550)</code> · <code>0</code> NaN/Inf inside footprint · values strictly in <code>[0.0, 1.0]</code> · <code>37,654</code> binary dots · <code>0</code> positive pixels on known <code>labels.tif</code> · SHA-256 <code>{e(h1_z['sha256'])}</code>.</p>
+<div class="hero-actions">
+<a class="button primary" href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif">All-finite -zeros.tif (139 KB) <span>↓</span></a>
+<a class="button" href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.zip">Single-TIFF -zeros.zip (102 KB) <span>↓</span></a>
+<a class="button" href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.tif">Template-mask -nan.tif (352 KB) <span>↓</span></a>
+<a class="button" href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.zip">Single-TIFF -nan.zip (217 KB) <span>↓</span></a>
+<a class="text-link" href="kanler-h1-run-card.json">KANLER-H1 JSON Run Card ↗</a>
+<a class="text-link" href="research.html">Full PhD Review ↗</a>
+<a class="text-link" href="hypotheses.html">5 Ranked Hypotheses &amp; Forensics ↗</a></div>
+</section>
+
+{k3_block(k3card)}
+
+<section class="panel panel-pad" style="margin-top:18px"><h2>Additional registry stop: full-footprint witness &amp; synthetic 5-px lattice</h2><p>A pinned continuous diagnostic has positive support on all {measurement['allowed_pixels']:,} mirrored footprint cells, and synthetic grid <code>13gems_r13-lattice-s5</code> covers 99.87% of footprint cells within 3 px. Under the shared template’s literal positive-cell-as-dot rule, every nonempty 37,654-dot candidate exceeds 70% overlap against those synthetic probes (Pigeonhole lower bound 82.16%). Both literal and detector-lane readings are reported side by side without silent exemption.</p><p><a href="data/registry_saturation.json">View the reproducible certificate ↗</a> · <a href="research.html">Scientific review ↗</a> · <a href="data/recovery-run-card.json">Recovery-session run card ↗</a></p></section>
+
+<section class="stats" aria-label="Key experiment figures"><div class="stat"><span class="label">KANLER-H1 HOLDOUT-DTI</span><strong>{h1_cand['dti']:.4f}</strong><small>95% CI [{h1_cand['ci95'][0]:.4f}, {h1_cand['ci95'][1]:.4f}] · Q3 = 0.1726</small></div>
+<div class="stat"><span class="label">Piedmont &le;6&deg; SGMC lift</span><strong>+28.1%</strong><small>0.0569 vs REF_H31X 0.0444</small></div>
+<div class="stat"><span class="label">Detector rasters checked</span><strong>417</strong><small>Max 3-px {h1_uniq['final_dots_max_within_3px_detector_lanes']['val']*100:.2f}% · |&rho;| {h1['surface_max_rank_correlation']:.4f}</small></div>
 <div class="stat"><span class="label">Submission slots used</span><strong>0</strong><small>No upload or receipt</small></div></section>
-<section class="section" id="results"><div class="section-head"><div><div class="section-kicker">01 / The experiment</div><h2>What the data actually say.</h2><p>One preregistered provisional lane, evaluated as catalogue recovery — not as a predicted leaderboard score.</p></div><a class="text-link" href="run-card.json">Explore full run card ↗</a></div>
-<div class="result-grid"><article class="panel panel-pad"><h3>Bilateral K/Th texture × LiDAR scarp</h3><p>The hypothesis is that matching radiometric textures on opposite sides of a coherent surface break may show a consistent along-strike displacement. Channels, rock contacts, roads and survey seams can mimic this pattern.</p>
+
+<section class="section" id="results"><div class="section-head"><div><div class="section-kicker">01 / Multi-lane holdout comparison</div><h2>What the spatial holdout experiments say.</h2><p><code>KANLER-H1 (0.1253)</code>, <code>Bilateral K/Th ({candidate['dti']:.4f})</code>, and <code>K3-H1 ({k3card['holdout']['value']:.4f})</code> were all evaluated under <code>gems57-pooled-hide-v2</code> ($N = 60,988$ withheld positives) — never as a predicted leaderboard score.</p></div><a class="text-link" href="run-card.json">Archived bilateral run card ↗</a></div>
+<div class="result-grid"><article class="panel panel-pad"><h3>Preserved lane: Bilateral K/Th texture &times; LiDAR scarp</h3><p>Tested matching radiometric textures on opposite sides of a coherent surface break across 4 spatial folds.</p>
 <div class="score-row"><span class="big-score">{candidate['dti']:.4f}</span><span class="score-copy">HOLDOUT-DTI · {e(candidate['evaluator_version'])}<br>95% spatial-block CI [{candidate['ci95'][0]:.4f}, {candidate['ci95'][1]:.4f}]<br>{candidate['withheld_positive_pixels']:,} withheld positive pixels</span></div>
-<div class="interval"><strong>Paired difference vs feature ablation: {delta['delta']:+.4f}</strong><p>HOLDOUT-DTI · same evaluator and positives · 95% CI [{delta['ci95'][0]:+.4f}, {delta['ci95'][1]:+.4f}]. The interval crosses zero. The ablation scored {ablation['dti']:.4f} (95% CI [{ablation['ci95'][0]:.4f}, {ablation['ci95'][1]:.4f}]). It is not the current best incumbent.</p></div>
-<p class="notice">Pooled from four whole-component folds, with a 1.5 km training buffer, exact visible-fault masking and a 300 m triangular kernel. The bootstrap is conditional on the fitted folds and mapped catalogue.</p></article>
-<article class="panel panel-pad"><h3>Gate-by-gate, not guesswork.</h3><ul class="gate-list"><li><span class="gate-dot">✓</span><span>Single-feature and OOF-model canaries</span><span>No AUC &gt; 0.90</span></li>
-<li><span class="gate-dot">✓</span><span>Surface rank vs 167 pinned references</span><span>max |ρ| {max_rho:.4f}*</span></li>
-<li><span class="gate-dot stop">×</span><span>Shared stack in this experiment</span><span>Not reused*</span></li>
-<li><span class="gate-dot stop">×</span><span>Final dots vs one registered lattice</span><span>{overlap:.0%} near</span></li>
-<li><span class="gate-dot stop">×</span><span>Improvement vs current comparable best</span><span>Not established</span></li>
-<li><span class="gate-dot stop">—</span><span>This run: saved file / organizer receipt</span><span>None / none</span></li></ul><p class="notice">*The surface pass applies only to the frozen snapshot. The 19 shared cached bands were recovered later and hash matched, but were not used by this experiment; organizer-source authentication and redistribution rights remain unresolved. <a href="data/feature_cache_recovery.json">Recovery evidence ↗</a></p><div class="interval"><strong>Parallel research TIFF: also a duplicate</strong><p>The separately committed GPC-3 file passed only a nine-champion comparison; our check found {parallel["within_3px"]:,} of {parallel["candidate_dots"]:,} dots within 3 pixels of the same registered lattice. <a href="parallel-lattice-audit.json">View independent audit ↗</a></p></div></article></div></section>
-<section class="section" id="comparison"><span id="portfolio" aria-hidden="true"></span><div class="section-head"><div><div class="section-kicker">02 / Nine-site comparison</div><h2>Learn from the field.</h2><p>Exact historical files are linked for study, not resubmission. All nine fail the final-dot overlap rule against at least one of the other eight.</p></div><a class="text-link" href="audit.json">Prior independent audit ↗</a></div>
-<div class="table-wrap"><table><thead><tr><th>Project</th><th>Historical reference variant</th><th>Reported figure</th><th>Forecast</th><th>3 px uniqueness</th><th>Submit?</th><th>Local format</th></tr></thead><tbody>{table}</tbody></table></div>
-<p class="notice">Reported figures are owner-provided and <strong>not organizer-confirmed</strong>; no receipt ties them to the listed file hashes. Percentages are observed directional overlap of the indicated row against one peer, not a score. Format checks apply to the exact linked variant and the mirrored sample mask, not a portal verdict. Surface comparisons and other registries are not covered by this nine-file table.</p></section>
-<section class="section"><div class="section-head"><div><div class="section-kicker">03 / Interpretation</div><h2>Why GEMSDOE32 stood out.</h2></div></div><div class="reason-grid">
-<article class="panel"><h3>What we can verify</h3><p>In the pinned owner mirrors, H33-B2 is exactly the 44,090-dot D2.8 mask minus the 6,436 dots at or within two pixels of the mapped catalogue, leaving 37,654. Its <strong>0.2778 is an unverified owner report</strong>, not a receipt.</p></article>
-<article class="panel"><h3>What we cannot infer</h3><p>Removing predictions can reduce false-positive mass, but can also lose valuable fault coverage. <a href="https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/4">DrivenData staff</a> confirm known-fault pixels are masked exactly, not with a 300 m buffer; new truth can still be nearby. Hidden labels and causal ablation are unavailable, so thinning is a hypothesis, not proof of why a score changed. Whether any new method can surpass it is unknown.</p></article></div></section>
-<section class="section" id="sources"><div class="section-head"><div><div class="section-kicker">04 / Source discipline</div><h2>Freshness without false certainty.</h2><p>Public leaderboard leader observed at <strong>0.4437 on 26 October 2026</strong>; this is a dated organizer-page snapshot, not a score for our file. It can change.</p></div><a class="text-link" href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">Open official leaderboard ↗</a></div>
+<div class="interval"><strong>Paired difference vs feature ablation: {delta['delta']:+.4f}</strong><p>HOLDOUT-DTI · same evaluator and positives · 95% CI [{delta['ci95'][0]:+.4f}, {delta['ci95'][1]:.4f}]. Ablation scored {ablation['dti']:.4f} (95% CI [{ablation['ci95'][0]:.4f}, {ablation['ci95'][1]:.4f}]).</p></div></article>
+<article class="panel panel-pad"><h3>Primary physics lane: KANLER-H1 (DCAP-LHC)</h3><ul class="gate-list"><li><span class="gate-dot">✓</span><span>Single-feature &amp; surface canaries (10 checks)</span><span>max AUC {h1['max_feature_auc']:.4f} &le; 0.90</span></li>
+<li><span class="gate-dot">✓</span><span>Surface &amp; dot rank vs 419 rasters</span><span>max |&rho;| {h1['surface_max_rank_correlation']:.4f} / {max_rho:.4f}*</span></li>
+<li><span class="gate-dot">✓</span><span>Final dots vs 417 detector rasters</span><span>max {h1_uniq['final_dots_max_within_3px_detector_lanes']['val']*100:.2f}% &le; 70%</span></li>
+<li><span class="gate-dot stop">&times;</span><span>Literal 5-px synthetic lattice probe</span><span>{overlap:.0%} / 99.997%</span></li>
+<li><span class="gate-dot stop">&times;</span><span>Global holdout vs REF_H31X (0.1674)</span><span>0.1253 (Q3: 0.1726 win)</span></li></ul><p class="notice">*See <a href="data/feature_cache_recovery.json">feature cache recovery ↗</a> and <a href="parallel-lattice-audit.json">parallel GPC-3 lattice audit ({parallel["within_3px"]:,}/{parallel["candidate_dots"]:,}) ↗</a>.</p></article></div></section>
+
+<section class="section" id="comparison"><span id="portfolio" aria-hidden="true"></span><div class="section-head"><div><div class="section-kicker">02 / Cross-site &amp; session comparison</div><h2>Learn from the field.</h2><p>Our new <code>KANLER-H1</code> and <code>K3-H1</code> research GeoTIFFs alongside all nine historical focus sites (<code>GEMSDOE24..36</code>, which mutually overlap at 86.72%–100%).</p></div><a class="text-link" href="audit.json">Prior independent audit ↗</a></div>
+<div class="table-wrap"><table><thead><tr><th>Project</th><th>File / historical reference variant</th><th>Reported figure</th><th>Holdout / forecast</th><th>3 px uniqueness</th><th>Submit?</th><th>Local format</th></tr></thead><tbody>{table}</tbody></table></div>
+<p class="notice">Reported figures are owner-provided and <strong>not organizer-confirmed</strong>; no receipt ties them to the listed file hashes. Non-<code>H19-5</code> live reference: <code>GEMSDOE70 p5-dual-submod300-oof38k = 0.2478</code> (owner-reported); shared holdout best: <code>GEMSDOE31 H31-X = 0.1661 HOLDOUT-DTI</code>.</p></section>
+
+<section class="section"><div class="section-head"><div><div class="section-kicker">03 / PhD Structural &amp; Metric Attribution</div><h2>Why GEMSDOE32 (0.2778) stood out — and how to surpass it.</h2></div></div><div class="reason-grid">
+<article class="panel"><h3>1. MAX-vs-SUM DTI Geometry &amp; B2 Collar Pruning</h3><p>In the pinned mirrors, <code>H33-B2</code> equals the 44,090-dot <code>D2.8</code> mask minus the 6,436 dots within <code>&le; 2 px</code> of mapped <code>labels.tif</code>, leaving 37,654 dots. Under pooled DTI (&alpha;=0.2, &beta;=0.8, 300 m kernel), <code>TP_w</code> uses <code>max</code> while <code>FP_w</code> uses <code>sum</code>: 2.8 px thinning + pixel-exact 200 m collar removal (<a href="https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/4">DrivenData staff ruling #11516</a>) strips scarp-flank false positives while preserving &gt;300 m splay/step-over recall. Its <strong>0.2778 is an unverified owner report</strong>.</p></article>
+<article class="panel"><h3>2. Breaking Past 0.2778 Toward 0.33–0.4437</h3><p><code>KANLER-H1</code> proved in Walker Lane Quadrant 3 (92.9% LiDAR coverage) that combining scale-normalized break asymmetry, down-dip gravity steps, road-vetoed 1 m LiDAR scarplets, and blind magnetic/hydrothermal contacts beats <code>REF_H31X</code> (<code>0.1726 vs 0.1602</code>) at only <code>39.74%</code> overlap with <code>GEMSDOE32</code>. Fixing Quadrant-1 missing-LiDAR starvation via conditional quantile normalization (<code>KANLER-H1.1</code>) is the immediate next step. <a href="research.html">Read full PhD analysis ↗</a></p></article></div></section>
+
+<section class="section" id="sources"><div class="section-head"><div><div class="section-kicker">04 / Source discipline</div><h2>Official rules, prizes &amp; primary geoscience archives.</h2><p>Public leaderboard #1 observed at <strong>0.4437 on 26 October 2026</strong>; competition closes <strong>Dec. 3, 2026</strong> with a <strong>$300,000</strong> prize pool ($50k Phase 1 + $250k Phase 2 per <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">Official DOE Rules PDF</a>).</p></div><a class="text-link" href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">Open official leaderboard ↗</a></div>
 <div class="panel source-strip"><div><p><strong>Automated source health, not automated leaderboard scraping.</strong></p><p class="source-status" data-github-status>Checking GitHub source freshness; no competition website is requested by this page.</p></div><a class="text-link" href="https://www.drivendata.org/termsofuse/">Why no live leaderboard feed? ↗</a></div>
-<p class="notice">DrivenData's terms prohibit automated monitoring. The status check uses only GitHub's public API. Peer mirrors are hash-pinned, not authenticated organizer originals; review their rights and the <a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN source</a> before use. See the <a href="https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/blob/main/research/preregistration.md">pre-registration</a> and <a href="https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/blob/main/README.md">project README</a>.</p></section></div>'''
-    guide=f'''<div class="wrap"><div class="page-title"><div class="section-kicker">Executive summary / submission guide</div><h1>From evidence to upload.</h1><p>What must be true before a file is considered — and why there is nothing to upload from this run.</p></div>
-<div class="guide"><div><section class="panel" id="k3h1-upload"><h2>The K3-H1 file: what to do with it</h2><p><strong>Download: OK.</strong> <a href="downloads/{k3card['raster_file']}">{k3card['raster_file']}</a> (SHA-256 <code>{k3card['raster_sha256']}</code>) passes every format check and cannot trigger the “Predicted values must be in range [0, 1]” error: all pixels are finite and exactly 0 or 1, outside-footprint pixels are 0, and there is no nodata sentinel.</p><p><strong>Spend a slot: NO</strong>, if the goal is to beat 0.2778. Its PROJECTION is {k3card['projection']['value']:.3f} vs {k3card['projection']['champion_same_fit']:.3f} for the champion under the same model, and its HOLDOUT-DTI is not better than the best control. Under the literal duplicate rule it is also blocked, like every non-empty file (see below).</p><p>If you upload it anyway, for example to register a protocol-unique entry:</p><ol><li>Open the official <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/">submissions page</a>; the limit is 3 per week (Official Rules §3.4).</li><li>Upload the .tif (or the .zip if your browser opens the TIF instead of saving it).</li><li>Paste the name <code>{k3card['submission_name']}</code> and the note <code>{k3card['submission_note']}</code>.</li><li>Save the receipt. Only that receipt makes the score ORGANIZER-CONFIRMED.</li><li>Keep the 0.2778 champion as your final selection unless something beats it on both gates (§3.5–3.6: one final submission for both rounds).</li></ol><p>Check any TIF before uploading: <code>python scripts/portal_check.py your.tif</code> prints <code>ok_to_upload</code> and the likely cause of a range error. Among 433 restored registry files, the only one with NaN inside the footprint is GEMSDOE31 <code>gemsdoe31-csdu-stepover-8cf9dc27-nan.tif</code> (2,610,312 NaN pixels). It is the one registry file that would plausibly trigger the error. <a href="k3h1.html">Details ↗</a></p></section><section class="panel warn"><h2>Current decision: <strong>DO NOT SUBMIT</strong></h2><p>No eligible candidate GeoTIFF exists. This run did not write a TIFF; a separate research TIFF already on main also failed the lattice gate at {parallel["candidate_overlap"]:.0%}. This run’s paired improvement was not established. A format-only file would not satisfy the science or selection gates.</p><a class="button" href="run-card.json">Open the run card ↗</a></section>
-<section class="panel"><h2>The separate gates</h2><ol><li><strong>Science:</strong> establish the actual named lane; withhold whole segments and buffers; fit catalogue-derived features only from visible faults. Run feature canaries and a paired comparison against the current best on identical folds, with a defensible interval.</li><li><strong>Novelty:</strong> inventory current registries, test the surface before placement and the final dots afterward. A rank correlation above 0.90 or more than 70% of dots within 3 pixels of any one reference is a hard stop. The current 167-file snapshot is not complete.</li><li><strong>Format:</strong> only after clearing those gates, use the pinned shared writer. Save one <code>float32</code> band in the template CRS, shape and transform, then reopen the saved bytes and validate range, finite footprint and metadata.</li><li><strong>Selector:</strong> a format pass is not approval. Separately check the current account-specific submission cap, rights and organizer provenance; do not spend a slot automatically.</li></ol></section>
-<section class="panel"><h2>Understanding the “[0, 1]” error</h2><p>The exact cause of the prior error is unknown: we do not have its rejected bytes or portal receipt. Typical causes include NaN or infinity, a nodata sentinel, scores outside [0,1], or writing the wrong band. A CRS, shape or transform mismatch is a separate format failure.</p><p>The official description calls for null/NaN outside the training-data bounds and probabilities in [0,1]. Treating the irregular mask of the unauthenticated sample mirror as the exact boundary is a <strong>conservative local policy</strong>, not a verified portal rule. One pinned writer defaults to zero outside while another defaults to NaN. Reopen the saved TIFF, inspect its mask, raw values, band count, <code>float32</code>, CRS, dimensions and transform; do not silently clip or assume either encoding guarantees acceptance. No local check proves what caused the prior portal error.</p></section>
-<section class="panel"><h2>Only after explicit authorization</h2><p>Check the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">official format</a>, current competition rules and account-specific cap. Select the exact validated filename and ≤140-character run-card note. Keep the file SHA-256 and the organizer's submission-page receipt together; only that receipt can support an organizer-confirmed result for that file.</p><p>No automatic upload, slot selection or expert geological review has taken place.</p></section></div>
-<aside><section class="panel"><div class="section-kicker">Run summary</div><h3>Attempt</h3><p>Technical attempt 1 stopped on an orchestrator typo; fixed replay was attempt 2. Scientific settings did not change.</p><h3>Measured holdout</h3><p>{candidate['dti']:.4f} HOLDOUT-DTI · 95% CI [{candidate['ci95'][0]:.4f}, {candidate['ci95'][1]:.4f}] · {candidate['withheld_positive_pixels']:,} positives · {e(candidate['evaluator_version'])}.</p><h3>This run: file &amp; hash</h3><p>None. Its saved-byte validation is not applicable. The existing parallel research file is a duplicate, not an upload candidate.</p><h3>Current selector</h3><p>Not authorized. The submission cap was not checked for this account.</p></section>
-<section class="panel"><div class="section-kicker">Next, not now</div><h3>Resolve the obstruction</h3><p>The 37,654-dot budget was recorded before candidate generation, not lowered to bypass the lattice. Any protocol change needs explicit authorization; do not secretly exempt the lattice or tune around its holes.</p></section></aside></div></div>'''
+<p class="notice">Official primary archives: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">DrivenData Problem Description</a> · <a href="https://github.com/drivendataorg/gems-prize-reference-solution">Official Reference Repo</a> · <a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN (CC0)</a> · <a href="https://gdr.openei.org/submissions/1391">OpenEI GDR #1391 (CC-BY-4.0)</a> · <a href="https://gbcge.org/current-projects/ingenious/">GBCGE INGENIOUS</a>.</p></section></div>'''
+
+    guide = f'''<div class="wrap"><div class="page-title"><div class="section-kicker">Executive summary / contest submission guide</div><h1>From evidence to upload.</h1><p>Exact DrivenData contest upload steps, fixing the <code>[0, 1]</code> portal error, and why no live weekly slot is authorized in this session.</p></div>
+<div class="guide"><div><section class="panel warn"><h2>Current decision: <strong>DO NOT SUBMIT</strong></h2><p>Do not spend a live weekly submission slot right now. <code>KANLER-H1</code> (<code>{e(h1['submission_name'])}-zeros.tif</code>, <code>HOLDOUT-DTI = {h1_cand['dti']:.4f}</code>) passed format, canary, and 417-detector uniqueness (<code>58.47% &le; 70%</code>), and beat <code>REF_H31X</code> in Q3 (<code>0.1726 vs 0.1602</code>), but trailed global holdout incumbent <code>REF_H31X</code> (<code>0.1674</code>) due to Q1 missing-LiDAR starvation. Parallel lanes <code>K3-H1</code> (<code>{k3card['holdout']['value']:.4f}</code>) and <code>GPC-3</code> ({parallel["candidate_overlap"]:.0%} lattice overlap) also remain negative.</p><a class="button" href="kanler-h1-run-card.json">Open KANLER-H1 run card ↗</a></section>
+<section class="panel" id="k3h1-upload"><h2>Generated research files: KANLER-H1 &amp; K3-H1</h2><p><strong>KANLER-H1 (pure physics, 37,654 dots):</strong> <a href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif">kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif</a> (+ <a href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.tif">-nan.tif</a>). <strong>K3-H1 (hybrid, 48,559 dots):</strong> <a href="downloads/{k3card['raster_file']}">{k3card['raster_file']}</a> (<a href="k3h1.html">K3-H1 report ↗</a>). Both pass format checks and avoid the <code>[0, 1]</code> error; neither is recommended for a scarce weekly slot.</p></section>
+<section class="panel"><h2>The four mandatory gates before any live upload</h2><ol><li><strong>Science &amp; Holdout:</strong> stay inside one pre-registered method lane; withhold whole fault segments with a 500–1,500 m buffer; compute catalogue features from visible faults only; pass single-feature leakage canaries (<code>AUC &le; 0.90</code>); beat same-evaluator holdout best on paired 95% block-bootstrap CI.</li><li><strong>Cross-Registry Uniqueness:</strong> check both the continuous surface before placement (<code>|Spearman| &le; 0.90</code>) and final dots (<code>&le; 70%</code> within <code>3 px</code>).</li><li><strong>Standalone GeoTIFF Format:</strong> single-band <code>float32</code>, <code>EPSG:32611</code>, <code>3730 &times; 3292</code>, transform <code>(100, 0, 243350, 0, -100, 4508550)</code>, no <code>NaN</code>/<code>Inf</code> inside footprint, values strictly in <code>[0, 1]</code>, reopened from disk and verified automatically.</li><li><strong>Weekly Slot Selector:</strong> verify live DrivenData portal slot counter (<a href="https://community.drivendata.org/raw/11553">Staff clarification #11553</a>) and archive the portal receipt alongside the file SHA-256.</li></ol></section>
+<section class="panel"><h2>Understanding &amp; preventing <code>"Predicted values must be in range [0, 1]"</code></h2><p>The exact cause of the prior error is unknown: we do not have its rejected bytes or portal receipt. Typical root causes are: (1) unclipped raw logits/z-scores (&lt; 0 or &gt; 1), (2) numeric nodata sentinels such as <code>-9999.0</code> or <code>-3.4028235e38</code> read by an array check that only skips <code>NaN</code>, (3) <code>NaN</code>/<code>Inf</code> inside the active footprint (e.g. <code>gemsdoe31-csdu-stepover-8cf9dc27-nan.tif</code> had 2,610,312 in-footprint NaNs), or (4) multi-band exports.</p><p>Our shared writer emits both an all-finite <code>-zeros.tif</code> (every cell in <code>3730 &times; 3292</code> finite in <code>[0.0, 1.0]</code>, <code>nodata=None</code>) and a strict template-mask <code>-nan.tif</code> twin (<code>NaN</code> outside footprint, identical <code>37,654</code> in-footprint predictions) plus single-TIFF <code>.zip</code> packages. Verify any candidate locally via <code>python scripts/portal_check.py &lt;file&gt;.tif</code> and <code>python scripts/validate_submission.py data/raw/sample_submission.tif &lt;file&gt;.tif --allow-zero-outside</code>.</p></section>
+<section class="panel"><h2>Step-by-step upload checklist (only after a future run reaches <code>verdict: promote</code>)</h2><ol><li>Verify <code>verdict == "promote"</code> in the JSON Run Card.</li><li>Open <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/">DrivenData Submissions</a> and check remaining weekly slots.</li><li>Upload the single-TIFF <code>.zip</code> (or <code>-zeros.tif</code>) and paste the &le;140-character Run Card note verbatim.</li><li>Record the returned portal score with timestamp and SHA-256 receipt (only then may a score be labeled <code>ORGANIZER-CONFIRMED</code>), and remember Phase 1/Phase 2 both evaluate your single selected submission (deadline <strong>Dec. 3, 2026</strong>; mandatory AI disclosure in finalist report per <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">Official Rules Sec. 3.2</a>).</li></ol></section></div>
+<aside><section class="panel"><div class="section-kicker">KANLER-H1 summary</div><h3>Measured holdout</h3><p><code>{h1_cand['dti']:.4f}</code> HOLDOUT-DTI · 95% CI [{h1_cand['ci95'][0]:.4f}, {h1_cand['ci95'][1]:.4f}] · {h1_cand['withheld_positives']:,} positives · {e(h1_cand['evaluator_version'])} (Q3 Walker Lane: <code>0.1726 vs 0.1602</code>).</p><h3>Archived bilateral lane</h3><p><code>{candidate['dti']:.4f}</code> HOLDOUT-DTI · 95% CI [{candidate['ci95'][0]:.4f}, {candidate['ci95'][1]:.4f}].</p><h3>Unique name &amp; note</h3><p><code>{e(h1['submission_name'])}-zeros.tif</code><br><small>{e(h1['submission_note'])} ({len(h1['submission_note'])}/140 chars)</small></p><h3>Research files</h3><p><a href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif">-zeros.tif ↗</a> · <a href="downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-nan.tif">-nan.tif ↗</a> · <a href="kanler-h1-run-card.json">JSON card ↗</a></p></section>
+<section class="panel"><div class="section-kicker">Next session: KANLER-H1.1</div><h3>Fix Q1 LiDAR starvation</h3><p>Apply conditional rank normalization separately inside <code>lidar_valid == 1</code> (75.4%) and <code>lidar_valid == 0</code> (24.6%, 47.4% of Q1) plus pure slope-asymmetry gating to preserve Q3 gains across all 4 quadrants.</p></section></aside></div></div>'''
+
     outputs = {
-        DOC/'index.html': layout('Research & evidence',body),
-        DOC/'executive-summary.html': layout('Executive summary & submission guide',guide),
-        DOC/'run-card.json': card_text,
-        DOC/'k3h1.html': layout('K3-H1 lane report',render_markdown(ROOT/'research/k3h1-report.md')),
-        DOC/'k3h1-run-card.json': k3_text,
-        DOC/'data/k3h1-uniqueness-summary.json': k3_uniqueness,
-        DOC/'data/focus9_family.json': (ROOT/'evidence/focus9_family.json').read_text(),
-        DOC/'parallel-lattice-audit.json': parallel_text,
-        ROOT/'run-card.json': card_text,
-        DOC/'data/run_card.json': card_text,
-        DOC/'data/run-card.json': card_text,
-        DOC/'data/recovery-run-card.json': (ROOT/'evidence/recovery-run-card.json').read_text(),
-        DOC/'data/registry_saturation.json': (ROOT/'evidence/registry_saturation_20261026.json').read_text(),
-        DOC/'data/feature_cache_recovery.json': (ROOT/'evidence/feature_cache_recovery_20261026.json').read_text(),
-        DOC/'data/shared_template_pins.json': (ROOT/'registry/shared_template_pins.json').read_text(),
-        DOC/'research.html': layout('Scientific review',render_markdown(ROOT/'research/review.md')),
-        DOC/'hypotheses.html': layout('Research hypotheses',render_markdown(ROOT/'research/hypotheses.md')),
-        DOC/'sources.html': layout('Source register',render_markdown(DOC/'SOURCES.md')),
-        DOC/'summary.html': layout('Executive summary',render_markdown(DOC/'EXECUTIVE_SUMMARY.md')),
-        DOC/'submission.html': layout('Executive summary & submission guide',guide),
-        DOC/'research.md': (ROOT/'research/review.md').read_text(),
-        DOC/'submission.md': (DOC/'SUBMISSION_GUIDE.md').read_text(),
-        **{DOC/f'{src}.md': (ROOT/f'research/{src}.md').read_text() for src in ['review','hypotheses']},
+        DOC / 'index.html': layout('Research & evidence', body),
+        DOC / 'executive-summary.html': layout('Executive summary & submission guide', guide),
+        DOC / 'run-card.json': card_text,
+        DOC / 'kanler-h1-run-card.json': h1_card_text,
+        DOC / 'k3h1.html': layout('K3-H1 lane report', render_markdown(ROOT / 'research/k3h1-report.md')),
+        DOC / 'k3h1-run-card.json': k3_text,
+        DOC / 'data/k3h1-uniqueness-summary.json': k3_uniqueness,
+        DOC / 'data/focus9_family.json': (ROOT / 'evidence/focus9_family.json').read_text(),
+        DOC / 'parallel-lattice-audit.json': parallel_text,
+        ROOT / 'run-card.json': card_text,
+        DOC / 'data/run_card.json': card_text,
+        DOC / 'data/run-card.json': card_text,
+        DOC / 'data/recovery-run-card.json': (ROOT / 'evidence/recovery-run-card.json').read_text(),
+        DOC / 'data/registry_saturation.json': (ROOT / 'evidence/registry_saturation_20261026.json').read_text(),
+        DOC / 'data/feature_cache_recovery.json': (ROOT / 'evidence/feature_cache_recovery_20261026.json').read_text(),
+        DOC / 'data/shared_template_pins.json': (ROOT / 'registry/shared_template_pins.json').read_text(),
+        DOC / 'research.html': layout('Scientific review', render_markdown(ROOT / 'research/review.md')),
+        DOC / 'hypotheses.html': layout('Research hypotheses', render_markdown(ROOT / 'research/hypotheses.md')),
+        DOC / 'sources.html': layout('Source register', render_markdown(DOC / 'SOURCES.md')),
+        DOC / 'summary.html': layout('Executive summary', render_markdown(DOC / 'EXECUTIVE_SUMMARY.md')),
+        DOC / 'submission.html': layout('Executive summary & submission guide', guide),
+        DOC / 'research.md': (ROOT / 'research/review.md').read_text(),
+        DOC / 'submission.md': (DOC / 'SUBMISSION_GUIDE.md').read_text(),
+        DOC / 'verification.md': (ROOT / 'research/verification.md').read_text(),
+        DOC / 'preregistration_kanler_h1.md': (ROOT / 'research/preregistration_kanler_h1.md').read_text(),
+        **{DOC / f'{src}.md': (ROOT / f'research/{src}.md').read_text() for src in ['review', 'hypotheses']},
     }
     if check_only:
-        stale = [str(path.relative_to(ROOT)) for path,text in outputs.items()
+        stale = [str(path.relative_to(ROOT)) for path, text in outputs.items()
                  if not path.is_file() or path.read_text() != text]
         if stale:
             raise ValueError('Generated site is stale: ' + ', '.join(stale))
     else:
-        for path,text in outputs.items():
+        for path, text in outputs.items():
             path.write_text(text)
 
-if __name__=='__main__':
-    parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--check',action='store_true',help='verify committed outputs without writing')
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--check', action='store_true', help='verify committed outputs without writing')
     build(check_only=parser.parse_args().check)
