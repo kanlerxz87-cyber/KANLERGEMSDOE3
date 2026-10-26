@@ -28,6 +28,7 @@ from run_e3_hybrid import build  # noqa: E402
 
 def main() -> int:
     t0 = time.time()
+    C.ensure_bridge()
     grid = load_grid()
     folds, _ = HO.buffered_component_draw(grid, seed=20, hide_frac=0.20, buffer_px=3)
     hidden, visible = folds[0]["hidden_all"], folds[0]["visible"]

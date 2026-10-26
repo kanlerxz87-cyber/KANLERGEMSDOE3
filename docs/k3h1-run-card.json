@@ -280,6 +280,8 @@
  "zip_sha256": "938b3b82b88199bc38d7f6c4300ee34377a303dc73e847e2e3d651cde700bebc",
  "validator": {
   "single_band": true,
+  "no_nan_inside_footprint": true,
+  "values_0_1_inside_footprint": true,
   "all_finite": true,
   "range_0_1": true,
   "crs_match": true,
@@ -337,6 +339,7 @@
  },
  "promotion_gate": {
   "verdict": "negative",
+  "schema_status": "incomplete",
   "failures": [
    "visible_only_features",
    "registry_complete",
@@ -344,6 +347,7 @@
    "template_provenance_verified",
    "paired_holdout_improvement"
   ],
+  "promotion_evaluated": false,
   "slot_authorized": false
  },
  "verdict": "negative",

@@ -43,7 +43,7 @@ def phi(a: np.ndarray, b: np.ndarray) -> float:
 
 def main() -> int:
     t0 = time.time()
-    cand_path = sorted((ROOT / "docs" / "downloads").glob("kanler3-*.tif"))
+    cand_path = sorted((ROOT / "docs" / "downloads").glob("kanler3-k3h1-*.tif"))
     if len(cand_path) != 1:
         raise SystemExit(f"expected exactly one candidate TIFF, found {cand_path}")
     cand_path = cand_path[0]

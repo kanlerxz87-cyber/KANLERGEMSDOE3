@@ -26,7 +26,7 @@ def layout(title, body):
 <title>{e(title)} | GEMS Evidence Lab</title><meta name="description" content="Evidence-led fault mapping research and submission readiness.">
 <link rel="stylesheet" href="experiment.css"></head><body>
 <header class="top"><div class="wrap top-inner"><a class="brand" href="index.html"><span class="mark">G</span><span><strong>GEMS</strong><small>Evidence lab / KANLERGEMSDOE3</small></span></a>
-<nav aria-label="Main navigation"><a href="index.html#results">Experiment</a><a href="index.html#comparison">Site comparison</a><a href="index.html#sources">Sources</a><a class="nav-cta" href="executive-summary.html">Submission guide ↗</a></nav></div></header>
+<nav aria-label="Main navigation"><a href="index.html#results">Experiment</a><a href="index.html#comparison">Site comparison</a><a href="index.html#sources">Sources</a><a href="k3h1.html">K3-H1 lane</a><a class="nav-cta" href="executive-summary.html">Submission guide ↗</a></nav></div></header>
 <main>{body}</main><footer><div class="wrap"><span>GEMS Evidence Lab &nbsp; / &nbsp; Maximize P(Win) · Own the Outcome</span><span>Research snapshot · No competition slot spent</span></div></footer>
 <script src="source-status.js" defer></script></body></html>'''
 
@@ -78,7 +78,60 @@ def check_saturation(saturation, registry_bytes):
     return measurement
 
 
+def k3_lane():
+    """Load the K3-H1 run card and refuse to build if it disagrees with the published bytes."""
+    card_text=(ROOT/'evidence/k3h1-run-card.json').read_text()
+    card=json.loads(card_text)
+    tif=DOC/'downloads'/card['raster_file']
+    zipped=DOC/'downloads'/card['zip_file']
+    if (hashlib.sha256(tif.read_bytes()).hexdigest()!=card['raster_sha256']
+            or hashlib.sha256(zipped.read_bytes()).hexdigest()!=card['zip_sha256']):
+        raise ValueError('K3-H1 run card does not match the published TIFF/ZIP bytes; refuse to build')
+    if (not 0<len(card['submission_note'])<=140 or card['verdict'] not in ('promote','negative')
+            or card['download']['recommended_for_weekly_slot']!=(card['verdict']=='promote')
+            or card['holdout']['class']!='HOLDOUT-DTI' or 'NOT a score' not in card['projection']['class']):
+        raise ValueError('K3-H1 run card is internally inconsistent; refuse to build')
+    uq=json.loads((ROOT/'evidence/uniqueness_final.json').read_text())
+    if uq['candidate_file_sha256']!=card['raster_sha256']:
+        raise ValueError('K3-H1 uniqueness evidence refers to different bytes')
+    summary={k:v for k,v in uq.items() if k!='rows'}
+    summary['focus_sites']=card['focus_sites']
+    return card, card_text, json.dumps(summary,indent=1)+'\n'
+
+
+def k3_block(card):
+    h=card['holdout']; p=card['projection']; r=card['registry']; d=card['download']
+    tif=f"downloads/{card['raster_file']}"; zipped=f"downloads/{card['zip_file']}"
+    ov=r['worst_overlap_non_space_filling']; rho=r['worst_spearman_final_dots']; srf=r['worst_spearman_surface_preplacement']
+    slot='YES' if d['recommended_for_weekly_slot'] else 'NO'
+    return f'''<section class="panel panel-pad" id="k3h1" aria-label="Generated K3-H1 GeoTIFF" style="margin-top:18px;border:2px solid #b84227">
+<div class="section-kicker">New this session · K3-H1 lane · antislope-scarp grain traces</div>
+<h2>Generated unique TIF — download: <strong>OK</strong> · upload format: <strong>OK</strong> · spend a slot: <strong class="fail">{slot}</strong></h2>
+<p>{e(d['bottom_line'])}</p>
+<div class="hero-actions"><a class="button primary" href="{e(tif,quote=True)}">Download TIF <span>↓</span></a><a class="button" href="{e(zipped,quote=True)}">Download ZIP <span>↓</span></a><a class="text-link" href="k3h1.html">Full lane report: why 0.2778, experiments, uniqueness ↗</a><a class="text-link" href="k3h1-run-card.json">JSON run card ↗</a></div>
+<ul class="gate-list">
+<li><span class="gate-dot">✓</span><span>Format: 15 shared-validator checks + official spec (finite, 0/1, zeros outside, EPSG:32611)</span><span>PASS · avoids the [0,1] error</span></li>
+<li><span class="gate-dot">✓</span><span>Unique vs {r['registry_rasters_compared']-len(r['space_filling_rasters'])} non-space-filling registry rasters (focus sites + scored ledger)</span><span>max overlap {ov['value']:.3f} · max ρ {rho['value']:.3f} (surface {srf['value']:.3f})</span></li>
+<li><span class="gate-dot stop">×</span><span>Literal rule: {len(r['space_filling_rasters'])} space-filling rasters + the full-footprint witness block <em>every</em> non-empty file</span><span>BLOCKED · needs your policy decision</span></li>
+<li><span class="gate-dot stop">×</span><span>Expected to beat 0.2778?</span><span>No · PROJECTION {p['value']:.3f} vs {p['champion_same_fit']:.3f} (champion, same model)</span></li>
+<li><span class="gate-dot stop">×</span><span>HOLDOUT-DTI vs best control · {e(h['evaluator_version'])} · {h['withheld_positives']:,} withheld</span><span>{h['value']:.4f} [{h['ci95'][0]:.4f}, {h['ci95'][1]:.4f}] vs {h['incumbent_value']:.4f}; Δ {card['paired_improvement_delta']:+.4f} [{card['paired_improvement_ci95'][0]:+.4f}, {card['paired_improvement_ci95'][1]:+.4f}]</span></li>
+</ul>
+<p><strong>File</strong> <code>{e(card['raster_file'])}</code><br><strong>SHA-256</strong> <code>{e(card['raster_sha256'])}</code><br><strong>Submission name</strong> <code>{e(card['submission_name'])}</code><br><strong>Note ({card['submission_note_chars']} chars)</strong> <code>{e(card['submission_note'])}</code></p>
+<p class="notice">PROJECTION = live-ledger inversion (leave-one-out MAE {p['loo_mae']:.3f}); it is not a score. Verdict <strong>{e(card['verdict'])}</strong> is computed by the pre-registered rules and <code>scripts/promotion_gate.py</code>. No slot was used.</p></section>'''
+
+
+def k3_row(card):
+    p=card['projection']; r=card['registry']
+    return f'''<tr><td><a href="k3h1.html">KANLERGEMSDOE3 · K3-H1 (new)</a></td>
+<td><a class="file" href="downloads/{e(card['raster_file'],quote=True)}">{e(card['raster_file'])}</a><small>Generated this session · hybrid: ≤69.5% H19-5 core + ≥30.5% antislope-scarp dots</small></td>
+<td><strong>—</strong><small>Never submitted</small></td>
+<td>{p['value']:.3f}<small>PROJECTION, not a score · champion {p['champion_same_fit']:.3f} same model</small></td>
+<td><span class="badge">UNIQUE*</span><small>max {r['worst_overlap_non_space_filling']['value']:.1%} vs any focus winner/registry raster · *literal rule blocks every file</small></td>
+<td><strong>NO</strong><small>Format-safe; projected below 0.2778</small></td><td>Pass<small>15/15 shared checks + official spec</small></td></tr>'''
+
+
 def build(check_only=False):
+    k3card,k3_text,k3_uniqueness=k3_lane()
     card_text=(ROOT/'evidence/run-card.json').read_text()
     card=json.loads(card_text)
     registry=json.loads((ROOT/'research/registry-lock.json').read_text())
@@ -116,8 +169,9 @@ def build(check_only=False):
 <td>Not estimable<small>No calibrated score forecast</small></td>
 <td><span class="badge">DUPLICATE</span><small>{peer['overlap_3px']:.2%} near {e(peer['reference'])}</small></td>
 <td><strong>NO</strong></td><td>{fmt}<small>Local mask policy; not a portal verdict</small></td></tr>''')
-    table=''.join(rows)
+    table=''.join(rows)+k3_row(k3card)
     body=f'''<div class="wrap">
+{k3_block(k3card)}
 <section class="hero"><div><div class="eyebrow"><span>Research snapshot</span> 26 OCTOBER 2026 · NEVADA, USA</div>
 <h1>Better fault maps start with <em>better evidence.</em></h1>
 <p class="lede">A reproducible effort to find previously unmapped faults that may inform geothermal exploration — with a clear line between a promising hypothesis and an upload-ready result.</p>
@@ -151,7 +205,7 @@ def build(check_only=False):
 <div class="panel source-strip"><div><p><strong>Automated source health, not automated leaderboard scraping.</strong></p><p class="source-status" data-github-status>Checking GitHub source freshness; no competition website is requested by this page.</p></div><a class="text-link" href="https://www.drivendata.org/termsofuse/">Why no live leaderboard feed? ↗</a></div>
 <p class="notice">DrivenData's terms prohibit automated monitoring. The status check uses only GitHub's public API. Peer mirrors are hash-pinned, not authenticated organizer originals; review their rights and the <a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN source</a> before use. See the <a href="https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/blob/main/research/preregistration.md">pre-registration</a> and <a href="https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/blob/main/README.md">project README</a>.</p></section></div>'''
     guide=f'''<div class="wrap"><div class="page-title"><div class="section-kicker">Executive summary / submission guide</div><h1>From evidence to upload.</h1><p>What must be true before a file is considered — and why there is nothing to upload from this run.</p></div>
-<div class="guide"><div><section class="panel warn"><h2>Current decision: <strong>DO NOT SUBMIT</strong></h2><p>No eligible candidate GeoTIFF exists. This run did not write a TIFF; a separate research TIFF already on main also failed the lattice gate at {parallel["candidate_overlap"]:.0%}. This run’s paired improvement was not established. A format-only file would not satisfy the science or selection gates.</p><a class="button" href="run-card.json">Open the run card ↗</a></section>
+<div class="guide"><div><section class="panel" id="k3h1-upload"><h2>The K3-H1 file: what to do with it</h2><p><strong>Download: OK.</strong> <a href="downloads/{k3card['raster_file']}">{k3card['raster_file']}</a> (SHA-256 <code>{k3card['raster_sha256']}</code>) passes every format check and cannot trigger the “Predicted values must be in range [0, 1]” error: all pixels are finite and exactly 0 or 1, outside-footprint pixels are 0, and there is no nodata sentinel.</p><p><strong>Spend a slot: NO</strong>, if the goal is to beat 0.2778. Its PROJECTION is {k3card['projection']['value']:.3f} vs {k3card['projection']['champion_same_fit']:.3f} for the champion under the same model, and its HOLDOUT-DTI is not better than the best control. Under the literal duplicate rule it is also blocked, like every non-empty file (see below).</p><p>If you upload it anyway, for example to register a protocol-unique entry:</p><ol><li>Open the official <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/">submissions page</a>; the limit is 3 per week (Official Rules §3.4).</li><li>Upload the .tif (or the .zip if your browser opens the TIF instead of saving it).</li><li>Paste the name <code>{k3card['submission_name']}</code> and the note <code>{k3card['submission_note']}</code>.</li><li>Save the receipt. Only that receipt makes the score ORGANIZER-CONFIRMED.</li><li>Keep the 0.2778 champion as your final selection unless something beats it on both gates (§3.5–3.6: one final submission for both rounds).</li></ol><p>Check any TIF before uploading: <code>python scripts/portal_check.py your.tif</code> prints <code>ok_to_upload</code> and the likely cause of a range error. Among 433 restored registry files, the only one with NaN inside the footprint is GEMSDOE31 <code>gemsdoe31-csdu-stepover-8cf9dc27-nan.tif</code> (2,610,312 NaN pixels). It is the one registry file that would plausibly trigger the error. <a href="k3h1.html">Details ↗</a></p></section><section class="panel warn"><h2>Current decision: <strong>DO NOT SUBMIT</strong></h2><p>No eligible candidate GeoTIFF exists. This run did not write a TIFF; a separate research TIFF already on main also failed the lattice gate at {parallel["candidate_overlap"]:.0%}. This run’s paired improvement was not established. A format-only file would not satisfy the science or selection gates.</p><a class="button" href="run-card.json">Open the run card ↗</a></section>
 <section class="panel"><h2>The separate gates</h2><ol><li><strong>Science:</strong> establish the actual named lane; withhold whole segments and buffers; fit catalogue-derived features only from visible faults. Run feature canaries and a paired comparison against the current best on identical folds, with a defensible interval.</li><li><strong>Novelty:</strong> inventory current registries, test the surface before placement and the final dots afterward. A rank correlation above 0.90 or more than 70% of dots within 3 pixels of any one reference is a hard stop. The current 167-file snapshot is not complete.</li><li><strong>Format:</strong> only after clearing those gates, use the pinned shared writer. Save one <code>float32</code> band in the template CRS, shape and transform, then reopen the saved bytes and validate range, finite footprint and metadata.</li><li><strong>Selector:</strong> a format pass is not approval. Separately check the current account-specific submission cap, rights and organizer provenance; do not spend a slot automatically.</li></ol></section>
 <section class="panel"><h2>Understanding the “[0, 1]” error</h2><p>The exact cause of the prior error is unknown: we do not have its rejected bytes or portal receipt. Typical causes include NaN or infinity, a nodata sentinel, scores outside [0,1], or writing the wrong band. A CRS, shape or transform mismatch is a separate format failure.</p><p>The official description calls for null/NaN outside the training-data bounds and probabilities in [0,1]. Treating the irregular mask of the unauthenticated sample mirror as the exact boundary is a <strong>conservative local policy</strong>, not a verified portal rule. One pinned writer defaults to zero outside while another defaults to NaN. Reopen the saved TIFF, inspect its mask, raw values, band count, <code>float32</code>, CRS, dimensions and transform; do not silently clip or assume either encoding guarantees acceptance. No local check proves what caused the prior portal error.</p></section>
 <section class="panel"><h2>Only after explicit authorization</h2><p>Check the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">official format</a>, current competition rules and account-specific cap. Select the exact validated filename and ≤140-character run-card note. Keep the file SHA-256 and the organizer's submission-page receipt together; only that receipt can support an organizer-confirmed result for that file.</p><p>No automatic upload, slot selection or expert geological review has taken place.</p></section></div>
@@ -161,6 +215,10 @@ def build(check_only=False):
         DOC/'index.html': layout('Research & evidence',body),
         DOC/'executive-summary.html': layout('Executive summary & submission guide',guide),
         DOC/'run-card.json': card_text,
+        DOC/'k3h1.html': layout('K3-H1 lane report',render_markdown(ROOT/'research/k3h1-report.md')),
+        DOC/'k3h1-run-card.json': k3_text,
+        DOC/'data/k3h1-uniqueness-summary.json': k3_uniqueness,
+        DOC/'data/focus9_family.json': (ROOT/'evidence/focus9_family.json').read_text(),
         DOC/'parallel-lattice-audit.json': parallel_text,
         ROOT/'run-card.json': card_text,
         DOC/'data/run_card.json': card_text,

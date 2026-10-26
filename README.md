@@ -1,12 +1,42 @@
 # KANLERGEMSDOE3 — evidence before submission
 
-**Start every session by reading this README, [project request](PROJECT_REQUEST.md), [standing requirements](research/standing-requirements.md), [scientific review](research/review.md), and the [current experiment run card](evidence/run-card.json).** The full supplied request and historical score list are archived in the expandable section below. They are historical instructions and claims, not verified competition receipts; `PROJECT_REQUEST.md` is a shorter working digest. The separate [recovery-session card](evidence/recovery-run-card.json) records the additional negative result below.
+**Start every session by reading this README (the complete original prompt is in the expandable section at the end), [project request](PROJECT_REQUEST.md), [standing requirements](research/standing-requirements.md), [scientific review](research/review.md), the [latest lane report](research/k3h1-report.md) with its [run card](evidence/k3h1-run-card.json), and the [bilateral-lane run card](evidence/run-card.json).** The full supplied request and historical score list are archived in the expandable section below. They are historical instructions and claims, not verified competition receipts; `PROJECT_REQUEST.md` is a shorter working digest. The separate [recovery-session card](evidence/recovery-run-card.json) records the additional negative result below.
+
+## Latest lane — K3-H1 antislope-scarp grain traces (26 Oct 2026): a generated, unique TIF
+
+**Download: OK · upload format: OK · spend a weekly slot: NO** · [Dashboard](docs/index.html#k3h1) · [Lane report](docs/k3h1.html) · [Run card](evidence/k3h1-run-card.json)
+
+| | |
+|---|---|
+| File | [`docs/downloads/kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.tif`](docs/downloads/kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.tif) · SHA-256 `4a5b0b480be26df52f77b735487cbe5af192262587237b6514d520dc2698b01f` |
+| Name / note | `kanler3-k3h1-asgt-hybrid-48559-7ecb7b69` / `K3-H1 antislope-scarp lidar dots + ASGT-ranked H19-5 core; unique<=69.5%; PROJECTION 0.252, not >0.2778` (103 chars) |
+| Format | PASS: 15/15 shared-validator checks + `scripts/portal_check.py`. All pixels finite, exactly 0/1, zeros outside the footprint (the champion's accepted `-zeros` encoding), no nodata tag. It cannot trigger "Predicted values must be in range [0, 1]". The older conservative checker `scripts/validate_submission.py` expects NaN outside and so reports `ok: false`; the portal scored both encodings ([report §5](research/k3h1-report.md)) |
+| Uniqueness | PASS vs 427 non-space-filling registry rasters: max forward overlap 0.695, max Spearman 0.432 (pre-placement surface 0.146). **Literal rule: BLOCKED**, like every non-empty file, by 6 space-filling rasters and the full-footprint witness below. That policy needs your decision |
+| Expected score | PROJECTION 0.2521 vs 0.2843 for the 0.2778 champion under the same live-ledger model. This is not a score, and the file is **not expected to beat 0.2778** |
+| HOLDOUT-DTI | 0.0909, 95% CI [0.0798, 0.1018], `gems57-pooled-hide-v2`, 11,321 withheld positives. Best control 0.0961; paired Δ −0.0052 [−0.0101, +0.0003]. Verdict **negative** (pre-registered rules + `scripts/promotion_gate.py`) |
+
+**Why 0.2778 (short version).** All nine focus winners are the same H19-5 network family (97–100% of dots on its pixels). Their OWNER-REPORT scores are ordered by spacing and by the share of dots within 2 px of mapped faults: 0% → 0.2778/0.2750, 6.3% → 0.271, 9.3% → 0.263, 14.6% → 0.260. With α = 0.2, a dot helps only if its expected credit exceeds 0.2 × DTI ≈ 0.056. Known faults are masked pixel-exactly, so dots hugging them earn almost nothing. H33-B2 is D2.8 minus exactly those dots. Details, experiments and sources: [lane report](research/k3h1-report.md).
+
+Reproduce the K3-H1 lane (data and registry are participant mirrors, SHA-verified; about 1 GB, ignored by git):
+
+```sh
+.venv/bin/python scripts/restore_bilateral_data.py # inputs: features, labels, sample, 1 m LiDAR scarp product (same SHA-256 pins as data/input-manifest.json)
+.venv/bin/python scripts/k3_fetch_registry.py      # 435 registry TIFFs -> data/registry/ (git transport, SHA-256 verified)
+.venv/bin/python scripts/registry_cache.py         # packed 3-px buffers + stats
+.venv/bin/python scripts/run_e1_holdout.py         # E1 mechanism (HOLDOUT-DTI)
+.venv/bin/python scripts/run_e2_unique.py          # E2 pure-ASGT projections
+.venv/bin/python scripts/run_e3_hybrid.py          # E3 hybrid (PROJECTION + HOLDOUT-DTI)
+.venv/bin/python scripts/finalize_candidate.py     # shared writer -> docs/downloads/ (refuses to overwrite)
+.venv/bin/python scripts/uniqueness_gate.py        # final gate from registry bytes
+.venv/bin/python scripts/build_run_card.py && .venv/bin/python scripts/build_site.py
+.venv/bin/python scripts/portal_check.py docs/downloads/<file>.tif   # ok_to_upload + range-error diagnosis
+```
 
 ## Current executive decision: DO NOT SUBMIT
 
 [Executive dashboard](docs/index.html) · [How to submit](docs/executive-summary.html) · [Ranked hypotheses](research/hypotheses.md) · [Measured raster audit](docs/audit.json) · [Official source register](docs/SOURCES.md) · [Live organizer leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/)
 
-**No eligible TIFF, validated leaderboard estimate, or approved download exists.** The nine historic priority winners are duplicates under the requested overlap stop; their reported values are not organizer receipts. A full-footprint *continuous diagnostic* appears in a pinned registry. The shared template treats every positive cell as a dot: under that literal interpretation, it blocks **every nonempty candidate**. Whether that diagnostic belongs in the dot comparison is unresolved and cannot be silently changed. The prompt also references a single-method lane but supplies no identifiable lane paragraph. [Reproducible certificate](evidence/registry_saturation_20261026.json).
+**No TIFF is approved for a weekly slot, and no validated leaderboard estimate exists.** One new research TIFF from the K3-H1 lane (above) is downloadable and format-safe, but it is projected below 0.2778, and the literal duplicate rule blocks every non-empty file. The nine historic priority winners are duplicates under the requested overlap stop; their reported values are not organizer receipts. A full-footprint *continuous diagnostic* appears in a pinned registry. The shared template treats every positive cell as a dot: under that literal interpretation, it blocks **every nonempty candidate**. Whether that diagnostic belongs in the dot comparison is unresolved and cannot be silently changed. The prompt also references a single-method lane but supplies no identifiable lane paragraph. [Reproducible certificate](evidence/registry_saturation_20261026.json).
 
 In this recovery session we recovered the original 57GEMSDOE evaluator/writer and rebuilt all 19 cached bands from SHA-pinned participant mirrors. This is data/tool preparation, **not** an organizer-authenticated download, license clearance or a new model. The mirrored sample conflicts with the organizer's description of an all-absence sample. This recovery session ran no geological experiment or weekly submission; the requested winning submission remains unfinished.
 

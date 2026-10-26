@@ -41,7 +41,7 @@ def main() -> int:
     e1, e2, e3 = load("evidence/e1_holdout.json"), load("evidence/e2_unique.json"), load("evidence/e3_hybrid.json")
     can3, uq, val = load("evidence/e3_canary.json"), load("evidence/uniqueness_final.json"), load("evidence/validator_final.json")
     log = load("evidence/experiment_log.json")
-    receipt_path = sorted((ROOT / "docs" / "downloads").glob("kanler3-*.json"))
+    receipt_path = sorted((ROOT / "docs" / "downloads").glob("kanler3-k3h1-*-zeros.json"))
     assert len(receipt_path) == 1, receipt_path
     rc = json.loads(receipt_path[0].read_text())
     assert rc["sha256"] == uq["candidate_file_sha256"] == val["submit_safe"]["sha256"], "evidence refers to different bytes"
@@ -132,6 +132,8 @@ def main() -> int:
         "raster_file": rc["file"], "raster_sha256": rc["sha256"], "raster_bytes": rc["bytes"],
         "zip_file": rc["zip_file"], "zip_sha256": rc["zip_sha256"],
         "validator": {"single_band": checks["single_band"],
+                      "no_nan_inside_footprint": checks["in_footprint_all_finite"] and checks["no_nan_anywhere"],
+                      "values_0_1_inside_footprint": checks["in_footprint_range_0_1"],
                       "all_finite": checks["no_nan_anywhere"] and checks["no_inf_anywhere"],
                       "range_0_1": checks["range_0_1_guaranteed"] and checks["min_ge_0"] and checks["max_le_1"],
                       "crs_match": checks["crs_epsg_32611"], "shape_match": checks["dimensions_3730x3292"],

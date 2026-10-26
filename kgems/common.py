@@ -94,3 +94,19 @@ class RegistryOverlap:
         sc = [s.get("owner_reported_live_score") for s in r["sources"]
               if s.get("owner_reported_live_score") is not None]
         return f"{r['repo']}/{Path(r['path']).name}" + (f" (OWNER-REPORT {sc[0]})" if sc else "")
+
+
+def ensure_bridge() -> Path:
+    """Create data/bridge/{existing_faults,sample_submission}.tif symlinks expected by gems57.grid.load_grid.
+
+    The shared loader re-verifies both files by SHA-256, so a wrong target fails closed there.
+    """
+    bridge = DATA / "bridge"
+    bridge.mkdir(parents=True, exist_ok=True)
+    for name, target in (("existing_faults.tif", "../labels.tif"), ("sample_submission.tif", "../sample_submission.tif")):
+        link = bridge / name
+        if not link.exists():
+            if link.is_symlink():
+                link.unlink()
+            link.symlink_to(target)
+    return bridge
