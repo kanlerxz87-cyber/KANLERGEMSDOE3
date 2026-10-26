@@ -1,7 +1,8 @@
-# Local environments, restored data and regenerable caches (never commit competition data)
+# Restored competition data and all regenerable caches are not committed.
+data/*
+!data/.gitkeep
 .venv/
 .cache/
-data/
 __pycache__/
 .pytest_cache/
 *.py[cod]
