@@ -1,0 +1,20 @@
+# How to make a competition submission
+
+**Current status: DO NOT SUBMIT. No new approved TIFF exists.** No historical file should be relabeled as unique. There is intentionally no active submission download button.
+
+## Automated release prerequisites
+
+A candidate must pass shared-template, leakage, comparable holdout-improvement, whole-registry surface and final-dot uniqueness, and saved-byte format validation. The project must publish an evidence card tied to the TIFF SHA-256. `scripts/promotion_gate.py` checks the decision schema, but does not verify raster bytes or authenticate evidence and cannot substitute for the shared runner. A separate selector must approve an available weekly slot against the authenticated submission page. No manual geological inspector is substituted for these checks; missing machine evidence blocks release.
+
+## Once a candidate is approved (future workflow, not current authorization)
+
+1. Download the explicitly **approved** `.tif` from the executive summary; confirm its published hash. Do not download an HTML report and rename it `.tif`.
+2. Use the competition's New submission form. Based on the user-provided form text, it accepts one single-band GeoTIFF or a ZIP containing just that GeoTIFF, with the template CRS, shape and geotransform. This text was not independently re-fetched here.
+3. Copy the artifact's unique submission name and note of at most 140 characters. No real candidate name is issued in this review.
+4. Upload only after the selector approves the slot; retain the organizer receipt including the submitted file hash/name and score. Only then mark a number ORGANIZER-CONFIRMED.
+
+## Fixing “Predicted values must be in range [0, 1]”
+
+Check the saved raster, not just the in-memory array. Inspect all valid pixels and nodata/mask behavior: NaN, infinity, negative nodata sentinels, raw logits, or values exceeding unity are potential causes. The previous upload bytes were not supplied, so the actual cause is unknown. Do not silently clip a corrupt raster to obtain a passing result. Correct the writer/normalization and validate against the true template; use explicit outside-footprint handling. A TIFF with correct range but wrong transform is still invalid.
+
+No submission has been made by this session, and no organizer acceptance is claimed.

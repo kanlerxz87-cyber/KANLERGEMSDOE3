@@ -146,5 +146,14 @@ Scored historical files prove the zeros encoding is accepted (e.g. the 0.2778 an
     print("Wrote docs/index.html and docs/executive-summary.html")
     return 0
 
+def build() -> int:
+    """Compatibility alias preserved from origin/main on merge (2026-10-26).
+
+    The forensic session's tests import build(); this lane's generator is
+    main(). Both render a DO-NOT-SUBMIT executive site into docs/.
+    """
+    return main()
+
+
 if __name__ == "__main__":
     raise SystemExit(main())
