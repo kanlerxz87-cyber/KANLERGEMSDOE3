@@ -202,3 +202,10 @@ def test_actual_root_workflows_use_the_isolated_study_and_preserve_public_paths(
     text=(repo/'.github/workflows/ssp1-pages.yml').read_text()
     assert 'publish_ssp1.py'in text and 'stage_pages.py'in text
     assert 'git push'not in text and 'run_experiment.py'not in text
+
+
+def test_pages_delivery_does_not_attempt_repository_administration():
+    text=(ROOT.parent.parent/'.github/workflows/ssp1-pages.yml').read_text()
+    assert 'actions/configure-pages@v5' in text
+    assert 'actions/deploy-pages@v4' in text
+    assert 'gh api --method PUT' not in text
