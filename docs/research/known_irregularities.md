@@ -1,8 +1,10 @@
+> **2026-10-26 update:** the GPC-3 research TIFF has 100% overlap within 3 pixels of a registered lattice and is a duplicate under the literal all-registry protocol. A pass against only nine champions is not sufficient. See `evidence/parallel-lattice-audit.json`. Do not submit. The original historical record follows.
+
 # Known irregularities (flagged for review — none silently fixed)
 
 | ID | Irregularity | Evidence | Disposition |
 |---|---|---|---|
-| IR-01 | Prompt states leaderboard highs of 0.4413 and 0.3195 in different paragraphs. Both are stale: the live leaderboard fetched 2026-10-26 shows **0.4437** at #1 (S2). | `docs/research/sources.md` S2 | Use 0.4437 as the current public bar, labelled with fetch date; leaderboard is dynamic. |
+| IR-01 | Prompt states leaderboard highs of 0.4413 and 0.3195 in different paragraphs. Both are stale: the live leaderboard fetched 2026-10-26 shows **0.4437** at #1 (S2). | `docs/research/sources.md` S2 | Treat 0.4437 as a dated 2026-10-26 observation, not necessarily the current bar; the leaderboard is dynamic. |
 | IR-02 | No focus site publishes an organizer receipt linking the scored raster's SHA-256 to its score. All "scores" for historical files are OWNER-REPORTED. | GEMSDOE32 page itself states this for its 0.2778 file; GEMSDOE24 audit: "score-to-uploaded-byte association has not been authenticated" | Scores are never relabelled ORGANIZER-CONFIRMED or HOLDOUT-DTI in this repo. |
 | IR-03 | The 9 focus champions are near-duplicates of one another (GEMSDOE36 pairwise audit: every champion has >70% 3-px overlap with all 8 others; several are byte-identical in footprint). The family tree is measured again in `evidence/forensics_focus9.json`. | `registry/focus9_champions.json`, `evidence/forensics_focus9.json` | Historical files are learning-only; re-uploading any of them is prohibited in this repo's gate. |
 | IR-04 | Competition data is login-walled; this repo's rasters are owner-supplied GitHub mirrors (SHA-256 pinned, not organizer-authenticated). `existing_faults.tif` is byte-identical to `labels.tif` in the mirror. | `registry/data_manifest.json`, `data/prepared_manifest.json` | Disclosed everywhere the data is used; hash pins let anyone re-verify. |

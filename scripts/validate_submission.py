@@ -20,9 +20,8 @@ from gems.submission import check_variants  # noqa: E402
 # --- Compatibility API preserved from origin/main on merge (2026-10-26) ---
 # The forensic session's scripts/audit_rasters.py imports validate(template,
 # candidate) with nodata-outside semantics ("submission-format-v1"). It is kept
-# verbatim for that audit; this lane's portal gate above uses whole-array [0,1]
-# (-zeros) semantics instead. Do not confuse the two: they answer different
-# questions, and both are labelled in their outputs.
+# for that audit. The CLI also reports a separate strict whole-array check;
+# these local checks can conflict and neither establishes portal behavior.
 def validate(template_path: Path, candidate_path: Path) -> dict:
     errors: list[str] = []
     with rasterio.open(template_path) as ref, rasterio.open(candidate_path) as src:

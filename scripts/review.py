@@ -33,15 +33,13 @@ def build():
  (ROOT/'docs/data/sites.json').write_text(json.dumps(rows,indent=2)+'\n')
  manifest=[]
  for p in sorted((ROOT/'evidence/upstream').rglob('*')):
-  if p.is_file() and '__pycache__' not in p.parts and p.suffix != '.pyc':
-   manifest.append({'path':str(p.relative_to(ROOT)), 'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
+  if p.is_file() and '__pycache__' not in p.parts and p.suffix != '.pyc':manifest.append({'path':str(p.relative_to(ROOT)), 'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
  (ROOT/'evidence/snapshot_hashes.json').write_text(json.dumps(manifest,indent=2)+'\n')
  tr=''.join('<tr>'+''.join(f'<td>{html.escape(str(v))}</td>' for v in [r['site'],r['historical_file'],r['owner_reported_value']+' (unverified owner report)','Unavailable',r['unique'],'NO'])+f'<td><a href="{r["source"]}">Pinned source</a></td></tr>' for r in rows)
  summaries=''.join(f'<h3>{r["site"]}</h3><p>{html.escape(r["summary"])}. Historical file: <code>{r["historical_file"]}</code>. Local format, holdout and all-registry uniqueness checks have not run. No new upload is recommended. <a href="{r["source"]}">Review evidence</a>.</p>' for r in rows)
- body=f'''<h1>Executive submission review</h1><section class="stop"><h2>DO NOT SUBMIT — no candidate authorized</h2><p>No new TIFF was generated. There is no compliant download to submit from this checkout. Format validity alone never authorizes a weekly slot.</p><p>Missing lane assignment, local cached stack, validated holdout and complete registry prevent generation under your protocol. No slot was used.</p></section>
- <p>Reviewed 26 October 2026. Offline snapshot, not a live leaderboard feed. Values below are retained as unverified owner claims, NOT ORGANIZER-CONFIRMED or HOLDOUT-DTI. No accepted score or score estimate for a new candidate is available.</p>
- <p><b>Official public leaderboard snapshot:</b> the DrivenData page retrieved on 2026-10-26 displayed a top public score of 0.4437. This time-stamped public result supersedes older user-provided public-high figures for this review, but it is not a private/final score or a forecast.</p>
- <nav><a href="research.html">Research &amp; limitations</a> · <a href="submission.html">How to submit</a> · <a href="executive-summary.md">Detailed nine-site review</a> · <a href="submission-guide.md">Submission guide</a> · <a href="data/sites.json">Machine-readable table</a> · <a href="data/run_card.json">Run card</a></nav>
+ body=f'''<div class="stop"><strong>ARCHIVED PRE-EXPERIMENT REVIEW.</strong> This snapshot predates the current experiment. <a href="index.html">See the current dashboard</a>.</div><h1>Executive submission review</h1><section class="stop"><h2>DO NOT SUBMIT — no candidate authorized</h2><p>No new TIFF was generated. There is no compliant download to submit from this checkout. Format validity alone never authorizes a weekly slot.</p><p>Missing lane assignment, local cached stack, validated holdout and complete registry prevent generation under your protocol. No slot was used.</p></section>
+ <p>Reviewed 26 October 2026. Offline snapshot, not a live leaderboard feed. Values below are retained as unverified owner claims, NOT ORGANIZER-CONFIRMED or HOLDOUT-DTI. No accepted numerical score or score estimate is available.</p>
+ <nav><a href="research.html">Research &amp; limitations</a> · <a href="submission.html">How to submit</a> · <a href="data/sites.json">Machine-readable table</a> · <a href="data/run_card.json">Run card</a></nav>
  <h2>Best historical claims across nine focus sites</h2><p>Historical names identify artifacts for study, not fresh unique submissions. No historical download is offered as a new candidate.</p><div class="scroll"><table><thead><tr><th>Site</th><th>Historical file (not an approved download)</th><th>Reported value</th><th>Estimated score</th><th>Unique?</th><th>Submit?</th><th>Evidence</th></tr></thead><tbody>{tr}</tbody></table></div>
  <h2>Why GEMSDOE32?</h2><p>It has the highest owner-reported value in the supplied focus list. That does not establish causality or prove it is best on hidden labels. The pinned upstream page explicitly calls it an owner report without a submission-page receipt. It also calls it an already-submitted duplicate family. Sparse placement can reduce false-positive mass while retaining distance-tolerant coverage; attribution to B2 masking or geology requires controlled fold-local ablations, not filenames or leaderboard anecdotes.</p><p>The upstream review also flags full-catalogue masking in a historical holdout and excessive registry overlap. We do not import upstream “promote” flags as authorization. No evidence here supports a promise to exceed the stated targets.</p>
  <h2>Per-site executive summaries</h2>{summaries}
@@ -52,8 +50,7 @@ def build():
   raw=(ROOT/'docs'/f'{name}.md').read_text()
   text=render_markdown_links(raw)
   target = 'archived-research.html' if name == 'research' else 'submission.html'
-  write_page(target,'<nav><a href="index.html">Executive summary</a></nav><article style="white-space:pre-wrap;overflow-wrap:anywhere">'+text+'</article>')
-
+  write_page(target,'<p class="stop"><strong>ARCHIVED PRE-EXPERIMENT SNAPSHOT.</strong> <a href="index.html">See the current dashboard</a>.</p><nav><a href="index.html">Executive summary</a></nav><article style="white-space:pre-wrap;overflow-wrap:anywhere">'+text+'</article>')
 
 def render_markdown_links(text):
  """Escape Markdown text while rendering inline and bare HTTPS links safely."""

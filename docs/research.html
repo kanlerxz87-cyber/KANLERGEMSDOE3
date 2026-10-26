@@ -1,15 +1,85 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#132d26"><title>Research · GEMS Observatory</title><link rel="stylesheet" href="assets/style.css"></head><body>
-<a class="skip-link" href="#main">Skip to content</a><header class="topbar"><div class="shell nav"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M3 24 12 8l5 9 4-7 8 14H3Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 24 15 13l7 11" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span><span><b>GEMS</b><small>OBSERVATORY</small></span></a><nav aria-label="Primary navigation"><a href="index.html">Overview</a><a href="index.html#portfolio">Portfolio</a><a class="active" href="research.html" aria-current="page">Research</a><a href="sources.html">Sources</a></nav><a class="nav-action" href="executive-summary.html">Submission guide ↗</a></div></header>
-<main id="main" class="shell"><div class="breadcrumb"><a href="index.html">OVERVIEW</a><span>/</span><span>RESEARCH</span></div><section class="page-hero"><div class="eyebrow"><span class="eyebrow-line"></span> SCIENTIFIC ROADMAP</div><h1>Better questions before<br>better predictions.</h1><p>Four ranked, untested hypotheses. Each links a physical mechanism to an observable signature and an alternative explanation; none is a promised score.</p></section><div class="page-grid"><div>
-<section class="content-card" id="context"><h2>The target is faults, not vents.</h2><p>The <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">organizer asks for faults</a> that can be indicative of geothermal resources. Geothermal evidence may guide a detector, but a hot spring is not by itself proof of a fault, and an unmapped fault is not automatically a productive resource.</p><p class="callout"><strong>A parallel session reported three GPC-3 experiments and a research TIFF.</strong> Those results were not independently rerun here. The request did not supply an assigned lane or the required cached shared stack, and the resulting file fails the literal lattice novelty rule. The following ideas are preregistered for later consideration; “new here” does not establish novelty across all sibling work.</p></section>
-<section class="content-card" id="hypotheses"><h2>Hypotheses, ranked qualitatively</h2><div class="source-list">
-<div><span class="tag">01 · Higher potential / medium cost</span><h3>Cross-flank magnetic-texture displacement</h3><p><strong>Layers:</strong> total magnetic intensity, reduced-to-pole and detrended elevation. Compare oriented textures on opposing flanks for coherent, cross-scale displacement corroborated by a terrain break. A concealed offset could reveal an unmapped fault. Volcanic contacts, fluvial magnetite or acquisition seams can mimic it. Distinct from simple edge-strength gates; exhaustive prior-art novelty is unverified.</p></div>
-<div><span class="tag">02 · Moderate potential / medium cost</span><h3>Lithology-aware magnetic–gravity discordance</h3><p><strong>Layers:</strong> magnetic and isostatic-gravity channels plus elevation and a separately verified geologic-map layer. Compare cross-scale edge orientation and polarity, controlling for mapped lithological contacts. A covered structural boundary could be missed by surface catalogues, but a non-fault rock contact can look similar. Coverage and licensing of the additional layer remain unverified.</p></div>
-<div><span class="tag">03 · Moderate potential / medium cost</span><h3>Age-consistent scarp progression</h3><p><strong>Layers:</strong> elevation/scarp features and an independently sourced surficial geology and age map. Seek adjacent surfaces whose scarp heights grow with age, not just a sharp slope. Repeated displacement may persist outside a catalogued trace. Fan incision, shorelines and incorrect age assignments are alternatives. Adequate age-map coverage remains unverified.</p></div>
-<div><span class="tag">04 · Uncertain / medium–high cost</span><h3>Sampling-corrected thermal asymmetry</h3><p><strong>Layers:</strong> INGENIOUS well/spring temperatures, sampling-effort information and cached geophysical channels. Test whether a local thermal contrast aligns with a geophysical boundary where a blind conduit is plausible. Depth, groundwater flow, climate and drilling density can create the same contrast. Related sibling methods already exist; a prior-art search and ablation are required.</p></div></div><p>Details, risks, distinctions and the frozen evaluation plan: <a href="https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/blob/main/knowledge/preregistration-2026-10-26.md">read the pre-registration on GitHub ↗</a></p></section>
-<section class="content-card" id="metric"><h2>Why the old leader is informative</h2><p>Our independent raster audit shows that the claimed GEMSDOE32 H33-B2 file is the D2.8 dot mask after a two-pixel exclusion from the mirror catalogue. This is a nested emission family, not evidence of an independent detector. Fewer redundant dots may reduce weighted false positives while retaining useful kernel coverage, but only the hidden labels can establish the actual effect.</p><div class="code-box">DTI = TPw / (TPw + 0.2 × FPw + 0.8 × FNw)
-Kernel weight = max(1 − distance / 300 m, 0)</div><p>See the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#performance-metric">organizer's definitions</a>, including maximum predicted kernel credit per truth pixel and distance-weighted false positives. Do not replace this with an average of folds or a nearest-neighbor shortcut for arbitrary probabilities.</p></section>
-<section class="content-card" id="parallel-review"><h2>Concurrent independent review</h2><p>A separate review merged during this work. Its <a href="concurrent-main-dashboard.html">historical comparison</a>, <a href="audit.json">independent raster audit</a>, and <a href="archived-research.html">archived research notes</a> are retained. That audit found seven of nine selected historical file variants contained finite values outside the owner-mirror footprint, conflicting with its strict null-outside interpretation. These are earlier snapshots and local checks, not a new candidate, organizer portal result or upload authorization.</p></section>
-<section class="content-card" id="limitations"><h2>Current blockers and next run</h2><ul><li>Restore a hash-pinned version of the template's actual cached feature stack and establish an explicitly assigned single method lane. Core inputs were restored and prepared from owner mirrors; the cache is separate.</li><li>Fix or constrain the shared CLI's probabilistic-input behavior and incomplete outside-footprint check. <a href="https://github.com/buffedlizard55-lab/GEMSDOE32/issues/37">Upstream issue 37 ↗</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE32/issues/39">issue 39 ↗</a></li><li>Refresh the entire registry, including dense calibration rasters. The literal threshold leaves at most 22,163 possible dots against the lattice alone; this does not prove a smaller candidate will pass.</li><li>Test feature canaries and fold-local hide-and-recover, then require a positive paired interval versus a matched incumbent. A separate selector handles the quota; this project does not upload.</li></ul></section>
-</div><aside class="aside-card"><h3>ON THIS PAGE</h3><a href="#context">The target</a><a href="#hypotheses">Ranked hypotheses</a><a href="#metric">Metric and lineage</a><a href="#limitations">Blockers</a><a href="sources.html">Source catalog ↗</a></aside></div></main>
-<footer><div class="shell footer-inner"><div><a class="footer-brand" href="index.html">GEMS <span>OBSERVATORY</span></a><p>Evidence first. No invented scores. No automatic uploads.</p></div><div><a href="index.html">Overview</a><a href="executive-summary.html">Submission guide</a><a href="sources.html">Sources</a><a href="https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3">GitHub ↗</a></div></div><div class="shell footer-bottom"><span>INDEPENDENT RESEARCH WORKSPACE · NOT AFFILIATED WITH THE ORGANIZERS</span><span>MAXIMIZE P(WIN) / OWN THE OUTCOME</span></div></footer></body></html>
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GEMS · Evidence &amp; submission review</title><link rel="stylesheet" href="style.css"><main><p class="stop"><strong>ARCHIVED PRE-EXPERIMENT SNAPSHOT.</strong> <a href="index.html">See the current dashboard</a>.</p><nav><a href="index.html">Executive summary</a></nav><article style="white-space:pre-wrap;overflow-wrap:anywhere">&gt; **Historical pre-experiment snapshot:** superseded by the [current dashboard](index.html) and [run card](run-card.json). Descriptions of missing inputs or zero experiments are no longer current.
+
+# Executive scientific review — 2026-10-26
+
+## What was actually found
+
+The initial repository at d795e4e contained only `README.md` with one heading. The merged branch now has research/docs, review scripts and tests, archived upstream code, and an ignored forensic mirror under `data/`; these do not form a training pipeline. There is still no organizer-authenticated feature package, cached feature stack, holdout split, complete registry or integrated prediction runner. The claimed “single remaining blocker is data placement” does not describe this repository.
+
+Nine sibling READMEs and docs homepages and selected GEMSDOE32 evidence were fetched through GitHub.
+`sources/retrieval.json` records successful/failed paths and Git blob IDs. These snapshots are third-party
+project claims, not official competition verification. Missing CSV paths are not evidence that a site
+has no score ledger elsewhere.
+
+The independent forensics used nine pinned TIFFs whose SHA256 hashes match the sibling audit manifest.
+All share an identical grid. All 72 directed pairs exceed the protocol overlap stop; the minimum is
+86.718954%. These are **geometric audit numbers, not scores**. Exact masks can match despite different
+compression, nodata handling or byte hashes. Therefore these historical files cannot satisfy the new
+uniqueness requirement. GEMSDOE32&#x27;s 37,654-positive in-footprint mask is an exact subset of GEMSDOE31&#x27;s
+40,199-positive mask: 2,545 were removed and none added. This verifies raster geometry, not score
+causation or organizer provenance. Continuous surfaces were not restored and their correlation remains
+unknown. No candidate was placed, generated or promoted; geological experiment count is zero.
+
+## Why the reported H33 B2 result might be better
+
+The sibling&#x27;s corrected analysis attributes the reported 0.2778 to a sparse H19-5 descendant with
+near-catalogue thinning. Lower uncredited prediction mass can improve a precision/recall-style metric,
+but aggressive thinning can also destroy recall. This is a plausible explanation, **not an identified
+causal mechanism**. Private truth and organizer receipt are absent. There is no basis to guarantee a
+higher score, reverse-engineer hidden labels, or infer that matching past dot budgets generalizes.
+The sibling explicitly withdrew earlier hidden-truth inversion and score-ceiling calculations.
+
+The official leaderboard page was fetched on 2026-10-26 and displayed 0.4437 at rank 1. The prompt&#x27;s
+0.3195 and 0.4413 values are lower than this point-in-time public snapshot. Do not treat any of these
+public numbers as a private/final award score or as a new-candidate estimate; leaderboard values can
+change and must be date-stamped.
+
+## High-scoring validation is separate from valid file format
+
+A finite [0,1] single-band file on the template grid may pass format checks while performing poorly.
+The shared template-aware validator was run against nine pinned historical TIFFs: every file has finite
+in-footprint values in [0,1], while GEMSDOE30 and GEMSDOE33 alone pass the local outside-footprint
+nodata check. The other seven have 7,111,787 finite/valid pixels outside the template footprint.
+These local results neither establish organizer acceptance nor authorize edits or reuse; do not silently
+repair historical files. The project validator rejects invalid values rather than clipping. A score
+estimate is unavailable until a compliant paired spatial holdout is run. Do not extrapolate leaderboard
+scores from historical reports or proxy measurements.
+
+## Limitations and exact continuation
+
+1. Identify the missing single-method lane before a parallel scientific run. The shortlist is not lane allocation.
+2. Recover the canonical shared template and cached features. The fetched writer/evaluator import
+   `gems32`; copying those two scripts alone is not an executable pipeline. No private evaluator was made.
+3. The sibling data manifest exposes pinned GitHub mirror parts, including a roughly 419 MB numerical
+   feature stack. This is a possible autonomous recovery route, **not a verified official download**.
+   Small template/labels and nine historical rasters were recovered locally; feature stack and full
+   registry were not. Raw data remain gitignored. Check organizer data-use rules/provenance before training.
+4. The official DrivenData task/metric page and public leaderboard were fetched read-only; the data tab
+   redirected to login. The official USGS GeoDAWN release page and DOI were also checked. GDR, NLR and
+   Dropbox materials were not independently retrieved here. No authenticated DrivenData session is
+   available, and the login-gated competition feature package remains inaccessible in this environment.
+5. Restore full-registry surfaces and dots, not only nine winners. A dense lattice may make the overlap
+   rule extremely restrictive; report that conflict rather than weakening the gate.
+6. Execute the preregistered canary/holdout comparison; record version, positive count, CI, hash, and
+   complete registry comparisons. Only a separate selector may authorize a weekly slot after checking
+   the current submission-page cap. No automatic contest submission is implemented or attempted.
+7. Preserve the exact submitted hash and official submission receipt. Without them, use “unverified
+   historical report,” not ORGANIZER-CONFIRMED. A research metric must be labelled HOLDOUT-DTI.
+
+## Sources and trust boundaries
+
+- Official organizer code actually retrieved: <a href="https://github.com/drivendataorg/gems-prize-reference-solution">https://github.com/drivendataorg/gems-prize-reference-solution</a>
+  (`sources/gems-prize-reference-solution/README.md`). It explicitly supports CPU-only operation;
+  GPU is advantageous, not an absolute prerequisite.
+- Official competition/problem: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/</a>
+- Official leaderboard: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/</a>
+- Official rules/data: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">https://www.drivendata.org/competitions/306/competition-doe-gems/</a>
+  and <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/">https://www.drivendata.org/competitions/306/competition-doe-gems/data/</a>
+- Proposed official GeoDAWN: <a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and</a>
+- Proposed official GDR: <a href="https://gdr.openei.org/submissions/1391">https://gdr.openei.org/submissions/1391</a>
+- Proposed official format report: <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">https://docs.nlr.gov/docs/fy26osti/96647.pdf</a>
+- Third-party corrected explanation: <a href="https://github.com/buffedlizard55-lab/GEMSDOE32/blob/main/docs/research/why-02778-analysis-20261025.md">https://github.com/buffedlizard55-lab/GEMSDOE32/blob/main/docs/research/why-02778-analysis-20261025.md</a>
+- Third-party pinned raster inventory: <a href="https://github.com/buffedlizard55-lab/GEMSDOE32/blob/main/evidence/focus_site_winner_overlap_20261026.json">https://github.com/buffedlizard55-lab/GEMSDOE32/blob/main/evidence/focus_site_winner_overlap_20261026.json</a>
+
+All external scientific mechanisms in the shortlist are hypotheses, not literature-verified findings.
+</article></main></html>

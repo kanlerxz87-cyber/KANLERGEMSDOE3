@@ -1,244 +1,115 @@
-# GEMS Observatory
+# KANLERGEMSDOE3 — evidence before submission
 
-> **Current decision: NO FILE IS APPROVED FOR SUBMISSION.** A parallel session
-> produced a [research-only TIFF](docs/downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.tif),
-> but it fails the literal registry novelty rule and local footprint checks. Its
-> holdout was not independently rerun. [Open the executive summary and submission
-> guide](docs/executive-summary.html) or [read the portfolio review](knowledge/portfolio-review.md).
-> Do not upload this research file or rename a historical TIFF as new work.
+**Starting point for every session:** read this README, the faithful standing project request in
+[PROJECT_REQUEST.md](PROJECT_REQUEST.md), [pre-registration](research/preregistration.md),
+[scientific review](research/review.md), and the [canonical JSON run card](evidence/run-card.json).
 
-An evidence-first workspace for the [DOE GEMS Prize](https://www.drivendata.org/competitions/306/competition-doe-gems/).
-The aim is a scientifically grounded fault-discovery system that could compete
-for a top leaderboard position, **not** a fabricated leaderboard prediction. The
-organizer asks for faults indicative of geothermal resources, not a direct map of
-geothermal vents. The system must make it obvious which TIFF, if any, is permitted
-to submit, generate and validate it automatically, show reliable evidence, and
-maintain an accessible, current feed. There is no permitted TIFF at present.
+## Decision: DO NOT SUBMIT
 
-The static GitHub Pages site lives in [`docs/`](docs/index.html). The original
-checkout contained only this README; the shared tools and data referred to in the
-request were not in the checkout. This audit session restored and prepared core
-inputs from owner mirrors but did not perform a scientific experiment. A separate
-parallel session later contributed a research TIFF and reported holdout results;
-its evidence is preserved and independently checked below.
+Our fixed bilateral research experiment ended in a **duplicate stop**. Its 37,654 in-memory final dots
+were all within 3 pixels of a registered calibration lattice, above the user's 70% threshold; this
+lane did not write a TIFF. A separate GPC-3 research TIFF already committed on main was independently
+checked and also has **100% lattice overlap**, so it is a duplicate under the literal all-registry
+rule despite passing a nine-champion-only screen. No file is eligible for submission, no slot was spent,
+and there is no organizer receipt. See [the parallel-file audit](evidence/parallel-lattice-audit.json).
+The strict local null-outside validator also rejects its exterior zeros; this is not a portal receipt.
+Changing the dot budget or quietly exempting the lattice to evade the rule is not authorized.
 
-## Standing project request — read before every session
+- [GitHub Pages research dashboard](https://kanlerxz87-cyber.github.io/KANLERGEMSDOE3/) ·
+  [Executive summary / submission guide](docs/executive-summary.html) ·
+  [Nine-site audit](evidence/portfolio-audit.json) · [Canonical run card](evidence/run-card.json)
+- The provisional bilateral K/Th–LiDAR lane achieved **HOLDOUT-DTI 0.1134**
+  (95% CI **[0.1006, 0.1262]**; `gems57-pooled-hide-v2`; 60,988 withheld positives).
+  Against its same-fold feature ablation, the paired difference was **+0.0010**
+  (95% CI **[−0.0006, +0.0027]**, same evaluator and positives), so improvement was not
+  established. The ablation is *not* the prior best incumbent; that comparable test remains undone.
+- Both continuous surfaces passed rank screening against all 167 files in a frozen, SHA-verified
+  snapshot (maximum |ρ| **0.0975** for the final fitted surface). This is not a global novelty pass:
+  unregistered/concurrent rasters may be missing, and the final-dot gate actually failed.
+- The mathematical lattice bound would force more than 70% overlap for **any** ≥22,164 distinct
+  footprint dots; it does not rule out all smaller budgets. The observed experiment's overlap was
+  100%; the separate bound alone is not an observation. See [coverage evidence](evidence/lattice-coverage.json).
+- The parallel GPC-3 record reports **HOLDOUT-DTI 0.1377**, 95% CI **[0.1256, 0.1503]**
+  (`gems-segment-pooled-v1`; 60,988 positives); we did not rerun it and its protocol is not directly
+  interchangeable with our evaluator. Its research TIFF is not an approved or unique submission.
+- GEMSDOE32's **0.2778** is an **unverified owner report**, not a confirmed receipt. In pinned
+  mirrors, H33-B2 is exactly D2.8's 44,090 dots minus 6,436 within two pixels of mapped faults.
+  Removing uncredited mass may help, but may lose recall; hidden labels do not establish causality.
+- The public organizer leaderboard's leader was **0.4437 on 2026-10-26** (dated page observation,
+  no archived response hash or link to this project). It may have changed; it is not a candidate score.
 
-This is a reconstructed brief of the user's standing objectives and constraints,
-not a verbatim transcript of the original prompt. Read it as the starting brief
-for future work:
+## Provenance and limits
 
-* Focus on the strongest submissions from **GEMSDOE24, 25, 27, 28, 30, 31, 32,
-  33 and 36**. Provide a clear executive summary, exact filename, estimated score
-  only when defensible, and whether each file is unique against the other sites.
-* Study why the reported GEMSDOE32 `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros`
-  claim of **0.2778** was the highest in the supplied focus list and whether a
-  unique candidate can do better. Do not assert a causal explanation, a private
-  result or an organizer receipt that has not been observed.
-* **A genuinely new, unique, competition-format TIFF is required for a future
-  submission. Do not copy a previous submission except for learning or audit.**
-  Its download, unique name, <=140-character note and explicit submit/no-submit
-  decision must be prominent. A negative result is still a deliverable, and a
-  blocked run must never be represented as a valid submission.
-* Automatically inspect and validate the saved file without relying on a human
-  geological inspector. Prevent the reported `Predicted values must be in range
-  [0, 1]` error by checking values, NaNs, infinities, sentinels, footprint, band
-  count, CRS, shape and transform. Do not claim an actual portal acceptance until
-  it is observed. Respect the official outside-bounds null/NaN guidance and flag
-  the apparent conflict with all-finite variants.
-* Before new modeling, rank 3–5 geological hypotheses, specifying layers,
-  physical signatures, off-catalogue rationale, alternatives and novelty relative
-  to existing work. Test the leading assigned hypothesis against a comparable
-  spatial holdout before using a weekly slot. Find and cite free, official and
-  appropriately licensed data; distinguish metadata access from a verified raw
-  download and mark missing coverage. Provide a clean source catalog and a GitHub
-  Pages site with a submission guide and an up-to-date, timestamped feed.
-* Review the work in multiple passes, test edge cases, correct mistakes, preserve
-  negative findings and record remaining limitations. Link to verified official
-  sources for manual review while keeping validation autonomous. Maximize P(Win)
-  and own the outcome end to end.
+The six required data files, including the ~419 MB 19-band competition-stack mirror, were restored
+and SHA-verified. Actual model inputs were the owner-cached radiometric and LiDAR channels; the
+19-band stack was validated, not used as a model feature. The shared template’s full cached feature
+stack was not authenticated or reused; building nine features from owner-cached inputs does not satisfy
+that requirement. **Mirrors are not authenticated organizer originals.** The sample mirror's positive pixels exactly match the known labels, despite the official
+sample description; use it only for grid/footprint, never as a prediction feature. Derived caches and
+shared-template code lack an established redistribution license; verify provenance/rights before
+any competition use. Two pinned GEMSDOE24 versions differ: `fc2bc6f` defaults to NaN outside, while
+`7ab1c8f` defaults to zero. Both leave the official outside-NaN check advisory; a strict local check
+rejects exterior zeros. The shared templates remain unchanged and need a central fix or organizer
+clarification before use. No physical fault or geothermal resource was independently confirmed.
 
-### Parallel-run protocol from the request
+The prompt refers to a named single-method paragraph that was not identifiable. Our research lane
+was explicitly provisional, never claimed to be assigned. The frozen registry includes the nine focus
+sites but cannot prove coverage of all current registries. The best same-evaluator prior incumbent,
+a verified shared feature stack, selector, account cap, organizer receipt and expert review remain unavailable.
 
-1. **LANE.** The lane is the single method paragraph assigned to the session. Stay
-   inside it. If raster rank-correlation with any registry raster exceeds 0.90,
-   or more than 70% of dots fall within 3 pixels of a registry raster's dots, log
-   a duplicate and stop. Check the surface before placement and final dots. The
-   current request refers to such a paragraph but does **not** actually include an
-   assigned method; do not invent an assignment.
-2. **REUSE, DON'T REBUILD.** Reuse the template's cached feature stack,
-   `evaluate_holdout.py` and `submission_writer.py`. Hide whole fault segments with
-   a buffer, derive all catalogue-based features from visible faults only, mask
-   visible faults pixel-exactly and score **pooled DTI** (alpha 0.2, beta 0.8,
-   300 m triangular kernel). If a shared tool is wrong, fix it in the shared
-   template and report it; never maintain a private fork.
-3. **LABEL EVERY NUMBER.** A result is HOLDOUT-DTI with evaluator version, number
-   of withheld positives and 95% CI, or ORGANIZER-CONFIRMED from a submission-page
-   receipt. A projection is never a score. User-provided historical claims without
-   receipts must be identified as **unverified claims**, not mislabelled as either.
-   A public leaderboard observation is also not a submission-page receipt.
-4. **LEAKAGE CANARY.** Test each feature alone on the holdout before relying on a
-   result. AUC above 0.90 means leakage until proved otherwise.
-5. **RUN CARD.** End each run with one JSON card recording hypothesis, mechanism,
-   named non-fault mimic, HOLDOUT-DTI and CI, correlation/overlap versus the
-   registry, raster SHA-256, validator output, name and <=140-character note,
-   and verdict `promote` or `negative`. Negative results are deliverables.
-6. **BUDGET.** Stop after three experiments or two hours, whichever comes first.
-   Do not pick submissions: promotion to a real slot is a separate selector step
-   and must respect the weekly cap shown on the submission page.
+## Reproduce checks without spending a slot
 
-### Historical focus claims supplied by the user
+Prerequisites: Python 3.11, `gh` access to public pinned mirrors, network to GitHub. Data are ignored
+by Git. Downloading the full data bundle is approximately 464 MiB and the registry adds more.
 
-These are **USER-REPORTED / UNVERIFIED claims**, not organizer-confirmed results or
-predictions. File names and comparative byte evidence are in
-[`data/historical-manifest.json`](data/historical-manifest.json) and the
-[portfolio audit](evidence/portfolio-audit.json). All nine fail the specified
-final-dot threshold against at least one other member of the audited nine; the
-full current registry and pre-placement surfaces were not audited for them.
-
-| Site | Highest claim in the supplied list | Status |
-| --- | --- | --- |
-| GEMSDOE24 | 0.2477 | Historical; do not submit |
-| GEMSDOE25 | 0.2600 | Historical; same in-footprint mask as GEMSDOE30 |
-| GEMSDOE27 | 0.2449 | Historical; do not submit |
-| GEMSDOE28 | 0.2710 | Historical; do not submit |
-| GEMSDOE30 | 0.2600 | Historical; same in-footprint mask as GEMSDOE25 |
-| GEMSDOE31 | 0.2708 | Historical; do not submit |
-| GEMSDOE32 | 0.2778 | Historical; highest supplied focus claim, not a receipt |
-| GEMSDOE33 | 0.2632 | Historical; do not submit |
-| GEMSDOE36 | 0.2750 | Historical; do not submit |
-
-The official public leaderboard showed **0.4437** when retrieved by our research
-instrument on 2026-10-26 UTC. This is a **public leaderboard observation**, not a
-submission-page receipt or a forecast. The prompt's 0.3195 and 0.4413 figures are
-not treated as current. The published site displays the most recent successful
-observation and marks failures or stale data instead of silently using old values.
-
-## Verified work in this checkout
-
-* [Nine-file forensic audit](evidence/portfolio-audit.json): historical files were
-  fetched at immutable refs, SHA checked, reopened and compared on the owner-mirror
-  grid. The GEMSDOE32 file equals the GEMSDOE25 D2.8 mask after retaining cells
-  >2 pixels from the mirror catalogue; GEMSDOE36 contains every H33 dot plus
-  1,200. These geometric facts do not establish why a hidden score changed.
-* The pinned 13GEMSDOE spacing-five lattice is within 3 pixels of 99.8713% of the
-  footprint. Against this reference alone, a 37,654-dot candidate cannot satisfy
-  the literal 70% threshold; at most 22,163 distinct dots is a necessary (not
-  sufficient) upper bound. No lattice exception has been granted.
-* [Core mirror preparation receipt](evidence/mirror-preparation.json): all four
-  core SHA pins were restored and shared `prepare_data.py` ran. The sample mirror's
-  positive mask equals the labels, conflicting with the organizer's description
-  of a zero-prediction sample. Mirrors are **not organizer-authenticated**.
-* The requested precomputed `feature_stack.npy` is absent from the pinned shared
-  tree and published artifacts. This audit session had no assigned lane and built
-  no candidate. A parallel session self-selected a lane and rebuilt a stack rather
-  than using the missing cached stack; its reported tests are preserved separately.
-  No slot was spent.
-* The shared CLI silently binarizes positive probabilities; this was reproduced and
-  [reported upstream](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/37).
-  A second shared CLI validator does not inspect outside-footprint values; also
-  [reported upstream](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/39).
-  This checkout does not fork or silently patch those tools. Our release wrapper
-  invokes the shared `gems32.submission.audit_geotiff` instead of the incomplete
-  check CLI, and still requires an authenticated template and separate selector.
-* [Pre-registration](knowledge/preregistration-2026-10-26.md) provides four ranked
-  hypotheses and named non-fault mimics. The [run card](evidence/run-card.json)
-  explicitly records the negative blocked result.
-
-## Reproduce the audit and data placement
-
-Prerequisites: Python 3.11+, GitHub CLI (`gh`, for this restricted environment),
-`curl`, and sufficient disk space. Large inputs and caches stay out of Git.
-The scripts fetch the immutable shared template by commit, verify pinned tool
-hashes, and delegate to it; they do not vendor private evaluator/writer copies.
-
-```bash
+```sh
 python -m venv .venv
-. .venv/bin/activate
-python -m pip install -r requirements.txt
-bash scripts/download_competition_data.sh core   # or external, scored, all
-python scripts/prepare_data.py                  # shared data preparation
-python scripts/preflight.py                     # exit 2 while the lane/cache are missing
-python scripts/audit_history.py \
-  --sample .cache/gems_data/sample_submission.tif \
-  --labels .cache/gems_data/labels.tif
-python scripts/readiness.py                     # fail-closed; never selects a slot
+.venv/bin/pip install -r requirements.txt
+python scripts/install_template.py                    # 19 pinned unchanged shared modules
+bash scripts/download_bilateral_data.sh               # six hash-pinned owner mirrors
+python scripts/fetch_bilateral_registry.py            # 167 frozen comparison rasters
+OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/prepare_bilateral_data.py
+OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/check_lattice.py
+OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/audit_parallel_lattice.py
+OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/audit_parallel_format.py
+python scripts/check_parallel_audit.py                # saved-receipt consistency
+.venv/bin/python scripts/check_run.py                 # receipt consistency, not a model rerun
+PYTHONPATH=src OPENBLAS_NUM_THREADS=1 .venv/bin/pytest -q
 python scripts/build_site.py
-python -m pytest -q
-python -m unittest discover -s tests -v         # concurrent review suite
 python -m http.server 8000 --bind 0.0.0.0 --directory docs
 ```
 
-`download_competition_data.sh` uses pinned **owner mirrors**. It does not establish
-that the files came from the competition organizer. The canonical cache is not
-published, so these commands do not create it or claim that training is ready.
-`GEMS_DATA_DIR`, `GEMS_WORK_DIR` and `GEMS_TEMPLATE_DIR` can override paths.
-The optional scheduled Pages workflow checks public leaderboard and peer-head
-freshness; it cannot authenticate a submission, access the account's quota,
-re-audit all current rasters, or upload anything.
+The code for the frozen experiment is `scripts/run_experiment.py`; it refuses to overwrite an
+existing run card. **Do not rerun or modify a candidate after the duplicate stop to seek a pass.**
+Attempt 1 stopped on a local clock-variable bug; corrected replay was attempt 2 of at most three,
+with no scientific settings changed. The record preserves the failure. `check_run.py` checks arithmetic
+and gate consistency; synthetic tests compare unchanged shared evaluation code to an independent
+small-grid definition and smoke-test the shared writer. No new prediction is produced by the checks.
 
-## Official references
+The site automatically checks GitHub source freshness in the visitor's browser, not DrivenData. Its
+[terms of use](https://www.drivendata.org/termsofuse/) prohibit automated website monitoring, so no
+scheduled live leaderboard scraper is supplied. The leaderboard snapshot is explicitly dated.
+Static Pages publication uses the repository's existing main-branch Pages configuration.
 
-* [DrivenData problem, metric and format](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/)
-* [Competition rules PDF](https://docs.nlr.gov/docs/fy26osti/96647.pdf)
-* [DrivenData staff clarification of known-fault masking](https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/2)
-* [Organizer reference solution](https://github.com/drivendataorg/gems-prize-reference-solution)
-* [USGS GeoDAWN release](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and)
-* [USGS 3DEP](https://www.usgs.gov/3d-elevation-program) · [USGS fault database](https://www.usgs.gov/programs/earthquake-hazards/faults)
-* [DOE GDR INGENIOUS compilation](https://gdr.openei.org/submissions/1391) · [EPSG:32611](https://epsg.io/32611)
+## Next authorized work
 
-## Parallel GPC-3 research candidate — DO NOT SUBMIT
+1. Obtain the actual assigned method lane and authenticate organizer inputs/derived-cache rights.
+2. Resolve or amend the contradictory all-registry novelty requirement **explicitly**; refresh the
+   live registry including concurrent work. A smaller budget is not automatically unique or better.
+3. Only under an authorized new run, preregister a truly different hypothesis and evaluate it against
+   the best comparable incumbent on the same folds, including leakage, novelty, provenance and CIs.
+4. If everything passes, use the unchanged shared writer, reopen/validate exact bytes, and let a
+   separate selector check the account-specific cap. Keep the submission-page receipt with the hash.
 
-A separate session produced
-[`kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.tif`](docs/downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.tif)
-(SHA-256 `16ec0585a884224460f0e5d09e7448a54ab5a3348db92279452a9a4e0453b0f7`).
-Its session reports **HOLDOUT-DTI 0.137681 [0.125567, 0.150331]**,
-`gems-segment-pooled-v1`, 60,988 withheld positives. We did not independently
-rerun that evaluation, and its folds have not been authenticated as matching the
-site-reported same-evaluator best of 0.16379. It is not a leaderboard prediction.
+## Core values
 
-The earlier report checked novelty against only nine champions. Our independent
-[`parallel-candidate-audit.json`](evidence/parallel-candidate-audit.json) finds
-**37,654/37,654 dots within 3 pixels of the registered spacing-five lattice**:
-100% exceeds the literal 70% stop, so this raster is a duplicate. The pinned
-shared auditor also rejects its finite values outside the footprint and 4,115
-positive catalogue cells. The owner-mirror sample is not organizer-authenticated.
-The parallel runner at `scripts/evaluate_holdout.py` is a prior session's custom
-experiment driver, not the shared evaluator; its CLI and final-emission path are
-blocked because its three-experiment budget was used and its narrower novelty gate
-must not promote another file. The pinned GEMSDOE32 shared tools are bootstrapped
-separately for audit and future properly assigned work.
-The exact original runner and prior site are archived for reproducibility; the
-TIFF and ZIP are **research downloads only**. No slot was selected or spent.
+**Maximize P(Win):** prefer defensible evidence, recall, novelty, and a truly comparable holdout over
+unverified forecasts or spending a scarce slot on a duplicate.
 
-To reproduce our lattice audit after restoring the core mirror and running
-`scripts/audit_history.py` (which caches the pinned lattice), run:
+**Own the Outcome:** make the stop obvious, preserve failures, automate independent checks, and make
+uncertainty and exact next steps visible rather than presenting a placebo raster as a submission.
 
-```bash
-python scripts/audit_parallel_candidate.py \\
-  --candidate docs/downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.tif \\
-  --lattice .cache/history/13GEMSDOE/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif \\
-  --sample .cache/gems_data/sample_submission.tif --labels .cache/gems_data/labels.tif
-```
-
-## Concurrent-main review preserved
-
-Other reviews reached `main` while this work was in progress. Their
-[standing project request](PROJECT_REQUEST.md), [independent audit](docs/audit.json),
-[review dashboard](docs/concurrent-main-dashboard.html), [research](docs/archived-research.html),
-[source snapshots](evidence/upstream/), [prior README](docs/concurrent-main-readme.md),
-[parallel GPC-3 dashboard](docs/parallel-gpc-dashboard.html) and
-[parallel GPC-3 README](docs/parallel-gpc-readme.md) are preserved. The independent audit compared historical representation variants
-against the owner-mirror footprint and found that some zeros-outside files do not
-meet the strict null-outside interpretation; this is not an organizer portal
-receipt. The active run card for **this** session is
-[`evidence/run-card.json`](evidence/run-card.json); other cards record earlier
-reviews and must not be interpreted as new candidate approvals. The other review
-builder now writes archived research rather than overwriting the active site.
-
-See the [source catalog](docs/sources.html), [next steps and irregularities](knowledge/portfolio-review.md),
-and the [user-facing submission guide](docs/executive-summary.html). The official
-reference solution has CPU and GPU environments; a GPU is useful but not proven
-necessary. Competition data and private submission receipts remain behind account
-access, while the sandbox shell has outbound access only to approved GitHub and
-package hosts. No credentials are requested or stored here.
+Prior concurrent-agent reports are retained under `archive/gpc3/`, `docs/archive/`,
+`research/archive/`, and `docs/legacy-*`; they are historical snapshots. The GPC-3 research
+card is retained as supplemental evidence, with its later full-registry duplicate finding added.
+The current bilateral card remains the canonical record for this lane.

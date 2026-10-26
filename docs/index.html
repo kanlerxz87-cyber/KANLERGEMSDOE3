@@ -1,122 +1,75 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="An evidence-first review of GEMS fault-discovery submissions and the gates before a competition upload.">
-  <meta name="theme-color" content="#132d26">
-  <title>GEMS Observatory · Submission intelligence</title>
-  <link rel="stylesheet" href="assets/style.css">
-  <script src="assets/feed.js" defer></script>
-</head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-<header class="topbar">
-  <div class="shell nav">
-    <a href="index.html" class="brand" aria-label="GEMS Observatory home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M3 24 12 8l5 9 4-7 8 14H3Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 24 15 13l7 11" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span><span><b>GEMS</b><small>OBSERVATORY</small></span></a>
-    <nav aria-label="Primary navigation"><a class="active" href="index.html">Overview</a><a href="#portfolio">Portfolio</a><a href="research.html">Research</a><a href="sources.html">Sources</a></nav>
-    <a class="nav-action" href="executive-summary.html">Submission guide <span aria-hidden="true">↗</span></a>
-  </div>
-</header>
-<main id="main">
-  <div class="shell">
-    <div class="breadcrumb"><span>DOE GEMS PRIZE</span><span aria-hidden="true">/</span><span>DECISION WORKSPACE</span><span class="breadcrumb-right"><i class="status-dot"></i> EVIDENCE FIRST</span></div>
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="hero-copy">
-        <div class="eyebrow"><span class="eyebrow-line"></span> RESEARCH, WITH A CLEAR DECISION</div>
-        <h1 id="hero-heading">A clearer path to<br><em>fault discovery.</em></h1>
-        <p class="hero-description">An evidence-led view of the GEMS portfolio: what we know, what remains unproven, and what it takes to earn a submission.</p>
-        <div class="hero-actions"><a class="button dark" href="#decision">See the decision <span aria-hidden="true">↓</span></a><a class="text-link" href="research.html">Explore the research <span aria-hidden="true">↗</span></a></div>
-      </div>
-      <div class="hero-art" aria-label="Decorative abstract geological linework; not a map or prediction">
-        <div class="art-top"><span>FIELD NOTES <b>/</b> 01</span><span>GEODAWN REGION</span></div>
-        <svg viewBox="0 0 520 310" role="img" aria-label="Abstract topographic lines and points">
-          <defs><linearGradient id="shade" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dbe8dd"/><stop offset="1" stop-color="#eff3e9"/></linearGradient></defs>
-          <rect width="520" height="310" fill="url(#shade)"/>
-          <g fill="none" stroke="#8da99a" opacity=".56" stroke-width="1.15">
-            <path d="M-60 248C4 241 35 185 100 188s65 50 128 26 53-89 120-93 71 38 108 14 67-62 120-47"/>
-            <path d="M-50 265C19 255 44 203 100 203s68 48 131 23 55-87 116-90 70 42 116 13 67-57 118-42"/>
-            <path d="M-45 280C26 270 55 219 106 218s69 44 129 20 56-84 114-87 69 43 117 15 66-55 113-43"/>
-            <path d="M-35 294C42 283 67 238 111 233s69 43 128 18 59-82 114-85 66 42 116 17 63-52 111-42"/>
-            <path d="M-22 310C51 295 80 255 116 248s70 39 127 16 60-80 115-83 64 42 114 17 61-50 112-39"/>
-            <path d="M-25 200C39 194 63 135 125 139s65 49 116 28 66-90 129-96 75 40 112 11 54-53 102-42"/>
-            <path d="M-20 184C40 176 65 120 129 123s66 49 110 29 72-91 131-96 75 38 110 12 52-52 101-42"/>
-            <path d="M-10 167C41 159 67 102 132 107s66 49 108 28 72-90 130-95 73 35 108 10 51-48 100-38"/>
-            <path d="M6 149C52 138 77 85 136 91s65 47 105 26 72-86 127-91 70 32 108 8 50-43 103-34"/>
-            <path d="M14 131C63 118 87 69 140 75s65 44 104 24 70-81 123-87 65 29 106 5"/>
-          </g>
-          <path d="M42 272 120 211 165 195 205 146 253 137 305 88 356 78 403 36" fill="none" stroke="#285b46" stroke-width="2" stroke-dasharray="5 6" opacity=".9"/>
-          <g fill="#285b46" stroke="#edf4e9" stroke-width="3"><circle cx="120" cy="211" r="5"/><circle cx="205" cy="146" r="5"/><circle cx="305" cy="88" r="5"/><circle cx="403" cy="36" r="5"/></g>
-          <g fill="#285b46" opacity=".55"><circle cx="161" cy="177" r="2"/><circle cx="181" cy="174" r="2"/><circle cx="279" cy="104" r="2"/><circle cx="367" cy="60" r="2"/><circle cx="345" cy="111" r="2"/></g>
-        </svg>
-        <div class="art-bottom"><span>ILLUSTRATION ONLY · NOT PREDICTIONS</span><span>100 M GRID ↗</span></div>
-      </div>
-    </section>
-    <section class="metrics" aria-label="Portfolio at a glance">
-      <div class="metric"><span class="metric-label">SUBMISSION STATUS</span><strong>Not ready</strong><small>No file cleared for upload</small></div>
-      <div class="metric"><span class="metric-label">BEST HISTORICAL CLAIM</span><strong>0.2778</strong><small>USER-REPORTED · not a receipt</small></div>
-      <div class="metric"><span class="metric-label">PUBLIC LEADERBOARD LEADER</span><strong id="leaderboard-value">0.4437</strong><small id="leaderboard-status">Observation · 26 Oct 2026</small></div>
-      <div class="metric"><span class="metric-label">PARALLEL HOLDOUT-DTI</span><strong>0.13768</strong><small>Reported · not independently rerun</small></div>
-    </section>
-
-    <section class="decision-section section" id="decision">
-      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> THE DECISION</div><h2>What can I submit?</h2><p>Technical validity and a different filename are not enough to earn a weekly slot.</p></div><span class="section-index">01 / DECISION</span></div>
-      <div class="decision-grid">
-        <div class="decision-main">
-          <div class="decision-top"><span class="pill danger"><span class="pill-dot"></span> NO FILE APPROVED · DO NOT SUBMIT</span><span class="mono muted">AUTOMATED · FAIL CLOSED</span></div>
-          <h3>Do not upload a file yet.</h3>
-          <p>A parallel session produced a research TIFF, but it fails the literal novelty rule and local footprint checks. Its holdout has not been independently rerun. No file has earned a weekly slot.</p>
-          <div class="decision-actions"><a class="button dark" href="executive-summary.html">Read the submission guide <span aria-hidden="true">↗</span></a><a href="data/run-card.json" class="text-link">View run card <span aria-hidden="true">↗</span></a></div>
-          <div class="decision-foot"><span aria-hidden="true">ⓘ</span><span>Historical TIFF links below are for research only. Re-uploading one is not a unique submission.</span></div>
-        </div>
-        <div class="gate-card">
-          <div class="gate-head"><span>RELEASE CHECKLIST</span><span>STATUS</span></div>
-          <div class="gate-row"><span><i>01</i> Assigned lane &amp; cached features</span><b class="gate-blocked">BLOCKED</b></div>
-          <div class="gate-row"><span><i>02</i> Leakage canaries &amp; holdout</span><b>PARTIAL / REPORTED</b></div>
-          <div class="gate-row"><span><i>03</i> Full registry uniqueness</span><b class="gate-blocked">DUPLICATE</b></div>
-          <div class="gate-row"><span><i>04</i> Saved TIFF validation</span><b class="gate-blocked">FAILED</b></div>
-          <div class="gate-row"><span><i>05</i> Separate slot selection</span><b>NOT SELECTED</b></div>
-          <p class="gate-note">No geological inspection or manual sign-off substitutes for missing evidence.</p>
-        </div>
-      </div>
-      <div class="candidate-card" id="research-file">
-        <div><span class="pill danger"><span class="pill-dot"></span> RESEARCH ONLY · DO NOT UPLOAD</span><h3>Parallel GPC-3 GeoTIFF</h3><p>The saved file is available for examination, not competition submission. An independent audit found <strong>37,654 of 37,654 dots within 3 pixels</strong> of the registered lattice, and the shared auditor rejected its finite outside-footprint values and 4,115 catalogue-positive pixels.</p><p>The parallel session reported <strong>HOLDOUT-DTI 0.137681 [0.125567, 0.150331], gems-segment-pooled-v1, 60,988 withheld positives</strong>; it was not independently rerun. This is not a leaderboard score.</p><div class="candidate-links"><a class="button dark" href="downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.tif">Download TIFF for research <span aria-hidden="true">↗</span></a><a class="text-link" href="data/parallel-candidate-audit.json">View independent audit ↗</a></div></div>
-        <div class="candidate-facts"><span>EXACT SAVED FILE</span><code>kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.tif</code><span>SHA-256</span><code>16ec0585a884224460f0e5d09e7448a54ab5a3348db92279452a9a4e0453b0f7</code><span>VERDICT</span><strong>Negative · do not submit</strong></div>
-      </div>
-    </section>
-
-    <section class="section portfolio-section" id="portfolio">
-      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> THE NINE-SITE PORTFOLIO</div><h2>Historical files, honestly compared.</h2><p>Each row is the highest claim in the supplied list for that site. All are prior files; none is recommended for a new upload.</p></div><span class="section-index">02 / PORTFOLIO</span></div>
-      <div class="table-wrap">
-        <div class="table-toolbar"><div><b>Historical reference files</b><span>9 pinned rasters · audited 2026-10-26 UTC</span></div><a class="small-link" href="data/portfolio-audit.json">Download audit JSON <span aria-hidden="true">↗</span></a></div>
-        <p class="mobile-table-hint">Swipe the table horizontally to see all columns →</p>
-        <div class="table-scroll" role="region" aria-label="Scrollable historical reference table" tabindex="0"><table><thead><tr><th>SITE</th><th>FILE · RESEARCH ONLY</th><th>HISTORICAL CLAIM</th><th>ESTIMATED SCORE</th><th>UNIQUE VS AUDITED NINE?</th><th>SUBMIT?</th></tr></thead><tbody>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE24/">GEMSDOE24</a></td><td><a class="file-link" href="https://github.com/buffedlizard55-lab/GEMSDOE24/raw/5cfab74597cd1d0a271e4640b4cc34511e56ca59/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif">gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif</a><small class="cell-secondary">SHA-256 68d0e2e4fcc594f9… · research only</small></td><td><span class="claim">0.2477</span><small class="cell-secondary">USER-REPORTED<br>not a receipt</small></td><td>Not estimable<small class="cell-secondary">No calibrated forecast</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">100.00% near GEMSDOE25</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">Historical file</small></td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE25/">GEMSDOE25</a></td><td><a class="file-link" href="https://github.com/buffedlizard55-lab/GEMSDOE25/raw/bfb2dfdbdf1b87d67afc6facd422180f56ebc455/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif">gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif</a><small class="cell-secondary">SHA-256 91eae1ca42ec845e… · research only</small></td><td><span class="claim">0.2600</span><small class="cell-secondary">USER-REPORTED<br>not a receipt</small></td><td>Not estimable<small class="cell-secondary">No calibrated forecast</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">100.00% near GEMSDOE30 · same mask</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">Historical file</small></td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE27/">GEMSDOE27</a></td><td><a class="file-link" href="https://github.com/buffedlizard55-lab/GEMSDOE27/raw/f1e32af867d9cf0081af20866c8241ec8678a432/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif">gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif</a><small class="cell-secondary">SHA-256 33003374335d84bf… · research only</small></td><td><span class="claim">0.2449</span><small class="cell-secondary">USER-REPORTED<br>not a receipt</small></td><td>Not estimable<small class="cell-secondary">No calibrated forecast</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">98.02% near GEMSDOE24</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">Historical file</small></td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE28/">GEMSDOE28</a></td><td><a class="file-link" href="https://github.com/buffedlizard55-lab/GEMSDOE28/raw/9c1be21e8f1be707347f737e42abf62ea669c819/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif">gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif</a><small class="cell-secondary">SHA-256 5556aa1438fd6737… · research only</small></td><td><span class="claim">0.2710</span><small class="cell-secondary">USER-REPORTED<br>not a receipt</small></td><td>Not estimable<small class="cell-secondary">No calibrated forecast</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">100.00% near GEMSDOE25</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">Historical file</small></td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE30/">GEMSDOE30</a></td><td><a class="file-link" href="https://github.com/buffedlizard55-lab/GEMSDOE30/raw/35ce8911e2c3287eed973eacd12c252e8cb3f34c/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif">gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif</a><small class="cell-secondary">SHA-256 8cf893ead5667df2… · research only</small></td><td><span class="claim">0.2600</span><small class="cell-secondary">USER-REPORTED<br>not a receipt</small></td><td>Not estimable<small class="cell-secondary">No calibrated forecast</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">100.00% near GEMSDOE25 · same mask</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">Historical file</small></td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE31/">GEMSDOE31</a></td><td><a class="file-link" href="https://github.com/buffedlizard55-lab/GEMSDOE31/raw/78f9bf3ae82e5c78ca348aa37c0660c339e72f0e/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif">gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif</a><small class="cell-secondary">SHA-256 07b6db440535404b… · research only</small></td><td><span class="claim">0.2708</span><small class="cell-secondary">USER-REPORTED<br>not a receipt</small></td><td>Not estimable<small class="cell-secondary">No calibrated forecast</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">100.00% near GEMSDOE25</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">Historical file</small></td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE32/">GEMSDOE32</a></td><td><a class="file-link" href="https://github.com/buffedlizard55-lab/GEMSDOE32/raw/8953b986b2ce6eb5ee8b7eda23fe3ad529720986/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif">gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif</a><small class="cell-secondary">SHA-256 c55bafc470054e82… · research only</small></td><td><span class="claim">0.2778</span><small class="cell-secondary">USER-REPORTED<br>not a receipt</small></td><td>Not estimable<small class="cell-secondary">No calibrated forecast</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">100.00% near GEMSDOE36</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">Historical file</small></td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE33/">GEMSDOE33</a></td><td><a class="file-link" href="https://github.com/buffedlizard55-lab/GEMSDOE33/raw/a24fb7c5031ee08b12440af4593057858fecef8e/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif">GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif</a><small class="cell-secondary">SHA-256 87f857d505e23247… · research only</small></td><td><span class="claim">0.2632</span><small class="cell-secondary">USER-REPORTED<br>not a receipt</small></td><td>Not estimable<small class="cell-secondary">No calibrated forecast</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">99.71% near GEMSDOE27</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">Historical file</small></td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE36/">GEMSDOE36</a></td><td><a class="file-link" href="https://github.com/buffedlizard55-lab/GEMSDOE36/raw/b90418f852615aa0974cf9a53b92fa569ed133fc/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif">gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif</a><small class="cell-secondary">SHA-256 e15891020b9c5705… · research only</small></td><td><span class="claim">0.2750</span><small class="cell-secondary">USER-REPORTED<br>not a receipt</small></td><td>Not estimable<small class="cell-secondary">No calibrated forecast</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">97.58% near GEMSDOE27</small></td><td><span class="badge-no">NO</span><small class="cell-secondary">Historical file</small></td></tr>
-        </tbody></table></div>
-        <div class="table-caption"><b>Reading the table</b> &nbsp; Claims are user-reported and unverified, not HOLDOUT-DTI or organizer-confirmed receipts. A score estimate is unavailable; a holdout proxy is not a leaderboard forecast. Uniqueness is directional final-dot overlap among these nine only; the full-registry and pre-placement checks were not run on these historical files.</div>
-      </div>
-      <div class="freshness"><span><i class="status-dot amber"></i> <strong>Source freshness:</strong> <span id="peer-status">Pinned audit; later peer commits have not been re-audited.</span></span><a href="https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/blob/main/knowledge/portfolio-review.md">Read the full methodology ↗</a></div>
-    </section>
-
-    <section class="section insights-section" id="findings">
-      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> WHAT THE EVIDENCE SAYS</div><h2>Learn from the leader.<br>Don't copy it.</h2></div><span class="section-index">03 / FINDINGS</span></div>
-      <div class="insight-grid">
-        <article class="insight-card"><span class="card-number">01</span><h3>Pruning, not a new detector.</h3><p>The H33-B2 raster is exactly the D2.8 mask after a two-pixel catalogue-distance exclusion. Spacing and pruning could improve metric efficiency; the hidden truth is needed to prove why.</p><a href="https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/blob/main/knowledge/portfolio-review.md">Read the forensic review ↗</a></article>
-        <article class="insight-card"><span class="card-number">02</span><h3>The literal rule constrains every dot.</h3><p>The registered lattice is within three pixels of 99.87% of the footprint. At the usual 37,654-dot budget, the literal 70% overlap threshold is mathematically unreachable against that lattice.</p><a href="data/portfolio-audit.json">Inspect the byte-level audit ↗</a></article>
-        <article class="insight-card"><span class="card-number">03</span><h3>Holdout is not the leaderboard.</h3><p>Catalogued-fault recovery is a useful, biased proxy for withheld new faults. Compare only matched folds and evaluators; never present a projection as an organizer score.</p><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#performance-metric">Review the official metric ↗</a></article>
-      </div>
-    </section>
-    <section class="next-band"><div><div class="eyebrow light"><span class="eyebrow-line"></span> THE NEXT RESPONSIBLE STEP</div><h2>Test the mechanism.<br>Protect the slot.</h2><p>Start with a declared lane and the shared, hash-pinned feature cache. Then measure leakage, spatial holdout, novelty and the saved bytes—before a separate selector considers an upload.</p><div class="next-links"><a class="button light-button" href="research.html">Explore hypotheses <span aria-hidden="true">↗</span></a><a href="sources.html">View source catalog ↗</a></div></div><div class="next-art" aria-hidden="true"><span>RESEARCH</span><span class="large-arrow">↗</span><span>NOT A FORECAST</span></div></section>
-  </div>
-</main>
-<footer><div class="shell footer-inner"><div><a class="footer-brand" href="index.html">GEMS <span>OBSERVATORY</span></a><p>Evidence first. No invented scores. No automatic uploads.</p></div><div><a href="executive-summary.html">Submission guide</a><a href="research.html">Research</a><a href="sources.html">Sources</a><a href="https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3">GitHub ↗</a></div></div><div class="shell footer-bottom"><span>INDEPENDENT RESEARCH WORKSPACE · NOT AFFILIATED WITH THE ORGANIZERS</span><span>MAXIMIZE P(WIN) / OWN THE OUTCOME</span></div></footer>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Research &amp; evidence | GEMS Evidence Lab</title><meta name="description" content="Evidence-led fault mapping research and submission readiness.">
+<link rel="stylesheet" href="experiment.css"></head><body>
+<header class="top"><div class="wrap top-inner"><a class="brand" href="index.html"><span class="mark">G</span><span><strong>GEMS</strong><small>Evidence lab / KANLERGEMSDOE3</small></span></a>
+<nav aria-label="Main navigation"><a href="index.html#results">Experiment</a><a href="index.html#comparison">Site comparison</a><a href="index.html#sources">Sources</a><a class="nav-cta" href="executive-summary.html">Submission guide ↗</a></nav></div></header>
+<main><div class="wrap">
+<section class="hero"><div><div class="eyebrow"><span>Research snapshot</span> 26 OCTOBER 2026 · NEVADA, USA</div>
+<h1>Better fault maps start with <em>better evidence.</em></h1>
+<p class="lede">A reproducible effort to find previously unmapped faults that may inform geothermal exploration — with a clear line between a promising hypothesis and an upload-ready result.</p>
+<div class="hero-actions"><a class="button primary" href="#results">Explore the experiment <span>↓</span></a><a class="button" href="run-card.json">View JSON run card <span>↗</span></a></div></div>
+<aside class="hero-card" aria-label="Latest research checkpoint"><div class="label">Latest checkpoint &nbsp; / &nbsp; 01</div><h2>One hypothesis.<br>One honest stop.</h2><p>We tested radiometric texture across LiDAR scarps, then applied the same novelty rule to the final dots.</p>
+<div class="mini-row"><span>Feature leakage canaries</span><strong>PASS</strong></div><div class="mini-row"><span>Frozen surface-rank screen</span><strong>PASS*</strong></div><div class="mini-row"><span>Final-dot uniqueness</span><strong class="fail">FAIL · 100%</strong></div><div class="mini-row"><span>This lane: TIFF / slot</span><strong>NOT ISSUED</strong></div></aside></section>
+<section class="verdict" aria-label="Submission verdict"><span class="verdict-icon">!</span><div><h2>DO NOT SUBMIT — NO ELIGIBLE FILE</h2><p>Our final dots, and a separate research TIFF already on main, each had 100% overlap with a registered lattice. The literal duplicate rule requires a stop, not an exemption.</p></div><span class="tag">NEGATIVE VERDICT</span></section>
+<section class="stats" aria-label="Key experiment figures"><div class="stat"><span class="label">Pooled HOLDOUT-DTI</span><strong>0.1134</strong><small>95% CI [0.1006, 0.1262]</small></div>
+<div class="stat"><span class="label">Withheld positives</span><strong>60,988</strong><small>Whole-component spatial holdout</small></div>
+<div class="stat"><span class="label">Surface references</span><strong>167</strong><small>Frozen snapshot; not globally complete</small></div>
+<div class="stat"><span class="label">Submission slots used</span><strong>0</strong><small>No upload or receipt</small></div></section>
+<section class="section" id="results"><div class="section-head"><div><div class="section-kicker">01 / The experiment</div><h2>What the data actually say.</h2><p>One preregistered provisional lane, evaluated as catalogue recovery — not as a predicted leaderboard score.</p></div><a class="text-link" href="run-card.json">Explore full run card ↗</a></div>
+<div class="result-grid"><article class="panel panel-pad"><h3>Bilateral K/Th texture × LiDAR scarp</h3><p>The hypothesis is that matching radiometric textures on opposite sides of a coherent surface break may show a consistent along-strike displacement. Channels, rock contacts, roads and survey seams can mimic this pattern.</p>
+<div class="score-row"><span class="big-score">0.1134</span><span class="score-copy">HOLDOUT-DTI · gems57-pooled-hide-v2<br>95% spatial-block CI [0.1006, 0.1262]<br>60,988 withheld positive pixels</span></div>
+<div class="interval"><strong>Paired difference vs feature ablation: +0.0010</strong><p>HOLDOUT-DTI · same evaluator and positives · 95% CI [-0.0006, +0.0027]. The interval crosses zero. The ablation scored 0.1124 (95% CI [0.0994, 0.1252]). It is not the current best incumbent.</p></div>
+<p class="notice">Pooled from four whole-component folds, with a 1.5 km training buffer, exact visible-fault masking and a 300 m triangular kernel. The bootstrap is conditional on the fitted folds and mapped catalogue.</p></article>
+<article class="panel panel-pad"><h3>Gate-by-gate, not guesswork.</h3><ul class="gate-list"><li><span class="gate-dot">✓</span><span>Single-feature and OOF-model canaries</span><span>No AUC &gt; 0.90</span></li>
+<li><span class="gate-dot">✓</span><span>Surface rank vs 167 pinned references</span><span>max |ρ| 0.0975*</span></li>
+<li><span class="gate-dot stop">×</span><span>Shared template full feature stack</span><span>Not verified / reused</span></li>
+<li><span class="gate-dot stop">×</span><span>Final dots vs one registered lattice</span><span>100% near</span></li>
+<li><span class="gate-dot stop">×</span><span>Improvement vs current comparable best</span><span>Not established</span></li>
+<li><span class="gate-dot stop">—</span><span>This run: saved file / organizer receipt</span><span>None / none</span></li></ul><p class="notice">*Pass applies only to this frozen snapshot and surface stage. Global registry completeness, organizer-source authentication and redistribution rights remain unresolved.</p><div class="interval"><strong>Parallel research TIFF: also a duplicate</strong><p>The separately committed GPC-3 file passed only a nine-champion comparison; our check found 37,654 of 37,654 dots within 3 pixels of the same registered lattice. <a href="parallel-lattice-audit.json">View independent audit ↗</a></p></div></article></div></section>
+<section class="section" id="comparison"><span id="portfolio" aria-hidden="true"></span><div class="section-head"><div><div class="section-kicker">02 / Nine-site comparison</div><h2>Learn from the field.</h2><p>Exact historical files are linked for study, not resubmission. All nine fail the final-dot overlap rule against at least one of the other eight.</p></div><a class="text-link" href="audit.json">Prior independent audit ↗</a></div>
+<div class="table-wrap"><table><thead><tr><th>Project</th><th>Historical best file</th><th>Reported figure</th><th>Forecast</th><th>3 px uniqueness</th></tr></thead><tbody><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE24/">GEMSDOE24</a></td>
+<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE24/blob/46f663dad1a1c3d8231e5de5dbad4ee4d19e8d56/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif">gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif</a><small>Historical file · research reference only</small></td>
+<td><strong>0.2477</strong><small>Owner-reported / unverified</small></td>
+<td>Not estimable<small>No calibrated score forecast</small></td>
+<td><span class="badge">DUPLICATE</span><small>100.00% near GEMSDOE25</small></td></tr><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE25/">GEMSDOE25</a></td>
+<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE25/blob/fac6dbe5852baa0f0125d00ecc5cb1c16872741a/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif">gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif</a><small>Historical file · research reference only</small></td>
+<td><strong>0.2600</strong><small>Owner-reported / unverified</small></td>
+<td>Not estimable<small>No calibrated score forecast</small></td>
+<td><span class="badge">DUPLICATE</span><small>100.00% near GEMSDOE24</small></td></tr><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE27/">GEMSDOE27</a></td>
+<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE27/blob/cf8b4c201f2cc2ef649b6ca7cd32f235c2f6743a/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif">gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif</a><small>Historical file · research reference only</small></td>
+<td><strong>0.2449</strong><small>Owner-reported / unverified</small></td>
+<td>Not estimable<small>No calibrated score forecast</small></td>
+<td><span class="badge">DUPLICATE</span><small>98.02% near GEMSDOE24</small></td></tr><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE28/">GEMSDOE28</a></td>
+<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE28/blob/12ec4fea4c97a7887a7ca8a06f9bd94c7609ea07/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif">gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif</a><small>Historical file · research reference only</small></td>
+<td><strong>0.2710</strong><small>Owner-reported / unverified</small></td>
+<td>Not estimable<small>No calibrated score forecast</small></td>
+<td><span class="badge">DUPLICATE</span><small>100.00% near GEMSDOE24</small></td></tr><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE30/">GEMSDOE30</a></td>
+<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE30/blob/35ce8911e2c3287eed973eacd12c252e8cb3f34c/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif">gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif</a><small>Historical file · research reference only</small></td>
+<td><strong>0.2600</strong><small>Owner-reported / unverified</small></td>
+<td>Not estimable<small>No calibrated score forecast</small></td>
+<td><span class="badge">DUPLICATE</span><small>100.00% near GEMSDOE24</small></td></tr><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE31/">GEMSDOE31</a></td>
+<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/784d3ae2dc1d247323378074257eba4353b3d087/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif">gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif</a><small>Historical file · research reference only</small></td>
+<td><strong>0.2708</strong><small>Owner-reported / unverified</small></td>
+<td>Not estimable<small>No calibrated score forecast</small></td>
+<td><span class="badge">DUPLICATE</span><small>100.00% near GEMSDOE24</small></td></tr><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE32/">GEMSDOE32</a></td>
+<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE32/blob/8b00ee91b9d6d7ef0e3762eb7bc0c92bee0928d1/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif">gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif</a><small>Historical file · research reference only</small></td>
+<td><strong>0.2778</strong><small>Owner-reported / unverified</small></td>
+<td>Not estimable<small>No calibrated score forecast</small></td>
+<td><span class="badge">DUPLICATE</span><small>100.00% near GEMSDOE24</small></td></tr><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE33/">GEMSDOE33</a></td>
+<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE33/blob/adf1f45ae0030de5e63d07655eaeb1a0ea4d96f3/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif">GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif</a><small>Historical file · research reference only</small></td>
+<td><strong>0.2632</strong><small>Owner-reported / unverified</small></td>
+<td>Not estimable<small>No calibrated score forecast</small></td>
+<td><span class="badge">DUPLICATE</span><small>99.71% near GEMSDOE27</small></td></tr><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE36/">GEMSDOE36</a></td>
+<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE36/blob/6dae4545076c4e5fc2be1cf348fe740ba9508a1d/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif">gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif</a><small>Historical file · research reference only</small></td>
+<td><strong>0.2750</strong><small>Owner-reported / unverified</small></td>
+<td>Not estimable<small>No calibrated score forecast</small></td>
+<td><span class="badge">DUPLICATE</span><small>97.58% near GEMSDOE27</small></td></tr></tbody></table></div>
+<p class="notice">Reported figures are owner-provided and <strong>not organizer-confirmed</strong>; no receipt ties them to the listed file hashes. Percentages are observed directional overlap of the indicated row against one peer, not a score. Surface comparisons and other registries are not covered by this nine-file table.</p></section>
+<section class="section"><div class="section-head"><div><div class="section-kicker">03 / Interpretation</div><h2>Why GEMSDOE32 stood out.</h2></div></div><div class="reason-grid">
+<article class="panel"><h3>What we can verify</h3><p>In the pinned owner mirrors, H33-B2 is exactly the 44,090-dot D2.8 mask minus the 6,436 dots at or within two pixels of the mapped catalogue, leaving 37,654. Its <strong>0.2778 is an unverified owner report</strong>, not a receipt.</p></article>
+<article class="panel"><h3>What we cannot infer</h3><p>Removing predictions can reduce false-positive mass, but can also lose valuable fault coverage. Hidden labels and causal ablation are unavailable, so thinning is a hypothesis, not proof of why a score changed. Whether any new method can surpass it is unknown.</p></article></div></section>
+<section class="section" id="sources"><div class="section-head"><div><div class="section-kicker">04 / Source discipline</div><h2>Freshness without false certainty.</h2><p>Public leaderboard leader observed at <strong>0.4437 on 26 October 2026</strong>; this is a dated organizer-page snapshot, not a score for our file. It can change.</p></div><a class="text-link" href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">Open official leaderboard ↗</a></div>
+<div class="panel source-strip"><div><p><strong>Automated source health, not automated leaderboard scraping.</strong></p><p class="source-status" data-github-status>Checking GitHub source freshness; no competition website is requested by this page.</p></div><a class="text-link" href="https://www.drivendata.org/termsofuse/">Why no live leaderboard feed? ↗</a></div>
+<p class="notice">DrivenData's terms prohibit automated monitoring. The status check uses only GitHub's public API. Peer mirrors are hash-pinned, not authenticated organizer originals; review their rights and the <a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN source</a> before use. See the <a href="https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/blob/main/research/preregistration.md">pre-registration</a> and <a href="https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/blob/main/README.md">project README</a>.</p></section></div></main><footer><div class="wrap"><span>GEMS Evidence Lab &nbsp; / &nbsp; Maximize P(Win) · Own the Outcome</span><span>Research snapshot · No competition slot spent</span></div></footer>
+<script src="source-status.js" defer></script></body></html>

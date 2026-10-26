@@ -193,7 +193,7 @@ def main() -> None:
     parser.add_argument("--labels", type=Path, required=True)
     parser.add_argument("--manifest", type=Path, default=ROOT / "data/historical-manifest.json")
     parser.add_argument("--cache", type=Path, default=ROOT / ".cache/history")
-    parser.add_argument("--out", type=Path, default=ROOT / "evidence/portfolio-audit.json")
+    parser.add_argument("--out", type=Path, default=ROOT / "evidence/concurrent-main/observatory-portfolio-audit.json")
     parser.add_argument("--offline", action="store_true")
     args = parser.parse_args()
     result = audit(json.loads(args.manifest.read_text()), args.sample, args.labels, args.cache, offline=args.offline)

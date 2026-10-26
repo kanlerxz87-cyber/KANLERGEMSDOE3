@@ -1,3 +1,5 @@
+> **Historical pre-experiment snapshot:** superseded by the [current dashboard](index.html) and [run card](run-card.json). Descriptions of missing inputs or zero experiments are no longer current.
+
 # Executive review — GEMSDOE24/25/27/28/30/31/32/33/36
 
 **Reviewed:** 2026-10-26 (UTC) · **Repository:** `KANLERGEMSDOE3` · **Starting checkout:** initial commit `d795e4e`; current branch also integrates concurrent `origin/main` review assets · **Decision:** no submission file is available or approved from this checkout.

@@ -174,5 +174,9 @@
   "zip": "docs/downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.zip",
   "verdict": "negative",
   "ok_to_submit": false,
-  "download_research": true
+  "download_research": false,
+  "all_registry_novelty_verdict": "duplicate",
+  "registered_lattice_overlap_3px": 1.0,
+  "independent_lattice_audit": "evidence/parallel-lattice-audit.json",
+  "status_update": "Nine-champion uniqueness does not satisfy the literal all-registry rule; 100% overlap with a registered lattice. Do not submit."
 }

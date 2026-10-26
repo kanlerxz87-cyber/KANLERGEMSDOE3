@@ -50,5 +50,7 @@
     "status": "not_estimable",
     "value": null,
     "reason": "No calibrated same-evaluator/organizer-receipt mapping; user/site historical numbers remain unverified."
-  }
+  },
+  "archived": true,
+  "superseded_by": "../run-card.json"
 }

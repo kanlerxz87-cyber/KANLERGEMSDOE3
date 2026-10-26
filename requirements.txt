@@ -1,6 +1,5 @@
-# Geospatial audit and integration tests; the site builder/feed use the standard library.
-numpy==2.4.6
-scipy==1.17.1
-rasterio==1.4.4
-pytest==9.1.1
-scikit-learn==1.9.1
+numpy==2.2.6
+scipy==1.15.3
+rasterio==1.4.3
+scikit-learn==1.6.1
+pytest==8.3.5

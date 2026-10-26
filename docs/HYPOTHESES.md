@@ -1,3 +1,5 @@
+> **Historical pre-experiment snapshot:** superseded by the [current README](../README.md) and [run card](../evidence/run-card.json). Assertions about missing inputs or zero experiments describe an earlier state.
+
 # Preregistered candidate hypotheses (not run)
 
 **Status:** these are testable research proposals, not results or score projections. No experiment was run because the required shared stack/evaluator/data are absent from this checkout. Rank is qualitative expected information/value per implementation cost, not numerical expected DTI. Each candidate uses layers that the official problem page lists in the challenge `training_features.tif`; no new external dataset is required, so external-source access is not a viability blocker. Before execution, compare full code/history from all nine repos and the complete raster registry: the current checkout lacks the artifacts needed to prove global novelty.

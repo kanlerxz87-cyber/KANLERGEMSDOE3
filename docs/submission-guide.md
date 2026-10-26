@@ -1,3 +1,5 @@
+> **Historical pre-experiment snapshot:** superseded by the [current dashboard](index.html) and [run card](run-card.json). Descriptions of missing inputs or zero experiments are no longer current.
+
 # Submission guide — fail-closed
 
 ## Current decision

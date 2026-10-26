@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Refresh public leaderboard/peer-head observations for Pages; never authorize a file.
+"""Refresh GitHub peer-head observations; never automate DrivenData access.
 
-On any unavailable or changed source, preserve the last value and label it stale.
-A new peer commit is a freshness warning, NOT a re-audit. No account access or
-submission-page receipt is used.
+DrivenData terms prohibit automated monitoring, so the leaderboard remains a dated,
+manual observation. A changed peer commit is not a re-audit or authorization.
 """
 from __future__ import annotations
 import argparse
@@ -16,6 +15,7 @@ import re
 import tempfile
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 LEADERBOARD = "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/"
@@ -84,6 +84,8 @@ def parse_leaderboard(html: str) -> float:
 
 
 def get(url: str, *, github: bool = False) -> bytes:
+    if not github or urlparse(url).hostname != "api.github.com":
+        raise ValueError("Automatic access is restricted to the public GitHub API")
     headers = {"User-Agent": "GEMS-Evidence-Workspace/1.0", "Accept": "application/vnd.github+json" if github else "text/html"}
     token = os.environ.get("GITHUB_TOKEN")
     if github and token:
@@ -95,14 +97,9 @@ def get(url: str, *, github: bool = False) -> bytes:
 def refresh(previous: dict, manifest: dict, now: str) -> dict:
     result = {"schema_version": 1}
     old_lb = previous.get("leaderboard", {}) if isinstance(previous.get("leaderboard"), dict) else {}
-    try:
-        value = parse_leaderboard(get(LEADERBOARD).decode("utf-8", errors="replace"))
-        result["leaderboard"] = {"value": value, "observed_at_utc": now, "last_attempt_utc": now,
-                                 "status": "current_at_fetch", "source": LEADERBOARD,
-                                 "evidence_class": "public leaderboard observation; not a submission-page receipt"}
-    except (ValueError, HTTPError, URLError, TimeoutError, OSError) as exc:
-        result["leaderboard"] = {**old_lb, "status": "stale_or_unavailable", "last_attempt_utc": now,
-                                 "error": type(exc).__name__, "source": LEADERBOARD}
+    result["leaderboard"] = {**old_lb, "status": "stale_or_unavailable",
+                             "last_reviewed_utc": now, "source": LEADERBOARD,
+                             "reason": "Automatic DrivenData monitoring disabled under site terms; consult manually."}
 
     refs: dict[str, str] = {}
     for row in manifest.get("rows", []):

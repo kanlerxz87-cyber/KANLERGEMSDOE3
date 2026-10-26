@@ -32,12 +32,22 @@ def test_failure_preserves_previous_value_and_marks_stale(monkeypatch):
     assert result["peer_heads"]["sites"][0]["status"] == "unavailable"
 
 
-def test_public_observation_and_peer_change_do_not_approve(monkeypatch):
+def test_peer_refresh_never_requests_leaderboard_or_approves(monkeypatch):
+    calls = []
     def fake_get(url, github=False):
-        return json.dumps({"sha": "b" * 40}).encode() if github else HTML.encode()
+        assert github and url.startswith('https://api.github.com/')
+        calls.append(url)
+        return json.dumps({"sha": "b" * 40}).encode()
     monkeypatch.setattr(feed, "get", fake_get)
-    result = feed.refresh({}, {"rows": [{"site": "GEMSDOE32", "ref": "a" * 40}]}, "now")
+    old = {"leaderboard": {"value": .4437, "observed_at_utc": "2026-10-26"}}
+    result = feed.refresh(old, {"rows": [{"site": "GEMSDOE32", "ref": "a" * 40}]}, "now")
     assert result["leaderboard"]["value"] == .4437
-    assert "not a submission-page receipt" in result["leaderboard"]["evidence_class"]
-    assert result["peer_heads"]["sites"][0]["changed_since_audit"] is True
+    assert result["leaderboard"]["status"] == "stale_or_unavailable"
+    assert 'monitoring disabled' in result["leaderboard"]["reason"]
+    assert len(calls) == 1 and result["peer_heads"]["sites"][0]["changed_since_audit"] is True
     assert "approve" in result["peer_heads"]["note"]
+
+
+def test_network_helper_rejects_drivendata():
+    with pytest.raises(ValueError, match='restricted'):
+        feed.get(feed.LEADERBOARD)

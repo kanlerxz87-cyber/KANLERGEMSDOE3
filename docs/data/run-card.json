@@ -158,5 +158,8 @@
     "Shared evaluate_holdout.py and submission_writer.py at the GEMSDOE32 pin silently binarize probability arrays; see https://github.com/buffedlizard55-lab/GEMSDOE32/issues/37.",
     "Shared check_submission.py at the GEMSDOE32 pin does not inspect outside-footprint values; see https://github.com/buffedlizard55-lab/GEMSDOE32/issues/39."
   ],
-  "provenance": "GPC-3 was produced by a parallel session and merged to main; this session audited its saved bytes and did not rerun its holdout."
+  "provenance": "GPC-3 was produced by a parallel session and merged to main; this session audited its saved bytes and did not rerun its holdout.",
+  "historical_snapshot": true,
+  "canonical_current_run_card": "../run-card.json",
+  "status_note": "Archived parallel audit session; the canonical current bilateral run card is ../run-card.json. Do not submit."
 }
