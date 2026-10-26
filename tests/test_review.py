@@ -27,7 +27,7 @@ class ReviewTests(unittest.TestCase):
             c=fixture();del c[key];self.assertEqual(assess(c)['verdict'],'negative',key)
     def test_nonfinite_and_threshold(self):
         for key in ['surface_max_rank_correlation','final_max_rank_correlation','surface_dot_overlap_3px','final_dot_overlap_3px','max_feature_auc']:
-            for bad in [float('nan'),float('inf'),True,1.01]:
+            for bad in [float('nan'),float('inf'),True,1.01,-.91]:
                 c=fixture();c[key]=bad;self.assertEqual(assess(c)['verdict'],'negative')
     def test_no_improvement(self):
         c=fixture();c['paired_improvement_ci95']=[0,.1];self.assertEqual(assess(c)['verdict'],'negative')

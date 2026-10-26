@@ -34,3 +34,7 @@ GitHub Actions tests the report. The existing GitHub Pages configuration publish
 ## Principles
 
 **Maximize P(Win):** favor falsifiable experiments and trustworthy estimates over attractive, unverified claims. **Own the Outcome:** automate checks, preserve negative results, and make blockers obvious rather than silently lowering gates. Fault mapping is the competition target; geothermal interpretation is not evidence of vent discovery.
+
+## Parallel-session review preserved
+
+A concurrent review merged into main during this session. Its [charter](docs/previous-charter.md), [landing page](docs/prior-review.html), uppercase Markdown reports and root `run-card.json` are retained as historical records, not the active dashboard. This session's current decision card is `docs/data/run_card.json`. Historical source-verification assertions are not automatically inherited as newly verified facts.

@@ -28,7 +28,7 @@ def assess(card):
             failures.append(field)
     for field in ('surface_max_rank_correlation', 'final_max_rank_correlation'):
         v=card.get(field)
-        if not finite(v) or not -1 <= v <= .90:
+        if not finite(v) or not 0 <= abs(v) <= .90:
             failures.append(field)
     for field in ('surface_dot_overlap_3px', 'final_dot_overlap_3px'):
         v=card.get(field)
