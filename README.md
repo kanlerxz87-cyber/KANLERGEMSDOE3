@@ -57,9 +57,9 @@ by Git. Downloading the full data bundle is approximately 464 MiB and the regist
 python -m venv .venv
 .venv/bin/pip install -r requirements.txt
 python scripts/install_template.py                    # 19 pinned unchanged shared modules
-bash scripts/download_competition_data.sh            # six hash-pinned owner mirrors
-python scripts/fetch_registry.py                      # 167 frozen comparison rasters
-OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/prepare_data.py
+bash scripts/download_bilateral_data.sh            # six hash-pinned owner mirrors
+python scripts/fetch_bilateral_registry.py                      # 167 frozen comparison rasters
+OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/prepare_bilateral_data.py
 OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/check_lattice.py
 .venv/bin/python scripts/check_run.py                 # receipt consistency, not a model rerun
 PYTHONPATH=src OPENBLAS_NUM_THREADS=1 .venv/bin/pytest -q

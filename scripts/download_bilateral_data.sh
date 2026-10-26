@@ -3,4 +3,4 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 PYTHON="${PYTHON:-python3}"
-"$PYTHON" scripts/restore_data.py "$@"
+"$PYTHON" scripts/restore_bilateral_data.py "$@"

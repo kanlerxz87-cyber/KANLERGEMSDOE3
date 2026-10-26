@@ -2,7 +2,7 @@
 """Run the single frozen displacement-lane experiment; no automatic slot selection.
 
 Requires the pinned shared template and frozen registry, installed unmodified by
-scripts/install_template.py and scripts/fetch_registry.py. Data are never trained
+scripts/install_template.py and scripts/fetch_bilateral_registry.py. Data are never trained
 from the sample raster. A duplicate stops before writing a candidate GeoTIFF.
 """
 from __future__ import annotations
@@ -27,7 +27,7 @@ from sklearn.ensemble import HistGradientBoostingClassifier
 from gems import emission, holdout, novelty
 from gems57 import evaluate_holdout
 from gems_project.features import FEATURE_NAMES, texture_features
-from prepare_data import validate
+from prepare_bilateral_data import validate
 
 BUDGET=37654
 LIMIT_SECONDS=2*60*60

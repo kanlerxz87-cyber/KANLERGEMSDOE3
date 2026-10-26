@@ -6,9 +6,9 @@ import numpy as np
 import rasterio
 from scipy.ndimage import distance_transform_edt
 try:
-    from .restore_data import sha256
+    from .restore_bilateral_data import sha256
 except ImportError:  # python scripts/check_lattice.py
-    from restore_data import sha256
+    from restore_bilateral_data import sha256
 
 ROOT=Path(__file__).resolve().parents[1]
 

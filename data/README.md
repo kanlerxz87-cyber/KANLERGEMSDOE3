@@ -1,6 +1,6 @@
 # Input data (not committed)
 
-`bash scripts/download_competition_data.sh` restores six hash-pinned **owner mirrors** to this
+`bash scripts/download_bilateral_data.sh` restores six hash-pinned **owner mirrors** to this
 directory. SHA-256 proves consistency with the owner-published manifest, not identity with the
 [authenticated organizer data](https://www.drivendata.org/competitions/306/competition-doe-gems/data/).
 The cached LiDAR and K/Th GeoDAWN products were actual model inputs; the 19-band training stack was

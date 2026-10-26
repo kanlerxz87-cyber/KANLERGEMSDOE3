@@ -7,7 +7,7 @@ from pathlib import Path
 
 import numpy as np
 import rasterio
-from restore_data import sha256
+from restore_bilateral_data import sha256
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / 'data/input-manifest.json'
@@ -22,7 +22,7 @@ def validate(data=ROOT/'data'):
     paths = {}
     for id in ['training_features','labels','sample_submission','lidar_cached','geodawn_radiometric_cached','calibration_lattice']:
         row = by_id[id]; p = data / row['dest']
-        if not p.is_file(): raise FileNotFoundError(f'Missing {p}; run bash scripts/download_competition_data.sh')
+        if not p.is_file(): raise FileNotFoundError(f'Missing {p}; run bash scripts/download_bilateral_data.sh')
         if p.stat().st_size != row['bytes'] or sha256(p)!=row['sha256']:
             raise ValueError(f'Input hash/size mismatch: {p}')
         paths[id] = p
