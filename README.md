@@ -88,7 +88,7 @@ The recovery tools verify immutable commits and SHA-256; `.cache/` and `data/` a
 2. Confirm permission/license to use and share the participant code/data, recover the organizer sample through authorized access, and investigate the sample mismatch. No credentials should be stored here.
 3. Freeze the current complete registry and all needed surfaces/rasters. Run canaries and paired buffered holdout only after the lane and scope are settled.
 4. If a candidate meets every gate, use the shared writer, validate saved bytes and publish its hash/name/note. A separate selector decides on a weekly slot; preserve the actual organizer receipt.
-5. Keep official rules and data links current; an external leaderboard link is live, but the static project snapshot is not an automated live feed. See the [three-pass log](research/verification.md).
+5. Keep official rules and data links current; the original root snapshot stays static, while the separate SSP1 portal has an automated public-only last-good feed. Neither is a new model result or slot authorization. See the [three-pass log](research/verification.md).
 
 ## Core values
 

@@ -1,8 +1,8 @@
 {
-  "verified_utc": "2026-10-26T22:57:58.148892+00:00",
-  "main_commit_integrated": "4338f12e30e90904f95e414faeb301f2c98fa394",
-  "n_existing_files_checked": 359,
-  "n_preserved_byte_for_byte": 356,
+  "verified_utc": "2026-10-26T23:03:11.898782+00:00",
+  "main_commit_integrated": "0051d33293264d5e7b1638bb1aa412156f03f40f",
+  "n_existing_files_checked": 434,
+  "n_preserved_byte_for_byte": 431,
   "intentional_existing_file_changes": [
     "README.md",
     "docs/index.html",
@@ -25,7 +25,7 @@
     },
     {
       "path": ".gitignore",
-      "original_blob": "8631603906f069ac9730a4a049b57aa932d1f6fd",
+      "original_blob": "0621a51f5aa19c463af0a6c2173a1ac1f285bdc8",
       "preserved": true
     },
     {
@@ -45,7 +45,7 @@
     },
     {
       "path": "README.md",
-      "original_blob": "63554c2328ab36bc6e39dd5d83b94fdebe980a50",
+      "original_blob": "e6ad57e9778120aedea221a2e8731766cdd6d064",
       "preserved": false
     },
     {
@@ -299,6 +299,16 @@
       "preserved": true
     },
     {
+      "path": "docs/data/focus9_family.json",
+      "original_blob": "7a950600f4b901e11b369b9d98437d74fb06fcad",
+      "preserved": true
+    },
+    {
+      "path": "docs/data/k3h1-uniqueness-summary.json",
+      "original_blob": "562a9b60a61ad909655f774cdda375daeb5f0326",
+      "preserved": true
+    },
+    {
       "path": "docs/data/parallel-candidate-audit.json",
       "original_blob": "9fc2145e2c85df7d1dab7be384f2dcde72957a6f",
       "preserved": true
@@ -359,8 +369,23 @@
       "preserved": true
     },
     {
+      "path": "docs/downloads/kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.json",
+      "original_blob": "decd4b9353a79d70341f7a1bc7f7c06fd18df4f3",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.tif",
+      "original_blob": "b8654cd8cc31adf1f610e693f628b0814fa59490",
+      "preserved": true
+    },
+    {
+      "path": "docs/downloads/kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.zip",
+      "original_blob": "96dd6f5acfd4361dc5857ff4db0dfe10c2c1fb83",
+      "preserved": true
+    },
+    {
       "path": "docs/executive-summary.html",
-      "original_blob": "42f229fc97ef7878ba6876f69e54c4165420fe99",
+      "original_blob": "8821c5f63b1cac37418f15f00ca843412b7bc0be",
       "preserved": true
     },
     {
@@ -375,7 +400,7 @@
     },
     {
       "path": "docs/hypotheses.html",
-      "original_blob": "219ea4df751b9f7589ec1ace661a4e77dd992a2f",
+      "original_blob": "e143ec65e51f5600aacbda53bd16f36912b9cdf9",
       "preserved": true
     },
     {
@@ -385,8 +410,18 @@
     },
     {
       "path": "docs/index.html",
-      "original_blob": "233d560a634325d91b97715755e8aabe66cdc95f",
+      "original_blob": "6429a572721510a23a21bf4ca27e779758b5de72",
       "preserved": false
+    },
+    {
+      "path": "docs/k3h1-run-card.json",
+      "original_blob": "86c1546c572f1b59ae10bee22d01205c0015fcd5",
+      "preserved": true
+    },
+    {
+      "path": "docs/k3h1.html",
+      "original_blob": "7d00250b8dbe0744e1c1179237af3563816d2a06",
+      "preserved": true
     },
     {
       "path": "docs/legacy-audit-dashboard.html",
@@ -450,7 +485,7 @@
     },
     {
       "path": "docs/research.html",
-      "original_blob": "f8a205bac8a8d427a4e6afc09e2a4cab0c785807",
+      "original_blob": "e07a226bcc854dcb0be2df4d5473e607933470e2",
       "preserved": true
     },
     {
@@ -500,7 +535,7 @@
     },
     {
       "path": "docs/sources.html",
-      "original_blob": "888fb936bcc221699d0b8b91f5c02e5db919b6bc",
+      "original_blob": "b78b4d123f6ee930d3e8e3d199717a96257955e0",
       "preserved": true
     },
     {
@@ -515,7 +550,7 @@
     },
     {
       "path": "docs/submission.html",
-      "original_blob": "42f229fc97ef7878ba6876f69e54c4165420fe99",
+      "original_blob": "8821c5f63b1cac37418f15f00ca843412b7bc0be",
       "preserved": true
     },
     {
@@ -525,7 +560,7 @@
     },
     {
       "path": "docs/summary.html",
-      "original_blob": "4fe8dba7a10f2c1592ab92fd03f9db9ee17f39bf",
+      "original_blob": "42a31ab0d133ff5e20fe62ace411799d50dd6852",
       "preserved": true
     },
     {
@@ -584,8 +619,38 @@
       "preserved": true
     },
     {
+      "path": "evidence/e1_holdout.json",
+      "original_blob": "1ece8dd5810f4b2267e00e27033e88c161fc23c6",
+      "preserved": true
+    },
+    {
+      "path": "evidence/e2_unique.json",
+      "original_blob": "2be950161eeec981be2f7e1d00a808af40a292fe",
+      "preserved": true
+    },
+    {
+      "path": "evidence/e3_canary.json",
+      "original_blob": "ce780fd239a790917a616f1066b27e093479cca3",
+      "preserved": true
+    },
+    {
+      "path": "evidence/e3_hybrid.json",
+      "original_blob": "6ae3325e4a4e5f685754906300180f7c1ec76a29",
+      "preserved": true
+    },
+    {
+      "path": "evidence/experiment_log.json",
+      "original_blob": "4cd1ee647f6e7b5b04e11f53443641deee1b699d",
+      "preserved": true
+    },
+    {
       "path": "evidence/feature_cache_recovery_20261026.json",
       "original_blob": "2facc7ab6e88aee574d07bc016b62ea301508bde",
+      "preserved": true
+    },
+    {
+      "path": "evidence/focus9_family.json",
+      "original_blob": "7a950600f4b901e11b369b9d98437d74fb06fcad",
       "preserved": true
     },
     {
@@ -596,6 +661,11 @@
     {
       "path": "evidence/holdout_experiments.json",
       "original_blob": "9c4b98c46ad15c72589434d945a8ba5f2aa2ccf5",
+      "preserved": true
+    },
+    {
+      "path": "evidence/k3h1-run-card.json",
+      "original_blob": "86c1546c572f1b59ae10bee22d01205c0015fcd5",
       "preserved": true
     },
     {
@@ -686,6 +756,11 @@
     {
       "path": "evidence/snapshot_hashes.json",
       "original_blob": "a26a75bc590fa51057e4c006bd843c44463e6cff",
+      "preserved": true
+    },
+    {
+      "path": "evidence/uniqueness_final.json",
+      "original_blob": "05a9b7aed105e763004fe5dbefb5cc9ea82f8856",
       "preserved": true
     },
     {
@@ -1149,6 +1224,11 @@
       "preserved": true
     },
     {
+      "path": "evidence/validator_final.json",
+      "original_blob": "cb905769adf5db5cbf1c33b69e8f1531cf79bcc5",
+      "preserved": true
+    },
+    {
       "path": "evidence/validator_output.json",
       "original_blob": "51d12587880875222b1af50788cca776de817646",
       "preserved": true
@@ -1156,6 +1236,36 @@
     {
       "path": "index.html",
       "original_blob": "e4d9bcf4df85068d00f5d7674b4e25dd3cdcd42b",
+      "preserved": true
+    },
+    {
+      "path": "kgems/__init__.py",
+      "original_blob": "cfffd67dfaf17da2e1430fc440f61bf01150cf52",
+      "preserved": true
+    },
+    {
+      "path": "kgems/allocate.py",
+      "original_blob": "596c1f5011e444f53cd3bed7b5950210bb1a9848",
+      "preserved": true
+    },
+    {
+      "path": "kgems/asgt.py",
+      "original_blob": "dc5240d80d1f8a12ad4f4d5ffa935c2e79a64f84",
+      "preserved": true
+    },
+    {
+      "path": "kgems/common.py",
+      "original_blob": "30d1ad89c8e6f18bf0328df08da3ec0db779a49d",
+      "preserved": true
+    },
+    {
+      "path": "kgems/lli.py",
+      "original_blob": "69b6c82d3df588b7868ae5640619f9f6b94e131c",
+      "preserved": true
+    },
+    {
+      "path": "knowledge/official-sources-k3h1-20261026.md",
+      "original_blob": "189e384ba772c5efa819f3f80c5979acd9abc23a",
       "preserved": true
     },
     {
@@ -1179,6 +1289,11 @@
       "preserved": true
     },
     {
+      "path": "registry/SOURCE_COMMIT_GEMSDOE32.txt",
+      "original_blob": "d31da55543cce2d967056f9a4b3cac7bf944d7d3",
+      "preserved": true
+    },
+    {
       "path": "registry/data_manifest.json",
       "original_blob": "0469596bbb420a8199fe7062595129cf3d35c2ca",
       "preserved": true
@@ -1186,6 +1301,31 @@
     {
       "path": "registry/focus9_champions.json",
       "original_blob": "51b4e9a1c738bbb8173b15c0bbd640e245d8dfb8",
+      "preserved": true
+    },
+    {
+      "path": "registry/focus_registry_manifest.json",
+      "original_blob": "9774d539f7851bd7d7e82bc4f6caae35fb51688e",
+      "preserved": true
+    },
+    {
+      "path": "registry/live_ledger_inversion_gemsdoe32.json",
+      "original_blob": "384b6334395fd3b7c070dae2a13280d76eb4f2d1",
+      "preserved": true
+    },
+    {
+      "path": "registry/live_ledger_rasters.json",
+      "original_blob": "c34e9000d8b844fe39c7c0c4a6f852502d875824",
+      "preserved": true
+    },
+    {
+      "path": "registry/registry_index.json",
+      "original_blob": "5b613748d3a9cf58faf2388f3266ab8aa4f478c2",
+      "preserved": true
+    },
+    {
+      "path": "registry/score-ledger-gemsdoe32.csv",
+      "original_blob": "9cd8a366c0a09458d359136df194ffb830723911",
       "preserved": true
     },
     {
@@ -1231,6 +1371,21 @@
     {
       "path": "research/hypotheses.md",
       "original_blob": "5533aa4a203e8aec0dde4bbe7601deb662e4c30d",
+      "preserved": true
+    },
+    {
+      "path": "research/k3h1-report.md",
+      "original_blob": "5ccc12c43b8b6128128773a15e8d6fd64d776250",
+      "preserved": true
+    },
+    {
+      "path": "research/k3h1-review-passes.md",
+      "original_blob": "05df14106a730d2e1e80cd76c82b096b0d97a123",
+      "preserved": true
+    },
+    {
+      "path": "research/preregistration-20261026.md",
+      "original_blob": "fd4368e2aa89a0e38ba66743603919747082acfe",
       "preserved": true
     },
     {
@@ -1309,8 +1464,13 @@
       "preserved": true
     },
     {
+      "path": "scripts/build_run_card.py",
+      "original_blob": "1d0e798ea3dd79545da0dfd4147a2af77804ce38",
+      "preserved": true
+    },
+    {
       "path": "scripts/build_site.py",
-      "original_blob": "061083a3518590c9098a5f669849555d9eeefc74",
+      "original_blob": "d2d4551bcfce1ed2c2f076a8d89bcfaf308f3487",
       "preserved": false
     },
     {
@@ -1364,6 +1524,11 @@
       "preserved": true
     },
     {
+      "path": "scripts/finalize_candidate.py",
+      "original_blob": "78bccf6a2776973c3451f991337067d96bf36d7e",
+      "preserved": true
+    },
+    {
       "path": "scripts/forensics_focus9.py",
       "original_blob": "5582cf068417a5f32180030d8845daad88339218",
       "preserved": true
@@ -1374,6 +1539,11 @@
       "preserved": true
     },
     {
+      "path": "scripts/k3_fetch_registry.py",
+      "original_blob": "5868d10f705da2f8e6b6720090cc3b9c823a871c",
+      "preserved": true
+    },
+    {
       "path": "scripts/parallel_download_competition_data.sh",
       "original_blob": "f2a4bdd2972397194223c169105cabd9efa1c3b3",
       "preserved": true
@@ -1381,6 +1551,11 @@
     {
       "path": "scripts/parallel_prepare_data.py",
       "original_blob": "a8af99ba22f62542d8aedfb1d34b590cce6f9167",
+      "preserved": true
+    },
+    {
+      "path": "scripts/portal_check.py",
+      "original_blob": "9c20cd7c8ee37e914bf467648376f04e401e737d",
       "preserved": true
     },
     {
@@ -1419,6 +1594,11 @@
       "preserved": true
     },
     {
+      "path": "scripts/registry_cache.py",
+      "original_blob": "fcd65aa4576d51b21101e887e1210a8c8307fa4c",
+      "preserved": true
+    },
+    {
       "path": "scripts/reopen_with_template.py",
       "original_blob": "aecd4d30437b214c63a4046624e8714014dbeff0",
       "preserved": true
@@ -1449,6 +1629,26 @@
       "preserved": true
     },
     {
+      "path": "scripts/run_e1_holdout.py",
+      "original_blob": "159411cdb27bf2deb39e142b8c965416a87a6b47",
+      "preserved": true
+    },
+    {
+      "path": "scripts/run_e2_unique.py",
+      "original_blob": "c9591a4e7c0481c13e722c790afb16531f5e0733",
+      "preserved": true
+    },
+    {
+      "path": "scripts/run_e3_canary.py",
+      "original_blob": "f1de2647a091a2e99676492d394b01eb5ffa462e",
+      "preserved": true
+    },
+    {
+      "path": "scripts/run_e3_hybrid.py",
+      "original_blob": "316b70fb0e5f13e508c5da6aec43c552257529b1",
+      "preserved": true
+    },
+    {
       "path": "scripts/run_experiment.py",
       "original_blob": "135db9a78d5cf43e8fd642666ff350cff2ea5ced",
       "preserved": true
@@ -1456,6 +1656,11 @@
     {
       "path": "scripts/submission_writer.py",
       "original_blob": "cf146cc8bbd8d2bf839ad9e9aa0f458665037453",
+      "preserved": true
+    },
+    {
+      "path": "scripts/uniqueness_gate.py",
+      "original_blob": "09b66de03c0d06a65790d7b98490abfb4d43adb3",
       "preserved": true
     },
     {
@@ -1744,6 +1949,11 @@
       "preserved": true
     },
     {
+      "path": "tests/test_k3h1.py",
+      "original_blob": "5f83badf8413ab62c85ffd996c5170f3e2709bb6",
+      "preserved": true
+    },
+    {
       "path": "tests/test_metric_and_format.py",
       "original_blob": "8623fe5dad05f7b09def734ce4324cf7c9e99742",
       "preserved": true
@@ -1807,6 +2017,172 @@
       "path": "tests/test_template_pins.py",
       "original_blob": "de1725d47ff237be27360a270bf8b64d218ab699",
       "preserved": true
+    },
+    {
+      "path": "vendor/PROVENANCE.json",
+      "original_blob": "0dd2337982e97c8ba957b1189b7c9c41c5be4614",
+      "preserved": true
+    },
+    {
+      "path": "vendor/README.md",
+      "original_blob": "0c98c30d464b82604135287cbf64f5870ca46e3f",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems32lli/PROVENANCE.json",
+      "original_blob": "1dd19d8db49b976c24876e5670621bb5b65515af",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems32lli/__init__.py",
+      "original_blob": "82fdf2c9ca532e90e8c61c8acd8404f94957b5b1",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems32lli/ledger_inversion.py",
+      "original_blob": "333a088fd2c5d2035818c6951f0d7e82136a0a9a",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems32lli/metric.py",
+      "original_blob": "33b32da8909811f4ef004c556ecdcdc44c564ebe",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems32lli/run_live_ledger_inversion_reference.py",
+      "original_blob": "ae96acc12f57880e94313c9ad65aadc97fd095b2",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/__init__.py",
+      "original_blob": "964b55b3be184774e11956963b3e0e10b6580c7b",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/anatomy.py",
+      "original_blob": "8245b7ecbb9bb16f7d8c3c0f6b67c3ddf6f19cea",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/damagezone_envelope.py",
+      "original_blob": "126f84b17a807a5e3e4bd7e2dd5c2b32395044e5",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/emit.py",
+      "original_blob": "025eeb2cc697a8a0fbee5096119eebcb69b8b1ed",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/evaluate_holdout.py",
+      "original_blob": "9c65eb9de1468fecfc909d9b2c1348bed52f67ca",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/evaluator_provenance.py",
+      "original_blob": "99a3047cfe80bb039694ef999f3e51e7f3684170",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/faultzone.py",
+      "original_blob": "f1453067f335f8956c31d04d1959605936688748",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/fit.py",
+      "original_blob": "dd21072b82759575560b55a201eafc3729880b06",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/fitting.py",
+      "original_blob": "fb2a04f716ba487923a5721d9e8cacb309ca2c9a",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/gates.py",
+      "original_blob": "cf7cbda418a6b0f80bbdc44a2e12822a97215963",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/geo.py",
+      "original_blob": "ddb9ca2211277e9cd6ee78528c6be0483e27e554",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/grid.py",
+      "original_blob": "e909e5a219ff242245e24477653a42306401495d",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/holdout.py",
+      "original_blob": "8c71ef3055cfdf130fd9ea617c986b232632f401",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/metric.py",
+      "original_blob": "67008aae6782b6fece2c4dafdf99a5b59dc9e5fd",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/network.py",
+      "original_blob": "3df35ca834dacbb8e7377c09f82f2ad5b64462bc",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/offcatalogue.py",
+      "original_blob": "d0e30a6054a2693dd8910295f2ab08696a9680a4",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/prepare_data.py",
+      "original_blob": "5813d7491929a24e4f2ee56934e67d18355d2752",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/relay_bend_anatomy.py",
+      "original_blob": "2eb52c1d26c321f05c557385a67d9806261191f8",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/spatial.py",
+      "original_blob": "ebb32c2617bf4da74bb3e851e0f0080a9bb9c8d8",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/strand_orientation.py",
+      "original_blob": "811c694fb18d0120e99725760f60d60ce5292432",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/strike_zone.py",
+      "original_blob": "a773824922e0e2325debce81773b5cedc2505d1c",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/submission_writer.py",
+      "original_blob": "5a04a2b0d5d4137f0aad39d862889ef1b92198ea",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/uniqueness.py",
+      "original_blob": "71d66ff89aa3a5cfdaeffb11fe09fa2609cc73e5",
+      "preserved": true
+    },
+    {
+      "path": "vendor/gems57/validate.py",
+      "original_blob": "6729226367b1b927ca1c17b469b1bb774680a654",
+      "preserved": true
+    },
+    {
+      "path": "vendor/template57/prepare_data.py",
+      "original_blob": "5813d7491929a24e4f2ee56934e67d18355d2752",
+      "preserved": true
+    },
+    {
+      "path": "vendor/template57/test_evaluate_holdout.py",
+      "original_blob": "3e63938a79a7f4adb73d21ea578a7fabbda04c6e",
+      "preserved": true
     }
-  ]
+  ],
+  "previous_integrated_main": "4338f12e30e90904f95e414faeb301f2c98fa394"
 }

@@ -70,7 +70,14 @@
         "No organizer-linked historical score receipts or authenticated remaining slots",
         "No fresh official-host binary authentication or resolved software licensing"
       ],
-      "promotion": "negative; no weekly slot selected or used"
+      "promotion": "negative; no weekly slot selected or used",
+      "post_parallel_merge_recheck": {
+        "main_commit": "0051d33293264d5e7b1638bb1aa412156f03f40f",
+        "root_tests_passed": 102,
+        "root_tests_skipped": 1,
+        "ssp1_tests_passed": 58,
+        "source_and_generated_dashboard": "Rebuilt from auto-merged source to preserve both SSP1 and K3-H1 links; prior evidence unchanged"
+      }
     }
   ],
   "note": "This file is updated through three review passes. Technical defects are fixed without changing the fitted candidate pixels or turning a negative into a promoted file."

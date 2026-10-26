@@ -20,6 +20,7 @@ concurrency:
 
 jobs:
   verify:
+    name: SSP1 saved-byte and browser checks
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

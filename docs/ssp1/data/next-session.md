@@ -6,6 +6,8 @@ Read the entire README, original brief, run card, source ledger and irregulariti
 
 The literal all-registry three-pixel rule is mathematically incompatible with the current 37,654-dot budget because of a registered dense lattice. This is a specification conflict, not a model-tuning problem. The parallel-run coordinator needs an explicit, centrally versioned registry/lane definition before any future promotion. This run does not remove the lattice, exempt a calibration file, reinterpret 70%, or target uncovered border cells. Eighteen malformed/noncompetition registry entries must also receive explicit, auditable treatment rather than being silently ignored.
 
+Also retain the main project’s `evidence/registry_saturation_20261026.json`: it reports a stronger conditional full-footprint continuous-support witness. That is not an organizer score and does not establish that the continuous file was a previous dot submission. Its protocol treatment must be settled centrally, not exempted here.
+
 Until that is settled, more dense maps cannot become authorized under the current rule, regardless of their score. Do not spend a competition slot merely to see whether a format-valid negative gets lucky.
 
 Investigate IR-15: the original surface correlation log differs slightly from the reproducible retained-array recheck. Preserve both; do not assert a floating-point or mutation cause without evidence.
