@@ -4,6 +4,19 @@
 [AGENTS.md](AGENTS.md), [current three-pass review](research/session-12817d00-review.md),
 [fixed current session config](config/research-session-12817d00.json), [preserved prior session config](config/research-session-52a91352.json), [preserved bilateral run card](docs/run-card.json), and [current negative card](evidence/session-12817d00-run-card.json). Never reset an earlier session clock.**
 
+## Preserved concurrent review — bb1bdbdd
+
+[Three-pass review](research/session-bb1bdbdd-review.md) ·
+[Readiness receipt](evidence/session-bb1bdbdd-readiness.json) ·
+[Nine-site source refresh](evidence/session-bb1bdbdd-focus-feed.json) ·
+[Negative review card](evidence/session-bb1bdbdd-run-card.json)
+
+**DO NOT SUBMIT.** No new TIFF, defensible estimate or slot used. All nine peer
+sources changed since the last saved feed; this is not novelty clearance. Fixed
+malformed-receipt handling and regenerated the drifted home page using the existing
+canonical builder. Final checks: 200 tests passed and desktop/mobile smoke passed.
+The requested high-scoring unique artifact remains undelivered; see the scoped review.
+
 ## Latest continuation — 27 October 2026
 
 [Current scoped review and next steps](research/session-12817d00-review.md) ·
@@ -70,7 +83,7 @@ preserved, not claimed as this session’s work. The requested winning artifact 
   are in [the earlier ledger](evidence/official-claims-20261026.json), the [dated observation](evidence/official-observation-20261027.json), and [updated geological notes](knowledge/geothermal-science-2026-10-27.md). No per-file organizer receipt exists.
 - Rebuilt the Pages executive desk with an individual summary for each priority site, four ranked
   conditional hypotheses, automatic read-only source-change checks, and explicit no-submit status.
-- Final software verification passed **191 Python tests** plus desktop/mobile browser checks. These are not geological validation or score evidence.
+- Final software verification passed **201 Python tests** after integrating concurrent main, plus desktop/mobile browser checks. These are not geological validation or score evidence.
 
 ### Remaining research blockers
 
