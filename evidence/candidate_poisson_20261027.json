@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-27T17:20:00+00:00",
+  "candidate_id": "kanlergemsdoe3-poisson-offcat-37654-20261027-260ce28e",
+  "hypothesis": "Off-catalogue Poisson baseline with exact 300m (3px) exclusion and 37,654-dot budget: tests whether emission budget alone without learned geology can serve as a format-valid uniqueness control",
+  "mechanism": "Uniform random sampling without replacement from footprint pixels >3px (300m) from catalogue faults, 37,654 binary dots, no learned features",
+  "named_non_fault_process": "Uniform randomness has no geological mechanism; any apparent skill is from chance coverage, not fault process. Mimicked by any spatially uniform point process.",
+  "holdout_dti": {
+    "evidence_class": "HOLDOUT-DTI",
+    "status": "NOT_RUN",
+    "evaluator_version": null,
+    "withheld_positive_pixels": null,
+    "dti": null,
+    "ci95": null,
+    "note": "No holdout was run: requires shared 35-channel feature stack, central evaluator repair (issue #41), and same-fold incumbent. Random baseline is expected to underperform learned detectors (prior GPC B0 0.1325, CADG 0.1555). No leaderboard projection is made."
+  },
+  "leakage_canary": {
+    "status": "NOT_RUN",
+    "note": "Single-feature canaries require shared feature stack; random dots have no feature lineage to leak."
+  },
+  "correlation_overlap_vs_registry": {
+    "stage": "final_dots",
+    "radius_px": 3,
+    "candidate_dots": 37654,
+    "vs_focus9": {
+      "max_directed_overlap_3px": 0.1629,
+      "max_overlap_site": "GEMSDOE27",
+      "threshold": 0.7,
+      "duplicate_vs_focus9": false,
+      "all_focus9_overlaps": {
+        "GEMSDOE24": 0.159,
+        "GEMSDOE25": 0.1512,
+        "GEMSDOE27": 0.1629,
+        "GEMSDOE30_proxy": 0.1512,
+        "lattice_13gems_s5": 0.9989
+      },
+      "note": "Candidate is UNIQUE vs the 9 focus GEMSDOE sites (all <70%). However, directed overlap vs the pinned binary calibration lattice (13gems s5, 206,895 dots) is 99.89% >70%, so under literal all-registry rule the candidate FAILS. Lattice covers 99.87% of footprint within 3px, leaving only 6,649 footprint pixels >3px from lattice, far below 37,654 budget, so no 37k-dot candidate can pass. See registry_saturation_20261026.json."
+    },
+    "rho_vs_focus": null,
+    "note": "Rank correlation not measured; dot overlap alone determines duplicate vs 9 focus. Lattice saturation is an unresolved registry definition issue, not a geological failure."
+  },
+  "raster_sha256": {
+    "zeros": "260ce28e856d61e62a6c5ed96303bbaa25e8a298b7d8073d0d1632efd5887e0d",
+    "nan": "8b1c135f155256646d600f89a45ef0c9d99a19a7816f212cf1b6ce55675950ac"
+  },
+  "validator_output": {
+    "zeros_finite_grid": {
+      "profile": "finite-grid",
+      "ok": true,
+      "checks": "all 15 checks PASS",
+      "note": "Local encoding profile PASS; not organizer portal acceptance"
+    },
+    "nan_template_mask": {
+      "profile": "template-mask",
+      "ok": true,
+      "checks": "all 15 checks PASS",
+      "note": "Local encoding profile PASS; not organizer portal acceptance"
+    },
+    "no_nan_inside_footprint": true,
+    "values_in_0_1_inside_footprint": true,
+    "crs_shape_transform_match": true,
+    "validation_scope": "Local saved-byte validation only; no organizer receipt"
+  },
+  "submission_name": "kanlergemsdoe3-poisson-offcat-37654-20261027-260ce28e-zeros.tif",
+  "submission_note": "Poisson off-cat 37k Poisson 20261027; research baseline only; DO NOT SUBMIT as competitive entry",
+  "note_chars": 92,
+  "verdict": "negative",
+  "ok_to_submit": false,
+  "slot_authorized": false,
+  "unique_submission_requirement": "UNIQUE vs 9 focus GEMSDOE sites (max 16.3% <70%); FAILS vs lattice (99.89% >70%) so cannot be promoted under current literal registry. File is FORMAT-VALID (range [0,1], CRS/shape/transform match) and resolves the user's range-error, but is NOT a competitive advancement.",
+  "promote": false,
+  "download": {
+    "zeros_tif": "candidate_downloads/kanlergemsdoe3-poisson-offcat-37654-20261027-260ce28e-zeros.tif",
+    "nan_tif": "candidate_downloads/kanlergemsdoe3-poisson-offcat-37654-20261027-8b1c135f-nan.tif",
+    "validator_json": "evidence/candidate_poisson_20261027_validator.json"
+  }
+}

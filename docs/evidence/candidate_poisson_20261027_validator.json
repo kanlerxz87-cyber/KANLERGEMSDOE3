@@ -1,0 +1,149 @@
+{
+  "zeros_finite_grid": {
+    "validator": "submission-format-v3-explicit-encoding-standalone",
+    "encoding_profile": "finite-grid",
+    "template": "data/raw/sample_submission.tif",
+    "candidate": "docs/candidate_downloads/kanlergemsdoe3-poisson-offcat-37654-20261027-260ce28e-zeros.tif",
+    "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "candidate_sha256": "260ce28e856d61e62a6c5ed96303bbaa25e8a298b7d8073d0d1632efd5887e0d",
+    "sha256": "260ce28e856d61e62a6c5ed96303bbaa25e8a298b7d8073d0d1632efd5887e0d",
+    "organizer_acceptance": "NOT_TESTED",
+    "portal_acceptance_verified": false,
+    "submission_authorized": false,
+    "slot_authorized": false,
+    "checks": {
+      "template_single_band": true,
+      "single_band": true,
+      "shape_match": true,
+      "crs_match": true,
+      "transform_match": true,
+      "dtype_float32": true,
+      "template_epsg_32611": true,
+      "template_100m_grid": true,
+      "template_mask_unambiguous": true,
+      "standalone_without_sidecars": true,
+      "no_nan_inside_footprint": true,
+      "no_masked_inside_footprint": true,
+      "inside_range_0_1": true,
+      "no_infinite_pixels_anywhere": true,
+      "selected_encoding": true,
+      "expected_positive_pixels_match": true
+    },
+    "legacy_allow_zero_outside": null,
+    "ok": true,
+    "errors": [],
+    "bands": 1,
+    "dtype": [
+      "float32"
+    ],
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "footprint_pixels": 5167373,
+    "positive_pixels": 37654,
+    "nonfinite_inside": 0,
+    "masked_inside": 0,
+    "infinite_pixels_whole_grid": 0,
+    "finite_range_inside": [
+      0.0,
+      1.0
+    ],
+    "valid_outside_footprint": 7111787,
+    "outside_null_or_nan": false,
+    "entire_grid_finite_range_0_1": true,
+    "raw_whole_grid_finite_in_range": true,
+    "local_encoding_compatibility": {
+      "template-mask": false,
+      "finite-grid": true
+    },
+    "note": "Local contract only. A finite nodata sentinel may pass template-mask but fail a portal-wide range scan. Positive-pixel count is not an invented dot mask for soft-surface uniqueness. No scientific or portal approval."
+  },
+  "nan_template_mask": {
+    "validator": "submission-format-v3-explicit-encoding-standalone",
+    "encoding_profile": "template-mask",
+    "template": "data/raw/sample_submission.tif",
+    "candidate": "docs/candidate_downloads/kanlergemsdoe3-poisson-offcat-37654-20261027-8b1c135f-nan.tif",
+    "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "candidate_sha256": "8b1c135f155256646d600f89a45ef0c9d99a19a7816f212cf1b6ce55675950ac",
+    "sha256": "8b1c135f155256646d600f89a45ef0c9d99a19a7816f212cf1b6ce55675950ac",
+    "organizer_acceptance": "NOT_TESTED",
+    "portal_acceptance_verified": false,
+    "submission_authorized": false,
+    "slot_authorized": false,
+    "checks": {
+      "template_single_band": true,
+      "single_band": true,
+      "shape_match": true,
+      "crs_match": true,
+      "transform_match": true,
+      "dtype_float32": true,
+      "template_epsg_32611": true,
+      "template_100m_grid": true,
+      "template_mask_unambiguous": true,
+      "standalone_without_sidecars": true,
+      "no_nan_inside_footprint": true,
+      "no_masked_inside_footprint": true,
+      "inside_range_0_1": true,
+      "no_infinite_pixels_anywhere": true,
+      "selected_encoding": true,
+      "expected_positive_pixels_match": true
+    },
+    "legacy_allow_zero_outside": null,
+    "ok": true,
+    "errors": [],
+    "bands": 1,
+    "dtype": [
+      "float32"
+    ],
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "footprint_pixels": 5167373,
+    "positive_pixels": 37654,
+    "nonfinite_inside": 0,
+    "masked_inside": 0,
+    "infinite_pixels_whole_grid": 0,
+    "finite_range_inside": [
+      0.0,
+      1.0
+    ],
+    "valid_outside_footprint": 0,
+    "outside_null_or_nan": true,
+    "entire_grid_finite_range_0_1": false,
+    "raw_whole_grid_finite_in_range": false,
+    "local_encoding_compatibility": {
+      "template-mask": true,
+      "finite-grid": false
+    },
+    "note": "Local contract only. A finite nodata sentinel may pass template-mask but fail a portal-wide range scan. Positive-pixel count is not an invented dot mask for soft-surface uniqueness. No scientific or portal approval."
+  },
+  "generated_utc": "2026-10-27T17:20:00+00:00",
+  "validator_version": "submission-format-v3-explicit-encoding-standalone",
+  "both_profiles_pass": true
+}
