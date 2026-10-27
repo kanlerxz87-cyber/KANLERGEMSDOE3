@@ -8,7 +8,6 @@ from __future__ import annotations
 
 import argparse
 import hashlib
-import hashlib
 import html
 import json
 from pathlib import Path
