@@ -4,6 +4,19 @@
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
 [fixed current session config](config/research-session-52a91352.json), [preserved prior session config](config/research-session.json), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-7d1e577d-run-card.json), and [current negative card](evidence/session-52a91352-run-card.json). Never reset an earlier session clock.**
 
+## Current scoped review — bb1bdbdd
+
+[Three-pass review](research/session-bb1bdbdd-review.md) ·
+[Readiness receipt](evidence/session-bb1bdbdd-readiness.json) ·
+[Nine-site source refresh](evidence/session-bb1bdbdd-focus-feed.json) ·
+[Negative review card](evidence/session-bb1bdbdd-run-card.json)
+
+**DO NOT SUBMIT.** No new TIFF, defensible estimate or slot used. All nine peer
+sources changed since the last saved feed; this is not novelty clearance. Fixed
+malformed-receipt handling and regenerated the drifted home page using the existing
+canonical builder. Final checks: 200 tests passed and desktop/mobile smoke passed.
+The requested high-scoring unique artifact remains undelivered; see the scoped review.
+
 ## Latest continuation — 27 October 2026
 
 [Current scoped review and next steps](research/session-20261027-review.md) ·

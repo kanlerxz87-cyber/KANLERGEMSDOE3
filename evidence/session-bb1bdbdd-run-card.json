@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "session": "bb1bdbdd",
+  "hypothesis": null,
+  "mechanism": null,
+  "named_non_fault_mimic": null,
+  "scope": "Software/readiness review only; no geological experiment",
+  "holdout_dti": null,
+  "holdout_ci95": null,
+  "evaluator_version": null,
+  "withheld_positives": null,
+  "correlation_overlap_vs_registry": {
+    "surface": null,
+    "final_dots": null,
+    "complete": false,
+    "reason": "No candidate; all nine sources changed; no refreshed raster audit"
+  },
+  "raster_sha256": null,
+  "validator_output": {
+    "status": "NOT_RUN_NO_CANDIDATE",
+    "no_nan_inside_footprint": null,
+    "values_in_0_1": null,
+    "crs_shape_transform_match": null
+  },
+  "submission_name": null,
+  "submission_note": "Negative readiness review; no new TIFF or leaderboard estimate. Do not submit.",
+  "experiments_used": 0,
+  "slots_used": 0,
+  "ok_to_submit": false,
+  "verdict": "negative",
+  "tests": {
+    "passed": 200,
+    "skipped": 0
+  },
+  "readiness_receipt": "evidence/session-bb1bdbdd-readiness.json",
+  "report": "research/session-bb1bdbdd-review.md"
+}
