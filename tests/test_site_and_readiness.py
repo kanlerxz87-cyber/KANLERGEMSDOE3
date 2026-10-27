@@ -36,9 +36,12 @@ class PageLinks(HTMLParser):
 class SiteAndReadinessTests(unittest.TestCase):
     def test_all_active_pages_have_local_links_and_no_approved_downloads(self):
         build()
+        from scripts.build_cadg_site import build as build_archived_lane
+        build_archived_lane()
         pages = [DOCS / name for name in ("index.html", "executive-summary.html", "submission.html", "research.html", "sources.html")]
         pages += sorted((DOCS / "sites").glob("*.html"))
-        self.assertEqual(len(pages), 14)
+        pages += [DOCS / "cadg-submod/index.html", DOCS / "cadg-submod/executive-summary.html"]
+        self.assertEqual(len(pages), 16)
         for path in pages:
             parser = PageLinks()
             content = path.read_text()
@@ -62,6 +65,16 @@ class SiteAndReadinessTests(unittest.TestCase):
         build_archive()
         after = [hashlib.sha256(path.read_bytes()).hexdigest() for path in paths]
         self.assertEqual(before, after)
+
+    def test_homepage_fails_closed_and_does_not_republish_legacy_claims(self):
+        build()
+        homepage = (DOCS / "index.html").read_text()
+        self.assertIn("No eligible TIFF yet", homepage)
+        self.assertIn("Download unavailable · DO NOT SUBMIT", homepage)
+        self.assertIn("Not estimable", homepage)
+        self.assertNotIn("Highest Leaderboard Score Reference: 0.4413", homepage)
+        self.assertNotIn("DOWNLOAD READY", homepage)
+        self.assertNotIn('download href="cadg-submod/downloads/', homepage)
 
     def test_source_feed_does_not_launder_scores_or_approvals(self):
         feed = json.loads((DOCS / "data/focus-feed.json").read_text())

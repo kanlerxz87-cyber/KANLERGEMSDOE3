@@ -22,7 +22,11 @@ The requested high-scoring unique artifact remains undelivered; see the scoped r
 [Current scoped review and next steps](research/session-20261027-review.md) ·
 [Current readiness receipt](evidence/session-20261027-readiness.json) ·
 [Current nine-site source observations](evidence/session-20261027-focus-feed.json) ·
-[Current negative review card](evidence/session-20261027-run-card.json)
+[Current negative review card](evidence/session-20261027-run-card.json) ·
+[This branch review](research/session-20261027-arena-review.md) ·
+[This review's run card](evidence/session-20261027-arena-review-card.json)
+
+This branch review caught and corrected a stale `docs/index.html` that still advertised an old TIFF and an unsupported 0.4413 reference. It also quarantined the archived CADG subpages, which had advertised a duplicate (99.73% lattice overlap) as DOWNLOAD READY and recommended upload. The root and archived pages now say DO NOT SUBMIT and expose no candidate download. Regression tests guard both states. Validation: 191 Python tests passed; deterministic site check, browser smoke, and run-card consistency passed. No geology was rerun, and this checkout currently lacks core raster inputs. See the scoped report/card; these checks do not establish a score or submission eligibility.
 
 That separate readiness-review session produced no new TIFF or score estimate. Seven priority
 repositories changed since its saved feed; source changes are not a scientific/novelty audit.
@@ -37,7 +41,7 @@ experiment or weekly slot.
 [Executive desk](docs/index.html) · [Every priority site](docs/index.html#comparison) ·
 [How to submit](docs/executive-summary.html) · [Research queue](docs/research.html) ·
 [Official-source ledger](docs/sources.html) · [Machine audit](docs/audit.json) ·
-[Current three-pass review](research/session-52a91352-review.md)
+[Current three-pass review](research/session-20261027-arena-review.md)
 
 **There is no qualified TIFF to download and no defensible leaderboard estimate.** This review
 session ran no geological experiment, generated no new TIFF and spent no weekly slot. Concurrent
