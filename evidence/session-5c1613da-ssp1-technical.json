@@ -1,0 +1,73 @@
+{
+  "status": "PASS \u2014 technical/reproducibility verification, NOT a scientific promotion",
+  "verified_utc": "2026-10-27T23:50:56.283773+00:00",
+  "scientific_verdict": "negative",
+  "ok_to_submit": false,
+  "checks": {
+    "primary_metric_labeled": true,
+    "one_experiment_stopped_on_duplicate": true,
+    "note_within_140_characters": true,
+    "no_leaderboard_projection_written_as_score": true,
+    "no_slot_used": true,
+    "decision_is_fail_closed_and_consistent": true,
+    "published_validation_masks_hash": true,
+    "published_oof_masks_hash": true,
+    "footprint_count": true,
+    "zero_tiff_exact_sha": true,
+    "nan_tiff_exact_sha": true,
+    "both_shared_saved_byte_audits_pass": true,
+    "recorded_dot_mask_hash": true,
+    "zip_contains_exactly_one_tif": true,
+    "zip_tif_bytes_identical": true,
+    "zip_hash_matches_bundle": true,
+    "unmeasured_legacy_metrics_are_null": true,
+    "original_surface_observation_retained": true,
+    "surface_report_matches_run_card": true,
+    "surface_flags_fail_closed": true,
+    "frozen_registry_manifest_hash": true,
+    "surface_inventory_count_consistent": true,
+    "quarantines_cannot_pass_universal_comparison": true,
+    "pixel_novelty_scoped_to_comparable_snapshot": true,
+    "shared_tools_not_privately_forked": true,
+    "frozen_preregistration_hash": true,
+    "commit_ref_types_independently_verified": true,
+    "full_original_brief_preserved": true,
+    "published_copy_run_card": true,
+    "published_copy_surface_guard": true,
+    "published_copy_surface_recheck": true,
+    "published_copy_template_pins": true,
+    "download_checksum_list_matches_actual_bytes": true,
+    "index.html_rejects_upload": true,
+    "executive-summary.html_rejects_upload": true,
+    "submission-guide.html_rejects_upload": true,
+    "audit.html_rejects_upload": true,
+    "no_generated_or_data_file_over_8MB": true
+  },
+  "details": {
+    "historical_surface_discrepancy": "Original correlations were not exactly reproduced; the separate full-registry fixed-array recheck is current. The unresolved cause and original values are retained in IR-15.",
+    "geometry_validation_basis": "Recorded owner-mirror template geometry + published integrity-pinned footprint/catalogue masks; NOT fresh organizer authentication",
+    "format_checks": {
+      "exact_reference_grid_match": true,
+      "single_band": true,
+      "dtype_float32": true,
+      "dimensions_3730x3292": true,
+      "crs_epsg_32611": true,
+      "in_footprint_all_finite": true,
+      "in_footprint_zero_nan": true,
+      "in_footprint_zero_inf": true,
+      "in_footprint_zero_sentinel": true,
+      "in_footprint_range_0_1": true,
+      "outside_footprint_compliant": true,
+      "zero_on_catalogue_leakage": true,
+      "validator_range_0_1_guaranteed": true
+    },
+    "oof_recheck": {
+      "scope": "Offline CI: original restored inputs not present; synthetic evaluator tests and published OOF hash only. No claim of a fresh real-data reevaluation."
+    },
+    "site": {
+      "html_pages": 15,
+      "internal_links_and_assets_checked": 318
+    }
+  },
+  "raster_sha256": "4e88158e8859416b874cc424dc106847f8eaab474794bbb1716e273f57839a27"
+}

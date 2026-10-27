@@ -215,7 +215,7 @@ class KanlerGems3Tests(unittest.TestCase):
 
     def test_archived_candidate_pages_fail_closed_and_offer_no_download(self) -> None:
         from scripts.build_cadg_site import build
-        build()
+        build(check_only=True)
         idx = (ROOT / "docs/cadg-submod/index.html").read_text()
         sub = (ROOT / "docs/cadg-submod/executive-summary.html").read_text()
         js = (ROOT / "docs/source-status.js").read_text()

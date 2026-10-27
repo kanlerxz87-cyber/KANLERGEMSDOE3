@@ -1,11 +1,16 @@
-# Archived CADG experiment — DO NOT SUBMIT
+# CADG archive — DO NOT SUBMIT
 
-**Not a current candidate. Do not upload.** This archived card reports `negative` and `slot_authorized=False`. The strict candidate-to-lattice 3-pixel overlap is `99.73%`; the duplicate stop is greater than 70%. The historical TIFF remains for audit/learning only and is not linked as a download.
+This is a prior research artifact, not an eligible new competition submission.
+The saved TIFF has 37,630 / 37,654
+(99.94%) dots within 3 pixels of the full pinned binary lattice,
+above the mandatory 70% duplicate stop; the failed artifacts are not linked for download. The prior off-catalogue-only reference produced
+99.73%; both fail.
+The distinct older 9a4e field also fails: 37,635 /
+37,654 (99.95%).
 
-- Archived holdout: **0.157080 HOLDOUT-DTI**, evaluator `gems-segment-pooled-v1`, 60,988 withheld positives, 95% CI `[0.143057, 0.171030]`.
-- Candidate identifier: `kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-f0565e6d10f9-zeros`.
-- SHA-256 recorded in archived card: `bc019ae673a9d5ca1fe40e968759a2af8ae757a110599b66fc949c4f59961fba`.
-- Leaderboard estimate: **not estimable**. No organizer receipt binds a score to this raster.
-- Final verdict: **DO NOT SUBMIT**. No slot authorization.
+The local format profiles do not prove organizer acceptance. The rejected upload was not supplied.
+The original participant-run HOLDOUT-DTI is 0.157080, evaluator
+`gems-segment-pooled-v1`, 60,988 positives, 95% CI
+[0.143057, 0.171030]; it was not independently rerun and is not a leaderboard forecast.
 
-See the [current executive desk](../index.html), [current submission guide](../executive-summary.html), and [archived JSON card](run-card.json). Formatting, holdout performance and semantic novelty are separate gates.
+[Research-only archive](index.html) · [Forensic receipt](../data/session-5c1613da-cadg-audit.json) · [Current decision desk](../index.html)

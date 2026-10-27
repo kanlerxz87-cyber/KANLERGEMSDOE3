@@ -35,9 +35,7 @@ class PageLinks(HTMLParser):
 
 class SiteAndReadinessTests(unittest.TestCase):
     def test_all_active_pages_have_local_links_and_no_approved_downloads(self):
-        build()
-        from scripts.build_cadg_site import build as build_archived_lane
-        build_archived_lane()
+        build(check_only=True)
         pages = [DOCS / name for name in ("index.html", "executive-summary.html", "submission.html", "research.html", "sources.html")]
         pages += sorted((DOCS / "sites").glob("*.html"))
         pages += [DOCS / "cadg-submod/index.html", DOCS / "cadg-submod/executive-summary.html"]
@@ -61,7 +59,7 @@ class SiteAndReadinessTests(unittest.TestCase):
                 self.assertIn("DO NOT SUBMIT", content)
 
     def test_archive_builder_does_not_overwrite_active_pages(self):
-        build()
+        build(check_only=True)
         paths = [DOCS / name for name in ("index.html", "executive-summary.html", "research.html", "submission.html")]
         before = [hashlib.sha256(path.read_bytes()).hexdigest() for path in paths]
         build_archive()
@@ -69,7 +67,7 @@ class SiteAndReadinessTests(unittest.TestCase):
         self.assertEqual(before, after)
 
     def test_homepage_fails_closed_and_does_not_republish_legacy_claims(self):
-        build()
+        build(check_only=True)
         homepage = (DOCS / "index.html").read_text()
         self.assertIn("No eligible TIFF yet", homepage)
         self.assertIn("Download unavailable · DO NOT SUBMIT", homepage)
@@ -168,7 +166,7 @@ class SiteAndReadinessTests(unittest.TestCase):
             self.assertFalse(result["slot_authorized"])
 
     def test_check_mode_never_repairs_a_stale_individual_site(self):
-        build()
+        build(check_only=True)
         site = ROOT / "docs/sites/GEMSDOE32.html"
         original = site.read_text()
         try:
