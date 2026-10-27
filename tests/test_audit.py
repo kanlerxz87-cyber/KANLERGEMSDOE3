@@ -61,7 +61,7 @@ class AuditTests(unittest.TestCase):
         card=json.loads((root/'docs/run-card.json').read_text())
         self.assertEqual(card['verdict'],'negative');self.assertLessEqual(len(card['submission_note']),140)
         self.assertIsNone(card['raster_sha256'])
-        build()
+        build(check_only=True)
         page=(root/'docs/index.html').read_text()
         self.assertIn('DO NOT SUBMIT',page)
         self.assertNotIn('download=',page)

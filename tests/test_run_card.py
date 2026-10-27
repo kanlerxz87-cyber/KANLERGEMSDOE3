@@ -40,7 +40,7 @@ def test_density_bound_and_strict_boundary():
 
 def test_derived_site_text_is_fail_closed():
     from scripts.build_site import build
-    build()
+    build(check_only=True)
     home=(ROOT/'docs/index.html').read_text()
     guide=(ROOT/'docs/executive-summary.html').read_text()
     assert 'DO NOT SUBMIT' in home and 'DO NOT SUBMIT' in guide

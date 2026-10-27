@@ -29,7 +29,7 @@ class LinkParser(HTMLParser):
 class SiteTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        build_site.build()
+        build_site.build(check_only=True)
 
     def test_current_pages_have_resolvable_local_links(self):
         for name in ('index.html', 'executive-summary.html', 'research.html',

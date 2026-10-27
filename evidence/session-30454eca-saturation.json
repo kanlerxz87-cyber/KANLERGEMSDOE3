@@ -1,0 +1,32 @@
+{
+  "kind": "REGISTRY-MEASUREMENT; not HOLDOUT-DTI or an organizer score",
+  "observed_utc": "2026-10-27T23:43:19.160020+00:00",
+  "source_repository": "https://github.com/buffedlizard55-lab/GEMSDOE48",
+  "source_commit": "268ec599f51c517cc3485da077c24d83af5be81d",
+  "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE48/blob/268ec599f51c517cc3485da077c24d83af5be81d/docs/downloads/GEMSDOE48-unassigned-mass-20261006.tif",
+  "registry_source": "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/2a7cd0c8f1c30341a3a655a01a1ff5bff67b23d2/registry/raster_registry.json",
+  "registry_sha256": "e1f10c7bf4c0b9c61a427a6106a0073ca2ea449f6d30b2b787931fbda2d2e104",
+  "registry_as_of": "2026-10-25",
+  "registry_unique_dot_sets_claimed": 716,
+  "sample_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+  "sample_provenance": "participant mirror, not organizer-authenticated",
+  "shared_template_commit": "822a0ce5546c7b6749cdd82eb145b6b3e616603d",
+  "shared_uniqueness_sha256": "1c5094b814277ae801ccea6a47cf744429cffcdc10f9cc79f229d5fc44a8df95",
+  "measurement": {
+    "evidence_class": "REGISTRY-MEASUREMENT",
+    "witness_file": "docs/downloads/GEMSDOE48-unassigned-mass-20261006.tif",
+    "witness_sha256": "975c217ef803a45041077a219ba460134a8c84c8ea9f7ffc0414ddb47cb54ccd",
+    "positive_pixels": 5167373,
+    "allowed_pixels": 5167373,
+    "uncovered_allowed_pixels": 0,
+    "covered_allowed_fraction": 1.0,
+    "universal_overlap_blocker": true,
+    "overlap_limit": 0.7,
+    "support_definition": "finite prediction > 0 (inherited literal support rule)",
+    "implication": "Every nonempty candidate dot set in the allowed domain has forward overlap 1.0 with this prior; therefore it cannot pass the 0.70 gate."
+  },
+  "scope_caveat": "Witness is a continuous unassigned-mass diagnostic, not established as a submitted dot field. The pinned template nevertheless treats every finite positive cell as a dot. Under that literal interpretation any nonempty footprint candidate fails; excluding diagnostics requires an explicit protocol/registry decision.",
+  "candidate_generated": false,
+  "experiments_run": 0,
+  "weekly_slots_used": 0
+}

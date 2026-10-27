@@ -94,7 +94,9 @@ try {
   assert.match(await page.locator('main').innerText(), /6,436 dots/);
   assert.match(await page.locator('#parallel-control').innerText(), /DO NOT SUBMIT|not a submission/i);
   assert.match(await page.locator('#kpl36-conflict').innerText(), /99\.17%/);
-  checks.push('primary warning precedes historical-study links and both duplicate checks remain visible');
+  assert.match(await page.locator('#s2d36-audit').innerText(), /99\.48%/);
+  assert.match(await page.locator('#cadg-submod-study-link').innerText(), /99\.94%/);
+  checks.push('primary warning precedes historical-study links and peer duplicate checks remain visible');
   await noGlobalOverflow(page, 'desktop summary');
   await page.screenshot({ path: path.join(output, 'desktop.png'), fullPage: true });
   checks.push('desktop: nine sites, four hypotheses, historical ranking and no approved download');
@@ -111,6 +113,21 @@ try {
   assert.match(await page.locator('main').innerText(), /rejected file was not provided/);
   assert.match(await page.locator('main').innerText(), /superseded claims/);
   checks.push('parallel TIFF downloads stay quarantined with corrected uncertainty');
+  for (const name of ['cadg-submod/index.html', 'cadg-submod/executive-summary.html']) {
+    const result = await page.goto(base + '/' + name, { waitUntil: 'networkidle' });
+    assert.equal(result.status(), 200, name);
+    assert.equal(await page.locator('h1').count(), 1, name);
+    const body = await page.locator('body').innerText();
+    assert.match(body, /DO NOT SUBMIT/);
+    assert.match(body, /99\.94%/);
+    assert.match(body, /99\.73%/);
+    assert.match(body, /cannot (override|waive)/i);
+    assert.match(body, /cause of the earlier/i);
+    assert.doesNotMatch(body, /prevents.*Predicted values/i);
+    assert.equal(await page.locator('a[download]').count(), 0);
+    await noGlobalOverflow(page, 'desktop ' + name);
+  }
+  checks.push('CADG pages quarantine both encodings and reject selector override or portal guarantees');
   assert.deepEqual(errors, []);
   checks.push('desktop: no JavaScript exceptions across every active page');
   await desktop.close();
@@ -122,7 +139,7 @@ try {
   const table = await mobilePage.locator('#comparison .table-wrap').evaluate(element => ({ client: element.clientWidth, scroll: element.scrollWidth }));
   assert.ok(table.scroll > table.client, 'The wide table must scroll locally on mobile');
   await mobilePage.screenshot({ path: path.join(output, 'mobile.png'), fullPage: true });
-  for (const name of ['executive-summary.html', 'sources.html', 'research.html', 'parallel-research.html', 'k3h1.html', 'candidate.html', 'sites/GEMSDOE32.html', 'sites/GEMSDOE36.html']) {
+  for (const name of ['executive-summary.html', 'sources.html', 'research.html', 'parallel-research.html', 'k3h1.html', 'candidate.html', 'sites/GEMSDOE32.html', 'sites/GEMSDOE36.html', 'cadg-submod/index.html', 'cadg-submod/executive-summary.html']) {
     await mobilePage.goto(base + '/' + name, { waitUntil: 'networkidle' });
     await noGlobalOverflow(mobilePage, 'mobile ' + name);
   }
