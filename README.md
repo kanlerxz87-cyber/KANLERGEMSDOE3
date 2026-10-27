@@ -40,6 +40,20 @@ The prior session's research clock expired and was not reset.
   upload and portal receipt are missing: neither outside encoding is a proven fix for the
   prior `[0,1]` error or a guarantee of acceptance.
 
+## Concurrent reviews merged during this continuation
+
+- [Session 12817d00](research/session-12817d00-review.md) independently restored the
+  fail-closed desk and recorded a separate set of four conditional hypotheses, now in
+  [the shared research queue](research/hypotheses.md). Its negative card and fixed
+  configuration are preserved; it generated no new candidate or slot. The separate
+  [30454eca shortlist](research/session-30454eca-hypotheses.md) is preserved too.
+- [Session bb1bdbdd](research/session-bb1bdbdd-review.md) hardened malformed preflight
+  handling and refreshed sources; its [negative card](evidence/session-bb1bdbdd-run-card.json)
+  remains unchanged.
+- [The concurrent quarantine review](research/session-20261027-arena-review.md) removed
+  CADG download links. Its reported 99.73% used a catalogue-excluded reference; our later
+  full-lattice check measured 99.94%. Both fail, and direct CADG download links stay removed.
+
 ## Earlier continuation — 27 October 2026
 
 [Earlier scoped review and next steps](research/session-20261027-review.md) ·
@@ -60,7 +74,7 @@ experiment or weekly slot.
 [Executive desk](docs/index.html) · [Every priority site](docs/index.html#comparison) ·
 [How to submit](docs/executive-summary.html) · [Research queue](docs/research.html) ·
 [Official-source ledger](docs/sources.html) · [Machine audit](docs/audit.json) ·
-[Current three-pass review](research/session-52a91352-review.md)
+[Current three-pass review](research/session-30454eca-review.md)
 
 **There is no qualified TIFF to download and no defensible leaderboard estimate.** This review
 session ran no geological experiment, generated no new TIFF and spent no weekly slot. Concurrent
@@ -124,7 +138,7 @@ python -m venv .venv
 bash scripts/download_competition_data.sh   # pinned public mirror; ~420 MB core, ignored
 .venv/bin/python scripts/prepare_data.py    # delegates to shared raw-band preparation only
 .venv/bin/python scripts/audit_shared_tools.py  # expected nonzero: unresolved upstream defect
- .venv/bin/python scripts/preflight.py          # live local receipt in ignored data/; nonzero expected
+.venv/bin/python scripts/preflight.py --config config/research-session-52a91352.json # nonzero expected; do not reset prior clock
 .venv/bin/python scripts/restore_audit_data.py # historical learning only; never a candidate
 .venv/bin/python scripts/audit_h33_lineage.py  # read-only geometry; no candidate/score/slot
 .venv/bin/python scripts/audit_kpl36_external.py --restore # expected nonzero: duplicate stop
@@ -169,8 +183,8 @@ Main `4338f12`, `9ebfc4b` and `1fcc140` introduced parallel bilateral/GPC,
 K3-H1, DCAP-LHC and isolated SSP1 studies, other source pins, research-only TIFFs
 and registry-saturation evidence. SSP1 maintenance `9a24c59` is also retained. The preserved canonical bilateral run/card remains
 canonical at `evidence/run-card.json` and identical root/docs aliases. The previous review’s card
-is `evidence/session-7d1e577d-run-card.json`; the current session’s separate card is
-`evidence/session-52a91352-run-card.json`. The current session records zero new geological runs;
+is `evidence/session-7d1e577d-run-card.json`; this continuation’s separate card is
+`evidence/session-30454eca-run-card.json`. This continuation records zero new geological runs;
 the repository-wide history is not zero. No result is promoted.
 
 All four root-archive TIFF files were independently replayed against the required

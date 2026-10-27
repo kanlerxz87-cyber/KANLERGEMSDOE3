@@ -213,17 +213,28 @@ class KanlerGems3Tests(unittest.TestCase):
             self.assertLessEqual(row["final_3px_overlap"], 0.70)
             self.assertLessEqual(row["final_abs_spearman_rho"], 0.90)
 
-    def test_site_pages_have_links_and_gate_banner(self) -> None:
+    def test_archived_candidate_pages_fail_closed_and_offer_no_download(self) -> None:
+        from scripts.build_cadg_site import build
+        build(check_only=True)
         idx = (ROOT / "docs/cadg-submod/index.html").read_text()
         sub = (ROOT / "docs/cadg-submod/executive-summary.html").read_text()
         js = (ROOT / "docs/source-status.js").read_text()
         readme = (ROOT / "README.md").read_text()
+        lane_readme = (ROOT / "docs/cadg-submod/README.md").read_text()
         card = json.loads((ROOT / "evidence/cadg-submod-run-card.json").read_text())
         self.assertIn(card["raster_sha256"], idx)
         self.assertIn(card["submission_name"], idx)
-        self.assertIn("executive-summary.html", idx)
-        self.assertIn(card["raster_sha256"], sub)
-        self.assertIn(card["submission_note"], sub)
+        self.assertIn("DO NOT SUBMIT", idx)
+        self.assertIn("exceeding the 70% stop", idx)
+        self.assertIn("99.94%", idx)
+        self.assertIn("cannot override", idx)
+        self.assertNotIn("download=", idx.lower())
+        self.assertNotIn("download=", sub.lower())
+        self.assertNotIn('href="downloads/', idx.lower())
+        self.assertNotIn('href="downloads/', sub.lower())
+        self.assertNotIn("DOWNLOAD READY", idx)
+        self.assertIn("DO NOT SUBMIT", lane_readme)
+        self.assertNotIn("](docs/downloads/", lane_readme)
         self.assertIn("cadg-submod/index.html", js)
         self.assertIn("cadg-submod/index.html", readme)
 

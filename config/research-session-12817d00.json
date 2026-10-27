@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "session_started_utc": "2026-10-27T23:39:29+00:00",
+  "assigned_method_paragraph": null,
+  "lane_status": "BLOCKED_MISSING_PARAGRAPH; no method silently assigned",
+  "max_experiments": 3,
+  "max_seconds": 7200,
+  "geological_experiments": [],
+  "shared_cache": {
+    "path": null,
+    "sha256": null,
+    "status": "The locked shared receipt names a 35-channel feature stack, but neither its bytes nor an expected digest is published. Raw-band preparation is not a substitute."
+  },
+  "registry": {
+    "complete": false,
+    "manifest": "registry/focus_registry_manifest.json",
+    "status": "The inventory is a dated, size/prefix-filtered participant registry, not a complete current surface registry.",
+    "reference_dot_definition_verified": false,
+    "scope_issue": "The literal registry contains a full-footprint positive diagnostic and a spacing-5 lattice. The former has no companion-dot definition; the latter mathematically forces more than 70% overlap for any 37,654-dot candidate."
+  },
+  "same_evaluator_incumbent": null,
+  "organizer_template_authenticated": false,
+  "official_submission_receipts": [],
+  "selector": {
+    "slot_authorized": false,
+    "slots_used_this_session": 0,
+    "remaining_weekly_cap_from_account": null,
+    "published_limit_per_week": 3,
+    "published_rule_source": "https://docs.nlr.gov/docs/fy26osti/96647.pdf#page=11"
+  },
+  "session_id": "12817d00"
+}
