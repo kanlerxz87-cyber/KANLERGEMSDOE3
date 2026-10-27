@@ -105,6 +105,14 @@ try {
     assert.equal(await page.locator('h1').count(), 1, name);
     await noGlobalOverflow(page, 'desktop ' + name);
   }
+  for (const name of ['cadg-submod/index.html', 'cadg-submod/executive-summary.html']) {
+    const result = await page.goto(base + '/' + name, { waitUntil: 'networkidle' });
+    assert.equal(result.status(), 200, name);
+    assert.match(await page.locator('body').innerText(), /DO NOT SUBMIT/);
+    assert.equal(await page.locator('a[download]').count(), 0, name);
+    await noGlobalOverflow(page, 'desktop ' + name);
+  }
+  checks.push('archived CADG decision and instructions expose no candidate download');
   await page.goto(base + '/candidate.html', { waitUntil: 'networkidle' });
   assert.match(await page.locator('.notice').innerText(), /DO NOT SUBMIT/);
   assert.equal(await page.locator('a[download]').count(), 4); // research archive only

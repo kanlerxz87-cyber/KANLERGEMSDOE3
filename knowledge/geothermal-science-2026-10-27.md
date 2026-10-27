@@ -1,6 +1,6 @@
 # Geothermal fault discovery: evidence and falsification notes
 
-**Scope:** primary-source review on 27 October 2026. These are geological mechanisms and data-availability observations, not model results, score estimates, or proof of a new discovery. No new geological experiment was run in this session. The four conditional, qualitatively ranked hypotheses and their layers, signatures, confounders, implementation costs and novelty caveats are in [`research/hypotheses.json`](../research/hypotheses.json). The top proposal is *not* an assigned parallel lane and cannot yet be validated under the requested protocol.
+**Scope:** primary-source review on 27 October 2026. These are geological mechanisms and data-availability observations, not model results, score estimates, or proof of a new discovery. No new geological experiment was run in this session. The concurrently added [four ranked proposals](../research/hypotheses.json) and [earlier alternative queue](../research/hypotheses-session-52a91352.md) are preserved separately, including their layers, signatures, confounders, costs and novelty caveats. Neither proposed leader is an assigned parallel lane or can yet be validated under the requested protocol.
 
 ## Source ledger and implications
 

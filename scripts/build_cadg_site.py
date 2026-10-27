@@ -147,7 +147,7 @@ def build(check_only: bool = False) -> None:
 <strong>DO NOT SUBMIT — duplicate under the requested registry rule.</strong>
 <p>Reopened saved bytes: {geom['candidate_dots_within_3px_of_lattice']:,} / {geom['candidate_dots']:,} dots
 ({geom['candidate_dot_overlap_fraction']:.2%}) are within 3 pixels of the registered binary lattice.
-This exceeds the 70% stop. A selector signature cannot change a failed scientific gate.</p></div></div>'''
+This is above the strict 70% duplicate stop. A selector signature cannot change a failed scientific gate.</p></div></div>'''
     intro = '''<div class="page-intro"><p class="eyebrow">Archived study / not a new submission</p>
 <h1 class="subtitle-page">CADG research archive.<br>No eligible upload.</h1>
 <p>The original artifacts and participant-run results are retained for learning, not recommended for competition submission.</p></div>'''

@@ -35,6 +35,7 @@
   "experiments_used": 0,
   "submission_slots_used": 0,
   "leaderboard_estimate": null,
+  "slot_authorized": false,
   "ok_to_submit": false,
   "verdict": "negative",
   "preflight_receipt": "evidence/session-5c1613da-preflight.json",

@@ -29,7 +29,8 @@ def operator_receipt_matches(receipt: object, lock: dict) -> bool:
     if not isinstance(digest, str) or not re.fullmatch(r"[0-9a-f]{64}", digest):
         return False
     checks = receipt.get("checks")
-    return (receipt.get("schema_version") == 1
+    return (type(receipt.get("schema_version")) is int
+            and receipt["schema_version"] == 1
             and receipt.get("kind") == "SYNTHETIC OPERATOR AUDIT — NOT HOLDOUT-DTI"
             and receipt.get("ok") is True
             and receipt.get("source_lock") == lock
@@ -54,22 +55,42 @@ def assess(config: dict, root: Path = ROOT, now: datetime | None = None) -> dict
     receipt_path = root / "data" / "input_receipt.json"
     input_rows = []
     if receipt_path.exists():
-        receipt = json.loads(receipt_path.read_text())
-        entries = {row["id"]: row for row in json.loads((root / "vendor" / "shared-template" / "registry" / "data_manifest.json").read_text())["files"]}
-        for row in receipt.get("files", []):
-            canonical = entries.get(row["id"], {})
-            path = (root / row["path"]).resolve()
-            ok = bool(path.is_relative_to(root.resolve()) and path.is_file() and row["sha256"] == canonical.get("sha256") and sha256_file(path) == row["sha256"])
-            input_rows.append({"id": row["id"], "sha256": row["sha256"], "verified": ok})
-        required = {"training_features", "labels", "sample_submission", "ext_derived_sgmc_faults_100m_u8"}
-        if required <= {row["id"] for row in input_rows if row["verified"]}:
-            resolved.append("Hash-pinned participant-mirror core data restored; data-placement blocker removed")
-        else:
-            failures.append("Core data absent, corrupt or incomplete")
+        try:
+            receipt = json.loads(receipt_path.read_text())
+            manifest = json.loads((root / "vendor" / "shared-template" / "registry" / "data_manifest.json").read_text())
+            rows = receipt["files"]
+            if not isinstance(rows, list) or not rows or not all(isinstance(row, dict) for row in rows):
+                raise ValueError("Nonempty object rows required")
+            ids = [row["id"] for row in rows]
+            if not all(isinstance(key, str) for key in ids) or len(set(ids)) != len(ids):
+                raise ValueError("Unique string input IDs required")
+            entries = {row["id"]: row for row in manifest["files"]}
+            for row in rows:
+                canonical = entries.get(row["id"], {})
+                if not isinstance(row.get("path"), str) or not row["path"]:
+                    raise ValueError("Input path must be a nonempty string")
+                path = (root / row["path"]).resolve()
+                claimed = row.get("sha256")
+                ok = bool(path.is_relative_to(root.resolve()) and path.is_file()
+                          and isinstance(claimed, str) and re.fullmatch(r"[0-9a-f]{64}", claimed)
+                          and claimed == canonical.get("sha256") and sha256_file(path) == claimed)
+                input_rows.append({"id": row["id"], "sha256": claimed, "verified": ok})
+            required = {"training_features", "labels", "sample_submission", "ext_derived_sgmc_faults_100m_u8"}
+            if required <= {row["id"] for row in input_rows if row["verified"]}:
+                resolved.append("Hash-pinned participant-mirror core data restored; data-placement blocker removed")
+            else:
+                failures.append("Core data absent, corrupt or incomplete")
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            # Never retain a partially verified inventory after a malformed receipt.
+            input_rows = []
+            failures.append("Core data restoration receipt/manifest malformed or unreadable: " + str(exc))
     else:
         failures.append("Core data restoration receipt absent")
     audit_path = root / "evidence" / "shared_tool_audit.json"
-    tool_audit = json.loads(audit_path.read_text()) if audit_path.exists() else {}
+    try:
+        tool_audit = json.loads(audit_path.read_text()) if audit_path.exists() else {}
+    except (OSError, ValueError):
+        tool_audit = {}
     if not operator_receipt_matches(tool_audit, lock):
         failures.append("Shared evaluator operator audit fails or is missing; central repair required")
     cache = config.get("shared_cache") if isinstance(config.get("shared_cache"), dict) else {}
@@ -146,18 +167,25 @@ def inspect(data: Path, work: Path, manifest: dict, card: dict) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--config", type=Path, default=ROOT / "config" / "research-session-52a91352.json",
+    parser.add_argument("--config", type=Path, default=ROOT / "config" / "research-session-5c1613da.json",
                         help="Fixed session clock and prerequisites; never reset an earlier clock")
     parser.add_argument("--out", type=Path, default=ROOT / "data" / "preflight-live.json",
                         help="Live local receipt (ignored); the published evidence is a dated snapshot")
     args = parser.parse_args()
+    observed = datetime.now(timezone.utc)
     try:
-        result = assess(json.loads(args.config.read_text()))
+        result = assess(json.loads(args.config.read_text()), now=observed)
         exit_code = 0 if result["research_ready"] else 1
     except Exception as exc:
         result = {"schema_version": 1, "research_ready": False, "submit_ready": False, "slot_authorized": False,
                   "failures": ["Prerequisite audit failed: " + str(exc)]}
         exit_code = 2
+    try:
+        config_label = str(args.config.resolve().relative_to(ROOT.resolve()))
+    except ValueError:
+        config_label = str(args.config)
+    result = {"observed_utc": observed.isoformat(timespec="seconds"), "config": config_label,
+              "snapshot_not_live": args.out.resolve().is_relative_to((ROOT / "evidence").resolve()), **result}
     # Replace even an old successful receipt when the current audit cannot run.
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")

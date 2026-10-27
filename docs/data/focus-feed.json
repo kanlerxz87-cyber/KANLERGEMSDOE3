@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_utc": "2026-10-27T23:39:18+00:00",
+  "checked_utc": "2026-10-27T23:45:31+00:00",
   "kind": "PARTICIPANT_SOURCE_CHANGE_FEED_NOT_SCORE_RECEIPTS",
   "rows": [
     {
@@ -90,9 +90,9 @@
       "scientific_approval": false,
       "accepted_score": null,
       "status": "PINNED_SOURCE_ONLY",
-      "commit": "f41e0ddb91d7e39c941f81b591ba3a8db7df62b1",
+      "commit": "eae0500c0550b1e0d59b14765c7cc23cce9a4856",
       "source_page": "docs/index.html",
-      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/f41e0ddb91d7e39c941f81b591ba3a8db7df62b1/docs/index.html",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/eae0500c0550b1e0d59b14765c7cc23cce9a4856/docs/index.html",
       "source_title": "Overview \u00b7 GEMSDOE31",
       "raster_paths_in_tree": 60,
       "continuous_cache_paths": [
@@ -143,9 +143,9 @@
       "scientific_approval": false,
       "accepted_score": null,
       "status": "PINNED_SOURCE_ONLY",
-      "commit": "63ba988b8e7e15da4d6938fae167933d8f697b4c",
+      "commit": "41ff1edd3f97fa2b82de5b4ba8ef51f0e6531d9d",
       "source_page": "docs/index.html",
-      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE36/blob/63ba988b8e7e15da4d6938fae167933d8f697b4c/docs/index.html",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE36/blob/41ff1edd3f97fa2b82de5b4ba8ef51f0e6531d9d/docs/index.html",
       "source_title": "Decision and evidence \u00b7 GEMS DOE 36",
       "raster_paths_in_tree": 23,
       "continuous_cache_paths": [],

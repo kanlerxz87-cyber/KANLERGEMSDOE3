@@ -1,4 +1,7 @@
 {
+  "observed_utc": "2026-10-27T23:55:29+00:00",
+  "config": "config/research-session-5c1613da.json",
+  "snapshot_not_live": true,
   "schema_version": 1,
   "research_ready": false,
   "submit_ready": false,
