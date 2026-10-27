@@ -2,9 +2,29 @@
 
 **Start every session by reading this README (including the full user request below),
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
-[fixed current session config](config/research-session-52a91352.json), [preserved prior session config](config/research-session.json), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-7d1e577d-run-card.json), and [current negative card](evidence/session-52a91352-run-card.json). Never reset an earlier session clock.**
+[fixed current session config](config/research-session-5c1613da.json), [preserved prior session configs](config/), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-52a91352-run-card.json), and [current negative card](evidence/session-5c1613da-run-card.json). Never reset an earlier session clock.**
 
-## Latest continuation — 27 October 2026
+## Current continuation — 27 October 2026
+
+[Current three-pass review](research/session-5c1613da-review.md) · [Current preflight](evidence/session-5c1613da-preflight.json) · [Current negative run card](evidence/session-5c1613da-run-card.json) · [CADG saved-byte audit](evidence/session-5c1613da-cadg-audit.json) · [Refreshed nine-site source feed](evidence/session-5c1613da-focus-feed.json)
+
+**DO NOT SUBMIT.** This session generated no candidate TIFF, ran no geological experiment and
+spent no weekly slot. It restored hash-pinned participant-mirror inputs locally (ignored, not
+organizer-authenticated), prepared raw bands, reconfirmed the unfixed shared evaluator defect,
+and repaired the misleading CADG publication pages. Reopening the exact inherited CADG TIFFs
+against the **full** registered binary lattice found **37,630 / 37,654 (99.9363%)** f056 dots
+and **37,635 / 37,654 (99.9495%)** older 9a4e dots within 3 px. Both distinct fields and their
+encodings fail the required >70% stop; their separate negative historical cards are preserved.
+The earlier f056 figure of 99.7318% had removed catalogue-overlapping reference dots. The exact
+rejected upload and organizer receipt remain unavailable: local validation is not portal approval,
+and human selector sign-off cannot override a failed duplicate test.
+
+No assigned single-method lane, canonical 35-channel cache, corrected shared evaluator, full
+registry interpretation, or same-fold incumbent was found. Until those are available, a new
+raster or estimated score would not meet the user's protocol. The outcome is a reproducible
+negative result, not the requested winning submission.
+
+## Previous continuation — 27 October 2026
 
 [Current scoped review and next steps](research/session-20261027-review.md) ·
 [Current readiness receipt](evidence/session-20261027-readiness.json) ·
@@ -24,14 +44,17 @@ experiment or weekly slot.
 [Executive desk](docs/index.html) · [Every priority site](docs/index.html#comparison) ·
 [How to submit](docs/executive-summary.html) · [Research queue](docs/research.html) ·
 [Official-source ledger](docs/sources.html) · [Machine audit](docs/audit.json) ·
-[Current three-pass review](research/session-52a91352-review.md)
+[Current three-pass review](research/session-5c1613da-review.md)
 
 **There is no qualified TIFF to download and no defensible leaderboard estimate.** This review
 session ran no geological experiment, generated no new TIFF and spent no weekly slot. Concurrent
 main contains other sessions’ negative model results and quarantined research TIFFs; those are
 preserved, not claimed as this session’s work. The requested winning artifact is not delivered.
 
-### Progress in this session
+### Cumulative progress (current and earlier sessions)
+
+The items below summarize preserved prior work as well as this continuation; the current session's
+own actions and tests are separated in its [three-pass review](research/session-5c1613da-review.md).
 
 - Restored the complete 19-band core feature raster, labels, sample and SGMC proxy from immutable,
   hash-pinned participant mirrors. **Core-mirror data placement is completed**, but mirror integrity is not
@@ -88,7 +111,8 @@ python -m venv .venv
 bash scripts/download_competition_data.sh   # pinned public mirror; ~420 MB core, ignored
 .venv/bin/python scripts/prepare_data.py    # delegates to shared raw-band preparation only
 .venv/bin/python scripts/audit_shared_tools.py  # expected nonzero: unresolved upstream defect
- .venv/bin/python scripts/preflight.py          # live local receipt in ignored data/; nonzero expected
+.venv/bin/python scripts/preflight.py          # live local receipt in ignored data/; nonzero expected
+.venv/bin/python scripts/audit_cadg_quarantine.py --restore-lattice --output data/cadg-recheck.json  # research only
 .venv/bin/python scripts/restore_audit_data.py # historical learning only; never a candidate
 .venv/bin/python scripts/audit_h33_lineage.py  # read-only geometry; no candidate/score/slot
 .venv/bin/python scripts/audit_kpl36_external.py --restore # expected nonzero: duplicate stop
@@ -97,8 +121,8 @@ bash scripts/download_competition_data.sh   # pinned public mirror; ~420 MB core
 PYTHON=.venv/bin/python bash scripts/bootstrap_template.sh
 .venv/bin/python scripts/restore_instruments.py --profile saturation57
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q
-.venv/bin/python scripts/build_site.py
-.venv/bin/python scripts/build_site.py --check
+.venv/bin/python scripts/build_site.py --check  # detects drift without overwriting tracked pages
+# To intentionally regenerate after changing evidence: .venv/bin/python scripts/build_site.py
 .venv/bin/python -m http.server 8000 --bind 0.0.0.0 --directory docs
 ```
 

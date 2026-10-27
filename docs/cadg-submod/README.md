@@ -1,3 +1,5 @@
+> **ARCHIVED — DO NOT SUBMIT.** This document contains superseded download-readiness, selector-sign-off and portal-error claims. The independent full-lattice saved-byte audit found both CADG prediction fields violate the mandatory duplicate stop. A signature cannot override it. See the [current quarantine](index.html) and [forensic receipt](../data/session-5c1613da-cadg-audit.json). The original text below is preserved for historical context, not authorization.
+
 # KANLERGEMSDOE3 — DOE GEMS (#306) Concealed-Fault Discovery & Submission Decision Desk
 
 > **GATE & SUBMIT-READINESS BANNER (`2026-10-26 UTC`)**
