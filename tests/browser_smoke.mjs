@@ -82,16 +82,35 @@ try {
   assert.equal(await page.locator('a[download]').count(), 0);
   assert.match(await page.locator('.file-unavailable').innerText(), /DO NOT SUBMIT/);
   assert.equal(await page.locator('.hypothesis').count(), 4);
+  await page.locator('#cadg-submod-study-link').waitFor();
+  const archivedLink = await page.locator('#cadg-submod-study-link').innerText();
+  assert.match(archivedLink, /DO NOT SUBMIT/);
+  assert.doesNotMatch(archivedLink, /0\.155510/); // no unscoped prior holdout in the link
+  assert.ok(await page.evaluate(() => {
+    const warning = document.querySelector('.notice');
+    const archived = document.querySelector('#cadg-submod-study-link');
+    return !!(warning.compareDocumentPosition(archived) & Node.DOCUMENT_POSITION_FOLLOWING);
+  }), 'Historical study links must not precede the primary no-submit warning');
+  assert.match(await page.locator('main').innerText(), /6,436 dots/);
+  assert.match(await page.locator('#parallel-control').innerText(), /DO NOT SUBMIT|not a submission/i);
+  assert.match(await page.locator('#kpl36-conflict').innerText(), /99\.17%/);
+  checks.push('primary warning precedes historical-study links and both duplicate checks remain visible');
   await noGlobalOverflow(page, 'desktop summary');
   await page.screenshot({ path: path.join(output, 'desktop.png'), fullPage: true });
   checks.push('desktop: nine sites, four hypotheses, historical ranking and no approved download');
   await page.locator('details').last().evaluate(element => { element.open = true; });
-  for (const name of ['executive-summary.html', 'submission.html', 'research.html', 'hypotheses.html', 'summary.html', 'sources.html', 'parallel-research.html', 'k3h1.html', ...feed.rows.map(row => `sites/${row.site}.html`)]) {
+  for (const name of ['executive-summary.html', 'submission.html', 'research.html', 'hypotheses.html', 'summary.html', 'sources.html', 'parallel-research.html', 'k3h1.html', 'candidate.html', ...feed.rows.map(row => `sites/${row.site}.html`)]) {
     const result = await page.goto(base + '/' + name, { waitUntil: 'networkidle' });
     assert.equal(result.status(), 200, name);
     assert.equal(await page.locator('h1').count(), 1, name);
     await noGlobalOverflow(page, 'desktop ' + name);
   }
+  await page.goto(base + '/candidate.html', { waitUntil: 'networkidle' });
+  assert.match(await page.locator('.notice').innerText(), /DO NOT SUBMIT/);
+  assert.equal(await page.locator('a[download]').count(), 4); // research archive only
+  assert.match(await page.locator('main').innerText(), /rejected file was not provided/);
+  assert.match(await page.locator('main').innerText(), /superseded claims/);
+  checks.push('parallel TIFF downloads stay quarantined with corrected uncertainty');
   assert.deepEqual(errors, []);
   checks.push('desktop: no JavaScript exceptions across every active page');
   await desktop.close();
@@ -103,7 +122,7 @@ try {
   const table = await mobilePage.locator('#comparison .table-wrap').evaluate(element => ({ client: element.clientWidth, scroll: element.scrollWidth }));
   assert.ok(table.scroll > table.client, 'The wide table must scroll locally on mobile');
   await mobilePage.screenshot({ path: path.join(output, 'mobile.png'), fullPage: true });
-  for (const name of ['executive-summary.html', 'sources.html', 'research.html', 'parallel-research.html', 'k3h1.html', 'sites/GEMSDOE32.html']) {
+  for (const name of ['executive-summary.html', 'sources.html', 'research.html', 'parallel-research.html', 'k3h1.html', 'candidate.html', 'sites/GEMSDOE32.html', 'sites/GEMSDOE36.html']) {
     await mobilePage.goto(base + '/' + name, { waitUntil: 'networkidle' });
     await noGlobalOverflow(mobilePage, 'mobile ' + name);
   }

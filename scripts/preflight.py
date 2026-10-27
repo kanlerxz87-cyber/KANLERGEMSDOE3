@@ -146,8 +146,10 @@ def inspect(data: Path, work: Path, manifest: dict, card: dict) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--config", type=Path, default=ROOT / "config" / "research-session.json")
-    parser.add_argument("--out", type=Path, default=ROOT / "docs" / "data" / "readiness.json")
+    parser.add_argument("--config", type=Path, default=ROOT / "config" / "research-session-52a91352.json",
+                        help="Fixed session clock and prerequisites; never reset an earlier clock")
+    parser.add_argument("--out", type=Path, default=ROOT / "data" / "preflight-live.json",
+                        help="Live local receipt (ignored); the published evidence is a dated snapshot")
     args = parser.parse_args()
     try:
         result = assess(json.loads(args.config.read_text()))

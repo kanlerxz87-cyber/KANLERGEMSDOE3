@@ -1,13 +1,12 @@
 {
   "schema_version": 1,
   "leaderboard": {
-    "value": 0.4437,
-    "observed_at_utc": "2026-10-26",
-    "last_attempt_utc": "2026-10-26T21:55:25.894476+00:00",
+    "value": 0.4544,
+    "observed_at_utc": "2026-10-27",
     "status": "stale_or_unavailable",
     "source": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
     "evidence_class": "public leaderboard observation via research tool; not a submission-page receipt",
-    "error": "URLError"
+    "reason": "Dated public research observation; automated DrivenData monitoring disabled under published terms."
   },
   "peer_heads": {
     "last_attempt_utc": "2026-10-26T21:55:25.894476+00:00",

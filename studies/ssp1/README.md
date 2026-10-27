@@ -24,7 +24,7 @@ A range-valid TIFF is not automatically OK to submit. All 13 unmodified shared s
 
 The reported 0.2778 GEMSDOE32 file equals the 44,090-dot D2.8 parent **minus 6,436 dots within a two-pixel catalogue collar**, with zero additions. GEMSDOE25 and GEMSDOE30 have identical masks; GEMSDOE31 equals GEMSDOE28's solo variant. Removing redundant prediction mass can improve DTI, but without controlled organizer receipts and hidden truth the exact historical score cannot be causally explained. Only exact known-fault pixels, not a two-pixel collar, are officially excluded from scoring.
 
-The executive table provides a pinned reference download, claim provenance, estimate availability, pixel identity, lane-duplicate status, and recommendation for each requested site. It does not fabricate a precise hidden-score estimate. The official public leaderboard observed on 2026-10-26 showed 0.4437; that is a public observation, not a receipt for a GEMSDOE artifact. The prompt's 0.3195 / 0.4413 snapshots are stale.
+The executive table provides a pinned reference download, claim provenance, estimate availability, pixel identity, lane-duplicate status, and recommendation for each requested site. It does not fabricate a precise hidden-score estimate. A public leaderboard research observation dated 2026-10-27 displayed 0.4544; it is not live and is not a receipt for a GEMSDOE artifact. Automatic DrivenData monitoring is disabled under the published terms.
 
 ## Core values
 
@@ -68,7 +68,7 @@ The original fixed fitting recipe is in `scripts/run_experiment.py`; one full fi
 
 ## Provenance, limitations, and review corrections
 
-The starting commit `d795e4e` contained only a one-line README: no prior pipeline or cache existed locally. The canonical 35-channel feature cache was reconstructed once because no distributed cache was available; SSP1 reuses it. `src/gems32/` and the four canonical wrappers are byte-for-byte upstream copies, checked against [template hashes](registry/template_pins.json), not private evaluator forks. All 92 existing snapshot refs were independently verified as **Commit** objects through GitHub GraphQL; distinct root-tree OIDs are recorded separately in [the ref audit](evidence/git_ref_audit.json).
+The starting commit `d795e4e` contained only a one-line README: no prior pipeline or cache existed locally. The canonical 35-channel feature cache was reconstructed once because no distributed cache was available; SSP1 reuses it. `src/gems32/` and the four canonical wrappers are byte-for-byte upstream copies, checked against [template hashes](registry/template_pins.json), not private evaluator forks. Their historical claims that a particular encoding permanently prevents portal range errors are unverified: the rejected upload was not supplied and no local check guarantees portal acceptance. The wrapper also binarizes positive inputs; never treat its output as validated soft probabilities. All 92 existing snapshot refs were independently verified as **Commit** objects through GitHub GraphQL; distinct root-tree OIDs are recorded separately in [the ref audit](evidence/git_ref_audit.json).
 
 [Pass-2 amendments](evidence/review_amendments.json) retain the original observation commit and make two reporting corrections: complete inventory is no longer confused with universal comparison completeness (18 incompatible entries fail closed), and unmeasured legacy fields are null rather than zero. **No TIFF pixels, hashes, holdout score/CI, overlap, or negative verdict changed.**
 
@@ -82,7 +82,7 @@ SSP1 is isolated because other sessions merged into main during this study. Thei
 
 ## Automation and delivery
 
-The repository-level `.github/workflows/ssp1-checks.yml` verifies pull requests and branch updates. The repository-level `.github/workflows/ssp1-pages.yml` publishes validated `docs/` on main and refreshes the public leaderboard every 12 hours or by manual workflow dispatch. Its Actions cache preserves the newest last-good official observation across jobs; network/login/format failures keep that value and mark it stale. The workflow never commits/pushes a branch, authenticates to DrivenData, trains a model, selects a slot, or submits anything. Authenticated receipts and remaining weekly capacity remain null.
+The repository-level `.github/workflows/ssp1-checks.yml` verifies pull requests and branch updates. `.github/workflows/ssp1-pages.yml` publishes the negative-study pages on main and on its schedule, but no longer polls DrivenData. Its [terms](https://www.drivendata.org/termsofuse/) prohibit automated access for monitoring; the historical leaderboard observation remains dated and stale. The workflow never commits/pushes a branch, authenticates to DrivenData, trains a model, selects a slot, or submits anything. Authenticated receipts and remaining weekly capacity remain unknown.
 
 The local sandbox shell cannot fetch arbitrary official data hosts; official text was checked through the research browsing tool and binary inputs came from pinned GitHub mirrors. GitHub Pages is a static delivery surface, not a browser-side model-fitting service. See Actions for the actual deployment/check outcome, not an assumed success.
 

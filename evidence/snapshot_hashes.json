@@ -340,6 +340,10 @@
     "sha256": "7167063f8b8c90fbf6fe6429ec4d1df118b7aa85dd030e5ccc245a13b0cd9ef5"
   },
   {
+    "path": "evidence/upstream/GEMSDOE36/kpl36-run-card-61783525.json",
+    "sha256": "9448983264018a95518f79da1f63ecfb0f981f740f11ceaeebf341abac8a8d04"
+  },
+  {
     "path": "evidence/upstream/GEMSDOE36/registry/data_manifest.json",
     "sha256": "ed854b467c257ba3698a5b96eef1aabba622e431aebc4ed2fbfca2775c836b02"
   },
