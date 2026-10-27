@@ -116,6 +116,15 @@ portal is isolated at `docs/ssp1/` with source/evidence at `studies/ssp1/`; its
 evaluator and the canonical bilateral evaluator are **not directly comparable**.
 The full public source-status script and its explicit negative study entry point remain.
 
+The `L-K3-CADG-SUBMOD` (`H-K3-1` / `Exp-K3-3` 8-fold spatial OOF cross-fitted 300 m
+submodular CELF) lane is likewise isolated at [`docs/cadg-submod/index.html`](docs/cadg-submod/index.html)
+([submission guide](docs/cadg-submod/executive-summary.html)) with Run Card
+[`evidence/cadg-submod-run-card.json`](evidence/cadg-submod-run-card.json), code in
+`src/kanlergems3/` + `scripts/cadg_*.py`, and cross-lane receipt
+[`evidence/kanlergems3_cross_lane_audit_20261026.json`](evidence/kanlergems3_cross_lane_audit_20261026.json):
+- **Spatial Holdout (`HOLDOUT-DTI`, `gems-segment-pooled-v1` / `quadrant-buffered-15px-v1`, `60,988` withheld positives, not directly comparable to differing split masks):** **`0.155510`** (`95% CI [0.141542, 0.169790]`) vs `B0_regional_d28 = 0.102267` (`+0.053242`, `4/4` folds), orthogonal `DiagonalSegmentHoldout(buffer_px=20)` = **`0.151134`** vs `0.100111` (`+0.051023`, `4/4` folds), and `80/80` leakage canaries `<= 0.6296 <= 0.90`.
+- **Detector vs Literal Uniqueness & Automated Format Gate:** Passes `15/15` byte checks (`12,279,160/12,279,160` finite `{0.0, 1.0}`, `37,654` off-catalogue dots, `0` catalogue overlap, SHA-256 `9f4b590d0bd887632c54ec34c114136d4de52d452de052ba105e35ebfeffe8b5`) and passes uniqueness across **all `39/39` genuine fault detectors** (`35` external max `57.11% <= 70%`, `46.32%` vs `GEMSDOE32`; `4` concurrent repository lanes `29.50%–46.39% <= 70%`). Un-weakened `promotion_gate.py` holds `verdict = "negative"` (`slot_authorized = false`, `0` live weekly slots spent) due to the `206,895`-dot synthetic uniform `r13-lattice-s5` probe (`99.75%`, pigeonhole min `82.34%`) and login-gated DrivenData `/data/` mirror provenance.
+
 ## Publication and three-pass review
 
 The active static site is `docs/`; the repository-root `index.html` redirects there for the existing

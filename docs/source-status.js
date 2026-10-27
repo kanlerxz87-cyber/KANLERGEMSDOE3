@@ -43,3 +43,36 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount, {once: true});
   else mount();
 })();
+
+/* Parallel-safe L-K3-CADG-SUBMOD entry point: isolated under docs/cadg-submod/. */
+(() => {
+  const scriptURL = document.currentScript ? document.currentScript.src : window.location.href;
+  const mount = () => {
+    const main = document.querySelector('main');
+    if (!main || document.getElementById('cadg-submod-study-link')) return;
+    const section = document.createElement('section');
+    section.id = 'cadg-submod-study-link';
+    section.className = 'wrap';
+    section.setAttribute('aria-label', 'L-K3-CADG-SUBMOD 8-fold OOF research result and selector hold');
+    const panel = document.createElement('div');
+    panel.className = 'panel';
+    panel.style.padding = '20px';
+    panel.style.marginTop = '20px';
+    const title = document.createElement('h2');
+    const link = document.createElement('a');
+    link.href = new URL('cadg-submod/index.html', scriptURL).href;
+    link.textContent = 'L-K3-CADG-SUBMOD (Exp-K3-3 8f-OOF): HOLDOUT-DTI 0.155510 · 39/39 detectors PASS · selector hold (verdict = negative)';
+    title.append(link);
+    const note = document.createElement('p');
+    note.textContent = 'Isolated 37,654-dot cultural/pluvial-decontaminated 1m/10m scarp + 150m TMI + INGENIOUS hydro 300m submodular CELF study (46.32% overlap vs GEMSDOE32; <=46.39% vs all 4 sibling lanes; 15/15 finite [0,1] checks PASS; held fail-closed on the 206,895-dot uniform lattice probe). ';
+    const guide = document.createElement('a');
+    guide.href = new URL('cadg-submod/executive-summary.html', scriptURL).href;
+    guide.textContent = 'Submission guide & audited downloads ->';
+    note.append(guide);
+    panel.append(title, note);
+    section.append(panel);
+    main.prepend(section);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount, {once: true});
+  else mount();
+})();
