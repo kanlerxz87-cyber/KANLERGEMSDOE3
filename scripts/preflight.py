@@ -167,18 +167,25 @@ def inspect(data: Path, work: Path, manifest: dict, card: dict) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--config", type=Path, default=ROOT / "config" / "research-session-52a91352.json",
+    parser.add_argument("--config", type=Path, default=ROOT / "config" / "research-session-12817d00.json",
                         help="Fixed session clock and prerequisites; never reset an earlier clock")
     parser.add_argument("--out", type=Path, default=ROOT / "data" / "preflight-live.json",
                         help="Live local receipt (ignored); the published evidence is a dated snapshot")
     args = parser.parse_args()
+    observed = datetime.now(timezone.utc)
     try:
-        result = assess(json.loads(args.config.read_text()))
+        result = assess(json.loads(args.config.read_text()), now=observed)
         exit_code = 0 if result["research_ready"] else 1
     except Exception as exc:
         result = {"schema_version": 1, "research_ready": False, "submit_ready": False, "slot_authorized": False,
                   "failures": ["Prerequisite audit failed: " + str(exc)]}
         exit_code = 2
+    try:
+        config_label = str(args.config.resolve().relative_to(ROOT.resolve()))
+    except ValueError:
+        config_label = str(args.config)
+    result = {"observed_utc": observed.isoformat(timespec="seconds"), "config": config_label,
+              "snapshot_not_live": args.out.resolve().is_relative_to((ROOT / "evidence").resolve()), **result}
     # Replace even an old successful receipt when the current audit cannot run.
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")

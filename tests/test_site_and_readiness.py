@@ -49,6 +49,8 @@ class SiteAndReadinessTests(unittest.TestCase):
             self.assertEqual(parser.h1, 1, path.name)
             self.assertIn('name="viewport"', content)
             self.assertEqual(parser.downloads, [], path.name)
+            self.assertNotIn("Research Complete", content, path.name)
+            self.assertNotIn("DOWNLOAD READY", content, path.name)
             for link in parser.links:
                 uri = urlsplit(link)
                 if not uri.scheme and not uri.netloc and uri.path:
@@ -84,6 +86,18 @@ class SiteAndReadinessTests(unittest.TestCase):
             self.assertIsNone(row["accepted_score"])
             self.assertFalse(row["scientific_approval"])
             self.assertEqual(len(row["commit"]), 40)
+
+    def test_current_session_card_is_explicitly_negative_and_scoreless(self):
+        card = json.loads((ROOT / "evidence/session-12817d00-run-card.json").read_text())
+        self.assertEqual(card["verdict"], "negative")
+        self.assertFalse(card["ok_to_submit"])
+        self.assertFalse(card["slot_authorized"])
+        self.assertEqual(card["geological_experiments_this_session"], 0)
+        self.assertEqual(card["weekly_slots_used_this_session"], 0)
+        self.assertIsNone(card["holdout_dti"])
+        self.assertIsNone(card["raster_sha256"])
+        self.assertIsNone(card["submission_name"])
+        self.assertLessEqual(len(card["submission_note"]), 140)
 
     def test_source_html_parsing_does_not_execute_html(self):
         parser = Links()
