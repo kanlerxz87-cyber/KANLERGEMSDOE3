@@ -79,13 +79,13 @@
       const changed = record.sha !== reviewed;
       line.className = `freshness ${changed ? 'changed' : 'unchanged'}`;
       line.textContent = changed
-        ? `Changed since review · ${record.sha.slice(0, 10)}. Approval remains blocked.`
+        ? `Changed since snapshot · ${record.sha.slice(0, 10)}. Approval remains blocked.`
         : 'Source unchanged at latest check. Approval remains blocked.';
       line.title = `Source-only check at ${new Date(record.time).toISOString()}; cached for at most one hour.`;
       return changed ? 'changed' : 'unchanged';
     } catch (_) {
       line.className = 'freshness unavailable';
-      line.textContent = 'Live status unavailable · reviewed snapshot retained. Approval remains blocked.';
+      line.textContent = 'Live status unavailable · observed snapshot retained. Approval remains blocked.';
       return 'unknown';
     }
   }
