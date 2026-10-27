@@ -23,7 +23,7 @@ No geological experiment was authorized, no new TIFF was generated, no leaderboa
 - Replaced the older hypothesis queue with four unimplemented-in-this-repository mechanisms that explicitly name layers, transforms, missing-fault rationale, differences, confounders, cost and current data viability. The top item is conditional cross-field Morse–Smale junction persistence; it was **not** implemented because prerequisites fail before experiment one.
 - Added this fixed session configuration, preflight receipt and single negative run card. Every numerical item is explicitly classified; no holdout value is called a leaderboard score.
 - Rebuilt the executive desk and each of the nine site pages from evidence. The table says exactly: no eligible file, leaderboard estimate not estimable, historical references duplicate, DO NOT SUBMIT.
-- Final verification after integrating concurrent main: **201 Python tests passed**, deterministic build/check passed, desktop/mobile browser smoke tests passed across every active page and feed-failure scenario, and Git diff/evidence consistency checks passed. A test pass is software evidence, not geological performance.
+- Final verification after integrating concurrent main: **202 Python tests passed**, deterministic build/check passed, desktop/mobile browser smoke tests passed across every active page, quarantined CADG archives and feed-failure scenarios, and Git diff/evidence consistency checks passed. A test pass is software evidence, not geological performance.
 
 ## Why H33's 0.2778 report is plausible but not explained
 

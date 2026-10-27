@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "session": "arena-repository-review-20261027",
+  "scope": "Repository, evidence gates, generated Pages and automated checks; not a geological experiment.",
+  "hypothesis": "No method assigned. Conditional research shortlist top item: cross-scale magnetic/radiometric edge-phase disagreement; proposal only, not selected or tested.",
+  "mechanism": "A persistent magnetic boundary with signed, scale-dependent radiometric derivative reversal or termination could indicate a concealed structural discontinuity; this mechanism is unvalidated here.",
+  "named_non_fault_mimic": "Intrusive lithologic contacts and airborne-survey flight-block levelling seams.",
+  "holdout_dti": {
+    "evidence_class": "HOLDOUT-DTI",
+    "status": "NOT_RUN",
+    "evaluator_version": null,
+    "value": null,
+    "ci95": null,
+    "withheld_positive_count": null,
+    "reason": "No assigned lane; fixed experiment window expired; shared evaluator operator audit fails; no candidate evaluated."
+  },
+  "correlation_overlap_vs_registry": {
+    "candidate_surface_rank_correlation": null,
+    "candidate_final_dot_overlap_3px": null,
+    "complete_registry_checked": false,
+    "reason": "No candidate surface or final-dot raster was generated."
+  },
+  "raster_sha256": null,
+  "validator_output": {
+    "status": "NOT_RUN_NO_CANDIDATE",
+    "no_nan_inside_footprint": null,
+    "values_in_0_1": null,
+    "crs_shape_transform_match": null,
+    "saved_bytes_validated": false
+  },
+  "submission_name": null,
+  "submission_note": "No TIFF generated; required lane, cache, evaluator, registry and holdout gates are unresolved. Do not submit.",
+  "verdict": "negative",
+  "slot_authorized": false,
+  "weekly_slots_used": 0,
+  "leaderboard_estimate": null,
+  "historical_priority_claims": "Owner-reported and unverified; not HOLDOUT-DTI, ORGANIZER-CONFIRMED, or a new-file projection.",
+  "implementation_change": "Regenerated docs/index.html and quarantined archived CADG subpages that previously exposed a duplicate candidate for upload; added regression tests for both unsafe states.",
+  "tests": {
+    "python": "191 passed",
+    "site_build_check": "PASS",
+    "browser_desktop_mobile": "PASS",
+    "consistency_check": "PASS; negative verdict",
+    "diff_check": "PASS"
+  },
+  "limitations": [
+    "Current checkout does not contain core raster inputs or a current core-data restoration receipt.",
+    "No explicit single-method lane paragraph is present.",
+    "Shared evaluator has a reproducible empty-truth false-positive omission and silently binarizes soft inputs.",
+    "Canonical feature cache/digest, complete registry and same-fold incumbent are unavailable.",
+    "Official template provenance, organizer score receipts and current account weekly cap are unavailable.",
+    "No live official-source retrieval was performed in this review."
+  ]
+}

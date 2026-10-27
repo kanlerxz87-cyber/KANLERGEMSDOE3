@@ -17,6 +17,15 @@ malformed-receipt handling and regenerated the drifted home page using the exist
 canonical builder. Final checks: 200 tests passed and desktop/mobile smoke passed.
 The requested high-scoring unique artifact remains undelivered; see the scoped review.
 
+## Preserved concurrent quarantine review — 20261027
+
+[Three-pass review](research/session-20261027-arena-review.md) ·
+[Negative review card](evidence/session-20261027-arena-review-card.json)
+
+That concurrent review removed unsafe download links from the archived CADG subsite after confirming
+99.73% lattice overlap, above the literal 70% duplicate stop. Its software checks are preserved as dated
+evidence; no geological experiment, score estimate or submission authorization followed.
+
 ## Latest continuation — 27 October 2026
 
 [Current scoped review and next steps](research/session-12817d00-review.md) ·
@@ -83,7 +92,7 @@ preserved, not claimed as this session’s work. The requested winning artifact 
   are in [the earlier ledger](evidence/official-claims-20261026.json), the [dated observation](evidence/official-observation-20261027.json), and [updated geological notes](knowledge/geothermal-science-2026-10-27.md). No per-file organizer receipt exists.
 - Rebuilt the Pages executive desk with an individual summary for each priority site, four ranked
   conditional hypotheses, automatic read-only source-change checks, and explicit no-submit status.
-- Final software verification passed **201 Python tests** after integrating concurrent main, plus desktop/mobile browser checks. These are not geological validation or score evidence.
+- Final software verification passed **202 Python tests** after integrating concurrent main, plus desktop/mobile browser checks. These are not geological validation or score evidence.
 
 ### Remaining research blockers
 

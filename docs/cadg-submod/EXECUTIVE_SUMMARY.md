@@ -1,28 +1,11 @@
-# Executive Summary — KANLERGEMSDOE3 (`L-K3-CADG-SUBMOD`) Nine-Site Audit & Validated Candidate
+# Archived CADG experiment — DO NOT SUBMIT
 
-**Review date:** 2026-10-26 (UTC)
-**Assigned Lane:** `L-K3-CADG-SUBMOD` (`H-K3-1` / `Exp-K3-3`, 8-fold spatial OOF cross-fitted)
-**Automated Gate Verdict (`scripts/promotion_gate.py`):** **`negative` (`slot_authorized = false`, `live_submission_slots_used = 0` — HOLD FOR HUMAN SELECTOR)**
-**Genuine 39-Detector Uniqueness:** **`PASS`** (`max 3-px overlap = 57.11% <= 70%` across 35 external + 4 concurrent lanes, `max |Spearman rho| = 0.1581 <= 0.90`)
-**Primary Downloadable Candidate:** [`kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-f0565e6d10f9-zeros.tif`](downloads/kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-f0565e6d10f9-zeros.tif) (`826,994` bytes, SHA-256 `bc019ae673a9d5ca1fe40e968759a2af8ae757a110599b66fc949c4f59961fba`) · [1-TIFF ZIP](downloads/kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-f0565e6d10f9-zeros.zip) · [NaN-outside twin](downloads/kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-f0565e6d10f9-nan.tif)
+**Not a current candidate. Do not upload.** This archived card reports `negative` and `slot_authorized=False`. The strict candidate-to-lattice 3-pixel overlap is `99.73%`; the duplicate stop is greater than 70%. The historical TIFF remains for audit/learning only and is not linked as a download.
 
-## Executive Summary Table (9 Priority Sites + KANLERGEMSDOE3)
+- Archived holdout: **0.157080 HOLDOUT-DTI**, evaluator `gems-segment-pooled-v1`, 60,988 withheld positives, 95% CI `[0.143057, 0.171030]`.
+- Candidate identifier: `kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-f0565e6d10f9-zeros`.
+- SHA-256 recorded in archived card: `bc019ae673a9d5ca1fe40e968759a2af8ae757a110599b66fc949c4f59961fba`.
+- Leaderboard estimate: **not estimable**. No organizer receipt binds a score to this raster.
+- Final verdict: **DO NOT SUBMIT**. No slot authorization.
 
-| Site | Downloadable / Audited File | Defensible Score / Provenance | Est. Live Score | Unique vs Registry? | OK to Submit? |
-|---|---|---|---|---|---|
-| `GEMSDOE24` | `gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif` (`60,069` dots) | `0.2477` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`100.00%` peer 3-px overlap) | **NO** |
-| `GEMSDOE25` | `gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif` (`44,090` dots) | `0.2600` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`100.00%` peer 3-px overlap) | **NO** |
-| `GEMSDOE27` | `gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif` (`61,328` dots) | `0.2449` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`98.02%` peer 3-px overlap) | **NO** |
-| `GEMSDOE28` | `gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif` (`37,660` dots) | `0.2710` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`100.00%` peer 3-px overlap) | **NO** |
-| `GEMSDOE30` | `gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif` (`44,090` dots) | `0.2600` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`100.00%` peer 3-px overlap) | **NO** |
-| `GEMSDOE31` | `gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif` (`40,199` dots) | `0.2708` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`100.00%` peer 3-px overlap) | **NO** |
-| `GEMSDOE32` | `gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif` (`37,654` dots) | `0.2778` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`100.00%` peer 3-px overlap) | **NO** |
-| `GEMSDOE33` | `GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif` (`41,865` dots) | `0.2632` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`99.71%` peer 3-px overlap) | **NO** |
-| `GEMSDOE36` | `gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif` (`38,854` dots) | `0.2750` (`UNVERIFIED OWNER REPORT`) | Not estimable | **NO** (`97.58%` peer 3-px overlap) | **NO** |
-| **`KANLERGEMSDOE3 (L-K3-CADG-SUBMOD)`** | [`kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-f0565e6d10f9-zeros.tif`](downloads/kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-f0565e6d10f9-zeros.tif) (`37,654` dots) | **`HOLDOUT-DTI 0.157080`** (`95% CI [0.1431, 0.1710]`, `60,988` pos) | Not estimable | **YES vs 39/39 detectors** (`57.11%` max; `99.73%` vs 207k lattice probe) | **HOLD FOR HUMAN SELECTOR** (`verdict=negative`) |
-
-## How to Submit (After Human Selector Sign-Off)
-
-1. Confirm remaining weekly DrivenData submission quota (`<= 3/week` per [DOE/NLR FY26-96647](https://docs.nlr.gov/docs/fy26osti/96647.pdf)) and explicit selector sign-off on the synthetic `r13-lattice-s5` pigeonhole bound (`>= 82.34%` at `37,654` dots).
-2. Upload [`kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-f0565e6d10f9-zeros.tif`](downloads/kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-f0565e6d10f9-zeros.tif) or [`kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-f0565e6d10f9-zeros.zip`](downloads/kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-f0565e6d10f9-zeros.zip) (`all 12,279,160 float32 cells in {0.0, 1.0}`, preventing `"Predicted values must be in range [0, 1]"`).
-3. Paste submission note (`90/140` chars): `K3 Exp-K3-3 8f-OOF: decontam scarp+TMI150+hydro 300m CELF 37654d | HOLD-SEL | f0565e6d10f9`.
+See the [current executive desk](../index.html), [current submission guide](../executive-summary.html), and [archived JSON card](run-card.json). Formatting, holdout performance and semantic novelty are separate gates.
