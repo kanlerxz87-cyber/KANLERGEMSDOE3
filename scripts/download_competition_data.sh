@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
-# Zero-API-quota SHA-256-verified restoration of competition, external, and registry rasters.
-# Stores all large rasters in .cache/gems_data/ (excluded from Git and Arena snapshots).
+# Pinned public participant mirror, NOT an organizer-authenticated download.
 set -euo pipefail
-
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-PY="${ROOT}/.venv/bin/python"
-if [[ ! -x "${PY}" ]]; then
-  PY="python3"
+cd "$(dirname "$0")/.."
+PYTHON="${PYTHON:-.venv/bin/python}"
+if [[ ! -x "$PYTHON" ]]; then
+  echo "Create .venv and install requirements.txt first; no credentials are required." >&2
+  exit 2
 fi
-
-exec "${PY}" "${ROOT}/scripts/restore_data.py" "$@"
+exec "$PYTHON" scripts/restore_inputs.py "$@"

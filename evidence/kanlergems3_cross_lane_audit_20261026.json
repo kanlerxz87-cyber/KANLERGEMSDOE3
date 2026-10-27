@@ -1,0 +1,42 @@
+{
+  "candidate_sha256": "9f4b590d0bd887632c54ec34c114136d4de52d452de052ba105e35ebfeffe8b5",
+  "all_parallel_lanes_passed": true,
+  "comparisons": [
+    {
+      "lane": "GPC-3",
+      "file": "docs/downloads/kanler3-gpc3-exp-2-20261026T215945Z-84217adc42be-zeros.tif",
+      "sha256": "16ec0585a884224460f0e5d09e7448a54ab5a3348db92279452a9a4e0453b0f7",
+      "peer_off_cat_dots": 33539,
+      "final_3px_overlap": 0.324215,
+      "final_abs_spearman_rho": 0.017531,
+      "passed_detector_rule": true
+    },
+    {
+      "lane": "K3-H1-ASGT",
+      "file": "docs/downloads/kanler3-k3h1-asgt-hybrid-48559-20261026T2226Z-7ecb7b69-zeros.tif",
+      "sha256": "4a5b0b480be26df52f77b735487cbe5af192262587237b6514d520dc2698b01f",
+      "peer_off_cat_dots": 48559,
+      "final_3px_overlap": 0.463855,
+      "final_abs_spearman_rho": 0.023248,
+      "passed_detector_rule": true
+    },
+    {
+      "lane": "KANLER-H1-DCAP-LHC",
+      "file": "docs/downloads/kanlergems3-h1-dcap-lhc-37654-20261026-431237cf-zeros.tif",
+      "sha256": "5e5a7b2925876a86473a50d523ee2d31b18da8b17809dcb00fa075cf817ea386",
+      "peer_off_cat_dots": 37654,
+      "final_3px_overlap": 0.295002,
+      "final_abs_spearman_rho": 0.013732,
+      "passed_detector_rule": true
+    },
+    {
+      "lane": "SSP1-E1",
+      "file": "docs/ssp1/downloads/gemsdoe32-kanler3-ssp1-e1-RESEARCH-20261026T220043Z-fbab7ef5-zeros.tif",
+      "sha256": "4e88158e8859416b874cc424dc106847f8eaab474794bbb1716e273f57839a27",
+      "peer_off_cat_dots": 37654,
+      "final_3px_overlap": 0.318612,
+      "final_abs_spearman_rho": 0.017636,
+      "passed_detector_rule": true
+    }
+  ]
+}

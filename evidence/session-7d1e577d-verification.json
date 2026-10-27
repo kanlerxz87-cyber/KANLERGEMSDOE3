@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "kind": "SOFTWARE_AND_EVIDENCE_REVIEW_NOT_MODEL_PROMOTION",
+  "checked_utc": "2026-10-26T23:33:54+00:00",
+  "session_id": "7d1e577d",
+  "integrated_main_commits": [
+    "4338f12e30e90904f95e414faeb301f2c98fa394",
+    "9ebfc4bbfbedf39bb2633a524dd49e9192dd3889",
+    "1fcc140e56b886c7d059bb78aa30dcf034396301",
+    "9a24c598da83da43665cf11da51c0c9766fea7f3"
+  ],
+  "passes": 3,
+  "root_pytest": {
+    "passed": 161,
+    "failed": 0,
+    "skipped": 0,
+    "warnings": 0,
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q"
+  },
+  "ssp1_isolated_pytest": {
+    "passed": 64,
+    "failed": 0,
+    "skipped": 0,
+    "warnings": 9,
+    "environment": "Separate ignored venv installed from studies/ssp1/requirements.lock; not root numerical dependencies",
+    "warning_scope": "Affine 3.0.1 matrix-multiplication deprecation in inherited pinned environment; source and lock unchanged",
+    "requirements_sha256": "b869166ac3d5693ffd4a21483e35a4fb23208318a25441f38627bada4a6e9b60"
+  },
+  "browser": {
+    "kind": "BROWSER_UI_TEST_NOT_MODEL_RESULT",
+    "status": "PASS",
+    "checks": [
+      "desktop summary: no global horizontal overflow",
+      "desktop: nine sites, four hypotheses, historical ranking and no approved download",
+      "desktop executive-summary.html: no global horizontal overflow",
+      "desktop submission.html: no global horizontal overflow",
+      "desktop research.html: no global horizontal overflow",
+      "desktop hypotheses.html: no global horizontal overflow",
+      "desktop summary.html: no global horizontal overflow",
+      "desktop sources.html: no global horizontal overflow",
+      "desktop parallel-research.html: no global horizontal overflow",
+      "desktop k3h1.html: no global horizontal overflow",
+      "desktop sites/GEMSDOE24.html: no global horizontal overflow",
+      "desktop sites/GEMSDOE25.html: no global horizontal overflow",
+      "desktop sites/GEMSDOE27.html: no global horizontal overflow",
+      "desktop sites/GEMSDOE28.html: no global horizontal overflow",
+      "desktop sites/GEMSDOE30.html: no global horizontal overflow",
+      "desktop sites/GEMSDOE31.html: no global horizontal overflow",
+      "desktop sites/GEMSDOE32.html: no global horizontal overflow",
+      "desktop sites/GEMSDOE33.html: no global horizontal overflow",
+      "desktop sites/GEMSDOE36.html: no global horizontal overflow",
+      "desktop: no JavaScript exceptions across every active page",
+      "mobile summary: no global horizontal overflow",
+      "mobile executive-summary.html: no global horizontal overflow",
+      "mobile sources.html: no global horizontal overflow",
+      "mobile research.html: no global horizontal overflow",
+      "mobile parallel-research.html: no global horizontal overflow",
+      "mobile k3h1.html: no global horizontal overflow",
+      "mobile sites/GEMSDOE32.html: no global horizontal overflow",
+      "mobile: table scroll is local; all required controls readable",
+      "changed source feed never authorizes an upload",
+      "unavailable source feed never authorizes an upload",
+      "unavailable source retries and reloads are backed off for one hour",
+      "source feed works when localStorage is unavailable",
+      "source cache expires after one hour, including storage-disabled fallback",
+      "visible pages automatically refresh at cache expiry without manual input or approval"
+    ],
+    "source_network": "GitHub API mocked to exercise unchanged, changed, quota failure and disabled storage; not a live score verification",
+    "screenshots": "data/ui-review (ignored; not submission files)"
+  },
+  "active_source_lock": {
+    "ok": true,
+    "commit": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+    "repository": "buffedlizard55-lab/GEMSDOE32",
+    "files_checked": 13,
+    "failures": []
+  },
+  "optional_source_profiles_executed": [
+    "install_template: 19 shared pinned files",
+    "legacy32: source-only bootstrap",
+    "saturation57: 13 locked sources"
+  ],
+  "negative_exits": {
+    "shared_operator_audit": 1,
+    "scientific_preflight": 1,
+    "inherited_literal_lattice_audit": 1
+  },
+  "historical_geometry": {
+    "rasters": 9,
+    "directed_comparisons": 72,
+    "minimum_overlap": 0.8671895382207149,
+    "class": "GEOMETRIC_AUDIT_NOT_MODEL_SCORE"
+  },
+  "inherited_root_artifact_audit": "evidence/inherited_literal_audit.json",
+  "scoped_saturation_replay": "evidence/session-7d1e577d-registry-replay.json",
+  "sample_provenance_audit": "evidence/sample-provenance-check.json",
+  "new_geological_experiments": 0,
+  "new_submission_rasters": 0,
+  "competition_slots_used": 0,
+  "qualified_tiff_delivered": false,
+  "scientific_requirements_fully_met": false,
+  "positive_publisher_implemented": false,
+  "scientific_approval": false,
+  "slot_authorized": false,
+  "run_card": "evidence/session-7d1e577d-run-card.json",
+  "publication": {
+    "pr_number": 20,
+    "url": "https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/pull/20",
+    "state": "SEE_AUTHORITATIVE_GITHUB_PR",
+    "branch": "arena/7d1e577d-kanlergemsdoe3",
+    "merge_gate": "Merge only after GitHub checks pass. The linked PR records final checks and merge state; this receipt never authorizes a TIFF or slot."
+  },
+  "tested_component_sha256": {
+    "scripts/build_site.py": "c7d1e6766754ab57146642efd4edda0a7f5e3e4b7cf92c7523f85d87236dc01e",
+    "scripts/shared_tools.py": "8b81f6710cf6ba6449e7d162e48b9e81e3dfa457a43fb15ecbbfdbcd8690b323",
+    "scripts/preflight.py": "a4b3e1648e2af893d3ae640507fedca059dbf8440ec2ce7f120ad3a1cd37c470",
+    "scripts/validate_submission.py": "7d02b347dc780879d1bfc1133817df2832b08bf000242e9b9c461de5e3791553",
+    "scripts/check_uniqueness.py": "1922daa99b89ee51b236ae532b4c7143f66fe04999d26c748b15ef836ab363e5",
+    "scripts/promotion_gate.py": "862b51c330481dd9afee441e382818ccc15a41d30e609c9be74779f5ea132c23",
+    "scripts/review.py": "33570409fb26fd195f8344def91bcb2d4155da83b5c2a3f3ea4c2c0efc3b38fc",
+    "scripts/restore_instruments.py": "2b3d99623094c94d6bb7d8a27f0d77d7af87c90bb0f75aaacf26ba85238eaee9",
+    "scripts/audit_inherited_artifacts.py": "972c3a083d2465186c66ce66ae572f82ba920388f95e6ecc4915e183e94dc505",
+    "docs/assets/site.js": "f52ac845e482cb0861f028202beb540ffd0ca1acb8d2b12778ff4c26aa58d8d3",
+    "docs/assets/site.css": "6978b12a64b6f8e9649fb4dd906087e7801c9a0b40da1a34e7bf3c6c797bdda3",
+    "tests/browser_smoke.mjs": "514cd2a95a2fb35ec858f3a91c17256d8bb0cefc54c9336d84b1967e20bd436f"
+  },
+  "recursive_html_link_asset_audit": {
+    "pages": 47,
+    "failures": 0
+  }
+}

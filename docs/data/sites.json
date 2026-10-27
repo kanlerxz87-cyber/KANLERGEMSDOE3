@@ -5,9 +5,10 @@
     "owner_reported_value": "0.2477",
     "evidence_class": "UNVERIFIED OWNER REPORT \u2014 not a score accepted by this review",
     "estimate": null,
-    "unique": "NOT ESTABLISHED locally",
+    "unique": "NO \u2014 exceeds the priority-peer dot-overlap stop",
     "submit": false,
     "summary": "Dotted H19-5, spacing variant",
+    "max_overlap_3px": 1.0,
     "source": "https://github.com/buffedlizard55-lab/GEMSDOE24/tree/7ab1c8f77f0b4b8644e3929403a0dab65838b008",
     "matching_paths": [
       "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif"
@@ -19,9 +20,10 @@
     "owner_reported_value": "0.2600",
     "evidence_class": "UNVERIFIED OWNER REPORT \u2014 not a score accepted by this review",
     "estimate": null,
-    "unique": "NOT ESTABLISHED locally",
+    "unique": "NO \u2014 exceeds the priority-peer dot-overlap stop",
     "submit": false,
     "summary": "Dotted H19-5, wider spacing",
+    "max_overlap_3px": 1.0,
     "source": "https://github.com/buffedlizard55-lab/GEMSDOE25/tree/af2b6f2543e5422a7e917638b70e038e6fd91cad",
     "matching_paths": [
       "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif"
@@ -33,9 +35,10 @@
     "owner_reported_value": "0.2449",
     "evidence_class": "UNVERIFIED OWNER REPORT \u2014 not a score accepted by this review",
     "estimate": null,
-    "unique": "NOT ESTABLISHED locally",
+    "unique": "NO \u2014 exceeds the priority-peer dot-overlap stop",
     "submit": false,
     "summary": "Topological gap closure on D1.5",
+    "max_overlap_3px": 0.9801884946517089,
     "source": "https://github.com/buffedlizard55-lab/GEMSDOE27/tree/bef7ae8e8f63b69d299c9214c75988c8f5055f9c",
     "matching_paths": [
       "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif"
@@ -47,9 +50,10 @@
     "owner_reported_value": "0.2710",
     "evidence_class": "UNVERIFIED OWNER REPORT \u2014 not a score accepted by this review",
     "estimate": null,
-    "unique": "NOT ESTABLISHED locally",
+    "unique": "NO \u2014 exceeds the priority-peer dot-overlap stop",
     "submit": false,
     "summary": "Rung30 variant; best of the supplied scored rows",
+    "max_overlap_3px": 1.0,
     "source": "https://github.com/buffedlizard55-lab/GEMSDOE28/tree/2c839d10f57ec9b074829e93c84bc39935f52896",
     "matching_paths": [
       "docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif"
@@ -61,9 +65,10 @@
     "owner_reported_value": "0.2600",
     "evidence_class": "UNVERIFIED OWNER REPORT \u2014 not a score accepted by this review",
     "estimate": null,
-    "unique": "NOT ESTABLISHED locally",
+    "unique": "NO \u2014 exceeds the priority-peer dot-overlap stop",
     "submit": false,
     "summary": "D2.8 off-catalogue Poisson placement",
+    "max_overlap_3px": 1.0,
     "source": "https://github.com/buffedlizard55-lab/GEMSDOE30/tree/9c0d637c0171407196b61b780444bc772ce75438",
     "matching_paths": [
       "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif",
@@ -76,9 +81,10 @@
     "owner_reported_value": "0.2708",
     "evidence_class": "UNVERIFIED OWNER REPORT \u2014 not a score accepted by this review",
     "estimate": null,
-    "unique": "NOT ESTABLISHED locally",
+    "unique": "NO \u2014 exceeds the priority-peer dot-overlap stop",
     "submit": false,
     "summary": "Solo D2.8 family; independence not demonstrated",
+    "max_overlap_3px": 1.0,
     "source": "https://github.com/buffedlizard55-lab/GEMSDOE31/tree/2a7cd0c8f1c30341a3a655a01a1ff5bff67b23d2",
     "matching_paths": [
       "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif"
@@ -90,9 +96,10 @@
     "owner_reported_value": "0.2778",
     "evidence_class": "UNVERIFIED OWNER REPORT \u2014 not a score accepted by this review",
     "estimate": null,
-    "unique": "NOT ESTABLISHED locally",
+    "unique": "NO \u2014 exceeds the priority-peer dot-overlap stop",
     "submit": false,
     "summary": "H33 B2 variant; highest supplied focus-site claim",
+    "max_overlap_3px": 1.0,
     "source": "https://github.com/buffedlizard55-lab/GEMSDOE32/tree/07806249f4ed3efe70b4fbf866183c32392b7853",
     "matching_paths": [
       "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif"
@@ -104,9 +111,10 @@
     "owner_reported_value": "0.2632",
     "evidence_class": "UNVERIFIED OWNER REPORT \u2014 not a score accepted by this review",
     "estimate": null,
-    "unique": "NOT ESTABLISHED locally",
+    "unique": "NO \u2014 exceeds the priority-peer dot-overlap stop",
     "submit": false,
     "summary": "Analog tip/stepover method",
+    "max_overlap_3px": 0.9970858712528365,
     "source": "https://github.com/buffedlizard55-lab/GEMSDOE33/tree/1d99d73fe14d9a87126ffca2db52c69336d6099b",
     "matching_paths": [
       "docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif",
@@ -119,9 +127,10 @@
     "owner_reported_value": "0.2750",
     "evidence_class": "UNVERIFIED OWNER REPORT \u2014 not a score accepted by this review",
     "estimate": null,
-    "unique": "NOT ESTABLISHED locally",
+    "unique": "NO \u2014 exceeds the priority-peer dot-overlap stop",
     "submit": false,
     "summary": "Anderson/geothermal PINN-named artifact; name alone is not physics verification",
+    "max_overlap_3px": 0.9757811293560509,
     "source": "https://github.com/buffedlizard55-lab/GEMSDOE36/tree/b90418f852615aa0974cf9a53b92fa569ed133fc",
     "matching_paths": [
       "docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif"

@@ -1,0 +1,62 @@
+name: Verify evidence and downloads
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main, 'arena/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: evidence-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - name: Install pinned scientific tools
+        run: python -m pip install --requirement requirements.lock
+      - name: Unit tests, quarantine regressions, and corrupt-TIFF rejection
+        env:
+          OPENBLAS_NUM_THREADS: '2'
+          OMP_NUM_THREADS: '2'
+        run: python -m pytest -q
+      - name: Rebuild the evidence-driven static pages
+        run: python scripts/build_site.py
+      - name: Verify actual saved TIFF, ZIP, hashes, links and fail-closed decision
+        run: python scripts/verify_release.py --offline
+      - name: Reject stale generated HTML, summary, CSV or download checksums
+        run: git diff --exit-code -- 'docs/*.html' 'docs/sites/*.html' EXECUTIVE_SUMMARY.md docs/data/nine_site_table.csv docs/downloads/submission-note.txt docs/downloads/SHA256SUMS.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tools/browser/package-lock.json
+      - run: npm ci --prefix tools/browser
+      - name: Real-browser pages, responsive layouts, exact downloads and clipboard
+        run: npm test --prefix tools/browser
+      - name: Attach technical check results, not a promotion receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: technical-verification
+          path: |
+            evidence/verification.json
+            .cache/browser-tests/results.json
+            .cache/browser-tests/desktop.png
+            .cache/browser-tests/mobile.png
+      - name: State scientific outcome separately
+        run: |
+          printf '%s\n' '## Scientific verdict: NEGATIVE' 'Technical tests do not authorize an upload. No competition slot is consumed.' >> "$GITHUB_STEP_SUMMARY"

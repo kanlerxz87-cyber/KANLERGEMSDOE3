@@ -1,6 +1,21 @@
-data/*
-!data/.gitkeep
+# Large/reproducible local data; committed small manifests remain tracked.
+/data/*
+!/data/.gitkeep
+!/data/README.md
+!/data/core-manifest.json
+!/data/historical-manifest.json
+!/data/input-manifest.json
+!/data/prepared_manifest.json
+!/data/shared-tool-hashes.txt
+.venv/
 .cache/
 __pycache__/
-*.pyc
-.venv/
+.pytest_cache/
+*.py[cod]
+*.egg-info/
+node_modules/
+vendor/shared-template/data/
+/evidence/*.npy
+_site/
+playwright-report/
+test-results/

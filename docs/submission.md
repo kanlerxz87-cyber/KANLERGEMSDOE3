@@ -1,20 +1,25 @@
-# How to make a competition submission
+# Submission guide
 
-**Current status: DO NOT SUBMIT. No new approved TIFF exists.** No historical file should be relabeled as unique. There is intentionally no active submission download button.
+## Current decision: DO NOT SUBMIT
 
-## Automated release prerequisites
+There is **no approved competition TIFF** to download from this project. A previously committed GPC-3 research TIFF and the historical references fail the requested uniqueness threshold; the prior bilateral experiment did not write a TIFF. Do not rename, perturb or upload any of them as a fresh entry. No current candidate leaderboard estimate exists.
 
-A candidate must pass shared-template, leakage, comparable holdout-improvement, whole-registry surface and final-dot uniqueness, and saved-byte format validation. The project must publish an evidence card tied to the TIFF SHA-256. `scripts/promotion_gate.py` checks the decision schema, but does not verify raster bytes or authenticate evidence and cannot substitute for the shared runner. A separate selector must approve an available weekly slot against the authenticated submission page. No manual geological inspector is substituted for these checks; missing machine evidence blocks release.
+## Required automated evidence before a future selector can approve a file
 
-## Once a candidate is approved (future workflow, not current authorization)
+1. Resolve the missing parallel method lane and the full-footprint registry diagnostic described in the [scientific review](review.md). Restore the intended shared template and authorized organizer sample; confirm all data/code licenses.
+2. Use the shared evaluator on buffered, whole-segment spatial hide-and-recover folds. Build catalogue features using visible faults only and mask visible pixels exactly. Run each feature's AUC canary; a value above 0.90 is a leakage stop unless disproved.
+3. Compare against the current holdout incumbent on identical folds. Record pooled `HOLDOUT-DTI`, evaluator version, withheld positives and 95% CI, including paired improvement uncertainty. A leaderboard projection is not a score.
+4. Before placement and after final dots, compare against the complete, frozen registry. Stop if **positive** rank correlation exceeds 0.90 or more than 70% of candidate dots are within 3 pixels of a registry dot set. Missing bytes or undefined comparisons do not prove uniqueness. The current shared interpretation treats every finite positive registry pixel as a dot, producing the documented saturation blocker.
+5. Use the shared submission writer, then validate the **saved** TIFF against the verified sample: one float32 band; exact CRS, shape and transform; no NaN or invalid probabilities inside the footprint. The conservative local check also requires null/masked/NaN outside the sample mask and flags whole-grid raw non-finite or out-of-range values. Its result is not a portal acceptance.
+6. Bind measured evidence to the exact TIFF SHA-256, unique filename and note of at most 140 characters. A complete schema alone is not scientific validation. Independently select a weekly slot only after verifying the account's actual remaining allowance. The [official rules PDF](https://docs.nlr.gov/docs/fy26osti/96647.pdf), §§3.2–3.5, describes three submissions per week, but the live account quota has not been checked.
 
-1. Download the explicitly **approved** `.tif` from the executive summary; confirm its published hash. Do not download an HTML report and rename it `.tif`.
-2. Use the competition's New submission form. Based on the user-provided form text, it accepts one single-band GeoTIFF or a ZIP containing just that GeoTIFF, with the template CRS, shape and geotransform. This text was not independently re-fetched here.
-3. Copy the artifact's unique submission name and note of at most 140 characters. No real candidate name is issued in this review.
-4. Upload only after the selector approves the slot; retain the organizer receipt including the submitted file hash/name and score. Only then mark a number ORGANIZER-CONFIRMED.
+## Only after a file and slot are approved
 
-## Fixing “Predicted values must be in range [0, 1]”
+1. Download the exact approved `.tif` from the project executive summary and compare its SHA-256 with the published run card. No such download exists today.
+2. Enroll/sign in to [DrivenData](https://www.drivendata.org/competitions/306/competition-doe-gems/), select **Submit**, then **Make new submission**. The user-provided form text says it accepts one single-band GeoTIFF or a ZIP containing one GeoTIFF; the authenticated form was not accessed here.
+3. Choose that exact unique filename. Put the run-card's short note in the optional **Note** field; the quoted form did not establish a separate name field.
+4. Submit only after the separate selector authorizes the slot. Preserve the organizer response and bind the receipt to the uploaded filename and independently recorded hash. Only an actual submission-page receipt can support an `ORGANIZER-CONFIRMED` team score. Select one final submission for both rounds before the official deadline. The rules also require disclosing generative-AI use in the narrative and reproducible code/documentation for finalists.
 
-Check the saved raster, not just the in-memory array. Inspect all valid pixels and nodata/mask behavior: NaN, infinity, negative nodata sentinels, raw logits, or values exceeding unity are potential causes. The previous upload bytes were not supplied, so the actual cause is unknown. Do not silently clip a corrupt raster to obtain a passing result. Correct the writer/normalization and validate against the true template; use explicit outside-footprint handling. A TIFF with correct range but wrong transform is still invalid.
+## “Predicted values must be in range [0, 1]”
 
-No submission has been made by this session, and no organizer acceptance is claimed.
+The cause is unknown because the failed upload's exact bytes and receipt were not supplied. Run `python scripts/validate_submission.py <verified-sample.tif> <candidate.tif>` on the exact saved file. Check raw NaN, infinity, sentinel values, negative values and values above one, along with the mask and geometry. Null/NaN outside the official bounds is described by the organizer; how the portal handles the mirrored irregular footprint mask is unverified. Do not blindly clamp or assume that either zero-outside or NaN-outside guarantees acceptance. The synthetic internal-mask regression test is a format experiment, not an approved candidate or portal test.

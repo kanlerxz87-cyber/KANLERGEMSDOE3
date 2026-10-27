@@ -1,42 +1,126 @@
-# Three-Pass Verification Record — 2026-10-26 (Lane `L-K3-CADG-SUBMOD`)
+# Three-pass verification — session 7d1e577d
 
-## Official Primary Sources Fetched & Verified (`2026-10-26 UTC`)
+## Outcome before software status
 
-1. **DrivenData Live Public Leaderboard (`#306`):** <https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/> — verified live DW-Tversky leaderboard: `#1 xiaofanhu = 0.4437` (`31` submissions), `#2 cfld__ = 0.3916` (`18`), `#3 Batik Shirt Brothers = 0.3904` (`53`), `#4 BrandenKMurray = 0.3724` (`32`), `#5 No Fault of Our Own = 0.3561` (`44`). Resolves stale/conflicting `0.4413` and `0.3195` numbers in earlier notes.
-2. **DOE / NLR Official GEMS Prize Rules (September 2026):** <https://docs.nlr.gov/docs/fy26osti/96647.pdf> — verified `$300,000` total purse (`$50k` Phase 1 + `$250k` Phase 2), **maximum `3` submissions per week**, **one** final submission evaluated across both Phase 1 and Phase 2, reproducible code requirement for finalists, and generative-AI disclosure rule.
-3. **DrivenData Task, Metric & GeoTIFF Specification:** <https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/> — verified `DTI(alpha=0.2, beta=0.8)` with `300 m` (`3 px`) triangular kernel, `EPSG:32611`, `100 m` grid, single-band `float32` in `[0, 1]`.
-4. **DrivenData Staff Catalogue-Masking Confirmation (`chrisk-dd`, Sep 16):** <https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516> — verified known USGS/INGENIOUS catalogue pixels are masked/excluded from evaluation in both Phase 1 and Final Round.
-5. **DOE GDR #1391 & GBCGE INGENIOUS Data Releases:** <https://gdr.openei.org/submissions/1391> (`DOI: 10.15121/1881483`, CC-BY-4.0) and <https://gbcge.org/current-projects/ingenious/> — verified USGS/GBCGE DOIs `10.5066/P9TWT2LU` (MT conductance), `10.5066/P9MQRCBY` (detrended elevation), `10.5066/P9Z6SA1Z` (gravity/magnetics), `10.5066/P9BZPVUC` (heat flow), `10.5066/P93LGLVQ` (USGS GeoDAWN, CC0), and `10.1785/0220220153` (Kreemer et al. geodetic strain).
+**NEGATIVE / DO NOT SUBMIT. The requested new, genuinely unique, scientifically
+qualified TIFF and defensible leaderboard estimate have not been delivered.**
+This review session ran **0 geological experiments, wrote 0 new submission TIFFs
+and spent 0 competition slots**. Concurrent main contains other sessions’ models,
+negative measurements and research-only TIFFs. Those are not this session’s runs.
 
----
+The canonical preserved bilateral card is `evidence/run-card.json`; this review’s
+separate final negative card is `evidence/session-7d1e577d-run-card.json`. A schema
+check, source refresh, local format PASS or green CI is not promotion or slot permission.
 
-## Pass 1 — End-to-End Implementation, Data Restoration & Preregistered Execution
+## Pass 1 — implementation and source-bound review
 
-- Vendored and SHA-256-verified canonical shared template `vendor/gems24_template/` (`GEMSDOE24@fc2bc6f350bf5c6ce8da5d7a2ab03578ea1259d1`) and centralized `evaluate_holdout.py` + `submission_writer.py`.
-- Restored and SHA-256-verified all core rasters, external geoscience layers, and `36` registry rasters (`registry/uniqueness_registry_20261026.json`, `SHA-256: 3da610db...`) into gitignored `.cache/gems_data/`.
-- Re-ran `scripts/audit_rasters.py` across the 9 focus sites (`GEMSDOE24/25/27/28/30/31/32/33/36`), verifying all 9 SHA-256 hashes and all 72 directed `3-px` overlaps (minimum `86.718954% > 70%`).
-- Locked frozen preregistration `evidence/preregistration_20261026.json` (`SHA-256: e49c6aae3afafdcb60306ac79ff439d48fdfde2342b4fb9c0ba611fb23f54278`) for lane `L-K3-CADG-SUBMOD` and hypotheses `H-K3-1`..`H-K3-4`.
-- Built label-free 77-feature memmap `.cache/gems_work/features_fp_v1.f32` (`5,167,373` footprint cells, digest `da968c3cd1a170e4`), verified `80/80` two-polarity leakage canaries (`max AUC = 0.6296 <= 0.90`), and executed all `3` preregistered experiments on `SegmentHoldout(buffer_px=15)` plus orthogonal `DiagonalSegmentHoldout(buffer_px=20)`.
+- Read and normalized the full standing request into `PROJECT_PROMPT.md` and
+  README; retained startup requirements in root `AGENTS.md`.
+- Compared the nine supplied historical winners individually, bound their TIFF
+  bytes to SHA-256 and immutable source commits, and computed 72 directed
+  Euclidean three-pixel overlaps. Minimum **0.8671895382207149**: all nine stop.
+  These are geometry measurements, not DTI or organizer-confirmed scores.
+- Recovered the 19-band raw mirror inputs and labels; recorded shape, CRS,
+  transform, footprint, sentinel counts and hash checks. Did not privately
+  regenerate a replacement 35-channel canonical feature stack.
+- Implemented the executive decision table, nine site summaries, submission
+  guide, evidence ledger, conditional four-hypothesis queue and read-only source
+  freshness feed. No simulated approved download was inserted.
+- Fetched official rules/format/scoring context and free geothermal-data indexes;
+  recorded the precise scope of each observation and unsuccessful access. An
+  index listing was not treated as verified usable coverage or downloaded bytes.
 
----
+## Pass 2 — adversarial review, corrections and regressions
 
-## Pass 2 — Adversarial Bug Hunt, Irregularities Flagged & Fixed
+- Corrected an initial API error-body/source-file confusion using Git transport.
+  All 13 active source entries now require SHA-256, immutable Git-blob identity,
+  exact byte count and every numerical dependency in the lock. Four real shared
+  CLI modules import. Foreign cached gems32 packages cannot supply dependencies.
+- Reproduced the shared empty-truth pooled-FP omission and soft-input binarization
+  on synthetic fixtures, not a geological model. Kept the numerical source
+  unchanged and linked existing central issues #41/#37. Did not privately fix a
+  metric or switch instruments to manufacture a passing model.
+- Hardened grid/float32/range/mask/infinity/sidecar/count validation. Kept two
+  explicit local encoding profiles; the compatibility zero-padding flag selects
+  only a passing named profile. Neither profile authenticates the sample or a
+  portal acceptance. Historical nine-file receipts were recomputed with v3.
+- Prevented inventory or hand-filled schema booleans from authorizing science;
+  strengthened malformed-incumbent checks; failed preflight overwrites a stale
+  positive receipt instead of leaving it behind.
+- Preserved the archive evidence pins instead of silently recomputing them.
+  Hardened registry IDs, paths, symlinks, hashes and complete-manifest binding.
+  Soft surfaces without explicit companion dots remain blocked, not exempt.
+- Fixed stale generated aliases, a `--check` side effect that rewrote individual
+  pages, and raw-band preparation that could overwrite an inherited tracked
+  receipt. Each has a regression test.
+- Source refresh now retains an older good source pin on API failure without
+  inheriting any approval/score fields. Browser cache expiry/storage failure,
+  changed commits and API quota failures are tested as non-authorizing states.
 
-1. **`IR-33-LIDAR-VOID-01` (LiDAR Coverage Void & Swath-Seam Step Artifacts):**
-   `lidar_scarp_features_u8.tif` encodes uncovered tiles (`36.9%` of footprint) with band-7 `valid == 0` and creates artificial linear steps along tile borders. Fixed in `src/kanlergems3/features.py` by eroding `valid > 0` inward by `2 px` (`200 m`), setting void cells to `NaN`, and training a dedicated LiDAR-void 10 m/subsurface specialist blended on `!has_lidar`.
-2. **`IR-34-NODATA-01` (`"Predicted values must be in range [0, 1]"` Portal Trap):**
-   Whole-array portal range checks fail if `NaN` or negative sentinel nodata (`-9999.0`) is evaluated before masking. Fixed via `submission_writer.py` + `scripts/validate_submission.py`: primary `-zeros.tif` stores finite `0.0` outside the footprint (`nodata=None`), guaranteeing all `12,279,160` cells are finite `{0.0, 1.0}`, while also emitting the strict official-text `-nan.tif` twin (`validate(...) -> ok: True`).
-3. **`IR-K3-HISTORICAL-LEAK-01` (Contaminated Static `H19-5` / `D2.8` Holdout Diagnostics):**
-   Audited `19GEMSDOE` source scripts and proved static `H19-5` (`121,131` dots) and `D2.8` (`44,090` dots) were trained on unbuffered quadrant splits (retaining cross-boundary halves of withheld faults) and post-masked on full `labels.tif == 0` across all 4 quadrants (`6,436` dots at `1 <= d_truth <= 2 px`). Separated them cleanly from leak-free `37,654`-dot `SegmentHoldout` baselines (`B0_regional_d28 = 0.102267`, `unsupervised_D28_37654 = 0.064020`).
-4. **`IR-K3-INSAMPLE-COLLAR-01` (In-Sample Refit Collar Collapse Fixed via 8-Fold Spatial OOF):**
-   In Pass 1, fitting a full-footprint in-sample tree for deployment memorized leaf splits around `labels.tif`, packing `60.6%` (`22,812` dots) into `2 < d_catalogue <= 5 px` (`d_cat > 10 px = 9.7%`) and inflating overlap with dense archive halo maps (`0.7863`). Replacing in-sample refitting with **stitched 8-fold spatial out-of-fold cross-fitting** (`0.5 * quadrant OOF + 0.5 * diagonal-wedge OOF`) shifted **`62.9%` (`23,684` dots) to `d_catalogue > 10 px`**, boosted blind-piedmont `C_pied` to `0.1124`, and reduced max 3-px overlap across **all `35` genuine detector rasters to `0.5711 <= 0.70`** (`PASS`).
-5. **`IR-42-UNIQ-01` (Un-Weakened `r13-lattice-s5` Pigeonhole Obstruction):**
-   `13GEMSDOE` `r13-lattice-s5` (`206,895` uniform spacing-5 grid dots) covers `5,160,724 / 5,167,373` footprint cells (`99.8713%`) within `3 px`, forcing `>= 82.34%` overlap for any `37,654`-dot raster. Per `research/review.md` (*"report that conflict rather than weakening the gate"*), top-level `run-card.json` retains the un-weakened literal overlap (`0.9975`) and `template_provenance_verified = false`, keeping `promotion_gate.py` at `verdict = "negative"` (`slot_authorized = false`) while reporting `genuine_35_detectors_passed = true` (`0.5711 <= 0.70`) for human selector review.
+## Pass 3 — reconciliation and requirement-by-requirement review
 
----
+- Integrated concurrent main `4338f12`, `9ebfc4b`, `1fcc140` and SSP1 maintenance
+  `9a24c59` on the fixed Arena
+  branch, preserving their evidence and code. Main-side versions of 46 conflicted
+  paths/instances are archived under `archive/integration-*/`; prior review prose
+  remains under `evidence/history/`. This is not a claim to have independently
+  reproduced every inherited model or reviewed all third-party lines.
+- Retained the canonical bilateral aliases, separate GPC/K3-H1/DCAP-LHC cards and
+  the isolated SSP1 portal/evaluator. Their model measurements were not rerun or
+  pooled. A GPC-specific alias now points to the actual GPC card, not the bilateral
+  record. Archived training/writer/card CLIs cannot overwrite frozen sessions.
+- Independently replayed the full-footprint diagnostic saturation with unchanged
+  shared tools: 5,167,373 positive/allowed cells, no uncovered cells. The universal
+  result is conditional on the older positive-support-as-dots convention; an
+  actual companion dot representation remains unresolved.
+- Independently audited all **four root-archive** TIFF files against the required
+  binary lattice, without excluding space-filling probes. Forward overlaps are
+  GPC **100%**, K3-H1 **99.8579048%**, and DCAP-LHC (both encodings)
+  **99.9973442%**. All exceed 70%; all pass their stated local format profile,
+  which does not rescue eligibility. GPC also has **4,115** positives on mirrored
+  catalogue pixels. The separate SSP1 archive reports its own literal stop and is
+  linked without combining evaluator versions or claiming its work as ours.
+- Independently checked the mirror sample: 60,988 positives, equal to catalogue
+  labels throughout its footprint. The official page describes total fault
+  absence. The contradiction is exposed; mirror hashes are not organizer identity.
+- Reviewed responsive screenshots and browser DOM behavior, all active root
+  pages, local links, explicit negative downloads, same-byte aliases and the
+  no-authorizing-feed invariant. Exact final technical counts and publication
+  references are recorded in `evidence/session-7d1e577d-verification.json`.
 
-## Pass 3 — Full Prompt Audit, CI Workflow Parity & Test Suite Verification
+Publication record: [PR #20](https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/pull/20). Its GitHub checks and merge state are
+authoritative; they are not manually duplicated here as a scientific approval.
 
-- Synchronized `run-card.json`, `docs/run-card.json`, `docs/data/run_card.json`, `docs/index.html`, `docs/executive-summary.html`, `docs/EXECUTIVE_SUMMARY.md`, and `README.md` via `scripts/review.py` and `scripts/build_site.py`.
-- Verified SHA-256 integrity of `evidence/snapshot_hashes.json` (`test_evidence_hashes`), frozen preregistration `evidence/preregistration_20261026.json`, saved GeoTIFFs (`--verify-only`), ZIP archives, and GitHub Actions CI command `python scripts/review.py && python scripts/build_site.py && git diff --exit-code`.
-- Executed full automated `unittest` suite (`tests/test_audit.py`, `tests/test_review.py`, `tests/test_kanlergems3.py`) with `0` failures and `0` human-inspector steps.
+## Acceptance matrix
+
+| Standing requirement | Outcome in this review |
+|---|---|
+| Nine supplied highest historical files, individual explanations and executive table | DONE; file-bound forensics, claims quarantined; not an exhaustive claim about every newer unscored site file |
+| Explain reported H33 B2 0.2778 | BOUNDED explanation: plausible emission efficiency, not demonstrated causal geology or a new-file forecast |
+| Official/free scientific sources and 3–5 preregistered hypotheses | DONE for four conditional proposals; unavailable bytes/coverage and possible prior method overlap explicitly flagged |
+| Full prompt in README/startup instructions | DONE, with trailing-whitespace normalization documented |
+| Clean decision desk, individual site pages, submission guide, source refresh | DONE; source changes never authorize promotion; original parallel studies preserved |
+| Three review/reconciliation passes | DONE as documented here, with concrete corrections/regressions and explicit scope limitations |
+| Assigned single-method lane and exact canonical cache | NOT MET for this session; no lane invented, no private replacement cache |
+| Validated improving paired spatial holdout | NOT MET; no new model trained; inherited negative experiments do not fulfill it |
+| Before-placement and final all-registry novelty | NOT MET; no new surface/dots exist and inherited literal stops remain |
+| New qualified TIFF, authenticated release publisher and upload permission | NOT MET; no placeholder/renamed historical submission, no positive publisher exists |
+| Defensible leaderboard estimate / organizer per-file receipt | NOT MET; not fabricated from incompatible holdouts or owner claims |
+| Weekly slot / final selector | NOT AUTHORIZED; 0 used here, account allowance unknown |
+| PR, CI and main merge | Publication status is authoritative on the linked PR; do not infer scientific approval from it |
+
+## Limits and next authorized work
+
+Software tests include synthetic fixtures and saved-byte checks, not a replication
+of the prior full model training runs or the organizer’s hidden evaluation. GitHub
+API browser responses are mocked for error/change coverage. Official excerpts are
+scoped transcriptions, not archives/hashes of entire source pages. A code/data
+license and organizer authentication were not established merely by cloning a
+participant repository. Source freshness may change without a scientific re-review.
+
+Resolve the literal registry representation/saturation issue, the missing assigned
+lane, central shared-operator repair, the actual canonical cache and matched
+incumbent. Verify usable external-data coverage and licensing. Only a new authorized
+session may run the geological experiment and implement an evidence-authenticating
+positive release publisher. Preserve this session’s fixed 21:57–23:57 UTC clock
+and its negative card; do not reopen its budget or move dots around a duplicate gate.

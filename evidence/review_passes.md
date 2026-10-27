@@ -1,26 +1,17 @@
-# Three-pass verification record
+# Current three-pass record — 7d1e577d
 
-## Pass 1 — implementation
-- Verified base checkout had only README; no local training pipeline to run.
-- Downloaded immutable tree/selected source snapshots for all nine focus repositories and official reference README.
-- Built per-site executive summaries, historical table, research proposals, submission instructions and Pages workflow.
-- No assigned lane: stopped before a geological experiment, no TIFF or slot used.
+The authoritative review is `research/verification.md`; technical measurements and
+publication references are `evidence/session-7d1e577d-verification.json`.
 
-## Pass 2 — bug and assumption review
-- Kept owner claims outside accepted score classes and left estimates unavailable.
-- Distinguished discoverable owner mirrors from organizer-authenticated data; did not claim a GPU is mandatory.
-- Added fail-closed schema tests for missing fields, malformed input, nonfinite values, boolean-as-number, canaries, exact threshold boundaries and note length.
-- Confirmed scientific promotion cannot authorize a weekly slot.
-- Made all documentation pages regenerate from their sources, not just the landing page.
+1. **Implementation:** source-bound nine-site forensics, core restoration,
+   hypotheses, executive desk, per-site summaries and explicit negative card.
+2. **Adversarial review:** source/error-body identity, shared operator defects,
+   encoding/mask/sidecar safety, non-authorizing schemas, immutable archive pins,
+   readiness, cache expiry and generated-page side effects; regressions added.
+3. **Reconciliation:** three concurrent main integrations; separate canonical,
+   GPC, K3-H1, DCAP-LHC and SSP1 evidence; independent saturation/lattice and sample
+   audits; full acceptance matrix; final tests and PR checks before publication.
 
-## Pass 3 — request reconciliation
-- Rechecked the nine requested focus sites; each has a row and individual summary, historical file identifier, estimate availability, uniqueness status and upload decision.
-- Confirmed no research file is misrepresented as ready for submission.
-- Added missing-lane, network, data-provenance, incomplete novelty and full-prompt transcription limitations explicitly.
-- Four conditional hypotheses ranked without numerical score projections. No claim of global novelty or demonstrated benefit.
-- Tests are review/gate tests, NOT geological validation. A passing schema fixture is synthetic and supplies no real scientific result.
-- Unfulfilled core outcome remains explicit: no new validated GeoTIFF, no trained model, no new HOLDOUT-DTI, no verified live leaderboard or automatic current feed. This audit is a foundation, not completion of the competition-winning objective.
-
-## Publication follow-up
-- The Pages settings endpoint returned HTTP 403 for changing to workflow deployment. Retained the existing main/root legacy Pages configuration and added a root redirect plus `.nojekyll`; no settings access is required.
-- Found that the generic `data/` ignore rule also hid `docs/data/`; explicitly unignored the small report JSON files before merging. Large raster inputs remain ignored.
+**Scientific verdict: NEGATIVE.** No new model result, qualified TIFF or weekly
+slot. Software checks do not fulfill the winning-artifact requirement. Earlier
+review text remains under `evidence/history/pre-7d1e577d-*` and in Git history.

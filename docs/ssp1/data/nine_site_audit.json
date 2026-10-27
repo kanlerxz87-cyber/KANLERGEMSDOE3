@@ -1,0 +1,1603 @@
+{
+  "sites": [
+    {
+      "site": "GEMSDOE24",
+      "filename": "gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+      "source_path": "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+      "commit": "7ab1c8f77f0b4b8644e3929403a0dab65838b008",
+      "download_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/raw/7ab1c8f77f0b4b8644e3929403a0dab65838b008/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+      "sha256": "68d0e2e4fcc594f9a23f56c44b885fee733d026d39be55e18ad2a07289525310",
+      "mask_sha256": "3565bd6430c46cdb13cfd9340d70a7e0f87e36be8c301db62c8d23b90ca1a990",
+      "historical_claim": {
+        "label": "USER-REPORTED / NOT ORGANIZER-CONFIRMED",
+        "value": 0.2477,
+        "receipt": null,
+        "not_promotion_evidence": true
+      },
+      "method": "Dense H19-5 ridge-family dots; less thinning than D2.8.",
+      "dots": 60069,
+      "on_catalogue": 0,
+      "format_facts": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ],
+        "bands": 1,
+        "dtype": "float32",
+        "nonfinite_inside": 0,
+        "range_0_1_inside": true
+      },
+      "frozen_raster_diagnostic": {
+        "candidate_id": "GEMSDOE24_FROZEN_RASTER_DIAGNOSTIC",
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "b_visible_px": 0.0,
+        "n_withheld_positives": 22232,
+        "n_spatial_clusters": 140,
+        "n_bootstrap_reps": 1000,
+        "pooled_dti": 0.09315052698145053,
+        "ci95_cluster_bootstrap": [
+          0.08127878015699064,
+          0.105968402764059
+        ],
+        "fold_mean_dti": 0.09449039902261719,
+        "per_quadrant_dti": {
+          "NW": 0.09340211682185072,
+          "NE": 0.10017765806587951,
+          "SW": 0.0667723954292021,
+          "SE": 0.11760942577353645
+        },
+        "folds": {
+          "draw20_fold0": {
+            "dti": 0.09087854465257732,
+            "coverage": 0.19898390301664262,
+            "tp": 380.258238664804,
+            "fp": 12896.974606695236,
+            "fn": 1530.7417613351959,
+            "n_truth": 1911,
+            "emitted": 13112
+          },
+          "draw20_fold1": {
+            "dti": 0.10267417071460258,
+            "coverage": 0.21941974829269045,
+            "tp": 515.8558282361153,
+            "fp": 15201.1568201158,
+            "fn": 1835.1441717638847,
+            "n_truth": 2351,
+            "emitted": 15489
+          },
+          "draw20_fold2": {
+            "dti": 0.0696071003445374,
+            "coverage": 0.11531318506138054,
+            "tp": 424.9290869511873,
+            "fp": 15358.471891389854,
+            "fn": 3260.0709130488126,
+            "n_truth": 3685,
+            "emitted": 15584
+          },
+          "draw20_fold3": {
+            "dti": 0.14310226270936258,
+            "coverage": 0.22369286810851113,
+            "tp": 721.4094996499484,
+            "fp": 11584.673408875211,
+            "fn": 2503.5905003500516,
+            "n_truth": 3225,
+            "emitted": 11944
+          },
+          "draw21_fold0": {
+            "dti": 0.09592568899112412,
+            "coverage": 0.1976581549652948,
+            "tp": 417.2563651317373,
+            "fp": 12887.68125106539,
+            "fn": 1693.7436348682627,
+            "n_truth": 2111,
+            "emitted": 13112
+          },
+          "draw21_fold1": {
+            "dti": 0.09768114541715645,
+            "coverage": 0.21361131747972026,
+            "tp": 483.8296340915664,
+            "fp": 15221.934118233752,
+            "fn": 1781.1703659084337,
+            "n_truth": 2265,
+            "emitted": 15489
+          },
+          "draw21_fold2": {
+            "dti": 0.0639376905138668,
+            "coverage": 0.10739783591608586,
+            "tp": 384.9138439232517,
+            "fp": 15379.78582396447,
+            "fn": 3199.0861560767485,
+            "n_truth": 3584,
+            "emitted": 15584
+          },
+          "draw21_fold3": {
+            "dti": 0.09211658883771032,
+            "coverage": 0.1460392972532035,
+            "tp": 452.72182148493084,
+            "fp": 11720.583985709556,
+            "fn": 2647.278178515069,
+            "n_truth": 3100,
+            "emitted": 11944
+          }
+        }
+      },
+      "holdout_caveat": "This persisted historical raster may already exclude the full catalogue or have been trained on these labels. This diagnostic is NOT a clean model-level hide-and-recover estimate and is never used for promotion.",
+      "leaderboard_estimate": null,
+      "already_used_or_reproduced": true,
+      "exact_mask_twins": [],
+      "lane_distinct_from_all_other_priority_sites": false,
+      "max_directional_overlap": 1.0,
+      "nearest_priority_site": "GEMSDOE30"
+    },
+    {
+      "site": "GEMSDOE25",
+      "filename": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+      "source_path": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+      "commit": "af2b6f2543e5422a7e917638b70e038e6fd91cad",
+      "download_url": "https://github.com/buffedlizard55-lab/GEMSDOE25/raw/af2b6f2543e5422a7e917638b70e038e6fd91cad/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+      "sha256": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8",
+      "mask_sha256": "426073b6b4abda02101b49f5f9fd601d60e6ab001d28d19489787a44666745c3",
+      "historical_claim": {
+        "label": "USER-REPORTED / NOT ORGANIZER-CONFIRMED",
+        "value": 0.26,
+        "receipt": null,
+        "not_promotion_evidence": true
+      },
+      "method": "D2.8-thinned H19-5 family; geometric efficiency, not an independent discovery model.",
+      "dots": 44090,
+      "on_catalogue": 0,
+      "format_facts": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ],
+        "bands": 1,
+        "dtype": "float32",
+        "nonfinite_inside": 0,
+        "range_0_1_inside": true
+      },
+      "frozen_raster_diagnostic": {
+        "candidate_id": "GEMSDOE25_FROZEN_RASTER_DIAGNOSTIC",
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "b_visible_px": 0.0,
+        "n_withheld_positives": 22232,
+        "n_spatial_clusters": 140,
+        "n_bootstrap_reps": 1000,
+        "pooled_dti": 0.09674330401596999,
+        "ci95_cluster_bootstrap": [
+          0.08416165969221351,
+          0.10952536708166187
+        ],
+        "fold_mean_dti": 0.09832378835263812,
+        "per_quadrant_dti": {
+          "NW": 0.09828221217601787,
+          "NE": 0.1069962569009595,
+          "SW": 0.06744989964086548,
+          "SE": 0.12056678469270962
+        },
+        "folds": {
+          "draw20_fold0": {
+            "dti": 0.09569325322849453,
+            "coverage": 0.17507170656925544,
+            "tp": 334.5620312538471,
+            "fp": 9502.400312819991,
+            "fn": 1576.4379687461528,
+            "n_truth": 1911,
+            "emitted": 9655
+          },
+          "draw20_fold1": {
+            "dti": 0.10956934236811838,
+            "coverage": 0.19497933510737883,
+            "tp": 458.39641683744765,
+            "fp": 11055.700147864947,
+            "fn": 1892.6035831625522,
+            "n_truth": 2351,
+            "emitted": 11261
+          },
+          "draw20_fold2": {
+            "dti": 0.06986244455381119,
+            "coverage": 0.10031624292045675,
+            "tp": 369.66535516188316,
+            "fp": 11346.992261302588,
+            "fn": 3315.3346448381167,
+            "n_truth": 3685,
+            "emitted": 11507
+          },
+          "draw20_fold3": {
+            "dti": 0.1476433548381672,
+            "coverage": 0.20197556232371905,
+            "tp": 651.3711884939939,
+            "fp": 8507.56906005176,
+            "fn": 2573.628811506006,
+            "n_truth": 3225,
+            "emitted": 8771
+          },
+          "draw21_fold0": {
+            "dti": 0.10087117112354121,
+            "coverage": 0.17493044721480533,
+            "tp": 369.27817407045404,
+            "fp": 9491.167484550046,
+            "fn": 1741.721825929546,
+            "n_truth": 2111,
+            "emitted": 9655
+          },
+          "draw21_fold1": {
+            "dti": 0.10442317143380062,
+            "coverage": 0.18956388102175772,
+            "tp": 429.3621905142812,
+            "fp": 11069.398121916787,
+            "fn": 1835.6378094857187,
+            "n_truth": 2265,
+            "emitted": 11261
+          },
+          "draw21_fold2": {
+            "dti": 0.06503735472791977,
+            "coverage": 0.09447894698936335,
+            "tp": 338.61254600987826,
+            "fp": 11357.546005521417,
+            "fn": 3245.3874539901217,
+            "n_truth": 3584,
+            "emitted": 11507
+          },
+          "draw21_fold3": {
+            "dti": 0.09349021454725205,
+            "coverage": 0.12911455140059816,
+            "tp": 400.2551093418543,
+            "fp": 8606.001752950204,
+            "fn": 2699.744890658146,
+            "n_truth": 3100,
+            "emitted": 8771
+          }
+        }
+      },
+      "holdout_caveat": "This persisted historical raster may already exclude the full catalogue or have been trained on these labels. This diagnostic is NOT a clean model-level hide-and-recover estimate and is never used for promotion.",
+      "leaderboard_estimate": null,
+      "already_used_or_reproduced": true,
+      "exact_mask_twins": [
+        "GEMSDOE30"
+      ],
+      "lane_distinct_from_all_other_priority_sites": false,
+      "max_directional_overlap": 1.0,
+      "nearest_priority_site": "GEMSDOE30"
+    },
+    {
+      "site": "GEMSDOE27",
+      "filename": "gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+      "source_path": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+      "commit": "bef7ae8e8f63b69d299c9214c75988c8f5055f9c",
+      "download_url": "https://github.com/buffedlizard55-lab/GEMSDOE27/raw/bef7ae8e8f63b69d299c9214c75988c8f5055f9c/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+      "sha256": "33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d",
+      "mask_sha256": "fd6397c1ea10ca12fab2e136ed92691eaa52c8e82b3b9c7e9c6d98d61fe2b9fb",
+      "historical_claim": {
+        "label": "USER-REPORTED / NOT ORGANIZER-CONFIRMED",
+        "value": 0.2449,
+        "receipt": null,
+        "not_promotion_evidence": true
+      },
+      "method": "Topographic gap-closure on D1.5; reported result does not improve on its parent.",
+      "dots": 61328,
+      "on_catalogue": 0,
+      "format_facts": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ],
+        "bands": 1,
+        "dtype": "float32",
+        "nonfinite_inside": 0,
+        "range_0_1_inside": true
+      },
+      "frozen_raster_diagnostic": {
+        "candidate_id": "GEMSDOE27_FROZEN_RASTER_DIAGNOSTIC",
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "b_visible_px": 0.0,
+        "n_withheld_positives": 22232,
+        "n_spatial_clusters": 140,
+        "n_bootstrap_reps": 1000,
+        "pooled_dti": 0.0927484913819319,
+        "ci95_cluster_bootstrap": [
+          0.08085564044154277,
+          0.10539661683022032
+        ],
+        "fold_mean_dti": 0.09411710858500714,
+        "per_quadrant_dti": {
+          "NW": 0.09323828475383727,
+          "NE": 0.1000647519924685,
+          "SW": 0.06634928221212028,
+          "SE": 0.11681611538160255
+        },
+        "folds": {
+          "draw20_fold0": {
+            "dti": 0.0906568109030374,
+            "coverage": 0.19980361990487813,
+            "tp": 381.8247176382221,
+            "fp": 13032.974606695236,
+            "fn": 1529.1752823617778,
+            "n_truth": 1911,
+            "emitted": 13249
+          },
+          "draw20_fold1": {
+            "dti": 0.10265990250708053,
+            "coverage": 0.22210325004875303,
+            "tp": 522.1647408646184,
+            "fp": 15505.611839509798,
+            "fn": 1828.8352591353816,
+            "n_truth": 2351,
+            "emitted": 15798
+          },
+          "draw20_fold2": {
+            "dti": 0.0693564950970302,
+            "coverage": 0.11652401531206072,
+            "tp": 429.39099642494375,
+            "fp": 15785.964794278061,
+            "fn": 3255.6090035750562,
+            "n_truth": 3685,
+            "emitted": 16015
+          },
+          "draw20_fold3": {
+            "dti": 0.14163700045356847,
+            "coverage": 0.22405682586927403,
+            "tp": 722.5832634284087,
+            "fp": 11885.697098145833,
+            "fn": 2502.416736571591,
+            "n_truth": 3225,
+            "emitted": 12246
+          },
+          "draw21_fold0": {
+            "dti": 0.09581975860463714,
+            "coverage": 0.19868892459185414,
+            "tp": 419.4323198134041,
+            "fp": 13023.093273724557,
+            "fn": 1691.567680186596,
+            "n_truth": 2111,
+            "emitted": 13249
+          },
+          "draw21_fold1": {
+            "dti": 0.09746960147785648,
+            "coverage": 0.2158165654971059,
+            "tp": 488.82452085094485,
+            "fp": 15526.917733106959,
+            "fn": 1776.1754791490553,
+            "n_truth": 2265,
+            "emitted": 15798
+          },
+          "draw21_fold2": {
+            "dti": 0.06334206932721034,
+            "coverage": 0.10792191904648098,
+            "tp": 386.7921578625878,
+            "fp": 15809.219344991052,
+            "fn": 3197.207842137412,
+            "n_truth": 3584,
+            "emitted": 16015
+          },
+          "draw21_fold3": {
+            "dti": 0.09199523030963663,
+            "coverage": 0.14764432283229048,
+            "tp": 457.6974007801005,
+            "fp": 12018.45102776272,
+            "fn": 2642.3025992198995,
+            "n_truth": 3100,
+            "emitted": 12246
+          }
+        }
+      },
+      "holdout_caveat": "This persisted historical raster may already exclude the full catalogue or have been trained on these labels. This diagnostic is NOT a clean model-level hide-and-recover estimate and is never used for promotion.",
+      "leaderboard_estimate": null,
+      "already_used_or_reproduced": true,
+      "exact_mask_twins": [],
+      "lane_distinct_from_all_other_priority_sites": false,
+      "max_directional_overlap": 0.9801884946517089,
+      "nearest_priority_site": "GEMSDOE24"
+    },
+    {
+      "site": "GEMSDOE28",
+      "filename": "gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+      "source_path": "docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+      "commit": "2c839d10f57ec9b074829e93c84bc39935f52896",
+      "download_url": "https://github.com/buffedlizard55-lab/GEMSDOE28/raw/2c839d10f57ec9b074829e93c84bc39935f52896/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+      "sha256": "5556aa1438fd67376b60d5ffc99228ec09dcc11a8408298a743ccb88d6163641",
+      "mask_sha256": "3cd18e66517deaace77989424d4380cda87419396dffa04b38c6d493f97206ba",
+      "historical_claim": {
+        "label": "USER-REPORTED / NOT ORGANIZER-CONFIRMED",
+        "value": 0.271,
+        "receipt": null,
+        "not_promotion_evidence": true
+      },
+      "method": "Best reported of four close variants; rung30 on the solo/D2.8 family.",
+      "dots": 37660,
+      "on_catalogue": 0,
+      "format_facts": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ],
+        "bands": 1,
+        "dtype": "float32",
+        "nonfinite_inside": 0,
+        "range_0_1_inside": true
+      },
+      "frozen_raster_diagnostic": {
+        "candidate_id": "GEMSDOE28_FROZEN_RASTER_DIAGNOSTIC",
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "b_visible_px": 0.0,
+        "n_withheld_positives": 22232,
+        "n_spatial_clusters": 140,
+        "n_bootstrap_reps": 1000,
+        "pooled_dti": 0.029360078390480288,
+        "ci95_cluster_bootstrap": [
+          0.024959299444030806,
+          0.034382240223559776
+        ],
+        "fold_mean_dti": 0.02984187212014274,
+        "per_quadrant_dti": {
+          "NW": 0.030774816566073258,
+          "NE": 0.032969319734326735,
+          "SW": 0.022584418780881087,
+          "SE": 0.033038933399289885
+        },
+        "folds": {
+          "draw20_fold0": {
+            "dti": 0.032612642621511624,
+            "coverage": 0.05497892164880964,
+            "tp": 105.06471927087522,
+            "fp": 8358.909186770925,
+            "fn": 1805.9352807291248,
+            "n_truth": 1911,
+            "emitted": 8413
+          },
+          "draw20_fold1": {
+            "dti": 0.03561763251122588,
+            "coverage": 0.057932964427235216,
+            "tp": 136.20039936843,
+            "fp": 9579.59922873749,
+            "fn": 2214.79960063157,
+            "n_truth": 2351,
+            "emitted": 9654
+          },
+          "draw20_fold2": {
+            "dti": 0.02361691322482219,
+            "coverage": 0.03185734207274764,
+            "tp": 117.39430553807505,
+            "fp": 9996.468775664584,
+            "fn": 3567.605694461925,
+            "n_truth": 3685,
+            "emitted": 10057
+          },
+          "draw20_fold3": {
+            "dti": 0.04061306056568184,
+            "coverage": 0.0508662487000384,
+            "tp": 164.04365205762383,
+            "fp": 7131.8797495194,
+            "fn": 3060.956347942376,
+            "n_truth": 3225,
+            "emitted": 7207
+          },
+          "draw21_fold0": {
+            "dti": 0.02893699051063489,
+            "coverage": 0.046350089919274445,
+            "tp": 97.84503981958835,
+            "fp": 8364.723005608013,
+            "fn": 2013.1549601804118,
+            "n_truth": 2111,
+            "emitted": 8413
+          },
+          "draw21_fold1": {
+            "dti": 0.030321006957427597,
+            "coverage": 0.050246908227477946,
+            "tp": 113.80924713523754,
+            "fp": 9593.583157581419,
+            "fn": 2151.1907528647625,
+            "n_truth": 2265,
+            "emitted": 9654
+          },
+          "draw21_fold2": {
+            "dti": 0.021551924336939986,
+            "coverage": 0.029399494203277924,
+            "tp": 105.36778722454808,
+            "fp": 10003.73177262026,
+            "fn": 3478.632212775452,
+            "n_truth": 3584,
+            "emitted": 10057
+          },
+          "draw21_fold3": {
+            "dti": 0.025464806232897937,
+            "coverage": 0.03229456342466683,
+            "tp": 100.11314661646716,
+            "fp": 7157.045384425315,
+            "fn": 2999.886853383533,
+            "n_truth": 3100,
+            "emitted": 7207
+          }
+        }
+      },
+      "holdout_caveat": "This persisted historical raster may already exclude the full catalogue or have been trained on these labels. This diagnostic is NOT a clean model-level hide-and-recover estimate and is never used for promotion.",
+      "leaderboard_estimate": null,
+      "already_used_or_reproduced": true,
+      "exact_mask_twins": [],
+      "lane_distinct_from_all_other_priority_sites": false,
+      "max_directional_overlap": 1.0,
+      "nearest_priority_site": "GEMSDOE30"
+    },
+    {
+      "site": "GEMSDOE30",
+      "filename": "gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+      "source_path": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+      "commit": "9c0d637c0171407196b61b780444bc772ce75438",
+      "download_url": "https://github.com/buffedlizard55-lab/GEMSDOE30/raw/9c0d637c0171407196b61b780444bc772ce75438/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+      "sha256": "8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd",
+      "mask_sha256": "426073b6b4abda02101b49f5f9fd601d60e6ab001d28d19489787a44666745c3",
+      "historical_claim": {
+        "label": "USER-REPORTED / NOT ORGANIZER-CONFIRMED",
+        "value": 0.26,
+        "receipt": null,
+        "not_promotion_evidence": true
+      },
+      "method": "D2.8 reproduction; pixel identity must be checked, not inferred from its name.",
+      "dots": 44090,
+      "on_catalogue": 0,
+      "format_facts": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ],
+        "bands": 1,
+        "dtype": "float32",
+        "nonfinite_inside": 0,
+        "range_0_1_inside": true
+      },
+      "frozen_raster_diagnostic": {
+        "candidate_id": "GEMSDOE30_FROZEN_RASTER_DIAGNOSTIC",
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "b_visible_px": 0.0,
+        "n_withheld_positives": 22232,
+        "n_spatial_clusters": 140,
+        "n_bootstrap_reps": 1000,
+        "pooled_dti": 0.09674330401596999,
+        "ci95_cluster_bootstrap": [
+          0.08416165969221351,
+          0.10952536708166187
+        ],
+        "fold_mean_dti": 0.09832378835263812,
+        "per_quadrant_dti": {
+          "NW": 0.09828221217601787,
+          "NE": 0.1069962569009595,
+          "SW": 0.06744989964086548,
+          "SE": 0.12056678469270962
+        },
+        "folds": {
+          "draw20_fold0": {
+            "dti": 0.09569325322849453,
+            "coverage": 0.17507170656925544,
+            "tp": 334.5620312538471,
+            "fp": 9502.400312819991,
+            "fn": 1576.4379687461528,
+            "n_truth": 1911,
+            "emitted": 9655
+          },
+          "draw20_fold1": {
+            "dti": 0.10956934236811838,
+            "coverage": 0.19497933510737883,
+            "tp": 458.39641683744765,
+            "fp": 11055.700147864947,
+            "fn": 1892.6035831625522,
+            "n_truth": 2351,
+            "emitted": 11261
+          },
+          "draw20_fold2": {
+            "dti": 0.06986244455381119,
+            "coverage": 0.10031624292045675,
+            "tp": 369.66535516188316,
+            "fp": 11346.992261302588,
+            "fn": 3315.3346448381167,
+            "n_truth": 3685,
+            "emitted": 11507
+          },
+          "draw20_fold3": {
+            "dti": 0.1476433548381672,
+            "coverage": 0.20197556232371905,
+            "tp": 651.3711884939939,
+            "fp": 8507.56906005176,
+            "fn": 2573.628811506006,
+            "n_truth": 3225,
+            "emitted": 8771
+          },
+          "draw21_fold0": {
+            "dti": 0.10087117112354121,
+            "coverage": 0.17493044721480533,
+            "tp": 369.27817407045404,
+            "fp": 9491.167484550046,
+            "fn": 1741.721825929546,
+            "n_truth": 2111,
+            "emitted": 9655
+          },
+          "draw21_fold1": {
+            "dti": 0.10442317143380062,
+            "coverage": 0.18956388102175772,
+            "tp": 429.3621905142812,
+            "fp": 11069.398121916787,
+            "fn": 1835.6378094857187,
+            "n_truth": 2265,
+            "emitted": 11261
+          },
+          "draw21_fold2": {
+            "dti": 0.06503735472791977,
+            "coverage": 0.09447894698936335,
+            "tp": 338.61254600987826,
+            "fp": 11357.546005521417,
+            "fn": 3245.3874539901217,
+            "n_truth": 3584,
+            "emitted": 11507
+          },
+          "draw21_fold3": {
+            "dti": 0.09349021454725205,
+            "coverage": 0.12911455140059816,
+            "tp": 400.2551093418543,
+            "fp": 8606.001752950204,
+            "fn": 2699.744890658146,
+            "n_truth": 3100,
+            "emitted": 8771
+          }
+        }
+      },
+      "holdout_caveat": "This persisted historical raster may already exclude the full catalogue or have been trained on these labels. This diagnostic is NOT a clean model-level hide-and-recover estimate and is never used for promotion.",
+      "leaderboard_estimate": null,
+      "already_used_or_reproduced": true,
+      "exact_mask_twins": [
+        "GEMSDOE25"
+      ],
+      "lane_distinct_from_all_other_priority_sites": false,
+      "max_directional_overlap": 1.0,
+      "nearest_priority_site": "GEMSDOE27"
+    },
+    {
+      "site": "GEMSDOE31",
+      "filename": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+      "source_path": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+      "commit": "2a7cd0c8f1c30341a3a655a01a1ff5bff67b23d2",
+      "download_url": "https://github.com/buffedlizard55-lab/GEMSDOE31/raw/2a7cd0c8f1c30341a3a655a01a1ff5bff67b23d2/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+      "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+      "mask_sha256": "dbb809101d86489da1c71d8c0e5d90a76939f7ca4cc87fa80e48db21b0e20a2f",
+      "historical_claim": {
+        "label": "USER-REPORTED / NOT ORGANIZER-CONFIRMED",
+        "value": 0.2708,
+        "receipt": null,
+        "not_promotion_evidence": true
+      },
+      "method": "Solo D2.8 reproduction; not independent evidence of new fault physics.",
+      "dots": 40199,
+      "on_catalogue": 0,
+      "format_facts": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ],
+        "bands": 1,
+        "dtype": "float32",
+        "nonfinite_inside": 0,
+        "range_0_1_inside": true
+      },
+      "frozen_raster_diagnostic": {
+        "candidate_id": "GEMSDOE31_FROZEN_RASTER_DIAGNOSTIC",
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "b_visible_px": 0.0,
+        "n_withheld_positives": 22232,
+        "n_spatial_clusters": 140,
+        "n_bootstrap_reps": 1000,
+        "pooled_dti": 0.030516096725810685,
+        "ci95_cluster_bootstrap": [
+          0.025680176441420625,
+          0.03605063588978195
+        ],
+        "fold_mean_dti": 0.031042014839025488,
+        "per_quadrant_dti": {
+          "NW": 0.03216449618866432,
+          "NE": 0.033719997307012514,
+          "SW": 0.02313959046806852,
+          "SE": 0.0351439753923566
+        },
+        "folds": {
+          "draw20_fold0": {
+            "dti": 0.033191881814146444,
+            "coverage": 0.0577893888196488,
+            "tp": 110.43552203434885,
+            "fp": 8881.488083128792,
+            "fn": 1800.5644779656511,
+            "n_truth": 1911,
+            "emitted": 8938
+          },
+          "draw20_fold1": {
+            "dti": 0.034616226174293704,
+            "coverage": 0.058196066635570115,
+            "tp": 136.81895266022534,
+            "fp": 10221.43819971362,
+            "fn": 2214.1810473397745,
+            "n_truth": 2351,
+            "emitted": 10295
+          },
+          "draw20_fold2": {
+            "dti": 0.022170053462156846,
+            "coverage": 0.03073192672136566,
+            "tp": 113.24714996823246,
+            "fp": 10687.3204813953,
+            "fn": 3571.7528500317676,
+            "n_truth": 3685,
+            "emitted": 10748
+          },
+          "draw20_fold3": {
+            "dti": 0.04253991763590877,
+            "coverage": 0.054609410173931935,
+            "tp": 176.1153478109305,
+            "fp": 7623.895089241265,
+            "fn": 3048.8846521890696,
+            "n_truth": 3225,
+            "emitted": 7706
+          },
+          "draw21_fold0": {
+            "dti": 0.0311371105631822,
+            "coverage": 0.05143265023970398,
+            "tp": 108.57432465601511,
+            "fp": 8882.300442496884,
+            "fn": 2002.425675343985,
+            "n_truth": 2111,
+            "emitted": 8938
+          },
+          "draw21_fold1": {
+            "dti": 0.03282376843973133,
+            "coverage": 0.05627283404537054,
+            "tp": 127.45796911276427,
+            "fp": 10228.041099312832,
+            "fn": 2137.542030887236,
+            "n_truth": 2265,
+            "emitted": 10295
+          },
+          "draw21_fold2": {
+            "dti": 0.024109127473980193,
+            "coverage": 0.033828196565026246,
+            "tp": 121.24025648905408,
+            "fp": 10686.81703465571,
+            "fn": 3462.759743510946,
+            "n_truth": 3584,
+            "emitted": 10748
+          },
+          "draw21_fold3": {
+            "dti": 0.027748033148804432,
+            "coverage": 0.03609230955546229,
+            "tp": 111.8861596219331,
+            "fp": 7649.2112093196665,
+            "fn": 2988.113840378067,
+            "n_truth": 3100,
+            "emitted": 7706
+          }
+        }
+      },
+      "holdout_caveat": "This persisted historical raster may already exclude the full catalogue or have been trained on these labels. This diagnostic is NOT a clean model-level hide-and-recover estimate and is never used for promotion.",
+      "leaderboard_estimate": null,
+      "already_used_or_reproduced": true,
+      "exact_mask_twins": [],
+      "lane_distinct_from_all_other_priority_sites": false,
+      "max_directional_overlap": 1.0,
+      "nearest_priority_site": "GEMSDOE30"
+    },
+    {
+      "site": "GEMSDOE32",
+      "filename": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "source_path": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "commit": "07806249f4ed3efe70b4fbf866183c32392b7853",
+      "download_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/raw/07806249f4ed3efe70b4fbf866183c32392b7853/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+      "mask_sha256": "e5eb6e7e40d5ed944797d479b8327531cbe6d69fe75dc19aaa2db0cc42875d1d",
+      "historical_claim": {
+        "label": "USER-REPORTED / NOT ORGANIZER-CONFIRMED",
+        "value": 0.2778,
+        "receipt": null,
+        "not_promotion_evidence": true
+      },
+      "method": "H33-2 B2: test whether its mask is exactly the D2.8 parent outside a 2 px known-fault collar.",
+      "dots": 37654,
+      "on_catalogue": 0,
+      "format_facts": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ],
+        "bands": 1,
+        "dtype": "float32",
+        "nonfinite_inside": 0,
+        "range_0_1_inside": true
+      },
+      "frozen_raster_diagnostic": {
+        "candidate_id": "GEMSDOE32_FROZEN_RASTER_DIAGNOSTIC",
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "b_visible_px": 0.0,
+        "n_withheld_positives": 22232,
+        "n_spatial_clusters": 140,
+        "n_bootstrap_reps": 1000,
+        "pooled_dti": 0.00451537871535044,
+        "ci95_cluster_bootstrap": [
+          0.0038164175817344387,
+          0.005261598301920283
+        ],
+        "fold_mean_dti": 0.004600104084398947,
+        "per_quadrant_dti": {
+          "NW": 0.00512840329036098,
+          "NE": 0.005504306306184852,
+          "SW": 0.0036920786311337214,
+          "SE": 0.004075628109916233
+        },
+        "folds": {
+          "draw20_fold0": {
+            "dti": 0.005385639773569569,
+            "coverage": 0.009078166496374933,
+            "tp": 17.348376174572497,
+            "fp": 8444.793980125369,
+            "fn": 1893.6516238254276,
+            "n_truth": 1911,
+            "emitted": 8458
+          },
+          "draw20_fold1": {
+            "dti": 0.006335943576507519,
+            "coverage": 0.010261877623361285,
+            "tp": 24.125674292522383,
+            "fp": 9610.612598232361,
+            "fn": 2326.8743257074775,
+            "n_truth": 2351,
+            "emitted": 9629
+          },
+          "draw20_fold2": {
+            "dti": 0.003796426179210498,
+            "coverage": 0.005136499475503275,
+            "tp": 18.928000567229567,
+            "fp": 10169.78083470613,
+            "fn": 3666.0719994327706,
+            "n_truth": 3685,
+            "emitted": 10184
+          },
+          "draw20_fold3": {
+            "dti": 0.0048529260906769785,
+            "coverage": 0.006012700417157937,
+            "tp": 19.390958845334346,
+            "fp": 7059.23480529578,
+            "fn": 3205.6090411546656,
+            "n_truth": 3225,
+            "emitted": 7074
+          },
+          "draw21_fold0": {
+            "dti": 0.0048711668071523915,
+            "coverage": 0.007802019059799343,
+            "tp": 16.470062235236412,
+            "fp": 8445.194316834295,
+            "fn": 2094.5299377647634,
+            "n_truth": 2111,
+            "emitted": 8458
+          },
+          "draw21_fold1": {
+            "dti": 0.004672669035862185,
+            "coverage": 0.007712224592569388,
+            "tp": 17.468188702169662,
+            "fp": 9614.406378171032,
+            "fn": 2247.5318112978302,
+            "n_truth": 2265,
+            "emitted": 9629
+          },
+          "draw21_fold2": {
+            "dti": 0.0035877310830569444,
+            "coverage": 0.004910041733066764,
+            "tp": 17.597589571311282,
+            "fp": 10171.07993491746,
+            "fn": 3566.4024104286887,
+            "n_truth": 3584,
+            "emitted": 10184
+          },
+          "draw21_fold3": {
+            "dti": 0.003298330129155487,
+            "coverage": 0.004144469410263709,
+            "tp": 12.847855171817496,
+            "fp": 7063.454802117206,
+            "fn": 3087.1521448281824,
+            "n_truth": 3100,
+            "emitted": 7074
+          }
+        }
+      },
+      "holdout_caveat": "This persisted historical raster may already exclude the full catalogue or have been trained on these labels. This diagnostic is NOT a clean model-level hide-and-recover estimate and is never used for promotion.",
+      "leaderboard_estimate": null,
+      "already_used_or_reproduced": true,
+      "exact_mask_twins": [],
+      "lane_distinct_from_all_other_priority_sites": false,
+      "max_directional_overlap": 1.0,
+      "nearest_priority_site": "GEMSDOE36"
+    },
+    {
+      "site": "GEMSDOE33",
+      "filename": "GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+      "source_path": "docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+      "commit": "1d99d73fe14d9a87126ffca2db52c69336d6099b",
+      "download_url": "https://github.com/buffedlizard55-lab/GEMSDOE33/raw/1d99d73fe14d9a87126ffca2db52c69336d6099b/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+      "sha256": "87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757",
+      "mask_sha256": "cb490425926e5d81ba5db382a8b5dc1bfecc4f46a65ba9327a078229a55252fb",
+      "historical_claim": {
+        "label": "USER-REPORTED / NOT ORGANIZER-CONFIRMED",
+        "value": 0.2632,
+        "receipt": null,
+        "not_promotion_evidence": true
+      },
+      "method": "Analogue tip/stepover method; its geological interpretation is not established by a file name.",
+      "dots": 41865,
+      "on_catalogue": 0,
+      "format_facts": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ],
+        "bands": 1,
+        "dtype": "float32",
+        "nonfinite_inside": 0,
+        "range_0_1_inside": true
+      },
+      "frozen_raster_diagnostic": {
+        "candidate_id": "GEMSDOE33_FROZEN_RASTER_DIAGNOSTIC",
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "b_visible_px": 0.0,
+        "n_withheld_positives": 22232,
+        "n_spatial_clusters": 140,
+        "n_bootstrap_reps": 1000,
+        "pooled_dti": 0.0519685128498396,
+        "ci95_cluster_bootstrap": [
+          0.04577318545951855,
+          0.05829620661401161
+        ],
+        "fold_mean_dti": 0.05303666414388171,
+        "per_quadrant_dti": {
+          "NW": 0.0587558505626059,
+          "NE": 0.05729500399879353,
+          "SW": 0.03866404161643479,
+          "SE": 0.05743176039769263
+        },
+        "folds": {
+          "draw20_fold0": {
+            "dti": 0.06212545122262417,
+            "coverage": 0.11113974191479652,
+            "tp": 212.38804679917615,
+            "fp": 9237.093177030627,
+            "fn": 1698.6119532008238,
+            "n_truth": 1911,
+            "emitted": 9343
+          },
+          "draw20_fold1": {
+            "dti": 0.06187551893392055,
+            "coverage": 0.1064027736001013,
+            "tp": 250.15292073383813,
+            "fp": 10560.054979565697,
+            "fn": 2100.847079266162,
+            "n_truth": 2351,
+            "emitted": 10685
+          },
+          "draw20_fold2": {
+            "dti": 0.03817570504414151,
+            "coverage": 0.05373293678593814,
+            "tp": 198.00587205618206,
+            "fp": 10995.486623659792,
+            "fn": 3486.994127943818,
+            "n_truth": 3685,
+            "emitted": 11093
+          },
+          "draw20_fold3": {
+            "dti": 0.06991949660160708,
+            "coverage": 0.09172490372222913,
+            "tp": 295.81281450418896,
+            "fp": 7958.0018496441335,
+            "fn": 2929.187185495811,
+            "n_truth": 3225,
+            "emitted": 8092
+          },
+          "draw21_fold0": {
+            "dti": 0.05538624990258763,
+            "coverage": 0.09385157339483938,
+            "tp": 198.12067143650592,
+            "fp": 9243.245442441672,
+            "fn": 1912.879328563494,
+            "n_truth": 2111,
+            "emitted": 9343
+          },
+          "draw21_fold1": {
+            "dti": 0.05271448906366651,
+            "coverage": 0.0923946941512053,
+            "tp": 209.27398225248,
+            "fp": 10580.485160791377,
+            "fn": 2055.72601774752,
+            "n_truth": 2265,
+            "emitted": 10685
+          },
+          "draw21_fold2": {
+            "dti": 0.03915237818872806,
+            "coverage": 0.055783661327942734,
+            "tp": 199.92864219934677,
+            "fp": 10996.191173820669,
+            "fn": 3384.0713578006535,
+            "n_truth": 3584,
+            "emitted": 11093
+          },
+          "draw21_fold3": {
+            "dti": 0.04494402419377817,
+            "coverage": 0.05970035438472148,
+            "tp": 185.0710985926366,
+            "fp": 8003.995180240585,
+            "fn": 2914.9289014073634,
+            "n_truth": 3100,
+            "emitted": 8092
+          }
+        }
+      },
+      "holdout_caveat": "This persisted historical raster may already exclude the full catalogue or have been trained on these labels. This diagnostic is NOT a clean model-level hide-and-recover estimate and is never used for promotion.",
+      "leaderboard_estimate": null,
+      "already_used_or_reproduced": true,
+      "exact_mask_twins": [],
+      "lane_distinct_from_all_other_priority_sites": false,
+      "max_directional_overlap": 0.9970858712528365,
+      "nearest_priority_site": "GEMSDOE27"
+    },
+    {
+      "site": "GEMSDOE36",
+      "filename": "gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+      "source_path": "docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+      "commit": "b90418f852615aa0974cf9a53b92fa569ed133fc",
+      "download_url": "https://github.com/buffedlizard55-lab/GEMSDOE36/raw/b90418f852615aa0974cf9a53b92fa569ed133fc/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+      "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
+      "mask_sha256": "9b9ea4e6ace85c83ad4b80954b4f11cbb177b0d18f0b5a80b486851cbe690ecd",
+      "historical_claim": {
+        "label": "USER-REPORTED / NOT ORGANIZER-CONFIRMED",
+        "value": 0.275,
+        "receipt": null,
+        "not_promotion_evidence": true
+      },
+      "method": "Anderson/geothermal-PINN named artifact; compare actual pixels with the shared family before accepting independence.",
+      "dots": 38854,
+      "on_catalogue": 0,
+      "format_facts": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ],
+        "bands": 1,
+        "dtype": "float32",
+        "nonfinite_inside": 0,
+        "range_0_1_inside": true
+      },
+      "frozen_raster_diagnostic": {
+        "candidate_id": "GEMSDOE36_FROZEN_RASTER_DIAGNOSTIC",
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "b_visible_px": 0.0,
+        "n_withheld_positives": 22232,
+        "n_spatial_clusters": 140,
+        "n_bootstrap_reps": 1000,
+        "pooled_dti": 0.004576730703979592,
+        "ci95_cluster_bootstrap": [
+          0.0038915913728424577,
+          0.005300784778329944
+        ],
+        "fold_mean_dti": 0.004661795366142248,
+        "per_quadrant_dti": {
+          "NW": 0.005214630052050634,
+          "NE": 0.00549761253109758,
+          "SW": 0.003859836522286133,
+          "SE": 0.004075102359134644
+        },
+        "folds": {
+          "draw20_fold0": {
+            "dti": 0.005509822000989019,
+            "coverage": 0.0093745971470385,
+            "tp": 17.914855147990572,
+            "fp": 8595.284692110368,
+            "fn": 1893.0851448520095,
+            "n_truth": 1911,
+            "emitted": 8609
+          },
+          "draw20_fold1": {
+            "dti": 0.006328298591555137,
+            "coverage": 0.010261877623361285,
+            "tp": 24.125674292522383,
+            "fp": 9633.612598232361,
+            "fn": 2326.8743257074775,
+            "n_truth": 2351,
+            "emitted": 9652
+          },
+          "draw20_fold2": {
+            "dti": 0.004100245135723146,
+            "coverage": 0.005744378911010462,
+            "tp": 21.16803628707355,
+            "fp": 11051.967015869039,
+            "fn": 3663.8319637129266,
+            "n_truth": 3685,
+            "emitted": 11068
+          },
+          "draw20_fold3": {
+            "dti": 0.004864022946618929,
+            "coverage": 0.006048167678192317,
+            "tp": 19.50534076217022,
+            "fp": 7131.120423378943,
+            "fn": 3205.4946592378296,
+            "n_truth": 3225,
+            "emitted": 7146
+          },
+          "draw21_fold0": {
+            "dti": 0.00491943810311225,
+            "coverage": 0.007949738134132838,
+            "tp": 16.781897201154422,
+            "fp": 8595.939672826793,
+            "fn": 2094.2181027988454,
+            "n_truth": 2111,
+            "emitted": 8609
+          },
+          "draw21_fold1": {
+            "dti": 0.0046669264706400235,
+            "coverage": 0.007712224592569388,
+            "tp": 17.468188702169662,
+            "fp": 9637.406378171032,
+            "fn": 2247.5318112978302,
+            "n_truth": 2265,
+            "emitted": 9652
+          },
+          "draw21_fold2": {
+            "dti": 0.0036194279088491202,
+            "coverage": 0.005131928677009236,
+            "tp": 18.392832378401103,
+            "fp": 11054.087239061286,
+            "fn": 3565.607167621599,
+            "n_truth": 3584,
+            "emitted": 11068
+          },
+          "draw21_fold3": {
+            "dti": 0.0032861817716503586,
+            "coverage": 0.004144469410263709,
+            "tp": 12.847855171817496,
+            "fp": 7135.454802117207,
+            "fn": 3087.1521448281824,
+            "n_truth": 3100,
+            "emitted": 7146
+          }
+        }
+      },
+      "holdout_caveat": "This persisted historical raster may already exclude the full catalogue or have been trained on these labels. This diagnostic is NOT a clean model-level hide-and-recover estimate and is never used for promotion.",
+      "leaderboard_estimate": null,
+      "already_used_or_reproduced": true,
+      "exact_mask_twins": [],
+      "lane_distinct_from_all_other_priority_sites": false,
+      "max_directional_overlap": 0.9757811293560509,
+      "nearest_priority_site": "GEMSDOE27"
+    }
+  ],
+  "pairwise": [
+    {
+      "a": "GEMSDOE24",
+      "b": "GEMSDOE25",
+      "same_dot_mask": false,
+      "spearman": 0.5758539684455596,
+      "a_within_3px_of_b": 1.0,
+      "b_within_3px_of_a": 1.0,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE24",
+      "b": "GEMSDOE27",
+      "same_dot_mask": false,
+      "spearman": 0.9895603022782766,
+      "a_within_3px_of_b": 1.0,
+      "b_within_3px_of_a": 0.9801884946517089,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE24",
+      "b": "GEMSDOE28",
+      "same_dot_mask": false,
+      "spearman": 0.5305834380527609,
+      "a_within_3px_of_b": 0.9347916562619654,
+      "b_within_3px_of_a": 1.0,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE24",
+      "b": "GEMSDOE30",
+      "same_dot_mask": false,
+      "spearman": 0.5758539684455596,
+      "a_within_3px_of_b": 1.0,
+      "b_within_3px_of_a": 1.0,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE24",
+      "b": "GEMSDOE31",
+      "same_dot_mask": false,
+      "spearman": 0.5464471996587198,
+      "a_within_3px_of_b": 0.9407847641878506,
+      "b_within_3px_of_a": 1.0,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE24",
+      "b": "GEMSDOE32",
+      "same_dot_mask": false,
+      "spearman": 0.5323675249046396,
+      "a_within_3px_of_b": 0.88476585260284,
+      "b_within_3px_of_a": 1.0,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE24",
+      "b": "GEMSDOE33",
+      "same_dot_mask": false,
+      "spearman": 0.5654109319634283,
+      "a_within_3px_of_b": 0.9623932477650702,
+      "b_within_3px_of_a": 0.9970619849516302,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE24",
+      "b": "GEMSDOE36",
+      "same_dot_mask": false,
+      "spearman": 0.5238726737071343,
+      "a_within_3px_of_b": 0.8856148762256738,
+      "b_within_3px_of_a": 0.9756781798527822,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE25",
+      "b": "GEMSDOE27",
+      "same_dot_mask": false,
+      "spearman": 0.5697740201717453,
+      "a_within_3px_of_b": 1.0,
+      "b_within_3px_of_a": 0.9801558831202714,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE25",
+      "b": "GEMSDOE28",
+      "same_dot_mask": false,
+      "spearman": 0.6810381814871215,
+      "a_within_3px_of_b": 0.9318212746654571,
+      "b_within_3px_of_a": 1.0,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE25",
+      "b": "GEMSDOE30",
+      "same_dot_mask": true,
+      "spearman": 1.0000000000000093,
+      "a_within_3px_of_b": 1.0,
+      "b_within_3px_of_a": 1.0,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE25",
+      "b": "GEMSDOE31",
+      "same_dot_mask": false,
+      "spearman": 0.9544929397119957,
+      "a_within_3px_of_b": 0.937151281469721,
+      "b_within_3px_of_a": 1.0,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE25",
+      "b": "GEMSDOE32",
+      "same_dot_mask": false,
+      "spearman": 0.9235552787929329,
+      "a_within_3px_of_b": 0.8817192107053754,
+      "b_within_3px_of_a": 1.0,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE25",
+      "b": "GEMSDOE33",
+      "same_dot_mask": false,
+      "spearman": 0.8096037696275153,
+      "a_within_3px_of_b": 0.9605806305284645,
+      "b_within_3px_of_a": 0.997038098650424,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE25",
+      "b": "GEMSDOE36",
+      "same_dot_mask": false,
+      "spearman": 0.9090384722839008,
+      "a_within_3px_of_b": 0.8826491267861193,
+      "b_within_3px_of_a": 0.9749832707057189,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE27",
+      "b": "GEMSDOE28",
+      "same_dot_mask": false,
+      "spearman": 0.5249809941387342,
+      "a_within_3px_of_b": 0.9161557526741456,
+      "b_within_3px_of_a": 1.0,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE27",
+      "b": "GEMSDOE30",
+      "same_dot_mask": false,
+      "spearman": 0.5697740201717467,
+      "a_within_3px_of_b": 0.9801558831202714,
+      "b_within_3px_of_a": 1.0,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE27",
+      "b": "GEMSDOE31",
+      "same_dot_mask": false,
+      "spearman": 0.540676571940888,
+      "a_within_3px_of_b": 0.9220910513957735,
+      "b_within_3px_of_a": 1.0,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE27",
+      "b": "GEMSDOE32",
+      "same_dot_mask": false,
+      "spearman": 0.526746906443586,
+      "a_within_3px_of_b": 0.8671895382207149,
+      "b_within_3px_of_a": 1.0,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE27",
+      "b": "GEMSDOE33",
+      "same_dot_mask": false,
+      "spearman": 0.5594428364432534,
+      "a_within_3px_of_b": 0.9432885468301592,
+      "b_within_3px_of_a": 0.9970858712528365,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE27",
+      "b": "GEMSDOE36",
+      "same_dot_mask": false,
+      "spearman": 0.5183562822454938,
+      "a_within_3px_of_b": 0.8680374380380903,
+      "b_within_3px_of_a": 0.9757811293560509,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE28",
+      "b": "GEMSDOE30",
+      "same_dot_mask": false,
+      "spearman": 0.6810381814871204,
+      "a_within_3px_of_b": 1.0,
+      "b_within_3px_of_a": 0.9318212746654571,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE28",
+      "b": "GEMSDOE31",
+      "same_dot_mask": false,
+      "spearman": 0.7137007043580867,
+      "a_within_3px_of_b": 0.9975570897503983,
+      "b_within_3px_of_a": 0.9956217816363591,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE28",
+      "b": "GEMSDOE32",
+      "same_dot_mask": false,
+      "spearman": 0.6948043434431704,
+      "a_within_3px_of_b": 0.9547265002655337,
+      "b_within_3px_of_a": 0.9987517926382323,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE28",
+      "b": "GEMSDOE33",
+      "same_dot_mask": false,
+      "spearman": 0.6929178820464055,
+      "a_within_3px_of_b": 0.9984067976633032,
+      "b_within_3px_of_a": 0.9705004180102711,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE28",
+      "b": "GEMSDOE36",
+      "same_dot_mask": false,
+      "spearman": 0.6838404118647707,
+      "a_within_3px_of_b": 0.9552044609665428,
+      "b_within_3px_of_a": 0.9731301796468832,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE30",
+      "b": "GEMSDOE31",
+      "same_dot_mask": false,
+      "spearman": 0.9544929397119957,
+      "a_within_3px_of_b": 0.937151281469721,
+      "b_within_3px_of_a": 1.0,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE30",
+      "b": "GEMSDOE32",
+      "same_dot_mask": false,
+      "spearman": 0.9235552787929329,
+      "a_within_3px_of_b": 0.8817192107053754,
+      "b_within_3px_of_a": 1.0,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE30",
+      "b": "GEMSDOE33",
+      "same_dot_mask": false,
+      "spearman": 0.8096037696275153,
+      "a_within_3px_of_b": 0.9605806305284645,
+      "b_within_3px_of_a": 0.997038098650424,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE30",
+      "b": "GEMSDOE36",
+      "same_dot_mask": false,
+      "spearman": 0.9090384722839008,
+      "a_within_3px_of_b": 0.8826491267861193,
+      "b_within_3px_of_a": 0.9749832707057189,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE31",
+      "b": "GEMSDOE32",
+      "same_dot_mask": false,
+      "spearman": 0.9675873339330755,
+      "a_within_3px_of_b": 0.9539043259782581,
+      "b_within_3px_of_a": 1.0,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE31",
+      "b": "GEMSDOE33",
+      "same_dot_mask": false,
+      "spearman": 0.8193151114679977,
+      "a_within_3px_of_b": 0.9990547028533048,
+      "b_within_3px_of_a": 0.9747999522273976,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE31",
+      "b": "GEMSDOE36",
+      "same_dot_mask": false,
+      "spearman": 0.9524016524476068,
+      "a_within_3px_of_b": 0.9544018507923082,
+      "b_within_3px_of_a": 0.9745714726926442,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE32",
+      "b": "GEMSDOE33",
+      "same_dot_mask": false,
+      "spearman": 0.7946790316005957,
+      "a_within_3px_of_b": 0.9998406543793488,
+      "b_within_3px_of_a": 0.9264301922847247,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE32",
+      "b": "GEMSDOE36",
+      "same_dot_mask": false,
+      "spearman": 0.984321310852966,
+      "a_within_3px_of_b": 1.0,
+      "b_within_3px_of_a": 0.9740309878004839,
+      "lane_duplicate": true
+    },
+    {
+      "a": "GEMSDOE33",
+      "b": "GEMSDOE36",
+      "same_dot_mask": false,
+      "spearman": 0.7821595800149223,
+      "a_within_3px_of_b": 0.9271228950197062,
+      "b_within_3px_of_a": 0.9750347454573531,
+      "lane_duplicate": true
+    }
+  ],
+  "champion_anatomy": {
+    "champion_equals_d28_outside_2px": true,
+    "champion_equals_solo_outside_2px": true,
+    "solo_equals_d28_outside_1px": true,
+    "site31_equals_site28_solo": true,
+    "site30_equals_site25": true,
+    "champion_subset_of_anderson": true,
+    "anderson_extra_vs_champion": 1200,
+    "d28_dots": 44090,
+    "solo_dots": 40199,
+    "champion_dots": 37654,
+    "removed_d28_to_champion": 6436,
+    "new_dots_vs_d28": 0,
+    "all_removed_dots_within_2px_catalogue": true,
+    "causal_limit": "Without organizer truth or controlled receipts, the higher reported result cannot be causally assigned to this collar. Known traces alone are masked officially; a 200 m collar is not an official masking rule."
+  },
+  "score_policy": "Historical numbers remain unverified claims. HOLDOUT-DTI frozen-raster diagnostics carry their evaluator, withheld-positive count and 95% CI but do not estimate leaderboard performance.",
+  "current_best_reproducible_from_saved_rasters": false
+}

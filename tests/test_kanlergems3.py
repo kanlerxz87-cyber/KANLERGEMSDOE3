@@ -23,7 +23,7 @@ if str(ROOT / "scripts") not in sys.path:
 
 from kanlergems3.submodular import celf_submodular_emit_300m, greedy_spacing_emit  # noqa: E402
 import promotion_gate  # noqa: E402
-from validate_submission import audit, validate  # noqa: E402
+from cadg_validate_submission import audit, validate  # noqa: E402
 
 
 def _write_synthetic_tif(
@@ -134,9 +134,12 @@ class KanlerGems3Tests(unittest.TestCase):
             self.assertFalse(validate(tpl, bad_bands, allow_zero_outside=True)["ok"])
 
     def test_emitted_candidate_artifacts_and_run_card_integrity(self) -> None:
-        card = json.loads((ROOT / "run-card.json").read_text())
-        self.assertEqual(card, json.loads((ROOT / "docs/run-card.json").read_text()))
-        self.assertEqual(card, json.loads((ROOT / "docs/data/run_card.json").read_text()))
+        raw_ev = (ROOT / "evidence/cadg-submod-run-card.json").read_text()
+        raw_doc = (ROOT / "docs/cadg-submod/run-card.json").read_text()
+        self.assertEqual(raw_ev, raw_doc)
+        for bad in ("NaN", "Infinity", "-Infinity"):
+            self.assertNotIn(bad, raw_ev)
+        card = json.loads(raw_ev)
 
         prereg_sha = hashlib.sha256((ROOT / "evidence/preregistration_20261026.json").read_bytes()).hexdigest()
         self.assertEqual(prereg_sha, "e49c6aae3afafdcb60306ac79ff439d48fdfde2342b4fb9c0ba611fb23f54278")
@@ -144,6 +147,15 @@ class KanlerGems3Tests(unittest.TestCase):
         gate = promotion_gate.assess(card)
         self.assertEqual(gate["verdict"], card["verdict"])
         self.assertFalse(gate["slot_authorized"])
+        self.assertEqual(
+            gate["failures"],
+            [
+                "template_provenance_verified",
+                "outside_encoding_contract_verified",
+                "surface_dot_overlap_3px",
+                "final_dot_overlap_3px",
+            ],
+        )
         self.assertEqual(card["live_submission_slots_used"], 0)
         self.assertLessEqual(card["experiments_used"], 3)
         self.assertLessEqual(card["max_feature_auc"], 0.90)
@@ -168,8 +180,6 @@ class KanlerGems3Tests(unittest.TestCase):
             self.assertEqual(names, [z_tif.name])
             self.assertEqual(hashlib.sha256(zf.read(z_tif.name)).hexdigest(), z_sha)
 
-        # Validate -zeros.tif and -nan.tif against -nan.tif footprint mask (always committed in Git)
-        # and also against .cache/gems_data/sample_submission.tif when restored locally.
         local_tpl = ROOT / ".cache/gems_data/sample_submission.tif"
         ref_tpl = local_tpl if local_tpl.is_file() else n_tif
         aud_z = audit(z_tif, ref_tpl, strict_zero_outside=True)
@@ -195,15 +205,27 @@ class KanlerGems3Tests(unittest.TestCase):
                 cat = (sc.read(1, masked=False) > 0) & fp
             self.assertEqual(int(((az > 0.0) & cat).sum()), 0)
 
+    def test_cross_lane_uniqueness_against_parallel_lanes(self) -> None:
+        cross = json.loads((ROOT / "evidence/kanlergems3_cross_lane_audit_20261026.json").read_text())
+        self.assertTrue(cross["all_parallel_lanes_passed"])
+        self.assertEqual(len(cross["comparisons"]), 4)
+        for row in cross["comparisons"]:
+            self.assertLessEqual(row["final_3px_overlap"], 0.70)
+            self.assertLessEqual(row["final_abs_spearman_rho"], 0.90)
+
     def test_site_pages_have_links_and_gate_banner(self) -> None:
-        idx = (ROOT / "docs/index.html").read_text()
-        sub = (ROOT / "docs/executive-summary.html").read_text()
-        card = json.loads((ROOT / "run-card.json").read_text())
+        idx = (ROOT / "docs/cadg-submod/index.html").read_text()
+        sub = (ROOT / "docs/cadg-submod/executive-summary.html").read_text()
+        js = (ROOT / "docs/source-status.js").read_text()
+        readme = (ROOT / "README.md").read_text()
+        card = json.loads((ROOT / "evidence/cadg-submod-run-card.json").read_text())
         self.assertIn(card["raster_sha256"], idx)
         self.assertIn(card["submission_name"], idx)
         self.assertIn("executive-summary.html", idx)
         self.assertIn(card["raster_sha256"], sub)
         self.assertIn(card["submission_note"], sub)
+        self.assertIn("cadg-submod/index.html", js)
+        self.assertIn("cadg-submod/index.html", readme)
 
 
 if __name__ == "__main__":

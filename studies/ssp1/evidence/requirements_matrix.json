@@ -1,0 +1,88 @@
+{
+  "reviewed_utc": "2026-10-26T22:57:58.148892+00:00",
+  "scope": "SSP1 only; all prior lanes preserved and not conflated",
+  "requirements": [
+    {
+      "requirement": "New TIFF, not copied or blended",
+      "status": "PASS within comparable snapshot",
+      "evidence": "evidence/run_card.json"
+    },
+    {
+      "requirement": "Higher-scoring, protocol-lane-unique authorized entry",
+      "status": "NOT MET \u2014 negative deliverable",
+      "evidence": "evidence/run_card.json"
+    },
+    {
+      "requirement": "Nine priority sites: files, claim provenance, estimate availability and uniqueness",
+      "status": "PASS; leaderboard estimates honestly unavailable",
+      "evidence": "docs/executive-summary.html"
+    },
+    {
+      "requirement": "Explain GEMSDOE32 without invented causal certainty",
+      "status": "PASS; exact collar anatomy, score causality unverified",
+      "evidence": "evidence/nine_site_audit.json"
+    },
+    {
+      "requirement": "Rank 3\u20135 untried geological hypotheses before fitting; execute one lane",
+      "status": "PASS; four ranked, SSP1 only, missing assignment disclosed",
+      "evidence": "registry/hypotheses.json"
+    },
+    {
+      "requirement": "Reuse unchanged shared tools and cached features",
+      "status": "PASS; cache reconstructed once from an empty starting checkout, not falsely claimed preexisting",
+      "evidence": "registry/template_pins.json"
+    },
+    {
+      "requirement": "Buffered whole-segment holdout; feature-only leakage canaries; pooled DTI",
+      "status": "PASS; measured HOLDOUT-DTI with evaluator, positive count and CI",
+      "evidence": "evidence/feature_canaries.json"
+    },
+    {
+      "requirement": "Complete registry and duplicate stop before/final placement",
+      "status": "FAIL CLOSED; 18 quarantines and final lattice duplicate. Original correlation log discrepancy retained; no more fits or dots.",
+      "evidence": "evidence/surface_recheck.json"
+    },
+    {
+      "requirement": "Automatic saved-byte format/range/grid validation and short name/note",
+      "status": "PASS; 13 shared checks plus corrupt-file rejection tests, note 98 chars",
+      "evidence": "evidence/verification.json"
+    },
+    {
+      "requirement": "Official source ledger, scientific uncertainty, access and license limitations",
+      "status": "PASS with explicit unresolved authenticity/licensing limits",
+      "evidence": "registry/sources.json"
+    },
+    {
+      "requirement": "No slot selection/upload; weekly capacity not invented",
+      "status": "PASS; remaining capacity and receipts null",
+      "evidence": "evidence/run_card.json"
+    },
+    {
+      "requirement": "Budget: at most three experiments/two hours; stop after duplicate",
+      "status": "PASS; one 453.49-second experiment, no post-stop fitting or placement",
+      "evidence": "evidence/run_card.json"
+    },
+    {
+      "requirement": "Clean UI, real downloads, mobile and automation/feed",
+      "status": "PASS locally; live Actions deployment still must be observed, not presumed",
+      "evidence": "evidence/browser_checks.json"
+    },
+    {
+      "requirement": "Three implementation/review/recheck passes",
+      "status": "PASS; defects and amendments retained",
+      "evidence": "evidence/review_passes.json"
+    },
+    {
+      "requirement": "Preserve full brief and concurrent main work",
+      "status": "PASS; isolated study and Git-blob integration audit",
+      "evidence": "evidence/integration_audit.json"
+    },
+    {
+      "requirement": "PR then merge on the fixed Arena branch",
+      "status": "Next operational step after these local passes; GitHub receipts are authoritative",
+      "evidence": "https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/pulls"
+    }
+  ],
+  "operational_followup_utc": "2026-10-26T23:20:44Z",
+  "operational_receipt": "evidence/deployment_attempts.json"
+}

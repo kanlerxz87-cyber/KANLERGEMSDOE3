@@ -1,87 +1,130 @@
-# Executive scientific review — 2026-10-26
+# Executive scientific review — 26 October 2026
 
-## What was actually found
+## Decision
 
-The initial repository at d795e4e contained only `README.md` with one heading. There were no previous-session
-next-step scripts, data, GPU training pipeline, cached features, holdout splits, registry or deployed site.
-The claimed “single remaining blocker is data placement” does not describe this repository.
+**DO NOT SUBMIT. No genuinely new, scientifically qualified TIFF exists in this session.** No geological experiment or submission slot was used. The requested winning submission is not yet delivered. A negative result is preferable to a renamed historical raster or a fabricated score estimate.
 
-Nine sibling READMEs and docs homepages and selected GEMSDOE32 evidence were fetched through GitHub.
-`sources/retrieval.json` records successful/failed paths and Git blob IDs. These snapshots are third-party
-project claims, not official competition verification. Missing CSV paths are not evidence that a site
-has no score ledger elsewhere.
+This session starts from the populated review repository at `f82397e`, not from an empty checkout. The old “only data placement remains” claim is inaccurate. Data placement has now been completed from pinned participant mirrors, but independent scientific and provenance gates still fail.
 
-For forensic learning only (not as submissions), `scripts/restore_audit_data.py` restored nine pinned historical TIFFs plus an owner-mirrored sample template/labels into ignored `data/`. `scripts/audit_rasters.py` recomputed and verified each TIFF SHA-256 against the pinned manifest, checked the shared grid, and independently recomputed all 72 directed dot-overlap pairs. Every historical winner exceeds the 70% duplicate stop; the minimum is 86.718954%. These are **geometric audit numbers, not scores**. Exact masks can match despite different compression, nodata handling or byte hashes. Therefore none of these historical files satisfies the requested uniqueness rule. Continuous surfaces were not restored and their rank correlation remains unknown; final-dot overlap alone is enough to stop them.
+## What this session actually completed
 
-A second, stricter byte-format check against the pinned **owner-mirror** sample template found that 7/9 historical files use finite zeros outside the sample footprint and fail the official null/nodata-outside schema implemented by `scripts/validate_submission.py`; GEMSDOE30 and GEMSDOE33 use outside nodata and pass this local schema check. This is not a portal test and the owner mirror is not organizer-authenticated. Inside-footprint values for all nine are finite in `[0,1]`; the format failure is the outside-mask encoding, not the model's in-footprint range. Earlier audit code reported whole-array range/finiteness rather than this strict mask comparison; that defect is now corrected and tests cover it.
+- Restored the complete core multiband input (19 bands), labels, existing-fault alias, sample template and SGMC proxy through public Git transport. Every byte stream matches the shared manifest's SHA-256 and size. This is **mirror integrity, not organizer authentication**.
+- Ran the **unmodified shared** `prepare_data.py`, producing sanitized raw-band copies. The full shared 35-channel feature stack was **not** regenerated. Its source receipt exists, but its bytes and expected digest were not published in the pinned tree.
+- Independently checked CRS, shape and transform of core features, labels and proxy against the sample. See [input audit](../evidence/input-integrity.json). Raw missing/sentinel values affect 3,073 footprint pixels across one or more bands; 58,171 is the count summed across bands, not the count of distinct missing pixels. They must never become negative prediction values.
+- Restored and source-locked 13 unmodified shared-tool/dependency files from [GEMSDOE32 at an immutable commit](https://github.com/buffedlizard55-lab/GEMSDOE32/tree/400b60d4a6d99f425ee90504e6c4552227556dd1). No private metric or writer fork was introduced.
+- Reproduced a shared evaluator bookkeeping defect using a synthetic fixture: a nonempty prediction in a zero-truth cell is recorded in that cell's FP count but omitted from pooled spatial-block FP totals. Existing [upstream issue #41](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41) already tracks it; we did not open a duplicate. **This is not evidence that the historical leaderboard results were affected.** The local runner fails closed until a central repair is pinned.
+- Confirmed that the shared hide-and-recover entry point binarizes nonzero soft inputs. Do not describe its output as evaluation of the original probabilities. [Existing upstream issue #37](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/37).
+- Refreshed immutable source-commit observations for all nine priority repositories. This feed detects source changes; it does not turn homepage approval labels into this project's approval or authenticate score claims.
 
-No candidate was placed, generated or promoted; scientific experiment count is zero. No previous TIF was used as a candidate; retrieval was solely for documented historical forensics.
+## Concurrent main reconciliation — no silent evidence mixing
 
-## Why the reported H33 B2 result might be better
+Main `4338f12` was integrated on this session’s fixed branch. It contains prior
+bilateral/GPC experiments, a quarantined research TIFF, alternative pinned tool
+versions and registry-saturation measurements. They are preserved. This session’s
+zero-experiment claim is **not** a repository-wide claim. The last geological
+card remains `evidence/run-card.json`; the present review’s negative card is
+`evidence/session-7d1e577d-run-card.json`. Their scopes must not be merged into a
+fictional new experiment or a new high-scoring artifact.
 
-The pinned participant analysis attributes the reported 0.2778 to a sparse H19-5 descendant with near-catalogue thinning, and the listed H33 B2 raster contains 37,654 positive dots. Our local forensic comparison shows that every H33 B2 dot is within 3 px of the GEMSDOE24, 25, 27, 30 and 31 winner dots; H33-to-GEMSDOE28 coverage is 99.875%, to GEMSDOE33 99.984%, and to GEMSDOE36 100%. Conversely, the peer masks cover 86.72%–97.40% of H33 dots within 3 px. These are directed geometric overlaps, not scores.
+The prior bilateral card records **0.1134 HOLDOUT-DTI**, evaluator
+`gems57-pooled-hide-v2`, 60,988 withheld positives, 95% CI [0.1006, 0.1262]. Its
+matched ablation difference CI includes zero, and its final dots hit 100% overlap
+with a registered binary calibration lattice. These numbers were checked for
+internal arithmetic/identity consistency, not independently rerun here. They do
+not qualify a model or calibrate a leaderboard forecast. The separate GPC TIFF
+also failed the lattice gate. No lattice exemption or smaller evasive dot budget
+was adopted.
 
-Lower uncredited prediction mass can improve a precision/recall-style metric, because the official DTI penalizes false positives and false negatives asymmetrically (α=.2, β=.8), while the 300 m triangular kernel rewards nearby predictions. But aggressive thinning can also destroy recall. A plausible mechanism is therefore balancing dot budget, spatial coverage, and catalogue proximity; the audited shared geometry means the 0.2778 claim does not identify a unique geological signal or a causal B2 gain. Score-to-hash receipt and private truth are absent. There is no basis to guarantee a higher score, reverse-engineer hidden labels, or infer that matching past dot budgets generalizes. The sibling explicitly withdrew earlier hidden-truth inversion and score-ceiling calculations.
+We independently reproduced the separate **full-footprint diagnostic** receipt:
+all 5,167,373 allowed pixels have finite positive diagnostic support. Under the
+older shared tool’s positive-cell-as-dot rule this forces 100% forward overlap
+for every nonempty footprint candidate. It is a continuous diagnostic, not an
+established submitted dot mask. Our geometry CLI requires explicit companion dots
+for soft surfaces and fails closed if those are absent; it does not discard that
+registry entry or declare novelty. The representation ambiguity requires a
+protocol/registry decision, not silent threshold relaxation.
 
-The prompt provides conflicting leader targets (0.3195 and 0.4413). Neither is a verified current
-leaderboard result here. Do not optimize against either as a known current threshold. The source
-snapshot's later leaderboard claim is also not independently confirmed in this checkout.
+A second independent provenance check found that the pinned mirror sample has
+60,988 positive catalogue pixels and equals the label raster inside the footprint.
+The official format page was re-fetched and describes an all-absence sample.
+That discrepancy does not prove a particular portal rejection mechanism, but it
+prevents treating this mirror as authenticated organizer template evidence. The
+sample’s values are not used as training labels. See `sample-provenance-check.json`
+in evidence and the source ledger.
 
-## Mutable peer-site status spot check — 26 October 2026
+Source verification also caught a 533-byte API quota-error body that had been
+mistakenly stored as the shared restoration script. Before publication, all 13
+source files were restored through Git and compared with the immutable tree’s
+blob identities as well as SHA-256. Tests now require every numerical dependency
+in the lock and real importable shared entry points. No geological experiment had
+used the erroneous restoration file; no score/TIFF is being retroactively validated.
 
-The nine current Pages sites were fetched for review. These are owner-maintained statements, not
-organizer receipts; their holdout figures use different evaluators/folds and are not pooled here.
-They demonstrate why the historical list is not a current promotion queue:
+## Nine-site historical comparison
 
-- [GEMSDOE24](https://buffedlizard55-lab.github.io/GEMSDOE24/) says its current research candidate is not approved; a later point-best does not inherit an upload slot.
-- [GEMSDOE25](https://buffedlizard55-lab.github.io/GEMSDOE25/) says no eligible competition TIFF is available and its current research artifact failed gates.
-- [GEMSDOE27](https://buffedlizard55-lab.github.io/GEMSDOE27/) has an H31-1 section labelled approved under its own selector, but that does not override this prompt's literal registry stop.
-- [GEMSDOE28](https://buffedlizard55-lab.github.io/GEMSDOE28/) reports multiple current research-only/negative outcomes; historic sections differ in registry scope.
-- [GEMSDOE30](https://buffedlizard55-lab.github.io/GEMSDOE30/) explicitly labels its current GDX-1 experiment negative and no new upload.
-- [GEMSDOE31](https://buffedlizard55-lab.github.io/GEMSDOE31/docs/) contains conflicting selector sections, including a purported approval and text that literal broad-registry uniqueness fails.
-- [GEMSDOE32](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html) says no new file is authorized and describes 0.2778 as an owner report without a receipt binding score to hash.
-- [GEMSDOE33](https://buffedlizard55-lab.github.io/GEMSDOE33/) contains several current research artifacts with negative/no-slot decisions.
-- [GEMSDOE36](https://buffedlizard55-lab.github.io/GEMSDOE36/docs/) labels current artifacts research-only and documents failures under a broader registry check.
+The nine historical raster hashes and all 72 directed pairwise Euclidean-within-3-pixel overlaps were independently recomputed from the restored bytes. **Every winner exceeds the requested 70% stop against another winner**; even the smallest directed pairwise overlap exceeds it. These are geometric measurements, not model scores. Hash changes caused by nodata, compression or renaming do not establish semantic novelty.
 
-Do not accept a peer site's “OK to submit” label as this project's selector decision. The exact pinned historical raster comparison above independently shows every supplied winner fails the 70% cross-winner dot-overlap stop. Current slot status remains **none**.
+The user-provided historical best is the H33 B2 file on GEMSDOE32, with the **unverified owner-reported claim** `0.2778`. There is no submission-page receipt binding this score to these bytes. No historical file is recommended for a real slot. See the site table and [machine audit](../docs/audit.json) for every exact file, hash, encoding check and overlap. Estimates remain **not estimable**, not zero.
 
-## High-scoring validation is separate from valid file format
+## Why might H33 B2 have performed better?
 
-A finite [0,1] single-band file on the template grid may pass format checks while performing poorly.
-The exact uploaded bytes were not supplied, so the cause of the reported portal range error is unknown. A finite negative nodata sentinel or a NaN included in the portal's range check could cause it; changing outside-mask encoding may also interact with validation. The local validator verifies finite `[0,1]` values inside the sample footprint and null/nodata outside; it never clips. Follow the official sample/schema, retain the exact output hash, and treat portal acceptance as unverified until the actual portal receipt exists. A score estimate is unavailable until a compliant paired spatial holdout is run. Do not extrapolate leaderboard scores from historical reports or proxy measurements.
+The participant sources describe an H19-descended sparse-dot family with catalogue-distance thinning. The pinned B2 raster has 37,654 positive pixels. All of its dots are within 3 pixels of the GEMSDOE24, 25, 27, 30 and 31 reference dots; coverage against the other priority references is also extremely high. This supports shared geometric ancestry, not a new physical discovery mechanism.
 
-## Limitations and exact continuation
+The [official DTI equations](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#performance-metric) explain a plausible **emission-efficiency** mechanism. A truth pixel takes the maximum distance-weighted prediction credit, while uncredited prediction mass adds FP penalty. Removing redundant dots can reduce FP without losing much coverage; removing the wrong dots increases FN. The triangular kernel has zero credit exactly at its 300 m boundary. Therefore maximizing dot count, drawing thick ridges, or picking the largest magnetic gradient is not inherently optimal.
 
-1. Identify the missing single-method lane before a parallel scientific run. The shortlist is not lane allocation.
-2. Recover the canonical shared template and cached features. The fetched writer/evaluator import
-   `gems32`; copying those two scripts alone is not an executable pipeline. No private evaluator was made.
-3. The sibling data manifest exposes pinned GitHub mirror parts, including a roughly 419 MB numerical
-   feature stack. This is a possible autonomous recovery route, **not a verified official download**.
-   Small template/labels and nine historical rasters were recovered locally; feature stack and full
-   registry were not. Raw data remain gitignored. Check organizer data-use rules/provenance before training.
-4. The official DrivenData task and About pages, USGS GeoDAWN release page, EPSG record, and reference README were fetched through the research page tool on 2026-10-26. The official DrivenData data tab redirected to login; no authenticated session is available. The live leaderboard, account-specific receipt/quota, GDR page, NLR PDF, and Dropbox mirrors were not fetched. No official competition raster was downloaded.
-5. Restore full-registry surfaces and dots, not only nine winners. A dense lattice may make the overlap
-   rule extremely restrictive; report that conflict rather than weakening the gate.
-6. Execute the preregistered canary/holdout comparison; record version, positive count, CI, hash, and
-   complete registry comparisons. Only a separate selector may authorize a weekly slot after checking
-   the current submission-page cap. No automatic contest submission is implemented or attempted.
-7. Preserve the exact submitted hash and official submission receipt. Without them, use “unverified
-   historical report,” not ORGANIZER-CONFIRMED. A research metric must be labelled HOLDOUT-DTI.
+However, the historical score differences do not isolate which deleted dots mattered. They lack paired out-of-fold ablation, a score-to-file receipt and the hidden truth. The family may mostly encode the same ridges and differ in emission budget. It is not scientifically defensible to claim a causal B2 gain, reconstruct hidden labels from past scores, guarantee a result above the reported history, or project a leaderboard ceiling.
 
-## Sources and trust boundaries
+The [DrivenData Staff clarification](https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/2) states that **existing fault pixels** are excluded in both rounds. It does not justify applying a broad exclusion collar around hidden faults. Fold-local catalogue features must be rebuilt from visible faults only; a final TIFF already zeroed with all known labels is not a legitimate hide-and-recover prediction for those withheld labels.
 
-- Official organizer code actually retrieved: https://github.com/drivendataorg/gems-prize-reference-solution
-  (`sources/gems-prize-reference-solution/README.md`). It explicitly supports CPU-only operation;
-  GPU is advantageous, not an absolute prerequisite.
-- Official task, feature list, DTI parameters, and submission schema: https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/ — fetched 2026-10-26; one-band float32 EPSG:32611, 100 m, same grid/bounds, predictions `[0,1]`, null/NaN outside, DTI α=.2/β=.8 and triangular support 300 m.
-- Official About/data context: https://www.drivendata.org/competitions/306/competition-doe-gems/page/968/ — fetched 2026-10-26.
-- Official competition data tab: https://www.drivendata.org/competitions/306/competition-doe-gems/data/ — fetched 2026-10-26; redirected to DrivenData login. No credentials or bypass used.
-- Official leaderboard: https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/ — not checked; current value unknown.
-- Official USGS GeoDAWN data release: https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and and DOI https://doi.org/10.5066/P93LGLVQ — fetched; describes magnetic/radiometric grids and GeoTIFF products, cites CC0 1.0; actual raster bytes/coverage not retrieved.
-- EPSG:32611: https://epsg.io/32611 — fetched; UTM 11N / metre units. It does not replace checking sample-template dimensions/affine transform.
-- GDR: https://gdr.openei.org/submissions/1391 — not fetched.
-- Official format report PDF: https://docs.nlr.gov/docs/fy26osti/96647.pdf — not retrieved; no claims are attributed to it.
-- Third-party corrected explanation: https://github.com/buffedlizard55-lab/GEMSDOE32/blob/main/docs/research/why-02778-analysis-20261025.md
-- Third-party pinned raster inventory: https://github.com/buffedlizard55-lab/GEMSDOE32/blob/main/evidence/focus_site_winner_overlap_20261026.json
+## Score provenance and current official observation
 
-All external scientific mechanisms in the shortlist are hypotheses, not literature-verified findings.
+The [official public leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) fetched on 26 October lists xiaofanhu first with displayed value `0.4437`. This is an **official-page observation, not a submission-page receipt** and not a forecast for any project artifact. It is not relabelled as ORGANIZER-CONFIRMED per-file evidence. The prompt's `0.3195` and `0.4413` statements should no longer be treated as verified current targets.
+
+No new HOLDOUT-DTI result exists. No ORGANIZER-CONFIRMED submission-page receipt was obtained. Geometric overlap, input counts, source freshness and synthetic operator tests must never be presented as either score class. A future holdout result must include evaluator version, withheld-positive count and spatial-block 95% CI; promotion also needs a positive paired improvement on identical folds against a recorded incumbent.
+
+## Correction to the earlier format verdict
+
+The official [submission-format page](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#submission-format) requires a single float32 band, the EPSG:32611/100 m reference grid, confidence values in `[0,1]`, and null/NaN outside bounds. The official [reference notebook](https://github.com/drivendataorg/gems-prize-reference-solution/blob/aebe92f7c8a990f0e3443451b7a825d9afd6336b/unet-mc-cv-reference-solution.ipynb) is not the format authority: its output cell omits an explicit nodata argument and may inherit a different numeric dtype.
+
+The previous audit overinterpreted “outside bounds” as a proven requirement to match every masked pixel of an unauthenticated sample and categorically called seven historical zero-outside files invalid. That portal-rejection conclusion was not established. Conversely, a shared writer's all-finite output is not proof that the portal accepts the bounds encoding.
+
+The validator now reports **two named local profiles**:
+
+1. `template-mask`: finite unmasked `[0,1]` predictions inside; null/masked/NaN outside the sample mask.
+2. `finite-grid`: finite `[0,1]` values across the entire grid and zeros outside the sample mask.
+
+The historical seven zero-outside files pass the second local profile; two NaN-outside files pass the first. Neither outcome is a portal receipt or permission to submit. A finite negative nodata sentinel can pass the mask profile while failing a portal-wide numeric scan. Infinite unmasked padding is not accepted as null/NaN. The exact bytes of the user's rejected file are absent, so its range-error cause remains unknown. Do not silently clip or repair a candidate to conceal a modelling bug.
+
+## Geological reasoning and research limitations
+
+The official task is missing **fault** discovery. A magnetic or thermal anomaly is not proof of a fault, and a fault is not proof of a commercially useful geothermal vent. [USGS GeoDAWN metadata](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and) distinguish surface radiometric information from subsurface magnetic information and explicitly warn about variable terrain clearance. Flight geometry, levelling seams, lithologic contacts, lake shorelines and drainage evolution are serious alternative processes, not cosmetic caveats.
+
+The ranked shortlist targets interactions and topology rather than another H19/H33 thinning pass. None is implemented or cleared as globally novel. [GDR #1391](https://gdr.openei.org/submissions/1391) is now verified as a public CC BY 4.0 resource index, including shallow probes and paleogeothermal deposits; an attempted probe ZIP fetch failed. Official source links exist, but required binary coverage, season and depth metadata are not verified. New-data variants are not called viable on that basis alone.
+
+Hide-and-recover of mapped faults also has a population-shift limitation: mapped/exposed faults may not represent concealed faults selected by the competition experts. A good holdout result is necessary under this protocol, not a calibrated estimate of leaderboard performance. Canary AUC below the leakage threshold is not proof of no leakage; feature provenance must still be audited.
+
+## Remaining gates / next session
+
+Resolve the binary-lattice/continuous-diagnostic registry scope explicitly and authenticate the mirror sample before treating the later gates as actionable. Do not exempt either reference silently.
+
+1. Resolve the absent lane paragraph through the parallel coordinator; no geological method is silently claimed here.
+2. Pin a centrally corrected shared evaluator after upstream issue #41 is resolved; do not patch vendor copies privately.
+3. Obtain the canonical feature-stack bytes and expected digest, plus the complete submission/surface registry. A filtered priority-site manifest is not complete, even when every listed download succeeds.
+4. Record the same-evaluator, same-fold incumbent; generate fold-local features after whole-segment buffered withholding; run single-feature canaries.
+5. Test at most three experiments in two hours. Check surface correlation **and preview-dot overlap before writing**, then final correlations and dot overlaps. Stop on any literal duplicate threshold.
+6. Only an improving, genuinely distinct candidate is written through the shared writer into a research directory; validate the saved bytes and exact hash automatically. No human raster inspector is a required gate.
+7. The separate selector checks the account's actual remaining weekly cap. The official rules specify three submissions per week, but no account quota or slot has been authorized. Preserve the eventual submission-page receipt, and disclose AI assistance as required in the narrative.
+
+Full verified-source excerpts and their limited scope are in [official claims](../evidence/official-claims-20261026.json). No claim is made that all external files, the entire rules PDF, all sibling repositories or the live account state have been verified line by line.
+
+## Final concurrent-study scope
+
+Additional main `9ebfc4b` and `1fcc140` introduced K3-H1, DCAP-LHC and the isolated
+SSP1 archive. Their negative findings are preserved, not counted as this review's
+experiments. The four root-archive TIFFs all fail an independently replayed
+literal binary-lattice check; GPC additionally retains 4,115 mirrored catalogue
+positives. SSP1 remains separately scoped and explicitly negative. See the
+integration review and `evidence/inherited_literal_audit.json`; “detector-only
+uniqueness” is not the user's all-registry rule. The older break-even emission
+example is conditional on its toy marginal-credit assumptions, not a substitute
+for recomputing pooled ground-truth credit and prediction mass with the shared
+metric. No positive release publisher or new authorized candidate was implemented.

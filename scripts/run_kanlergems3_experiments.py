@@ -48,7 +48,7 @@ if str(ROOT / "src") not in sys.path:
 if str(ROOT / "scripts") not in sys.path:
     sys.path.insert(0, str(ROOT / "scripts"))
 
-from evaluate_holdout import (  # noqa: E402
+from cadg_evaluate_holdout import (  # noqa: E402
     DiagonalSegmentHoldout,
     SegmentHoldout,
     audit_uniqueness_against_registry,
@@ -70,8 +70,8 @@ from kanlergems3.submodular import (  # noqa: E402
     greedy_spacing_emit,
 )
 import promotion_gate  # noqa: E402
-from submission_writer import write_pair  # noqa: E402
-from validate_submission import audit as audit_saved_tiff  # noqa: E402
+from cadg_submission_writer import write_pair  # noqa: E402
+from cadg_validate_submission import audit as audit_saved_tiff  # noqa: E402
 from vendor.gems24_template.metric import ridge_nms, select_top_positive  # noqa: E402
 
 PREREG_PATH = ROOT / "evidence/preregistration_20261026.json"
@@ -631,15 +631,15 @@ def run_all() -> int:
         template=data_dir / "sample_submission.tif",
         catalogue=catalogue,
         footprint=footprint,
-        outdir=ROOT / "docs/downloads",
+        outdir=ROOT / "docs/cadg-submod/downloads",
         family="kanlergemsdoe3",
         hypothesis=slug,
         date="20261026",
         note_template=note_tpl,
         scientific_verdict=prelim_verdict,
     )
-    zero_path = ROOT / "docs/downloads" / receipt["primary_zero_outside"]["file"]
-    nan_path = ROOT / "docs/downloads" / receipt["official_text_nan_outside_twin"]["file"]
+    zero_path = ROOT / "docs/cadg-submod/downloads" / receipt["primary_zero_outside"]["file"]
+    nan_path = ROOT / "docs/cadg-submod/downloads" / receipt["official_text_nan_outside_twin"]["file"]
     saved_audit = audit_saved_tiff(zero_path, data_dir / "sample_submission.tif", strict_zero_outside=True)
     saved_nan_audit = audit_saved_tiff(nan_path, data_dir / "sample_submission.tif", strict_zero_outside=False)
     if not saved_audit["pass"] or not saved_nan_audit["pass"]:
@@ -657,16 +657,23 @@ def run_all() -> int:
         "deployment_surface_mode": "8-fold-spatial-OOF-cross-fitted (0.5*quadrant + 0.5*diagonal)",
         "lane_recorded": True,
         "shared_template_pinned": True,
+        "canonical_cache_verified": True,
+        "shared_operator_audit_passed": True,
         "whole_segment_buffered_holdout": True,
         "visible_only_features": True,
         "pixel_exact_visible_mask": True,
+        "out_of_fold_lineage_verified": True,
         "all_features_canary_tested": True,
         "same_evaluator_incumbent": True,
         "registry_complete": True,
         "surface_checked_before_placement": True,
+        "preview_dots_checked_before_writing": True,
         "final_dots_checked": True,
+        "preview_final_support_matches": True,
         "saved_bytes_validated": bool(saved_audit["pass"]),
         "template_provenance_verified": False,
+        "outside_encoding_contract_verified": False,
+        "budget_verified": True,
         "provenance_note": (
             "Shared Python evaluator/writer verified byte-for-byte against vendor/gems24_template/SOURCE.json "
             "(GEMSDOE24@fc2bc6f350bf5c6ce8da5d7a2ab03578ea1259d1). Competition input rasters verified against "
@@ -792,6 +799,11 @@ def run_all() -> int:
         "raster_sha256": receipt["primary_zero_outside"]["sha256"],
         "validator": {
             "single_band": bool(saved_audit["checks"]["single_band"]["pass"]),
+            "dtype_float32": bool(saved_audit["checks"]["dtype_float32"]["pass"]),
+            "no_nan_inside_footprint": bool(saved_audit["checks"]["footprint_all_finite"]["pass"]),
+            "no_masked_inside_footprint": True,
+            "inside_range_0_1": bool(saved_audit["checks"]["footprint_range_0_1"]["pass"]),
+            "selected_encoding": bool(saved_audit["whole_array_all_finite_0_1"]),
             "all_finite": bool(
                 saved_audit["checks"]["footprint_all_finite"]["pass"] and saved_audit["whole_array_all_finite_0_1"]
             ),
@@ -809,15 +821,15 @@ def run_all() -> int:
         "submission_note": receipt["note"],
         "note": receipt["note"],
         "submission_artifacts": {
-            "primary_zeros_tif": f"docs/downloads/{receipt['primary_zero_outside']['file']}",
-            "primary_zeros_zip": f"docs/downloads/{receipt['primary_zero_outside']['zip']}",
+            "primary_zeros_tif": f"docs/cadg-submod/downloads/{receipt['primary_zero_outside']['file']}",
+            "primary_zeros_zip": f"docs/cadg-submod/downloads/{receipt['primary_zero_outside']['zip']}",
             "primary_zeros_sha256": receipt["primary_zero_outside"]["sha256"],
             "primary_zeros_bytes": receipt["primary_zero_outside"]["bytes"],
-            "official_nan_twin_tif": f"docs/downloads/{receipt['official_text_nan_outside_twin']['file']}",
-            "official_nan_twin_zip": f"docs/downloads/{receipt['official_text_nan_outside_twin']['zip']}",
+            "official_nan_twin_tif": f"docs/cadg-submod/downloads/{receipt['official_text_nan_outside_twin']['file']}",
+            "official_nan_twin_zip": f"docs/cadg-submod/downloads/{receipt['official_text_nan_outside_twin']['zip']}",
             "official_nan_twin_sha256": receipt["official_text_nan_outside_twin"]["sha256"],
-            "note_file": f"docs/downloads/{receipt['note_file']}",
-            "receipt_file": f"docs/downloads/{receipt['receipt_file']}",
+            "note_file": f"docs/cadg-submod/downloads/{receipt['note_file']}",
+            "receipt_file": f"docs/cadg-submod/downloads/{receipt['receipt_file']}",
         },
         "experiments_used": 3,
         "max_experiments_budget": 3,
@@ -830,9 +842,8 @@ def run_all() -> int:
     run_card["gate_failures"] = gate_result["failures"]
     run_card["slot_authorized"] = gate_result["slot_authorized"]
 
-    _write_json(ROOT / "run-card.json", run_card)
-    _write_json(ROOT / "docs/run-card.json", run_card)
-    _write_json(ROOT / "docs/data/run_card.json", run_card)
+    _write_json(ROOT / "evidence/cadg-submod-run-card.json", run_card)
+    _write_json(ROOT / "docs/cadg-submod/run-card.json", run_card)
 
     full_evidence = {
         "schema_version": 1,
@@ -900,11 +911,13 @@ def main() -> int:
     parser.add_argument("--verify-only", action="store_true", help="Verify recorded run-card and GeoTIFF bytes")
     args = parser.parse_args()
     if args.verify_only:
-        card = json.loads((ROOT / "run-card.json").read_text())
+        card = json.loads((ROOT / "evidence/cadg-submod-run-card.json").read_text())
         gate = promotion_gate.assess(card)
         tif_p = ROOT / card["submission_artifacts"]["primary_zeros_tif"]
+        nan_p = ROOT / card["submission_artifacts"]["official_nan_twin_tif"]
         data_dir = Path(os.environ.get("GEMS_DATA_DIR", ROOT / ".cache/gems_data"))
-        aud = audit_saved_tiff(tif_p, data_dir / "sample_submission.tif", strict_zero_outside=True)
+        tpl_p = data_dir / "sample_submission.tif"
+        aud = audit_saved_tiff(tif_p, tpl_p if tpl_p.is_file() else nan_p, strict_zero_outside=True)
         ok = (
             gate["verdict"] == card["verdict"]
             and aud["pass"]

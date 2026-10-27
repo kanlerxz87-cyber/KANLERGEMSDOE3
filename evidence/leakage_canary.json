@@ -1,0 +1,83 @@
+{
+  "label": "LEAKAGE-CANARY",
+  "evaluator_version": "gems-segment-pooled-v1",
+  "generated_utc": "2026-10-26T21:46:32.217116+00:00",
+  "passed": true,
+  "features": {
+    "gpc_mean_absdot_s1": {
+      "pooled_auc": 0.5940116681853849,
+      "worst_two_polarity_auc": 0.6335075959822024,
+      "leakage_suspected": false
+    },
+    "gpc_mean_absdot_s3": {
+      "pooled_auc": 0.5970007232895436,
+      "worst_two_polarity_auc": 0.6322306690112701,
+      "leakage_suspected": false
+    },
+    "gpc_min_absdot_s1": {
+      "pooled_auc": 0.5633374272280862,
+      "worst_two_polarity_auc": 0.5975982415474383,
+      "leakage_suspected": false
+    },
+    "gpc_consensus_R_s1": {
+      "pooled_auc": 0.567648102235047,
+      "worst_two_polarity_auc": 0.6105635920390056,
+      "leakage_suspected": false
+    },
+    "gpc_consensus_R_s3": {
+      "pooled_auc": 0.571634571721467,
+      "worst_two_polarity_auc": 0.6112370207550688,
+      "leakage_suspected": false
+    },
+    "gpc_consensus_count_s1": {
+      "pooled_auc": 0.5711663346052599,
+      "worst_two_polarity_auc": 0.6016901899661631,
+      "leakage_suspected": false
+    },
+    "gpc_crossscale_orient": {
+      "pooled_auc": 0.5747665850355633,
+      "worst_two_polarity_auc": 0.6236538432845762,
+      "leakage_suspected": false
+    },
+    "gpc_crossscale_product": {
+      "pooled_auc": 0.5743822433366239,
+      "worst_two_polarity_auc": 0.6221596008845549,
+      "leakage_suspected": false
+    },
+    "gpc_local_sharpness": {
+      "pooled_auc": 0.5521073119953426,
+      "worst_two_polarity_auc": 0.5983420243519038,
+      "leakage_suspected": false
+    },
+    "gpc_zerocross_mean": {
+      "pooled_auc": 0.5106947665919963,
+      "worst_two_polarity_auc": 0.5264389044444444,
+      "leakage_suspected": false
+    },
+    "gpc_pair_rtpgrav_abs_s1": {
+      "pooled_auc": 0.5186711212569924,
+      "worst_two_polarity_auc": 0.5292490555555555,
+      "leakage_suspected": false
+    },
+    "gpc_pair_baseelev_abs_s1": {
+      "pooled_auc": 0.6094366124990508,
+      "worst_two_polarity_auc": 0.6748870380731623,
+      "leakage_suspected": false
+    },
+    "gpc_pair_rtpgrav_signed_s1": {
+      "pooled_auc": 0.5223083232085453,
+      "worst_two_polarity_auc": 0.5330846073126743,
+      "leakage_suspected": false
+    },
+    "gpc_cons_cos2_s1": {
+      "pooled_auc": 0.5620511129356822,
+      "worst_two_polarity_auc": 0.6078236555555556,
+      "leakage_suspected": false
+    },
+    "gpc_cons_sin2_s1": {
+      "pooled_auc": 0.48136523274356446,
+      "worst_two_polarity_auc": 0.5711846721551701,
+      "leakage_suspected": false
+    }
+  }
+}

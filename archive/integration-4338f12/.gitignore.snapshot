@@ -1,0 +1,23 @@
+.venv/
+.cache/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.egg-info/
+/data/*.tif
+/data/*.tiff
+/data/*.npy
+/data/raw/
+/data/raw_parts/
+/data/external/
+/data/prepared/
+/data/reference/
+/data/*.partial
+/data/restore_receipt.json
+/evidence/*.npy
+_site/
+# Local recovery scratch and partial participant-template downloads
+/data/template57/
+/data/template*_*.json
+/data/cache_check.json
+/data/saturation_local.json

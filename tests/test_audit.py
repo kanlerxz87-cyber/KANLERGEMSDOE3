@@ -39,20 +39,19 @@ class AuditTests(unittest.TestCase):
             self.assertFalse(validate(p,ref)['checks']['transform_match'])
             write(p,a,crs='EPSG:4326')
             self.assertFalse(validate(p,ref)['checks']['crs_match'])
-    def test_outside_footprint_must_follow_template_mask(self):
+    def test_template_nodata_and_in_footprint_range(self):
         with tempfile.TemporaryDirectory() as d:
-            ref=Path(d)/'ref.tif'; bad=Path(d)/'zeros-outside.tif'; good=Path(d)/'nodata-outside.tif'
-            profile=dict(driver='GTiff',width=4,height=4,count=1,dtype='float32',crs='EPSG:32611',transform=from_origin(0,400,100,100),nodata=-9999.0)
-            footprint=np.ones((4,4),dtype='float32');footprint[0,0]=-9999.0
-            with rasterio.open(ref,'w',**profile) as ds:ds.write(footprint,1)
-            zeros=np.zeros((4,4),dtype='float32')
-            with rasterio.open(bad,'w',**{**profile,'nodata':None}) as ds:ds.write(zeros,1)
-            accepted=zeros.copy();accepted[0,0]=-9999.0
-            with rasterio.open(good,'w',**profile) as ds:ds.write(accepted,1)
-            self.assertFalse(validate(bad,ref)['format_pass'])
-            good_result=validate(good,ref)
-            self.assertTrue(good_result['format_pass'])
-            self.assertEqual(good_result['strict_template_validation']['valid_outside_footprint'],0)
+            ref=Path(d)/'ref.tif'; pred=Path(d)/'pred.tif'
+            profile=dict(driver='GTiff',width=3,height=3,count=1,dtype='float32',crs='EPSG:32611',transform=from_origin(0,300,100,100))
+            template=np.zeros((3,3),dtype='float32'); template[0,0]=-9999
+            with rasterio.open(ref,'w',**{**profile,'nodata':-9999}) as ds: ds.write(template,1)
+            prediction=np.zeros((3,3),dtype='float32'); prediction[0,0]=np.nan
+            with rasterio.open(pred,'w',**{**profile,'nodata':float('nan')}) as ds: ds.write(prediction,1)
+            self.assertTrue(validate(pred,ref)['format_pass'])
+            # A numeric zero outside the footprint is not a null/nodata value.
+            prediction[0,0]=0
+            with rasterio.open(pred,'w',**profile) as ds: ds.write(prediction,1)
+            self.assertFalse(validate(pred,ref)['format_pass'])
 
     def test_report_fail_closed(self):
         root=Path(__file__).resolve().parents[1]
@@ -60,13 +59,8 @@ class AuditTests(unittest.TestCase):
         self.assertEqual(len(j['rows']),9);self.assertEqual(len(j['pairs']),72)
         self.assertTrue(all(r['max_overlap_3px']>.7 and not r['unique_under_protocol'] for r in j['rows']))
         card=json.loads((root/'docs/run-card.json').read_text())
-        self.assertEqual(card['verdict'],'negative')
-        self.assertFalse(card.get('slot_authorized', False))
-        note=card.get('submission_note') or card.get('note')
-        self.assertIsInstance(note,str)
-        self.assertLessEqual(len(note),140)
-        if card['raster_sha256'] is not None:
-            self.assertRegex(card['raster_sha256'], r'^[0-9a-f]{64}$')
+        self.assertEqual(card['verdict'],'negative');self.assertLessEqual(len(card['submission_note']),140)
+        self.assertIsNone(card['raster_sha256'])
         build()
         page=(root/'docs/index.html').read_text()
         self.assertIn('DO NOT SUBMIT',page)

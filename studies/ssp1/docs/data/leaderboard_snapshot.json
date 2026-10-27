@@ -1,0 +1,16 @@
+{
+  "source": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+  "leading_public_value": 0.4437,
+  "observed_utc_day": "2026-10-26",
+  "observation_method": "fetch_page public leaderboard table in this session",
+  "last_success_utc": "2026-10-26",
+  "last_success_precision": "UTC day; exact fetch timestamp was not recorded",
+  "stale": true,
+  "last_attempt_utc": "2026-10-26T22:05:11.294158+00:00",
+  "authenticated_submission_receipts": null,
+  "remaining_weekly_slots": null,
+  "rules_pdf_weekly_limit": 3,
+  "rules_limit_version": "September 2026, section 3.4; current authenticated page not inspected",
+  "evidence_class": "ORGANIZER-PUBLISHED PUBLIC LEADERBOARD OBSERVATION; not an artifact-specific ORGANIZER-CONFIRMED submission receipt",
+  "last_error": "HTTPSConnectionPool(host='www.drivendata.org', port=443): Max retries exceeded with url: /competitions/306/competition-doe-gems/leaderboard/ (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+}

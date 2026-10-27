@@ -1,0 +1,158 @@
+{
+  "label": "LEAKAGE-CANARY AUC DIAGNOSTIC; NOT DTI OR A LEADERBOARD SCORE",
+  "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+  "n_withheld_positive_events": 22232,
+  "n_unique_withheld_positive_pixels": 20321,
+  "n_unlabeled_controls": 160000,
+  "n_features": 17,
+  "threshold": 0.9,
+  "passed": true,
+  "max_either_direction_auc": 0.5646215793956909,
+  "features": [
+    {
+      "feature": "step_r2_w0p7",
+      "raw_auc": 0.5089287805865419,
+      "either_direction_auc": 0.5089287805865419,
+      "passed": true
+    },
+    {
+      "feature": "step_amplitude_w0p7",
+      "raw_auc": 0.545534213352375,
+      "either_direction_auc": 0.545534213352375,
+      "passed": true
+    },
+    {
+      "feature": "step_r2_w1p4",
+      "raw_auc": 0.5065868882691615,
+      "either_direction_auc": 0.5065868882691615,
+      "passed": true
+    },
+    {
+      "feature": "step_amplitude_w1p4",
+      "raw_auc": 0.5453319653258816,
+      "either_direction_auc": 0.5453319653258816,
+      "passed": true
+    },
+    {
+      "feature": "residual_odd_fraction",
+      "raw_auc": 0.49717549098709074,
+      "either_direction_auc": 0.5028245090129093,
+      "passed": true
+    },
+    {
+      "feature": "profile_residual_rms",
+      "raw_auc": 0.5469865963194944,
+      "either_direction_auc": 0.5469865963194944,
+      "passed": true
+    },
+    {
+      "feature": "tangent_step_persistence",
+      "raw_auc": 0.496376788806675,
+      "either_direction_auc": 0.503623211193325,
+      "passed": true
+    },
+    {
+      "feature": "gravity_topography_gradient_cosine",
+      "raw_auc": 0.5375045262740644,
+      "either_direction_auc": 0.5375045262740644,
+      "passed": true
+    },
+    {
+      "feature": "gravity_gradient_magnitude",
+      "raw_auc": 0.5329236445495232,
+      "either_direction_auc": 0.5329236445495232,
+      "passed": true
+    },
+    {
+      "feature": "K_encoded_cross_normal_contrast",
+      "raw_auc": 0.5059205173005128,
+      "either_direction_auc": 0.5059205173005128,
+      "passed": true
+    },
+    {
+      "feature": "Th_encoded_cross_normal_contrast",
+      "raw_auc": 0.5234780655417867,
+      "either_direction_auc": 0.5234780655417867,
+      "passed": true
+    },
+    {
+      "feature": "lidar_step_clipped_m_per_m",
+      "raw_auc": 0.5493281226104264,
+      "either_direction_auc": 0.5493281226104264,
+      "passed": true
+    },
+    {
+      "feature": "lidar_upface_clipped_m_per_m",
+      "raw_auc": 0.5646215793956909,
+      "either_direction_auc": 0.5646215793956909,
+      "passed": true
+    },
+    {
+      "feature": "lidar_step_asymmetry_clipped_m_per_m",
+      "raw_auc": 0.5093854587419036,
+      "either_direction_auc": 0.5093854587419036,
+      "passed": true
+    },
+    {
+      "feature": "lidar_coherence",
+      "raw_auc": 0.494310643863575,
+      "either_direction_auc": 0.5056893561364251,
+      "passed": true
+    },
+    {
+      "feature": "lidar_relief_clipped_m",
+      "raw_auc": 0.548953075100081,
+      "either_direction_auc": 0.548953075100081,
+      "passed": true
+    },
+    {
+      "feature": "cached_detrended_slope",
+      "raw_auc": 0.5491151049163369,
+      "either_direction_auc": 0.5491151049163369,
+      "passed": true
+    }
+  ],
+  "cells": [
+    {
+      "cell": "draw20_fold0",
+      "positive_events": 1911,
+      "unlabeled_controls": 20000
+    },
+    {
+      "cell": "draw20_fold1",
+      "positive_events": 2351,
+      "unlabeled_controls": 20000
+    },
+    {
+      "cell": "draw20_fold2",
+      "positive_events": 3685,
+      "unlabeled_controls": 20000
+    },
+    {
+      "cell": "draw20_fold3",
+      "positive_events": 3225,
+      "unlabeled_controls": 20000
+    },
+    {
+      "cell": "draw21_fold0",
+      "positive_events": 2111,
+      "unlabeled_controls": 20000
+    },
+    {
+      "cell": "draw21_fold1",
+      "positive_events": 2265,
+      "unlabeled_controls": 20000
+    },
+    {
+      "cell": "draw21_fold2",
+      "positive_events": 3584,
+      "unlabeled_controls": 20000
+    },
+    {
+      "cell": "draw21_fold3",
+      "positive_events": 3100,
+      "unlabeled_controls": 20000
+    }
+  ],
+  "limitation": "Background is unlabeled, not proven fault absence. Passing a canary does not prove no leakage; split provenance and label-free feature derivation are separately checked."
+}
