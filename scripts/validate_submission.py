@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Read-only saved-byte validation with two explicit LOCAL encoding profiles.
+"""Read-only saved-byte validation with explicit LOCAL encoding profiles.
 
 The official task requires float32, one band, the reference grid, probabilities
 in [0,1], and null/NaN outside bounds. A participant-mirror mask is not organizer
 authentication. `template-mask` requires null/masked padding; `finite-grid`
-requires finite [0,1] everywhere and zero padding. Neither guarantees portal
-acceptance, scientific eligibility or authorization to spend a submission slot.
-No file is clipped, repaired, rewritten or promoted by this tool.
+requires finite [0,1] everywhere and zero padding. `masked-finite` requires
+both masked padding and finite raw [0,1] values across the whole grid. It checks
+for an internal TIFF mask without an external sidecar. These are local checks,
+not guarantees of portal acceptance, scientific eligibility or authorization to
+spend a slot. No file is clipped, repaired, rewritten or promoted by this tool.
 """
 from __future__ import annotations
 
@@ -18,8 +20,8 @@ from pathlib import Path
 import numpy as np
 import rasterio
 
-VERSION = "submission-format-v3-explicit-encoding-standalone"
-PROFILES = ("template-mask", "finite-grid")
+VERSION = "submission-format-v4-masked-finite-diagnostics"
+PROFILES = ("template-mask", "finite-grid", "masked-finite")
 
 
 def digest(path: Path) -> str:
@@ -83,9 +85,35 @@ def validate(template_path: Path, candidate_path: Path, profile: str = "template
         zeros_outside = bool(np.all(values[outside] == 0))
         no_infinity = not bool(np.isinf(values).any())
         positive_pixels = int((np.isfinite(inside) & (inside > 0)).sum())
+        finite_values = values[finite]
+        below_zero = finite & (values < 0)
+        above_one = finite & (values > 1)
+        out_of_range = below_zero | above_one
+        raw_range_diagnostics = {
+            "finite_min": float(finite_values.min()) if finite_values.size else None,
+            "finite_max": float(finite_values.max()) if finite_values.size else None,
+            "nonfinite_pixels": int((~finite).sum()),
+            "nan_pixels": int(np.isnan(values).sum()),
+            "infinite_pixels": int(np.isinf(values).sum()),
+            "nonfinite_inside_footprint": int((~finite & footprint).sum()),
+            "nonfinite_outside_footprint": int((~finite & outside).sum()),
+            "nonfinite_masked_pixels": int((~finite & ~candidate_mask).sum()),
+            "finite_below_zero": int(below_zero.sum()),
+            "finite_above_one": int(above_one.sum()),
+            "out_of_range_inside_footprint": int((out_of_range & footprint).sum()),
+            "out_of_range_outside_footprint": int((out_of_range & outside).sum()),
+            "out_of_range_masked_pixels": int((out_of_range & ~candidate_mask).sum()),
+        }
+        # The strictest local profile protects against raw whole-grid range
+        # scans while leaving every outside-footprint cell masked.  A mask can
+        # be internal to the TIFF, or be a nodata value; standalone checking
+        # separately rejects external sidecar masks.  Whether the portal
+        # honours that encoding remains an organizer question.
+        masked_outside = bool((~candidate_mask[outside]).all())
         encodings = {
             "template-mask": inside_ok and null_outside and no_infinity,
             "finite-grid": inside_ok and full_range and zeros_outside,
+            "masked-finite": inside_ok and masked_outside and full_range,
         }
         if allow_zero_outside is True and not encodings["template-mask"] and encodings["finite-grid"]:
             profile = "finite-grid"
@@ -118,8 +146,10 @@ def validate(template_path: Path, candidate_path: Path, profile: str = "template
             "valid_outside_footprint": int(valid_outside.sum()),
             "outside_null_or_nan": bool(null_outside and no_infinity),
             "entire_grid_finite_range_0_1": full_range, "raw_whole_grid_finite_in_range": full_range,
+            "raw_range_diagnostics": raw_range_diagnostics,
+            "masked_outside_footprint": masked_outside,
             "local_encoding_compatibility": {key: bool(value and structural_ok) for key, value in encodings.items()},
-            "note": "Local contract only. A finite nodata sentinel may pass template-mask but fail a portal-wide range scan. Positive-pixel count is not an invented dot mask for soft-surface uniqueness. No scientific or portal approval.",
+            "note": "Local contract only. A masked sentinel may pass template-mask but fail a portal-wide range scan; masked-finite checks both masks and raw values, without guaranteeing portal acceptance. Positive-pixel count is not an invented dot mask for soft-surface uniqueness. No scientific or portal approval.",
         }
 
 

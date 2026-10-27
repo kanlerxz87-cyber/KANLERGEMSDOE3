@@ -1,0 +1,170 @@
+{
+  "kind": "PEER SAVED-BYTE GEOMETRY AUDIT; not a new model or organizer score",
+  "peer_source": {
+    "repository": "https://github.com/buffedlizard55-lab/GEMSDOE36",
+    "commit": "61783525af4aa6dcf8da0bc68b06fa38b89ed27a",
+    "file": "docs/downloads/gemsdoe36-kpl36-exp3-20261026-fc869911e88c-zeros.tif",
+    "file_sha256": "86fc8243ad573bcdbfac8b432daf0ec5b6800b991b2c3278706358be7eb9922d",
+    "run_card_path": "docs/downloads/kpl36-run-card.json",
+    "run_card_sha256": "9448983264018a95518f79da1f63ecfb0f981f740f11ceaeebf341abac8a8d04",
+    "peer_verdict": "promote",
+    "peer_holdout": {
+      "evidence_class": "HOLDOUT-DTI",
+      "evaluator_version": "gems-segment-pooled-v1",
+      "withheld_positive_pixels": 60988,
+      "dti": 0.17010000946379217,
+      "ci95": [
+        0.1550890600301938,
+        0.18613752547087836
+      ],
+      "scope": "Participant-reported; not independently rerun or comparable to a different split/evaluator."
+    }
+  },
+  "lattice_source": {
+    "id": "registry-160",
+    "repo": "buffedlizard55-lab/GEMSDOE24",
+    "ref": "07345ea0604953d7efb858d9cfbc21e20c7aca0b",
+    "file": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "footprint_sha256": "15bc7e7d4e21d284c42e4183bb7c63d087f67635818bd7b963d58f6beed44817",
+    "positive_pixels": 206895
+  },
+  "final_dot_lattice_comparison": {
+    "schema_version": 1,
+    "scope": "Saved binary dots versus one pinned lattice; not a full live-registry or surface audit.",
+    "candidate_sha256": "86fc8243ad573bcdbfac8b432daf0ec5b6800b991b2c3278706358be7eb9922d",
+    "lattice_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "sample_mirror_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "label_mirror_sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+    "organizer_template_authenticated": false,
+    "geometry": {
+      "bands": 1,
+      "dtype": "float32",
+      "crs": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      "nodata": null
+    },
+    "candidate_dots": 37654,
+    "candidate_dots_within_3px_of_lattice": 37341,
+    "candidate_dot_overlap_fraction": 0.9916874701226961,
+    "candidate_dots_outside_lattice_radius": 313,
+    "duplicate_over_70_percent": true,
+    "catalogue_positive_pixels": 0,
+    "in_footprint_nan": 0,
+    "in_footprint_inf": 0,
+    "in_footprint_min": 0.0,
+    "in_footprint_max": 1.0,
+    "outside_pixel_count": 7111787,
+    "outside_unmasked_finite_count": 7111787,
+    "outside_nan_count": 0,
+    "strict_nan_outside": false,
+    "note": "Research-only forensic audit. No selector authorization or organizer acceptance is implied."
+  },
+  "validator": {
+    "validator": "submission-format-v4-masked-finite-diagnostics",
+    "encoding_profile": "finite-grid",
+    "template": "data/core/sample_submission.tif",
+    "candidate": "data/registry-review/kpl36-remote.tif",
+    "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "candidate_sha256": "86fc8243ad573bcdbfac8b432daf0ec5b6800b991b2c3278706358be7eb9922d",
+    "sha256": "86fc8243ad573bcdbfac8b432daf0ec5b6800b991b2c3278706358be7eb9922d",
+    "organizer_acceptance": "NOT_TESTED",
+    "portal_acceptance_verified": false,
+    "submission_authorized": false,
+    "slot_authorized": false,
+    "checks": {
+      "template_single_band": true,
+      "single_band": true,
+      "shape_match": true,
+      "crs_match": true,
+      "transform_match": true,
+      "dtype_float32": true,
+      "template_epsg_32611": true,
+      "template_100m_grid": true,
+      "template_mask_unambiguous": true,
+      "standalone_without_sidecars": true,
+      "no_nan_inside_footprint": true,
+      "no_masked_inside_footprint": true,
+      "inside_range_0_1": true,
+      "no_infinite_pixels_anywhere": true,
+      "selected_encoding": true,
+      "expected_positive_pixels_match": true
+    },
+    "legacy_allow_zero_outside": null,
+    "ok": true,
+    "errors": [],
+    "bands": 1,
+    "dtype": [
+      "float32"
+    ],
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "footprint_pixels": 5167373,
+    "positive_pixels": 37654,
+    "nonfinite_inside": 0,
+    "masked_inside": 0,
+    "infinite_pixels_whole_grid": 0,
+    "finite_range_inside": [
+      0.0,
+      1.0
+    ],
+    "valid_outside_footprint": 7111787,
+    "outside_null_or_nan": false,
+    "entire_grid_finite_range_0_1": true,
+    "raw_whole_grid_finite_in_range": true,
+    "raw_range_diagnostics": {
+      "finite_min": 0.0,
+      "finite_max": 1.0,
+      "nonfinite_pixels": 0,
+      "nan_pixels": 0,
+      "infinite_pixels": 0,
+      "nonfinite_inside_footprint": 0,
+      "nonfinite_outside_footprint": 0,
+      "nonfinite_masked_pixels": 0,
+      "finite_below_zero": 0,
+      "finite_above_one": 0,
+      "out_of_range_inside_footprint": 0,
+      "out_of_range_outside_footprint": 0,
+      "out_of_range_masked_pixels": 0
+    },
+    "masked_outside_footprint": false,
+    "local_encoding_compatibility": {
+      "template-mask": false,
+      "finite-grid": true,
+      "masked-finite": false
+    },
+    "note": "Local contract only. A masked sentinel may pass template-mask but fail a portal-wide range scan; masked-finite checks both masks and raw values, without guaranteeing portal acceptance. Positive-pixel count is not an invented dot mask for soft-surface uniqueness. No scientific or portal approval."
+  },
+  "surface_registry_comparison": null,
+  "full_registry_compared": false,
+  "interpretation": "The peer approves its file after excluding the calibration lattice from its detector-only comparison. Under this session's literal all-registry rule, the measured lattice overlap is a duplicate stop. A format pass and the peer's promotion claim do not authorize a slot.",
+  "verdict": "negative",
+  "slot_authorized": false,
+  "candidate_generated": false,
+  "geological_experiments_run": 0
+}

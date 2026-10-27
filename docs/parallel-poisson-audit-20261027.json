@@ -1,0 +1,310 @@
+{
+  "kind": "PARALLEL RESEARCH RASTER FORENSIC AUDIT; not a model or organizer score",
+  "source_card": "evidence/candidate_poisson_20261027.json",
+  "source_card_sha256": "0850802c25b9a310309aab274877d474e43858752537264b3f876025109fe868",
+  "files": {
+    "zeros": {
+      "path": "docs/candidate_downloads/kanlergemsdoe3-poisson-offcat-37654-20261027-260ce28e-zeros.tif",
+      "sha256": "260ce28e856d61e62a6c5ed96303bbaa25e8a298b7d8073d0d1632efd5887e0d",
+      "zip": "docs/candidate_downloads/kanlergemsdoe3-poisson-offcat-37654-20261027-260ce28e-zeros.zip",
+      "zip_sha256": "0a2f946c6103f41a69a4ce75d6f9a4dfc3e2757c04341bf404234d8a0c1ccd8b",
+      "zip_contains_exact_tiff_only": true,
+      "profile": "finite-grid"
+    },
+    "nan": {
+      "path": "docs/candidate_downloads/kanlergemsdoe3-poisson-offcat-37654-20261027-8b1c135f-nan.tif",
+      "sha256": "8b1c135f155256646d600f89a45ef0c9d99a19a7816f212cf1b6ce55675950ac",
+      "zip": "docs/candidate_downloads/kanlergemsdoe3-poisson-offcat-37654-20261027-8b1c135f-nan.zip",
+      "zip_sha256": "02652bce5cdf04b2fb2e44c172b0e4fabc616745d358e3ec8d79dadb2b6d3249",
+      "zip_contains_exact_tiff_only": true,
+      "profile": "template-mask"
+    }
+  },
+  "same_in_footprint_dot_mask": true,
+  "measurements": {
+    "zeros": {
+      "lattice": {
+        "schema_version": 1,
+        "scope": "Saved binary dots versus one pinned lattice; not a full live-registry or surface audit.",
+        "candidate_sha256": "260ce28e856d61e62a6c5ed96303bbaa25e8a298b7d8073d0d1632efd5887e0d",
+        "lattice_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+        "sample_mirror_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+        "label_mirror_sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+        "organizer_template_authenticated": false,
+        "geometry": {
+          "bands": 1,
+          "dtype": "float32",
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0
+          ],
+          "nodata": null
+        },
+        "candidate_dots": 37654,
+        "candidate_dots_within_3px_of_lattice": 37611,
+        "candidate_dot_overlap_fraction": 0.9988580230519998,
+        "candidate_dots_outside_lattice_radius": 43,
+        "duplicate_over_70_percent": true,
+        "catalogue_positive_pixels": 0,
+        "in_footprint_nan": 0,
+        "in_footprint_inf": 0,
+        "in_footprint_min": 0.0,
+        "in_footprint_max": 1.0,
+        "outside_pixel_count": 7111787,
+        "outside_unmasked_finite_count": 7111787,
+        "outside_nan_count": 0,
+        "strict_nan_outside": false,
+        "note": "Research-only forensic audit. No selector authorization or organizer acceptance is implied."
+      },
+      "validator": {
+        "validator": "submission-format-v4-masked-finite-diagnostics",
+        "encoding_profile": "finite-grid",
+        "template": "data/core/sample_submission.tif",
+        "candidate": "docs/candidate_downloads/kanlergemsdoe3-poisson-offcat-37654-20261027-260ce28e-zeros.tif",
+        "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+        "candidate_sha256": "260ce28e856d61e62a6c5ed96303bbaa25e8a298b7d8073d0d1632efd5887e0d",
+        "sha256": "260ce28e856d61e62a6c5ed96303bbaa25e8a298b7d8073d0d1632efd5887e0d",
+        "organizer_acceptance": "NOT_TESTED",
+        "portal_acceptance_verified": false,
+        "submission_authorized": false,
+        "slot_authorized": false,
+        "checks": {
+          "template_single_band": true,
+          "single_band": true,
+          "shape_match": true,
+          "crs_match": true,
+          "transform_match": true,
+          "dtype_float32": true,
+          "template_epsg_32611": true,
+          "template_100m_grid": true,
+          "template_mask_unambiguous": true,
+          "standalone_without_sidecars": true,
+          "no_nan_inside_footprint": true,
+          "no_masked_inside_footprint": true,
+          "inside_range_0_1": true,
+          "no_infinite_pixels_anywhere": true,
+          "selected_encoding": true,
+          "expected_positive_pixels_match": true
+        },
+        "legacy_allow_zero_outside": null,
+        "ok": true,
+        "errors": [],
+        "bands": 1,
+        "dtype": [
+          "float32"
+        ],
+        "crs": "EPSG:32611",
+        "shape": [
+          3730,
+          3292
+        ],
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "footprint_pixels": 5167373,
+        "positive_pixels": 37654,
+        "nonfinite_inside": 0,
+        "masked_inside": 0,
+        "infinite_pixels_whole_grid": 0,
+        "finite_range_inside": [
+          0.0,
+          1.0
+        ],
+        "valid_outside_footprint": 7111787,
+        "outside_null_or_nan": false,
+        "entire_grid_finite_range_0_1": true,
+        "raw_whole_grid_finite_in_range": true,
+        "raw_range_diagnostics": {
+          "finite_min": 0.0,
+          "finite_max": 1.0,
+          "nonfinite_pixels": 0,
+          "nan_pixels": 0,
+          "infinite_pixels": 0,
+          "nonfinite_inside_footprint": 0,
+          "nonfinite_outside_footprint": 0,
+          "nonfinite_masked_pixels": 0,
+          "finite_below_zero": 0,
+          "finite_above_one": 0,
+          "out_of_range_inside_footprint": 0,
+          "out_of_range_outside_footprint": 0,
+          "out_of_range_masked_pixels": 0
+        },
+        "masked_outside_footprint": false,
+        "local_encoding_compatibility": {
+          "template-mask": false,
+          "finite-grid": true,
+          "masked-finite": false
+        },
+        "note": "Local contract only. A masked sentinel may pass template-mask but fail a portal-wide range scan; masked-finite checks both masks and raw values, without guaranteeing portal acceptance. Positive-pixel count is not an invented dot mask for soft-surface uniqueness. No scientific or portal approval."
+      }
+    },
+    "nan": {
+      "lattice": {
+        "schema_version": 1,
+        "scope": "Saved binary dots versus one pinned lattice; not a full live-registry or surface audit.",
+        "candidate_sha256": "8b1c135f155256646d600f89a45ef0c9d99a19a7816f212cf1b6ce55675950ac",
+        "lattice_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+        "sample_mirror_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+        "label_mirror_sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+        "organizer_template_authenticated": false,
+        "geometry": {
+          "bands": 1,
+          "dtype": "float32",
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0
+          ],
+          "nodata": null
+        },
+        "candidate_dots": 37654,
+        "candidate_dots_within_3px_of_lattice": 37611,
+        "candidate_dot_overlap_fraction": 0.9988580230519998,
+        "candidate_dots_outside_lattice_radius": 43,
+        "duplicate_over_70_percent": true,
+        "catalogue_positive_pixels": 0,
+        "in_footprint_nan": 0,
+        "in_footprint_inf": 0,
+        "in_footprint_min": 0.0,
+        "in_footprint_max": 1.0,
+        "outside_pixel_count": 7111787,
+        "outside_unmasked_finite_count": 0,
+        "outside_nan_count": 7111787,
+        "strict_nan_outside": true,
+        "note": "Research-only forensic audit. No selector authorization or organizer acceptance is implied."
+      },
+      "validator": {
+        "validator": "submission-format-v4-masked-finite-diagnostics",
+        "encoding_profile": "template-mask",
+        "template": "data/core/sample_submission.tif",
+        "candidate": "docs/candidate_downloads/kanlergemsdoe3-poisson-offcat-37654-20261027-8b1c135f-nan.tif",
+        "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+        "candidate_sha256": "8b1c135f155256646d600f89a45ef0c9d99a19a7816f212cf1b6ce55675950ac",
+        "sha256": "8b1c135f155256646d600f89a45ef0c9d99a19a7816f212cf1b6ce55675950ac",
+        "organizer_acceptance": "NOT_TESTED",
+        "portal_acceptance_verified": false,
+        "submission_authorized": false,
+        "slot_authorized": false,
+        "checks": {
+          "template_single_band": true,
+          "single_band": true,
+          "shape_match": true,
+          "crs_match": true,
+          "transform_match": true,
+          "dtype_float32": true,
+          "template_epsg_32611": true,
+          "template_100m_grid": true,
+          "template_mask_unambiguous": true,
+          "standalone_without_sidecars": true,
+          "no_nan_inside_footprint": true,
+          "no_masked_inside_footprint": true,
+          "inside_range_0_1": true,
+          "no_infinite_pixels_anywhere": true,
+          "selected_encoding": true,
+          "expected_positive_pixels_match": true
+        },
+        "legacy_allow_zero_outside": null,
+        "ok": true,
+        "errors": [],
+        "bands": 1,
+        "dtype": [
+          "float32"
+        ],
+        "crs": "EPSG:32611",
+        "shape": [
+          3730,
+          3292
+        ],
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "footprint_pixels": 5167373,
+        "positive_pixels": 37654,
+        "nonfinite_inside": 0,
+        "masked_inside": 0,
+        "infinite_pixels_whole_grid": 0,
+        "finite_range_inside": [
+          0.0,
+          1.0
+        ],
+        "valid_outside_footprint": 0,
+        "outside_null_or_nan": true,
+        "entire_grid_finite_range_0_1": false,
+        "raw_whole_grid_finite_in_range": false,
+        "raw_range_diagnostics": {
+          "finite_min": 0.0,
+          "finite_max": 1.0,
+          "nonfinite_pixels": 7111787,
+          "nan_pixels": 7111787,
+          "infinite_pixels": 0,
+          "nonfinite_inside_footprint": 0,
+          "nonfinite_outside_footprint": 7111787,
+          "nonfinite_masked_pixels": 0,
+          "finite_below_zero": 0,
+          "finite_above_one": 0,
+          "out_of_range_inside_footprint": 0,
+          "out_of_range_outside_footprint": 0,
+          "out_of_range_masked_pixels": 0
+        },
+        "masked_outside_footprint": false,
+        "local_encoding_compatibility": {
+          "template-mask": true,
+          "finite-grid": false,
+          "masked-finite": false
+        },
+        "note": "Local contract only. A masked sentinel may pass template-mask but fail a portal-wide range scan; masked-finite checks both masks and raw values, without guaranteeing portal acceptance. Positive-pixel count is not an invented dot mask for soft-surface uniqueness. No scientific or portal approval."
+      }
+    }
+  },
+  "lattice_source": {
+    "id": "registry-160",
+    "repo": "buffedlizard55-lab/GEMSDOE24",
+    "ref": "07345ea0604953d7efb858d9cfbc21e20c7aca0b",
+    "file": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "footprint_sha256": "15bc7e7d4e21d284c42e4183bb7c63d087f67635818bd7b963d58f6beed44817",
+    "positive_pixels": 206895
+  },
+  "surface_registry_comparison": null,
+  "full_registry_compared": false,
+  "historical_nine_site_claim": "Prior card lists only a subset of per-site measurements; it is insufficient to establish all-nine uniqueness.",
+  "range_error_claim": "The rejected upload was not supplied; these local profiles do not establish that its error was fixed or that the portal will accept either encoding.",
+  "interpretation": "The prior session's random control is research-only. Both encodings fail the required literal lattice stop. Neither has an independently run holdout or an authorized weekly slot.",
+  "verdict": "negative",
+  "slot_authorized": false,
+  "candidate_generated": false,
+  "geological_experiments_run": 0
+}

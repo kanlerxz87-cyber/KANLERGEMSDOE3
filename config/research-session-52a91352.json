@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "session_started_utc": "2026-10-27T17:06:47+00:00",
+  "assigned_method_paragraph": null,
+  "lane_status": "BLOCKED_MISSING_PARAGRAPH; no method silently assigned",
+  "max_experiments": 3,
+  "max_seconds": 7200,
+  "geological_experiments": [],
+  "shared_cache": {
+    "path": null,
+    "sha256": null,
+    "status": "The shared receipt names a 35-channel feature stack, but its bytes and expected digest were not published in the pinned source tree. Do not privately regenerate it."
+  },
+  "registry": {
+    "complete": false,
+    "manifest": "evidence/priority-registry-manifest.json",
+    "status": "The participant manifest contains a size/prefix-filtered priority-site registry, not the complete registry required by the parallel protocol. Continuous surfaces are not restored.",
+    "reference_dot_definition_verified": false,
+    "scope_issue": "A continuous full-footprint diagnostic saturates the legacy positive-support convention; explicit companion dots or an authorized protocol decision are needed. Do not silently exempt it or the binary lattice."
+  },
+  "same_evaluator_incumbent": null,
+  "organizer_template_authenticated": false,
+  "official_submission_receipts": [],
+  "selector": {
+    "slot_authorized": false,
+    "slots_used_this_session": 0,
+    "remaining_weekly_cap_from_account": null,
+    "published_limit_per_week": 3,
+    "published_rule_source": "https://docs.nlr.gov/docs/fy26osti/96647.pdf#page=11"
+  },
+  "session_id": "52a91352"
+}

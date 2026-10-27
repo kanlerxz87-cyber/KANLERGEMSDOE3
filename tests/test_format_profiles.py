@@ -37,7 +37,7 @@ class FormatProfileTests(unittest.TestCase):
         finite = validate(self.template, self.candidate, "finite-grid")
         self.assertFalse(mask["ok"])
         self.assertTrue(finite["ok"])
-        self.assertEqual(mask["local_encoding_compatibility"], {"template-mask": False, "finite-grid": True})
+        self.assertEqual(mask["local_encoding_compatibility"], {"template-mask": False, "finite-grid": True, "masked-finite": False})
         self.assertEqual(finite["organizer_acceptance"], "NOT_TESTED")
         self.assertFalse(finite["slot_authorized"])
 
@@ -56,11 +56,59 @@ class FormatProfileTests(unittest.TestCase):
         self.assertTrue(result["ok"])
         self.assertFalse(result["entire_grid_finite_range_0_1"])
 
+    def test_masked_finite_profile_checks_raw_bytes_and_mask_without_mutating(self):
+        arr = np.zeros((5, 5), dtype="float32")
+        arr[1, 1] = 0.8
+        mask = np.full((5, 5), 255, dtype="uint8")
+        mask[0, 0] = 0
+        with rasterio.Env(GDAL_TIFF_INTERNAL_MASK=True):
+            with rasterio.open(self.candidate, "w", **{**self.profile, "nodata": None}) as dst:
+                dst.write(arr, 1)
+                dst.write_mask(mask)
+        before = digest(self.candidate)
+        report = validate(self.template, self.candidate, "masked-finite")
+        self.assertTrue(report["ok"], report["errors"])
+        self.assertTrue(report["checks"]["standalone_without_sidecars"])
+        self.assertTrue(report["raw_whole_grid_finite_in_range"])
+        self.assertTrue(report["masked_outside_footprint"])
+        self.assertFalse(report["submission_authorized"])
+        self.assertFalse(report["portal_acceptance_verified"])
+        self.assertEqual(digest(self.candidate), before)
+
+        # A nonzero pixel hidden by the mask is still read by raw range scans.
+        arr[0, 0] = -9999
+        with rasterio.Env(GDAL_TIFF_INTERNAL_MASK=True):
+            with rasterio.open(self.candidate, "w", **{**self.profile, "nodata": None}) as dst:
+                dst.write(arr, 1)
+                dst.write_mask(mask)
+        report = validate(self.template, self.candidate, "masked-finite")
+        self.assertFalse(report["ok"])
+        self.assertTrue(report["local_encoding_compatibility"]["template-mask"])
+        self.assertEqual(report["raw_range_diagnostics"]["finite_below_zero"], 1)
+        self.assertEqual(report["raw_range_diagnostics"]["out_of_range_outside_footprint"], 1)
+        self.assertEqual(report["raw_range_diagnostics"]["out_of_range_masked_pixels"], 1)
+        self.assertEqual(report["raw_range_diagnostics"]["finite_min"], -9999.0)
+
+    def test_raw_diagnostics_count_high_values_and_nan(self):
+        arr = np.zeros((5, 5))
+        arr[0, 0] = np.nan
+        arr[1, 1] = 1.1
+        self.write(self.candidate, arr, nodata=np.nan)
+        report = validate(self.template, self.candidate, "masked-finite")
+        self.assertFalse(report["ok"])
+        self.assertEqual(report["raw_range_diagnostics"]["nonfinite_pixels"], 1)
+        self.assertEqual(report["raw_range_diagnostics"]["nan_pixels"], 1)
+        self.assertEqual(report["raw_range_diagnostics"]["nonfinite_masked_pixels"], 1)
+        self.assertEqual(report["raw_range_diagnostics"]["nonfinite_outside_footprint"], 1)
+        self.assertEqual(report["raw_range_diagnostics"]["finite_above_one"], 1)
+        self.assertEqual(report["raw_range_diagnostics"]["out_of_range_inside_footprint"], 1)
+        self.assertFalse(report["portal_acceptance_verified"])
+
     def test_unmasked_infinity_is_not_null_padding(self):
         for value in (np.inf, -np.inf):
             arr = np.zeros((5, 5)); arr[0, 0] = value
             self.write(self.candidate, arr, nodata=None)
-            for profile in ("template-mask", "finite-grid"):
+            for profile in ("template-mask", "finite-grid", "masked-finite"):
                 self.assertFalse(validate(self.template, self.candidate, profile)["ok"])
 
     def test_invalid_inside_is_rejected_and_never_repaired(self):
@@ -68,7 +116,7 @@ class FormatProfileTests(unittest.TestCase):
             arr = np.zeros((5, 5)); arr[1, 1] = value
             self.write(self.candidate, arr, nodata=None)
             before = digest(self.candidate)
-            for profile in ("template-mask", "finite-grid"):
+            for profile in ("template-mask", "finite-grid", "masked-finite"):
                 self.assertFalse(validate(self.template, self.candidate, profile)["ok"])
             self.assertEqual(digest(self.candidate), before)
 

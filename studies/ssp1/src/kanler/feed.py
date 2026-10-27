@@ -1,9 +1,13 @@
-"""Public-only leaderboard feed. A failed request never erases a good snapshot."""
+"""Offline leaderboard snapshot helpers; no automated DrivenData access.
+
+DrivenData's published terms prohibit automated access, including monitoring.
+Keep the historical observation explicitly stale; a parser is retained only
+for offline fixtures, never as permission to fetch or authenticate the website.
+"""
 from __future__ import annotations
 from html.parser import HTMLParser
 import re
 from datetime import datetime,timezone
-from urllib.parse import urlsplit
 
 URL='https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/'
 
@@ -62,46 +66,14 @@ def public_table_shape(html:str)->dict:
 
 
 def refresh(old:dict,get=None)->dict:
-    import requests
-    now=datetime.now(timezone.utc).isoformat()
-    out={**old,'source':URL,'last_attempt_utc':now,'authenticated_submission_receipts':None,'remaining_weekly_slots':None}
-    try:
-        response=(get or requests.get)(URL,timeout=15,headers={'User-Agent':'KANLER-GEMS-public-audit/0.1'})
-        response.raise_for_status()
-        if '/accounts/login' in response.url:
-            raise ValueError('Public page unexpectedly redirected to login')
-        final=urlsplit(response.url)
-        if final.scheme!='https' or final.hostname not in ('www.drivendata.org','drivendata.org') or final.path.rstrip('/')!=urlsplit(URL).path.rstrip('/'):
-            raise ValueError('Unexpected source redirect; do not label another page as an official GEMS leaderboard')
-        try:
-            value=parse_leaderboard(response.text)
-        except ValueError:
-            out['parse_diagnostic']=public_table_shape(response.text)
-            raise
-        out.pop('parse_diagnostic',None)
-        out.update({'last_success_utc':now,'last_success_precision':'ISO-8601 UTC instant','observed_utc_day':now[:10],'observation_method':'HTTPS official public rank-one Tversky table parsed by the public-only feed','leading_public_value':value,'stale':False,'last_error':None,'evidence_class':'ORGANIZER-PUBLISHED PUBLIC LEADERBOARD OBSERVATION; not an artifact-specific ORGANIZER-CONFIRMED submission receipt'})
-    except (requests.RequestException,ValueError)as exc:
-        out.update({'stale':True,'last_error':str(exc)[:400]})
-    return out
+    """Mark the recorded snapshot stale without performing any network request.
 
-
-def select_snapshot(recorded:dict,cached:dict|None)->dict:
-    """Choose the newer last-good official observation across stateless CI jobs.
-
-    A cache is a persistence layer, not a new source or an authorization receipt.
-    Malformed, foreign-source, or older cache records never erase the Git record.
+    The legacy `get` argument is ignored deliberately, even when supplied: a
+    callback must not accidentally reactivate monitoring from a scheduled job.
+    This function cannot turn a public board observation into a file receipt.
     """
-    if not isinstance(cached,dict) or cached.get('source')!=URL:
-        return recorded.copy()
-    def instant(value):
-        dt=datetime.fromisoformat(value.replace('Z','+00:00'))
-        return dt.replace(tzinfo=timezone.utc) if dt.tzinfo is None else dt
-    try:
-        value=cached['leading_public_value']
-        if isinstance(value,bool) or not isinstance(value,(int,float)) or not 0<=value<=1:
-            return recorded.copy()
-        if instant(cached['last_success_utc'])>instant(recorded['last_success_utc']):
-            return cached.copy()
-    except (KeyError,ValueError,TypeError,AttributeError):
-        pass
-    return recorded.copy()
+    now=datetime.now(timezone.utc).isoformat()
+    return {**old, 'source':URL, 'last_policy_check_utc':now,
+            'authenticated_submission_receipts':None, 'remaining_weekly_slots':None,
+            'stale':True, 'monitoring_status':'disabled_under_published_terms',
+            'last_error':'Automated DrivenData monitoring disabled; the historical observation is not live.'}

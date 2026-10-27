@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "observed_utc_day": "2026-10-27",
+  "observation_method": "Single research fetch of public page text; exact fetch timestamp and original HTML bytes were not retained.",
+  "source": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+  "public_leaderboard": {
+    "rank": 1,
+    "participant": "xiaofanhu",
+    "displayed_value": 0.4544,
+    "evidence_class": "ORGANIZER-PUBLISHED PUBLIC LEADERBOARD OBSERVATION; not an artifact-specific submission-page receipt",
+    "stale_or_unavailable": true
+  },
+  "limitations": [
+    "No file hash is associated with this public-board value; it does not establish a score for any priority-site raster.",
+    "The observation is dated, not live; no current account allowance or submission receipt was accessed.",
+    "Automated DrivenData monitoring is disabled after review of the published terms; do not infer permission for automated or unauthorized monitoring."
+  ],
+  "terms": "https://www.drivendata.org/termsofuse/"
+}

@@ -1,4 +1,7 @@
 {
+  "observed_utc_day": "2026-10-27",
+  "config": "config/research-session-52a91352.json",
+  "snapshot_not_live": true,
   "schema_version": 1,
   "research_ready": false,
   "submit_ready": false,
@@ -34,7 +37,8 @@
     "commit": "400b60d4a6d99f425ee90504e6c4552227556dd1",
     "repository": "buffedlizard55-lab/GEMSDOE32",
     "files_checked": 13,
-    "failures": []
+    "failures": [],
+    "manifest_sha256": "13a9e48eacbca3a2f7f53d5ec460427ab7532e0620c63664df6c6c1b6195553d"
   },
   "input_integrity": [
     {

@@ -23,9 +23,11 @@ REQUIRED_PATHS = {f"scripts/{name}.py" for name in TOOLS} | {
 
 
 def verify_template(root: Path = TEMPLATE) -> dict:
-    result = {"ok": False, "commit": None, "repository": None, "files_checked": 0, "failures": []}
+    result = {"ok": False, "commit": None, "repository": None, "files_checked": 0, "failures": [], "manifest_sha256": None}
     try:
-        lock = json.loads((root / "PROVENANCE.json").read_text())
+        manifest_bytes = (root / "PROVENANCE.json").read_bytes()
+        result["manifest_sha256"] = hashlib.sha256(manifest_bytes).hexdigest()
+        lock = json.loads(manifest_bytes)
         files = lock["files"]
         if not isinstance(files, list) or not files:
             raise ValueError("Nonempty locked file list required")

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Refresh public facts only; never log in, train, choose a slot, or upload.
+"""Mark a recorded leaderboard observation stale without contacting DrivenData.
 
---state-path persists the last good observation across scheduled Pages builds,
-without pushing a commit to main or regressing to an old checkout on failures.
+The optional state path is output-only; no cache is promoted to a new trusted
+observation. This script never logs in, polls, trains, selects a slot or uploads.
 """
 import argparse
 import json
@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'src'))
-from kanler.feed import refresh, select_snapshot
+from kanler.feed import refresh
 
 
 def main():
@@ -20,13 +20,7 @@ def main():
     args = parser.parse_args()
     p = ROOT/'registry/leaderboard_snapshot.json'
     recorded = json.loads(p.read_text())
-    cached = None
-    if args.state_path and args.state_path.is_file():
-        try:
-            cached = json.loads(args.state_path.read_text())
-        except (ValueError, OSError):
-            pass
-    result = refresh(select_snapshot(recorded, cached))
+    result = refresh(recorded)
     serialized = json.dumps(result, indent=2, allow_nan=False)+'\n'
     p.write_text(serialized)
     if args.state_path:
