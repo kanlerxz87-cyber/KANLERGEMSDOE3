@@ -2,7 +2,7 @@
 
 **Start every session by reading this README (including the full user request below),
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
-[session config](config/research-session.json) and [preserved bilateral run card](docs/run-card.json) and [this review’s negative card](evidence/session-7d1e577d-run-card.json).**
+[fixed current session config](config/research-session-52a91352.json), [preserved prior session config](config/research-session.json), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-7d1e577d-run-card.json), and [current negative card](evidence/session-52a91352-run-card.json). Never reset an earlier session clock.**
 
 ## Executive decision: DO NOT SUBMIT
 
@@ -28,12 +28,22 @@ preserved, not claimed as this session’s work. The requested winning artifact 
 - Independently reconfirmed all nine historic winner hashes and all 72 directed geometric overlaps.
   Every winner exceeds the literal duplicate stop against another. These are **geometric audit
   measurements, not scores**; historical continuous-surface correlation remains unknown.
-- Corrected the prior categorical rejection of zero-outside files. The validator reports two named
-  local encoding profiles and does not guarantee portal acceptance under either. The exact rejected
-  upload was not provided, so its range-error cause is unknown.
+- Reopened the exact pinned GEMSDOE25, 30 and 32 rasters: GEMSDOE25 and 30 have identical
+  44,090-dot masks; GEMSDOE32 equals that mask after removing 6,436 dots within two pixels of
+  the mirrored known-fault catalogue, with no additions. This is geometry, not proof of authorship
+  or causal score gain. Reproduce with `scripts/audit_h33_lineage.py`; see the [receipt](evidence/h33-lineage-20261027.json).
+- The saved-band validator now reports three local profiles (`template-mask`, `finite-grid`,
+  `masked-finite`) and raw finite/nonfinite/out-of-range counts, including masked pixels. No profile
+  guarantees portal acceptance; the exact rejected upload was not provided, so its range-error cause is unknown.
+- Refreshed all nine GitHub peer heads. GEMSDOE36’s newer KPL-36 page says promote under a
+  detector-only comparison, but our exact-byte audit finds 37,341 / 37,654 dots (99.17%) within
+  3 px of the required registered lattice: **DO NOT SUBMIT** under this session’s literal rule.
+  Its reported HOLDOUT-DTI was not independently rerun. See the [forensic receipt](evidence/kpl36-lattice-audit-20261027.json).
+- Disabled SSP1’s scheduled DrivenData polling after reviewing its terms; GitHub peer-source
+  checks remain read-only. Leaderboard observations are dated snapshots, not an ongoing feed.
 - Verified official task/metric/format, staff known-pixel masking clarification, rules PDF sections,
   public leaderboard snapshot, USGS metadata and GDR resource index. Every claim's source and limits
-  are in [the ledger](evidence/official-claims-20261026.json). No per-file organizer receipt exists.
+  are in [the earlier ledger](evidence/official-claims-20261026.json), the [dated observation](evidence/official-observation-20261027.json), and [updated geological notes](knowledge/geothermal-science-2026-10-27.md). No per-file organizer receipt exists.
 - Rebuilt the Pages executive desk with an individual summary for each priority site, four ranked
   conditional hypotheses, automatic read-only source-change checks, and explicit no-submit status.
 
@@ -57,8 +67,10 @@ python -m venv .venv
 bash scripts/download_competition_data.sh   # pinned public mirror; ~420 MB core, ignored
 .venv/bin/python scripts/prepare_data.py    # delegates to shared raw-band preparation only
 .venv/bin/python scripts/audit_shared_tools.py  # expected nonzero: unresolved upstream defect
-.venv/bin/python scripts/preflight.py          # expected nonzero: missing scientific prerequisites
+ .venv/bin/python scripts/preflight.py          # live local receipt in ignored data/; nonzero expected
 .venv/bin/python scripts/restore_audit_data.py # historical learning only; never a candidate
+.venv/bin/python scripts/audit_h33_lineage.py  # read-only geometry; no candidate/score/slot
+.venv/bin/python scripts/audit_kpl36_external.py --restore # expected nonzero: duplicate stop
 .venv/bin/python scripts/audit_rasters.py
 .venv/bin/python scripts/install_template.py # inherited shared pins; sources only
 PYTHON=.venv/bin/python bash scripts/bootstrap_template.sh
@@ -69,8 +81,9 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q
 .venv/bin/python -m http.server 8000 --bind 0.0.0.0 --directory docs
 ```
 
-The executable scripts contain real restoration and audits, not a GPU-training claim. A unit-test
-pass is not a geological validation result. `scripts/check_uniqueness.py --help` describes the exact
+The executable scripts contain real restoration and audits, not a GPU-training claim. The site
+preflight is a **dated** session snapshot; a fresh local preflight reflects files and the fixed clock
+at execution time and never overwrites the published snapshot. A unit-test pass is not a geological validation result. `scripts/check_uniqueness.py --help` describes the exact
 full-footprint Spearman + Euclidean dot-overlap audit; a soft registry surface needs its explicit
 companion dot mask. Empty/constant/missing comparisons do not establish novelty.
 
@@ -98,9 +111,10 @@ Tests mock source API success/change/quota failures and storage restrictions, no
 Main `4338f12`, `9ebfc4b` and `1fcc140` introduced parallel bilateral/GPC,
 K3-H1, DCAP-LHC and isolated SSP1 studies, other source pins, research-only TIFFs
 and registry-saturation evidence. SSP1 maintenance `9a24c59` is also retained. The preserved canonical bilateral run/card remains
-canonical at `evidence/run-card.json` and identical root/docs aliases. This session’s
-separate card is `evidence/session-7d1e577d-run-card.json`. It records zero new geological
-runs; the repository-wide history is not zero. No result is promoted.
+canonical at `evidence/run-card.json` and identical root/docs aliases. The previous review’s card
+is `evidence/session-7d1e577d-run-card.json`; the current session’s separate card is
+`evidence/session-52a91352-run-card.json`. The current session records zero new geological runs;
+the repository-wide history is not zero. No result is promoted.
 
 All four root-archive TIFF files were independently replayed against the required
 binary lattice and fail the literal overlap stop. The GPC file also retains 4,115

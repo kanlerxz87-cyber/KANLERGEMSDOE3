@@ -99,7 +99,7 @@ def refresh(previous: dict, manifest: dict, now: str) -> dict:
     old_lb = previous.get("leaderboard", {}) if isinstance(previous.get("leaderboard"), dict) else {}
     result["leaderboard"] = {**old_lb, "status": "stale_or_unavailable",
                              "last_reviewed_utc": now, "source": LEADERBOARD,
-                             "reason": "Automatic DrivenData monitoring disabled under site terms; consult manually."}
+                             "reason": "Automatic DrivenData monitoring disabled under site terms; use only access permitted by the site."}
 
     refs: dict[str, str] = {}
     for row in manifest.get("rows", []):

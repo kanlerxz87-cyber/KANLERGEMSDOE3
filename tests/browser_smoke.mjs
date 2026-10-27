@@ -82,6 +82,17 @@ try {
   assert.equal(await page.locator('a[download]').count(), 0);
   assert.match(await page.locator('.file-unavailable').innerText(), /DO NOT SUBMIT/);
   assert.equal(await page.locator('.hypothesis').count(), 4);
+  await page.locator('#cadg-submod-study-link').waitFor();
+  const archivedLink = await page.locator('#cadg-submod-study-link').innerText();
+  assert.match(archivedLink, /DO NOT SUBMIT/);
+  assert.doesNotMatch(archivedLink, /0\.155510/); // no unscoped prior holdout in the link
+  assert.ok(await page.evaluate(() => {
+    const warning = document.querySelector('.notice');
+    const archived = document.querySelector('#cadg-submod-study-link');
+    return !!(warning.compareDocumentPosition(archived) & Node.DOCUMENT_POSITION_FOLLOWING);
+  }), 'Historical study links must not precede the primary no-submit warning');
+  assert.match(await page.locator('main').innerText(), /6,436 dots/);
+  checks.push('primary warning precedes historical-study links and H33 geometry is scoped');
   await noGlobalOverflow(page, 'desktop summary');
   await page.screenshot({ path: path.join(output, 'desktop.png'), fullPage: true });
   checks.push('desktop: nine sites, four hypotheses, historical ranking and no approved download');

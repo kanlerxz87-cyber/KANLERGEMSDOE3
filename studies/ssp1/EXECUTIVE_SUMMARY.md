@@ -39,7 +39,7 @@ The registered spacing-five lattice leaves 6,649 cells outside its three-pixel d
 - Note (98/140): `KANLER3 SSP1 E1 | signed scarp-profile vs smooth null | fixed 37654 dots | negative; DO NOT SUBMIT`
 - One float32 band; EPSG:32611; 3730 × 3292; exact mirrored-template transform; all 12,279,160 cells finite in the zero-filled file; values in [0,1]; all 13 shared checks PASS. This is not an organizer acceptance receipt.
 - Owner-mirror hashes were verified; official-host binary authenticity and authenticated remaining weekly slots were not available.
-- The official public leaderboard observed on 2026-10-26 showed 0.4437; that is a public observation, not a file-specific receipt. The prompt’s 0.3195 and 0.4413 targets are stale.
+- The dated official public leaderboard observation on 2026-10-27 showed 0.4544; it is not live and is not a file-specific receipt. Automated DrivenData monitoring is disabled.
 
 ## Next session
 

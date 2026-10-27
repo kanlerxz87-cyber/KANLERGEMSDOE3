@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "session_id": "52a91352",
+  "session_started_utc": "2026-10-27T17:06:47+00:00",
+  "assigned_method_paragraph": null,
+  "hypothesis": "Unassigned; conditional cross-scale radiometric/magnetic structural-edge queue, not a selected lane or a model run.",
+  "mechanism": "A persistent structural boundary could affect magnetic contrast and radiometric surface composition on different spatial scales.",
+  "non_fault_mimic": "Lithological contacts, soil/vegetation contrasts and terrain-dependent survey or leveling artifacts.",
+  "geological_experiments_this_session": 0,
+  "weekly_slots_used_this_session": 0,
+  "holdout_dti": null,
+  "holdout_ci95": null,
+  "evaluator_version": null,
+  "withheld_positive_count": null,
+  "surface_registry_comparison": null,
+  "final_dot_registry_comparison": null,
+  "registry_status": "Not compared: no candidate surface or dot raster; full registry unavailable and representation/saturation unresolved.",
+  "historical_geometry_only": "evidence/h33-lineage-20261027.json",
+  "external_peer_comparison": {
+    "receipt": "evidence/kpl36-lattice-audit-20261027.json",
+    "peer_file_sha256": "86fc8243ad573bcdbfac8b432daf0ec5b6800b991b2c3278706358be7eb9922d",
+    "lattice_overlap_within_3px": 0.9916874701226961,
+    "scope": "Existing peer TIFF only; surface not independently compared; not this session's candidate."
+  },
+  "raster_sha256": null,
+  "validator_checks": {
+    "status": "NOT RUN: no candidate",
+    "finite_inside_footprint": null,
+    "values_in_0_1": null,
+    "float32_single_band": null,
+    "crs_shape_transform_match_authentic_template": null,
+    "raw_band_diagnostics": null,
+    "organizer_template_authenticated": false,
+    "portal_acceptance": null
+  },
+  "submission_name": null,
+  "submission_note": "No candidate: the assigned lane and required independent evidence are unavailable.",
+  "preflight_receipt": "evidence/session-52a91352-preflight.json",
+  "unresolved": [
+    "Missing explicit single-method paragraph",
+    "Centrally locked evaluator omits false-positive mass in empty-truth cells",
+    "Authenticated shared cached feature stack and digest unavailable",
+    "Complete raster/surface registry, representation decision and same-fold incumbent unavailable",
+    "Official template provenance, actual remaining weekly cap and selector authorization unavailable"
+  ],
+  "slot_authorized": false,
+  "ok_to_submit": false,
+  "verdict": "negative"
+}
