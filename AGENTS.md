@@ -3,9 +3,9 @@
 Before changing this project, read:
 1. `README.md`, including its full standing user request (also `PROJECT_PROMPT.md`).
 2. `PROJECT_REQUEST.md` and `research/standing-requirements.md` for the compact standing rules.
-3. `config/research-session.json`, `research/review.md`, and `research/verification.md`.
+3. `config/research-session-12817d00.json`, `research/session-12817d00-review.md`, and `research/verification.md`.
 4. `evidence/run-card.json` (preserved canonical bilateral run, negative) and
-   `evidence/session-7d1e577d-run-card.json` (this review session, no model run).
+   `evidence/session-12817d00-run-card.json` (current review session, no model run).
 
 Keep **Maximize P(Win)** and **Own the Outcome** explicit. File format, model quality,
 semantic novelty, evidence authenticity and weekly-slot authorization are separate.
