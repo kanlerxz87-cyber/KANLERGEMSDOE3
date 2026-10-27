@@ -4,6 +4,20 @@
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
 [fixed current session config](config/research-session-52a91352.json), [preserved prior session config](config/research-session.json), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-7d1e577d-run-card.json), and [current negative card](evidence/session-52a91352-run-card.json). Never reset an earlier session clock.**
 
+## Latest continuation — 27 October 2026
+
+[Current scoped review and next steps](research/session-20261027-review.md) ·
+[Current readiness receipt](evidence/session-20261027-readiness.json) ·
+[Current nine-site source observations](evidence/session-20261027-focus-feed.json) ·
+[Current negative review card](evidence/session-20261027-run-card.json)
+
+**No new TIFF or score estimate.** Seven priority repositories changed since the saved feed;
+that is not a refreshed scientific/novelty audit. The shared evaluator defect remains open.
+Readiness now binds operator receipts to the exact provenance-manifest digest and rejects
+contradictory conservation checks. **177 tests pass** after restoring optional instruments.
+Core rasters are not present in this fresh checkout; restoration descriptions below are
+historical. No geological experiment or weekly slot was used in this continuation.
+
 ## Executive decision: DO NOT SUBMIT
 
 [Executive desk](docs/index.html) · [Every priority site](docs/index.html#comparison) ·
