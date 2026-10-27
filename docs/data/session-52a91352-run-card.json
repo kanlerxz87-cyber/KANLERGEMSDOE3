@@ -22,6 +22,12 @@
     "lattice_overlap_within_3px": 0.9916874701226961,
     "scope": "Existing peer TIFF only; surface not independently compared; not this session's candidate."
   },
+  "parallel_research_archive": {
+    "receipt": "evidence/parallel-poisson-audit-20261027.json",
+    "zeros_sha256": "260ce28e856d61e62a6c5ed96303bbaa25e8a298b7d8073d0d1632efd5887e0d",
+    "lattice_overlap_within_3px": 0.9988580230519998,
+    "scope": "Existing parallel-session random control; not this session's candidate."
+  },
   "raster_sha256": null,
   "validator_checks": {
     "status": "NOT RUN: no candidate",

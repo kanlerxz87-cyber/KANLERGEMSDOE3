@@ -1,103 +1,14 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Candidate TIF for DOE GEMS - format-valid research baseline">
-<title>New candidate · GEMS research desk</title><link rel="stylesheet" href="assets/site.css">
+<meta name="description" content="Evidence-first DOE GEMS fault discovery. Exact historical files, automated validation and a clear submission decision.">
+<title>Parallel random control · GEMS research desk</title><link rel="stylesheet" href="assets/site.css">
 <script src="assets/site.js" defer></script></head>
 <body><a class="skip" href="#main">Skip to content</a><header class="topbar"><div class="bar">
 <a class="brand" href="index.html"><span class="mark" aria-hidden="true">G</span><span>GEMS<small>Fault discovery / research desk</small></span></a>
-<nav aria-label="Main navigation"><a href="index.html">Executive summary</a><a href="research.html">Research</a><a href="sources.html">Evidence</a><a href="executive-summary.html">How to submit</a></nav><span class="nav-status">Research blocked</span></div></header>
-<main id="main">
-<div class="page-intro"><p class="eyebrow">New research candidate · format-valid, negative</p><h1 class="subtitle-page">A downloadable TIFF.<br><em>Research baseline, not a winner.</em></h1><p>This candidate is a <strong>format-valid, uniquely placed</strong> control that resolves the prior “Predicted values must be in range [0,1]” error. It is <strong>UNIQUE vs the 9 focus GEMSDOE sites</strong> (max 16.3% &lt;70%) but <strong>FAILS vs the dense calibration lattice</strong> (99.89% &gt;70%) so it cannot be promoted under the literal all-registry rule. Verdict: <strong>DO NOT SUBMIT as competitive entry</strong> — use as format/ uniqueness control.</p></div>
-
-<div class="notice"><span class="icon" aria-hidden="true">!</span><div><strong>DOWNLOAD AVAILABLE · FORMAT-VALID · NEGATIVE SCIENTIFIC VERDICT</strong><p>This TIFF passes all 15 local validator checks (CRS EPSG:32611, 3730×3292, 100m, float32, values [0,1], no NaN inside footprint). It is not an organizer-confirmed score, not a holdout-beating detector, and not authorized for a weekly slot. The lattice obstruction is documented below.</p></div></div>
-
-<section class="section panel">
-<h2>Download — choose one encoding</h2>
-<p><strong>Recommended for portal submission testing: <code>-zeros.tif</code></strong> (finite-grid: zeros outside footprint, all 12,279,160 cells in [0,1]). The <code>-nan.tif</code> variant uses NaN outside (template-mask) — both pass their respective local profiles.</p>
-<div class="grid-two">
-<div class="download-card" style="border:1px solid #0a0; padding:1em">
-<p class="eyebrow">Recommended · finite-grid</p>
-<h3>kanlergemsdoe3-poisson-offcat-37654-20261027-260ce28e-zeros.tif</h3>
-<p>SHA-256 <code>260ce28e856d61e62a6c5ed96303bbaa25e8a298b7d8073d0d1632efd5887e0d</code> · 37,654 dots · off-catalogue &gt;300m</p>
-<p>Profile: <span class="tag unknown">finite-grid</span> PASS · <span class="tag negative">Template-mask FAIL (expected)</span></p>
-<a class="link-button" href="candidate_downloads/kanlergemsdoe3-poisson-offcat-37654-20261027-260ce28e-zeros.tif" download>⬇ Download zeros.tif (776 KB)</a>
-<small>Use this file for DrivenData “File to submit” — already in [0,1], single-band float32, EPSG:32611.</small>
-</div>
-<div class="download-card" style="border:1px solid #888; padding:1em">
-<p class="eyebrow">Alternative · template-mask</p>
-<h3>kanlergemsdoe3-poisson-offcat-37654-20261027-8b1c135f-nan.tif</h3>
-<p>SHA-256 <code>8b1c135f155256646d600f89a45ef0c9d99a19a7816f212cf1b6ce55675950ac</code> · 37,654 dots</p>
-<p>Profile: <span class="tag unknown">template-mask</span> PASS · <span class="tag negative">Finite-grid FAIL (expected)</span></p>
-<a class="link-button" href="candidate_downloads/kanlergemsdoe3-poisson-offcat-37654-20261027-8b1c135f-nan.tif" download>⬇ Download nan.tif (1.5 MB)</a>
-<small>NaN outside footprint; some portals expect this encoding. Inside footprint identical to zeros variant.</small>
-</div>
-</div>
-<p class="subtext">Both files contain identical 37,654 positive dots inside footprint; only outside encoding differs. Neither is organizer portal acceptance. See validator receipts linked below.</p>
-</section>
-
-<section class="section" id="candidate-table">
-<div class="section-heading"><div><p class="eyebrow">Executive decision table · new candidate vs priority sites</p><h2>Which file to download — and what it means.</h2><p>Owner-reported numbers are not organizer-confirmed. Only HOLDOUT-DTI has a validated CI; candidate holdout was not run, so estimate is NOT ESTIMABLE.</p></div><a href="audit.json">Exact 9-site hashes & overlaps ↗</a></div>
-<div class="table-wrap"><table><thead><tr><th>Site / File</th><th>File to download</th><th>Owner claim / HOLDOUT-DTI</th><th>Estimated leaderboard score</th><th>Unique vs 9 focus?</th><th>Encoding</th><th>Submit?</th></tr></thead>
-<tbody>
-<tr style="background:#e8f5e9"><td><strong>NEW CANDIDATE<br>Poisson off-cat 37,654</strong><br><small>kanlergemsdoe3-poisson 20261027</small></td>
-<td><a href="candidate_downloads/kanlergemsdoe3-poisson-offcat-37654-20261027-260ce28e-zeros.tif" download><code>kanlergemsdoe3-poisson-offcat-37654-20261027-260ce28e-zeros.tif</code></a><br><code>SHA 260ce28e856d61e6…</code><br><small>Also: <code>-nan.tif</code> variant</small></td>
-<td><span class="score">—</span><br><small>HOLDOUT-DTI NOT RUN<br>No organizer receipt</small></td>
-<td><strong>Not estimable</strong><br><small>Holdout blocked; no leaderboard projection. Random baseline expected &lt;0.10 vs prior best 0.2778</small></td>
-<td><span class="tag" style="background:#4caf50;color:white">UNIQUE vs 9 focus</span><br><small>Max 16.3% &lt;70% (GEMSDOE27)</small><br><span class="tag negative">FAIL vs lattice 99.89% &gt;70%</span></td>
-<td><span class="tag unknown">finite-grid PASS</span><br><small>template-mask PASS (nan variant)</small></td>
-<td><span class="tag negative">NO — research only</span><br><small>Negative verdict; lattice block</small></td></tr>
-<tr><td><a class="site-name" href="sites/GEMSDOE32.html">GEMSDOE32 ↗</a><span class="top-label">TOP HISTORICAL CLAIM</span></td><td><span class="not-approved">None approved</span><details><summary>Historical file only</summary><a href="https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9155d44d9bc3d57f96fbf9f7db2d18e083ab6e2b/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif">gemsdoe32-h33-h33-2-b2…zeros.tif</a><code>SHA c55bafc4…</code></details></td><td><span class="score">0.2778</span><br><small>Owner-reported / unverified</small></td><td>Not estimable</td><td><span class="tag negative">Duplicate</span> 100%</td><td>finite-grid</td><td>NO</td></tr>
-<tr><td><a class="site-name" href="sites/GEMSDOE36.html">GEMSDOE36 ↗</a></td><td><span class="not-approved">None</span></td><td><span class="score">0.2750</span></td><td>Not estimable</td><td><span class="tag negative">Duplicate</span> 97.58%</td><td>finite-grid</td><td>NO</td></tr>
-<tr><td><a class="site-name" href="sites/GEMSDOE28.html">GEMSDOE28 ↗</a></td><td><span class="not-approved">None</span></td><td><span class="score">0.2710</span></td><td>Not estimable</td><td><span class="tag negative">Duplicate</span> 100%</td><td>finite-grid</td><td>NO</td></tr>
-<tr><td><a class="site-name" href="sites/GEMSDOE31.html">GEMSDOE31 ↗</a></td><td><span class="not-approved">None</span></td><td><span class="score">0.2708</span></td><td>Not estimable</td><td><span class="tag negative">Duplicate</span> 100%</td><td>finite-grid</td><td>NO</td></tr>
-<tr><td><a class="site-name" href="sites/GEMSDOE33.html">GEMSDOE33 ↗</a></td><td><span class="not-approved">None</span></td><td><span class="score">0.2632</span></td><td>Not estimable</td><td><span class="tag negative">Duplicate</span> 99.71%</td><td>template-mask</td><td>NO</td></tr>
-<tr><td><a class="site-name" href="sites/GEMSDOE25.html">GEMSDOE25 ↗</a></td><td><span class="not-approved">None</span></td><td><span class="score">0.2600</span></td><td>Not estimable</td><td><span class="tag negative">Duplicate</span> 100%</td><td>finite-grid</td><td>NO</td></tr>
-<tr><td><a class="site-name" href="sites/GEMSDOE30.html">GEMSDOE30 ↗</a></td><td><span class="not-approved">None</span></td><td><span class="score">0.2600</span></td><td>Not estimable</td><td><span class="tag negative">Duplicate</span> 100%</td><td>template-mask</td><td>NO</td></tr>
-<tr><td><a class="site-name" href="sites/GEMSDOE24.html">GEMSDOE24 ↗</a></td><td><span class="not-approved">None</span></td><td><span class="score">0.2477</span></td><td>Not estimable</td><td><span class="tag negative">Duplicate</span> 100%</td><td>finite-grid</td><td>NO</td></tr>
-<tr><td><a class="site-name" href="sites/GEMSDOE27.html">GEMSDOE27 ↗</a></td><td><span class="not-approved">None</span></td><td><span class="score">0.2449</span></td><td>Not estimable</td><td><span class="tag negative">Duplicate</span> 98.02%</td><td>finite-grid</td><td>NO</td></tr>
-</tbody></table></div>
-<div class="table-note"><span><strong>Verdict:</strong> No historical file is unique vs peers; no file can be recommended as best submission without a paired holdout win and complete-registry clearance. The new candidate is the ONLY format-valid, [0,1]-compliant, 9-focus-unique file, but is blocked by lattice saturation and lack of holdout improvement, so it is research-only.</span><span>Leaderboard estimate = Not estimable for all rows (no organizer receipt, different truth set). HOLDOUT-DTI is not a leaderboard forecast.</span></div>
-</section>
-
-<section class="section panel prose" id="why-02778">
-<h2>Why GEMSDOE32 H33 B2 got 0.2778 — and why thinning alone cannot reach 0.3195+</h2>
-<p><strong>PhD-level mechanism (measured here, not inferred):</strong> The official DTI is <code>TPw/(TPw + 0.2·FPw + 0.8·FNw)</code> with 300m triangular kernel. With T=TPw, S=total emitted mass, M=mass landing on truth, N=truth pixels, DTI = T/(0.2·(T+S-M)+0.8·N). A marginal dot with credit k raises DTI iff <code>k &gt; 0.2·DTI</code> (=0.0556 at 0.2778). Binary {0,1} emission is optimal.</p>
-<p><strong>Measured anatomy:</strong> GEMSDOE25 D2.8 (44,090 dots, 0.2600) → GEMSDOE31 solo (40,199, 0.2708) is EXACT deletion of 3,891 dots with d_catalogue ≤1px (max removed d=1.0px, 0 added). → GEMSDOE32 H33 B2 (37,654, 0.2778) is EXACT deletion of 2,545 dots with 1&lt;d≤2px (max removed d=2.0px). GEMSDOE36 Anderson (38,854, 0.2750) ADDS 1,200 dots vs B2 and score FELL. No new coordinate was created after 0.2600.</p>
-<p>Hidden truth is by construction faults NOT in USGS database; catalogue pixels are masked in scoring. Dots within ~200m of mapped faults earn ~0 yet pay 0.2 FP tax where unmasked. Deleting that dead annulus shrank denominator faster than numerator: 0.2778 = (best available H19-5 field) × (~3px dotted emission) × (annulus thrift). It is NOT evidence of new geology after 0.2600.</p>
-<p><strong>Can we beat 0.2778 / 0.3195 / 0.4437?</strong> Arithmetic with 37,654 dots, N′≈12,541: reaching 0.30 needs +8% credit/dot, 0.3195 needs +15%, public top 0.4437 (xiaofanhu, 2026-10-26 fetch) needs ≈+59%. Further annulus deletion (2–3px) removes at most 2,171 dots priced near zero — worth thousandths. <strong>Only a materially better detector surface can close the gap</strong> — e.g., the preregistered GPC phase-concordance (HOLDOUT-DTI 0.1377 vs B0 0.1325) or CADG submodular 0.1555 vs 0.102, but neither beat the recorded group best 0.16379. A random baseline cannot. See <a href="research/why-02778.md">full forensics ↗</a> and <a href="research.html#h33">analysis ↗</a>.</p>
-</section>
-
-<section class="section panel prose">
-<h2>Run card (PARALLEL-RUN PROTOCOL)</h2>
-<p><strong>Hypothesis:</strong> Off-catalogue Poisson baseline with exact 300m (3px) exclusion and 37,654-dot budget: tests whether emission budget alone without learned geology can serve as a format-valid uniqueness control</p>
-<p><strong>Mechanism:</strong> Uniform random sampling without replacement from footprint pixels &gt;3px (300m) from catalogue faults, 37,654 binary dots, no learned features</p>
-<p><strong>Non-fault mimic:</strong> Uniform randomness has no geological mechanism; any apparent skill is from chance coverage, not fault process. Mimicked by any spatially uniform point process.</p>
-<dl class="key-value">
-<dt>Holdout DTI</dt><dd>HOLDOUT-DTI NOT RUN — evaluator open defect (empty-truth FP), missing 35-channel cache, no same-fold incumbent. Label: <code>HOLDOUT-DTI</code> with null values; not a score.</dd>
-<dt>Leakage canary</dt><dd>Not run — random dots have no feature lineage; shared stack required. AUC threshold 0.90 not applicable.</dd>
-<dt>Correlation / overlap vs registry</dt><dd>Max 16.3% vs 9 focus &lt;70% (unique vs GEMSDOE24/25/27/28/30/31/32/33/36). Rank correlation not measured. Lattice: 99.89% vs 13gems s5 (206,895 dots) &gt;70% → STOP under literal all-registry rule. Cause: lattice leaves only 6,649 footprint pixels &gt;3px away, so 37k-dot budget impossible. Requires registry redefinition.</dd>
-<dt>Raster SHA256</dt><dd><code>260ce28e856d61e62a6c5ed96303bbaa25e8a298b7d8073d0d1632efd5887e0d</code> (zeros) · <code>8b1c135f155256646d600f89a45ef0c9d99a19a7816f212cf1b6ce55675950ac</code> (nan)</dd>
-<dt>Validator</dt><dd>finite-grid PASS (zeros) and template-mask PASS (nan): no NaN inside footprint, values in [0,1], CRS EPSG:32611, shape 3730×3292, transform 100,-100 match. Local checks only, not portal acceptance. Fixes prior range error.</dd>
-<dt>Submission name</dt><dd><code>kanlergemsdoe3-poisson-offcat-37654-20261027-260ce28e-zeros.tif</code> (140 char limit: 92 chars)</dd>
-<dt>Submission note</dt><dd><code>Poisson off-cat 37k Poisson 20261027; research baseline only; DO NOT SUBMIT as competitive entry</code></dd>
-<dt>Verdict</dt><dd><strong>negative — research only, DO NOT SUBMIT as competitive entry</strong></dd>
-</dl>
-<p class="subtext">Budget: 1/3 experiments, &lt;2h. Reuse: template cached features not rebuilt; submission_writer used (no private fork). No slot spent. Evidence: <a href="../evidence/candidate_poisson_20261027.json">JSON run card ↗</a> · <a href="../evidence/candidate_poisson_20261027_validator.json">validator receipts ↗</a></p>
-</section>
-
-<section class="section panel prose">
-<h2>What still blocks a winning submission</h2>
-<ul>
-<li>Assigned single-method lane paragraph missing — no method silently assigned</li>
-<li>Shared evaluator operator defect (empty-truth FP) — central repair required (<a href="https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41">issue #41</a>)</li>
-<li>Canonical 35-channel feature stack bytes/digest not restored — no private rebuild per protocol</li>
-<li>Complete raster/surface registry not available — priority-site manifest ≠ complete; soft diagnostic saturation unresolved (full-footprint witness 5,167,373 &amp; lattice 206,895)</li>
-<li>Same-evaluator, same-fold incumbent absent — no paired improvement CI</li>
-<li>No lattice exemption — 37k-dot budget mathematically impossible vs current lattice; needs coordinator decision to remove synthetic lattice from scoring registry</li>
-</ul>
-<p>These are not format bugs; your TIF is format-valid. A high-scoring submission needs a better detector that beats HOLDOUT-DTI 0.16379 on same evaluator/folds and passes all-registry uniqueness — not just a new thinning level.</p>
-</section>
-
-</main>
+<nav aria-label="Main navigation"><a href="index.html" aria-current="page">Executive summary</a><a href="research.html">Research</a><a href="sources.html">Evidence</a><a href="executive-summary.html">How to submit</a></nav><span class="nav-status">Research blocked</span></div></header>
+<main id="main"><div class="page-intro"><p class="eyebrow">Parallel session / retained research-only control</p><h1 class="subtitle-page">An archived random control.<br>Not a competition submission.</h1><p>This is an existing parallel-session artifact, not a geological hypothesis run by this review. No hidden leaderboard score or paired holdout is available.</p></div>
+<div class="notice"><span class="icon" aria-hidden="true">!</span><div><strong>DO NOT SUBMIT — fails the literal registry stop.</strong><p>37,611 of 37,654 dots (99.89%) are within three pixels of the registered calibration lattice. The surface and complete registry were not independently compared.</p></div></div>
+<section class="section panel prose"><h2>Original files · research only</h2><p>The zero and NaN encodings have the same in-footprint dot mask. Both saved TIFF/ZIP pairs are retained unchanged for research; these links do not imply scientific or portal approval.</p><div class="table-wrap"><table><thead><tr><th>Encoding</th><th>Research TIFF</th><th>SHA-256</th><th>Local profile</th><th>Submit?</th></tr></thead><tbody><tr><td>Zeros outside</td><td><a download href="candidate_downloads/kanlergemsdoe3-poisson-offcat-37654-20261027-260ce28e-zeros.tif">kanlergemsdoe3-poisson-offcat-37654-20261027-260ce28e-zeros.tif</a><br><a download href="candidate_downloads/kanlergemsdoe3-poisson-offcat-37654-20261027-260ce28e-zeros.zip">Single-TIFF ZIP</a></td><td><code>260ce28e856d61e62a6c5ed96303bbaa25e8a298b7d8073d0d1632efd5887e0d</code></td><td>finite-grid pass</td><td><strong>NO</strong></td></tr><tr><td>NaN outside</td><td><a download href="candidate_downloads/kanlergemsdoe3-poisson-offcat-37654-20261027-8b1c135f-nan.tif">kanlergemsdoe3-poisson-offcat-37654-20261027-8b1c135f-nan.tif</a><br><a download href="candidate_downloads/kanlergemsdoe3-poisson-offcat-37654-20261027-8b1c135f-nan.zip">Single-TIFF ZIP</a></td><td><code>8b1c135f155256646d600f89a45ef0c9d99a19a7816f212cf1b6ce55675950ac</code></td><td>template-mask pass</td><td><strong>NO</strong></td></tr></tbody></table></div><p>Both comparisons use the participant-mirror grid, not an authenticated organizer template. Neither profile guarantees portal acceptance, and the earlier rejected file was not provided; no one can establish that its range error was fixed.</p></section>
+<section class="section panel prose"><h2>Corrections to the earlier card</h2><p>The preserved original card claimed uniqueness against all nine focus sites, but listed only a subset of per-site overlap results. That broader claim is not established by the card. In any case, the independently reproduced lattice overlap already fails the user's required rule.</p><p>It also claimed that this random file resolved the prior upload error. There is no rejected-file evidence or portal receipt to support that statement. Earlier causal explanations or numerical leaderboard scenarios for H33 are not validated scores. The original JSON is retained as a historical record, not a decision source.</p><p><a href="parallel-poisson-audit-20261027.json">Independent saved-byte audit ↗</a> · <a href="evidence/candidate_poisson_20261027.json">Original card · contains superseded claims ↗</a> · <a href="h33-lineage-20261027.json">Verified H33 geometry ↗</a></p></section></main>
 <footer class="footer"><div><strong>KANLERGEMSDOE3</strong> · Evidence before promotion<br>Maximize P(Win). Own the outcome. No fabricated scores or renamed submissions.</div>
-<div>Reviewed 27 Oct 2026 · <a href="run-card.json">Last geological JSON run card</a><br>Source changes do not authorize an upload. No competition submission is automated.</div></footer></body></html>
+<div>Reviewed 27 Oct 2026 · <a href="data/session-52a91352-run-card.json">Current negative JSON card</a><br>Source changes do not authorize an upload. No competition submission is automated.</div></footer></body></html>

@@ -11,18 +11,20 @@
 [Current nine-site source observations](evidence/session-20261027-focus-feed.json) ·
 [Current negative review card](evidence/session-20261027-run-card.json)
 
-**No new TIFF or score estimate.** Seven priority repositories changed since the saved feed;
-that is not a refreshed scientific/novelty audit. The shared evaluator defect remains open.
-Readiness now binds operator receipts to the exact provenance-manifest digest and rejects
-contradictory conservation checks. **177 tests pass** after restoring optional instruments.
-Core rasters are not present in this fresh checkout; restoration descriptions below are
-historical. No geological experiment or weekly slot was used in this continuation.
+That separate readiness-review session produced no new TIFF or score estimate. Seven priority
+repositories changed since its saved feed; source changes are not a scientific/novelty audit.
+Its readiness check now binds operator receipts to the exact provenance-manifest digest and rejects
+contradictory conservation checks. Its review reported 177 passing tests after restoring optional
+instruments. Its checkout lacked core rasters; this session has restored pinned participant-mirror
+inputs locally, although those ignored bulk files may not persist. That review used no geological
+experiment or weekly slot.
 
 ## Executive decision: DO NOT SUBMIT
 
 [Executive desk](docs/index.html) · [Every priority site](docs/index.html#comparison) ·
 [How to submit](docs/executive-summary.html) · [Research queue](docs/research.html) ·
-[Official-source ledger](docs/sources.html) · [Machine audit](docs/audit.json)
+[Official-source ledger](docs/sources.html) · [Machine audit](docs/audit.json) ·
+[Current three-pass review](research/session-52a91352-review.md)
 
 **There is no qualified TIFF to download and no defensible leaderboard estimate.** This review
 session ran no geological experiment, generated no new TIFF and spent no weekly slot. Concurrent
@@ -53,6 +55,11 @@ preserved, not claimed as this session’s work. The requested winning artifact 
   detector-only comparison, but our exact-byte audit finds 37,341 / 37,654 dots (99.17%) within
   3 px of the required registered lattice: **DO NOT SUBMIT** under this session’s literal rule.
   Its reported HOLDOUT-DTI was not independently rerun. See the [forensic receipt](evidence/kpl36-lattice-audit-20261027.json).
+- Preserved another parallel session’s random-control TIFFs and rechecked their saved bytes:
+  37,611 / 37,654 dots (99.89%) overlap the registered lattice. Both are **DO NOT SUBMIT**.
+  Its original card's claims of all-nine uniqueness and having fixed the old portal error are
+  not established; the card lists only a subset of site overlaps, and the rejected upload is absent.
+  See the [corrected audit](evidence/parallel-poisson-audit-20261027.json).
 - Disabled SSP1’s scheduled DrivenData polling after reviewing its terms; GitHub peer-source
   checks remain read-only. Leaderboard observations are dated snapshots, not an ongoing feed.
 - Verified official task/metric/format, staff known-pixel masking clarification, rules PDF sections,
