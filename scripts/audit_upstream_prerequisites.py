@@ -7,6 +7,7 @@ registry clearance, or submission authorization. It never writes a raster.
 from __future__ import annotations
 
 import argparse
+import ast
 import base64
 from datetime import datetime, timezone
 import hashlib
@@ -20,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REPOSITORY = "buffedlizard55-lab/GEMSDOE32"
 ISSUES = (37, 39, 41, 42, 49, 51, 53)
 PROVENANCE = ROOT / "vendor" / "shared-template" / "PROVENANCE.json"
-DEFAULT_OUTPUT = ROOT / "evidence" / "session-e2903b2e-upstream-prerequisites.json"
+DEFAULT_OUTPUT = ROOT / "evidence" / "session-20261028-upstream-prerequisites.json"
 HEX40 = re.compile(r"^[0-9a-f]{40}$")
 HEX64 = re.compile(r"^[0-9a-f]{64}$")
 
@@ -48,6 +49,43 @@ def content_at(path: str, ref: str) -> tuple[dict, bytes]:
     if git_blob != payload.get("sha"):
         raise ValueError(f"GitHub blob identity mismatch: {path}")
     return payload, raw
+
+
+def _call_targets_pooled_fp(node: ast.AST) -> bool:
+    if not isinstance(node, ast.Call):
+        return False
+    func = node.func
+    is_add_at = (isinstance(func, ast.Attribute) and func.attr == "at"
+                 and isinstance(func.value, ast.Attribute) and func.value.attr == "add"
+                 and isinstance(func.value.value, ast.Name) and func.value.value.id == "np")
+    return bool(is_add_at and node.args and isinstance(node.args[0], ast.Name)
+                and node.args[0].id == "fp_blk")
+
+
+def zero_truth_branch_skips_pooled_fp(source: str) -> bool:
+    """Static source check for a zero-truth early continue before pooled FP addition."""
+    try:
+        tree = ast.parse(source)
+    except SyntaxError:
+        return False
+    for function in ast.walk(tree):
+        if not isinstance(function, (ast.FunctionDef, ast.AsyncFunctionDef)) or function.name != "evaluate_hide_and_recover":
+            continue
+        for node in ast.walk(function):
+            if not isinstance(node, ast.If) or not isinstance(node.test, ast.Compare):
+                continue
+            test = node.test
+            zero_truth = (isinstance(test.left, ast.Name) and test.left.id == "n_t"
+                          and len(test.ops) == 1 and isinstance(test.ops[0], ast.Eq)
+                          and len(test.comparators) == 1 and isinstance(test.comparators[0], ast.Constant)
+                          and test.comparators[0].value == 0)
+            if not zero_truth:
+                continue
+            has_early_continue = any(isinstance(child, ast.Continue) for child in ast.walk(node))
+            adds_pooled_fp = any(_call_targets_pooled_fp(child) for child in ast.walk(node))
+            if has_early_continue and not adds_pooled_fp:
+                return True
+    return False
 
 
 def validate_receipt(receipt: object) -> list[str]:
@@ -82,6 +120,21 @@ def validate_receipt(receipt: object) -> list[str]:
             errors.append("cache_bytes_claim")
         if cache.get("usable_for_protocol_reuse") is not False:
             errors.append("cache_reuse_claim")
+    source_review = receipt.get("source_contract_review")
+    if source_review is not None:
+        if not isinstance(source_review, dict):
+            errors.append("source_contract_review")
+        else:
+            soft = source_review.get("binary_soft_input_guard")
+            empty = source_review.get("zero_truth_cell_pooled_fp")
+            if not isinstance(soft, dict) or soft.get("status") not in {"SOURCE_GUARD_PRESENT_NOT_DYNAMICALLY_TESTED", "NOT_CONFIRMED"}:
+                errors.append("binary_soft_input_review")
+            if not isinstance(empty, dict) or empty.get("status") not in {"SOURCE_LEVEL_OMISSION_PRESENT", "NOT_REPRODUCED_BY_STATIC_CHECK"}:
+                errors.append("empty_truth_source_review")
+            if isinstance(soft, dict) and soft.get("status") == "SOURCE_GUARD_PRESENT_NOT_DYNAMICALLY_TESTED" and soft.get("dynamic_test_at_current_head") is not False:
+                errors.append("binary_guard_test_scope")
+            if isinstance(empty, dict) and empty.get("status") == "SOURCE_LEVEL_OMISSION_PRESENT" and empty.get("dynamic_test_at_current_head") is not False:
+                errors.append("empty_truth_test_scope")
     if receipt.get("research_ready") is not False:
         errors.append("research_ready")
     if receipt.get("candidate_generated") is not False or receipt.get("raster_sha256") is not None:
@@ -124,18 +177,21 @@ def audit() -> dict:
         "src/gems32/submission.py",
         "scripts/evaluate_holdout.py",
         "scripts/submission_writer.py",
+        "scripts/arena8a_run_experiments.py",
     )
     files = []
+    source_bytes: dict[str, bytes] = {}
     for path in source_paths:
-        metadata, _ = content_at(path, head)
-        lock = pinned[path]
+        metadata, raw = content_at(path, head)
+        source_bytes[path] = raw
+        lock = pinned.get(path, {})
         files.append({
             "path": path,
-            "pinned_commit": provenance["commit"],
-            "pinned_git_blob_sha1": lock["git_blob_sha1"],
+            "pinned_commit": provenance["commit"] if path in pinned else None,
+            "pinned_git_blob_sha1": lock.get("git_blob_sha1"),
             "current_head": head,
             "current_git_blob_sha1": metadata["sha"],
-            "byte_identical_to_pinned": metadata["sha"] == lock["git_blob_sha1"],
+            "byte_identical_to_pinned": metadata["sha"] == lock.get("git_blob_sha1") if path in pinned else None,
             "url": f"https://github.com/{REPOSITORY}/blob/{head}/{path}",
         })
 
@@ -152,15 +208,42 @@ def audit() -> dict:
 
     local_operator = json.loads((ROOT / "evidence" / "shared_tool_audit.json").read_text())
     local_reproduced = [finding["id"] for finding in local_operator.get("blocking_findings", [])]
+    holdout_source = source_bytes["src/gems32/holdout.py"].decode("utf-8")
+    submission_source = source_bytes["src/gems32/submission.py"].decode("utf-8")
+    evaluator_wrapper = source_bytes["scripts/evaluate_holdout.py"].decode("utf-8")
+    writer_wrapper = source_bytes["scripts/submission_writer.py"].decode("utf-8")
+    uniqueness_runner = source_bytes["scripts/arena8a_run_experiments.py"].decode("utf-8")
+    binary_guard_present = (
+        "def require_binary_mask" in submission_source
+        and "no implicit thresholding" in submission_source
+        and "require_binary_mask" in evaluator_wrapper
+        and "require_binary_mask" in writer_wrapper
+    )
+    outside_footprint_guard_present = (
+        "outside_footprint_compliant" in submission_source
+        and "out_foot_ok" in submission_source
+        and "np.all(out_foot == 0.0)" in submission_source
+        and "np.all(np.isnan(out_foot))" in submission_source
+    )
+    empty_truth_fp_omission = zero_truth_branch_skips_pooled_fp(holdout_source)
+    lattice_exempt_overlap_gate = (
+        'is_synthetic_lattice = "SYNTHETIC_LATTICE" in name' in uniqueness_runner
+        and "if not is_synthetic_lattice and frac_fwd > worst_within3_model" in uniqueness_runner
+        and '"lane_unique_pass": bool(surface_ok and dots_rho_ok and overlap_model_ok)' in uniqueness_runner
+    )
+    issue_by_number = {row["number"]: row for row in issue_rows}
     blockers = [
-        "No explicit single-method paragraph is present in the received request.",
-        "The shared empty-truth false-positive defect remains open and is locally reproduced.",
-        "The shared evaluator/writer silently binarize soft positive values.",
-        "The shared surface gate does not enforce preview-dot overlap.",
-        "The shared Hessian ridge implementation has an open eigenvalue-selection defect.",
-        "The canonical 35-channel cache has neither obtainable bytes nor a declared content digest.",
-        "A complete, representation-resolved registry and same-fold incumbent are not established.",
+        "No explicit single-method paragraph is present in the received request; the lane paragraph is a placeholder, so no method was assigned.",
+        "Current holdout.py still early-continues on zero-truth cells before adding their prediction FP mass to pooled fp_blk totals (source inspection, not a dynamic retest at this head).",
+        "The 35-channel cache receipt has no SHA-256 and the declared cache bytes are absent from the current source tree; do not privately rebuild it.",
+        "The current registry is not representation-resolved or complete for all source trees at the refreshed heads, and no same-fold incumbent is bound to this evaluator.",
+        "One current experiment runner excludes a synthetic lattice from its 3-px overlap threshold; this conflicts with the user's strict all-registry stop and is not an authorized exception.",
+        "The fixed e2903b2e two-hour experiment clock is elapsed; it was not reset and no geological experiment ran.",
     ]
+    if not binary_guard_present:
+        blockers.append("Current wrappers do not all call the binary-only prediction guard; the soft-input contract needs source-level review.")
+    if not outside_footprint_guard_present:
+        blockers.append("Current shared submission validator's outside-footprint rule is not confirmed in the inspected source.")
     result = {
         "schema_version": 1,
         "kind": "PARTICIPANT-SOURCE PREREQUISITE AUDIT — NOT HOLDOUT-DTI",
@@ -175,6 +258,41 @@ def audit() -> dict:
         "upstream_issues": issue_rows,
         "shared_files": files,
         "current_shared_files_byte_identical_to_pinned": all(row["byte_identical_to_pinned"] for row in files),
+        "source_contract_review": {
+            "scope": "Static inspection of participant source at this exact head; not a dynamic operator test, organizer audit, or promotion receipt.",
+            "binary_soft_input_guard": {
+                "status": "SOURCE_GUARD_PRESENT_NOT_DYNAMICALLY_TESTED" if binary_guard_present else "NOT_CONFIRMED",
+                "helper": "require_binary_mask",
+                "paths": ["src/gems32/submission.py", "scripts/evaluate_holdout.py", "scripts/submission_writer.py"],
+                "dynamic_test_at_current_head": False,
+                "reported_issues_still_open": [n for n in (37, 51) if issue_by_number.get(n, {}).get("state") == "OPEN"],
+                "interpretation": "The inspected head rejects non-finite and non-exact {0,1} in-footprint inputs; open issue titles describe older behavior and are not treated as source proof of a current soft-input defect.",
+            },
+            "outside_footprint_validator": {
+                "status": "SOURCE_GUARD_PRESENT_NOT_DYNAMICALLY_TESTED" if outside_footprint_guard_present else "NOT_CONFIRMED",
+                "path": "src/gems32/submission.py",
+                "interpretation": "The inspected validator checks zero-outside or NaN-outside mode; this is source review, not organizer acceptance.",
+            },
+            "zero_truth_cell_pooled_fp": {
+                "status": "SOURCE_LEVEL_OMISSION_PRESENT" if empty_truth_fp_omission else "NOT_REPRODUCED_BY_STATIC_CHECK",
+                "path": "src/gems32/holdout.py",
+                "issue": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41",
+                "dynamic_test_at_current_head": False,
+                "interpretation": "The n_t == 0 branch records per-fold emitted FP and continues before pooled fp_blk accumulation.",
+            },
+            "strict_all_registry_dot_gate": {
+                "status": "LATTICE_EXCLUDED_FROM_ONE_RUNNER_OVERLAP_THRESHOLD" if lattice_exempt_overlap_gate else "NOT_CONFIRMED",
+                "path": "scripts/arena8a_run_experiments.py",
+                "issue": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/42",
+                "interpretation": "One runner's lane_unique_pass uses a worst-overlap statistic that excludes synthetic lattice entries; this conflicts with the user's all-registry rule. Other current source reports are participant claims and were not re-audited here.",
+            },
+            "hessian_feature": {
+                "status": "PINNED_FEATURE_IMPLEMENTATION_UNCHANGED" if any(row["path"] == "src/gems32/features.py" and row["byte_identical_to_pinned"] is True for row in files) else "CHANGED_OR_UNKNOWN",
+                "issue": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/49",
+                "issue_state": issue_by_number.get(49, {}).get("state"),
+                "interpretation": "This is relevant only to methods that consume the affected Hessian ridge feature; no candidate feature was evaluated.",
+            },
+        },
         "canonical_feature_cache": {
             "receipt_path": "registry/feature_receipt.json",
             "receipt_git_blob_sha1": feature_meta["sha"],
@@ -189,9 +307,12 @@ def audit() -> dict:
         },
         "local_synthetic_operator_audit": {
             "receipt": "evidence/shared_tool_audit.json",
+            "tested_source_commit": local_operator.get("source_lock", {}).get("commit"),
+            "current_head_dynamic_tested": False,
             "ok": local_operator.get("ok"),
             "reproduced_blocking_findings": local_reproduced,
             "geological_model_evaluated": False,
+            "interpretation": "The synthetic receipt is scoped to the pinned vendor version; it is not a dynamic test of the newer observed HEAD. Current source conclusions are separately labeled static in source_contract_review.",
         },
         "blockers": blockers,
         "research_ready": False,

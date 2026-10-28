@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "session_id": "session-20261028-review",
+  "date_utc": "2026-10-28",
+  "kind": "NEGATIVE READINESS AND SOURCE REVIEW; NO GEOLOGICAL EXPERIMENT",
+  "hypothesis": "No method was assigned or tested. Three qualitative research hypotheses are ranked in research/hypotheses.md; none is promoted or claimed novel globally.",
+  "mechanism": "No candidate mechanism was implemented or evaluated. The ranked ideas are planning hypotheses only.",
+  "non_fault_mimic": "No experiment was run. The leading planning hypothesis is confounded by intrusive/lithologic contacts, basin-margin source mixing, survey-line levelling seams, regional trends, and window leakage.",
+  "holdout_dti": null,
+  "holdout_ci95": null,
+  "holdout_evaluator_version": null,
+  "withheld_positive_count": null,
+  "paired_incumbent_comparison": null,
+  "surface_registry_comparison": {
+    "performed": false,
+    "max_abs_spearman": null,
+    "reason": "No new continuous candidate surface exists; the refreshed participant trees were not exhaustively raster-audited."
+  },
+  "final_dot_registry_comparison": {
+    "performed": false,
+    "max_directed_overlap_within_3px": null,
+    "reason": "No new candidate dots or TIFF exists; current registry completeness and same-fold incumbent remain unresolved."
+  },
+  "raster_sha256": null,
+  "validator_output": {
+    "status": "NOT_RUN_NO_CANDIDATE",
+    "single_band": null,
+    "crs_shape_transform_match": null,
+    "footprint_nan_inf_free": null,
+    "values_in_0_1": null,
+    "portal_acceptance_verified": false
+  },
+  "submission_name": null,
+  "submission_note": "No validated candidate or score; research-only source review. Do not submit; no slot is authorized.",
+  "submission_note_character_count": 99,
+  "promote": false,
+  "verdict": "negative",
+  "candidate_generated": false,
+  "geological_experiments": 0,
+  "experiment_budget": {
+    "maximum_experiments": 3,
+    "maximum_elapsed_hours": 2,
+    "experiments_used": 0,
+    "status": "EXPIRED",
+    "source_fixed_session": "e2903b2e",
+    "reset_or_extended": false
+  },
+  "weekly_slots_used": 0,
+  "slot_authorized": false,
+  "ok_to_download_for_submission": false,
+  "ok_to_submit": false,
+  "organizer_confirmed_score": null,
+  "leaderboard_estimate": null,
+  "source_review": "evidence/session-20261028-focus-source-review.json",
+  "upstream_prerequisite_audit": "evidence/session-20261028-upstream-prerequisites.json",
+  "preflight": "evidence/session-20261028-preflight.json",
+  "data_state": {
+    "raw_bands_prepared": true,
+    "input_hashes_verified": true,
+    "participant_mirror_authentication_established": false,
+    "canonical_35_channel_cache_present": false,
+    "private_cache_rebuild_performed": false
+  }
+}

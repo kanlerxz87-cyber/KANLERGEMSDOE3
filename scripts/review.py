@@ -70,7 +70,7 @@ def build():
  write_page('archived-dashboard.html',body)
  write_page('archived-summary.html',body)
  raw=(ROOT/'research/review.md').read_text()
- write_page('archived-research.html','<p class="stop"><strong>ARCHIVED SNAPSHOT.</strong> <a href="index.html">See the current dashboard</a>.</p><article style="white-space:pre-wrap;overflow-wrap:anywhere">'+render_markdown_links(raw)+'</article>')
+ write_page('archived-research.html','<p class="stop"><strong>DATED REVIEW SNAPSHOT.</strong> This frozen text reflects the current review pointer; check <a href="index.html">the decision desk</a> and dated receipts for current status.</p><article style="white-space:pre-wrap;overflow-wrap:anywhere">'+render_markdown_links(raw)+'</article>')
  # The active research/submission HTML is rendered by build_site.py.
 
 def render_markdown_links(text):

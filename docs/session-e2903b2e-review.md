@@ -1,6 +1,8 @@
-# Session e2903b2e review — 27 October 2026
+# Archived session e2903b2e review — 27 October 2026
 
-## Executive decision
+> **Superseded for current source status by the 28 October review.** The earlier paragraph below describing the then-pinned GEMSDOE32 files as current was based on a prior source snapshot. The corrected audit now observes HEAD `109f364fb39030e40ef51b839b79cf694123b51b`: binary/outside guards are present by static inspection but not dynamically retested; the zero-truth pooled-FP omission remains source-visible; one experiment runner exempts a synthetic lattice from a 3-px threshold. Use [`session-20261028-review.md`](session-20261028-review.md) and [`session-20261028-upstream-prerequisites.json`](../evidence/session-20261028-upstream-prerequisites.json) for current decisions. This archived review is retained as a record of its earlier date and claims.
+
+## Executive decision at the archived date
 
 **Negative / DO NOT SUBMIT. No new TIFF was generated.** This is the only decision compatible with all of the request’s constraints. The prompt requires an assigned single-method paragraph, but supplies none; it also requires stopping rather than drifting lanes. The pinned shared evaluator still fails its locally reproduced empty-truth false-positive invariant, the shared soft-input path binarizes probabilities, the canonical 35-channel cache has no published bytes or digest, and the all-registry representation problem is unresolved. Creating a renamed, random, privately scored, or privately rebuilt raster would violate the protocol rather than satisfy it.
 

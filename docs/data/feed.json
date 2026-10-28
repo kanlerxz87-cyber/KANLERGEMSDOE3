@@ -6,71 +6,72 @@
     "status": "stale_or_unavailable",
     "source": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
     "evidence_class": "public leaderboard observation via research tool; not a submission-page receipt",
-    "reason": "Dated public research observation; automated DrivenData monitoring disabled under published terms."
+    "reason": "Automatic DrivenData monitoring disabled under site terms; use only access permitted by the site.",
+    "last_reviewed_utc": "2026-10-28T16:23:32.945967+00:00"
   },
   "peer_heads": {
-    "last_attempt_utc": "2026-10-26T21:55:25.894476+00:00",
+    "last_attempt_utc": "2026-10-28T16:23:32.945967+00:00",
     "sites": [
       {
         "site": "GEMSDOE24",
         "audited_ref": "5cfab74597cd1d0a271e4640b4cc34511e56ca59",
-        "observed_head": "a433b430b74b813a9118ebd4ec438b12cbc69f46",
+        "observed_head": "1778da6ae1f14f26b4bbc6c385f4a64ca6e9e4a6",
         "changed_since_audit": true,
         "status": "checked"
       },
       {
         "site": "GEMSDOE25",
         "audited_ref": "bfb2dfdbdf1b87d67afc6facd422180f56ebc455",
-        "observed_head": "b4e74b3f9b191fbc214b6447e9ff1f3fa67552c4",
+        "observed_head": "a728c9f42e6298aaa5b65013806ac578f1b2a3ef",
         "changed_since_audit": true,
         "status": "checked"
       },
       {
         "site": "GEMSDOE27",
         "audited_ref": "f1e32af867d9cf0081af20866c8241ec8678a432",
-        "observed_head": "bef7ae8e8f63b69d299c9214c75988c8f5055f9c",
+        "observed_head": "0f9e3e4b06eeecdd584d32fb9dd7544a01d2f3f0",
         "changed_since_audit": true,
         "status": "checked"
       },
       {
         "site": "GEMSDOE28",
         "audited_ref": "9c1be21e8f1be707347f737e42abf62ea669c819",
-        "observed_head": "2c839d10f57ec9b074829e93c84bc39935f52896",
+        "observed_head": "f6746e1ad4eb49a35902bb4fd5404b5e6edc9287",
         "changed_since_audit": true,
         "status": "checked"
       },
       {
         "site": "GEMSDOE30",
         "audited_ref": "35ce8911e2c3287eed973eacd12c252e8cb3f34c",
-        "observed_head": "9c0d637c0171407196b61b780444bc772ce75438",
+        "observed_head": "c3d6c815ae5b6415b07a39d99058a10d4fda0789",
         "changed_since_audit": true,
         "status": "checked"
       },
       {
         "site": "GEMSDOE31",
         "audited_ref": "78f9bf3ae82e5c78ca348aa37c0660c339e72f0e",
-        "observed_head": "eeb7da54ca4a8ae056f45e5b23eeef586ad79bf2",
+        "observed_head": "cd0b12260807732f3ddb339889984f066d12e870",
         "changed_since_audit": true,
         "status": "checked"
       },
       {
         "site": "GEMSDOE32",
         "audited_ref": "8953b986b2ce6eb5ee8b7eda23fe3ad529720986",
-        "observed_head": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+        "observed_head": "109f364fb39030e40ef51b839b79cf694123b51b",
         "changed_since_audit": true,
         "status": "checked"
       },
       {
         "site": "GEMSDOE33",
         "audited_ref": "a24fb7c5031ee08b12440af4593057858fecef8e",
-        "observed_head": "08380a2e6f2a76d733ee6144d6de33e2907c13b8",
+        "observed_head": "1e08a7e81ee4595e2f3770f5c4f7c071adc1a53e",
         "changed_since_audit": true,
         "status": "checked"
       },
       {
         "site": "GEMSDOE36",
         "audited_ref": "b90418f852615aa0974cf9a53b92fa569ed133fc",
-        "observed_head": "32c2660001d98f6fa9084a0971b3a9d5062d49b9",
+        "observed_head": "4b717aaff6eaf5de9b53030e637f8e1cf0d56e43",
         "changed_since_audit": true,
         "status": "checked"
       }

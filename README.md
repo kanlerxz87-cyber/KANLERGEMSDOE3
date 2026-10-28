@@ -1,267 +1,99 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
 **Start every session by reading this README (including the full user request below),
-[AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
-[current fixed session config](config/research-session-e2903b2e.json), [preserved prior session configs](config/), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-30454eca-run-card.json), and [latest negative card](evidence/session-e2903b2e-run-card.json). Never reset an earlier session clock.**
+[AGENTS.md](AGENTS.md), [current scientific review](research/session-20261028-review.md),
+[current ranked hypotheses](research/hypotheses.md), [current negative run card](evidence/session-20261028-run-card.json),
+[current upstream prerequisite audit](evidence/session-20261028-upstream-prerequisites.json),
+[current preflight](evidence/session-20261028-preflight.json), and the fixed prior-session
+[config](config/research-session-e2903b2e.json). Read the full [standing user request](#full-standing-user-request)
+below. Never reset an earlier session clock or run without a newly assigned method paragraph.**
 
-## Final integrated continuation — 27 October 2026
+## Current review — 28 October 2026
 
-[Three-pass review and next steps](research/session-e2903b2e-review.md) ·
-[Negative run card](evidence/session-e2903b2e-run-card.json) ·
-[Readiness snapshot](evidence/session-e2903b2e-preflight.json) ·
-[Fresh nine-site source snapshot](evidence/session-e2903b2e-focus-feed.json) ·
-[Shared prerequisite audit](evidence/session-e2903b2e-upstream-prerequisites.json) ·
-[Cumulative verification](evidence/session-e2903b2e-verification.json)
+[Three-pass review and next steps](research/session-20261028-review.md) ·
+[Negative run card](evidence/session-20261028-run-card.json) ·
+[Current nine-site participant-source review](evidence/session-20261028-focus-source-review.json) ·
+[Current source-feed snapshot](docs/data/focus-feed.json) ·
+[Corrected GEMSDOE32 prerequisite audit](evidence/session-20261028-upstream-prerequisites.json) ·
+[Fixed-budget preflight](evidence/session-20261028-preflight.json) ·
+[Ranked hypothesis shortlist](research/hypotheses.md)
 
-**DO NOT SUBMIT.** The concurrent forensic work below is integrated without claiming its experiments.
-This final review restored every available pinned instrument/input, refreshed all nine participant
-sources, and independently re-ran the unchanged operator audit. It produced no new TIFF or score
-estimate and used no geological experiment or weekly slot. The five current shared evaluator,
-feature, and writer files remain byte-identical to the pinned defective versions. The named
-35-channel cache still has neither obtainable bytes nor a content digest;
-[upstream issue 53](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/53) requests a central
-content-addressed release, lineage, invalidation, and verifier. Source freshness is not approval.
+**DO NOT SUBMIT.** No method was assigned; no geological experiment, candidate TIFF, fresh
+HOLDOUT-DTI result, organizer score receipt, submission slot, or leaderboard estimate was produced.
+The request for a validated submission artifact is therefore **not fulfilled**: no file is safe or
+authorized to download for submission. The negative readiness result is the deliverable.
 
-## Preserved concurrent forensic continuation — 30454eca
+- Both refreshed feeds agree on all **9/9** pinned focus-site heads (checked
+  `2026-10-28T16:23:32Z`). All nine heads differ from the previous registry snapshot, so current
+  source freshness **does not** clear the newer TIFF inventory, surface correlations, final-dot
+  overlaps, or the complete-registry gate.
+- Core input SHA-256 checks pass and raw preparation is complete; the bytes came from participant
+  mirrors, not an organizer-authenticated source. The canonical 35-channel cache and its digest
+  are still absent; no private cache rebuild was performed.
+- The corrected source audit examines GEMSDOE32 HEAD
+  [`109f364fb39030e40ef51b839b79cf694123b51b`](https://github.com/buffedlizard55-lab/GEMSDOE32/tree/109f364fb39030e40ef51b839b79cf694123b51b).
+  Binary/outside-footprint guards are present by static inspection but were **not dynamically
+  retested** at this head. The empty-truth pooled-FP omission remains source-visible, and one
+  experiment runner exempts a synthetic lattice from a 3-px threshold. These are participant-source
+  findings, not proof of organizer impact.
+- Preflight is negative: no assigned method, operator repair/test at current HEAD, canonical cache,
+  complete registry/saturation definition, same-fold incumbent, or unexpired experiment budget.
+  `experiments_used=0` and `submission_slots_used=0`; the prior fixed clock remains expired.
+- The ranked list is qualitative and deliberately caveated. Older ideas such as Morse–Smale
+  persistence, directional-fabric entropy, edge-migration stability, and many Fourier/phase,
+  drainage, and geochemical families overlap existing local or peer work; they are **not** presented
+  here as newly discovered. Two external-data ideas remain deferred until official bytes and
+  footprint coverage are verified.
+- The highest repeated historical claim, **0.2778**, remains owner/user-reported without a
+  submission receipt binding it to a TIFF hash. The stored public leaderboard observation is stale;
+  it is not a current score or a prediction. No historical score is promoted to
+  ORGANIZER-CONFIRMED in this review.
 
-[Three-pass audit and next steps](research/session-30454eca-review.md) ·
-[Negative run card](evidence/session-30454eca-run-card.json) ·
-[Readiness snapshot](evidence/session-30454eca-preflight.json) ·
-[Fresh nine-site source snapshot](evidence/session-30454eca-focus-feed.json)
+The prior 27 October integrated review and its receipts are retained below as **archived evidence**.
+Its statement that the then-pinned shared files were still the current HEAD is superseded by the
+28 October source audit; use the dated current receipts above for present decisions. Source freshness
+is not scientific approval, novelty clearance, organizer authentication, or permission to spend a slot.
 
-**No new competition TIFF, score, assigned lane, geological experiment or weekly slot.**
-Five integrity-pinned core participant-mirror inputs were restored in this workspace; these
-large ignored files may not exist in another checkout, and their hashes do not authenticate
-organizer provenance. The central evaluator defect remains open; the complete registry,
-shared feature cache, same-fold incumbent and coordinator's method assignment are missing.
-The prior session's research clock expired and was not reset.
+## Archived evidence and reproducibility
 
-- Independently rechecked the newer GEMSDOE36 S2D-36 peer TIFF against nine historic winners
-  and the full binary lattice. It has **37,458 / 37,654 (99.48%)** dots within 3 px of the
-  lattice; it also exceeds 70% versus GEMSDOE24 and GEMSDOE27. Its participant-reported
-  `HOLDOUT-DTI 0.200766` (95% CI `[0.186488, 0.215333]`, `gems-segment-pooled-v1`,
-  60,988 withheld positives) was not rerun here and is not an organizer score. The
-  [receipt](evidence/session-30454eca-s2d36-audit.json) is a bounded forensic check, not a full
-  surface/registry audit. Reproduce with `.venv/bin/python scripts/audit_s2d36_peer.py --restore`;
-  exit 1 is the intentional negative decision.
-- Independently audited the preserved CADG card's exact current TIFF against the **full** lattice:
-  **37,630 / 37,654 (99.94%)** dots overlap. The card's **99.73%** figure uses a different
-  comparison that excludes lattice cells on the mirrored catalogue; both fail. See the
-  [reproducible receipt](evidence/session-30454eca-cadg-lattice.json) and
-  `.venv/bin/python scripts/audit_cadg_lattice.py --restore` (exit 1 = duplicate stop).
-- Reproduced the earlier H33 geometry and conditional full-footprint diagnostic saturation.
-  The latter is a continuous diagnostic, not an established submitted dot field; its universal
-  implication depends on treating every positive cell as a dot. Do not quietly exempt it or the
-  binary lattice. Human selector sign-off cannot override a failed literal duplicate rule.
-- Regenerated the root and CADG sites as **DO NOT SUBMIT**. Checks now reject stale generated
-  root/CADG pages before tests or staging can overwrite or publish them. The exact rejected
-  upload and portal receipt are missing: neither outside encoding is a proven fix for the
-  prior `[0,1]` error or a guarantee of acceptance.
+Earlier sessions and parallel reviews are preserved as dated artifacts, not merged into a new
+experiment or treated as current approvals. Their cards, source pins, raster audits, and site
+snapshots remain available in `evidence/`, `research/session-*.md`, `docs/data/`, and the isolated
+research archives. Any old claim about a current source HEAD, score, or submission gate is
+superseded by the 28 October receipts linked above.
 
-## Concurrent reviews merged during this continuation
+Useful historical references (all research-only unless an organizer receipt says otherwise):
 
-- [Session 91270cac](research/session-91270cac-review.md) compared two frozen
-  nine-site Git-tree snapshots and found 29 added TIFF paths, including encoding
-  twins. All 29 exact blobs failed the same full-lattice duplicate check; this is
-  not a count of independent models, a complete-registry audit, or a review of
-  later commits. Its [path inventory](evidence/session-91270cac-raster-changes.json),
-  [saved-byte findings](evidence/session-91270cac-changed-peer-audit.json),
-  four-file CADG/ZIP audit, preserved historical presentation snapshots, and
-  fail-closed archive wrappers are retained.
-- [Session 5c1613da](research/session-5c1613da-review.md) independently reproduced the
-  99.94% f056 lattice overlap and audited an older, distinct 9a4e field at **99.95%**.
-  The four saved encodings and both negative decisions are in its
-  [forensic receipt](evidence/session-5c1613da-cadg-audit.json). Its stronger
-  readiness gates and SSP1 technical checks are preserved; no slot was spent.
-- [Session 12817d00](research/session-12817d00-review.md) independently restored the
-  fail-closed desk and recorded a separate set of four conditional hypotheses, now in
-  [the shared research queue](research/hypotheses.md). Its negative card and fixed
-  configuration are preserved; it generated no new candidate or slot. The separate
-  [30454eca shortlist](research/session-30454eca-hypotheses.md) is preserved too.
-- [Session bb1bdbdd](research/session-bb1bdbdd-review.md) hardened malformed preflight
-  handling and refreshed sources; its [negative card](evidence/session-bb1bdbdd-run-card.json)
-  remains unchanged.
-- [The concurrent quarantine review](research/session-20261027-arena-review.md) removed
-  CADG download links. Its reported 99.73% used a catalogue-excluded reference; our later
-  full-lattice check measured 99.94%. Both fail, and direct CADG download links stay removed.
+- `research/session-e2903b2e-review.md` — archived 27 October integrated review, with a correction
+  banner pointing to the newer current-head source audit.
+- `research/session-30454eca-review.md` and `research/session-91270cac-review.md` — bounded saved-byte
+  and changed-peer audits; not complete current-head registry clearances.
+- `research/session-5c1613da-review.md`, `research/session-12817d00-review.md`, and older dated
+  reviews — prior negative results and proposal lists, not current method assignments.
+- `evidence/inherited_literal_audit.json`, `evidence/session-30454eca-s2d36-audit.json`,
+  `evidence/session-30454eca-cadg-lattice.json`, and related receipts — exact historical-byte checks;
+  their scope and source pins remain in each receipt.
+- `docs/` retains historical site summaries and archived research pages. The current first-screen
+  decision is **no eligible TIFF / DO NOT SUBMIT**; old download links are research-only and do not
+  authorize a competition upload. Preserved isolated portals include [ATSC](docs/atsc-submod/index.html)
+  and [CADG](docs/cadg-submod/index.html); their evaluator results are not directly comparable and
+  their cards remain negative under the literal uniqueness rule.
 
-## Earlier continuation — 27 October 2026
-
-[Earlier scoped review and next steps](research/session-20261027-review.md) ·
-[Current readiness receipt](evidence/session-20261027-readiness.json) ·
-[Current nine-site source observations](evidence/session-20261027-focus-feed.json) ·
-[Current negative review card](evidence/session-20261027-run-card.json)
-
-That separate readiness-review session produced no new TIFF or score estimate. Seven priority
-repositories changed since its saved feed; source changes are not a scientific/novelty audit.
-Its readiness check now binds operator receipts to the exact provenance-manifest digest and rejects
-contradictory conservation checks. Its review reported 177 passing tests after restoring optional
-instruments. Its checkout lacked core rasters; this session has restored pinned participant-mirror
-inputs locally, although those ignored bulk files may not persist. That review used no geological
-experiment or weekly slot.
-
-## Executive decision: DO NOT SUBMIT
-
-[Executive desk](docs/index.html) · [Every priority site](docs/index.html#comparison) ·
-[How to submit](docs/executive-summary.html) · [Research queue](docs/research.html) ·
-[Official-source ledger](docs/sources.html) · [Machine audit](docs/audit.json) ·
-[Current three-pass review](research/session-e2903b2e-review.md)
-
-**There is no qualified TIFF to download and no defensible leaderboard estimate.** This review
-session ran no geological experiment, generated no new TIFF and spent no weekly slot. Concurrent
-main contains other sessions’ negative model results and quarantined research TIFFs; those are
-preserved, not claimed as this session’s work. The requested winning artifact is not delivered.
-
-### Progress in this session
-
-- Restored the complete 19-band core feature raster, labels, sample and SGMC proxy from immutable,
-  hash-pinned participant mirrors. **Core-mirror data placement is completed**, but mirror integrity is not
-  organizer authentication. Large inputs remain ignored, not copied into Git.
-- Ran the **unmodified shared** raw-band preparation. Did not privately rebuild the shared derived
-  35-channel feature stack; its cached bytes and expected digest remain unavailable.
-- Restored 13 unmodified shared evaluator/writer/dependency files with SHA-256 and immutable Git-tree blob identity checks.
-  Synthetic tests independently reproduce the existing [shared empty-truth FP defect](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41).
-  Real evaluation remains blocked pending a central fix. No private numerical fork was introduced.
-- Audited the current shared-template head and open issues 37, 39, 41, 42, 49, 51 and 53.
-  The five protocol-critical source files remain byte-identical to this repository's pinned copy;
-  the [machine receipt](evidence/session-e2903b2e-upstream-prerequisites.json) records no candidate
-  or score. Issue 53 requests canonical cache bytes, digest, lineage, invalidation, and a verifier.
-- Independently reconfirmed all nine historic winner hashes and all 72 directed geometric overlaps.
-  Every winner exceeds the literal duplicate stop against another. These are **geometric audit
-  measurements, not scores**; historical continuous-surface correlation remains unknown.
-- Reopened the exact pinned GEMSDOE25, 30 and 32 rasters: GEMSDOE25 and 30 have identical
-  44,090-dot masks; GEMSDOE32 equals that mask after removing 6,436 dots within two pixels of
-  the mirrored known-fault catalogue, with no additions. This is geometry, not proof of authorship
-  or causal score gain. Reproduce with `scripts/audit_h33_lineage.py`; see the [receipt](evidence/h33-lineage-20261027.json).
-- The saved-band validator now reports three local profiles (`template-mask`, `finite-grid`,
-  `masked-finite`) and raw finite/nonfinite/out-of-range counts, including masked pixels. No profile
-  guarantees portal acceptance; the exact rejected upload was not provided, so its range-error cause is unknown.
-- In the earlier peer snapshot, GEMSDOE36’s KPL-36 page said promote under a detector-only
-  comparison, but its exact-byte audit finds 37,341 / 37,654 dots (99.17%) within
-  3 px of the required registered lattice: **DO NOT SUBMIT** under this session’s literal rule.
-  Its reported HOLDOUT-DTI was not independently rerun. See the [forensic receipt](evidence/kpl36-lattice-audit-20261027.json).
-- Preserved another parallel session’s random-control TIFFs and rechecked their saved bytes:
-  37,611 / 37,654 dots (99.89%) overlap the registered lattice. Both are **DO NOT SUBMIT**.
-  Its original card's claims of all-nine uniqueness and having fixed the old portal error are
-  not established; the card lists only a subset of site overlaps, and the rejected upload is absent.
-  See the [corrected audit](evidence/parallel-poisson-audit-20261027.json).
-- Disabled SSP1’s scheduled DrivenData polling after reviewing its terms; GitHub peer-source
-  checks remain read-only. Leaderboard observations are dated snapshots, not an ongoing feed.
-- Verified official task/metric/format, staff known-pixel masking clarification, rules PDF sections,
-  public leaderboard snapshot, USGS metadata and GDR resource index. Every claim's source and limits
-  are in [the earlier ledger](evidence/official-claims-20261026.json), the [dated observation](evidence/official-observation-20261027.json), and [updated geological notes](knowledge/geothermal-science-2026-10-27.md). No per-file organizer receipt exists.
-- Rebuilt the Pages executive desk with an individual summary for each priority site, four ranked
-  conditional hypotheses, automatic read-only source-change checks, and explicit no-submit status.
-
-### Remaining research blockers
-
-The prompt references a single-method lane paragraph, but no identifiable method assignment is
-present. Do not invent one. Also missing: canonical cached feature bytes/digest, a correct pinned
-shared evaluator, complete raster/surface registry, and a same-evaluator/same-fold incumbent.
-The binary calibration lattice is not exempt, and the soft-diagnostic dot representation must be
-resolved without silently weakening the registry. The mirror sample contains 60,988 catalogue
-positives despite the official total-absence sample description ([independent check](evidence/sample-provenance-check.json)).
-Official template provenance and the account's remaining weekly cap must be established before a
-separate selector authorizes any upload. A positive, evidence-authenticating release publisher
-also remains unimplemented. No human visual raster inspection is a required gate.
-
-## Reproduce: data → instrument audit → readiness → site
+## Reproduce the current read-only checks
 
 ```sh
-python -m venv .venv
-.venv/bin/pip install -r requirements.txt
-bash scripts/download_competition_data.sh   # pinned public mirror; ~420 MB core, ignored
-.venv/bin/python scripts/prepare_data.py    # delegates to shared raw-band preparation only
-.venv/bin/python scripts/audit_shared_tools.py  # expected nonzero: unresolved upstream defect
-.venv/bin/python scripts/audit_upstream_prerequisites.py  # participant source; never a score
-.venv/bin/python scripts/preflight.py --config config/research-session-e2903b2e.json # nonzero expected; do not reset prior clocks
-.venv/bin/python scripts/restore_audit_data.py # historical learning only; never a candidate
-.venv/bin/python scripts/audit_h33_lineage.py  # read-only geometry; no candidate/score/slot
-.venv/bin/python scripts/audit_kpl36_external.py --restore # expected nonzero: duplicate stop
-.venv/bin/python scripts/audit_rasters.py
-.venv/bin/python scripts/install_template.py # inherited shared pins; sources only
-PYTHON=.venv/bin/python bash scripts/bootstrap_template.sh
-.venv/bin/python scripts/restore_instruments.py --profile saturation57
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q
+.venv/bin/python -m pytest -q tests/test_refresh_sources.py tests/test_focus_source_review.py tests/test_current_session.py
+.venv/bin/python scripts/build_focus_source_review.py
+.venv/bin/python scripts/audit_upstream_prerequisites.py --output evidence/session-20261028-upstream-prerequisites.json
+.venv/bin/python scripts/preflight.py --config config/research-session-e2903b2e.json --out evidence/session-20261028-preflight.json
 .venv/bin/python scripts/build_site.py
 .venv/bin/python scripts/build_site.py --check
-.venv/bin/python -m http.server 8000 --bind 0.0.0.0 --directory docs
 ```
 
-The executable scripts contain real restoration and audits, not a GPU-training claim. The site
-preflight is a **dated** session snapshot; a fresh local preflight reflects files and the fixed clock
-at execution time and never overwrites the published snapshot. A unit-test pass is not a geological validation result. `scripts/check_uniqueness.py --help` describes the exact
-full-footprint Spearman + Euclidean dot-overlap audit; a soft registry surface needs its explicit
-companion dot mask. Empty/constant/missing comparisons do not establish novelty.
-
-`python scripts/sync_focus_feed.py` refreshes immutable participant source commits without a REST
-quota or credentials. The site checks public GitHub source changes read-only (cached up to one hour),
-showing errors as unknown. Visible pages refresh automatically at cache expiry; failed checks
-back off across reloads instead of exhausting the anonymous API quota. **This is not an authenticated live leaderboard/approval feed.** Official
-score observations remain dated and distinct from submission-page receipts. Scheduled CI publishes
-source-review artifacts, not automatic scientific approvals or account submissions.
-
-### Browser review (Node 22)
-
-```sh
-npm ci --prefix tools/browser --no-audit --no-fund
-node tests/browser_smoke.mjs --serve
-```
-
-This starts and closes a temporary test server on port 8000. If a preview already uses
-that port, set `GEMS_PREVIEW_URL=http://127.0.0.1:8001` for this test command only.
-Browser binaries and screenshots stay ignored; CI uploads the UI report for seven days.
-Tests mock source API success/change/quota failures and storage restrictions, not scores.
-
-### Concurrent work preserved, not silently mixed
-
-Main `4338f12`, `9ebfc4b` and `1fcc140` introduced parallel bilateral/GPC,
-K3-H1, DCAP-LHC and isolated SSP1 studies, other source pins, research-only TIFFs
-and registry-saturation evidence. SSP1 maintenance `9a24c59` is also retained. The preserved canonical bilateral run/card remains
-canonical at `evidence/run-card.json` and identical root/docs aliases. Earlier reviews include
-`evidence/session-7d1e577d-run-card.json` and `evidence/session-30454eca-run-card.json`; the final
-continuation’s separate card is `evidence/session-e2903b2e-run-card.json`. This continuation records
-zero new geological runs; the repository-wide history is not zero. No result is promoted.
-
-All four root-archive TIFF files were independently replayed against the required
-binary lattice and fail the literal overlap stop. The GPC file also retains 4,115
-positive pixels on the mirrored catalogue. Their source cards/bytes were not rewritten.
-See `evidence/inherited_literal_audit.json` and the research-only archive page.
-
-The full-footprint diagnostic saturation was independently reproduced using unchanged
-shared instruments; its implication is conditional on counting all positive soft cells
-as dots. That definition is unresolved, not silently waived. See the
-[integration review](research/integration-2026-10-26.md) and scoped replay receipt.
-Main-side conflict versions are retained under `archive/integration-*/`. The SSP1
-portal is isolated at `docs/ssp1/` with source/evidence at `studies/ssp1/`; its
-evaluator and the canonical bilateral evaluator are **not directly comparable**.
-The full public source-status script and its explicit negative study entry point remain.
-
-The new **`L-K3-ATSC-SUBMOD`** (`H-K3S2-1+2` / `Exp-ATSC-2` Anisotropic Dip-Offset Structural
-Corridor Tomography + Axial `d=2.85` 300 m Submodular CELF, preregistered SHA-256
-`e87228d624bcca28a5d6ec7475a10582a82d833c996644bbc8b5312b6e189201`) lane is isolated at
-[`docs/atsc-submod/index.html`](docs/atsc-submod/index.html)
-([executive summary & encoding reference](docs/atsc-submod/executive-summary.html),
-[hypotheses & `GEMSDOE32` mathematical analysis](docs/atsc-submod/hypotheses.html),
-[research dossier](research/atsc_results_and_peer_forensics_20261027.md)) with Run Card
-[`evidence/atsc-submod-run-card.json`](evidence/atsc-submod-run-card.json) and source in
-`src/kanlergems3_atsc/` + `scripts/run_atsc_experiments.py` + `scripts/build_atsc_site.py`:
-- **Spatial Holdout (`HOLDOUT-DTI`, participant-mirrored `gems-segment-pooled-v1` / `quadrant-buffered-15px-v1`, `60,988` withheld positives, `N = 37,654` dots):** **`0.163715`** (`95% CI [0.153314, 0.174809]`), outperforming prior `CADG Exp-K3-3` (`0.157080`, **`+0.006635` / `+66.4 bps`**), 1-stage `CADG Exp-K3-2` (`0.153035`, **`+106.8 bps`**), and `B0_regional_d28` (`0.102255`, **`+0.061460`**, paired `95% CI [+0.0506, +0.0722]`, `4/4` folds). Within-lane ablations: `Exp-ATSC-1 = 0.161641`, `Exp-ATSC-2 = 0.163715` (winner), `Exp-ATSC-3 = 0.161290` (falsifying visible-tip proximity `H-K3S2-3` at `-24.3 bps`). Orthogonal `DiagonalSegmentHoldout(buffer_px=20)` = **`0.152844`** vs `CADG Exp-K3-3` `0.147663` (**`+51.8 bps`**) and `B0_regional_d28` `0.096230` (`+0.056614`, `4/4` folds). All `103/103` single-feature leakage canaries pass (`max AUC = 0.6305 <= 0.90`).
-- **Three Physical Laws, 90-Raster Uniqueness & Fail-Closed Gate (`DO NOT SUBMIT`):** Satisfies all three physical laws (`56.94%` dots `>1.5 km` off-catalogue; `2.91% <= 4.3%` flat deep-basin spill; **`0.11% < 2.0%` `Clump>=3` 300 m crowding**; `24.66%` LiDAR-void dot share), passes `16/16` local `finite-grid` byte checks on research-only [`kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros.tif`](docs/atsc-submod/downloads/kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros.tif) (`SHA-256: bf21ac69a0e5e6325d9725e7188be210a24b2e68b68060574db56af0d5972566`, `0` NaN across `12,279,160` cells; portal acceptance unverified), and passes detector-only uniqueness across **all `87/87` genuine geological fault detectors** (`57.14% <= 70%` max 3-px overlap; `|rho| = 0.0712 <= 0.90`). Against the registered `206,895`-dot `13GEMSDOE r13-lattice-s5` uniform grid probe, `37,652 / 37,654` dots (`99.99%` unfiltered; `99.77%` off-catalogue; mathematical min `82.34%`) fall within 3 px: `promotion_gate.py` holds `verdict = "negative"` (`slot_authorized = false`, `0` live slots spent), and a selector cannot waive the literal stop.
-
-The `L-K3-CADG-SUBMOD` prior lane is preserved at [`docs/cadg-submod/index.html`](docs/cadg-submod/index.html), with its unchanged [original card](evidence/cadg-submod-run-card.json) and research files. Its current card reports **`HOLDOUT-DTI 0.157080`**, 95% CI `[0.143057, 0.171030]`, `gems-segment-pooled-v1`, 60,988 withheld positives. This participant-run measurement was not rerun in the latest audit and is not an organizer-confirmed score. Its reported detector-only comparisons do not establish all-registry uniqueness. The new [saved-byte check](evidence/session-30454eca-cadg-lattice.json) finds **99.94%** of the current card's 37,654 dots within three pixels of the full registered lattice; the card's **99.73%** figure excluded lattice dots on the mirrored known-fault catalogue. Both exceed the literal stop. The card remains negative, no selector may waive the stop, and its finite-zero TIFF is not proven to fix the prior portal error.
-
-## Publication and three-pass review
-
-The active static site is `docs/`; the repository-root `index.html` redirects there for the existing
-main/root GitHub Pages configuration. Do not overwrite active pages with archived review builders.
-Verification details and remaining gaps: [research/verification.md](research/verification.md).
-Publication/check/merge record: [PR #20](https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/pull/20). Its status is not TIFF eligibility.
-
-Pass 1 implements/reproduces the accessible work. Pass 2 attacks numerical, schema, transport,
-encoding and UI assumptions. Pass 3 reconciles the full request, reruns checks, integrates concurrent
-main changes, then opens/merges a PR only after checks. No claim is made that the winning-TIFF goal
-is fulfilled merely because the review infrastructure passes tests.
+The source review and preflight are negative by design. The audit commands do not train a model,
+rebuild the canonical feature cache, validate a candidate, estimate a leaderboard score, or spend a
+slot. Run no geological experiment without the assigned method paragraph, central cache/evaluator
+receipts, complete registry, same-fold incumbent, and an explicitly renewed budget decision.
 
 ## Core values
 

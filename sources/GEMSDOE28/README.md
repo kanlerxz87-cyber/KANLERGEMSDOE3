@@ -1,12 +1,315 @@
-# Session 21 (`S21-PUHGB`) — 2026-10-26 UTC (read first every session)
+# S26 · 2026-10-28 UTC — current checkout review · READ FIRST EVERY SESSION
+
+## CURRENT DECISION: NO NEW TIFF · EXISTING UNIQUE RESEARCH TIFF IS NEGATIVE · OK TO SUBMIT: NO
+
+**Active branch:** `arena/95d8129d-gemsdoe28`. No geological experiment or new TIFF was run in this review. The prior S25 PCSE TIFF below is available to download **for research/audit only**; it is **not OK to submit** because its HOLDOUT-DTI (0.0450, 95% CI 0.0380–0.0525) is below the same-fold random-K HOLDOUT-DTI (0.0699, 95% CI 0.0667–0.0731). The exact current validator also fails closed because the local sample submission and labels are absent.
+
+- [S26 report and four candidate hypotheses](knowledge/71_s26_review_2026-10-28.md) · [S26 JSON run card](evidence/s26_run_card.json) · [fresh preflight](evidence/s26_preflight.json) · [fresh exact-file audit](evidence/s26_download_audit.json) · [hypothesis registry](registry/s26_hypotheses.json)
+- The highest supplied GEMSDOE32 score, **0.2778**, remains **USER-REPORTED / UNVERIFIED**; no calibrated estimate of hidden leaderboard performance is available. The PCSE holdout result is not a leaderboard score.
+- Top actionable untried idea: **S26-TCB**, two-sided directional covariance changes in `rtp`, `tmi_hg`, and `cond_surf`. It was **not run**: lane assignment, complete synchronized registry, frozen comparable baseline, cache/shared tools, and fresh experiment authorization are missing. No submission slot was selected.
+- Run next only after the fail-closed gates pass; run individual feature leakage canaries, the shared buffered whole-segment evaluator, and pre-placement/final-dot registry checks. Do not bypass or rewrite the shared protocol.
+
+---
+
+# S25 · 2026-10-28 UTC — prior PCSE experiment · READ FIRST EVERY SESSION
+
+## UNIQUE TIF GENERATED · FORMAT VALID · HOLDOUT NEGATIVE · OK TO SUBMIT: NO
+
+| File (download to review only) | Unique? | Format valid? | HOLDOUT-DTI (95% CI) | vs random-K control | OK to submit? | Organizer score |
+|---|---|---|---|---|---|---|
+| [gems28-s25-pcse-scarp-energy-k37654-20261028-4af5ddbb4b50-nan.tif](docs/downloads/gems28-s25-pcse-scarp-energy-k37654-20261028-4af5ddbb4b50-nan.tif) | YES (max 3 px overlap 0.44 < 0.70; max abs rho 0.06 < 0.90 across 51 registry TIFs) | YES (all hard checks pass) | 0.0450 (0.0380–0.0525) · HOLDOUT-DTI, 60,988 withheld positives | 0.0699 (random-K) — **PCSE is worse, paired Δ −0.0248 (CI −0.0324 to −0.0169), 0/4 folds** | **NO** | none |
+
+- **Why not submit:** the file is unique and format-valid, but it scores below a random-placement control on the shared holdout. A unique file is not a skilled file. No organizer receipt exists.
+- Full record: [knowledge/69_s25_pcse_result.md](knowledge/69_s25_pcse_result.md) · run card [evidence/s25_pcse_run_card.json](evidence/s25_pcse_run_card.json) · ablation [evidence/s25_pcse_ablation.json](evidence/s25_pcse_ablation.json) · novelty [evidence/s25_pcse_novelty.json](evidence/s25_pcse_novelty.json) · manifest entry `s25_pcse_research` in [docs/downloads/manifest.json](docs/downloads/manifest.json).
+- **Restoration (this session):** training, labels, template, and model-group rasters restored from SHA-256-pinned owner GitHub mirrors (not organizer-authenticated). Shared template restored to GEMSDOE24 `2521cb67…`. `prepare_data.py` run. Previously this checkout was BLOCKED; it is no longer blocked for software, but organizer authenticity remains unverified.
+- **Bug fixed:** training rasters use float32 minimum (−3.4e38) as a missing sentinel in 3,061 footprint cells per band; now treated as missing.
+- **Experiments used:** 2 of 3 (PCSE full; its ablation). Stopped. No slot selected.
+- **Verification:** `pytest` 657 passed / 5 skipped (data-dependent); `ruff` clean. Public S25 page: [docs/s25/index.html](docs/s25/index.html) (also a panel on the top of the overview and executive-summary pages, inserted by `scripts/build_s25_page.py` during `build_active_review.py`).
+- **Leaderboard anchors** (0.4413 / 0.3195 / 0.4544) remain unverified from this sandbox, which cannot reach drivendata.org.
+- **Next:** see the ranked list in knowledge/69. The third experiment is reserved for a pre-declared, frozen change and only if motivated by the ablation.
+
+---
+
+# S25 · 2026-10-28 UTC — repository review · READ FIRST EVERY SESSION
+
+**Additional S25 record (input restoration, PR #72):** every pinned input restored and hash-verified, feature cache built, 658 tests pass; no TIFF, no holdout run, no slot. Remaining decisions (method lane, registry-rule budget, budget clock): [knowledge/69_s25_status_2026-10-28.md](knowledge/69_s25_status_2026-10-28.md) · [run card](evidence/s25_run_card.json).
+
+## **NO NEW TIFF · NOT OK TO DOWNLOAD OR SUBMIT · zero experiments**
+
+S25 is a read-only review on `arena/965e7dda-gemsdoe28`. Fresh preflight at 2026-10-28 11:38:07 UTC exited 1 / BLOCKED: no assigned lane, complete synchronized registry, strict comparable baseline, cached feature stack, or nine pinned shared-template assets; the configured experiment wall-clock budget is also expired. No model, candidate, holdout, canary, score estimate, TIFF or slot decision was produced. **Do not upload an old TIFF under a new name.**
+
+- **[Executive summary + nine-site table + exact submission guide](docs/executive-summary.html)** · [S25 review](knowledge/69_repository_review_2026-10-28.md) · [S25 JSON run card](evidence/s25_repository_review_run_card.json) · [Exact fresh preflight](evidence/s25_preflight.json)
+- GEMSDOE32's supplied **0.2778 remains USER-REPORTED / UNVERIFIED**. Forensic description of catalogue-adjacent pruning is not proof of score causation. No calibrated hidden-score estimate is available; no live leaderboard or receipt was checked.
+- **Fresh software verification:** 655 passed, 6 skipped, 12 warnings, 9 subtests; Ruff clean; 19-page static build plus active-review overlay succeeds with zero external requests. Six data-dependent skips are not passes. Full details: [S25 review](knowledge/69_repository_review_2026-10-28.md).
+- **S25 decision:** no new file approved; `submission_ready=false`, `ok_to_submit=false`, `slot_selected=false`. Current preflight is recorded at [evidence/s25_preflight.json](evidence/s25_preflight.json). No experiment was started.
+- **Next work:** resolve missing lane, synchronized registry, shared cache/tools, and same-protocol baseline without bypassing duplicate controls; then obtain a fresh authorized budget before any experiment. No submission slot may be selected by this review.
+- **Supplemental exact-file check on branch `arena/7504de16-gemsdoe28`:** `scripts/verify_downloads.py` exited 1 / FAIL CLOSED because `data/sample_submission.tif` and `data/labels.tif` are missing. No historical file was approved. See [branch-specific verification](knowledge/70_checkout_validation_followup_2026-10-28.md) and [review run card](evidence/review_2026-10-28.json); do not pool it with other parallel branch records.
+
+---
+
+## Parallel S25 checkout review — separate branch `arena/b74b9587-gemsdoe28`
+
+This immutable same-day review is [knowledge/69_checkout_review_2026-10-28.md](knowledge/69_checkout_review_2026-10-28.md) with its [JSON record](evidence/s25_checkout_review_2026-10-28.json). It found the site build succeeded but its runtime lacked `pytest` and `numpy`, so tests and fresh preflight were **not run**, rather than passed; it also noted the build must be followed by the active-review overlay step. Those observations belong to that separate checkout and are not the S25 validation above. Do not pool test/preflight evidence across branches.
+
+---
+
+# S24 · 2026-10-27 UTC — historical repository review · retained provenance
+
+S24 was a read-only review on a different branch (`arena/79bafcec-gemsdoe28`); its run card is not a review of the active S25 branch. It recorded no new TIFF, experiment, HOLDOUT-DTI, score estimate or slot decision. Its feed snapshot was observed 16/18 metadata endpoints at 2026-10-27 17:51:14 UTC; this is historical metadata, not current feed status. S24's preflight and source artifacts remain immutable under [knowledge/68_s24_repository_review.md](knowledge/68_s24_repository_review.md), [evidence/s24_repository_review_run_card.json](evidence/s24_repository_review_run_card.json), and [evidence/s24_preflight.json](evidence/s24_preflight.json). A separate concurrent S24 geometry audit recorded a public leaderboard observation, not a file-bound receipt or current refresh. Do not pool its claims with this branch or treat them as current approval.
+
+---
+
+# S23 · 2026-10-27 UTC — historical review · read-first operating brief remains in force
+
+## **NO FILE APPROVED · No new TIFF generated · OK TO SUBMIT: NO**
+
+The requested genuinely unique submission TIFF and new buffered top-hypothesis validation are **not completed**. This session stopped the inherited lane under your literal duplicate rule; it did not copy, rename, retag or relocate an old raster to pretend otherwise. This is an automated rejection, not a request for a human geological inspector. **No weekly slot selected or spent; zero geological experiments.**
+
+**[Executive summary / exact submission guide](docs/executive-summary.html)** · **[Current site](docs/index.html)** · **[Current JSON run card](evidence/s23_run_card.json)** · [Nine-site CSV](docs/data/s23_scorecard.csv) · [Detailed report / limitations / next work](knowledge/67_s23_result.md) · [Frozen hypothesis ranking](knowledge/66_s23_preregistration.md)
+
+**Prior active-checkout review (2026-10-27; separate parallel branch):** that record names `arena/d955c32f-gemsdoe28`. The prior S23 artifacts are frozen parallel-session provenance and identify branch `arena/a774f0a0-gemsdoe28`; do not silently rewrite those hashes. That checkout re-restored the nine pinned shared-template assets and rechecked tests/build. It did **not** generate a TIFF: its fail-closed preflight still lacked the explicit lane, complete registry, prepared cache, and strict comparable baseline. See [current checkout review](knowledge/68_active_checkout_review_2026-10-27.md) and its [JSON run card](evidence/active_checkout_review_2026-10-27.json). Current gate: **NO file approved · OK to submit: NO**.
+
+### What changed and what was actually verified
+
+- **Previous next step checked first:** S22C buffered confirmation was gated by registry validity before another model run. Its final dots overlap the registered spacing-five calibration lattice by **99.6176% within 3 px**: **DUPLICATE_STOP** regardless of low final-raster Spearman. Its old `promote` label and ~0.317 ratio projection are **superseded**, not current approval or a score. Exact historical evidence/TIFF bytes are preserved; the unsafe old finalizer is blocked. [Reassessment](evidence/s23_s22c_reassessment.json).
+- **Counting proof, GEOMETRY-AUDIT, not HOLDOUT-DTI:** lattice disks cover 5,160,724 / 5,167,373 footprint cells (**99.8713%**), leaving 6,649. At 37,654 dots, every placement overlaps ≥**82.3418%**; with ≥2.8 px spacing the bound is ≥**90.4313%**. This is **not a universal impossibility for smaller budgets**. We did not omit the control or optimize around its holes. The upstream shared repo already describes the blocker; S23 confirms it and independently tests the spacing bound. [Proof, exact counts and hashes](evidence/s23_registry_feasibility.json).
+- **Nine repositories / 28 selected historical variants** freshly audited and source-pinned. All **72 directional pairs** of the nine named historical best files violate the >70% overlap rule. Not a complete live registry. GEMSDOE32's construction is exactly solo minus 2,545 catalogue-adjacent dots; thinning may reduce redundant FP, but the reported score's cause and organizer association are unverified. [Full scorecard](evidence/s23_scorecard.json) · [Forensics](evidence/s23_focus_novelty.json).
+- **Shared software repaired, not privately forked:** nine owner-maintained assets pinned to GEMSDOE24 `2521cb676e172c141a4417e4925b73b6a896c1eb`. Preparation/preflight now share explicit source-NaN metadata without changing or imputing the 32-band array. Inf, all-missing/empty columns and malformed declarations fail. Synthetic shared tests reject deliberate/inverted leakage and an empty canary. They are not geological validation. [Contract](evidence/s23_shared_template_contract.json) · [BLOCKED preflight](evidence/s23_preflight.json).
+- **Four ranked unimplemented hypotheses:** PCSE phase-congruent scarp energy; TCB two-sided texture covariance; MCR cross-fitted conductive residual; CSD compound-scarp diffusion. Every expected improvement is **unknown**. CSD needs original official 1 m DEM bytes, unobtainable under this runtime's host policy, and is **not viable here**. No new feature/model/canary/holdout is falsely claimed.
+- **Source freshness is bounded:** feed observed **10/18** sources at **2026-10-27 17:29:17 UTC** (nine owner-repo commit metadata sources + official-reference commit metadata). Other official hosts were explicitly unattempted; retained older observations keep their real dates. Fresh metadata is not new scientific-content verification. Current leaderboard/weekly allowance unknown; conflicting 0.4413/0.3195 anchors remain unverified. Historical 0.4437 public observation is not a fresh/file-bound receipt. [Source ledger](evidence/s23_official_source_review.json) · [Immutable feed snapshot](evidence/snapshots/s23_source_feed.json).
+- **Historical format audit still FAILS:** 51 registered TIFFs / 868 checks, with two legacy H40/H41 nodata-tag failures. S22C format PASS does not override novelty FAIL. The previous portal range-error cause remains **unknown**; no acceptance guarantee. [Exact-file audit](evidence/s23_download_audit.json).
+
+### Nine-site executive table
+
+All supplied results below are **USER-REPORTED / UNVERIFIED**, not organizer-confirmed. No reliable numerical hidden-leaderboard estimate is available for any row. File links/source commits/SHA-256/format status and lower supplied claims are in the [full downloadable scorecard](docs/data/s23_scorecard.json) and [executive page](docs/executive-summary.html).
+
+| Site | Highest supplied historical claim | Unique among the nine? | New-file recommendation / OK TO SUBMIT? |
+|---|---:|---|---|
+| GEMSDOE24 | 0.2477 | No | None / **NO** |
+| GEMSDOE25 | 0.2600 | No | None / **NO** |
+| GEMSDOE27 | 0.2449 | No | None / **NO** |
+| GEMSDOE28 | 0.2710 | No | None / **NO** |
+| GEMSDOE30 | 0.2600 | No | None / **NO** |
+| GEMSDOE31 | 0.2708 | No | None / **NO** |
+| GEMSDOE32 | 0.2778 | No | None / **NO** |
+| GEMSDOE33 | 0.2632 | No | None / **NO** |
+| GEMSDOE36 | 0.2750 | No | None / **NO** |
+
+**No new submission name:** no new file. **Audit note (not an upload instruction, ≤140 characters):** `S23 audit: no new TIFF; inherited S22C fails literal registry rule. No weekly slot selected.`
+
+### Next work, in order
+
+1. Resolve the dense-control issue in the **shared, versioned registry protocol**, without silently excluding a comparator or retroactively approving S22C. The inherited lane stays closed meanwhile.
+2. Obtain an explicit single-lane assignment/source, synchronized complete surface/final registry and comparable frozen best under buffered visible-only whole-segment validation. Current historical evidence is insufficient.
+3. Only if those gates pass: freeze one new physical mechanism/budget, run every feature/missingness canary, pre-placement novelty, retrained comparable controls, pooled HOLDOUT-DTI + paired spatial 95% CI, final-dot novelty and exact-file validation. A separate selector then checks the actual authenticated weekly allowance. No speculative score forecasts or portal uploads.
+
+### Verification / development
+
+The independent current-checkout review is [recorded here](knowledge/68_checkout_review_2026-10-27.md). It confirms the no-TIFF/no-slot decision, reproduces the site build and software suite, records six input-dependent skips and the current checkout's missing ignored data/shared-template assets, and flags a frozen S23 branch-label mismatch without rewriting hash-bound evidence.
+
+Run the three passes and read [the exact S23 verification record](evidence/s23_verification.json); note that it records a different, earlier checkout with restored inputs. Current-checkout test/build results and their limitations are in the review linked above. The initial review found/fixed stale current-site tests and historical mutable-file hash bindings by preserving old bytes, not rewriting old evidence. The archive audit and preflight are deliberately non-green; a green software suite does not authorize an upload. A further optional input restore hit GitHub REST rate limiting after re-verifying nine existing inputs; five legacy tests remain explicitly skipped, not passed ([record](evidence/s23_optional_restore.json)).
+
+```sh
+python -m pytest -q
+ruff check src scripts tests
+python -S scripts/build_site.py   # deterministic, standard library only; no raster/network
+python -S scripts/build_active_review.py  # overlays the active-checkout status without changing hash-bound S23 files
+# These are expected to exit 1, not to authorize a candidate:
+python scripts/audit_registry_feasibility.py
+python scripts/check_run_preflight.py --out evidence/s23_preflight.json
+python scripts/verify_downloads.py --out evidence/s23_download_audit.json
+```
+
+Raw data/caches remain ignored; use existing pinned restoration scripts for reproduction. Never execute a historical snapshot or rerun a spent-seed lane. A code PR merge is not a competition submission. **Maximize P(Win) · Own the Outcome.**
+
+---
+
+## Full consolidated standing requirements — read every session
+
+This is the full normalized operational requirements record available in the repository, not a fabricated verbatim chat export. Historical verbatim prompt text is preserved below. The actual conversation remains authoritative; S23 uses the stricter ≤140-character note and three-experiment/two-hour limits.
+
+### Highest urgency
+
+> MUST GENERATE A UNIQUE TIF SUBMISSION FOR THE COMPETITION. DO NOT COPY A PREVIOUS
+> SUBMISSION UNLESS IT'S FOR LEARNING AND EDUCATION. BUT WE MUST GENERATE A UNIQUE TIF
+> SUBMISSION. IT MUST BE OBVIOUS WHETHER IT IS OK TO DOWNLOAD AND SUBMIT THE GENERATED TIF
+> SUBMISSION.
+
+The goal is to compete for the top prize with scientifically distinct fault-prediction strategies,
+not merely rename files or optimize a public-label proxy. Build a clean GitHub Pages site with the
+current decision and one-click `.tif` download visible at the beginning, an executive-summary
+submission guide, a unique submission name and a ≤140-character identifying note. Project inspection
+must be automated, not deferred to a human inspector. A file-format pass is not a high-performance
+validation or permission to spend a slot. Never promise that an untested file will beat a score.
+
+### Parallel-run protocol
+
+1. Stay in a single explicit method lane. If no paragraph is supplied, disclose that ambiguity;
+   do not silently claim an external exclusive assignment. Check the surface BEFORE placement and
+   final dots against the registry. Spearman >0.90 OR >70% of support/dots within 3 px of ANY one
+   registry raster means duplicate: log and stop. Do not copy old submissions as new predictions.
+2. Reuse the template cached feature stack, shared holdout evaluator and submission writer.
+   Hide entire fault segments/systems with a buffer. Every catalogue feature must use only visible
+   faults. Mask visible faults pixel-exactly. Pool DTI with α=0.2, β=0.8 and 300 m triangular kernel.
+   Fix any shared-tool defect once in the template; report it, do not maintain a private fork.
+3. Label computed performance HOLDOUT-DTI, with evaluator version, withheld-positive count and
+   95% CI. ORGANIZER-CONFIRMED requires a submission-page receipt. Projections are not scores.
+   Preserve user-supplied unverified claims as such; never fabricate receipts to force a label.
+4. Test each feature alone before trusting results; AUC >0.90 is leakage until explained.
+5. End with one JSON run card: hypothesis; mechanism; named non-fault mimic; holdout DTI + CI;
+   registry correlation/overlap; raster SHA-256; validator output (no NaN inside footprint, values
+   [0,1], matching CRS/shape/transform); submission name and short note; promote/negative verdict.
+   Negative results are deliverables.
+6. Stop after THREE experiments OR TWO hours. Do not pick/upload submissions. A separate selector
+   controls promotion to a weekly slot within the authenticated page allowance.
+
+### Research and implementation requirements
+
+- Review repo and previous-session next steps first. Prioritize the highest reported artifacts in
+  GEMSDOE24, 25, 27, 28, 30, 31, 32, 33 and 36. Study the GEMSDOE32 H33-2-B2 artifact associated
+  in the user's lists with 0.2778; explain construction and possible metric mechanism without
+  claiming hidden truth or score causation that cannot be verified.
+- The prompt quotes conflicting leaderboard tops 0.4413 and 0.3195. Obtain a dated official
+  observation when possible; distinguish public observation from a raster-linked receipt.
+- Before implementing, rank 3–5 hypotheses not yet executed here by expected improvement and cost.
+  For each: specific layers, physical transform/signature, why it might recover faults missing from
+  USGS/INGENIOUS, differences from existing implementation, and named non-fault mimics. Scientific
+  novelty is not established merely by different pixels. Any new data requirement needs a specific
+  free official source and an actual availability check before it is called viable.
+- Validate the top candidate on buffered spatial holdouts before a slot. It must beat the frozen
+  current best with robust uncertainty/spread gates. Do not spend a slot on an unvalidated idea.
+- Research physical mechanisms deeply and maintain an auditable source/knowledge table. Do not
+  confuse faults, permeability, geothermal favorability and verified geothermal vents. Preserve
+  official links for manual review without requiring manual geological inspection to determine
+  the pipeline's disposition. Autonomous operation cannot confer legal eligibility or authenticate
+  private data/receipts that it cannot access.
+- Fix the observed portal range-error risk using independent exact-file checks, not a silent clamp
+  or a claim of guaranteed portal acceptance. A valid submission is a single-band GeoTIFF (or ZIP
+  containing one) with template CRS, shape and geotransform, and finite interior confidence [0,1].
+- Restore actual available data rather than repeating a stale data-placement blocker. Use official
+  external sources and disclosed, hash-pinned owner mirrors as distinct provenance classes. Keep
+  large arrays and datasets out of Git. CPU/GPU requirements must reflect the actual method.
+- Store the standing brief in README and read it every session. Maintain an up-to-date public-source
+  feed where policy permits; never fabricate a refresh time or build a DrivenData scraper/login bot.
+- Core values: **Maximize P(Win)** (choose evidence-backed tradeoffs, protect scarce slots) and
+  **Own the Outcome** (own end-to-end file, UI, evidence and tests; act autonomously on defects).
+- THREE passes: (1) implement and verify; (2) review for bugs, omissions, assumptions and edge cases,
+  fix them; (3) check against the original request and improve accuracy/reliability/completeness.
+  Flag irregularities explicitly, with no invented measurements or unsupported conclusions.
+- Create a pull request and merge it to main after verification. Keep work on the Arena session
+  branch. State limitations and prioritized next-session work. A code PR merge is not a competition
+  submission or slot selection.
+
+### Requested source starting points
+
+- [Competition overview](https://www.drivendata.org/competitions/306/competition-doe-gems/)
+- [Problem, metric and file format](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/)
+- [About / cited literature](https://www.drivendata.org/competitions/306/competition-doe-gems/page/968/)
+- [Data](https://www.drivendata.org/competitions/306/competition-doe-gems/data/)
+- [Leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/)
+- [Official rules PDF](https://docs.nlr.gov/docs/fy26osti/96647.pdf)
+- [Official reference code](https://github.com/drivendataorg/gems-prize-reference-solution)
+- [USGS GeoDAWN](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and)
+- [INGENIOUS](https://gbcge.org/current-projects/ingenious/)
+- [DOE GDR compilation 1391](https://gdr.openei.org/submissions/1391)
+- [EPSG:32611](https://epsg.io/32611)
+- [Tversky index background](https://en.wikipedia.org/wiki/Tversky_index)
+
+The current request also includes historical result lists for GEMSDOE through GEMSDOE92,
+Dropbox data links and a prior data-placement/training statement. Those are user-supplied context,
+not verified current facts or proof that every historical artifact has been reviewed. S18's declared
+nine-repository snapshot and actual input restoration are explicitly bounded in its run card.
+
+
+---
+
+<details>
+<summary><strong>Historical session records and verbatim prompt archive — superseded, not current approval</strong></summary>
+
+**Read-first warning:** the S23 decision above overrides all older download, promote, “unique,” projected-score and leaderboard claims below. Those sections preserve what earlier sessions claimed; they are not independent current recommendations. In particular the S22C frozen-gate promote claim fails the current literal registry audit, and unbuffered historical results are not the required strict buffered validation. Do not upload old files as new submissions.
+
+# Session 22C (`S22-CTXHGB`, parallel session renamed at merge) — 2026-10-26 UTC (read first every session)
+
+## NEW UNIQUE GeoTIFF GENERATED — **OK TO DOWNLOAD: YES · OK TO SUBMIT: SELECTOR CHECKLIST REQUIRED (no slot spent by this session)**
+
+- **Download (primary, all-finite):** [`docs/downloads/gems28-s22-ctxhgb-20261026-e23dabcec6e2-allfinite.tif`](docs/downloads/gems28-s22-ctxhgb-20261026-e23dabcec6e2-allfinite.tif) (826,194 bytes · SHA-256 `77934be607d48a4daec5b046009cdabf61d3fdee210aadc75be82ac70f3beb2e` · 37,654 dots · 0 on catalogue · EPSG:32611 · 3730 × 3292 · values exactly {0,1}, no NaN anywhere) · [NaN twin](docs/downloads/gems28-s22-ctxhgb-20261026-e23dabcec6e2-nan.tif) · [ZIP](docs/downloads/gems28-s22-ctxhgb-20261026-e23dabcec6e2-nan.zip)
+- **Unique portal name:** `GEMSDOE28-S22-ctxhgb-e23dabcec6e2` · **Note (112/140):** `S22 ctxHGB multiscale-context 37654d | HOLDOUT-DTI 0.1202 vs dotted 0.1052 (+0.0150) seeds360-362 | e23dabcec6e2`
+- **Lane (self-assigned, frozen pre-experiment in [knowledge/64](knowledge/64_s22c_preregistration.md)):** multi-scale spatial-context HGB — shared 32-band stack + Gaussian-pyramid (σ2/σ5 + |∇σ2|) context of 10 bands + structure-tensor coherence; ridge-restricted 2.8 px emission outside the ≤2 px catalogue ring; no coordinates, no catalogue-derived features, zero H19-5 dots.
+- **Gates — FIRST fresh lane here to pass them all:** canary worst AUC 0.7200 PASS · **HOLDOUT-DTI 0.12018 vs dotted-b2 0.10519 (paired Δ +0.01498, 95% CI [+0.01067, +0.01932], 12/12 cells, seeds 360–362, 36,596 withheld positives)** · vs per-pixel control 0.09505 (Δ +0.02512) · unique vs champion (42.05% within 3 px, Spearman +0.067; worst 69.92% only vs an unscored union-pool raster — disclosed) · validator PASS (30/30 audit slot checks). **Verdict `promote` (frozen gate); `submission_ready: false`, `slot_selected: false`** — the strict shared `promotion_gate` still blocks on global-registry completeness + LOSFO-buffer flag; selector must confirm the weekly portal allowance (see [knowledge/65](knowledge/65_s22c_result.md) §4 checklist).
+- **Estimated live score: ≈0.317 [0.307, 0.328] — MODEL PROJECTION, not a score** (USER-REPORTED 0.2778 anchor × holdout ratio 1.1424). Material caveat: S22 dots sit closer to the catalogue than the champion's (median 8 px vs 19.6 px) and live (2,5] px ring credit is unmeasured — live transfer may be worse.
+- **Nine-site forensic (Exp 1, byte-fetched):** every focus-site best (24/25/27/28/30/31/32/33/36) is one nested H19-5 family — champion = solo − ring ≤2 px, symdiff 0 vs fetched GEMSDOE32 bytes (`c55bafc4…`); GEMSDOE25-best ≡ GEMSDOE30-best and GEMSDOE28-solo ≡ GEMSDOE31-best are identical dot-sets; GEMSDOE36 "PINN" = champion + 1,200 dots. Official public leaderboard fetched 2026-10-26: **#1 = 0.4437**.
+- **Parallel-run disclosure (PR #63 merge):** S22-SIGN (signed piedmont), S22-MOFR (piercing markers) and S22-AUDIT ran concurrently from the same prompt and merged first — all negative / DO NOT SUBMIT. S22-SIGN independently claimed seeds 360–362 (disclosed collision; deterministic splits ⇒ identical withheld sets; never pool numbers across S22-SIGN/S22-MOFR/S22C). This session renamed **S22C** at merge (`knowledge/64`/`65`, `evidence/s22c_*`).
+- **Deliverables:** [S22C executive page](docs/session22c-result.html) · [Full report + 9-site table](knowledge/65_s22c_result.md) · [Preregistration + 5 ranked hypotheses](knowledge/64_s22c_preregistration.md) · [JSON run card](evidence/s22c_run_card.json) · Archive audit coverage fixed (720 checks; 2 legacy nodata-tag failures remain). **Next:** buffered LOSFO confirmation (fresh seeds 370+) → selector slot decision; then U-Net (GPU).
+
+**Standing operating brief (from the session prompt — read every session).** Parallel-run protocol: stay in the declared lane (stop if surface |Spearman| > 0.90 or >70% of dots within 3 px of one registry raster); reuse the shared cached feature stack, evaluator and writer — never fork them; label every number HOLDOUT-DTI (evaluator, withheld positives, 95% CI) or ORGANIZER-CONFIRMED (receipt) or USER-REPORTED/MODEL; leakage canary per feature (AUC > 0.90 = leakage); end with one JSON run card; ≤3 experiments; never spend/select a weekly slot inside a research session. Competition: DOE GEMS Prize (DrivenData #306), DW-Tversky α=0.2 β=0.8, 300 m triangular kernel, single-band float32 EPSG:32611 GeoTIFF in [0,1]; one chosen GeoTIFF is re-scored in the Final Round on expanded expert labels. Generate only UNIQUE submissions (never copy a previous TIF except for forensic learning); validation is fully automated — no human inspector. Core values: **Maximize P(Win)** (weigh tradeoffs, choose the path that maximizes win probability) · **Own the Outcome** (end-to-end accountability; fix what you find, including inherited defects). No hallucinations: verify line by line from hash-pinned data and official sources, link everything, flag irregularities.
+
+---
+
+---
+
+# Session 22 audit — 2026-10-26 UTC (READ FIRST EVERY SESSION)
+
+**DO NOT SUBMIT. This audit produced no TIFF or geological experiment and selected no slot.**
+The requested method assignment, complete current parallel registry, reusable prepared feature cache,
+and frozen same-protocol best are missing. [Current run card](evidence/s22_audit_run_card.json) ·
+[Detailed nine-site audit and ranked hypotheses](knowledge/62_s22_audit.md) ·
+[Preflight](evidence/s22_audit_preflight.json) · [Source review](evidence/s22_official_source_review.json).
+
+- The nine historical artifact names in the prompt are all mutually non-unique under the requested
+  stop rule: all 72 ordered pairs exceed 70% within three pixels. This covers only those nine files,
+  not an absent complete registry. The highest supplied claim is GEMSDOE32 **0.2778, USER-REPORTED /
+  UNVERIFIED**; no organizer receipt binds it to a file. Reconstructed champion = solo minus 2,545
+  catalogue-adjacent dots; a potential efficiency explanation is not proof of score causation.
+- A one-off [official public leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/)
+  observation at **2026-10-26 22:02 UTC** listed the top public DW-Tversky as **0.4437**. This is
+  not a submission-page receipt or evidence for our raster, and may change. The conflicting 0.4413
+  and 0.3195 prompt claims are not current at that observation. The read used a one-off research
+  tool despite the repository manual-only access policy; this may conflict with quoted site terms.
+  Compliance is undetermined: do not repeat automated access without permission. No login or upload.
+- **Archive audit FAIL:** all 48 TIFFs are now registered for audit, but the H40/H41 finite 0/1
+  variants retain NaN nodata metadata. Registration is not promotion or authentication. A historic
+  portal range-error cause is unknown; zero outside the footprint does not prove acceptance and may
+  differ from the sample convention. The [official problem](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/)
+  specifies null/NaN outside the bounds.
+- **Corrections to historical sections below:** S21 fails the literal any-registry uniqueness rule
+  (72.34% vs H37-1 probe) and used a non-shared split/full-label negative pool; its local holdout
+  is not comparable strict evidence. S20-NCHC's literal all-entries prospective check is false,
+  even though a narrower comparison excluded controls. Prior leaderboard projections are not
+  scores and cannot establish improvement. Historical TIFFs are research-only.
+- **Concurrent S22-SIGN, PR #57:** a separate lane produced a [research-only TIFF](docs/downloads/gems28-s22-signed-piedmont-20261026-08703322d2af-allfinite.tif) (SHA-256 `d9c235709d100e292f77293dd0fa94eeb5cc68728f2bacd49f97411fb1241229`); **DO NOT SUBMIT**. Final-dot checks found no duplicate in 46 local non-self TIFFs plus nine historical sites (max 53.56% overlap), but the complete registry and pre-placement surface are unavailable. Its local quadrant **HOLDOUT-DTI** `gems27.metric.dti_binary` cell means are 0.054664 versus 0.121914; 95% CI not recorded. The cell details sum to 36,596 withheld positives (repeated across cells), conflicting with 60,988 in its run card. The recorded canary is empty despite a pass flag. Original evidence and runner are preserved; the unsafe entry point is blocked. [Detailed review](evidence/s22_sign_audit.json) · [research page](docs/session22-result.html).
+- Preserve the original standing prompt below. Before any future experiment, obtain the actual
+  template-provided cache (do not silently rebuild/impute), lane assignment, complete registry and
+  comparable baseline; resolve the preparation-NaN/preflight-finiteness contract. Then use the
+  shared tools and canaries, pre-/post-placement novelty checks, buffered visible-only whole-segment
+  holdout, paired 95% CI and separate slot selector. See the linked audit for limitations.
+
+**Parallel-run disclosure:** three independent sessions ran concurrently under the S22 label from the same prompt: S22-AUDIT (above, a validation/corrective review, no new TIFF or experiment), S22-SIGN (a signed-piedmont detector, referenced inline above, also negative), and S22-MOFR (below, a potential-field marker-offset detector, also negative). All three reached independent negative/blocked verdicts. Never pool their numbers; each keeps its own run-card name (`evidence/s22_audit_run_card.json`, `evidence/s22_run_card.json`, `evidence/s22_mofr_run_card.json`).
+
+---
+
+# Session 22 (`S22-MOFR`) — 2026-10-26 UTC (read first every session)
 
 ## NEW UNIQUE GeoTIFF GENERATED — **OK TO DOWNLOAD FOR RESEARCH: YES · OK TO SUBMIT TO PORTAL: NO**
 
+- **Download:** [`docs/downloads/gems28-s22-mofr-union-20261026-599452947272-allfinite.tif`](docs/downloads/gems28-s22-mofr-union-20261026-599452947272-allfinite.tif) (826,992 bytes · all-finite `{0,1}` in `[0,1]` · 42,480 off-catalogue dots · EPSG:32611 · template-exact grid/CRS/transform)
+- **Lane (H44-1):** potential-field **marker-offset / piercing-point realignment detector** — ridge-skeletonize the TMI horizontal-gradient band (`tmi_hg`) and the isostatic-gravity horizontal-gradient band (`iso_grav_anom_hg`) independently, extract endpoints, keep only strike-compatible (±20°, same tolerance as `newinfo.steppover_links`), gap-bounded, offset-bounded endpoint pairs. Never reads `labels.tif`. A genuinely new mechanism, distinct from every prior session's elevation/hillshade/LiDAR/heat-flow/vent-proximity features.
+- **Gates:** leakage canary **PASS** (max single-feature AUC 0.5378, all four candidate features ≈ chance) · registry novelty **PASS** vs the full 9-site + local registry (max |Spearman| 0.0164, max 3-px dot overlap 18.9% — genuinely unique, not a duplicate) · format validator **PASS** (`variant_strict_whole_array_no_nan_allowed`) · **HOLDOUT-DTI 0.033855 [95% CI 0.029998, 0.037495] vs a freshly retrained baseline 0.143993 on the same SegmentHoldout folds — paired gain −0.110138 [−0.123912, −0.097175], 0/4 folds improved → verdict `negative`, 0 slots spent.**
+- **What this means:** this is now the fifth independently preregistered, catalogue-blind, physically motivated hypothesis in a row (after H42-1 migration/relocation, S20V vesselness/LiDAR-scarp, H43 topological closure, S21 PU-HGB) to lose decisively to the simple retrained-baseline / "dotted" catalogue-adjacent family (the H19-5 lineage behind the 0.2778 GEMSDOE32 champion). No file produced this session beats 0.2778, and no evidence from this session changes the public leaderboard high of 0.4413. The project's standing finding — hand-built geological detectors within this feature stack and holdout design are very unlikely to close that gap without new external data or a materially different modelling approach — is now strong, not speculative.
+- **Deliverables:** [Session 22 S22-MOFR executive page](docs/session22-mofr-result.html) · [Full report](knowledge/63_s22_mofr_result.md) · [Preregistration (frozen lane, mechanism, non-fault mimics)](knowledge/62_s22_mofr_preregistration.md) · [JSON run card](evidence/s22_mofr_run_card.json) · [Experiment code](scripts/run_s22_mofr.py)
+- **Registry-check scope caveat:** the registry novelty check above was built from every `docs/downloads/*.tif` and freshly-pulled priority-repository raster present at run time; it ran concurrently with — and therefore does not include — the separate S22-SIGN and S22-AUDIT sessions' own artifacts added to this repository afterward. This is the same inherent limitation already disclosed for every prior pair of concurrent sessions (e.g. S20-NCHC vs S20-H43, S21-PUHGB vs S21-AUDIT); it is not evidence of a duplicate, only an acknowledged gap pending a future merged-registry re-check.
+
+
+---
+
+# Session 21 (`S21-PUHGB`) — 2026-10-26 UTC (read first every session)
+
+## HISTORICAL RESEARCH TIFF — **NOT UNIQUE UNDER THE ANY-RASTER RULE · DO NOT SUBMIT**
+
 - **Download:** [`docs/downloads/gems28-s21-puhgb-20261026-16bbf281ba9b-allfinite.tif`](docs/downloads/gems28-s21-puhgb-20261026-16bbf281ba9b-allfinite.tif) (826,602 bytes · SHA-256 `2bf4737ae0a3b844a160d4041d435e5a7daf92c6ec92f128a0c2c596ba23787c` · 37,654 fresh dots · all-finite `{0,1}` · EPSG:32611 · 3730 × 3292 · template-exact) · [NaN twin](docs/downloads/gems28-s21-puhgb-20261026-16bbf281ba9b-nan.tif) · [ZIP](docs/downloads/gems28-s21-puhgb-20261026-16bbf281ba9b-nan.zip)
-- **Lane:** fresh PU-HGB detector on 19 GeoDAWN + 12 LiDAR-scarp bands + coordinates (catalogue geometry used only for masking; zero H19-5 dots). Replicated the champion lineage byte-exactly (H19-5 121,131 → dotted 44,090 → solo 40,199 → champion 37,654; symdiff 0 at each step): **0.2778 = emission hygiene (2.8 px spacing + ≤2 px ring prune vs break-even τ≈0.0588/dot), not new geology.**
-- **Gates:** format PASS · leakage canary PASS (max single-feature AUC 0.580; two earlier variants VOIDED at AUC 1.00/0.963 on catalogue-density features — archived) · unique vs all scored rasters PASS (28.7% 3-px overlap vs champion; |Spearman| ≤0.089) but strict any-raster rule FAIL vs unscored dense H37-1 probe (72.3%) · **HOLDOUT-DTI 0.0839 vs dotted-b2 0.1062, Δ −0.0223 [−0.0309, −0.0137] (seeds 350–352, 35,900 withheld positives) → verdict `negative`, 0 slots spent.**
-- **Estimated live score (MODEL PROJECTION, not a score):** ~0.22 [0.20–0.24] (holdout-ratio to the OWNER-REPORTED 0.2778 anchor). No file today is both unique and evidenced >0.2778; the only evidenced higher direction (ring≤3 pruning, 35,483 dots, ~0.279–0.285 MODEL) is a 94%-champion duplicate — no file shipped.
-- **Deliverables:** [Session 21 executive page](docs/session21-result.html) · [Full report + 9-site table + 5 ranked hypotheses](knowledge/61_s21_result.md) · [JSON run card](evidence/s21_puhgb_run_card.json) · Next: U-Net (GPU) or soft-probability emission on fresh seeds 360+.
+- **Lane:** fresh PU-HGB detector on 19 GeoDAWN + 12 LiDAR-scarp bands + coordinates (final feature stack excludes explicit catalogue geometry; however full labels were used in negative-pool selection, and zero H19-5 dots were emitted). Replicated the champion lineage byte-exactly (H19-5 121,131 → dotted 44,090 → solo 40,199 → champion 37,654; symdiff 0 at each step): The 0.2778 score-to-file link and the effect of pruning remain unverified; emission efficiency is plausible, not demonstrated causation.
+- **Gates:** format PASS · historical cell-0 leakage canary PASS (max single-feature AUC 0.580; not a proof against structural leakage; two earlier variants VOIDED at AUC 1.00/0.963 on catalogue-density features — archived) · unique vs all scored rasters PASS (28.7% 3-px overlap vs champion; |Spearman| ≤0.089) but strict any-raster rule FAIL vs unscored dense H37-1 probe (72.3%) · **HOLDOUT-DTI 0.0839 [0.0670, 0.1032] vs dotted-b2 0.1062 [0.0902, 0.1245], Δ −0.0223 [−0.0309, −0.0137] (`gems27.metric.dti_binary` / quadrant-clipped hide, seeds 350–352, 35,900 pooled withheld positives; not the shared strict protocol) → verdict `negative`, 0 slots spent.**
+- **Score projections withdrawn:** the historical extrapolations are not organizer scores or evidence of a higher entry. No file is approved.
+- **Deliverables:** [Session 21 executive page](docs/session21-result.html) · [Full report + 9-site table + 5 ranked hypotheses](knowledge/61_s21_result.md) · [JSON run card](evidence/s21_puhgb_run_card.json) · Next: obtain the assigned lane and all missing preflight inputs; neither a model choice nor soft-probability evaluator is authorized by this audit.
 
 ---
 
@@ -15,7 +318,7 @@
 **DO NOT SUBMIT. No new candidate was generated or approved.** Restored the pinned core
 competition mirrors and shared evaluator/writer. Fixed filename-only artifact discovery in
 `verify_downloads.py`, then added a fail-closed archive coverage gate: **12 of 44 TIFFs lack
-manifest records**. The current exact-file audit therefore FAILS; prior scientific negative
+manifest records**. That historical exact-file audit therefore FAILED; the latest S22 audit still fails for different reasons (see above); prior scientific negative
 verdicts remain unchanged. This is an automated decision, not a request for a human inspector.
 
 - [Review, ranked next work, limitations](knowledge/61_s21_validation_review.md)
@@ -30,7 +333,7 @@ No experiments, no leaderboard estimate, no slot selected. No other repository w
 
 # Parallel Session 20-NCHC (`S20-NCHC` / `H43-1`) — 2026-10-26 UTC (read first every session)
 
-## NEW GENUINELY UNIQUE GeoTIFF GENERATED & BYTE-VERIFIED — **OK TO DOWNLOAD FOR RESEARCH: YES · OK TO SUBMIT TO PORTAL: NO**
+## HISTORICAL RESEARCH GEO TIFF — **STRICT PROSPECTIVE UNIQUENESS FAILED · DO NOT SUBMIT**
 
 - **1-Click Research Download (All-Finite `[0, 1]` GeoTIFF):** [`docs/downloads/gems28-s20-nchc-20261026-d432a1d5d6ee-allfinite.tif`](docs/downloads/gems28-s20-nchc-20261026-d432a1d5d6ee-allfinite.tif) (`830,586` bytes · SHA-256 `1d629d6c953c94681ecfe51111d4210361f7014b1df41f5fcfa8d81c4f54f853` · `40,071` off-catalogue dots · `0` catalogue overlap · `EPSG:32611` · `3730 × 3292` · single-band `float32` `{0.0, 1.0}`)
 - **Template-NaN Twin & ZIP:** [`gems28-s20-nchc-20261026-d432a1d5d6ee-nan.tif`](docs/downloads/gems28-s20-nchc-20261026-d432a1d5d6ee-nan.tif) · [`gems28-s20-nchc-20261026-d432a1d5d6ee-nan.zip`](docs/downloads/gems28-s20-nchc-20261026-d432a1d5d6ee-nan.zip)
@@ -39,7 +342,7 @@ No experiments, no leaderboard estimate, no slot selected. No other repository w
 - **Automated Validation & Promotion Gate (`scripts/verify_downloads.py` + `scripts/check_promotion.py`):**
   - **File / Portal `[0, 1]` Range Gate:** **PASS** — zero NaN/Inf across all `12,279,160` cells, strict `[0.0, 1.0]`, exact template CRS/shape/geotransform, zero catalogue overlap.
   - **Leakage Canary (`SegmentHoldout.canary`):** **PASS (`28 / 28` features)** — max single-feature `AUC = 0.6010 <= 0.90`.
-  - **Cross-Site & Concurrent-Lane Duplicate Stop:** **PASS** — across all `112` pre-merge 9-site+PR48 rasters AND all `4` concurrent `2026-10-26` lanes (`S19-ASCP`, `S19B-RADLIN`, `S20-H43`, `S20V`), `max |Spearman| = 0.0583 <= 0.90` and `max 3-px dot overlap = 53.63% <= 70%` (`31.49%` vs `S20-H43`, `27.89%` vs `S20V`, `52.24%` vs `S19B-RADLIN`, `28.84%` vs `S19-ASCP`).
+  - **Cross-Site & Concurrent-Lane Duplicate Stop:** **NARROW SUBSET ONLY; LITERAL ALL-ENTRIES PROSPECTIVE CHECK FAILED** — the historical narrower comparison across `112` pre-merge 9-site+PR48 rasters AND all `4` concurrent `2026-10-26` lanes (`S19-ASCP`, `S19B-RADLIN`, `S20-H43`, `S20V`), `max |Spearman| = 0.0583 <= 0.90` and `max 3-px dot overlap = 53.63% <= 70%` (`31.49%` vs `S20-H43`, `27.89%` vs `S20V`, `52.24%` vs `S19B-RADLIN`, `28.84%` vs `S19-ASCP`).
   - **Holdout Performance (`HOLDOUT-DTI`, `gems-segment-pooled-v1`, `60,988` withheld positives, `583` 10-km bootstrap blocks, seeds `340–344`):** **`0.131263` (`95% CI [0.120346, 0.141838]`)** vs retrained visible-only 32-band H38 baseline **`0.144433` (`95% CI [0.131520, 0.157926]`)**, paired delta **`-0.013171` (`95% CI [-0.027721, -0.000417]`)**. **Won the Walker Lane + geothermal `SW` quadrant (`0.112115` vs `0.098698`, `+0.013416`)**, while diagnosing the missing signed piedmont break-in-slope concavity operator for `NE`/`SE` Basin-and-Range range fronts (`H43-2`).
   - **Parallel-run disclosure & Verdict:** Branched from `10c26af` before `Session 20-H43` and `S20V` merged (`340–344` concurrent seed overlap disclosed in `registry/irregularities.json`; never pool numbers across parallel sessions). `verdict: "negative"`, `submission_ready: false`, `slot_selected: false` (**DO NOT SUBMIT TO PORTAL — 0 weekly slots spent**).
 - **Auditable Deliverables:** [Executive Summary](docs/executive-summary.html) · [9-Site Executive Review](docs/cross-site-review.html) · [Frozen S20-NCHC Preregistration](knowledge/56_s20_preregistration.md) · [Full S20-NCHC Scientific & 9-Site Report](knowledge/57_s20_nchc_result_and_9site_review.md) · [S20-NCHC JSON Run Card](evidence/s20_nchc_run_card.json)
@@ -66,14 +369,13 @@ seeds 340–342; Session 20-H43 (below, merged first) used seeds 340–344 under
 (interleaved) protocol and owns the `s20_*` filenames. Renamed **S20V** at merge (PR #53); never pool
 numbers across S19-ASCP / S19B-RADLIN / Session 20-H43 / S20V. Both S20-H43 and S20V independently
 byte-verified the champion lineage (solo minus the ≤2 px catalogue ring, symmetric difference 0):
-the owner-reported **0.2778** (USER-REPORTED / UNVERIFIED) is emission hygiene, and S20V inversion
-bounds further pruning near ~0.285 versus the dated 2026-10-26 official-leaderboard top **0.4413**
-(public row, not a receipt). Next priority: U-Net patch segmentation (`knowledge/59` S20-H1).
+the owner-reported **0.2778** (USER-REPORTED / UNVERIFIED) may reflect emission efficiency, but causation is unproven. Historical projection is withdrawn.
+The later public-leaderboard observation and receipt limits are documented at the top of this README. Next priority: U-Net patch segmentation (`knowledge/59` S20-H1).
 **Maximize P(Win) · Own the Outcome.**
 
 # Session 20-H43 result — 2026-10-26 (read first every session)
 
-**A new unique TIFF was generated and the automated gates REJECTED it. No file is approved to submit.**
+**A historical S20 research TIFF was generated and REJECTED; it is a duplicate by the strict family rule. No file is approved to submit.**
 Session 20 declared its own lane in writing before experimenting (the prompt's method-paragraph
 assignment is absent), ran exactly the 3 permitted experiments, and the pipeline — no human
 inspector — produced the rejection. Do not retune seeds 340–344; do not submit the S20 file.
@@ -89,17 +391,14 @@ GEMSDOE36 (0.2750), GEMSDOE28 (0.2710), GEMSDOE31 (0.2708), GEMSDOE33 (0.2632), 
 (0.2600), GEMSDOE24 (0.2477) and GEMSDOE27 (0.2449). This session fetched the champion bytes
 (`GEMSDOE32@012e17b`, SHA-256 `c55bafc4…6fa9`) and proved the lineage **byte-exactly**: H19-5
 (121,131) → `dot_thin(·,2.8)` (44,090) → −ring≤1px (40,199 solo) → −ring≤2px (37,654 champion),
-symmetric difference 0 at each step. The champion is therefore emission hygiene on one surface
-(kernel-matched spacing + deletion of catalogue-flank shadow below the ΔTP/ΔFP≈0.059 inclusion
-bar), not new geology. **Irregularity:** the champion's own audit JSON calls it UNSCORED with a
-0.2747 MODEL projection, so the 0.2778 association still has no receipt; if that hash has no
-receipt on the account, the champion file itself (downloaded from GEMSDOE32, never re-hosted
-here as ours) is the single best slot candidate, subject to the separate selector step.
+symmetric difference 0 at each step. Emission efficiency is a plausible explanation, not proof
+that pruning caused the claimed score. **Irregularity:** the champion's own audit JSON calls it
+UNSCORED with a model projection; the 0.2778 association has no receipt. It is a prior raster and
+must not be copied or selected as this run's unique candidate, regardless of receipt status.
 
 **New S20 candidate (🔴 DO NOT SUBMIT):**
 [`gems28-h43-1-tpb2gkc-20261026-76737f19814e-allfinite.tif`](docs/downloads/gems28-h43-1-tpb2gkc-20261026-76737f19814e-allfinite.tif)
-— 33,354 dots, SHA-256 `960c3d49…f117`, all-finite {0,1} float32, template grid exact (fixes the
-"[0,1] range" error class), not an exact duplicate of any of 22 registry dot-sets. **HOLDOUT-DTI**
+— 33,354 dots, SHA-256 `960c3d49…f117`, all-finite {0,1} float32, template grid exact (the prior portal range-error cause remains unknown), not an exact duplicate of any of 22 registry dot-sets. **HOLDOUT-DTI**
 (`metric.dti_binary`, seeds 340–344, 61,613 pooled withheld positives): 0.095807 vs
 champion-analogue 0.103241, paired gain **−0.007434 (95% CI [−0.01081, −0.00496], 0/20 cells)**;
 greedy packing exhausted at 88.6% of target; 94.3% of dots within 3 px of the champion =
@@ -118,7 +417,7 @@ automated gates; no scientific result or score was invented.
 [Nine-site executive comparison](docs/cross-site-review.html).
 The standing normalized owner prompt below remains the starting point every session.
 
-# Current result — 2026-10-26 S19-ASCP (read first every session)
+# Historical result — 2026-10-26 S19-ASCP (superseded by S22 above)
 
 ## NEW UNIQUE TIFF GENERATED — **DO NOT SUBMIT: HOLDOUT GATE FAILED**
 
@@ -155,7 +454,7 @@ current result. Its “no new TIFF” statement was true for that checkout but i
 **Parallel-run addendum (S19B-RADLIN, same date, different lane):** a second concurrent run executed
 the ThK alteration-lineament lane ([preregistration](knowledge/57_s19b_radlin_preregistration.md),
 [result](knowledge/58_s19b_radlin_result.md), run card `evidence/s19b_radlin_run_card.json`). It
-generated a unique 37,654-dot TIFF (`GEMSDOE28-S19-RADLIN-6fa38f9d317b`) that **passed** its frozen
+generated a 37,654-dot research TIFF (`GEMSDOE28-S19-RADLIN-6fa38f9d317b`) that **passed** its frozen
 buffered LOSFO gate (HOLDOUT-DTI **0.107369** vs baseline 0.101933; paired gain **+0.005436**,
 95% CI [+0.001285, +0.009245], seeds 320–324) but **failed** the frozen strict any-raster
 uniqueness rule: 93.4% of dots within 3 px of the unscored dense H37-1 probe-union registry raster
@@ -167,7 +466,7 @@ no number, hash or verdict changed. Still **no file approved**.
 
 ---
 
-# Current result — 2026-10-25 S18-MXTP (read first every session)
+# Historical result — 2026-10-25 S18-MXTP (superseded by S22 above)
 
 ## NEW UNIQUE TIFF GENERATED — **DO NOT SUBMIT: HOLDOUT GATE FAILED**
 
@@ -189,7 +488,7 @@ seeds 310–314, 20 cells, 76,869 pooled withheld positives / 45,155 unique): **
 paired gain **−0.087855** (95% CI **[−0.112958, −0.059642]**). Four-geographic-block bootstrap;
 local recovery proxy, not an organizer score. All three experiments used; lane closed.
 
-**Current source corrections:** the official leaderboard displayed **0.4413** on 2026-10-25
+**Historical source observation:** the official leaderboard displayed **0.4413** on 2026-10-25
 (one-off public source observation, NOT a submission-page receipt). The September rules §§3.2/3.4
 state **three submissions/week**; the authenticated account's remaining allowance is unknown.
 [Source review](evidence/s18_official_source_review.json). No score for a GEMSDOE raster has an
@@ -1357,3 +1656,6 @@ GEMS_DATA_DIR=$PWD/data .venv/bin/python scripts/build_h36_1_submissions.py
 .venv/bin/python scripts/build_site.py
 .venv/bin/python -m pytest -q
 ```
+
+
+</details>

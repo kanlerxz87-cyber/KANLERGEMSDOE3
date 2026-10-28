@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "kind": "NINE_SITE_PARTICIPANT_SOURCE REVIEW \u2014 NOT SCORE RECEIPTS",
+  "generated_utc": "2026-10-28T16:44:10+00:00",
+  "focus_feed_checked_utc": "2026-10-28T16:23:32+00:00",
+  "peer_head_checked_utc": "2026-10-28T16:23:32.945967+00:00",
+  "feed_hashes": {
+    "focus_feed_sha256": "e1854eb213c842beb06e2f22a7fa3e3da4c36ebd2b340480277a5a83e73be03b",
+    "peer_feed_sha256": "9b40939e9ea112d781939c8fa9ac7def5f8b364fec4641fc239d223687c502aa",
+    "retrieval_manifest_sha256": "d6ceb637eaa767222dfeb11a031610bbe31e994b1bfa67e44d91835190c2fd7c",
+    "previous_registry_manifest_sha256": "e1bf60489f762b1ef500d258ef47e4045e578a745a92911d1344a8dfc44dfb46"
+  },
+  "feeds_consistent_for_all_nine": true,
+  "all_nine_heads_differ_from_previous_registry": true,
+  "previous_registry_generated_utc": "2026-10-26T20:21:26Z",
+  "current_site_decisions": [
+    {
+      "site": "GEMSDOE24",
+      "repository": "buffedlizard55-lab/GEMSDOE24",
+      "commit": "1778da6ae1f14f26b4bbc6c385f4a64ca6e9e4a6",
+      "source_page": "docs/index.html",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/1778da6ae1f14f26b4bbc6c385f4a64ca6e9e4a6/docs/index.html",
+      "source_page_git_blob_sha1": "769cd3e29bfab254d80e67f2a0ed6236200dd3b1",
+      "source_page_sha256": "9a947f0b19d6ca9c6a39a6562b00092d22bdba33b8fb59f23c7677afde5ea137",
+      "participant_page_decision_summary": "Participant page: research download only; SUBMIT NO.",
+      "evidence_class": "PARTICIPANT_SOURCE_PAGE_NOT_ORGANIZER_RECEIPT"
+    },
+    {
+      "site": "GEMSDOE25",
+      "repository": "buffedlizard55-lab/GEMSDOE25",
+      "commit": "a728c9f42e6298aaa5b65013806ac578f1b2a3ef",
+      "source_page": "docs/index.html",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE25/blob/a728c9f42e6298aaa5b65013806ac578f1b2a3ef/docs/index.html",
+      "source_page_git_blob_sha1": "2bc157cdeb997bde69d54aff1df7503ae340f3a6",
+      "source_page_sha256": "c8905a790384b02617728c2a7206cc6b92c2bd1dea7b69b2deb9ff0820646bce",
+      "participant_page_decision_summary": "Participant page: no competition-ready TIFF, no eligible download, and no slot; SUBMIT NO.",
+      "evidence_class": "PARTICIPANT_SOURCE_PAGE_NOT_ORGANIZER_RECEIPT"
+    },
+    {
+      "site": "GEMSDOE27",
+      "repository": "buffedlizard55-lab/GEMSDOE27",
+      "commit": "0f9e3e4b06eeecdd584d32fb9dd7544a01d2f3f0",
+      "source_page": "docs/index.html",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/0f9e3e4b06eeecdd584d32fb9dd7544a01d2f3f0/docs/index.html",
+      "source_page_git_blob_sha1": "4d55de16d01dbe7bb0741904369d2c7d03c383e2",
+      "source_page_sha256": "1745aa3b6de4b3c4bc0d72aa81241134194769edc4f7349a36318ef71f45af42",
+      "participant_page_decision_summary": "Participant page: DO NOT SUBMIT; no candidate approved and no historical or research TIFF should be uploaded.",
+      "evidence_class": "PARTICIPANT_SOURCE_PAGE_NOT_ORGANIZER_RECEIPT"
+    },
+    {
+      "site": "GEMSDOE28",
+      "repository": "buffedlizard55-lab/GEMSDOE28",
+      "commit": "f6746e1ad4eb49a35902bb4fd5404b5e6edc9287",
+      "source_page": "docs/index.html",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/f6746e1ad4eb49a35902bb4fd5404b5e6edc9287/docs/index.html",
+      "source_page_git_blob_sha1": "5d71520bbc7a7d9e6f08385a34a091fea959dfe2",
+      "source_page_sha256": "42a99d1bacafeb3b087a937f5854ff655fbe389946bae47c66ec674f692d7b86",
+      "participant_page_decision_summary": "Participant page: no new TIFF approved; prior duplicates and missing validation remain blocking; SUBMIT NO.",
+      "evidence_class": "PARTICIPANT_SOURCE_PAGE_NOT_ORGANIZER_RECEIPT"
+    },
+    {
+      "site": "GEMSDOE30",
+      "repository": "buffedlizard55-lab/GEMSDOE30",
+      "commit": "c3d6c815ae5b6415b07a39d99058a10d4fda0789",
+      "source_page": "index.html",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/c3d6c815ae5b6415b07a39d99058a10d4fda0789/index.html",
+      "source_page_git_blob_sha1": "765823e2614e90fd8f212ab9ab93e9d9b45eaf11",
+      "source_page_sha256": "2b7d0ccc488a52148d229c4d91d1013bafc1eb67240d907791e74760e9424b9c",
+      "participant_page_decision_summary": "Participant page: no new TIFF; published calibration-lattice overlap blocks the historical artifact; SUBMIT NO.",
+      "evidence_class": "PARTICIPANT_SOURCE_PAGE_NOT_ORGANIZER_RECEIPT"
+    },
+    {
+      "site": "GEMSDOE31",
+      "repository": "buffedlizard55-lab/GEMSDOE31",
+      "commit": "cd0b12260807732f3ddb339889984f066d12e870",
+      "source_page": "docs/index.html",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/cd0b12260807732f3ddb339889984f066d12e870/docs/index.html",
+      "source_page_git_blob_sha1": "ca9db321dbbfd654b1a77d3a2802f5d014cbb9c8",
+      "source_page_sha256": "935b78e35394bfd3c6987129016052184661e49b10291d007b5ff5c12cc6d20a",
+      "participant_page_decision_summary": "Participant page: newest H31-CC is negative and explicitly DO NOT SUBMIT.",
+      "evidence_class": "PARTICIPANT_SOURCE_PAGE_NOT_ORGANIZER_RECEIPT"
+    },
+    {
+      "site": "GEMSDOE32",
+      "repository": "buffedlizard55-lab/GEMSDOE32",
+      "commit": "109f364fb39030e40ef51b839b79cf694123b51b",
+      "source_page": "docs/index.html",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/109f364fb39030e40ef51b839b79cf694123b51b/docs/index.html",
+      "source_page_git_blob_sha1": "5638b26a7351f7944f84dc23557571bdd5e36ebc",
+      "source_page_sha256": "0a0df73b21bad028ce4710505c7c8479a7d9ef021d4330c6c6d14cf83d91f10c",
+      "participant_page_decision_summary": "Participant page: no upload authorized; research artifacts remain DO NOT SUBMIT.",
+      "evidence_class": "PARTICIPANT_SOURCE_PAGE_NOT_ORGANIZER_RECEIPT"
+    },
+    {
+      "site": "GEMSDOE33",
+      "repository": "buffedlizard55-lab/GEMSDOE33",
+      "commit": "1e08a7e81ee4595e2f3770f5c4f7c071adc1a53e",
+      "source_page": "docs/index.html",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE33/blob/1e08a7e81ee4595e2f3770f5c4f7c071adc1a53e/docs/index.html",
+      "source_page_git_blob_sha1": "c428bc580757fab5f4a1b2f3da4e1ebda575f619",
+      "source_page_sha256": "f76239e270d1d9810d93d060c4161e72e801c2b8dfc2ef380f4fef6e8d2e5881",
+      "participant_page_decision_summary": "Participant page: zero eligible candidates; research downloads only, SUBMIT NO.",
+      "evidence_class": "PARTICIPANT_SOURCE_PAGE_NOT_ORGANIZER_RECEIPT"
+    },
+    {
+      "site": "GEMSDOE36",
+      "repository": "buffedlizard55-lab/GEMSDOE36",
+      "commit": "4b717aaff6eaf5de9b53030e637f8e1cf0d56e43",
+      "source_page": "docs/index.html",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE36/blob/4b717aaff6eaf5de9b53030e637f8e1cf0d56e43/docs/index.html",
+      "source_page_git_blob_sha1": "97415475e74cb2ff3c36ba58b9ee98275764343e",
+      "source_page_sha256": "0783a755988f030b8356cbaa9693c1515bbe8bebb76a00596474dba11afb8295",
+      "participant_page_decision_summary": "Participant page: literal uniqueness gate failed; no candidate or slot approved; SUBMIT NO.",
+      "evidence_class": "PARTICIPANT_SOURCE_PAGE_NOT_ORGANIZER_RECEIPT"
+    }
+  ],
+  "score_provenance": {
+    "current_official_leaderboard": "STALE_OR_UNAVAILABLE; the stored observation is not a current score and is not used as a projection.",
+    "historical_site_scores": "OWNER/USER-REPORTED unless bound to an organizer receipt; no new receipt was found in this source-page review.",
+    "best_historical_claim": "0.2778, owner/user-reported and not organizer-confirmed; not a new candidate estimate."
+  },
+  "raster_audit": {
+    "current_refreshed_tree_raster_audit_performed": false,
+    "complete_representation_resolved_registry": false,
+    "novelty_clearance": false,
+    "reason": "All nine heads moved since the previous registry snapshot. Source-page freshness does not compare new TIFF bytes, surfaces, or final dots."
+  },
+  "decision": "DO NOT SUBMIT; this project authorizes no file or slot.",
+  "candidate_generated": false,
+  "slot_authorized": false,
+  "organizer_confirmed_score": null,
+  "leaderboard_estimate": null
+}

@@ -1,6 +1,149 @@
 # GEMS DOE 24 — evidence before a leaderboard slot
 
-## Current fail-closed review — 2026-10-26
+## Current continuation — 2026-10-28, session b87d739e
+
+**NO NEW TIFF · NO EXPERIMENT · SUBMIT NO.** Start with the [nine historical champions executive table](docs/historical-champions.html) and [three-pass review / next steps](docs/session-review-b87d739e-20261028.md). All nine owner-named historical champion artifacts were freshly downloaded at immutable commits, hash-checked and read back with the shared validator. All pass local format checks; **all fail the literal lattice uniqueness rule**. GEMSDOE25 and GEMSDOE30 have identical in-footprint predictions. Exact research downloads, full validator results, unknown leaderboard estimates and explicit submission decisions are in the [machine-readable report](docs/data/historical_champions_20261028.json).
+
+**Read the owner prompt below and the [standing normalized requirements](knowledge/owner_brief_2026-10-27_feasibility.md) every session.** This request repeats the nine-site focus, unique TIFF requirement, holdout/novelty gates, three-pass review, scientific research, prominent download guide and PR/merge requirement. Maximize P(Win) and Own the Outcome mean not fabricating success: the method paragraph remains absent, standard budgets fail the retained-lattice gate, and no candidate is approved. Do not restart stopped lanes, invent a lane, claim an unverified score is organizer-confirmed, or use a weekly slot. The full historical prompt remains preserved below; this note is normalized, not a verbatim transcript. [Current negative run card](evidence/session_b87d739e_run_card.json).
+
+## Concurrent continuation — 2026-10-28: history guard
+
+**SUBMIT: NO. No new TIFF, holdout or submission slot.** Read the [current review](docs/repo-review-20261028-history-guard.md), [active owner brief](knowledge/owner_brief_2026-10-27_feasibility.md) and [standing instructions](AGENTS.md) at session start. The [nine-site executive table](docs/executive-summary.html#current-focus-files) contains research downloads only; its historical snapshots are not a current leaderboard or a uniqueness approval. The specified single-method paragraph is absent; the retained lattice also makes common dot budgets fail the literal overlap rule. No leaderboard estimate is established.
+
+Before running historical receipt checks, run `python scripts/check_git_history.py`. A shallow checkout fails with an actionable message; full history alone does not verify any pinned commit. This session completed the prior shallow-history guard, reran the pinned geometric preflight and passed the complete automated suite; see the review for limitations and next steps. **Maximize P(Win) · Own the Outcome.**
+
+
+## Verified repository review — 2026-10-28 (branch `arena/9e77df06-gemsdoe24`)
+
+**NO NEW TIFF · NO EXPERIMENT · DO NOT SUBMIT.** Full test suite **552/552 passed** and ruff clean (with full git history; a shallow clone fails 6 tests). All 57 downloaded GeoTIFFs read back in [0, 1]. The "[0, 1]" portal error is **not explained**: the organizer example mirror also uses NaN outside the footprint. Read [the verified review](docs/repo-review-20261028-verified.md) first.
+## Latest continuation — 2026-10-28 repository review
+
+**NO NEW TIFF · NO EXPERIMENT · DO NOT SUBMIT.** Read the [current repository review](docs/repo-review-20261028-arena-387fd618.md) before continuing. The session-scoped report is at [docs/repo-review-20261028.md](docs/repo-review-20261028.md). The parallel-run prompt provides no assigned method paragraph, and the literal registry rule conflicts with the retained calibration-lattice witness at standard dot budgets; neither constraint was changed. The frozen feasibility tests pass (6/6); full `pytest` could not run because pytest is absent from this runtime. No score estimate, fresh holdout, current-head artifact audit, or organizer-confirmed receipt was produced.
+
+## Latest continuation — 2026-10-27, session a73c5f88
+
+**SUBMIT: NO. No new TIFF or slot.** Read the [current owner requirements](knowledge/owner_brief_2026-10-27_feasibility.md)
+and [three-pass review and next steps](docs/session-review-a73c5f88-20261027.md) at session start.
+The full historical owner prompt remains below; the linked current record is normalized, not verbatim.
+The shared preflight now refuses a receipt path that would overwrite its TIFF, template,
+run card or note (including symlinks/hardlinks). All nine source tips have moved since
+pinned review; freshness is not a new artifact audit. Open PR #70 overlaps the earlier
+first two prospective hypotheses: do not restart those ideas as untried lanes.
+[Executive file/estimate/uniqueness table](docs/executive-summary.html#current-focus-files).
+
+
+## Start here — current request and automated pre-training gate (2026-10-27)
+
+**Maximize P(Win) · Own the Outcome. No new TIFF is authorized to submit.**
+This Arena-branch update supersedes the preceding session note. Read the [active current-session owner brief](knowledge/owner_brief_2026-10-27_active.md),
+[standing integrity rules](AGENTS.md), and [current branch review](docs/repo-review-20261027-arena-68690fd4.md)
+before any new work; use the [feasibility review](docs/feasibility-review-20261027.md) for the necessary-condition gate. The active brief is normalized, not verbatim; historical prompts and site-score catalogue remain preserved below.
+
+**Current review status:** no candidate surface, holdout or new TIFF was generated. The [GitHub-only freshness receipt](docs/data/portfolio_freshness.json) checked all nine focus repositories at `2026-10-27T19:18:47Z`; every current `main` ref differs from its exact-file audit ref. New-head TIFFs/scores were not audited; leaderboard estimates remain **NOT ESTIMABLE**. [JSON run card](evidence/repo_review_20261027_arena_68690fd4.json).
+
+**GEMSDOE24 local research download:** [`gems24-s3dep1-negative-10m-monoclinal-20261026-464fa34b4091-zeros.tif`](docs/downloads/gems24-s3dep1-negative-10m-monoclinal-20261026-464fa34b4091-zeros.tif) — **DOWNLOAD: YES (research/audit) · SUBMIT: NO**. Source-recorded **HOLDOUT-DTI 0.166060**, `gems-segment-pooled-v1`, 60,988 withheld, 95% CI [0.151858, 0.180339], not replayed or a leaderboard score. See the [fail-closed exact-file decision](docs/data/current_best_review.json).
+
+**GEMSDOE32 H33-B2:** 0.2778 remains **OWNER-REPORTED / UNVERIFIED** without an artifact-linked organizer receipt. Open PRs #70 and #61 overlap candidate/B2 work and remain unmerged/dirty; their contents do not assign a method to this session.
+
+[**Executive status: research downloads only; SUBMIT NO**](docs/executive-summary.html#current-focus-files) ·
+[**Why ordinary dot budgets cannot pass the literal uniqueness gate**](docs/submission-readiness.html) ·
+[Hash-bound feasibility JSON](docs/data/uniqueness_feasibility_20261027.json).
+
+```bash
+# Read-only necessary gate BEFORE training; expected exit 2 for these budgets.
+python scripts/check_uniqueness_feasibility.py --dot-budget 37654 --dot-budget 44090
+```
+
+The pinned registry lattice leaves only 6,649 in-footprint pixels outside its
+inclusive 3-pixel union. Every 37,654-dot set therefore overlaps it by at least
+**82.34%**, and every 44,090-dot set by at least **84.92%**. This is a universal
+geometric bound, **not a score**, not proof of copying and not a full registry
+pass. At 22,164 or more distinct in-footprint dots the bound alone exceeds 70%.
+Smaller budgets are **NOT RULED OUT, NOT PASS**; do not retune a stopped method,
+shift dots or remove comparators to evade the protocol. No surface, training,
+new holdout, TIFF or slot was generated in this continuation. A separate
+scientific lane assignment and all existing gates remain required.
+
+The concurrent PR #67 added a dependency-free frozen-count check:
+`python scripts/check_protocol_feasibility.py`.
+Its [prior review](docs/protocol-feasibility-20261027.md) and
+[negative card](evidence/protocol_continuation_run_card_20261027.json) are preserved.
+Both entrypoints now reuse one exact-arithmetic implementation; the fresh
+checker additionally reopens the pinned template and reference raster.
+
+See the [prominent nine-site research file/freshness table](docs/executive-summary.html#current-focus-files),
+[four ranked unexecuted hypotheses and data availability](docs/research-directions-20261027.md), and
+[shared-tool verification review](docs/shared-guardrails-review-20261027.md). Local mirror/cache hashes
+prove integrity only, not organizer provenance. A format PASS never authorizes a submission;
+independent scientific replay, current registry coverage, quota, and the separate selector remain blockers.
+
+## Current decision — 2026-10-27: research downloads only; **DO NOT SUBMIT**
+
+**No new TIFF or experiment was produced by this review, and no slot was used.**
+[Open the nine-site executive submission guide](docs/executive-summary.html#current-focus-files) ·
+[Machine-readable exact-file review](evidence/current_focus_nine_file_audit_20261027.json) ·
+[Scientific and three-pass review](knowledge/31_current_integrity_review_2026-10-27.md).
+One source-featured research TIFF per focus site was fetched at immutable commits: all nine
+passed local grid/range checks, but **all nine fail the literal 70% registry-overlap rule**
+against the retained lattice. This is one decisive comparator, not a full current registry
+or a replay of the scientific training. No organizer score or current account quota was verified.
+
+- **TMCG — [DOWNLOAD FOR RESEARCH](docs/downloads/gems24-tmcg-b-decoupled-basin-20261027T113937Z-6f8d042d5ee4-zeros.tif) · SUBMIT NO.** Concurrent PR #63's file is format-valid but **100%** of its 37,722 dots lie within 3 px of the registered lattice; its local-download proxy omitted that comparator and did not check the pre-placement surface. Source-recorded **HOLDOUT-DTI 0.07157** [0.06271, 0.08168], `gems-segment-pooled-v1`, 60,988 withheld, **not replayed**. SHA-256 `9df52a41c34d4f508b57128c1bc6c2dd716c6149d22dd8717137baa463ed0336`. [Audit](evidence/tmcg_integrity_review_20261027.json).
+- **H-UNIQUE-07 — [QUARANTINED RESEARCH DOWNLOAD](docs/downloads/24gems-catalogue-offset-geothermal-proximity-20261027T114303Z-578c30176163-zeros.tif) · SUBMIT NO.** Concurrent PR #64's file has **99.779%** lattice overlap. Its fold support was derived from the full fault-label catalogue, including withheld segments; its reported holdout is **invalid for comparison**. Its runner and report writer are stopped. [Audit](evidence/unique07_integrity_review_20261027.json).
+- **Conservative comparison floor:** GEMSDOE36 KPL-36 reports **HOLDOUT-DTI 0.17010** [0.15509, 0.18614], `gems-segment-pooled-v1`, 60,988 withheld; it is a source record, not independently replayed or proven protocol-equivalent, and its exact TIFF fails the literal lattice gate. Open PR #50 DRAIN5 reports 0.16950 on the same named evaluator/count, also duplicate and unmerged. S3DEP1 remains the highest declared **local-main** point record below, not a portfolio-wide best.
+- **Band-6 correction:** the historical alias `bouguer_tc_mgal` does **not** establish Bouguer gravity or mGal. On 250,000 sampled pixels it has Spearman 0.99995 with cached GeoDAWN radiometric total count, while the owner-mirror tag says magnetic tilt/curvature. The true source and units remain unverified. [Provenance audit](evidence/band6_provenance_review_20261027.json).
+
+The reported GEMSDOE32 B2 score of **0.2778** is owner-reported and unverified. Its historical deletion-only geometry is evidence about emission, not proof of hidden-label mechanisms or future scores. **Maximize P(Win) · Own the Outcome.**
+
+**Access-policy incident:** this review inadvertently used a web tool to open public DrivenData reference pages, contrary to the repository's no-automated-access policy. The lookups stopped; no login, leaderboard, submission portal or slot was accessed. See the [incident and source review](knowledge/31_current_integrity_review_2026-10-27.md#sources-data-provenance-quota-and-portal-error).
+
+The separately merged [earlier repository review](docs/repo-review-20261027.md) and its [negative run card](evidence/repo_review_20261027.json) are preserved. Its missing-cache observation describes that earlier checkout; this review restored an owner mirror without organizer authentication. The exact-file, lattice and leakage findings above supersede its concurrent-lane interpretations.
+
+## H24-S3DEP1 (Current Recorded Local `HOLDOUT-DTI = 0.166060`, Zero 1 m LiDAR) & Frozen `2026-10-26` Nine-Site Forensic Snapshot (`DOWNLOAD: YES · SUBMIT: NO`)
+
+> **UNMISTAKABLE AUTOMATED VERDICT (ZERO HUMAN-INSPECTOR FALLBACK):**
+> - **Current Recorded Local Point-Best (`H24-S3DEP1`, prior executed lane; exact bytes revalidated in this review):** [`gems24-s3dep1-negative-10m-monoclinal-20261026-464fa34b4091-zeros.tif`](docs/downloads/gems24-s3dep1-negative-10m-monoclinal-20261026-464fa34b4091-zeros.tif) (`SHA-256: 86516533fb525ebce792152ae4ed852e88ae4feda0bd596710c7319a238b8071`; **`HOLDOUT-DTI = 0.166060`** `[0.151858, 0.180339]`, `gems-segment-pooled-v1`, `60,988` withheld positives, **zero 1 m LiDAR**) -> **`OK TO DOWNLOAD: YES (research/audit) · OK TO SUBMIT: NO (`DO_NOT_SUBMIT`)`** (`verdict: "negative"` via `gems-selector-v2-literal-quota-fail-closed`: `71.32% > 70%` 3-px overlap vs local stopped lane `DKRN1`, exact-file C2ST `AUC = 0.6012` `holm_p = 0.0200`, paired CI vs `DPRF1` spanning `0`, retained `registry-039`, and unknown live quota).
+> - **Later C2ST-Clean Pure-Subsurface Semivariogram GeoTIFF (`H24-XVAR1`, negative lane):** [`gems24-xvar1-duplicate-semivariogram-20261026-7d909c75458c-zeros.tif`](docs/downloads/gems24-xvar1-duplicate-semivariogram-20261026-7d909c75458c-zeros.tif) (`SHA-256: 9c7d4ff1d49e322134e6b06e4ec304b98ea03d31420ac58c3803d9f2f57ba4b1`, `37,654` binary `{0.0, 1.0}` dots, strict whole-array `[0, 1]` PASS, `0` NaN/Inf, `HOLDOUT-DTI = 0.14627` / `0.14680` 1R, **exact-file C2ST `AUC = 0.5437 < 0.55` PASS**) -> **`OK TO DOWNLOAD: YES (research) · OK TO SUBMIT: NO (`DO_NOT_SUBMIT`, `verdict = "negative"`)`**.
+> - **Previous Recorded Point-Best (`H24-DPRF1`):** [`gems24-dprf1-stitched-oof-tworegime-20261026-81849d67c8bf-zeros.tif`](docs/downloads/gems24-dprf1-stitched-oof-tworegime-20261026-81849d67c8bf-zeros.tif) (`HOLDOUT-DTI = 0.163792` `[0.150446, 0.177390]`, `C2ST = 0.5247` PASS, `86.66%` overlap vs subsequent `EUL1`) -> **`OK TO DOWNLOAD: YES (audit) · OK TO SUBMIT: NO (`DO_NOT_SUBMIT`)`** (still not a literal-gate-unique or submit-ready candidate).
+> - **Quarantined Sibling-Merge Irregularity (`IRR-GAPFILL-ORACLE-LEAK`):** `24gems-gapfill-near-fault-20261026T203338Z-1b2b4ccc37b0-zeros.tif` (merged via PR #55) computed `distance_transform_edt(~labels)` directly on full ground-truth `labels.tif` (including all `60,988` withheld `fold.truth` pixels) while zeroing exact `labels` pixels to evade the single-pixel canary (`AUC = 0.3752`), invalidating its `0.60183` holdout number as 100% oracle test-label leakage. Quarantined in [`docs/data/unique_gapfill_quarantined_run_card.json`](docs/data/unique_gapfill_quarantined_run_card.json) as **`DO_NOT_SUBMIT` (`verdict: "negative"`)**.
+
+[**⬇ Download Local-Main Point-Best H24-S3DEP1 GeoTIFF (`-zeros.tif`, strict whole-array `[0, 1]`) — DO NOT SUBMIT**](docs/downloads/gems24-s3dep1-negative-10m-monoclinal-20261026-464fa34b4091-zeros.tif) ·
+[Single-GeoTIFF ZIP](docs/downloads/gems24-s3dep1-negative-10m-monoclinal-20261026-464fa34b4091-zeros.zip) ·
+[NaN-outside twin](docs/downloads/gems24-s3dep1-negative-10m-monoclinal-20261026-464fa34b4091-nan.tif) ·
+[JSON Run Card](evidence/s3dep1_run_card_20261026.json) ·
+[Selector v2 Receipt (`DO_NOT_SUBMIT`)](evidence/s3dep1_selector_20261026.json) ·
+[Frozen 9-Site `2026-10-26` Forensic Audit JSON](evidence/nine_site_executive_summary_s3dep1_20261026.json) ·
+[Current Focus-Site GitHub Source Refs](evidence/focus_source_refresh_20261026.json) ·
+[PhD Findings & 9-Site Synthesis](knowledge/30_S3DEP1_findings_and_9site_executive_summary_2026-10-26.md) ·
+[Preregistration (`7e6db4d428ae`)](knowledge/29_preregistered_S3DEP1_2026-10-26.md) ·
+[Executive Summary & Submission Guide](docs/executive-summary.html#s3dep1)
+
+- **What `H24-S3DEP1` tested (`61` channels, `0` 1 m LiDAR channels, `3 / 3` experiment budget spent, `0` slots spent):** Withheld all `15` 1 m LiDAR channels across 100% of the footprint (`5,167,373` cells) and fused `12` seamless USGS `10 m` 3DEP sub-cell gradients ([ScienceBase `4f70aa9fe4b058caae3f8de5`](https://www.sciencebase.gov/catalog/item/4f70aa9fe4b058caae3f8de5)), `6` restored `training_features.tif` crustal/seismic channels (`mag_anom`, `geod_2ndinv`, `iso_grav_anom_slope`, `tc` (legacy alias; identity and units unverified), `log1p(deq_n100a15)`, `log1p(ieq_n100a15)`), `6` monoclinal step-asymmetry / incision operators (`s3dep_*`), and `37` non-LiDAR base + [OpenEI GDR #1391](https://gdr.openei.org/submissions/1391) hydrothermal + `SAHG` channels via Dual-Negative (`d3+d9`) Core + `300 m` Kernel Log-Odds Blending (`0.65 / 0.35`), Dual-Partition Stitched-OOF, and Two-Regime `300 m` submodular allocation (`37,654` binary `{0.0, 1.0}` dots; `0` copied submission pixels; `22.2%` apron / `52.1%` `>2 km` far-field).
+- **Holdout readout (`gems-segment-pooled-v1`, `60,988` withheld positives):**
+  - **Arm 3 (`H24-S3DEP1` Hybrid Primary):** **`HOLDOUT-DTI = 0.166060`** (`95% CI [0.151858, 0.180339]`; **`NE_LidarGapHeavy = 0.21972`**, `SE = 0.18336`, `NW = 0.16392`, `SW = 0.11667`; `3.0 km` Bridge **`0.162568`** `[0.144755, 0.180606]`), surpassing recorded `H24-DPRF1` (`0.163792`) by **`+0.002268`** (`95% CI [-0.006994, +0.011442]`, `3/4` folds won) and beating `oof_multiphysics_hgb_d3` (`0.13000`) by **`+0.036063`** (`95% CI [+0.020819, +0.051946]`, `4/4` folds won).
+  - **Arm 1 (`S3DEP1` Dual-Negative `d3+d9` Core Classifier):** **`HOLDOUT-DTI = 0.165366`** (`NE_LidarGapHeavy = 0.22088`).
+  - **Arm 2 (`S3DEP1` Pure `300 m` Kernel Regressor):** **`HOLDOUT-DTI = 0.158449`** (`Arm 3 - Arm 2 = +0.007612` `[+0.002611, +0.012555]`, `4/4` folds won).
+  - **Why `H24-S3DEP1` stopped honestly at `DO_NOT_SUBMIT` (`verdict: "negative"`):** (1) Passed `61/61` two-polarity leakage canaries (`<= 0.6111 <= 0.90`), passed surface novelty (`max |ρ| = 0.4274 <= 0.90`), passed overlap against `H24-DPRF1` (`64.45% <= 70%`), `GEMSDOE32 B2` (`46.95%`), all `83` peer blobs (`<= 54.33%`), and all `32` sibling focus `.tif`s in the frozen audit (`<= 53.17%`), **but exceeded `70%` against local stopped lane `DKRN1` (`71.32%`)**; the shared 37-channel non-LiDAR backbone is an association, not proven causation; (2) exact-file C2ST was flagged (`AUC = 0.6012`, `holm_p = 0.0200`), with unresidualized `10 m` gradients and highway cut/fill corridors a plausible mimic rather than a verified cause; (3) paired CI vs `DPRF1` spans zero and `registry-039` remains retained. Zero post-hoc retuning was performed.
+  - **Short Note (`108 <= 140` chars):** `GEMS24 S3DEP1 | 10m 3DEP+crustal OOF 37654d | id 464fa34b4091 | HOLDOUT-DTI 0.1661 | research; DO NOT SUBMIT`
+
+## H24-XVAR1 (Two-Sided Azimuthal Semivariogram, C2ST `0.5437` PASS) & PhD `0.2778` / `0.3195` / `0.4413` Synthesis (`DOWNLOAD: YES · SUBMIT: NO`)
+
+[**⬇ Download New Unique H24-XVAR1 GeoTIFF (`-zeros.tif`, strict whole-array `[0, 1]`) — DO NOT SUBMIT**](docs/downloads/gems24-xvar1-duplicate-semivariogram-20261026-7d909c75458c-zeros.tif) ·
+[Single-GeoTIFF ZIP](docs/downloads/gems24-xvar1-duplicate-semivariogram-20261026-7d909c75458c-zeros.zip) ·
+[NaN-outside twin](docs/downloads/gems24-xvar1-duplicate-semivariogram-20261026-7d909c75458c-nan.tif) ·
+[JSON run card](evidence/xvar1_run_card_20261026.json) ·
+[Selector v2 receipt (`DO_NOT_SUBMIT`)](evidence/xvar1_selector_20261026.json) ·
+[Fresh 9-Site `2026-10-26` Forensic Audit JSON (`112` live sibling TIFFs)](evidence/nine_site_executive_summary_xvar1_20261026.json) ·
+[PhD Synthesis & 9-Site Report](knowledge/30_XVAR1_findings_and_9site_executive_summary_2026-10-26.md) ·
+[Preregistration (`4f251952ee71`)](knowledge/29_preregistered_XVAR1_2026-10-26.md) ·
+[Executive Summary & Submission Guide](docs/executive-summary.html#xvar1)
+
+- **What `H24-XVAR1` tested (Rank #1 of [`knowledge/26_portfolio_plan_corrections_2026-10-26.md`](knowledge/26_portfolio_plan_corrections_2026-10-26.md)):** 8 parity-symmetric centered two-sided azimuthal semivariogram jump & cross-strike anisotropy channels on float32 `rtp`, `iso_grav_anom`, `depth_to_base_surf`, and `cond_surf` at lags $h \in \{300\text{ m}, 800\text{ m}\}$ across 4 strikes, with 7-confound fold-safe `NuisanceResidualizer` (`road_m`, `claim_m`, `block_1..4`, `area1`), **zero 1 m LiDAR channels**, **zero D8 wash routing**, and Dual-Partition Stitched-OOF (`37,654` binary `{0.0, 1.0}` dots; `0` copied pixels; **`21.8%` apron / `52.8%` `>2 km` far-field** — the highest far-field ratio across all 9 focus sites).
+- **Same-evaluator readout (`gems-segment-pooled-v1`, `60,988` withheld positives, 3 experiments within budget):**
+  - **Arm 1 (`H24-XVAR1` 45-ch 2-Regime `65/35%`):** **`HOLDOUT-DTI = 0.14627`** (`95% CI [0.13345, 0.15997]`; **Arm 2 Single-Regime `0.14680`** `[0.13426, 0.16027]`; **Arm 3 matched 37-ch LiDAR-free `B_SUB37` control `0.14533`** `[0.13206, 0.15915]`), beating `oof_multiphysics_hgb_d3` (`0.13000`) on **`4/4` spatial folds** by **`+0.01627`** (`[+0.00856, +0.02397]`), with `Arm 2` beating `B_SUB37` in **`3/4` folds** (`NW +0.00214`, `SW +0.00582`, `SE +0.00152`; `Arm 1` winning `SW +0.00708` & `SE +0.00291`), and **beating 52-ch LiDAR-equipped `DPRF1` on `NW` (`0.15669` / `0.16081` 1R vs `0.15639`)**.
+  - **Solved Both Prior `DKRN1` Defects & Confirmed the Second Convergence Theorem:** Cut 3-px dot overlap with `DPRF1` to **`65.64% <= 70%`** (`44.30%` vs `GEMSDOE32 B2`, `<=53.92%` vs 83 peers, `<=52.41%` vs all 111 live 9-site GeoTIFFs) and passed exact-file C2ST (**`AUC = 0.5437 < 0.55`**, `60/60` leakage canaries PASS `<=0.6111`), while independently confirming `S3DEP1`'s shared-backbone convergence (`75.36% > 70%` vs `DKRN1` via the shared 37-ch `100 m` DEM trunk). Stopped immediately per Rules 1 & 6 (`GEMS24 XVAR1 | 2-sided semivariogram OOF | id 7d909c75458c | HOLDOUT-DTI 0.1463 | research; DO NOT SUBMIT`).
+
+## Archived prior fail-closed review — 2026-10-26
 
 > **AUTOMATED VERDICT: DOWNLOAD MAY BE AVAILABLE FOR RESEARCH · SUBMIT: NO · NEW TIFF: NONE.**
 >
@@ -15,7 +158,9 @@ The repository also retains an **archived, prior negative lane** for audit compl
 [Full scientific / integrity review](docs/portfolio-review-20261026.md) ·
 [Nine-site CSV](docs/data/portfolio_summary_20261026.csv) ·
 [Current artifact audit JSON](evidence/portfolio_artifact_audit_20261026.json) ·
-[Session run card](evidence/portfolio_run_card_20261026.json) · [Continuation safety review receipt](evidence/continuation_safety_review_20261026.json).
+[Session run card](evidence/portfolio_run_card_20261026.json) · [Continuation safety review receipt](evidence/continuation_safety_review_20261026.json) ·
+[2026-10-26 Arena repository review](docs/repo-review-20261026-arena-b7b2f1b6.md) ·
+[Review run card](evidence/repo_review_arena_b7b2f1b6_20261026.json).
 
 ### Nine-site scope and evidence policy
 
@@ -31,7 +176,7 @@ The archived DKRN1 receipt, run card, selector, and preregistration remain avail
 
 **Core values:** **Maximize P(Win)** and **Own the Outcome**. No human-inspection fallback exists: automated validation and selector gates fail closed.
 
-## Current portfolio review — 2026-10-26, session e78615fb
+## Archived portfolio review snapshot — 2026-10-26, session e78615fb (superseded by S3DEP1 above)
 
 **DOWNLOAD existing research: YES · SUBMIT: NO · NEW TIFF: NONE.**
 The requested new, high-scoring, gate-passing unique submission **has not been achieved**.
@@ -69,7 +214,7 @@ experiment was run, and no weekly slot was used.
   This is a bound at that budget, not proof of scientific copying. No exemption,
   dot-moving or stopped-lane retuning was used. No lane paragraph was supplied.
 
-DPRF1 is only the **recorded local point-best**: **HOLDOUT-DTI 0.16379**,
+At this archived review snapshot, DPRF1 was only the **recorded local point-best**: **HOLDOUT-DTI 0.16379**,
 95% CI **[0.15045, 0.17739]**, `gems-segment-pooled-v1`, **60,988 withheld
 positives**. Not independently replayed here; not a verified cross-site winner
 or leaderboard forecast. H33-B2's **0.2778** and the conflicting leader claims
@@ -303,7 +448,7 @@ and `archive/legacy/vent/run_vent_lane.py.txt`. The active `scripts/run_vent_lan
 now only verifies existing file hash/format with `--verify-recorded`; no rerun is allowed.
 No VENT result is used here to justify promotion or a leaderboard forecast.
 
-## Latest lane — 2026-10-26 (`H24-XFRONT`) cross-modal oriented-step corroboration: NEGATIVE · DOWNLOAD YES / SUBMIT NO · DO NOT RETUNE
+## Archived prior lane — 2026-10-26 (`H24-XFRONT`) cross-modal oriented-step corroboration: NEGATIVE · DOWNLOAD YES / SUBMIT NO · DO NOT RETUNE
 
 [**Download the newly generated unique H24-XFRONT research GeoTIFF (zeros outside, strict [0,1])**](docs/downloads/gems24-xfront-c-corrob-45000-20261026T162655Z-921f4f037290-zeros.tif) ·
 [Single-GeoTIFF ZIP](docs/downloads/gems24-xfront-c-corrob-45000-20261026T162655Z-921f4f037290-zeros.zip) ·
@@ -320,8 +465,7 @@ measurement. Pre-specified mechanism ablation: arm B (corroboration alone) beats
 rotation-null excess orientation coherence) by **+0.00644** (95% CI [+0.00132, +0.01243], 4/4 folds) — the
 orientation refinement is actively harmful. Exact-file C2ST **FAILED** (AUC 0.5835, Holm p 0.02): the dots are
 partly predictable from road/claim/access features, i.e. some "corroboration" is human access, not structure.
-**DPRF1 in the next section remains the highest-scoring recorded local artifact (HOLDOUT-DTI 0.16379) and is
-still not a literal-gate-unique or submit-ready candidate:** the separate selector step holds every file in the
+**At the time of this archived XFRONT snapshot, DPRF1 was the highest-scoring recorded local artifact (HOLDOUT-DTI 0.16379); S3DEP1 later superseded that point estimate, and neither is a literal-gate-unique or submit-ready candidate:** the separate selector step holds every file in the
 portfolio at `DO_NOT_SUBMIT` (synthetic spacing-5 lattice `registry-039`, unknown live quota, no replay
 certificate), and XFRONT changes none of that. Lane stopped — one experiment of the three-experiment budget
 used; do not rerun or retune. No weekly slot has been spent.
@@ -334,7 +478,7 @@ used; do not rerun or retune. No weekly slot has been spent.
 [XFRONT Selector v2 JSON](evidence/xfront_selector_20261026.json) ·
 [Executive guide](docs/executive-summary.html#xfront)
 
-## Recorded local reference — `H24-DPRF1` · `DOWNLOAD: YES (research) · SUBMIT: NO`
+## Archived recorded local reference — `H24-DPRF1` (superseded by S3DEP1) · `DOWNLOAD: YES (research) · SUBMIT: NO`
 
 [**Download the research GeoTIFF (finite-zero exterior; DO NOT SUBMIT)**](docs/downloads/gems24-dprf1-stitched-oof-tworegime-20261026-81849d67c8bf-zeros.tif) ·
 [Single-GeoTIFF ZIP](docs/downloads/gems24-dprf1-stitched-oof-tworegime-20261026-81849d67c8bf-zeros.zip) ·
@@ -344,7 +488,7 @@ used; do not rerun or retune. No weekly slot has been spent.
 [Machine-readable nine-site summary](evidence/nine_site_executive_summary_20261026.json) ·
 [Executive guide](docs/executive-summary.html).
 
-This is the **recorded local point-best research artifact**, not a new artifact from the current continuation. Its reproducible measurement is **HOLDOUT-DTI `0.16379`**, evaluator `gems-segment-pooled-v1`, `60,988` withheld positives, 95% CI `[0.15045, 0.17739]`. A separate bridge measurement is **HOLDOUT-DTI `0.16290`**, evaluator `segment-hide-recover-pooled-v1`, `60,988` withheld positives, 95% CI `[0.14449, 0.18118]`. Neither is an organizer score, hidden-score estimate, or leaderboard forecast.
+This was the **recorded local point-best research artifact at this archived snapshot** and is now superseded by S3DEP1. Its reproducible measurement is **HOLDOUT-DTI `0.16379`**, evaluator `gems-segment-pooled-v1`, `60,988` withheld positives, 95% CI `[0.15045, 0.17739]`. A separate bridge measurement is **HOLDOUT-DTI `0.16290`**, evaluator `segment-hide-recover-pooled-v1`, `60,988` withheld positives, 95% CI `[0.14449, 0.18118]`. Neither is an organizer score, hidden-score estimate, or leaderboard forecast.
 
 - **Format:** finite float32 `-zeros.tif`, exact pinned grid, strict whole-array `[0,1]` diagnostic PASS; the `-nan.tif` file is a compatibility twin and is not the recommended upload-format candidate.
 - **Scientific/novelty status:** recorded technical method and peer comparisons pass, but the literal all-entry registry gate fails on retained `registry-039`; the independent replay certificate and live quota receipt are unavailable.
@@ -392,7 +536,7 @@ The exact organizer-side cause of the earlier `Predicted values must be in range
 
 Use the download links for audit/research only. A future submission candidate would require the pinned grid, finite float32 values in `[0,1]` across the entire array, SHA-256/run-card identity, a ≤140-character note, the shared holdout receipt, both novelty stages, nuisance audit, and an independent selector decision. The current selector is fail-closed; **do not upload or spend a slot**. No organizer-confirmed score or artifact-linked submission receipt exists.
 
-## Latest lane — 2026-10-26 (`H24-EUL1`) Euler N=0 contact increment: NEGATIVE · DOWNLOAD YES / SUBMIT NO · DO NOT RETUNE
+## Archived prior lane — 2026-10-26 (`H24-EUL1`) Euler N=0 contact increment: NEGATIVE · DOWNLOAD YES / SUBMIT NO · DO NOT RETUNE
 
 [**Download the newly generated unique H24-EUL1 research GeoTIFF (zeros outside, strict [0,1])**](docs/downloads/gems24-eul1-negative-euler-contact-20261026-eda170f04847-zeros.tif) ·
 [Single-GeoTIFF ZIP](docs/downloads/gems24-eul1-negative-euler-contact-20261026-eda170f04847-zeros.zip) ·
@@ -403,9 +547,8 @@ Use the download links for audit/research only. A future submission candidate wo
 [Preregistration](knowledge/22_preregistered_EUL1_2026-10-26.md) ·
 [Amendment A1](knowledge/23_EUL1_prereg_amendment_2026-10-26.md)
 
-**THE OBVIOUS DECISION (unchanged by EUL1):** DPRF1's file in the section below remains the local
-recorded point-best unscored candidate — its HOLDOUT-DTI was **replayed bit-identically** inside
-this EUL1 session (`0.1637924246971501`, same CI) as Arm 2. EUL1 scored **worse**
+**ARCHIVED EUL1 DECISION:** DPRF1 was the local recorded point-best when this lane ran and was **replayed bit-identically** inside
+this EUL1 session; S3DEP1 later superseded its point estimate (`0.1637924246971501`, same CI) as Arm 2. EUL1 scored **worse**
 (**HOLDOUT-DTI 0.16005** [0.14729, 0.17278]; paired Δ **−0.00375** [−0.00825, +0.00074], 1/4 folds;
 Euler channels alone lost 0/4 folds) and **86.57%** of its dots fall within 3 px of DPRF1's
 (>70% Rule-1 ceiling = duplicate lane), so it is a valid-format **research download only**.
@@ -417,8 +560,7 @@ Pre-fit band forensics also proved the bridge `*_vg` bands are **not** certified
 so Euler used self-consistent FFT derivatives (Amendment A1, `IRR-EUL1-VG-BANDS`). Portfolio lesson:
 incremental channels on a strong parent re-converge to duplicate dots (CUP1 91.2%, EUL1 86.6%) —
 the next lane must change detection geometry (candidate preregs: `H24-DRAIN5` flow-routing,
-`H24-KERN6` DTI-kernel soft labels, `H24-INSAR4` on an unrestricted machine), and the immediate
-next step is the **selector/quota authorization step for DPRF1**, not another experiment.
+`H24-KERN6` DTI-kernel soft labels, `H24-INSAR4` on an unrestricted machine). The selector/quota step for DPRF1 was the recommendation at that archived snapshot; it was not authorization.
 
 ## Concurrent decision — 2026-10-26 (`H24-TNR1`, PR #31)
 
@@ -840,7 +982,7 @@ Irregularities for review (the H33 analysis still cites `registry/live_scores.js
 ## Current decision
 
 <!-- STATUS:START -->
-Latest **H24-TNR1**: [`gems24-tnr1-56dfd14b88db-20261026-RESEARCH-NOT-SUBMISSION-zeros.tif`](docs/downloads/gems24-tnr1-56dfd14b88db-20261026-RESEARCH-NOT-SUBMISSION-zeros.tif). **DOWNLOAD YES / SUBMIT NO — NOT OK TO SUBMIT**. HOLDOUT-DTI **0.13219**, 95% CI **[0.11791, 0.14546]**, `gems-segment-pooled-v1`, **60,988 withheld positives**. Matched raw control **HOLDOUT-DTI 0.13223** (95% CI [0.11639, 0.14880]); paired delta -0.00004 (95% CI [-0.01020, +0.01021]). Execution-time GVC1 comparator **HOLDOUT-DTI 0.14876** (95% CI [0.13413, 0.16370], same evaluator/positives; not retrained). Later recorded DPRF1 point-best **HOLDOUT-DTI 0.16379** (95% CI [0.15045, 0.17739], same evaluator/positives) also is not a certified paired win. Exact file [0,1]/grid and 79 leakage-canary checks pass; C2ST diagnostic AUC 0.5267, Holm p 0.240, not flagged. Final competing-method 3-px overlap **74.89%** exceeds 70%; retained lattice overlap **100%**. Stopped as duplicate; no retuning. New bytes, not gate-passing scientific uniqueness, and not a leaderboard result. No weekly slot has been spent. [JSON run card](evidence/tnr1_run_card_20261026.json) · [Executive guide](docs/executive-summary.html) · [Current owner brief](knowledge/owner_brief_2026-10-26.md).
+Latest **H24-TNR1**: [`gems24-tnr1-56dfd14b88db-20261026-RESEARCH-NOT-SUBMISSION-zeros.tif`](docs/downloads/gems24-tnr1-56dfd14b88db-20261026-RESEARCH-NOT-SUBMISSION-zeros.tif). **DOWNLOAD YES / SUBMIT NO — NOT OK TO SUBMIT**. HOLDOUT-DTI **0.13219**, 95% CI **[0.11791, 0.14546]**, `gems-segment-pooled-v1`, **60,988 withheld positives**. Matched raw control **HOLDOUT-DTI 0.13223** (95% CI [0.11639, 0.14880]); paired delta -0.00004 (95% CI [-0.01020, +0.01021]). Execution-time GVC1 comparator **HOLDOUT-DTI 0.14876** (95% CI [0.13413, 0.16370], same evaluator/positives; not retrained). Later recorded S3DEP1 point-best **HOLDOUT-DTI 0.16606** (95% CI [0.15186, 0.18034], same evaluator/positives) also is not a certified paired win. Exact file [0,1]/grid and 79 leakage-canary checks pass; C2ST diagnostic AUC 0.5267, Holm p 0.240, not flagged. Final competing-method 3-px overlap **74.89%** exceeds 70%; retained lattice overlap **100%**. Stopped as duplicate; no retuning. New bytes, not gate-passing scientific uniqueness, and not a leaderboard result. No weekly slot has been spent. [JSON run card](evidence/tnr1_run_card_20261026.json) · [Executive guide](docs/executive-summary.html) · [Current owner brief](knowledge/owner_brief_2026-10-26.md).
 
 Earlier packets below are historical, not current submission authority.
 
@@ -848,12 +990,28 @@ Latest OJ1 research TIFF: [`gems24-oj1-3eef450351de-RESEARCH-NOT-SUBMISSION-zero
 
 **DOWNLOAD: YES. SUBMIT: NO — automatic NEGATIVE verdict, not human inspection pending.**
 
+Current 2026-10-26 Recorded Local Point-Best `H24-S3DEP1` 61-Channel Zero-1m-LiDAR Seamless 10 m 3DEP + Crustal/Hydrothermal OOF GeoTIFF (**NEW RECORD HOLDOUT-DTI 0.16606 · NEGATIVE RESULT — DOWNLOAD: YES · SUBMIT: NO · DO NOT RETUNE**):
+[`gems24-s3dep1-negative-10m-monoclinal-20261026-464fa34b4091-zeros.tif`](docs/downloads/gems24-s3dep1-negative-10m-monoclinal-20261026-464fa34b4091-zeros.tif) (`SHA-256: 86516533fb525ebce792152ae4ed852e88ae4feda0bd596710c7319a238b8071`),
+Single-GeoTIFF ZIP [`gems24-s3dep1-negative-10m-monoclinal-20261026-464fa34b4091-zeros.zip`](docs/downloads/gems24-s3dep1-negative-10m-monoclinal-20261026-464fa34b4091-zeros.zip), and
+NaN-outside twin [`gems24-s3dep1-negative-10m-monoclinal-20261026-464fa34b4091-nan.tif`](docs/downloads/gems24-s3dep1-negative-10m-monoclinal-20261026-464fa34b4091-nan.tif).
+Preregistered (`knowledge/29_preregistered_S3DEP1_2026-10-26.md` @ `7e6db4d428ae`, 3/3 experiment budget spent, 0 slots spent): withholds all 15 1 m LiDAR channels across 100% of the footprint and fuses 12 seamless USGS 10 m 3DEP sub-cell gradients (`ScienceBase 4f70aa9fe4b058caae3f8de5`), 6 restored `training_features.tif` crustal/seismic channels (`mag_anom`, `geod_2ndinv`, `iso_grav_anom_slope`, `tc` (legacy alias; physical identity and units unverified), `log1p(deq/ieq)`), 6 monoclinal step/incision operators, and 37 non-LiDAR base + OpenEI GDR #1391 hydrothermal + SAHG channels via Dual-Negative (`d3+d9`) Core + 300 m Kernel Log-Odds Blending (`37,654` binary `{0,1}` dots; zero copied pixels; strict `[0, 1]` PASS; 61/61 two-polarity leakage canaries PASS, worst extremity `0.6111 <= 0.90`; `22.2%` apron / `52.1%` `>2 km` far-field).
+Is the **current recorded local point-best within GEMSDOE24’s declared comparable evaluator/count set**: `gems-segment-pooled-v1` = **0.16606** (95% CI **[0.15186, 0.18034]**; Arm 1 Core **0.16537**; Arm 2 Kernel300 **0.15845**; `NE_LidarGapHeavy` **0.21972**; `3.0 km` Bridge **0.16257**), surpassing recorded `H24-DPRF1` (`0.16379`) by **+0.00227** (paired 95% CI **[-0.00699, +0.01144]**), beating `oof_multiphysics_hgb_d3` (`0.13000`) by **+0.03606** (**4/4 folds**), and passing 3-px dot novelty against `DPRF1` (**`64.45% <= 70%`**), `GEMSDOE32 B2` (**`46.95%`**), all 83 peer blobs (**`<= 54.33%`**), and all 32 sibling focus TIFFs in the frozen 2026-10-26 audit (**`<= 53.17%`**). Automatically held at **`DO_NOT_SUBMIT`** (not a literal-gate-unique or submit-ready candidate): `71.32%` (>70%) 3-px overlap vs local stopped lane `DKRN1`, exact-file C2ST AUC `0.6012` (Holm *p* = `0.020` associated with unresidualized 10 m gradients and highway cut/fill corridors), paired CI vs `DPRF1` spanning zero, and retained spacing-5 lattice `registry-039`.
+[S3DEP1 JSON run card](evidence/s3dep1_run_card_20261026.json) · [S3DEP1 Selector v2 JSON](evidence/s3dep1_selector_20261026.json) · [Frozen 9-Site 2026-10-26 Audit JSON](evidence/nine_site_executive_summary_s3dep1_20261026.json) · [S3DEP1 preregistration](knowledge/29_preregistered_S3DEP1_2026-10-26.md) · [S3DEP1 PhD findings & 9-site synthesis](knowledge/30_S3DEP1_findings_and_9site_executive_summary_2026-10-26.md) · [Executive guide](docs/executive-summary.html#s3dep1)
+
+Newest 2026-10-26 Lane `H24-XVAR1` 45-Channel Two-Sided Azimuthal Semivariogram Jump & Anisotropy GeoTIFF (**NEGATIVE / DUPLICATE STOP — DOWNLOAD: YES · SUBMIT: NO · DO NOT RETUNE**):
+[`gems24-xvar1-duplicate-semivariogram-20261026-7d909c75458c-zeros.tif`](docs/downloads/gems24-xvar1-duplicate-semivariogram-20261026-7d909c75458c-zeros.tif) (`SHA-256: 9c7d4ff1d49e322134e6b06e4ec304b98ea03d31420ac58c3803d9f2f57ba4b1`),
+Single-GeoTIFF ZIP [`gems24-xvar1-duplicate-semivariogram-20261026-7d909c75458c-zeros.zip`](docs/downloads/gems24-xvar1-duplicate-semivariogram-20261026-7d909c75458c-zeros.zip), and
+NaN-outside twin [`gems24-xvar1-duplicate-semivariogram-20261026-7d909c75458c-nan.tif`](docs/downloads/gems24-xvar1-duplicate-semivariogram-20261026-7d909c75458c-nan.tif).
+Preregistered (`knowledge/29_preregistered_XVAR1_2026-10-26.md` @ `4f251952ee71`): executes Rank #1 of `knowledge/26_portfolio_plan_corrections_2026-10-26.md` (8 parity-symmetric centered two-sided azimuthal semivariogram jump & cross-strike anisotropy channels on float32 `rtp`, `iso_grav_anom`, `depth_to_base_surf`, `cond_surf` at lags `300 m` & `800 m`, 7-confound `NuisanceResidualizer` incl. `area1`, zero 1 m LiDAR channels, zero D8 wash routing; `37,654` binary `{0,1}` dots; zero copied pixels; strict `[0, 1]` PASS; 60/60 leakage canaries PASS `<=0.6111`; `21.8%` apron / `52.8%` `>2 km` far-field).
+**HOLDOUT-DTI** `gems-segment-pooled-v1` = **0.14627** (95% CI **[0.13345, 0.15997]**; Single-Regime Arm 2 **0.14680** winning `3/4` folds vs `B_SUB37`; matched 37-ch LiDAR-free `B_SUB37` control **0.14533**, Arm 1 paired Δ **+0.00094** `[-0.00260, +0.00445]` winning `SW +0.00708` & `SE +0.00291`), **beating `H24-DPRF1` on `NW` (`0.15669` / `0.16081` 1R > `0.15639`)** and beating `oof_multiphysics_hgb_d3` (`0.13000`) on `4/4` folds by **+0.01627** (95% CI **[+0.00080, +0.03205]**). Solved both `DKRN1` defects (`65.64% <= 70%` vs `DPRF1`, `44.30%` vs `B2`, `<=53.92%` vs 83 peers, `<=52.41%` vs all 111 live 9-site TIFFs, and C2ST **PASS** AUC `0.5437 < 0.55`), but trailed recorded `DPRF1` (`0.16379`) pooled and converged to `75.36% > 70%` 3-px dot overlap against unsubmitted local `DKRN1` via the shared 37-ch 100 m DEM trunk.
+[XVAR1 JSON run card](evidence/xvar1_run_card_20261026.json) · [XVAR1 Selector v2 JSON](evidence/xvar1_selector_20261026.json) · [Fresh 9-Site 2026-10-26 Audit JSON](evidence/nine_site_executive_summary_xvar1_20261026.json) · [XVAR1 preregistration](knowledge/29_preregistered_XVAR1_2026-10-26.md) · [XVAR1 PhD synthesis & 9-site review](knowledge/30_XVAR1_findings_and_9site_executive_summary_2026-10-26.md) · [Executive guide](docs/executive-summary.html#xvar1)
+
 Latest 2026-10-26 Point-Best `H24-DPRF1` 52-Channel Dual-Partition Stitched-OOF + Two-Regime Submodular GeoTIFF (**10/10 Competing-Method Technical Gates PASS · Selector v2: `DO_NOT_SUBMIT`**):
 [`gems24-dprf1-stitched-oof-tworegime-20261026-81849d67c8bf-zeros.tif`](docs/downloads/gems24-dprf1-stitched-oof-tworegime-20261026-81849d67c8bf-zeros.tif) (`SHA-256: c1257c1d4b5ac9cc0a8e29b0120c614fcaa1f38474bc1f6de98c0a1afb0567f1`),
 Single-GeoTIFF ZIP [`gems24-dprf1-stitched-oof-tworegime-20261026-81849d67c8bf-zeros.zip`](docs/downloads/gems24-dprf1-stitched-oof-tworegime-20261026-81849d67c8bf-zeros.zip), and
 NaN-outside twin [`gems24-dprf1-stitched-oof-tworegime-20261026-81849d67c8bf-nan.tif`](docs/downloads/gems24-dprf1-stitched-oof-tworegime-20261026-81849d67c8bf-nan.tif).
 Independently generated from 30 scale-separated base features + 18 OpenEI GDR INGENIOUS hydrothermal/tilt/lineament features + 4 modality-aware `SAHG1` conduit features using Stratified `d_vis >= 300 m` negative sampling, selective 9-channel non-topographic nuisance residualization, 3-tier relief-conditioned LiDAR-gap calibration, Dual-Partition Stitched-OOF (Quadrant + 45° Diamond, 0% in-sample pixels), apron quantile debiasing, and Two-Regime 300 m submodular allocation (`37,654` binary `{0.0, 1.0}` dots; zero copied submission pixels; strict `[0, 1]` all-finite PASS; 52/52 two-polarity leakage canaries PASS; exact-file C2ST **PASS** with AUC `0.5247` < 0.55, Holm *p* = `0.100`).
-Achieves the **highest HOLDOUT-DTI in `GEMSDOE24`** on both evaluators: `gems-segment-pooled-v1` = **0.16379** (95% CI **[0.15045, 0.17739]**, winning `4/4` spatial folds over `oof_multiphysics_hgb_d3` `0.13000` by `+0.03380` and over `B1: OOF-Base-Submod` `0.13900` by `+0.02479`, and beating `CUP1` `0.15038`, `GVC1` `0.14876`, `TRSG1` `0.14644`, `B0` `0.14179`, `CRP1` `0.13747`, `RSHG1` `0.12899`, `FUSE-HCW` `0.12372`, and `TNR1` `0.13219`) and `segment-hide-recover-pooled-v1` = **0.16290** (95% CI **[0.14449, 0.18118]**).
+At execution time, achieved the **then-highest recorded local HOLDOUT-DTI in `GEMSDOE24`** on both evaluators (superseded by S3DEP1 on `gems-segment-pooled-v1`): `gems-segment-pooled-v1` = **0.16379** (95% CI **[0.15045, 0.17739]**, winning `4/4` spatial folds over `oof_multiphysics_hgb_d3` `0.13000` by `+0.03380` and over `B1: OOF-Base-Submod` `0.13900` by `+0.02479`, and beating `CUP1` `0.15038`, `GVC1` `0.14876`, `TRSG1` `0.14644`, `B0` `0.14179`, `CRP1` `0.13747`, `RSHG1` `0.12899`, `FUSE-HCW` `0.12372`, and `TNR1` `0.13219`) and `segment-hide-recover-pooled-v1` = **0.16290** (95% CI **[0.14449, 0.18118]**).
 Passes prospective novelty across **all 57 competing method rasters** (max 3-px dot overlap `0.5578` ≤ 0.70; `0.3613` vs `TNR1`, `0.3398` vs `CRP1`, `0.3381` vs `CUP1`, ≤ `0.4912` vs all 9 focus-site champions) and **all 83 peer blobs** (`0.5494` ≤ 0.70), and restores **52.3%** `> 2 km` far-field dot allocation (`22.3%` in `200–900 m` apron, versus `GVC1`'s `70.4%`; no hidden-score improvement established). Held at **`DO_NOT_SUBMIT`** under `gems-selector-v2-literal-quota-fail-closed` (`evidence/dprf1_selector_20261026.json`) due to the unseparated synthetic spacing-5 calibration lattice (`registry-039`), unknown live DrivenData quota, and replay certificate.
 [DPRF1 JSON run card](evidence/dprf1_run_card_20261026.json) · [DPRF1 Selector v2 JSON](evidence/dprf1_selector_20261026.json) · [9-Site Executive Summary JSON](evidence/nine_site_executive_summary_20261026.json) · [DPRF1 preregistration](knowledge/19_preregistered_DPRF1_2026-10-26.md) · [DPRF1 PhD synthesis & 9-site review](knowledge/20_DPRF1_findings_and_9site_executive_summary_2026-10-26.md)
 
@@ -870,7 +1028,7 @@ Latest 2026-10-26 Lane `H24-EUL1` Euler N=0 Contact 59-Channel GeoTIFF (**NEGATI
 Single-GeoTIFF ZIP [`gems24-eul1-negative-euler-contact-20261026-eda170f04847-zeros.zip`](docs/downloads/gems24-eul1-negative-euler-contact-20261026-eda170f04847-zeros.zip), and
 NaN-outside twin [`gems24-eul1-negative-euler-contact-20261026-eda170f04847-nan.tif`](docs/downloads/gems24-eul1-negative-euler-contact-20261026-eda170f04847-nan.tif).
 Preregistered (`knowledge/22_preregistered_EUL1_2026-10-26.md` @ `b841bf4`; pre-fit Amendment A1 replaced the inconsistent survey `*_vg` bands with self-consistent FFT vertical derivatives): 7 Euler-deconvolution channels (47,322 accepted RTP N=0 solutions) on the exact DPRF1 52-channel stitched-OOF stack + Euler-gated Regime B (`37,654` dots; zero copied pixels; strict `[0, 1]` PASS; 59/59 leakage canaries PASS; exact-file C2ST AUC `0.5184` PASS).
-**HOLDOUT-DTI** `gems-segment-pooled-v1` = **0.16005** (95% CI **[0.14729, 0.17278]**) vs the **bit-identical same-session DPRF1 replay** **0.16379** (paired Δ **-0.00375**, 95% CI **[-0.00825, +0.00074]**, 1/4 folds; channels alone lost 0/4). Final-dot novelty **FAIL**: `86.57%` within 3 px of DPRF1 (> 70% Rule-1 limit = duplicate lane) — the portfolio's parent-convergence lesson (CUP1 91.2%). **DPRF1 is the recorded local point-best, not a literal-gate-unique or submit-ready candidate**; selector `gems-selector-v2-literal-quota-fail-closed`: `DO_NOT_SUBMIT` for every file (quota/replay certificate pending). No organizer score; HOLDOUT-DTI is not a leaderboard forecast.
+**HOLDOUT-DTI** `gems-segment-pooled-v1` = **0.16005** (95% CI **[0.14729, 0.17278]**) vs the **bit-identical same-session DPRF1 replay** **0.16379** (paired Δ **-0.00375**, 95% CI **[-0.00825, +0.00074]**, 1/4 folds; channels alone lost 0/4). Final-dot novelty **FAIL**: `86.57%` within 3 px of DPRF1 (> 70% Rule-1 limit = duplicate lane) — the portfolio's parent-convergence lesson (CUP1 91.2%). **DPRF1 was the then-recorded local parent point-best and is now superseded by S3DEP1; neither is a literal-gate-unique or submit-ready candidate**; selector `gems-selector-v2-literal-quota-fail-closed`: `DO_NOT_SUBMIT` for every file (quota/replay certificate pending). No organizer score; HOLDOUT-DTI is not a leaderboard forecast.
 [EUL1 JSON run card](evidence/eul1_run_card_20261026.json) · [EUL1 Selector v2 JSON](evidence/eul1_selector_20261026.json) · [9-Site Executive Summary (EUL1 update) JSON](evidence/nine_site_executive_summary_eul1_20261026.json) · [EUL1 preregistration](knowledge/22_preregistered_EUL1_2026-10-26.md) · [Amendment A1](knowledge/23_EUL1_prereg_amendment_2026-10-26.md) · [EUL1 PhD findings & updated executive summary](knowledge/24_EUL1_findings_and_executive_summary_2026-10-26.md) · [Executive guide](docs/executive-summary.html#eul1)
 
 Orthogonal 2026-10-26 `H24-TRSG1` 44-channel Two-Regime Seismic-Geothermal Stitched-OOF GeoTIFF (**7/7 Technical Gates PASS · Selector v2: `DO_NOT_SUBMIT`**):
