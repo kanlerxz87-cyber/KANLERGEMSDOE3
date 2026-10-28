@@ -4,7 +4,7 @@
 
 ## Current decision
 
-**There is no GeoTIFF in this checkout. Do not upload a file from this repository.** The current branch lacks the official sample grid, prediction writer, validation tooling, registry and competition data. This guide explains the required future workflow; it is not evidence that a file passes.
+**There is no approved competition GeoTIFF. Do not upload a file from this repository.** The statement in the original snapshot that no TIFF or tooling existed is outdated: later sessions preserved research-only files and tools, but their gates remain blocked. This historical guide explains a future workflow; it is not evidence that a file passes.
 
 ## When a candidate has passed all gates
 
@@ -12,7 +12,7 @@
 2. **Verify the local file.** Compare its SHA-256 to the signed/recorded run card and validator receipt. A different hash means stop. Confirm it is single-band float32 GeoTIFF and matches the official sample's CRS (UTM 11N / EPSG:32611), dimensions, bounds, resolution and affine transform. Confirm no NaN/Inf inside the footprint and all submitted prediction values are in `[0,1]`; verify outside-footprint nodata against the current official format and actual validator. Never “fix” a rejected file by blindly replacing nodata with 0, because that can change predictions and metric behavior.
 3. **Confirm scientific permission.** Require a positive, same-evaluator buffered whole-segment `HOLDOUT-DTI` result with evaluator version, withheld-positive count and 95% CI; all leakage canaries addressed; and literal pre-placement and final-dot uniqueness below the 0.90 rank-correlation and 70% within-3-px stop thresholds. A format pass alone is not approval.
 4. **Read the separate selector decision.** It must explicitly authorize this exact hash for a slot, after checking the current weekly cap. Do not infer authorization from “download”, “unique”, a score estimate, a historical page, or a successful local validator. This project must not silently upload or spend a slot.
-5. **Use the competition page.** Sign in to the authorized DrivenData account; open DOE GEMS competition → **New submission**; choose the approved `.tif` (or single-TIFF ZIP); enter the unique portal name and a note of no more than 140 characters; review the selected filename and quota; then submit. The official submission form is the authority for acceptance.
+5. **Use the competition page.** Sign in to the authorized DrivenData account; open DOE GEMS competition → **New submission**; choose the approved `.tif` (or single-TIFF ZIP); use the unique filename and a note of no more than 140 characters; verify whether the form offers a separate name field, then review the selected filename and quota. The official submission form is the authority for acceptance.
 6. **Archive the receipt.** Save the organizer's submission-page receipt and score. Label that result `ORGANIZER-CONFIRMED` only when the receipt records it. Archive the exact uploaded hash, name, note, UTC time, and selector/run-card IDs. A portal acceptance is not proof of high leaderboard performance.
 
 ## The reported `[0, 1]` error

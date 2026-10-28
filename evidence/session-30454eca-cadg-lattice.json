@@ -1,0 +1,61 @@
+{
+  "kind": "HISTORICAL CADG SAVED-BYTE AUDIT; NOT HOLDOUT-DTI OR PROMOTION",
+  "full_registered_lattice": {
+    "schema_version": 1,
+    "scope": "Saved binary dots versus one pinned lattice; not a full live-registry or surface audit.",
+    "candidate_sha256": "bc019ae673a9d5ca1fe40e968759a2af8ae757a110599b66fc949c4f59961fba",
+    "lattice_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "sample_mirror_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "label_mirror_sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+    "organizer_template_authenticated": false,
+    "geometry": {
+      "bands": 1,
+      "dtype": "float32",
+      "crs": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      "nodata": null
+    },
+    "candidate_dots": 37654,
+    "candidate_dots_within_3px_of_lattice": 37630,
+    "candidate_dot_overlap_fraction": 0.9993626175173952,
+    "candidate_dots_outside_lattice_radius": 24,
+    "duplicate_over_70_percent": true,
+    "catalogue_positive_pixels": 0,
+    "in_footprint_nan": 0,
+    "in_footprint_inf": 0,
+    "in_footprint_min": 0.0,
+    "in_footprint_max": 1.0,
+    "outside_pixel_count": 7111787,
+    "outside_unmasked_finite_count": 7111787,
+    "outside_nan_count": 0,
+    "strict_nan_outside": false,
+    "note": "Research-only forensic audit. No selector authorization or organizer acceptance is implied."
+  },
+  "catalogue_excluded_lattice": {
+    "definition": "Reference lattice cells on the mirrored visible catalogue excluded; included only to reproduce the historical card, not a registry exemption.",
+    "reference_dots": 204504,
+    "candidate_dots": 37654,
+    "candidate_dots_within_3px": 37553,
+    "directed_overlap_3px": 0.9973176820523716,
+    "card_rounded_overlap": 0.997318,
+    "matches_card": true
+  },
+  "scope": "One prior candidate against one pinned lattice; no complete registry or surface audit. Mirrors are not organizer-authenticated.",
+  "candidate_generated": false,
+  "geological_experiments": 0,
+  "slots_used": 0,
+  "ok_to_submit": false,
+  "slot_authorized": false,
+  "verdict": "negative"
+}

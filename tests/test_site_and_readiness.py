@@ -36,6 +36,8 @@ class PageLinks(HTMLParser):
 class SiteAndReadinessTests(unittest.TestCase):
     def test_all_active_pages_have_local_links_and_no_approved_downloads(self):
         build(check_only=True)
+        from scripts.build_cadg_site import build as build_archived_lane
+        build_archived_lane(check_only=True)
         pages = [DOCS / name for name in ("index.html", "executive-summary.html", "submission.html", "research.html", "sources.html")]
         pages += sorted((DOCS / "sites").glob("*.html"))
         pages += [DOCS / "cadg-submod/index.html", DOCS / "cadg-submod/executive-summary.html"]

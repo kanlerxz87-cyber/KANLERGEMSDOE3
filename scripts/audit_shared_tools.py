@@ -57,7 +57,7 @@ def audit() -> dict:
     soft_binarized = bool(np.isclose(soft_output["pooled_dti"], output["pooled_dti"]))
     findings = [] if preserved else [{
         "id": "SHARED-EMPTY-TRUTH-FP", "severity": "BLOCKER",
-        "path": "src/gems32/holdout.py", "lines": [677, 679],
+        "path": "src/gems32/holdout.py", "lines": [682, 684],
         "description": "The n_t == 0 branch records cell false positives, then continues without adding them to fp_blk. Pooled DTI/bootstrap therefore omit this prediction mass.",
         "reproduction": "python scripts/audit_shared_tools.py; tests/test_shared_tools.py",
         "resolution": "Repair once upstream, pin the corrected commit, rerun these tests; no local evaluator fork is permitted.",

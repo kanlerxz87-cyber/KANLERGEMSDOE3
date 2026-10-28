@@ -21,7 +21,7 @@ No geological experiment, competition upload, or weekly slot was used. There is 
 3. Audited the latest shared-template head and seven relevant upstream issues. The five core shared files remain byte-identical to the pinned defective versions. Issues 37, 39, 41, 42, 49 and 51 remain open. The reproducible receipt is `evidence/session-e2903b2e-upstream-prerequisites.json`.
 4. Opened [GEMSDOE32 issue 53](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/53), requesting content-addressed canonical cache bytes, source/input hashes, schema invalidation and a verifier. The latest receipt names 35 channels and a path but has no cache SHA-256, and the bytes are absent from the tree. This reports the shared prerequisite centrally; it does not create a private cache fork.
 5. Reconfirmed the focus-nine decision: every supplied historical winner exceeds the 70% directed dot-overlap stop against another focus winner. The H33 B2 geometry remains exactly explained by the pinned audit: GEMSDOE25/30 share a 44,090-dot mask; H33 B2 keeps 37,654 of those dots after removing 6,436 within two pixels of the mirrored catalogue and adds none. That supports an emission-efficiency hypothesis, not causal proof of the owner-reported 0.2778.
-6. Integrated the concurrent main reviews without claiming their experiments. The corrected CADG saved-byte audit finds 37,630/37,654 and 37,635/37,654 dots within three pixels of the full registered lattice for its two distinct inherited fields. Both remain research-only duplicate stops; the current session still generated no raster.
+6. Integrated the concurrent main reviews without claiming their experiments. The corrected CADG saved-byte audit finds 37,630/37,654 and 37,635/37,654 dots within three pixels of the full registered lattice for its two distinct inherited fields. A later changed-peer audit checked 29 exact new/modified TIFF blobs and stopped all 29 against the same lattice; this is not 29 independent methods or a complete registry. The newer S2D-36 peer TIFF independently measures 37,458/37,654 (99.48%) lattice overlap and also exceeds 70% versus two historical winners. All remain research-only duplicate stops; the current session still generated no raster.
 
 ### Fresh focus-source comparison
 
@@ -48,7 +48,7 @@ A source page saying “unique,” “point-best,” or “promote” does not t
 - The submission guide is automated and explicit about the earlier range error: validate exact saved bytes, never trust an in-memory array or silently clip/binarize. Local format validation is not portal acceptance.
 - The current card records null holdout, CI, registry comparisons, raster hash and validator fields rather than invented numbers. Its note is under 140 characters and its verdict is negative.
 - The full user request remains in `README.md` / `PROJECT_PROMPT.md`. The README now points future work to this session’s exact receipt and card.
-- After merging all concurrent main changes, **218 Python tests passed**, deterministic site checks passed before and after the suite, and the desktop/mobile browser smoke audit passed. These are implementation checks, not geological validation.
+- After merging all concurrent main changes, **263 Python tests passed**. Deterministic site checks are run before and after the suite; the final desktop/mobile browser audit is recorded separately. These are implementation checks, not geological validation.
 
 ## Why the reported H33 B2 result may be relatively high
 

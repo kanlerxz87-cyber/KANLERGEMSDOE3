@@ -19,8 +19,8 @@
       "severity": "BLOCKER",
       "path": "src/gems32/holdout.py",
       "lines": [
-        677,
-        679
+        682,
+        684
       ],
       "description": "The n_t == 0 branch records cell false positives, then continues without adding them to fp_blk. Pooled DTI/bootstrap therefore omit this prediction mass.",
       "reproduction": "python scripts/audit_shared_tools.py; tests/test_shared_tools.py",
