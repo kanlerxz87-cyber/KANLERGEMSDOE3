@@ -1,0 +1,62 @@
+{
+  "lane": "L-K3-CPX-EDTI",
+  "date": "2026-10-28",
+  "note": "Candidate hypotheses generated before implementation (prompt requirement). Rank = qualitative expected DTI value per implementation cost. Only H-CPX-1 is this session's lane; the rest are queued, not run. 'Untried' is assessed against this repo's code/evidence and the restored registry's documented methods; a full history audit of ~100 external repos is not claimed.",
+  "hypotheses": [
+    {
+      "rank": 1, "id": "H-CPX-1", "status": "SELECTED - this lane",
+      "name": "Coincident potential-field x strain ridge posterior + kernel-exact expected-DTI emission",
+      "layers": "iso_grav_anom, tmi, tmi_hg/vg, depth_to_base_surf, cond_surf, geod_2ndinv, geod_shearrate, det_elev (19-band stack) + shared 77-col cache for the supervised part",
+      "signature": "Multi-scale Hessian ridge strength with cross-scale (sigma 1.0 vs 2.5) persistence, tilt-derivative zero-crossing edges, and doubled-angle gravity-vs-magnetic gradient orientation agreement; weakest-link/mean-rank coincidence across independent physics",
+      "why_off_catalogue": "Density, magnetic-basement, conductivity and strain boundaries continue beneath basin fill where surface mapping stops; requiring spatially coincident, orientation-agreeing ridges in independent fields targets through-going structure rather than catalogue proximity, and the label-free half of the surface cannot collapse onto mapped traces",
+      "difference": "Prior lanes used single-field tilt/worm lineaments, supervised stacks alone, or fixed-spacing CELF coverage. None rank-fused a label-free multi-physics coincidence score with an OOF posterior, and none priced expected FP mass (alpha=0.2) into kernel-exact greedy placement",
+      "mimic": "Buried caldera ring margins; tilted ash-flow tuff hogbacks; fan-channel margins; survey seams",
+      "cost": "Medium (all inputs already local; new code = transforms + allocator)",
+      "external_data_needed": "None"
+    },
+    {
+      "rank": 2, "id": "H-CPX-2", "status": "queued",
+      "name": "Strain-fabric discontinuity corridors (orientation-coherence breaks in the geodetic strain tensor)",
+      "layers": "geod_2ndinv, geod_shearrate, geod_dilaterate",
+      "signature": "Structure-tensor orientation field of the strain-rate invariants; score persistent linear breaks in orientation coherence at 1-3 km scale",
+      "why_off_catalogue": "Actively extending but unmapped faults localize interseismic strain; a coherent fabric break can extend beyond any mapped trace instead of rewarding catalogue distance",
+      "difference": "Strain bands appear as generic HGB inputs in prior stacks, but no restored method extracts an orientation-discontinuity lineament field from them",
+      "mimic": "Anthropogenic deformation (pumping, geothermal production), gridding/interpolation seams in the strain model",
+      "cost": "Low-medium",
+      "external_data_needed": "None"
+    },
+    {
+      "rank": 3, "id": "H-CPX-3", "status": "queued",
+      "name": "Conductive-basement step coincident with magnetic source-depth transition",
+      "layers": "depth_to_base_surf, cond_surf, tmi vertical/horizontal gradients, rtp",
+      "signature": "Paired step edges: lateral gradient ridge of basement depth/conductivity within 1 px of a magnetic gradient ridge, sustained over >=1 km along strike",
+      "why_off_catalogue": "A faulted basement contact juxtaposes conductive basin fill against resistive basement and offsets magnetic sources; the paired step can be traced under cover far from mapped surface breaks",
+      "difference": "Conductivity/basement used as point features before; an explicit two-field paired-step coincidence with along-strike persistence is new in this repo",
+      "mimic": "Non-faulted basement lithologic contacts; basin-margin onlap; inversion artefacts in the depth surface",
+      "cost": "Medium-high (step pairing + persistence tracing)",
+      "external_data_needed": "None"
+    },
+    {
+      "rank": 4, "id": "H-CPX-4", "status": "queued",
+      "name": "Gravity-strain boundary intersection nodes as stepover targets",
+      "layers": "iso_grav_anom_hg/vg + geod_2ndinv/shear ridges",
+      "signature": "Intersections and acute junctions of independent gravity-gradient and strain ridges (Andersonian stepover/dilation sites), scored by junction angle and dual-ridge strength",
+      "why_off_catalogue": "Releasing stepovers and fault intersections localize geothermal upflow and are preferentially missed where each individual strand is short or buried; node-targeting differs from tracing whole lineaments",
+      "difference": "Tip/stepover analogues were derived from catalogue geometry (GEMSDOE33); deriving nodes purely from geophysical ridge networks is different",
+      "mimic": "Crossing lithologic contacts; intersecting survey lineaments without faulting",
+      "cost": "Medium (ridge skeletonization + graph nodes)",
+      "external_data_needed": "None"
+    },
+    {
+      "rank": 5, "id": "H-CPX-5", "status": "deferred - needs external join",
+      "name": "Hydrochemical geothermometer residual corridors",
+      "layers": "GDR submission 1391 spring/well chemistry + 2 m temperature probes (already mirrored as point features) conditioned on elevation/lithology background",
+      "signature": "Spatially coherent positive temperature/silica residuals after background regression, terminating or aligning along independent potential-field axes",
+      "why_off_catalogue": "Blind geothermal upflow requires permeable structure; residual corridors can flag faults with no surface/geophysical expression at 100 m",
+      "difference": "Probe/thermal layers exist as smoothed point-density features; a background-conditioned residual-corridor test has not been run",
+      "mimic": "Shallow groundwater flow, mixing/evaporation, seasonal sampling bias, pumping",
+      "cost": "High; sparse point support limits pixel-level DTI value",
+      "external_data_needed": "Free official source: OpenEI Geothermal Data Repository submission 1391 (https://gdr.openei.org/submissions/1391) - already mirrored in-repo via DOI-pinned zips in the shared cache, so obtainable without credentials; deferred on cost/benefit, not access"
+    }
+  ]
+}
