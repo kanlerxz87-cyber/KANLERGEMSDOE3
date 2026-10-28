@@ -67,7 +67,7 @@
     note.textContent = 'This prior research artifact failed the literal all-registry lattice rule. Detector-only comparisons and format checks do not authorize a competition slot. See the study for scoped evaluator, confidence interval and provenance. ';
     const guide = document.createElement('a');
     guide.href = new URL('cadg-submod/executive-summary.html', scriptURL).href;
-    guide.textContent = 'Submission guide & audited downloads ->';
+    guide.textContent = 'Research-only forensic archive ->';
     note.append(guide);
     panel.append(title, note);
     section.append(panel);

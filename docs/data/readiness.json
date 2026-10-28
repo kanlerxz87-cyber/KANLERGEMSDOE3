@@ -1,7 +1,4 @@
 {
-  "observed_utc": "2026-10-27T23:55:29+00:00",
-  "config": "config/research-session-5c1613da.json",
-  "snapshot_not_live": true,
   "schema_version": 1,
   "research_ready": false,
   "submit_ready": false,
@@ -18,7 +15,8 @@
     "Authenticated shared feature cache/digest not restored; no private rebuild permitted",
     "Complete raster/surface registry not available",
     "Registry dot representation/saturation unresolved; no diagnostic or lattice is silently exempt",
-    "Same-evaluator, same-fold incumbent evidence absent or malformed"
+    "Same-evaluator, same-fold incumbent evidence absent or malformed",
+    "Experiment/time budget exhausted or malformed"
   ],
   "submission_failures": [
     "Missing assigned single-method lane paragraph",
@@ -27,6 +25,7 @@
     "Complete raster/surface registry not available",
     "Registry dot representation/saturation unresolved; no diagnostic or lattice is silently exempt",
     "Same-evaluator, same-fold incumbent evidence absent or malformed",
+    "Experiment/time budget exhausted or malformed",
     "Official organizer-template provenance not authenticated",
     "No candidate has beaten the paired HOLDOUT-DTI incumbent",
     "No unique candidate saved bytes/validator receipt exist",

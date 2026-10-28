@@ -1,8 +1,16 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
 **Start every session by reading this README (including the full user request below),
-[AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
-[fixed current session config](config/research-session-5c1613da.json), [preserved prior session configs](config/), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-52a91352-run-card.json), and [current negative card](evidence/session-5c1613da-run-card.json). Never reset an earlier session clock.**
+[AGENTS.md](AGENTS.md), [latest forensic review](research/session-91270cac-review.md),
+[concurrent scientific review](research/session-5c1613da-review.md), [expired default session config](config/research-session-52a91352.json), [preserved concurrent configs](config/), [preserved bilateral run card](docs/run-card.json), and [latest negative card](evidence/session-91270cac-run-card.json). Never reset an earlier session clock.**
+
+## Latest forensic continuation — 91270cac
+
+**DO NOT SUBMIT.** No new candidate, geological experiment, score, or slot was generated. The inherited clocks are expired; the missing lane, centrally flawed evaluator, unverified official template, absent cache/incumbent and incomplete registry remain blockers. The independently completed 5c1613da review and its CADG findings are preserved below, not combined into a new experiment.
+
+- [Three-pass review](research/session-91270cac-review.md) · [Scoped hypotheses](research/session-91270cac-hypotheses.md) · [Negative run card](evidence/session-91270cac-run-card.json) · [Dated preflight](evidence/session-91270cac-preflight.json)
+- A frozen comparison of nine peer trees found 29 newly added TIFF paths, including encoding twins; all 29 exact Git blobs failed the same one-reference lattice test. [Inventory](evidence/session-91270cac-raster-changes.json) · [saved-byte findings](evidence/session-91270cac-changed-peer-audit.json). This is not a score, complete registry audit or review of later commits.
+- Corrected unsafe public CADG/GPC presentation while retaining original records in `evidence/archived-pages/`, prior cards and all raster bytes. The rejected upload was never provided, so its range-error cause and portal acceptance remain unknown.
 
 ## Preserved concurrent review — bb1bdbdd
 
@@ -26,7 +34,7 @@ That concurrent review removed unsafe download links from the archived CADG subs
 99.73% lattice overlap against a catalogue-excluded reference, above the literal 70% duplicate stop; the full-lattice replay below is larger. Its software checks are preserved as dated
 evidence; no geological experiment, score estimate or submission authorization followed.
 
-## Current continuation — 27 October 2026
+## Preserved concurrent continuation — 5c1613da
 
 [Current three-pass review](research/session-5c1613da-review.md) · [Current preflight](evidence/session-5c1613da-preflight.json) · [Current negative run card](evidence/session-5c1613da-run-card.json) · [CADG saved-byte audit](evidence/session-5c1613da-cadg-audit.json) · [Refreshed nine-site source feed](evidence/session-5c1613da-focus-feed.json)
 
@@ -66,7 +74,7 @@ No geological experiment, candidate TIFF, score estimate or weekly slot was used
 [Executive desk](docs/index.html) · [Every priority site](docs/index.html#comparison) ·
 [How to submit](docs/executive-summary.html) · [Research queue](docs/research.html) ·
 [Official-source ledger](docs/sources.html) · [Machine audit](docs/audit.json) ·
-[Current three-pass review](research/session-5c1613da-review.md)
+[Latest three-pass review](research/session-91270cac-review.md)
 
 **There is no qualified TIFF to download and no defensible leaderboard estimate.** This review
 session ran no geological experiment, generated no new TIFF and spent no weekly slot. Concurrent
@@ -137,8 +145,11 @@ python -m venv .venv
 bash scripts/download_competition_data.sh   # pinned public mirror; ~420 MB core, ignored
 .venv/bin/python scripts/prepare_data.py    # delegates to shared raw-band preparation only
 .venv/bin/python scripts/audit_shared_tools.py  # expected nonzero: unresolved upstream defect
-.venv/bin/python scripts/preflight.py --config config/research-session-5c1613da.json  # nonzero expected
+.venv/bin/python scripts/preflight.py  # defaults to the expired 52a91352 clock; nonzero expected
 .venv/bin/python scripts/audit_cadg_quarantine.py --restore-lattice --output data/cadg-recheck.json  # research only
+.venv/bin/python scripts/audit_cadg_archive.py --restore --output data/cadg-zip-recheck.json  # nonzero expected: duplicate
+.venv/bin/python scripts/snapshot_raster_changes.py --before evidence/session-20261027-focus-feed.json --after evidence/session-91270cac-focus-feed.json --output data/peer-tree-recheck.json
+.venv/bin/python scripts/audit_changed_peer_rasters.py --changes data/peer-tree-recheck.json --output data/peer-recheck.json  # non-authorizing
 .venv/bin/python scripts/restore_audit_data.py # historical learning only; never a candidate
 .venv/bin/python scripts/audit_h33_lineage.py  # read-only geometry; no candidate/score/slot
 .venv/bin/python scripts/audit_kpl36_external.py --restore # expected nonzero: duplicate stop
