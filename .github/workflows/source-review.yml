@@ -19,8 +19,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Retain baseline for a tree-only comparison
+        run: cp docs/data/focus-feed.json "$RUNNER_TEMP/gems-source-baseline.json"
       - name: Refresh pinned public source commits (not scores or approval)
         run: python scripts/sync_focus_feed.py
+      - name: Inventory changed raster paths (not scores or approval)
+        if: always()
+        run: >-
+          python scripts/snapshot_raster_changes.py
+          --before "$RUNNER_TEMP/gems-source-baseline.json"
+          --after docs/data/focus-feed.json
+          --output docs/data/latest-raster-changes.json
       - name: Build the explicitly blocked review artifact
         if: always()
         run: python scripts/build_site.py

@@ -120,8 +120,7 @@ CPU-only execution; a GPU is not universally required.
 
 - Full Python suite with restored optional pinned instruments:
   `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q` →
-  **231 passed** after integrating concurrent main ([verification receipt](../evidence/session-6ad17006-verification.json)).
-  These are software/synthetic and historical consistency tests, not new geological experiments.
+  **267 passed** after integrating concurrent main and forensic PR #30 ([verification receipt](../evidence/session-6ad17006-verification.json)); the earlier integration had 231. These are software/synthetic and historical consistency tests, not new geological experiments.
 - `python scripts/review.py && python scripts/build_site.py --check` passed; the
   deterministic generator retains other sessions' isolated study artifacts. The
   blocked homepage, historical site pages and source snapshots were refreshed.
@@ -134,6 +133,14 @@ CPU-only execution; a GPU is not universally required.
   check passed, and its offline saved-byte verifier passed 38 checks; the original
   study receipts were restored unchanged ([scoped receipt](../evidence/session-6ad17006-ssp1-technical.json)).
   This did not rerun its real-data OOF experiment or change its negative verdict.
+- Concurrent forensic PR #30 arrived after the first integration. We preserved its
+  separate CADG and GPC quarantine, archived originals, and [29-file saved-byte
+  lattice audit](../evidence/session-91270cac-changed-peer-audit.json): all 29
+  paths (including encoding twins) stop against one reference. Its frozen snapshot
+  predates this session's refreshed feed; later source changes are not covered.
+  The default preflight remains the expired earlier clock; this session's own
+  recorded configuration requires explicit selection and does not reset any clock.
+  The full standing request remains byte-identical to integrated main.
 - The [dated preflight](../evidence/session-6ad17006-preflight.json) verifies pinned
   participant-mirror input bytes and shared-tool lock locally, but those hashes do not
   establish organizer provenance. The mirror sample includes catalogue positives,
