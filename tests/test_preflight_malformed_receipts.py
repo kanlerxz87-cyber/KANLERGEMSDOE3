@@ -4,6 +4,17 @@ import pytest
 from scripts import preflight
 
 
+def test_default_preflight_uses_inherited_clock_not_parallel_clock(tmp_path):
+    import subprocess
+    import sys
+    output = tmp_path / "receipt.json"
+    subprocess.run([sys.executable, str(preflight.ROOT / "scripts/preflight.py"), "--out", str(output)],
+                   check=False, capture_output=True, text=True)
+    receipt = json.loads(output.read_text())
+    assert receipt["config"] == "config/research-session-52a91352.json"
+    assert receipt["slot_authorized"] is False
+
+
 @pytest.mark.parametrize("receipt", [None, [], {}, {"files": None}, {"files": [None]},
     {"files": [{"id": []}]}, {"files": [{"id": "x", "path": 5}]},
     {"files": [{"id": "x", "path": "x"}, {"id": "x", "path": "x"}]}])

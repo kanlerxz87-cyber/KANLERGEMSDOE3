@@ -5,6 +5,9 @@ from html import escape as e
 ROOT = Path(__file__).resolve().parents[1]
 
 def build():
+    # Preserved for historical reference only. It writes the active root paths
+    # with an obsolete snapshot and can otherwise clobber the canonical desk.
+    raise RuntimeError("Archived builder cannot write active Pages; use scripts/build_site.py")
     audit = json.loads((ROOT/'docs/audit.json').read_text())
     rows = []
     for r in audit['rows']:

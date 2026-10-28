@@ -10,6 +10,7 @@ import argparse
 import hashlib
 import html
 import json
+import math
 from pathlib import Path
 import sys
 import zipfile
@@ -40,7 +41,7 @@ def page(title: str, content: str, active: str = "summary", prefix: str = "") ->
 <nav aria-label="Main navigation">{nav}</nav><span class="nav-status">Research blocked</span></div></header>
 <main id="main">{content}</main>
 <footer class="footer"><div><strong>KANLERGEMSDOE3</strong> · Evidence before promotion<br>Maximize P(Win). Own the outcome. No fabricated scores or renamed submissions.</div>
-<div>Reviewed 27 Oct 2026 · <a href="{prefix}data/session-91270cac-run-card.json">Current negative JSON card</a><br>Source changes do not authorize an upload. No competition submission is automated.</div></footer></body></html>\n'''
+<div>Reviewed 27 Oct 2026 · <a href="{prefix}data/session-30454eca-run-card.json">Current negative JSON card</a><br>Source changes do not authorize an upload. No competition submission is automated.</div></footer></body></html>\n'''
 
 
 def historical_url(row: dict) -> str:
@@ -163,6 +164,72 @@ def check_poisson_archive(report: dict, card_bytes: bytes, registry: dict) -> No
         good = False
     if not good:
         raise ValueError("Parallel control audit or artifact integrity is inconsistent")
+
+
+def check_s2d36_receipt(report: dict, card_bytes: bytes, audit: dict, registry: dict) -> None:
+    """Bind a bounded peer audit to its exact card and pinned reference identities.
+
+    This is receipt consistency, not a fresh numerical evaluation or organizer
+    authentication. A missing surface/full-registry audit can never become a pass.
+    """
+    try:
+        card = json.loads(card_bytes)
+        peer, lattice, validator = report["peer"], report["lattice"], report["validator"]
+        hold, source_hold = card["holdout"], peer["source_holdout"]
+        expected = {r["repo"]: r for r in audit["rows"]}
+        comparisons = report["nine_historical_final_dot_comparisons"]
+        lattice_lock = next(r for r in registry["entries"] if r["id"] == "registry-160")
+        count, nearby = lattice["candidate_dots"], lattice["candidate_dots_within_3px_of_lattice"]
+        valid = (hashlib.sha256(card_bytes).hexdigest() == peer["card_sha256"]
+                 == "5df79bfe5d1da5c04bac8e57d78333385105a31f5777eabfe452441ba2f2114c"
+                 and peer["commit"] == "21eec80b50f0daa34e2c06536ab7ffafdfc1095e"
+                 and card["verdict"] == peer["peer_verdict"] == report["verdict"] == "negative"
+                 and card["slot_approved"] is report["slot_authorized"] is report["ok_to_submit"] is False
+                 and report["candidate_generated"] is False and report["geological_experiments"] == report["slots_used"] == 0
+                 and report["surface_compared"] is report["complete_registry_compared"] is False
+                 and peer["file"] == card["submission"]["file"]
+                 and peer["sha256"] == card["submission"]["sha256"] == lattice["candidate_sha256"] == validator["candidate_sha256"]
+                 and lattice["lattice_sha256"] == lattice_lock["sha256"]
+                 and lattice["sample_mirror_sha256"] == validator["sample_mirror_sha256"] == "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc"
+                 and lattice["organizer_template_authenticated"] is False
+                 and lattice["geometry"]["bands"] == 1 and lattice["geometry"]["dtype"] == "float32"
+                 and lattice["geometry"]["crs"] == "EPSG:32611" and lattice["geometry"]["shape"] == [3730, 3292]
+                 and lattice["geometry"]["transform"] == [100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0]
+                 and lattice["in_footprint_nan"] == lattice["in_footprint_inf"] == 0
+                 and (lattice["in_footprint_min"], lattice["in_footprint_max"]) == (0.0, 1.0)
+                 and lattice["strict_nan_outside"] is False and lattice["outside_nan_count"] == 0
+                 and lattice["outside_unmasked_finite_count"] == lattice["outside_pixel_count"] == 7111787
+                 and type(count) is int and count > 0 and type(nearby) is int and 0 <= nearby <= count
+                 and count == card["submission"]["dots"]
+                 and math.isclose(lattice["candidate_dot_overlap_fraction"], nearby / count, rel_tol=0, abs_tol=1e-12)
+                 and lattice["duplicate_over_70_percent"] is (nearby / count > .70)
+                 and lattice["duplicate_over_70_percent"] is True
+                 and source_hold["evidence_class"] == hold["label"] == "HOLDOUT-DTI"
+                 and source_hold["value"] == hold["arms"]["EXP-2"]["dti"]
+                 and source_hold["ci95"] == hold["arms"]["EXP-2"]["ci95"]
+                 and source_hold["evaluator_version"] == hold["evaluator_version"]
+                 and source_hold["withheld_positives"] == hold["n_withheld_positive_pixels"]
+                 and validator["portal_acceptance_verified"] is validator["organizer_template_authenticated"] is False
+                 and validator["profiles"] == {"template-mask": False, "finite-grid": True, "masked-finite": False}
+                 and validator["in_footprint_finite_range"] == [0.0, 1.0]
+                 and all(validator["checks"].get(k) is True for k in
+                         ("single_band", "shape_match", "crs_match", "transform_match", "dtype_float32",
+                          "no_nan_inside_footprint", "no_masked_inside_footprint", "inside_range_0_1",
+                          "no_infinite_pixels_anywhere", "selected_encoding", "expected_positive_pixels_match"))
+                 and len(comparisons) == len(expected) == 9
+                 and {r["site"] for r in comparisons} == set(expected))
+        for row in comparisons:
+            n, hits, rho = row["candidate_dots"], row["candidate_dots_within_3px"], row["binary_spearman"]
+            valid = (valid and row["reference_sha256"] == expected[row["site"]]["sha256"]
+                     and row["reference_dots"] == expected[row["site"]]["dots"]
+                     and type(n) is int and n == count and type(hits) is int and 0 <= hits <= n
+                     and type(rho) in (int, float) and math.isfinite(rho) and -1 <= rho <= 1
+                     and math.isclose(row["directed_overlap_3px"], hits / n, rel_tol=0, abs_tol=1e-12)
+                     and row["duplicate"] is (hits / n > .70 or rho > .90))
+    except (KeyError, TypeError, ValueError, StopIteration, ZeroDivisionError):
+        valid = False
+    if not valid:
+        raise ValueError("S2D-36 peer audit is inconsistent; refuse to display it")
 
 
 def check_changed_peer_receipt(changes: dict, report: dict, snapshot_bytes: bytes, registry: dict, manifest: dict, before_feed: dict, after_feed: dict) -> None:
@@ -407,9 +474,14 @@ def build(check_only: bool = False) -> None:
     for scoped in (previous_session, concurrent_session, second_concurrent_session, current_session):
         if scoped.get("verdict") != "negative" or scoped.get("ok_to_submit") is not False or scoped.get("slot_authorized") is not False or scoped.get("raster_sha256") is not None:
             raise ValueError("A review-session card cannot authorize an unimplemented publisher")
+    our_session = read("evidence/session-30454eca-run-card.json")
+    if (our_session.get("verdict") != "negative" or our_session.get("promote") is not False
+            or our_session.get("slot_authorized") is not False or our_session.get("raster_sha256") is not None
+            or our_session.get("geological_experiments") != 0 or our_session.get("weekly_slots_used") != 0):
+        raise ValueError("This review card cannot authorize an unimplemented publisher")
     inherited = read("evidence/inherited_literal_audit.json")
     check_inherited(inherited)
-    saturation = read("evidence/registry_saturation_20261026.json")
+    saturation = read("evidence/session-30454eca-saturation.json")
     check_saturation(saturation, (ROOT / "evidence/upstream/GEMSDOE31/registry/raster_registry.json").read_bytes())
     from scripts.check_run import check
     check(card, read("research/registry-lock.json"))
@@ -418,7 +490,7 @@ def build(check_only: bool = False) -> None:
         outputs[path] = content
     for path, content in gpc_archive_pages(inherited, read("evidence/run_card.json")).items():
         emit(path, content)
-    readiness = read("evidence/session-91270cac-preflight.json")
+    readiness = read("evidence/session-30454eca-preflight.json")
     emit(DOCS / "data/readiness.json", json.dumps(readiness, indent=2) + "\n")
     # The root desk and the isolated archive are one checked publication unit;
     # neither builder can leave a stale optimistic archive guide behind.
@@ -441,7 +513,7 @@ def build(check_only: bool = False) -> None:
     hypotheses = read("research/hypotheses.json")
     official = read("evidence/official-claims-20261026.json")
     observation = read("evidence/official-observation-20261027.json")
-    lineage = read("evidence/h33-lineage-20261027.json")
+    lineage = read("evidence/session-30454eca-h33.json")
     check_h33_lineage(lineage, read("sources/GEMSDOE32/evidence/focus_site_winner_overlap_20261026.json")["historical_winners"], read("data/core-manifest.json"))
     h33 = lineage["measurement"]
     emit(DOCS / "research/why-02778.md", f'''# What the reported 0.2778 H33 B2 result can and cannot tell us
@@ -472,6 +544,10 @@ The [superseded parallel research at the inherited commit](https://github.com/ka
     poisson = read("evidence/parallel-poisson-audit-20261027.json")
     check_poisson_archive(poisson, (ROOT / "evidence/candidate_poisson_20261027.json").read_bytes(), read("research/registry-lock.json"))
     poisson_dots = poisson["measurements"]["zeros"]["lattice"]
+    s2d = read("evidence/session-30454eca-s2d36-audit.json")
+    check_s2d36_receipt(s2d, (ROOT / "evidence/peer-s2d36-card-21eec80b.json").read_bytes(), audit, read("research/registry-lock.json"))
+    s2d_lattice, s2d_holdout = s2d["lattice"], s2d["peer"]["source_holdout"]
+    s2d_nine = {r["site"]: r for r in s2d["nine_historical_final_dot_comparisons"]}
     # This desk has no release/publisher implementation or eligible artifact.
     # Fail rather than render an optimistic state if somebody edits a card alone.
     if card.get("verdict") != "negative" or card.get("raster_sha256") is not None or readiness.get("submit_ready") is not False:
@@ -483,13 +559,14 @@ The [superseded parallel research at the inherited commit](https://github.com/ka
     parallel_panel = f'''<section class="section panel prose" id="results"><p class="eyebrow">Concurrent main / prior experiments, not this review session</p><h2>Preserved evidence. Still a negative decision.</h2><p>The prior bilateral-texture session recorded <strong>{prior['dti']:.4f} HOLDOUT-DTI</strong>, 95% CI [{prior['ci95'][0]:.4f}, {prior['ci95'][1]:.4f}], evaluator <code>{esc(prior['evaluator_version'])}</code>, {prior['withheld_positive_pixels']:,} withheld positive pixels. The matched ablation difference is {delta['delta']:.6f}, 95% CI [{delta['ci95'][0]:.6f}, {delta['ci95'][1]:.6f}]: it does not establish improvement. These are archived participant-run measurements, consistency-checked here, not independently rerun or organizer-confirmed.</p><p>Its final dots had 100% forward overlap within 3 px of a registered binary calibration lattice: a literal duplicate stop. Four inherited research TIFF files under the root downloads archive, including two encodings of DCAP-LHC, have independent literal-rule checks below. The separate random control is also preserved. None is an eligible submission. This review session ran zero geological experiments and generated no new TIFF; it does not overwrite or claim those prior runs.</p><h3>A registry representation obstruction</h3><p>A <strong>full-footprint witness</strong> in the pinned registry is a continuous diagnostic, not an established submitted dot field. The prior shared tool counts every finite positive cell as a dot; under that convention it covers all 5,167,373 footprint pixels and forces 100% overlap for any nonempty candidate. Our new geometry CLI instead refuses to invent dots from a soft surface and requires its explicit companion dot mask. That is an unresolved registry definition, not an exemption or a uniqueness pass. The binary lattice remains a separate verified obstruction for the recorded 37,654-dot runs.</p><p><a href="run-card.json">Canonical prior bilateral card ↗</a> · <a href="data/session-7d1e577d-run-card.json">Prior review’s negative card ↗</a> · <a href="data/session-91270cac-run-card.json">Current session’s negative card ↗</a> · <a href="data/registry_saturation.json">Conditional saturation receipt ↗</a> · <a href="parallel-lattice-audit.json">Archived binary-lattice audit ↗</a></p></section>'''
     main = f'''<section class="hero"><div><p class="eyebrow">Executive summary / DOE GEMS</p><h1>Better fault predictions.<br><em>Evidence before a slot.</em></h1><p class="lede">An honest decision desk for the nine priority sites. See exactly what can be downloaded, what has been tested, and what still blocks a genuinely new submission.</p><p class="date">27 October 2026 · Dated evidence, not a score projection</p></div>
 <aside class="download-card" aria-label="Submission file status"><p class="eyebrow">Your competition file</p><h2>No eligible TIFF yet.</h2><p>The required scientific and uniqueness gates have not passed. No historical file is being relabelled as new.</p><div class="file-unavailable"><svg width="27" height="32" viewBox="0 0 27 32" fill="none" aria-hidden="true"><path d="M4 1h12l7 7v22H4zM16 1v8h7M9 16h9M9 21h9" stroke="currentColor" stroke-width="1.4"/></svg><div><strong>Download unavailable · DO NOT SUBMIT</strong><small>No placeholder file. No authorized slot.</small></div></div><div class="download-meta"><div><span>Score estimate</span><strong>Not estimable</strong></div><div><span>Unique candidate</span><strong>Not generated</strong></div><div><span>Weekly slots used</span><strong>None this session</strong></div></div></aside></section>
-<div class="notice"><span class="icon" aria-hidden="true">!</span><div><strong>DO NOT SUBMIT — historical winners duplicate; no new candidate qualifies.</strong><p>The historical family fails your literal overlap stop. Core data were restored locally for this review from participant mirrors; ignored inputs must be restored in a fresh checkout. The assigned lane/cache/incumbent are missing and the shared evaluator needs a central repair. This is a negative research deliverable, not a completed high-scoring model.</p></div></div>
+<div class="notice"><span class="icon" aria-hidden="true">!</span><div><strong>DO NOT SUBMIT — historical winners duplicate; no new candidate qualifies.</strong><p>The historical family fails your literal overlap stop. Core data were restored locally for this review from participant mirrors; ignored inputs must be restored in a fresh checkout. The assigned lane/cache/incumbent are missing and the shared evaluator needs a central repair. This is a negative research deliverable, not a completed high-scoring model.</p><p><a href="session-30454eca-review.md">This three-pass review →</a> · <a href="session-91270cac-review.md">Concurrent changed-peer audit →</a> · <a href="session-5c1613da-review.md">Parallel CADG audit →</a></p></div></div>
 <div class="stats"><article class="stat"><span class="label">Historical uniqueness</span><strong>9 / 9 stopped</strong><small>Geometric audit · not DTI scores</small></article><article class="stat"><span class="label">Data placement</span><strong>Locally restored</strong><small>19-band input · participant mirror, not organizer-authenticated</small></article><article class="stat"><span class="label">Shared instruments</span><strong>Blocked</strong><small>Source-locked · operator defect reproduced</small></article><article class="stat"><span class="label">Geological experiments / this review</span><strong>0 / 3</strong><small>Inherited session clock expired · no slot spent</small></article></div>
 <section class="section" id="comparison"><div class="section-heading"><div><p class="eyebrow">Priority portfolio</p><h2>One clear decision for every site.</h2><p>Sorted by historical owner-reported claims, not by a validated score forecast or a recommendation.</p></div><a href="audit.json">Exact hashes &amp; all comparisons ↗</a></div>
 {comparison_table(audit['rows'])}<div class="table-note"><span><strong>Claims are quarantined:</strong> no organizer submission-page receipt binds any historical score to a file. No new HOLDOUT-DTI was run by this review session; prior parallel results are separately identified below.</span><span>Local encoding compatibility ≠ portal acceptance ≠ scientific promotion.</span></div></section>
 {changed_peer_section(changes, peer_audit)}
+<section class="section panel prose" id="s2d36-audit"><p class="eyebrow">Newer GEMSDOE36 research / independent saved-byte audit</p><h2>S2D-36 EXP-2: <span class="not-approved">DO NOT SUBMIT.</span></h2><p>At pinned peer commit <code>{esc(s2d['peer']['commit'][:12])}</code>, the peer itself reports a negative verdict. Our fresh independent check found <strong>{s2d_lattice['candidate_dots_within_3px_of_lattice']:,} / {s2d_lattice['candidate_dots']:,} dots ({s2d_lattice['candidate_dot_overlap_fraction']:.2%})</strong> within three pixels of the registered binary lattice. It also exceeds 70% against the pinned historic GEMSDOE24 ({s2d_nine['GEMSDOE24']['directed_overlap_3px']:.2%}) and GEMSDOE27 ({s2d_nine['GEMSDOE27']['directed_overlap_3px']:.2%}) winners. Any one is a literal duplicate stop.</p><p>The peer reports <strong>{s2d_holdout['value']:.4f} HOLDOUT-DTI</strong>, 95% CI [{s2d_holdout['ci95'][0]:.4f}, {s2d_holdout['ci95'][1]:.4f}], <code>{esc(s2d_holdout['evaluator_version'])}</code>, {s2d_holdout['withheld_positives']:,} withheld positives. This is participant-reported, was not rerun here, and is not an organizer-confirmed or projected score. We did not compare the pre-placement surface or complete registry.</p><p>The exact peer TIFF locally matches the mirror grid and has finite in-footprint values in [0,1], but its unmasked zero exterior fails the local <code>template-mask</code> profile even as it passes <code>finite-grid</code>. Neither check proves portal acceptance, and the earlier rejected file was unavailable. No new TIFF or slot was produced.</p><p><a href="data/session-30454eca-s2d36-audit.json">Nine comparisons &amp; validator receipt →</a> · <a href="data/peer-s2d36-card-21eec80b.json">Pinned original peer card ↗</a> · <a href="https://github.com/{esc('buffedlizard55-lab/GEMSDOE36')}/blob/{esc(s2d['peer']['commit'])}/docs/downloads/s2d36-run-card.json">Peer source ↗</a></p></section>
 <section class="section panel prose" id="kpl36-conflict"><p class="eyebrow">Previously pinned peer recommendation / independent literal check</p><h2>GEMSDOE36 KPL-36: <span class="not-approved">DO NOT SUBMIT.</span></h2><p>The previously pinned peer page promoted KPL-36 EXP-3 after comparing against competing detectors but not counting the calibration lattice as a blocking reference; later source changes have not been scientifically audited here. We re-opened its exact pinned TIFF: <strong>{kpl_dots['candidate_dots_within_3px_of_lattice']:,} / {kpl_dots['candidate_dots']:,} dots ({kpl_dots['candidate_dot_overlap_fraction']:.2%})</strong> are within three pixels of that registered lattice. Your literal stop is over 70%, so this file is a duplicate under your protocol, regardless of the peer’s recommendation.</p><p>The peer reports <strong>{kpl_holdout['dti']:.4f} HOLDOUT-DTI</strong>, 95% CI [{kpl_holdout['ci95'][0]:.4f}, {kpl_holdout['ci95'][1]:.4f}], <code>{esc(kpl_holdout['evaluator_version'])}</code>, {kpl_holdout['withheld_positive_pixels']:,} withheld positives. That participant result was not independently rerun here and is not a leaderboard estimate. Its saved bytes pass the local <code>finite-grid</code> profile, not organizer acceptance; surface and full-registry comparisons were not performed in this audit.</p><p><a href="kpl36-lattice-audit-20261027.json">Measured bytes, hashes and conflict →</a> · <a href="{esc(kpl['peer_source']['repository'])}/blob/{esc(kpl['peer_source']['commit'])}/{esc(kpl['peer_source']['file'])}">Pinned peer TIFF · research reference only ↗</a></p></section>
-<section class="section panel prose" id="cadg-submod-study-link"><p class="eyebrow">Prior CADG study / independent saved-byte audit</p><h2>CADG archive: <span class="not-approved">DO NOT SUBMIT.</span></h2><p>The exact previously advertised TIFF has <strong>{cadg_current['lattice']['candidate_dots_within_3px_of_lattice']:,} / {cadg_current['lattice']['candidate_dots']:,} dots ({cadg_current['lattice']['candidate_dot_overlap_fraction']:.2%})</strong> within three pixels of the full registered lattice. This exceeds the literal duplicate stop; a selector cannot waive it. The older narrower catalogue-filtered comparison also fails.</p><p>Local format checks are not portal acceptance. The previously rejected upload was not provided, so its range-error cause remains unknown.</p><a href="cadg-submod/index.html">Prior study and forensic audit →</a> · <a href="cadg-submod/cadg-audit.json">Exact saved-byte receipt →</a></section>
+<section class="section panel prose" id="cadg-submod-study-link"><p class="eyebrow">Prior CADG study / independent saved-byte audits</p><h2>CADG archive: <span class="not-approved">DO NOT SUBMIT.</span></h2><p>The advertised TIFF has <strong>{cadg_current['lattice']['candidate_dots_within_3px_of_lattice']:,} / {cadg_current['lattice']['candidate_dots']:,} dots ({cadg_current['lattice']['candidate_dot_overlap_fraction']:.2%})</strong> within three pixels of the full registered lattice. The older, distinct field also fails: <strong>37,635 / 37,654 (99.95%)</strong>. The earlier 99.73% figure used catalogue-excluded lattice cells and also fails. A selector cannot waive the stop.</p><p>Local format checks are not portal acceptance. The previously rejected upload was not provided, so its range-error cause remains unknown.</p><a href="cadg-submod/index.html">Prior study and forensic audit →</a> · <a href="cadg-submod/cadg-audit.json">Four saved-byte and ZIP checks →</a> · <a href="data/session-30454eca-cadg-lattice.json">Independent full/subset audit →</a></section>
 <section class="section panel prose" id="parallel-control"><p class="eyebrow">Parallel session / research-only control</p><h2>A random control exists. It is not a submission.</h2><p>Another session generated a random off-catalogue TIFF and a matching encoding. Our independent audit finds <strong>{poisson_dots['candidate_dots_within_3px_of_lattice']:,} / {poisson_dots['candidate_dots']:,} dots ({poisson_dots['candidate_dot_overlap_fraction']:.2%})</strong> within three pixels of the registered lattice, so both encodings fail the literal uniqueness stop. No holdout score or complete surface comparison is available.</p><p>The rejected upload was not supplied, so the local [0,1] checks cannot prove the old portal error was fixed. The earlier run card lists only a subset of per-site overlaps and does not establish all-nine uniqueness.</p><a href="candidate.html">Research archive and corrected limits →</a> · <a href="parallel-poisson-audit-20261027.json">Saved-byte audit →</a></section>
 {parallel_panel}
 {inherited_section(inherited)}
@@ -558,11 +635,11 @@ The [original scoped report at the inherited commit](https://github.com/kanlerxz
 <section class="section panel prose"><h2>What the best supplied historical file tells us</h2><p>{esc(method_note(row["repo"]))}</p><p>These are bounded interpretations of the supplied labels and the measured raster geometry, not verified model implementations or causal explanations. No defensible new-file score estimate is available.</p></section>
 <section class="section panel"><h2>Current source snapshot</h2><p>The historical file above is pinned independently from the newer homepage. Homepage statements are participant claims, not this project’s selector decision.</p><p>At the frozen {esc(changes['current_checked_utc'])} tree snapshot, {len(site_findings)} added or modified TIFF files were checked against the registered lattice; {site_stops} exceeded the literal duplicate threshold. This count includes encoding twins. Zero changed files is not a uniqueness pass, and later changes are not covered.</p><p><a href="{esc(now.get('source_url','../sources.html'))}">Observed participant page at {esc(str(now.get('commit') or 'unknown')[:10])} ↗</a> · <a href="../data/changed-peer-audit-91270cac.json">Changed-file forensic receipt ↗</a></p><p><a href="../research.html">Shared-family performance interpretation and conditional research queue →</a></p></section>'''
         if row["repo"] == "GEMSDOE36":
-            text += f'''<section class="section notice"><span class="icon" aria-hidden="true">!</span><div><strong>The previously pinned KPL-36 peer promotion conflicts with your literal uniqueness rule.</strong><p>Our independent saved-dot check found {kpl_dots['candidate_dot_overlap_fraction']:.2%} overlap with the required lattice. Its peer-reported {kpl_holdout['dti']:.4f} HOLDOUT-DTI is not an organizer score; the file is not approved here.</p><p><a href="../kpl36-lattice-audit-20261027.json">Exact forensic receipt →</a></p></div></section>'''
+            text += f'''<section class="section notice"><span class="icon" aria-hidden="true">!</span><div><strong>Newer S2D-36 and earlier KPL-36 both fail the literal uniqueness rule.</strong><p>The newer S2D peer card is negative; our independent saved-dot check found {s2d_lattice['candidate_dot_overlap_fraction']:.2%} overlap with the required lattice. Its participant-reported {s2d_holdout['value']:.4f} HOLDOUT-DTI, 95% CI [{s2d_holdout['ci95'][0]:.4f}, {s2d_holdout['ci95'][1]:.4f}], <code>{esc(s2d_holdout['evaluator_version'])}</code>, {s2d_holdout['withheld_positives']:,} withheld positives, was not rerun here or organizer-confirmed.</p><p>The earlier KPL-36 peer promotion also conflicts with the rule: {kpl_dots['candidate_dot_overlap_fraction']:.2%} lattice overlap. Neither file is approved here.</p><p><a href="../data/session-30454eca-s2d36-audit.json">Newer forensic receipt →</a> · <a href="../kpl36-lattice-audit-20261027.json">Earlier forensic receipt →</a></p></div></section>'''
         emit(DOCS / "sites" / f"{row['repo']}.html", page(row["repo"] + " executive summary", text, prefix="../"))
     for source, dest in [("evidence/parallel-poisson-audit-20261027.json", "parallel-poisson-audit-20261027.json"), ("evidence/kpl36-lattice-audit-20261027.json", "kpl36-lattice-audit-20261027.json"), ("evidence/h33-lineage-20261027.json", "h33-lineage-20261027.json"), ("evidence/official-observation-20261027.json", "official-observation-20261027.json"), ("evidence/official-claims-20261026.json", "official-claims.json"), ("evidence/shared_tool_audit.json", "tool-audit.json"), ("evidence/input-integrity.json", "input-integrity.json"), ("evidence/session-7d1e577d-verification.json", "verification.json"), ("evidence/inherited_literal_audit.json", "inherited-literal-audit.json"), ("evidence/sample-provenance-check.json", "sample-provenance-check.json"), ("knowledge/geothermal-science-2026-10-27.md", "geothermal-science-2026-10-27.md")]:
         emit(DOCS / dest, (ROOT / source).read_text())
-    for name in ("review", "hypotheses", "verification", "session-12817d00-review", "session-5c1613da-review", "session-91270cac-review", "session-91270cac-hypotheses"):
+    for name in ("review", "hypotheses", "verification", "session-12817d00-review", "session-5c1613da-review", "session-91270cac-review", "session-91270cac-hypotheses", "session-30454eca-review", "session-30454eca-hypotheses"):
         emit(DOCS / f"{name}.md", (ROOT / "research" / f"{name}.md").read_text())
 
     for src, destinations in [
@@ -574,6 +651,11 @@ The [original scoped report at the inherited commit](https://github.com/kanlerxz
         ("evidence/session-5c1613da-run-card.json", [DOCS / "data/session-5c1613da-run-card.json"]),
         ("evidence/session-5c1613da-cadg-audit.json", [DOCS / "data/session-5c1613da-cadg-audit.json"]),
         ("evidence/session-91270cac-run-card.json", [DOCS / "data/session-91270cac-run-card.json"]),
+        ("evidence/session-30454eca-run-card.json", [DOCS / "data/session-30454eca-run-card.json"]),
+        ("evidence/session-30454eca-saturation.json", [DOCS / "data/session-30454eca-saturation.json"]),
+        ("evidence/session-30454eca-s2d36-audit.json", [DOCS / "data/session-30454eca-s2d36-audit.json"]),
+        ("evidence/session-30454eca-cadg-lattice.json", [DOCS / "data/session-30454eca-cadg-lattice.json"]),
+        ("evidence/peer-s2d36-card-21eec80b.json", [DOCS / "data/peer-s2d36-card-21eec80b.json"]),
         ("evidence/registry_saturation_20261026.json", [DOCS / "data/registry_saturation.json"]),
         ("evidence/feature_cache_recovery_20261026.json", [DOCS / "data/feature_cache_recovery.json"]),
         ("evidence/recovery-run-card.json", [DOCS / "data/recovery-run-card.json"]),

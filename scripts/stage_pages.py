@@ -6,13 +6,21 @@ Git objects. No source branch is committed or pushed by the publishing workflow.
 """
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 DEST = ROOT/'.cache/pages'
 
 
 def main():
+    # Validate the source bytes before copying anything; never let a stale
+    # committed root page be silently replaced or shipped by an isolated lane.
+    from scripts.build_site import build as check_root
+    from scripts.build_cadg_site import build as check_cadg
+    check_root(check_only=True)
+    check_cadg(check_only=True)
     tracked = subprocess.check_output(['git','ls-files','-z'], cwd=ROOT).decode().split('\0')
     files = []
     blocked = {'.git','.cache','.venv','node_modules','__pycache__','.pytest_cache'}

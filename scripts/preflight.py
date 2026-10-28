@@ -167,8 +167,10 @@ def inspect(data: Path, work: Path, manifest: dict, card: dict) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    # This continuation inherited the 52a91352 ledger. Parallel ledgers remain
+    # available explicitly for historical review, not as a way to reset its clock.
     parser.add_argument("--config", type=Path, default=ROOT / "config" / "research-session-52a91352.json",
-                        help="Fixed prior clock by default; explicitly select another recorded session only for that session, never reset an earlier clock")
+                        help="Fixed session clock and prerequisites; never reset an earlier clock")
     parser.add_argument("--out", type=Path, default=ROOT / "data" / "preflight-live.json",
                         help="Live local receipt (ignored); the published evidence is a dated snapshot")
     args = parser.parse_args()
