@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_utc": "2026-10-27T23:45:31+00:00",
+  "checked_utc": "2026-10-28T00:15:58+00:00",
   "kind": "PARTICIPANT_SOURCE_CHANGE_FEED_NOT_SCORE_RECEIPTS",
   "rows": [
     {
@@ -74,9 +74,9 @@
       "scientific_approval": false,
       "accepted_score": null,
       "status": "PINNED_SOURCE_ONLY",
-      "commit": "672849f56dc8476df912f7b7c7956e3f3f3c6210",
+      "commit": "7202f07ee80f7727bc1fd5eb28da86959ad96f8e",
       "source_page": "index.html",
-      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/672849f56dc8476df912f7b7c7956e3f3f3c6210/index.html",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/7202f07ee80f7727bc1fd5eb28da86959ad96f8e/index.html",
       "source_title": "Research overview \u00b7 GEMS30",
       "raster_paths_in_tree": 37,
       "continuous_cache_paths": [],
@@ -127,13 +127,13 @@
       "scientific_approval": false,
       "accepted_score": null,
       "status": "PINNED_SOURCE_ONLY",
-      "commit": "844f514819041c7be9efd345a24cf5cd70263f00",
+      "commit": "7b422fa37a516543aa27012e82bb4ded3f00a770",
       "source_page": "docs/index.html",
-      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE33/blob/844f514819041c7be9efd345a24cf5cd70263f00/docs/index.html",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE33/blob/7b422fa37a516543aa27012e82bb4ded3f00a770/docs/index.html",
       "source_title": "GEMSDOE33 \u00b7 Evidence-led fault discovery",
-      "raster_paths_in_tree": 36,
+      "raster_paths_in_tree": 38,
       "continuous_cache_paths": [],
-      "homepage_tiff_links": 14,
+      "homepage_tiff_links": 15,
       "note": "Source freshness only. Homepage statements, historical scores and any approval labels are not inherited by this project."
     },
     {

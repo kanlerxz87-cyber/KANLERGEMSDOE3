@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "kind": "PARTICIPANT-SOURCE PREREQUISITE AUDIT \u2014 NOT HOLDOUT-DTI",
+  "observed_utc": "2026-10-28T00:15:57+00:00",
+  "participant_source": {
+    "repository": "buffedlizard55-lab/GEMSDOE32",
+    "default_branch": "main",
+    "head_commit": "5871b14fbc477032c6e4b339c3d41cae7243f4fe",
+    "url": "https://github.com/buffedlizard55-lab/GEMSDOE32/tree/5871b14fbc477032c6e4b339c3d41cae7243f4fe",
+    "organizer_source": false
+  },
+  "upstream_issues": [
+    {
+      "number": 37,
+      "title": "Shared holdout CLI and writer silently binarize probabilistic inputs",
+      "state": "OPEN",
+      "updated_at": "2026-10-26T21:45:15Z",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/37",
+      "evidence_scope": "GitHub issue status and report text; not proof of organizer impact"
+    },
+    {
+      "number": 39,
+      "title": "check_submission.py does not check outside-footprint values",
+      "state": "OPEN",
+      "updated_at": "2026-10-26T21:53:39Z",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/39",
+      "evidence_scope": "GitHub issue status and report text; not proof of organizer impact"
+    },
+    {
+      "number": 41,
+      "title": "Shared hide-and-recover evaluator drops FP mass for zero-truth cells",
+      "state": "OPEN",
+      "updated_at": "2026-10-26T21:56:49Z",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41",
+      "evidence_scope": "GitHub issue status and report text; not proof of organizer impact"
+    },
+    {
+      "number": 42,
+      "title": "Surface release gate ignores overlapping preview dots",
+      "state": "OPEN",
+      "updated_at": "2026-10-26T21:58:02Z",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/42",
+      "evidence_scope": "GitHub issue status and report text; not proof of organizer impact"
+    },
+    {
+      "number": 49,
+      "title": "Shared feature builder selects the smaller Hessian eigenvalue for ridge response",
+      "state": "OPEN",
+      "updated_at": "2026-10-27T21:21:54Z",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/49",
+      "evidence_scope": "GitHub issue status and report text; not proof of organizer impact"
+    },
+    {
+      "number": 51,
+      "title": "Submission wrapper silently binarizes positive probability inputs",
+      "state": "OPEN",
+      "updated_at": "2026-10-27T21:31:45Z",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/51",
+      "evidence_scope": "GitHub issue status and report text; not proof of organizer impact"
+    },
+    {
+      "number": 53,
+      "title": "Canonical 35-channel feature cache lacks bytes, digest, and invalidation provenance",
+      "state": "OPEN",
+      "updated_at": "2026-10-27T23:48:24Z",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/53",
+      "evidence_scope": "GitHub issue status and report text; not proof of organizer impact"
+    }
+  ],
+  "shared_files": [
+    {
+      "path": "src/gems32/holdout.py",
+      "pinned_commit": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+      "pinned_git_blob_sha1": "574cf333baf78f427b55b018aab038a97c3c7456",
+      "current_head": "5871b14fbc477032c6e4b339c3d41cae7243f4fe",
+      "current_git_blob_sha1": "574cf333baf78f427b55b018aab038a97c3c7456",
+      "byte_identical_to_pinned": true,
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/5871b14fbc477032c6e4b339c3d41cae7243f4fe/src/gems32/holdout.py"
+    },
+    {
+      "path": "src/gems32/features.py",
+      "pinned_commit": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+      "pinned_git_blob_sha1": "fc7554a73c16c2ca4dd9ca5a423c335b2e3cd888",
+      "current_head": "5871b14fbc477032c6e4b339c3d41cae7243f4fe",
+      "current_git_blob_sha1": "fc7554a73c16c2ca4dd9ca5a423c335b2e3cd888",
+      "byte_identical_to_pinned": true,
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/5871b14fbc477032c6e4b339c3d41cae7243f4fe/src/gems32/features.py"
+    },
+    {
+      "path": "src/gems32/submission.py",
+      "pinned_commit": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+      "pinned_git_blob_sha1": "5d46339ff9060bc2a3b509184b97a233f5bf0abd",
+      "current_head": "5871b14fbc477032c6e4b339c3d41cae7243f4fe",
+      "current_git_blob_sha1": "5d46339ff9060bc2a3b509184b97a233f5bf0abd",
+      "byte_identical_to_pinned": true,
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/5871b14fbc477032c6e4b339c3d41cae7243f4fe/src/gems32/submission.py"
+    },
+    {
+      "path": "scripts/evaluate_holdout.py",
+      "pinned_commit": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+      "pinned_git_blob_sha1": "7773e40cda724395a323e54da4f607b0e9e59a2e",
+      "current_head": "5871b14fbc477032c6e4b339c3d41cae7243f4fe",
+      "current_git_blob_sha1": "7773e40cda724395a323e54da4f607b0e9e59a2e",
+      "byte_identical_to_pinned": true,
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/5871b14fbc477032c6e4b339c3d41cae7243f4fe/scripts/evaluate_holdout.py"
+    },
+    {
+      "path": "scripts/submission_writer.py",
+      "pinned_commit": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+      "pinned_git_blob_sha1": "c3cc5cf23056d46e577c00ecec39a6f01c771260",
+      "current_head": "5871b14fbc477032c6e4b339c3d41cae7243f4fe",
+      "current_git_blob_sha1": "c3cc5cf23056d46e577c00ecec39a6f01c771260",
+      "byte_identical_to_pinned": true,
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/5871b14fbc477032c6e4b339c3d41cae7243f4fe/scripts/submission_writer.py"
+    }
+  ],
+  "current_shared_files_byte_identical_to_pinned": true,
+  "canonical_feature_cache": {
+    "receipt_path": "registry/feature_receipt.json",
+    "receipt_git_blob_sha1": "00b38b68c8571ca128dd5a844413198819f98ce0",
+    "declared_path": ".cache/gems_work/feature_stack.npy",
+    "declared_channels": 35,
+    "declared_shape": [
+      3730,
+      3292
+    ],
+    "receipt_declares_sha256": false,
+    "declared_sha256": null,
+    "cache_bytes_in_repository_tree": false,
+    "usable_for_protocol_reuse": false,
+    "upstream_request": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/53"
+  },
+  "local_synthetic_operator_audit": {
+    "receipt": "evidence/shared_tool_audit.json",
+    "ok": false,
+    "reproduced_blocking_findings": [
+      "SHARED-EMPTY-TRUTH-FP"
+    ],
+    "geological_model_evaluated": false
+  },
+  "blockers": [
+    "No explicit single-method paragraph is present in the received request.",
+    "The shared empty-truth false-positive defect remains open and is locally reproduced.",
+    "The shared evaluator/writer silently binarize soft positive values.",
+    "The shared surface gate does not enforce preview-dot overlap.",
+    "The shared Hessian ridge implementation has an open eigenvalue-selection defect.",
+    "The canonical 35-channel cache has neither obtainable bytes nor a declared content digest.",
+    "A complete, representation-resolved registry and same-fold incumbent are not established."
+  ],
+  "research_ready": false,
+  "candidate_generated": false,
+  "holdout_dti": null,
+  "leaderboard_estimate": null,
+  "raster_sha256": null,
+  "slot_authorized": false,
+  "weekly_slots_used": 0,
+  "ok_to_submit": false,
+  "verdict": "negative",
+  "note": "GitHub participant-source status only; no official score, model result, candidate, or upload permission."
+}

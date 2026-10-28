@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "session_id": "e2903b2e",
+  "session_started_utc": "2026-10-27T23:37:00+00:00",
+  "assigned_method_paragraph": null,
+  "hypothesis": "Unassigned. Four ranked proposals remain planning hypotheses, not an adopted method lane.",
+  "mechanism": "No geological mechanism was executed because the required method assignment and trustworthy shared instruments are absent.",
+  "non_fault_mimic": "Not applicable to an unrun model; proposed edge methods can be mimicked by lithologic contacts and survey seams.",
+  "geological_experiments_this_session": 0,
+  "experiment_budget": {
+    "maximum_experiments": 3,
+    "maximum_hours": 2,
+    "used_experiments": 0,
+    "elapsed_not_reset_from_prior_sessions": true
+  },
+  "weekly_slots_used_this_session": 0,
+  "holdout_dti": null,
+  "holdout_ci95": null,
+  "evaluator_version": null,
+  "withheld_positive_count": null,
+  "paired_incumbent_comparison": null,
+  "surface_registry_comparison": null,
+  "final_dot_registry_comparison": null,
+  "historical_focus_site_geometry": {
+    "receipt": "docs/audit.json",
+    "result": "All nine supplied historical winners exceed the 70% directed dot-overlap stop against another focus winner.",
+    "score_class": "GEOMETRIC MEASUREMENT; NOT HOLDOUT-DTI OR ORGANIZER-CONFIRMED"
+  },
+  "raster_sha256": null,
+  "validator_output": {
+    "status": "NOT RUN: no candidate raster was generated",
+    "no_nan_inside_footprint": null,
+    "values_in_0_1": null,
+    "single_band_float32": null,
+    "crs_shape_transform_match": null,
+    "organizer_template_authenticated": false,
+    "portal_acceptance": null
+  },
+  "submission_name": null,
+  "submission_note": "No candidate: missing lane, corrected shared tools, canonical cache, complete registry, and paired incumbent.",
+  "upstream_prerequisite_receipt": "evidence/session-e2903b2e-upstream-prerequisites.json",
+  "upstream_cache_issue": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/53",
+  "unresolved": [
+    "No explicit single-method paragraph in the received prompt",
+    "Shared evaluator, writer, surface gate and ridge-feature defects remain open",
+    "Canonical 35-channel cache bytes and content digest unavailable",
+    "Complete representation-resolved registry and same-fold incumbent unavailable",
+    "Organizer template provenance, live account quota and selector authorization unavailable"
+  ],
+  "candidate_generated": false,
+  "leaderboard_estimate": null,
+  "slot_authorized": false,
+  "ok_to_download_for_submission": false,
+  "ok_to_submit": false,
+  "verdict": "negative"
+}

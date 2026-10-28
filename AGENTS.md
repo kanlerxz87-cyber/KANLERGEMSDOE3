@@ -3,12 +3,12 @@
 Before changing this project, read:
 1. `README.md`, including its full standing user request (also `PROJECT_PROMPT.md`).
 2. `PROJECT_REQUEST.md` and `research/standing-requirements.md` for the compact standing rules.
-3. `research/session-30454eca-review.md`, `research/session-91270cac-review.md`,
-   `research/session-5c1613da-review.md`, the expired default session config
-   `config/research-session-52a91352.json`, other preserved configs, and `research/verification.md`.
-4. `evidence/run-card.json` (preserved canonical bilateral run, negative),
-   `evidence/session-91270cac-run-card.json` and `evidence/session-5c1613da-run-card.json`
-   (concurrent reviews), and `evidence/session-30454eca-run-card.json` (this audit, no model run).
+3. `research/session-e2903b2e-review.md`, `config/research-session-e2903b2e.json`,
+   `research/session-30454eca-review.md`, `research/session-91270cac-review.md`,
+   other preserved configs/reviews, and `research/verification.md`.
+4. `evidence/run-card.json` (preserved canonical bilateral run, negative), concurrent cards
+   including `evidence/session-30454eca-run-card.json`, and
+   `evidence/session-e2903b2e-run-card.json` (final integrated audit, no model run).
 
 Keep **Maximize P(Win)** and **Own the Outcome** explicit. File format, model quality,
 semantic novelty, evidence authenticity and weekly-slot authorization are separate.
@@ -29,6 +29,9 @@ unverified owner claim into a score, or spend a real slot without a separate sel
 All 13 files locked by `vendor/shared-template/PROVENANCE.json` must remain byte-identical
 to upstream Git blobs and SHA-256. The gems32 operator defect is tracked centrally in
 GEMSDOE32 issue #41; pin a repaired central source instead of editing vendor bytes.
+Issue #53 requests canonical cache bytes/digest/invalidation; do not substitute a private
+rebuild. Current source status is pinned in
+`evidence/session-e2903b2e-upstream-prerequisites.json`.
 Inherited gems/gems57 pins are different instruments, not interchangeable evidence.
 The mirror sample's catalogue positives conflict with the official absence-sample
 wording. Hash identity is not organizer authentication or a permissive code license.
