@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CFRP submission 2026-10-28 · KANLERGEMSDOE3</title>
+<style>body{font-family:system-ui,Arial,sans-serif;max-width:980px;margin:0 auto;padding:24px;line-height:1.5;color:#14202b}h1{line-height:1.15}.card{border:3px solid #0a7a42;background:#eefaf2;padding:20px;border-radius:10px}.btn{display:inline-block;background:#0a7a42;color:#fff;padding:14px 22px;border-radius:8px;font-size:1.15rem;font-weight:700;text-decoration:none}code{background:#eee;padding:2px 5px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #bbb;padding:6px;text-align:left;vertical-align:top}.warn{border-left:6px solid #c77700;background:#fff6e5;padding:10px 14px}small{color:#444}</style></head>
+<body>
+<p><a href="../index.html">← Main research desk</a> · <a href="EXECUTIVE_SUMMARY.md">Full executive summary (Markdown)</a> · <a href="run-card.json">Run card (JSON)</a></p>
+<h1>✅ DOWNLOAD AND SUBMIT THIS FILE</h1>
+<div class="card">
+<p><a class="btn" href="downloads/kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif">⬇ Download the submission GeoTIFF</a>
+&nbsp;<a href="downloads/kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.zip">or as .zip</a></p>
+<p><strong>File:</strong> <code>kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif</code><br>
+<strong>Submission note (paste into DrivenData, 79 chars):</strong> <code>CFRP cross-field ridge persistence, 44090 ridge dots, collar&gt;2px, zeros outside</code><br>
+<strong>SHA-256:</strong> <code>7fb488c0560820dfb3f26b62316140d2987107726e3e9753bdd789b6c4d684fd</code></p>
+<table>
+<tr><th>Gate</th><th>Result</th></tr>
+<tr><td>Format validator</td><td><strong>PASS</strong> — single-band float32, EPSG:32611, 3730×3292, template transform, no NaN inside footprint, <strong>every value in the whole file is finite and in [0, 1]</strong> (zeros variant; this is the encoding that cannot trigger “Predicted values must be in range [0, 1]”)</td></tr>
+<tr><td>Unique?</td><td><strong>YES</strong> — vs all 9 focus champions: max surface Spearman |ρ| = 0.093 (limit 0.90), max dots within 3 px = 34.8% (limit 70%)</td></tr>
+<tr><td>Estimated score</td><td><strong>HOLDOUT-DTI 0.1388</strong>, 95% CI [0.1275, 0.1496], evaluator gems-segment-pooled-v1, 60,988 withheld positives. Leaderboard <strong>PROJECTION 0.111</strong> (live-ledger inversion, LOO MAE 0.0219; a projection, not a score)</td></tr>
+<tr><td>Will it beat 0.2778?</td><td>Not established — see honest expectation below. It is the only unique, validated file available to submit.</td></tr>
+</table>
+</div>
+<div class="warn"><strong>Honest expectation:</strong> historical best is GEMSDOE32's owner-reported 0.2778, but that file is a previous non-unique family submission (its dot mask is the GEMSDOE25/30 mask minus near-catalogue dots) and must not be resubmitted as new. This CFRP file is genuinely unique and validated; current evidence does not prove it beats 0.2778. A weekly-slot decision remains a separate selector step. Portal acceptance: NOT_TESTED (no submission was made from this sandbox); all automated local gates pass and no human inspection is required.</div>
+<h2>What to download — full table</h2>
+<table>
+<tr><th>File to download</th><th>Estimated score</th><th>Unique vs 9 focus sites?</th><th>Submit?</th></tr>
+<tr><td><strong>kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif</strong> (this page)</td><td>HOLDOUT-DTI 0.1388 [0.1275, 0.1496]; PROJECTION 0.111</td><td><strong>Yes</strong> (ρ≤0.093, overlap≤34.8%)</td><td><strong>YES</strong></td></tr>
+<tr><td>GEMSDOE32 h33-h33-2-b2 historical</td><td>Owner-reported 0.2778 (unverified)</td><td>No</td><td>No — previous submission</td></tr>
+<tr><td>GEMSDOE36 anderson-pinn historical</td><td>Owner-reported 0.2750</td><td>No</td><td>No</td></tr>
+<tr><td>GEMSDOE28 h36-1 historical</td><td>Owner-reported 0.2710</td><td>No</td><td>No</td></tr>
+<tr><td>GEMSDOE31 h27-4 historical</td><td>Owner-reported 0.2708</td><td>No</td><td>No</td></tr>
+<tr><td>GEMSDOE33 h33d historical</td><td>Owner-reported 0.2632</td><td>No</td><td>No</td></tr>
+<tr><td>GEMSDOE25 dotted-h19-5 historical</td><td>Owner-reported 0.2600</td><td>No — identical dots to GEMSDOE30</td><td>No</td></tr>
+<tr><td>GEMSDOE30 poisson-offcat historical</td><td>Owner-reported 0.2600</td><td>No — identical dots to GEMSDOE25</td><td>No</td></tr>
+<tr><td>GEMSDOE24 dotted d1.5 historical</td><td>Owner-reported 0.2477</td><td>No</td><td>No</td></tr>
+<tr><td>GEMSDOE27 gap-closure historical</td><td>Owner-reported 0.2449</td><td>No</td><td>No</td></tr>
+</table>
+<h2>How to submit</h2>
+<ol><li>Download the <code>-zeros.tif</code> (or zip) above.</li><li>Open the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DrivenData competition</a> → Submit → choose the file.</li><li>Paste the note: <code>CFRP cross-field ridge persistence, 44090 ridge dots, collar&gt;2px, zeros outside</code></li></ol>
+<p><small>Method, experiments (3/3 budget), per-site summaries, irregularities and sources: <a href="EXECUTIVE_SUMMARY.md">EXECUTIVE_SUMMARY.md</a>. Alternate encoding (NaN outside, official-text style): <a href="downloads/kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-nan.tif">-nan.tif</a> — prefer the zeros file if the portal range check is a concern. Validator receipts are in <code>downloads/validator-zeros.json</code> / <code>validator-nan.json</code>.</small></p>
+</body></html>

@@ -1,0 +1,44 @@
+{
+ "label": "HOLDOUT-DTI",
+ "evaluator_version": "gems-segment-pooled-v1",
+ "generated_utc": "2026-10-28T16:26:35.533304+00:00",
+ "experiment": "E2",
+ "surface_arm": "CFRP",
+ "variants": {
+  "V1_b37654_collar2": {
+   "dti": 0.12667286138546202,
+   "ci95": [
+    0.11555989400239722,
+    0.13720905800381827
+   ],
+   "withheld_positives": 60988
+  },
+  "V2_b44090_collar2": {
+   "dti": 0.13881641514545673,
+   "ci95": [
+    0.12747681698600719,
+    0.14957973844744848
+   ],
+   "withheld_positives": 60988
+  },
+  "V3_b37654_nocollar": {
+   "dti": 0.12667286138546202,
+   "ci95": [
+    0.11555989400239722,
+    0.13720905800381827
+   ],
+   "withheld_positives": 60988
+  },
+  "V4_b30000_collar2": {
+   "dti": 0.11049662805703757,
+   "ci95": [
+    0.09997913736977454,
+    0.12057681890716969
+   ],
+   "withheld_positives": 60988
+  }
+ },
+ "selected_variant": "V2_b44090_collar2",
+ "selected_budget": 44090,
+ "selected_collar": true
+}

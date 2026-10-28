@@ -109,5 +109,34 @@
   "audits_file": "evidence/catalogue-blind-audits-20261028.json",
   "e123_file": "evidence/catalogue-blind-e123-20261028.json",
   "prereg_file": "research/catalogue-blind-prereg-20261028.md",
-  "generated_by": "scripts/build_submission_desk.py"
+  "generated_by": "scripts/build_submission_desk.py",
+  "other_lane_on_main": {
+    "file": "docs/cfrp-20261028/downloads/kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif",
+    "sha256": "7fb488c0560820dfb3f26b62316140d2987107726e3e9753bdd789b6c4d684fd",
+    "status": "CONTESTED \u2014 another lane's page on main labels it eligible; this lane's audit does not support that. Decision required.",
+    "same_evaluator_holdout": {
+      "label": "HOLDOUT-DTI",
+      "hide_recover_pooled_dti": 0.0,
+      "hide_recover_ci95": [
+        0.0,
+        0.0
+      ],
+      "hide_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "sgmc_raw_pooled_dti": 0.0952,
+      "sgmc_raw_ci95": [
+        0.0832,
+        0.1075
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0",
+      "incumbent_best_same_evaluator": {
+        "hide_recover": 0.0967,
+        "sgmc_raw": 0.1024
+      }
+    },
+    "registry_max_directed_overlap_3px_non_saturated": 0.4815,
+    "registry_saturated_probe_flags": [
+      "calib_13gems_20261001_r13-lattice-s5_v2_nan-ou"
+    ],
+    "audit_file": "evidence/uniqueness-audit-kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros-20261028.json"
+  }
 }

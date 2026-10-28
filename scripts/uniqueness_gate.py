@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Final duplicate gate, recomputed from the registry TIFF bytes (no cache).
+"""ARCHIVED AND CLI-BLOCKED: historical duplicate computation, not a valid final gate.
+
+Use scripts/check_uniqueness.py with a complete, resolved registry. This legacy
+code exempts space-filling overlaps and cannot establish protocol uniqueness.
+
+Final duplicate gate, recomputed from the registry TIFF bytes (no cache).
 
 For every restored registry raster (registry/registry_index.json, SHA-256 verified):
   * forward overlap  = share of MY scored dots within 3 px of THEIR positive pixels
@@ -146,4 +151,6 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    from archive_guard import stop_archived_cli
+    stop_archived_cli()
     sys.exit(main())
