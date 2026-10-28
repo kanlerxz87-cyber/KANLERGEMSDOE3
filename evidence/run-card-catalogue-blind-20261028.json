@@ -1,0 +1,142 @@
+{
+  "schema": "kanler3.run_card.v1",
+  "date_utc": "2026-10-28",
+  "lane": "NOT DEFINED \u2014 the user's single-method lane paragraph is absent from the repo; none invented. Self-declared lane: catalogue-blind dot fields (label-free).",
+  "question": "Can a catalogue-blind, unique single-band dot field pass the pre-registered holdout gate against the same-evaluator incumbents?",
+  "experiments": {
+    "budget": 3,
+    "used": 3,
+    "ids": [
+      "E1_ridge2_nms",
+      "E2_ridge2xcoh_nms",
+      "E3_half_nms_half_bluenoise"
+    ],
+    "chosen": "E2_ridge2xcoh_nms",
+    "selection": "label-free; pre-registered before scoring"
+  },
+  "time_budget_minutes": 120,
+  "pipeline_seconds_recorded": 276.9,
+  "duplicate_stop": {
+    "spearman_limit": 0.9,
+    "max_abs_rank_correlation": 0.0123,
+    "spearman_triggered": false,
+    "overlap_limit_3px": 0.7,
+    "non_saturated_max_directed_overlap": 0.3003,
+    "non_saturated_reference": "calib_8GEMSDOE_Hedge-v2_submission",
+    "saturated_probe": "calib_13gems_20261001_r13-lattice-s5_v2_nan-ou",
+    "saturated_probe_directed_overlap": 0.9967,
+    "triggered_literal": true,
+    "interpretation": "Literal stop trips only on the saturated lattice probe; uniform random dots also trip it (audit saturation_lattice_r13). Reported as a rule defect, not waived."
+  },
+  "leakage_canary": {
+    "threshold_auc": 0.9,
+    "single_feature_max_auc_vs_offcatalogue_sgmc": 0.7685,
+    "single_feature_channels_above_threshold": [],
+    "hide_recover_full_catalogue_distance_auc": 1.0,
+    "hide_recover_visible_catalogue_distance_auc": 0.8085,
+    "interpretation": "Candidate features pass (max 0.7685). The full-catalogue distance AUC of 1.0 is leakage in the proxy design; it was not used in selection."
+  },
+  "hypothesis": {
+    "H_primary": "A label-free ridge-times-coherence dot field (E2) beats the same-evaluator incumbent on both proxies.",
+    "result": "NOT SUPPORTED on hide-and-recover (0.0268 vs 0.0967; file 0.0204). Partly on SGMC raw (0.1171 vs 0.1024), but the CIs overlap the incumbents and the gate requires both.",
+    "mechanism_hypothesis": "Hide-and-recover rewards proximity to visible catalogue traces; catalogue-blind dots lose that reward. SGMC agrees with the leaderboard direction in only part of the set.",
+    "named_non_fault_mimic": "Catalogue-mapping completeness and relief: dots follow mapped traces and high relief, which can mimic fault signal without new-fault skill.",
+    "status": "PARTIALLY SUPPORTED / UNTESTED on the organizer leaderboard"
+  },
+  "candidate": {
+    "name": "kanler3-catalogue-blind-e2-ridgecoh-37654-20261028",
+    "note": "Catalogue-blind ridge x coherence dots, NaN-free. Holdout gate failed. Do not submit.",
+    "note_chars": 85,
+    "file": "docs/candidate_downloads/kanler3-catalogue-blind-e2-ridgecoh-37654-20261028.tif",
+    "sha256": "bb4f31af58ff7e71bcc219db67ea7e4f4b339f612847070500bc04f84f5d75d6",
+    "bytes": 206038,
+    "dots_after_catalogue_removal": 37412,
+    "catalogue_pixels_removed": 242,
+    "format": {
+      "single_band": true,
+      "dtype_float32": true,
+      "crs_epsg_32611": true,
+      "shape_matches_template": true,
+      "transform_matches_template": true,
+      "nodata_tag_none_or_nan": true,
+      "no_nan_anywhere": true,
+      "all_values_in_0_1": true,
+      "footprint_pixels": 5167373,
+      "emitted_positive_pixels": 37412,
+      "unique_values": [
+        0.0,
+        1.0
+      ],
+      "format_valid": true,
+      "sha256": "bb4f31af58ff7e71bcc219db67ea7e4f4b339f612847070500bc04f84f5d75d6",
+      "bytes": 206038
+    },
+    "holdout_on_file": {
+      "hide_recover_pooled_dti": 0.0204,
+      "hide_recover_ci95": [
+        0.0169,
+        0.0238
+      ],
+      "hide_recover_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.1171,
+      "sgmc_raw_ci95": [
+        0.1101,
+        0.1235
+      ],
+      "sgmc_calibrated_dti": 0.0786,
+      "label": "HOLDOUT-DTI"
+    },
+    "label": "HOLDOUT-DTI",
+    "authorized": false,
+    "cleared_for_submission": false,
+    "safety": "NOT SAFE TO SUBMIT \u2014 learning artifact only"
+  },
+  "gates": {
+    "format": true,
+    "unique_vs_compared_registry_non_saturated": true,
+    "saturated_probe_flagged_literal_stop": true,
+    "beats_same_evaluator_incumbent_on_both_proxies": false,
+    "registry_complete": false
+  },
+  "verdict": "NEGATIVE_HOLDOUT_NOT_BEATEN",
+  "slot_authorized": false,
+  "weekly_slots_spent": 0,
+  "organizer_confirmed_scores": [],
+  "incumbent_comparison_same_evaluator": {
+    "hide_recover": 0.0967,
+    "sgmc_raw": 0.1024
+  },
+  "audits_file": "evidence/catalogue-blind-audits-20261028.json",
+  "e123_file": "evidence/catalogue-blind-e123-20261028.json",
+  "prereg_file": "research/catalogue-blind-prereg-20261028.md",
+  "generated_by": "scripts/build_submission_desk.py",
+  "other_lane_on_main": {
+    "file": "docs/cfrp-20261028/downloads/kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif",
+    "sha256": "7fb488c0560820dfb3f26b62316140d2987107726e3e9753bdd789b6c4d684fd",
+    "status": "CONTESTED \u2014 another lane's page on main labels it eligible; this lane's audit does not support that. Decision required.",
+    "same_evaluator_holdout": {
+      "label": "HOLDOUT-DTI",
+      "hide_recover_pooled_dti": 0.0,
+      "hide_recover_ci95": [
+        0.0,
+        0.0
+      ],
+      "hide_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "sgmc_raw_pooled_dti": 0.0952,
+      "sgmc_raw_ci95": [
+        0.0832,
+        0.1075
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0",
+      "incumbent_best_same_evaluator": {
+        "hide_recover": 0.0967,
+        "sgmc_raw": 0.1024
+      }
+    },
+    "registry_max_directed_overlap_3px_non_saturated": 0.4815,
+    "registry_saturated_probe_flags": [
+      "calib_13gems_20261001_r13-lattice-s5_v2_nan-ou"
+    ],
+    "audit_file": "evidence/uniqueness-audit-kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros-20261028.json"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "kanler3.external_uniqueness_audit.v1",
+  "candidate": "docs/cfrp-20261028/downloads/kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif",
+  "candidate_sha256": "7fb488c0560820dfb3f26b62316140d2987107726e3e9753bdd789b6c4d684fd",
+  "grid_matches_template": true,
+  "dots": 44090,
+  "registry_file": "registry/uniqueness_registry_20261026.json",
+  "registry_total_listed": 36,
+  "registry_compared": 30,
+  "registry_missing": [
+    "G70-p8-oof38k",
+    "G70-p9-piedmont-submod",
+    "KG1-h1-iedr-fe519ae3",
+    "KG1-h2-htsi-571145eb",
+    "KG1-h3-condresid-42802022",
+    "scored_gems27_tgc_v2_d15"
+  ],
+  "max_directed_overlap_3px_non_saturated": 0.4815377636652302,
+  "max_abs_rank_corr": 0.03246392977813585,
+  "duplicates_non_saturated": [],
+  "saturated_probe_flags": [
+    "calib_13gems_20261001_r13-lattice-s5_v2_nan-ou"
+  ],
+  "label": "GEOMETRIC_AUDIT_NOT_SCORE",
+  "slot_authorized": false,
+  "same_evaluator_holdout": {
+    "label": "HOLDOUT-DTI",
+    "hide_recover_pooled_dti": 0.0,
+    "hide_recover_ci95": [
+      0.0,
+      0.0
+    ],
+    "hide_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "sgmc_raw_pooled_dti": 0.0952,
+    "sgmc_raw_ci95": [
+      0.0832,
+      0.1075
+    ],
+    "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0",
+    "incumbent_best_same_evaluator": {
+      "hide_recover": 0.0967,
+      "sgmc_raw": 0.1024
+    }
+  }
+}

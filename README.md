@@ -25,6 +25,55 @@ section below; read it at the start of every session.
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
 [current fixed session config](config/research-session-e2903b2e.json), [preserved prior session configs](config/), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-30454eca-run-card.json), and [latest negative card](evidence/session-e2903b2e-run-card.json). Never reset an earlier session clock.**
 
+## Current session — 28 October 2026 (catalogue-blind lane, DO NOT SUBMIT)
+
+**Decision:** no file is cleared for submission. The pre-registered gate returned `NEGATIVE_HOLDOUT_NOT_BEATEN`
+for the chosen candidate E2 (`E2_ridge2xcoh_nms`). Weekly slots spent: **0**. Organizer-confirmed scores: **none**.
+
+- **Submission desk (start here):** [docs/submission-desk.html](docs/submission-desk.html) — best supplied file per priority site,
+  uniqueness table, learning artifact status, experiment table, GEMSDOE32 h33-h33-2-b2 analysis, irregularities.
+- **Learning artifact, NOT SAFE TO SUBMIT:** [docs/candidate_downloads/kanler3-catalogue-blind-e2-ridgecoh-37654-20261028.tif](docs/candidate_downloads/kanler3-catalogue-blind-e2-ridgecoh-37654-20261028.tif)
+  (sha256 `bb4f31af58ff7e71bcc219db67ea7e4f4b339f612847070500bc04f84f5d75d6`). Format passes the automated validator and
+  `submission_authorized` stays false. Published for learning only; it is not an authorized submission.
+- **Run card:** [evidence/run-card-catalogue-blind-20261028.json](evidence/run-card-catalogue-blind-20261028.json).
+  Pre-registration: [research/catalogue-blind-prereg-20261028.md](research/catalogue-blind-prereg-20261028.md).
+  Evidence: [e123 pipeline](evidence/catalogue-blind-e123-20261028.json), [audits](evidence/catalogue-blind-audits-20261028.json),
+  [saturation probe](evidence/catalogue-blind-saturation-20261028.json).
+
+**Holdout results (HOLDOUT-DTI; same evaluator, label-free candidates):** E1 hide-recover 0.0258, E2 0.0268, E3 0.0324
+against an incumbent best of 0.0967. On the published file, E2 is 0.0204 [0.0169, 0.0238] (catalogue pixels removed after
+selection). SGMC raw: E2 0.1171 vs incumbent 0.1024; the CIs overlap and the gate requires both proxies, so it fails.
+
+**Uniqueness:** no non-saturated registry duplicate. The 13-GEMSDOE lattice probe (`calib_13gems_20261001_r13-lattice-s5_v2_nan-ou`)
+trips the literal 70% rule at 99.67% for the final dots, and uniform random dots trip it too (about 99.9%). The rule cannot
+discriminate. This is a **rule-owner decision**, not a pass and not a waiver. Six registry rasters were not restored, so the
+comparison covers 30 of 36.
+
+**Owner-reported scores** (0.2449–0.2778 across the nine winners) are unverified claims. They are quoted, not labelled as scores.
+No file is labelled ORGANIZER-CONFIRMED, and no leaderboard estimate is written.
+
+**Reproduce:** `python scripts/catalogue_blind_candidate.py --publish-dir docs/candidate_downloads`, then
+`python scripts/catalogue_blind_audits.py`, then `python scripts/build_submission_desk.py` (`--check` to verify), then
+`python scripts/build_site.py --check`.
+
+**Irregularities:** (1) Owner claims are about three times the proxy scale and have no organizer receipt. (2) GEMSDOE32 scores
+below uniform random on hide-recover (0.0045 vs 0.0447) because its dots lie on mapped catalogue traces. (3) The literal 70%
+uniqueness stop trips on the lattice probe and on random dots. (4) The lattice registry entry's provenance is unverified.
+(5) The vendor `gems32/grid.py` docstring footprint (5,165,852 px) disagrees with the restored sample footprint and
+`src/gems/submission.py` (5,167,373 px). (6) The single-method lane paragraph is absent from the repo; none has been invented.
+(7) The earlier "[0,1]" upload rejection has no known cause. (8) The leakage canary's full-catalogue hide-recover distance has
+AUC 1.0 (leaky by construction; not used in selection). (9) A rerun of the canary gave a max single-feature AUC of 0.7685
+against 0.7688 earlier; the difference is sampling noise.
+
+**Conflict on main (decision required):** another session's CFRP subpage (`docs/cfrp-20261028/`, merged via PR #38) calls its
+file "the only eligible file". Its 0.1388 holdout uses `gems-segment-pooled-v1`, not this lane's evaluator. Re-scored here with the
+shared evaluators (read-only audit, no slot): hide-recover **0.0000** and SGMC raw **0.0952**, against incumbent bests of 0.0967 and
+0.1024. Full-registry non-saturated max overlap 48.15%; it trips the saturated lattice probe. This lane does not clear it. Audit:
+[evidence/uniqueness-audit-kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros-20261028.json](evidence/uniqueness-audit-kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros-20261028.json).
+
+**Not done, needs explicit approval:** a rule-owner decision on the saturated probe; a new pre-registration gated on SGMC
+(it cannot be applied post hoc to E1–E3); experiment 4 under a new budget; any weekly slot spend.
+
 ## Continuation — 28 October 2026
 
 [Three-pass review](research/session-0f36badb-review.md) · [Negative run card](evidence/session-20261028-run-card.json) · [Preflight](evidence/session-20261028-preflight.json) · [Current participant source audit](evidence/session-20261028-upstream-prerequisites.json) · [Nine source heads](evidence/session-20261028-focus-feed.json)
