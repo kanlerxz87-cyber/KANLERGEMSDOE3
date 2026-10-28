@@ -133,6 +133,7 @@ def build(check_only: bool = False) -> None:
     laws_ev = json.loads((ROOT / "evidence/atsc_physical_laws_forensics_20261027.json").read_text())
     canary_ev = json.loads((ROOT / "evidence/atsc_leakage_canary_20261027.json").read_text())
     cadg_card = json.loads((ROOT / "evidence/cadg-submod-run-card.json").read_text())
+    current_peer_audit = json.loads((ROOT / "evidence/atsc-current-peer-audit-20261028.json").read_text())
 
     art = card["submission_artifacts"]
     z_tif_rel = art["primary_zeros_tif"].replace("docs/atsc-submod/", "", 1)
@@ -147,6 +148,8 @@ def build(check_only: bool = False) -> None:
     diag = inc["orthogonal_diagonal_confirmation"]
     ureg = card["uniqueness_registry_summary"]
     p_bound = ureg["pigeonhole_lattice_bounds"][0]
+    bounded_peer = current_peer_audit["peer_registry_scope"]
+    bounded_result = current_peer_audit["result"]
 
     g32_cmp = next(
         (r for r in uniq_ev["detector_comparisons"] if "GEMSDOE32" in r["id"]),
@@ -266,7 +269,8 @@ def build(check_only: bool = False) -> None:
       1. <strong>Literal Fail-Closed Promotion Gate: <code>verdict = "{e(card['verdict'])}"</code> (<code>slot_authorized = false</code>)</strong> — Against the registered <code>206,895</code>-dot <code>13GEMSDOE r13-lattice-s5</code> uniform grid probe covering <code>99.8713%</code> of the footprint within 3 px, <code>37,652 / 37,654</code> dots (<code>99.99%</code> unfiltered; <code>99.77%</code> off-catalogue-filtered; mathematical pigeonhole minimum <code>82.34%</code>) fall within 3 px. Under this repository's literal all-registry rule, a selector signature cannot waive or override a &gt;70% registry overlap.<br>
       2. <strong>Genuine Geological Detector Uniqueness (Scoped Diagnostic): PASS across all {ureg['genuine_detector_rasters_checked']}/{ureg['genuine_detector_rasters_checked']} real fault detectors</strong> in <code>GEMSDOE24..92</code>, <code>KANLERGEMSDOE1..3</code>, <code>WBGGEMSDOE1..3</code>, <code>GEMSDOEkarage1..3</code>, <code>ApartGEMSDOE1..3</code>, and <code>GEMSDOESASS1..3</code> (max 3-px dot overlap = <code>{ureg['genuine_final_dot_overlap_3px']:.2%} &le; 70%</code>; max |&rho;| = <code>{ureg['genuine_final_max_abs_spearman_rho']:.4f} &le; 0.90</code>).<br>
       3. <strong>Scientific Spatial Holdout Gain: PASS (+66.4 bps Primary / +51.8 bps Orthogonal over Prior Repo Best)</strong> — <code>HOLDOUT-DTI = {hold['value']:.6f}</code> (95% CI <code>[{hold['ci95'][0]:.6f}, {hold['ci95'][1]:.6f}]</code>, <code>{hold['withheld_positives']:,}</code> withheld positives on participant-mirrored <code>{e(hold['evaluator_version'])}</code>), outperforming prior repo best <code>CADG Exp-K3-3</code> (<code>0.157080</code>) and <code>B0_regional_d28</code> (<code>0.102255</code>, paired 95% CI <code>[+{card['paired_improvement_ci95'][0]:.4f}, +{card['paired_improvement_ci95'][1]:.4f}]</code>, <code>4/4</code> folds).<br>
-      4. <strong>Local Saved-Byte Format Validation: PASS (16/16 checks on <code>finite-grid</code> and <code>template-mask</code>; Portal Acceptance Unverified)</strong> — Primary research file <code>{e(Path(z_tif_rel).name)}</code> (SHA-256 <code>{e(card['raster_sha256'])}</code>) is single-band <code>float32</code>, <code>EPSG:32611</code>, shape <code>(3730, 3292)</code>, with <strong>0 NaN / 0 Inf across all 12,279,160 whole-array pixels</strong> and exact values in <code>{{0.0, 1.0}}</code> (<code>37,654</code> off-catalogue dots, <code>0</code> catalogue overlap). Because the historically rejected upload was not supplied and template provenance is mirrored rather than organizer-signed, actual DrivenData portal acceptance remains unverified.
+      4. <strong>Local Saved-Byte Format Validation: PASS (16/16 checks on <code>finite-grid</code> and <code>template-mask</code>; Portal Acceptance Unverified)</strong> — Primary research file <code>{e(Path(z_tif_rel).name)}</code> (SHA-256 <code>{e(card['raster_sha256'])}</code>) is single-band <code>float32</code>, <code>EPSG:32611</code>, shape <code>(3730, 3292)</code>, with <strong>0 NaN / 0 Inf across all 12,279,160 whole-array pixels</strong> and exact values in <code>{{0.0, 1.0}}</code> (<code>37,654</code> off-catalogue dots, <code>0</code> catalogue overlap). Because the historically rejected upload was not supplied and template provenance is mirrored rather than organizer-signed, actual DrivenData portal acceptance remains unverified.<br>
+      5. <strong>Fresh bounded final-dot audit (28 Oct): STOP.</strong> The exact saved bytes were compared with <code>{bounded_peer['rasters_compared']}</code> selected current peer rasters ({bounded_peer['genuine_detectors_compared']} genuine detectors and {bounded_peer['calibration_or_continuous_probes_compared']} calibration/continuous probes). Final-dot overlap is <code>{bounded_result['max_final_dot_overlap_3px_genuine_detectors']:.2%}</code> versus genuine detectors but <code>{bounded_result['max_final_dot_overlap_3px_calibration_or_continuous_probes']:.2%}</code> versus a continuous calibration probe. The bounded audit has no pre-placement surface or holdout result and cannot weaken the full-registry lattice stop.
     </div>"""
 
     # 1. index.html
@@ -339,7 +343,7 @@ def build(check_only: bool = False) -> None:
     </div>
     <h3>Submission Note ({len(card['submission_note'])} / 140 characters)</h3>
     <pre>{e(card['submission_note'])}</pre>
-    <p><small>Supporting receipts: <a download href="{e(note_rel)}"><code>{e(Path(note_rel).name)}</code></a> · <a download href="{e(rec_rel)}"><code>{e(Path(rec_rel).name)}</code></a> · <a href="run-card.json"><code>run-card.json</code></a></small></p>
+    <p><small>Supporting receipts: <a download href="{e(note_rel)}"><code>{e(Path(note_rel).name)}</code></a> · <a download href="{e(rec_rel)}"><code>{e(Path(rec_rel).name)}</code></a> · <a href="run-card.json"><code>run-card.json</code></a> · <a href="current-peer-audit-20261028.json"><code>current-peer-audit-20261028.json</code></a></small></p>
   </section>
 
   <section class="card" id="priority-sites">
@@ -570,7 +574,8 @@ def build(check_only: bool = False) -> None:
         f"- **Orthogonal Confirmation `HOLDOUT-DTI`**: **`{diag['candidate_holdout_dti']:.6f}`** (`+0.005181` above `CADG Exp-K3-3` `0.147663`)\n"
         f"- **Research-Only Finite-Grid File**: [`{Path(z_tif_rel).name}`]({z_tif_rel}) (`SHA-256: {card['raster_sha256']}`, `37,654` binary `{{0,1}}` dots, `0` NaN whole-array locally; portal acceptance unverified)\n"
         f"- **Recorded Note (`{len(card['submission_note'])}` chars)**: `{card['submission_note']}`\n"
-        f"- **Uniqueness & Fail-Closed Gate**: **PASS across `87/87` genuine fault detectors** (`{ureg['genuine_final_dot_overlap_3px']:.2%} <= 70%`, `|rho| = {ureg['genuine_final_max_abs_spearman_rho']:.4f} <= 0.90`); **DO NOT SUBMIT** (`verdict = \"{card['verdict']}\"`, `slot_authorized = false`) under the literal all-registry rule (`99.99%` unfiltered / `99.77%` off-catalogue 3-px overlap vs `206,895`-dot `13GEMSDOE r13-lattice-s5`; selector cannot waive).\n\n"
+        f"- **Uniqueness & Fail-Closed Gate**: **PASS across `87/87` genuine fault detectors** (`{ureg['genuine_final_dot_overlap_3px']:.2%} <= 70%`, `|rho| = {ureg['genuine_final_max_abs_spearman_rho']:.4f} <= 0.90`); **DO NOT SUBMIT** (`verdict = \"{card['verdict']}\"`, `slot_authorized = false`) under the literal all-registry rule (`99.99%` unfiltered / `99.77%` off-catalogue 3-px overlap vs `206,895`-dot `13GEMSDOE r13-lattice-s5`; selector cannot waive).\n"
+        f"- **28 Oct bounded peer re-audit**: `{bounded_peer['rasters_compared']}` selected current peer rasters; final-dot max `{bounded_result['max_final_dot_overlap_3px_genuine_detectors']:.2%}` vs genuine detectors and `{bounded_result['max_final_dot_overlap_3px_calibration_or_continuous_probes']:.2%}` vs calibration/continuous probes. Scope is incomplete and surface comparison was not run; this is an additional negative forensic receipt, not a score or approval. See [`current-peer-audit-20261028.json`](current-peer-audit-20261028.json).\n\n"
         f"## Nine-Site & KANLERGEMSDOE3 Summary Table\n\n"
         f"| Site / Lane | Artifact | Metric | Uniqueness | Safe to Submit? |\n"
         f"| --- | --- | --- | --- | --- |\n"
@@ -583,6 +588,7 @@ def build(check_only: bool = False) -> None:
         OUT / "hypotheses.html": hyp_html,
         OUT / "EXECUTIVE_SUMMARY.md": exec_md,
         OUT / "README.md": exec_md,
+        OUT / "current-peer-audit-20261028.json": (ROOT / "evidence/atsc-current-peer-audit-20261028.json").read_text(),
     }
     if check_only:
         stale = [str(p.relative_to(ROOT)) for p, content in outputs.items() if (not p.is_file()) or p.read_text() != content]

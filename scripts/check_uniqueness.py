@@ -64,8 +64,8 @@ def compare(surface: np.ndarray, dots: np.ndarray, reference: np.ndarray, footpr
 
 
 def decision(rows: list[dict], registry_complete: bool, expected_count: int) -> dict:
-    duplicate = any(row.get("duplicate") is True for row in rows)
-    complete = registry_complete is True and type(expected_count) is int and len(rows) == expected_count and expected_count > 0 and all(row.get("comparable") is True for row in rows)
+    duplicate = any(isinstance(row, dict) and row.get("duplicate") is True for row in rows)
+    complete = registry_complete is True and type(expected_count) is int and len(rows) == expected_count and expected_count > 0 and all(isinstance(row, dict) and row.get("comparable") is True and type(row.get("duplicate")) is bool for row in rows)
     return {"status": "STOP_DUPLICATE" if duplicate else "PASS_SCOPED_REGISTRY" if complete else "BLOCKED_INCOMPLETE_REGISTRY", "unique_under_protocol": bool(complete and not duplicate), "registry_complete": complete, "slot_authorized": False}
 
 

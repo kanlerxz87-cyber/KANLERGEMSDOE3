@@ -6,6 +6,7 @@
 - **Research-Only Finite-Grid File**: [`kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros.tif`](downloads/kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros.tif) (`SHA-256: bf21ac69a0e5e6325d9725e7188be210a24b2e68b68060574db56af0d5972566`, `37,654` binary `{0,1}` dots, `0` NaN whole-array locally; portal acceptance unverified)
 - **Recorded Note (`104` chars)**: `H-K3S2-1 Exp-ATSC-2: ATSC dip-wedge+8-az corridor+d2.85 300m CELF 37654d HOLDOUT-DTI=0.1637 3108468e86b9`
 - **Uniqueness & Fail-Closed Gate**: **PASS across `87/87` genuine fault detectors** (`57.14% <= 70%`, `|rho| = 0.0712 <= 0.90`); **DO NOT SUBMIT** (`verdict = "negative"`, `slot_authorized = false`) under the literal all-registry rule (`99.99%` unfiltered / `99.77%` off-catalogue 3-px overlap vs `206,895`-dot `13GEMSDOE r13-lattice-s5`; selector cannot waive).
+- **28 Oct bounded peer re-audit**: `249` selected current peer rasters; final-dot max `57.14%` vs genuine detectors and `100.00%` vs calibration/continuous probes. Scope is incomplete and surface comparison was not run; this is an additional negative forensic receipt, not a score or approval. See [`current-peer-audit-20261028.json`](current-peer-audit-20261028.json).
 
 ## Nine-Site & KANLERGEMSDOE3 Summary Table
 

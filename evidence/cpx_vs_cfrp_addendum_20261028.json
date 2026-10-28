@@ -1,0 +1,11 @@
+{
+  "kind": "Post-merge addendum: CPX candidate vs concurrent CFRP lane (merged to main in PR #38/#39 while CPX ran); GEOMETRY only, run card unchanged",
+  "cfrp_file": "docs/cfrp-20261028/downloads/kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif",
+  "cfrp_sha256": "7fb488c0560820dfb3f26b62316140d2987107726e3e9753bdd789b6c4d684fd",
+  "cfrp_dots": 44090,
+  "cpx_dots": 37654,
+  "cpx_within_3px_of_cfrp": 0.4041801667817496,
+  "cfrp_within_3px_of_cpx": 0.27244273077795417,
+  "unique_vs_cfrp_at_0.70": true,
+  "note": "CPX registry snapshot (50 rasters) predates CFRP; this addendum extends the uniqueness record to it. Spearman vs CFRP soft surface not computed (binary file; final-dots overlap is the binding test)."
+}

@@ -1,0 +1,411 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-28T16:29:28+00:00",
+  "repos_audited": 35,
+  "priority_9_sites": [
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "site": "GEMSDOE24",
+      "head_commit": "5a7f227d6f38219e5e0e5fa428ef0f9854967ac4",
+      "head_date_utc": "2026-10-28T16:27:08Z",
+      "head_subject": "Merge pull request #81 from buffedlizard55-lab/arena/bab77a13-gemsdoe24",
+      "candidate_tif_paths_in_tree": 63,
+      "unique_stems_in_tree": 37,
+      "selected_unique_rasters": 12
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE25",
+      "site": "GEMSDOE25",
+      "head_commit": "a728c9f42e6298aaa5b65013806ac578f1b2a3ef",
+      "head_date_utc": "2026-10-28T16:11:40Z",
+      "head_subject": "Merge pull request #71 from buffedlizard55-lab/arena/962e5a5b-gemsdoe25",
+      "candidate_tif_paths_in_tree": 60,
+      "unique_stems_in_tree": 32,
+      "selected_unique_rasters": 12
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE27",
+      "site": "GEMSDOE27",
+      "head_commit": "0f9e3e4b06eeecdd584d32fb9dd7544a01d2f3f0",
+      "head_date_utc": "2026-10-28T16:16:40Z",
+      "head_subject": "Merge pull request #50 from buffedlizard55-lab/arena/cf329cc2-gemsdoe27",
+      "candidate_tif_paths_in_tree": 42,
+      "unique_stems_in_tree": 22,
+      "selected_unique_rasters": 12
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE28",
+      "site": "GEMSDOE28",
+      "head_commit": "f6746e1ad4eb49a35902bb4fd5404b5e6edc9287",
+      "head_date_utc": "2026-10-28T16:19:28Z",
+      "head_subject": "Merge pull request #74 from buffedlizard55-lab/arena/95d8129d-gemsdoe28",
+      "candidate_tif_paths_in_tree": 52,
+      "unique_stems_in_tree": 28,
+      "selected_unique_rasters": 12
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE30",
+      "site": "GEMSDOE30",
+      "head_commit": "c3d6c815ae5b6415b07a39d99058a10d4fda0789",
+      "head_date_utc": "2026-10-28T16:21:22Z",
+      "head_subject": "status feed: regenerate from artifacts [skip ci]",
+      "candidate_tif_paths_in_tree": 34,
+      "unique_stems_in_tree": 27,
+      "selected_unique_rasters": 12
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE31",
+      "site": "GEMSDOE31",
+      "head_commit": "cd0b12260807732f3ddb339889984f066d12e870",
+      "head_date_utc": "2026-10-28T12:05:47Z",
+      "head_subject": "Merge pull request #60 from buffedlizard55-lab/arena/bb6d6287-gemsdoe31",
+      "candidate_tif_paths_in_tree": 61,
+      "unique_stems_in_tree": 32,
+      "selected_unique_rasters": 12
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE32",
+      "site": "GEMSDOE32",
+      "head_commit": "109f364fb39030e40ef51b839b79cf694123b51b",
+      "head_date_utc": "2026-10-28T14:26:45Z",
+      "head_subject": "Merge pull request #58 from buffedlizard55-lab/arena/3f6b4045-gemsdoe32",
+      "candidate_tif_paths_in_tree": 79,
+      "unique_stems_in_tree": 44,
+      "selected_unique_rasters": 12
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE33",
+      "site": "GEMSDOE33",
+      "head_commit": "1e08a7e81ee4595e2f3770f5c4f7c071adc1a53e",
+      "head_date_utc": "2026-10-28T11:51:50Z",
+      "head_subject": "Merge pull request #39 from buffedlizard55-lab/arena/aa135915-gemsdoe33",
+      "candidate_tif_paths_in_tree": 44,
+      "unique_stems_in_tree": 23,
+      "selected_unique_rasters": 12
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE36",
+      "site": "GEMSDOE36",
+      "head_commit": "4b717aaff6eaf5de9b53030e637f8e1cf0d56e43",
+      "head_date_utc": "2026-10-28T11:50:17Z",
+      "head_subject": "Merge pull request #40 from buffedlizard55-lab/arena/d07361ed-gemsdoe36",
+      "candidate_tif_paths_in_tree": 21,
+      "unique_stems_in_tree": 17,
+      "selected_unique_rasters": 12
+    }
+  ],
+  "sibling_and_extended_repos": [
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE37",
+      "site": "GEMSDOE37",
+      "head_commit": "8d07e2a111b68c49b3588c5f4409be11ae7ba9b5",
+      "head_date_utc": "2026-10-05T06:05:10Z",
+      "head_subject": "Merge pull request #11 from buffedlizard55-lab/arena/01a10a4f-gemsdoe37",
+      "candidate_tif_paths_in_tree": 5,
+      "unique_stems_in_tree": 5,
+      "selected_unique_rasters": 5
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE70",
+      "site": "GEMSDOE70",
+      "head_commit": "158aec19800d4c7b8ca9fb94b06567e2b7d61e8d",
+      "head_date_utc": "2026-10-21T01:41:32Z",
+      "head_subject": "Merge pull request #48 from buffedlizard55-lab/arena/4584df76-gemsdoe70",
+      "candidate_tif_paths_in_tree": 21,
+      "unique_stems_in_tree": 21,
+      "selected_unique_rasters": 12
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE76",
+      "site": "GEMSDOE76",
+      "head_commit": "97f3dd5a818d909bb2d2e362bdd2282bfbf2cae1",
+      "head_date_utc": "2026-10-21T05:52:09Z",
+      "head_subject": "Merge pull request #8 from buffedlizard55-lab/arena/a59416de-gemsdoe76",
+      "candidate_tif_paths_in_tree": 13,
+      "unique_stems_in_tree": 8,
+      "selected_unique_rasters": 8
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE90",
+      "site": "GEMSDOE90",
+      "head_commit": "b8cf1e9bfcc6ff43436b6235f17d5e7fcf74e610",
+      "head_date_utc": "2026-10-24T08:51:14Z",
+      "head_subject": "Merge pull request #35 from buffedlizard55-lab/arena/2226f0eb-gemsdoe90",
+      "candidate_tif_paths_in_tree": 3,
+      "unique_stems_in_tree": 3,
+      "selected_unique_rasters": 3
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE91",
+      "site": "GEMSDOE91",
+      "head_commit": "4f1132a22ab150c7a1a17154d0efa2c32f8b5bf5",
+      "head_date_utc": "2026-10-28T16:17:34Z",
+      "head_subject": "Merge pull request #174 from buffedlizard55-lab/arena/75ff43ad-gemsdoe91",
+      "candidate_tif_paths_in_tree": 63,
+      "unique_stems_in_tree": 56,
+      "selected_unique_rasters": 12
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE92",
+      "site": "GEMSDOE92",
+      "head_commit": "6d1c43a7dd67e85d0c8a65f3006c57b306250f61",
+      "head_date_utc": "2026-10-28T16:20:36Z",
+      "head_subject": "Merge pull request #163 from buffedlizard55-lab/arena/b6aa5342-gemsdoe92",
+      "candidate_tif_paths_in_tree": 135,
+      "unique_stems_in_tree": 123,
+      "selected_unique_rasters": 12
+    },
+    {
+      "repo": "kanlerxz87-cyber/KANLERGEMSDOE1",
+      "site": "KANLERGEMSDOE1",
+      "head_commit": "6410fdebfb2a1043e3e268653f1fccd6210bc3fd",
+      "head_date_utc": "2026-10-28T16:24:57Z",
+      "head_subject": "docs: add fail-closed requested-site scorecard (#19)",
+      "candidate_tif_paths_in_tree": 30,
+      "unique_stems_in_tree": 22,
+      "selected_unique_rasters": 12
+    },
+    {
+      "repo": "kanlerxz87-cyber/KANLERGEMSDOE2",
+      "site": "KANLERGEMSDOE2",
+      "head_commit": "7d6bed9b2517b48b65632c947b81dd0e0682cf58",
+      "head_date_utc": "2026-10-28T16:26:49Z",
+      "head_subject": "Merge pull request #53 from kanlerxz87-cyber/arena/acf2393a-kanlergemsdoe2",
+      "candidate_tif_paths_in_tree": 32,
+      "unique_stems_in_tree": 25,
+      "selected_unique_rasters": 12
+    },
+    {
+      "repo": "wingbangboozle1-lang/WBGGEMSDOE1",
+      "site": "WBGGEMSDOE1",
+      "head_commit": "5b713d3432c1717eb795fd5efe0677f8d77301ee",
+      "head_date_utc": "2026-10-28T16:23:35Z",
+      "head_subject": "Merge pull request #34 from wingbangboozle1-lang/arena/cf74a6de-wbggemsdoe1",
+      "candidate_tif_paths_in_tree": 14,
+      "unique_stems_in_tree": 11,
+      "selected_unique_rasters": 10
+    },
+    {
+      "repo": "wingbangboozle1-lang/WBGGEMSDOE2",
+      "site": "WBGGEMSDOE2",
+      "head_commit": "50f1e2a8dd4317fb587e3bf89d0d5e2daeb5f77c",
+      "head_date_utc": "2026-10-28T16:26:34Z",
+      "head_subject": "Merge pull request #47 from wingbangboozle1-lang/arena/250d209b-wbggemsdoe2",
+      "candidate_tif_paths_in_tree": 14,
+      "unique_stems_in_tree": 12,
+      "selected_unique_rasters": 12
+    },
+    {
+      "repo": "wingbangboozle1-lang/WBGGEMSDOE3",
+      "site": "WBGGEMSDOE3",
+      "head_commit": "c02e223c343a0edf9b8f55e5b9f7526be6993538",
+      "head_date_utc": "2026-10-28T16:26:48Z",
+      "head_subject": "Document current negative submission review (#42)",
+      "candidate_tif_paths_in_tree": 28,
+      "unique_stems_in_tree": 16,
+      "selected_unique_rasters": 12
+    },
+    {
+      "repo": "eugboogieman123-ops/EUGGEMSDOE1",
+      "site": "EUGGEMSDOE1",
+      "head_commit": "81ac8521ea03ac7f25287eb6b5d68ebf1dce23dc",
+      "head_date_utc": "2026-10-26T21:31:50Z",
+      "head_subject": "Initial commit",
+      "candidate_tif_paths_in_tree": 0,
+      "unique_stems_in_tree": 0,
+      "selected_unique_rasters": 0
+    },
+    {
+      "repo": "eugboogieman123-ops/EUGGEMSDOE2",
+      "site": "EUGGEMSDOE2",
+      "head_commit": "3ae1fc951e548fa5d91585c0c9439573c721ff83",
+      "head_date_utc": "2026-10-26T21:31:55Z",
+      "head_subject": "Initial commit",
+      "candidate_tif_paths_in_tree": 0,
+      "unique_stems_in_tree": 0,
+      "selected_unique_rasters": 0
+    },
+    {
+      "repo": "eugboogieman123-ops/EUGGEMSDOE3",
+      "site": "EUGGEMSDOE3",
+      "head_commit": "8fbb61b58ea0804c23eb29f39f7bd6f93aace20f",
+      "head_date_utc": "2026-10-26T21:32:00Z",
+      "head_subject": "Initial commit",
+      "candidate_tif_paths_in_tree": 0,
+      "unique_stems_in_tree": 0,
+      "selected_unique_rasters": 0
+    },
+    {
+      "repo": "ginnymcfiner23-ux/GINNYGEMSDOE1",
+      "site": "GINNYGEMSDOE1",
+      "head_commit": "761158ab9f7a069803f326e72ee165f63ca58b50",
+      "head_date_utc": "2026-10-26T21:42:03Z",
+      "head_subject": "Initial commit",
+      "candidate_tif_paths_in_tree": 0,
+      "unique_stems_in_tree": 0,
+      "selected_unique_rasters": 0
+    },
+    {
+      "repo": "ginnymcfiner23-ux/GINNYGEMSDOE2",
+      "site": "GINNYGEMSDOE2",
+      "head_commit": "91d564fcda6cd89f0d2ce3b21ab9dea8dd7ec7ad",
+      "head_date_utc": "2026-10-26T21:42:07Z",
+      "head_subject": "Initial commit",
+      "candidate_tif_paths_in_tree": 0,
+      "unique_stems_in_tree": 0,
+      "selected_unique_rasters": 0
+    },
+    {
+      "repo": "ginnymcfiner23-ux/GINNYGEMSDOE3",
+      "site": "GINNYGEMSDOE3",
+      "head_commit": "4e00b89ed1225ba4ede53b54c7d011151cd16dc5",
+      "head_date_utc": "2026-10-26T21:42:11Z",
+      "head_subject": "Initial commit",
+      "candidate_tif_paths_in_tree": 0,
+      "unique_stems_in_tree": 0,
+      "selected_unique_rasters": 0
+    },
+    {
+      "repo": "karagemop466-tech/GEMSDOEkarage1",
+      "site": "GEMSDOEkarage1",
+      "head_commit": "0b171208186841b992a85b2574b03e2c7f0013da",
+      "head_date_utc": "2026-10-28T16:26:39Z",
+      "head_subject": "Merge pull request #23 from karagemop466-tech/arena/5b69d76e-gemsdoekarage1",
+      "candidate_tif_paths_in_tree": 6,
+      "unique_stems_in_tree": 4,
+      "selected_unique_rasters": 4
+    },
+    {
+      "repo": "karagemop466-tech/GEMSDOEkarage2",
+      "site": "GEMSDOEkarage2",
+      "head_commit": "bd8b47729132d58891c80dc1157ef9a97639c082",
+      "head_date_utc": "2026-10-28T16:27:13Z",
+      "head_subject": "Merge pull request #24 from karagemop466-tech/arena/c1263447-gemsdoekarage2",
+      "candidate_tif_paths_in_tree": 5,
+      "unique_stems_in_tree": 5,
+      "selected_unique_rasters": 4
+    },
+    {
+      "repo": "karagemop466-tech/GEMSDOEkarage3",
+      "site": "GEMSDOEkarage3",
+      "head_commit": "67602182edb00515d096c2822c9049805fa6e86e",
+      "head_date_utc": "2026-10-28T07:42:12Z",
+      "head_subject": "Merge pull request #23 from karagemop466-tech/arena/029670eb-gemsdoekarage3",
+      "candidate_tif_paths_in_tree": 7,
+      "unique_stems_in_tree": 5,
+      "selected_unique_rasters": 5
+    },
+    {
+      "repo": "apartanish22-droid/ApartGEMSDOE1",
+      "site": "ApartGEMSDOE1",
+      "head_commit": "00ac8c71635b35bd8f689528e6ca598b62e823f1",
+      "head_date_utc": "2026-10-28T09:29:46Z",
+      "head_subject": "Merge pull request #22 from apartanish22-droid/arena/23b55aaa-apartgemsdoe1",
+      "candidate_tif_paths_in_tree": 3,
+      "unique_stems_in_tree": 3,
+      "selected_unique_rasters": 3
+    },
+    {
+      "repo": "apartanish22-droid/ApartGEMSDOE2",
+      "site": "ApartGEMSDOE2",
+      "head_commit": "0434dc00bff915ecece7b0d675378b7449e7014b",
+      "head_date_utc": "2026-10-28T06:40:41Z",
+      "head_subject": "Merge pull request #21 from apartanish22-droid/arena/7ec4400f-apartgemsdoe2",
+      "candidate_tif_paths_in_tree": 9,
+      "unique_stems_in_tree": 6,
+      "selected_unique_rasters": 5
+    },
+    {
+      "repo": "apartanish22-droid/ApartGEMSDOE3",
+      "site": "ApartGEMSDOE3",
+      "head_commit": "cbce0ab6375e148eeb03e3d3e0513b01af288e51",
+      "head_date_utc": "2026-10-28T10:15:56Z",
+      "head_subject": "Merge pull request #18 from apartanish22-droid/arena/4d26cf27-apartgemsdoe3",
+      "candidate_tif_paths_in_tree": 15,
+      "unique_stems_in_tree": 8,
+      "selected_unique_rasters": 4
+    },
+    {
+      "repo": "sassnarep3-star/GEMSDOESASS1",
+      "site": "GEMSDOESASS1",
+      "head_commit": "7f87fc64ddedb259f898eed17daa0bfc11cc0d7b",
+      "head_date_utc": "2026-10-27T12:42:17Z",
+      "head_subject": "Merge pull request #7 from sassnarep3-star/arena/6901247b-gemsdoesass1",
+      "candidate_tif_paths_in_tree": 5,
+      "unique_stems_in_tree": 2,
+      "selected_unique_rasters": 2
+    },
+    {
+      "repo": "sassnarep3-star/GEMSDOESASS2",
+      "site": "GEMSDOESASS2",
+      "head_commit": "3b21e4e9bf70458c91ae9e6c41dbfb6688f3f957",
+      "head_date_utc": "2026-10-27T14:19:23Z",
+      "head_subject": "Merge pull request #10 from sassnarep3-star/arena/ea31206d-gemsdoesass2",
+      "candidate_tif_paths_in_tree": 8,
+      "unique_stems_in_tree": 5,
+      "selected_unique_rasters": 5
+    },
+    {
+      "repo": "sassnarep3-star/GEMSDOESASS3",
+      "site": "GEMSDOESASS3",
+      "head_commit": "86874b72302197a78eb8ad5edbf413acf1c02efe",
+      "head_date_utc": "2026-10-27T15:06:08Z",
+      "head_subject": "Merge pull request #8 from sassnarep3-star/arena/f26651b4-gemsdoesass3",
+      "candidate_tif_paths_in_tree": 2,
+      "unique_stems_in_tree": 2,
+      "selected_unique_rasters": 2
+    }
+  ],
+  "empty_scaffold_repos_verified_zero_tifs": [
+    "eugboogieman123-ops/EUGGEMSDOE1",
+    "eugboogieman123-ops/EUGGEMSDOE2",
+    "eugboogieman123-ops/EUGGEMSDOE3",
+    "ginnymcfiner23-ux/GINNYGEMSDOE1",
+    "ginnymcfiner23-ux/GINNYGEMSDOE2",
+    "ginnymcfiner23-ux/GINNYGEMSDOE3"
+  ],
+  "peer_cache_unique_full_grid_rasters": 249,
+  "peer_cache_genuine_detectors": 244,
+  "peer_cache_calibration_or_continuous_probes": 5,
+  "lattice_s5_footprint_geometry": {
+    "footprint_valid_pixels": 5167373,
+    "lattice_s5_dots_in_footprint": 206895,
+    "footprint_pixels_within_3px_of_lattice_s5": 5160724,
+    "footprint_pixels_uncovered_gt_3px": 6649,
+    "uncovered_within_5px_of_outer_border": 6493,
+    "catalogue_fault_pixels_inside_uncovered": 135,
+    "catalogue_fault_pixels_total": 60988
+  },
+  "flagged_20261028_ecosystem_irregularities": [
+    {
+      "id": "IR-20261028-G30-BORDER-TRAP",
+      "site": "GEMSDOE30",
+      "details": {
+        "repo_path": "docs/downloads/gems30-unique-offlattice-structural-20261028-s8.tif",
+        "sha256": "b7946faeb578e53e44a3dfa4bfb3ecd7c528ddf52373a0fd4f6fdf21347cc7a9",
+        "dots_in_footprint": 6649,
+        "dots_within_5px_of_outer_survey_border": 6493,
+        "outer_border_fraction": 0.976538,
+        "lattice_s5_3px_overlap": 0.0,
+        "catalogue_fault_pixels_in_uncovered_zone": 135,
+        "catalogue_fault_pixels_total": 60988,
+        "scientific_finding": "97.65% of lattice-uncovered footprint cells lie within 500 m (5 px) of the outer GeoDAWN survey boundary, containing only 135 / 60,988 (0.221%) mapped fault pixels. Forcing dots into lattice-uncovered border slivers avoids the 5-px uniform grid mathematically only by abandoning 99.87% of the study area (severe P(Win) collapse)."
+      }
+    },
+    {
+      "id": "IR-20261028-G33-FOLD-BUDGET-4X",
+      "site": "GEMSDOE33",
+      "details": "GEMSDOE33 commit dd97f7c240 documented and withdrew an initial PHCONG promotion after discovering CELF-random scored higher when per-fold dot budgets were not scaled by fold_area / footprint_area. KANLERGEMSDOE3 scales every fold budget strictly by round(budget * valid.sum() / footprint.sum()), where matched_random scores 0.0734."
+    },
+    {
+      "id": "IR-20261028-G32-COLLAR-DRIFT",
+      "site": "GEMSDOE32",
+      "details": "GEMSDOE32 commit 18129174cb (H51-1-EWSP EXP2) showed analytic Williams-Pollard elastostatic stress raised hide-and-recover DTI by +56.5%, but unconstrained CELF placed 76.2% of dots within 1.5 km of visible faults, hitting 76.31% 3-px overlap with GEMSDOE37's 80k collar blanket. Enforcing a >=55% far-field (>1.5 km) quota prevents collar cannibalization and preserves cross-registry uniqueness."
+    },
+    {
+      "id": "IR-20261028-G32-SHARED-ISSUES-OPEN",
+      "site": "GEMSDOE32",
+      "details": "Upstream GEMSDOE32 issues #37, #39, #41, #42, #49, #51, and #53 remained OPEN at 2026-10-28 UTC check; vendor/shared-template bytes remain untouched."
+    }
+  ]
+}

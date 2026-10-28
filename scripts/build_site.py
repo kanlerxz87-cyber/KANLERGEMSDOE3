@@ -62,6 +62,49 @@ def source_cards(feed: dict) -> str:
     return "".join(out)
 
 
+def peer_forensics_section(report: dict) -> str:
+    """Render a bounded current peer-tree observation without laundering it into a score.
+
+    The fetcher intentionally samples at most 12 unique raster stems per repository. The
+    section must therefore say bounded/incomplete every time it is rendered; source-tree
+    freshness and saved-byte geometry are not organizer receipts or scientific approval.
+    """
+    rows = []
+    for row in report.get("priority_9_sites", []):
+        repo = row["repo"]
+        head = row["head_commit"]
+        rows.append(
+            f'''<tr><th scope="row"><a href="https://github.com/{esc(repo)}/tree/{esc(head)}">{esc(row['site'])} ↗</a></th>
+<td><code>{esc(head[:10])}</code><br><small>{esc(row['head_date_utc'])}</small></td>
+<td>{int(row['candidate_tif_paths_in_tree']):,}</td><td>{int(row['unique_stems_in_tree']):,}</td>
+<td>{int(row['selected_unique_rasters']):,}<small>bounded sample</small></td></tr>'''
+        )
+    g30 = None
+    for item in report.get("flagged_20261028_ecosystem_irregularities", []):
+        if item.get("id") == "IR-20261028-G30-BORDER-TRAP":
+            g30 = item.get("details") or {}
+            break
+    g30_text = ""
+    if g30:
+        g30_text = f'''<p><strong>GEMSDOE30 off-lattice irregularity:</strong> the current source tree reports a
+research TIFF with {int(g30.get("dots_in_footprint", 0)):,} dots and 0.0% overlap with the pinned
+5-pixel lattice, but {float(g30.get("outer_border_fraction", 0.0)):.2%} of those dots lie within 500 m of
+the outer survey boundary. Only {int(g30.get("catalogue_fault_pixels_in_uncovered_zone", 0)):,} of
+{int(g30.get("catalogue_fault_pixels_total", 0)):,} mirrored catalogue pixels fall in that uncovered
+zone. This is a geometric warning about gaming a calibration probe, not a holdout result or a candidate
+for upload.</p>'''
+    return f'''<section class="section panel prose" id="latest-peer-audit"><p class="eyebrow">28 October 2026 · bounded peer-tree and saved-byte observation</p>
+<h2>Fresh focus-site evidence. No approval changed.</h2>
+<p>This read-only audit checked the nine priority repositories plus 26 sibling/extended repositories at
+pinned GitHub commits. It found <strong>{int(report.get("repos_audited", 0))} repositories</strong> and
+{int(report.get("peer_cache_unique_full_grid_rasters", 0))} downloaded full-grid raster bytes after
+hash deduplication, but selected at most 12 unique raster stems per repository. It is therefore a
+<strong>bounded, incomplete registry observation</strong>: it is not a complete uniqueness certificate,
+not a leaderboard score, not HOLDOUT-DTI, and not organizer authorization.</p>
+<div class="table-wrap"><table><caption class="skip">Latest focus-site source-tree counts; no score or promotion inferred</caption><thead><tr><th>Site / source tree</th><th>Observed head</th><th>Candidate TIFF paths</th><th>Unique filename stems</th><th>Bytes selected for bounded audit</th></tr></thead><tbody>{''.join(rows)}</tbody></table></div>
+{g30_text}<p><a href="data/nine-site-and-peer-forensics-20261028.json">Machine-readable 28 Oct observation ↗</a> · <a href="peer-forensics-20261028.md">Detailed bounded review ↗</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE30/blob/c3d6c815ae5b6415b07a39d99058a10d4fda0789/docs/downloads/gems30-unique-offlattice-structural-20261028-s8.tif">GEMSDOE30 source TIFF reference ↗</a></p></section>'''
+
+
 def comparison_table(rows: list[dict]) -> str:
     out = []
     for index, row in enumerate(sorted(rows, key=lambda r: -r["owner_reported_leaderboard_score"])):
@@ -487,10 +530,12 @@ def build(check_only: bool = False) -> None:
             or final_session.get("candidate_generated") is not False):
         raise ValueError("Final review card cannot authorize an unimplemented publisher")
     upstream = read("evidence/session-e2903b2e-upstream-prerequisites.json")
+    latest_upstream = read("evidence/session-20261028-upstream-prerequisites.json")
     from scripts.audit_upstream_prerequisites import validate_receipt
-    upstream_errors = validate_receipt(upstream)
-    if upstream_errors:
-        raise ValueError("Current shared-prerequisite receipt is malformed: " + ", ".join(upstream_errors))
+    for snapshot in (upstream, latest_upstream):
+        upstream_errors = validate_receipt(snapshot)
+        if upstream_errors:
+            raise ValueError("Shared-prerequisite receipt is malformed: " + ", ".join(upstream_errors))
     inherited = read("evidence/inherited_literal_audit.json")
     check_inherited(inherited)
     saturation = read("evidence/session-30454eca-saturation.json")
@@ -514,6 +559,7 @@ def build(check_only: bool = False) -> None:
     for path, content in render_cadg().items():
         emit(path, content)
     feed = read("docs/data/focus-feed.json")
+    peer_forensics = read("evidence/nine_site_and_peer_forensics_20261028.json")
     change_path = ROOT / "evidence/session-91270cac-raster-changes.json"
     changes = json.loads(change_path.read_bytes())
     peer_audit = read("evidence/session-91270cac-changed-peer-audit.json")
@@ -582,11 +628,12 @@ The [superseded parallel research at the inherited commit](https://github.com/ka
     delta = card["holdout_dti"]["paired_differences"]["ablation"]
     open_issues = [row for row in upstream["upstream_issues"] if row["state"] == "OPEN"]
     issue_numbers = ", ".join(f"#{row['number']}" for row in open_issues)
-    shared_panel = f'''<section class="section panel prose" id="shared-prerequisites"><p class="eyebrow">Fresh shared-template audit / participant source</p><h2>New source head. Same blocked core.</h2><p>The 27 October snapshot pins <code>{esc(upstream['participant_source']['head_commit'][:12])}</code>. All five core evaluator, feature and writer files are byte-identical to the locally pinned versions. Relevant issues {esc(issue_numbers)} remain open; the locally reproduced empty-truth false-positive defect is therefore not treated as repaired.</p><p>The named 35-channel feature receipt has no SHA-256 and the cache bytes are absent from the repository tree. <a href="https://github.com/buffedlizard55-lab/GEMSDOE32/issues/53">Issue #53</a> requests a central content-addressed artifact, input/source lineage, invalidation and verifier. No private cache was substituted.</p><p><a href="upstream-prerequisites-20261027.json">Machine-readable prerequisite receipt ↗</a> · <a href="session-e2903b2e-review.md">Final integrated three-pass review ↗</a> · <a href="data/session-e2903b2e-verification.json">Cumulative verification ↗</a></p></section>'''
+    shared_panel = f'''<section class="section panel prose" id="shared-prerequisites"><p class="eyebrow">Dated shared-template audit / participant source</p><h2>Source changed. Research remains blocked.</h2><p>On 28 October the participant head was <code>{esc(latest_upstream['participant_source']['head_commit'][:12])}</code>. {sum(not row['byte_identical_to_pinned'] for row in latest_upstream['shared_files'])} of {len(latest_upstream['shared_files'])} checked files changed since our local pin; the upstream binary-input guard changed, but the current head has not been independently operator-tested. The pinned evaluator still fails the synthetic empty-truth false-positive test. Issue state alone does not establish the behavior of new bytes.</p><p>The latest checked feature receipt has no SHA-256 and its cache path is absent from that repository tree. <a href="https://github.com/buffedlizard55-lab/GEMSDOE32/issues/53">Issue #53</a> requests a content-addressed artifact and lineage. No private cache was substituted.</p><p><a href="upstream-prerequisites-20261028.json">28 October prerequisite receipt ↗</a> · <a href="session-0f36badb-review.md">28 October review ↗</a> · <a href="data/session-20261028-run-card.json">Negative run card ↗</a> · <a href="upstream-prerequisites-20261027.json">Earlier snapshot ↗</a> · <a href="session-e2903b2e-review.md">Earlier integrated review ↗</a></p></section>'''
     parallel_panel = f'''<section class="section panel prose" id="results"><p class="eyebrow">Concurrent main / prior experiments, not this review session</p><h2>Preserved evidence. Still a negative decision.</h2><p>The prior bilateral-texture session recorded <strong>{prior['dti']:.4f} HOLDOUT-DTI</strong>, 95% CI [{prior['ci95'][0]:.4f}, {prior['ci95'][1]:.4f}], evaluator <code>{esc(prior['evaluator_version'])}</code>, {prior['withheld_positive_pixels']:,} withheld positive pixels. The matched ablation difference is {delta['delta']:.6f}, 95% CI [{delta['ci95'][0]:.6f}, {delta['ci95'][1]:.6f}]: it does not establish improvement. These are archived participant-run measurements, consistency-checked here, not independently rerun or organizer-confirmed.</p><p>Its final dots had 100% forward overlap within 3 px of a registered binary calibration lattice: a literal duplicate stop. Four inherited research TIFF files under the root downloads archive, including two encodings of DCAP-LHC, have independent literal-rule checks below. The separate random control is also preserved. None is an eligible submission. This review session ran zero geological experiments and generated no new TIFF; it does not overwrite or claim those prior runs.</p><h3>A registry representation obstruction</h3><p>A <strong>full-footprint witness</strong> in the pinned registry is a continuous diagnostic, not an established submitted dot field. The prior shared tool counts every finite positive cell as a dot; under that convention it covers all 5,167,373 footprint pixels and forces 100% overlap for any nonempty candidate. Our new geometry CLI instead refuses to invent dots from a soft surface and requires its explicit companion dot mask. That is an unresolved registry definition, not an exemption or a uniqueness pass. The binary lattice remains a separate verified obstruction for the recorded 37,654-dot runs.</p><p><a href="run-card.json">Canonical prior bilateral card ↗</a> · <a href="data/session-7d1e577d-run-card.json">Prior review’s negative card ↗</a> · <a href="data/session-91270cac-run-card.json">Changed-peer audit card ↗</a> · <a href="data/session-30454eca-run-card.json">Peer-forensic audit card ↗</a> · <a href="data/session-e2903b2e-run-card.json">Final review’s negative card ↗</a> · <a href="data/registry_saturation.json">Conditional saturation receipt ↗</a> · <a href="parallel-lattice-audit.json">Archived binary-lattice audit ↗</a></p></section>'''
-    main = f'''<section class="hero"><div><p class="eyebrow">Executive summary / DOE GEMS</p><h1>Better fault predictions.<br><em>Evidence before a slot.</em></h1><p class="lede">An honest decision desk for the nine priority sites. See exactly what can be downloaded, what has been tested, and what still blocks a genuinely new submission.</p><p class="date">27 October 2026 · Dated evidence, not a score projection</p></div>
+    main = f'''<section class="hero"><div><p class="eyebrow">Executive summary / DOE GEMS</p><h1>Better fault predictions.<br><em>Evidence before a slot.</em></h1><p class="lede">An honest decision desk for the nine priority sites. See exactly what can be downloaded, what has been tested, and what still blocks a genuinely new submission.</p><p class="date">Evidence snapshots: 27–28 October 2026 · not a score projection</p></div>
 <aside class="download-card" aria-label="Submission file status"><p class="eyebrow">Your competition file</p><h2>No eligible TIFF yet.</h2><p>The required scientific and uniqueness gates have not passed. No historical file is being relabelled as new.</p><div class="file-unavailable"><svg width="27" height="32" viewBox="0 0 27 32" fill="none" aria-hidden="true"><path d="M4 1h12l7 7v22H4zM16 1v8h7M9 16h9M9 21h9" stroke="currentColor" stroke-width="1.4"/></svg><div><strong>Download unavailable · DO NOT SUBMIT</strong><small>No placeholder file. No authorized slot.</small></div></div><div class="download-meta"><div><span>Score estimate</span><strong>Not estimable</strong></div><div><span>Unique candidate</span><strong>Not generated</strong></div><div><span>Weekly slots used</span><strong>None this session</strong></div></div></aside></section>
 <div class="notice"><span class="icon" aria-hidden="true">!</span><div><strong>DO NOT SUBMIT — historical winners duplicate; no new candidate qualifies.</strong><p>The historical family fails your literal overlap stop. Core data were restored locally for this review from participant mirrors; ignored inputs must be restored in a fresh checkout. The assigned lane/cache/incumbent are missing and the shared evaluator needs a central repair. This is a negative research deliverable, not a completed high-scoring model.</p><p><a href="session-e2903b2e-review.md">Final integrated three-pass review →</a> · <a href="session-30454eca-review.md">Peer-forensic review →</a> · <a href="session-91270cac-review.md">Changed-peer audit →</a> · <a href="session-5c1613da-review.md">Parallel CADG audit →</a></p></div></div>
+{peer_forensics_section(peer_forensics)}
 <div class="stats"><article class="stat"><span class="label">Historical uniqueness</span><strong>9 / 9 stopped</strong><small>Geometric audit · not DTI scores</small></article><article class="stat"><span class="label">Data placement</span><strong>Locally restored</strong><small>19-band input · participant mirror, not organizer-authenticated</small></article><article class="stat"><span class="label">Shared instruments</span><strong>Blocked</strong><small>Source-locked · operator defect reproduced</small></article><article class="stat"><span class="label">Geological experiments / final review</span><strong>0 / 3</strong><small>No lane silently assigned · no slot spent</small></article></div>
 {shared_panel}
 {cpx_panel}<section class="section" id="comparison"><div class="section-heading"><div><p class="eyebrow">Priority portfolio</p><h2>One clear decision for every site.</h2><p>Sorted by historical owner-reported claims, not by a validated score forecast or a recommendation.</p></div><a href="audit.json">Exact hashes &amp; all comparisons ↗</a></div>
@@ -665,9 +712,12 @@ The [original scoped report at the inherited commit](https://github.com/kanlerxz
         if row["repo"] == "GEMSDOE36":
             text += f'''<section class="section notice"><span class="icon" aria-hidden="true">!</span><div><strong>Newer S2D-36 and earlier KPL-36 both fail the literal uniqueness rule.</strong><p>The newer S2D peer card is negative; our independent saved-dot check found {s2d_lattice['candidate_dot_overlap_fraction']:.2%} overlap with the required lattice. Its participant-reported {s2d_holdout['value']:.4f} HOLDOUT-DTI, 95% CI [{s2d_holdout['ci95'][0]:.4f}, {s2d_holdout['ci95'][1]:.4f}], <code>{esc(s2d_holdout['evaluator_version'])}</code>, {s2d_holdout['withheld_positives']:,} withheld positives, was not rerun here or organizer-confirmed.</p><p>The earlier KPL-36 peer promotion also conflicts with the rule: {kpl_dots['candidate_dot_overlap_fraction']:.2%} lattice overlap. Neither file is approved here.</p><p><a href="../data/session-30454eca-s2d36-audit.json">Newer forensic receipt →</a> · <a href="../kpl36-lattice-audit-20261027.json">Earlier forensic receipt →</a></p></div></section>'''
         emit(DOCS / "sites" / f"{row['repo']}.html", page(row["repo"] + " executive summary", text, prefix="../"))
-    for source, dest in [("evidence/parallel-poisson-audit-20261027.json", "parallel-poisson-audit-20261027.json"), ("evidence/kpl36-lattice-audit-20261027.json", "kpl36-lattice-audit-20261027.json"), ("evidence/h33-lineage-20261027.json", "h33-lineage-20261027.json"), ("evidence/official-observation-20261027.json", "official-observation-20261027.json"), ("evidence/official-claims-20261026.json", "official-claims.json"), ("evidence/shared_tool_audit.json", "tool-audit.json"), ("evidence/input-integrity.json", "input-integrity.json"), ("evidence/session-7d1e577d-verification.json", "verification.json"), ("evidence/inherited_literal_audit.json", "inherited-literal-audit.json"), ("evidence/sample-provenance-check.json", "sample-provenance-check.json"), ("evidence/session-e2903b2e-upstream-prerequisites.json", "upstream-prerequisites-20261027.json"), ("knowledge/geothermal-science-2026-10-27.md", "geothermal-science-2026-10-27.md")]:
+    emit(DOCS / "data/nine-site-and-peer-forensics-20261028.json", json.dumps(peer_forensics, indent=2, allow_nan=False) + "\n")
+    emit(DOCS / "peer-forensics-20261028.md", (ROOT / "research/peer-forensics-20261028.md").read_text())
+    emit(DOCS / "upstream-prerequisites-20261028.json", (ROOT / "evidence/session-20261028-upstream-prerequisites.json").read_text())
+    for source, dest in [("evidence/parallel-poisson-audit-20261027.json", "parallel-poisson-audit-20261027.json"), ("evidence/kpl36-lattice-audit-20261027.json", "kpl36-lattice-audit-20261027.json"), ("evidence/h33-lineage-20261027.json", "h33-lineage-20261027.json"), ("evidence/official-observation-20261027.json", "official-observation-20261027.json"), ("evidence/official-claims-20261026.json", "official-claims.json"), ("evidence/shared_tool_audit.json", "tool-audit.json"), ("evidence/input-integrity.json", "input-integrity.json"), ("evidence/session-7d1e577d-verification.json", "verification.json"), ("evidence/inherited_literal_audit.json", "inherited-literal-audit.json"), ("evidence/sample-provenance-check.json", "sample-provenance-check.json"), ("evidence/session-e2903b2e-upstream-prerequisites.json", "upstream-prerequisites-20261027.json"), ("evidence/session-662a9e8b-upstream-prerequisites.json", "session-662a9e8b-upstream-prerequisites.json"), ("knowledge/geothermal-science-2026-10-27.md", "geothermal-science-2026-10-27.md")]:
         emit(DOCS / dest, (ROOT / source).read_text())
-    for name in ("review", "hypotheses", "verification", "session-12817d00-review", "session-5c1613da-review", "session-91270cac-review", "session-91270cac-hypotheses", "session-30454eca-review", "session-30454eca-hypotheses", "session-e2903b2e-review"):
+    for name in ("review", "hypotheses", "verification", "session-12817d00-review", "session-5c1613da-review", "session-91270cac-review", "session-91270cac-hypotheses", "session-30454eca-review", "session-30454eca-hypotheses", "session-e2903b2e-review", "session-0f36badb-review"):
         emit(DOCS / f"{name}.md", (ROOT / "research" / f"{name}.md").read_text())
 
     for src, destinations in [
@@ -681,6 +731,7 @@ The [original scoped report at the inherited commit](https://github.com/kanlerxz
         ("evidence/session-91270cac-run-card.json", [DOCS / "data/session-91270cac-run-card.json"]),
         ("evidence/session-30454eca-run-card.json", [DOCS / "data/session-30454eca-run-card.json"]),
         ("evidence/session-e2903b2e-run-card.json", [DOCS / "data/session-e2903b2e-run-card.json"]),
+        ("evidence/session-20261028-run-card.json", [DOCS / "data/session-20261028-run-card.json"]),
         ("evidence/session-e2903b2e-verification.json", [DOCS / "data/session-e2903b2e-verification.json"]),
         ("evidence/session-30454eca-saturation.json", [DOCS / "data/session-30454eca-saturation.json"]),
         ("evidence/session-30454eca-s2d36-audit.json", [DOCS / "data/session-30454eca-s2d36-audit.json"]),
