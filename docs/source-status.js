@@ -53,7 +53,7 @@
     const section = document.createElement('section');
     section.id = 'cadg-submod-study-link';
     section.className = 'wrap';
-    section.setAttribute('aria-label', 'L-K3-CADG-SUBMOD research result and literal duplicate stop');
+    section.setAttribute('aria-label', 'L-K3-CADG-SUBMOD 8-fold OOF research result and selector hold');
     const panel = document.createElement('div');
     panel.className = 'panel';
     panel.style.padding = '20px';
@@ -67,7 +67,7 @@
     note.textContent = 'This prior research artifact failed the literal all-registry lattice rule. Detector-only comparisons and format checks do not authorize a competition slot. See the study for scoped evaluator, confidence interval and provenance. ';
     const guide = document.createElement('a');
     guide.href = new URL('cadg-submod/executive-summary.html', scriptURL).href;
-    guide.textContent = 'Blocked gates & research archive ->';
+    guide.textContent = 'Research-only forensic archive ->';
     note.append(guide);
     panel.append(title, note);
     section.append(panel);

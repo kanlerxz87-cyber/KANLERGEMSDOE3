@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Render the prior CADG study as a quarantined, reproducible research archive.
+"""Render the quarantined CADG archive from its original card and forensic audit.
 
-This publisher never promotes a TIFF or selects a competition slot. It refuses
-contradictory cards, stale measurements, or altered saved bytes rather than
-restoring the old misleading "download-ready" page.
+The archive is research-only; a selector cannot waive a failed duplicate stop.
+This builder never writes the root decision desk or generates a candidate.
 """
 from __future__ import annotations
 
@@ -13,6 +12,7 @@ import html
 import json
 import math
 from pathlib import Path
+import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "docs/cadg-submod"
@@ -22,8 +22,13 @@ def esc(value: object) -> str:
     return html.escape(str(value), quote=True)
 
 
-def check_receipt(card: dict, receipt: dict) -> None:
+def sha(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def check_receipt(card: dict, receipt: dict, root: Path = ROOT) -> None:
     """Check identities and negative-result invariants, not scientific validity."""
+    output = root / "docs/cadg-submod"
     artifacts = card["submission_artifacts"]
     if (card.get("verdict") != "negative" or card.get("slot_authorized") is not False
             or receipt.get("verdict") != "negative" or receipt.get("ok_to_submit") is not False
@@ -34,21 +39,21 @@ def check_receipt(card: dict, receipt: dict) -> None:
             or receipt.get("equal_prediction_values_inside_mirrored_footprint") is not True):
         raise ValueError("Quarantine cannot publish an optimistic or contradictory decision")
     lattice_sha = receipt["lattice_source"]["sha256"]
-    pinned = next(row for row in json.loads((ROOT / "research/registry-lock.json").read_text())["entries"]
+    pinned = next(row for row in json.loads((root / "research/registry-lock.json").read_text())["entries"]
                   if row["id"] == "registry-160")
     source = receipt["lattice_source"]
     if (lattice_sha != pinned["sha256"] or source["repo"] != pinned["repo"]
             or source["commit"] != pinned["ref"] or source["path"] != pinned["file"]
             or receipt.get("sample_positive_equals_label_positive") is not True):
         raise ValueError("Lattice or participant-mirror identity is inconsistent")
-    core = {row["id"]: row["sha256"] for row in json.loads((ROOT / "data/core-manifest.json").read_text())["files"]}
+    core = {row["id"]: row["sha256"] for row in json.loads((root / "data/core-manifest.json").read_text())["files"]}
     for key, prefix, profile in (("zeros", "primary_zeros", "finite-grid"),
                                   ("nan", "official_nan_twin", "template-mask")):
         row = receipt["measurements"][key]
         geom, validation = row["geometry"], row["validator"]
         relative = artifacts[prefix + "_tif"]
-        path = (ROOT / relative).resolve()
-        if not path.is_relative_to(OUT.resolve()) or not path.is_file():
+        path = (root / relative).resolve()
+        if not path.is_relative_to(output.resolve()) or not path.is_file():
             raise ValueError("Missing archived TIFF or unsafe artifact path")
         digest = hashlib.sha256(path.read_bytes()).hexdigest()
         count, within = geom["candidate_dots"], geom["candidate_dots_within_3px_of_lattice"]
@@ -73,8 +78,8 @@ def check_receipt(card: dict, receipt: dict) -> None:
             or z["candidate_dots_within_3px_of_lattice"] != n["candidate_dots_within_3px_of_lattice"]):
         raise ValueError("Archived encodings disagree on their in-footprint dot set")
     old = receipt["older_9a_pair"]
-    old_path = (ROOT / old["writer_receipt"]).resolve()
-    if (not old_path.is_relative_to((OUT / "downloads").resolve()) or not old_path.is_file()
+    old_path = (root / old["writer_receipt"]).resolve()
+    if (not old_path.is_relative_to((output / "downloads").resolve()) or not old_path.is_file()
             or hashlib.sha256(old_path.read_bytes()).hexdigest() != old["writer_receipt_sha256"]
             or old["equal_prediction_values_inside_mirrored_footprint"] is not True
             or old["not_a_new_candidate"] is not True or type(old["pixels_different_from_f056_pair"]) is not int
@@ -85,7 +90,7 @@ def check_receipt(card: dict, receipt: dict) -> None:
                                   ("nan", "official_text_nan_outside_twin", "template-mask")):
         row = old["measurements"][key]
         geom, val = row["geometry"], row["validator"]
-        path = (ROOT / row["file"]).resolve()
+        path = (root / row["file"]).resolve()
         count, near = geom["candidate_dots"], geom["candidate_dots_within_3px_of_lattice"]
         if (not path.is_relative_to(old_path.parent) or not path.is_file()
                 or path.name != writer[section]["file"]
@@ -119,18 +124,14 @@ CARD_SHA = "3a2627d8b6175e20e280b0c42ee3ea47a654614b2f407fe1766e2bed790be5e2"
 SAMPLE_SHA = "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc"
 
 
-def sha(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
-
-
-def check_session_receipt(card: dict, report: dict) -> None:
+def check_session_receipt(card: dict, report: dict, root: Path = ROOT) -> None:
     """Check identity and arithmetic, not independent scientific provenance."""
     try:
         full, subset = report["full_registered_lattice"], report["catalogue_excluded_lattice"]
         n, hits = full["candidate_dots"], full["candidate_dots_within_3px_of_lattice"]
         sn, shits = subset["candidate_dots"], subset["candidate_dots_within_3px"]
-        artifact = ROOT / card["submission_artifacts"]["primary_zeros_tif"]
-        card_path = ROOT / "evidence/cadg-submod-run-card.json"
+        artifact = root / card["submission_artifacts"]["primary_zeros_tif"]
+        card_path = root / "evidence/cadg-submod-run-card.json"
         valid = (sha(card_path) == CARD_SHA and json.loads(card_path.read_bytes()) == card
                  and card["verdict"] == report["verdict"] == "negative"
                  and card["slot_authorized"] is report["slot_authorized"] is report["ok_to_submit"] is False
@@ -159,86 +160,151 @@ def check_session_receipt(card: dict, report: dict) -> None:
         raise ValueError("CADG card, saved bytes and lattice audit disagree; refuse to build")
 
 
-def frame(title: str, body: str) -> str:
+def checked_archive(report: dict, card: dict, root: Path = ROOT) -> list[dict]:
+    """Bind the negative forensic receipt to the saved card, TIFFs and ZIPs.
+
+    This is an integrity/consistency check, not a fresh scientific audit. It
+    deliberately cannot authorize a positive decision, even with edited JSON.
+    """
+    archive = (root / "docs/cadg-submod/downloads").resolve()
+    card_path = root / "evidence/cadg-submod-run-card.json"
+    if (card.get("verdict") != "negative" or card.get("slot_authorized") is not False
+            or report.get("verdict") != "negative" or report.get("slot_authorized") is not False
+            or report.get("status") != "STOP_DUPLICATE" or report.get("all_files_exceed_70_percent") is not True
+            or report.get("candidate_generated") is not False or report.get("full_registry_compared") is not False
+            or report.get("source_card_sha256") != sha(card_path)):
+        raise ValueError("CADG archive receipt is stale, positive or inconsistent")
+    pinned_lattice = next(row for row in json.loads((root / "research/registry-lock.json").read_text())["entries"] if row["id"] == "registry-160")
+    if report["lattice_source"] != pinned_lattice:
+        raise ValueError("CADG audit does not use the pinned registered lattice")
+    lattice_sha = pinned_lattice["sha256"]
+    core = {row["id"]: row["sha256"] for row in json.loads((root / "data/core-manifest.json").read_text())["files"]}
+    rows = []
+    for version in report["versions"]:
+        if version.get("same_in_footprint_dot_mask") is not True:
+            raise ValueError("CADG encoding twins were not shown to match")
+        receipt = root / version["receipt"]
+        if receipt.is_symlink() or receipt.resolve().parent != archive or sha(receipt) != version["receipt_sha256"]:
+            raise ValueError("CADG archive receipt bytes changed")
+        if len(version["files"]) != 2:
+            raise ValueError("Each CADG archive version needs both encodings")
+        for item in version["files"]:
+            file = root / item["file"]
+            package = root / item["zip"]
+            if (file.is_symlink() or package.is_symlink() or file.resolve().parent != archive
+                    or package.resolve().parent != archive or sha(file) != item["sha256"]
+                    or sha(package) != item["zip_sha256"] or item.get("zip_contains_exact_tiff_only") is not True):
+                raise ValueError("CADG archive TIFF/ZIP bytes or paths changed")
+            with zipfile.ZipFile(package) as z:
+                if z.namelist() != [file.name] or z.read(file.name) != file.read_bytes():
+                    raise ValueError("CADG ZIP does not contain the exact saved TIFF")
+            measurement, validator = item["lattice"], item["validator"]
+            count, near = measurement["candidate_dots"], measurement["candidate_dots_within_3px_of_lattice"]
+            if (type(count) is not int or count <= 0 or type(near) is not int or not 0 <= near <= count
+                    or measurement["candidate_sha256"] != item["sha256"] or measurement["lattice_sha256"] != lattice_sha
+                    or measurement["sample_mirror_sha256"] != core["sample_submission"]
+                    or measurement["label_mirror_sha256"] != core["labels"]
+                    or measurement["candidate_dot_overlap_fraction"] != near / count
+                    or near / count <= .70 or measurement["duplicate_over_70_percent"] is not True
+                    or validator["candidate_sha256"] != item["sha256"] or type(validator.get("ok")) is not bool
+                    or validator.get("portal_acceptance_verified") is not False
+                    or validator.get("submission_authorized") is not False):
+                raise ValueError("CADG measured duplicate or saved-byte binding is inconsistent")
+            diagnostic = item["catalogue_filtered_lattice_diagnostic"]
+            filtered_near = diagnostic["candidate_dots_within_3px"]
+            if (type(filtered_near) is not int or not 0 <= filtered_near <= near
+                    or diagnostic["overlap_fraction"] != filtered_near / count
+                    or diagnostic["protocol_novelty_pass"] is not False):
+                raise ValueError("CADG filtered-reference diagnostic is inconsistent")
+            rows.append(item)
+    if ({Path(item["file"]).name for item in rows} != {p.name for p in archive.glob("*.tif")}
+            or len({item["file"] for item in rows}) != len(rows)
+            or card.get("raster_sha256") not in {item["sha256"] for item in rows}):
+        raise ValueError("CADG archive TIFF inventory is incomplete")
+    return rows
+
+
+def page(title: str, body: str) -> str:
     return f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)} · GEMS research archive</title><link rel="stylesheet" href="../assets/site.css"></head>
 <body><a class="skip" href="#main">Skip to content</a><header class="topbar"><div class="bar">
-<a class="brand" href="../index.html"><span class="mark" aria-hidden="true">G</span><span>GEMS<small>Research archive</small></span></a>
+<a class="brand" href="../index.html"><span class="mark" aria-hidden="true">G</span><span>GEMS<small>Fault discovery / research desk</small></span></a>
 <nav aria-label="Main navigation"><a href="../index.html">Executive summary</a><a href="../research.html">Research</a><a href="../sources.html">Evidence</a><a href="../executive-summary.html">How to submit</a></nav><span class="nav-status">Research blocked</span></div></header>
-<main id="main">{body}</main><footer class="footer"><div>Archived evidence · no submission authorized</div><div><a href="../index.html">Return to the decision desk</a></div></footer></body></html>\n'''
+<main id="main">{body}</main><footer class="footer"><div>CADG archive · research only · no slot authorized</div><div><a href="../index.html">Return to the decision desk ↗</a></div></footer></body></html>\n'''
+
+
+def render(root: Path = ROOT) -> dict[Path, str]:
+    out = root / "docs/cadg-submod"
+    card = json.loads((root / "evidence/cadg-submod-run-card.json").read_text())
+    audit_bytes = (root / "evidence/session-91270cac-cadg-audit.json").read_bytes()
+    report = json.loads(audit_bytes)
+    rows = checked_archive(report, card, root)
+    concurrent = json.loads((root / "evidence/session-5c1613da-cadg-audit.json").read_text())
+    check_receipt(card, concurrent, root)
+    session = json.loads((root / "evidence/session-30454eca-cadg-lattice.json").read_text())
+    check_session_receipt(card, session, root)
+    if session["full_registered_lattice"] != concurrent["measurements"]["zeros"]["geometry"]:
+        raise ValueError("Independent CADG full-lattice receipts disagree")
+    current = next(row for row in rows if row["sha256"] == card["raster_sha256"])
+    current_peer = concurrent["measurements"]["zeros"]["geometry"]
+    if (current["lattice"]["candidate_sha256"] != current_peer["candidate_sha256"]
+            or current["lattice"]["candidate_dots_within_3px_of_lattice"] != current_peer["candidate_dots_within_3px_of_lattice"]
+            or current["lattice"]["candidate_dots"] != current_peer["candidate_dots"]):
+        raise ValueError("Independent CADG audits disagree on current saved bytes or lattice overlap")
+    measurement, diag = current["lattice"], current["catalogue_filtered_lattice_diagnostic"]
+    hold = card["holdout"]
+    table_rows = []
+    for row in rows:
+        data = row["lattice"]
+        short = Path(row["file"]).name
+        table_rows.append(f'''<tr><td><code>{esc(short)}</code><small>Preserved research artifact · no download is authorized</small></td>
+<td><code>{esc(row['sha256'])}</code></td><td>{data['candidate_dots_within_3px_of_lattice']:,} / {data['candidate_dots']:,} ({data['candidate_dot_overlap_fraction']:.2%})</td>
+<td>{'PASS' if row['validator']['ok'] else 'FAIL'} · {esc(row['validator']['encoding_profile'])}<small>Local mirror only; not a portal decision</small></td></tr>''')
+    warning = f'''<div class="notice"><span class="icon" aria-hidden="true">!</span><div><strong>DO NOT SUBMIT — duplicate under the required all-registry rule.</strong><p>Research only: these preserved artifacts are not eligible competition files. A selector cannot waive a failed duplicate stop; a selector signature cannot change that verdict. The current TIFF's lattice overlap is {measurement['candidate_dot_overlap_fraction']:.2%}; the distinct older field is {concurrent["older_9a_pair"]["measurements"]["zeros"]["geometry"]["candidate_dot_overlap_fraction"]:.2%}, and the catalogue-filtered diagnostic is {diag["overlap_fraction"]:.2%}. The rejected upload was not supplied; portal acceptance is unverified. No slot is authorized; no visual raster inspection is needed.</p><p>Earlier claims of uniqueness, authorized download or a resolved portal error were unsupported. Those claims are withdrawn.</p></div></div>'''
+    intro = f'''<div class="page-intro"><p class="eyebrow">Prior CADG-SUBMOD study / forensic archive</p><h1 class="subtitle-page">Research archive.<br>No eligible submission.</h1><p>The original experiment and files are preserved, but the current decision is negative.</p></div>{warning}'''
+    body = intro + f'''<section class="section panel prose"><h2>Independent saved-byte result</h2><p>For the originally advertised TIFF, <strong>{measurement['candidate_dots_within_3px_of_lattice']:,} / {measurement['candidate_dots']:,} dots ({measurement['candidate_dot_overlap_fraction']:.2%})</strong> are within three pixels of a registered lattice. This is above the strict 70% duplicate stop. All archived encoding pairs independently fail that same single-reference test.</p><p>The original run card reported {card['final_dot_overlap_3px']:.2%} after removing catalogue pixels from the reference lattice. Our diagnostic reproduces that narrower calculation: {diag['candidate_dots_within_3px']:,} / {measurement['candidate_dots']:,} ({diag['overlap_fraction']:.2%}). The full registered reference, including its catalogue pixels, is the literal rule; both calculations stop the run. Surface correlation and the complete registry were not independently re-audited in this check.</p><p>The parallel independent replay found that the older and current fields differ at {concurrent['older_9a_pair']['pixels_different_from_f056_pair']:,} in-footprint pixels; they are distinct fields, while each zero/NaN pair has matching in-footprint values.</p><p><a href="cadg-audit.json">Saved-byte, ZIP, lattice and format receipt ↗</a> · <a href="../data/session-5c1613da-cadg-audit.json">Independent parallel replay ↗</a> · <a href="run-card.json">Unchanged original card ↗</a></p></section>
+<section class="section panel prose"><h2>What the prior holdout does — and does not — say</h2><p>The prior participant card reports <strong>{hold['value']:.6f} HOLDOUT-DTI</strong> (95% CI [{hold['ci95'][0]:.6f}, {hold['ci95'][1]:.6f}]; evaluator <code>{esc(hold['evaluator_version'])}</code>; {hold['withheld_positives']:,} withheld positive pixels). This measurement was not independently rerun here, is not an organizer receipt or a leaderboard estimate, and cannot override a duplicate stop.</p><p>The previous page incorrectly described a selector sign-off as sufficient and claimed that zero padding prevents the reported portal error. The rejected upload was never provided; its error and the organizer's acceptance of these files remain unknown. The official format says null/NaN outside the bounds. Both local profiles are checks against an unauthenticated participant mirror.</p><p>Prior artifact identifier: <code>{esc(card['submission_name'])}</code><br>Original file SHA-256: <code>{esc(card['raster_sha256'])}</code><br>Historical note (do not paste for submission): <code>{esc(card['submission_note'])}</code></p></section>
+<section class="section"><h2>Archived files · research only</h2><p>The existing bytes are retained in the repository for forensic reproducibility, without submission download links. <strong>DO NOT SUBMIT.</strong></p><div class="table-wrap"><table><thead><tr><th scope="col">Existing research file</th><th scope="col">SHA-256</th><th scope="col">Full lattice overlap</th><th scope="col">Local format profile</th></tr></thead><tbody>{''.join(table_rows)}</tbody></table></div></section>
+<section class="section panel prose"><h2>Next steps</h2><p>Use the <a href="../executive-summary.html">general submission guide</a> only after an independently validated new candidate clears every scientific and uniqueness gate. The historical <a href="hypotheses.md">hypotheses</a> and <a href="verification.md">verification report</a> are original author records; their claims are not independently reverified here.</p></section>'''
+    guide = intro + f'''<section class="section panel prose"><h2>This is not an upload guide for the archived file</h2><p>The earlier page recommended uploading after human sign-off and asserted that one encoding prevented the range error. Neither assertion is established. The registered-lattice stop has failed, so the TIFF remains research-only regardless of sign-off.</p><p>Original TIFF <code>{esc(card['submission_name'])}</code><br>SHA-256 <code>{esc(card['raster_sha256'])}</code><br>Historical note, not for a new submission: <code>{esc(card['submission_note'])}</code></p><p><a href="index.html">View independent CADG archive audit ↗</a> · <a href="../executive-summary.html">General submission requirements ↗</a></p></section>'''
+    md = f'''# CADG-SUBMOD research archive — DO NOT SUBMIT
+
+The existing TIFF is a duplicate under the literal all-registry protocol; a selector cannot waive this stop. No slot is authorized.
+
+The exact advertised TIFF has {measurement['candidate_dots_within_3px_of_lattice']:,} / {measurement['candidate_dots']:,} dots ({measurement['candidate_dot_overlap_fraction']:.2%}) within three pixels of the full registered lattice. The narrower catalogue-filtered comparison reproduces {diag['overlap_fraction']:.2%}; both exceed the 70% limit. This is a geometric audit, not a score.
+
+Prior participant-reported HOLDOUT-DTI: {hold['value']:.6f}, evaluator `{hold['evaluator_version']}`, {hold['withheld_positives']:,} withheld positives, 95% CI [{hold['ci95'][0]:.6f}, {hold['ci95'][1]:.6f}]. Not rerun here or an organizer receipt.
+
+The rejected upload is unavailable, and local format checks do not establish portal acceptance. See [the forensic receipt](cadg-audit.json) and [the general guide](../executive-summary.html).
+'''
+    return {out / "index.html": page("CADG prior study", body),
+            out / "executive-summary.html": page("CADG archive limitations", guide),
+            out / "EXECUTIVE_SUMMARY.md": md,
+            out / "cadg-audit.json": audit_bytes.decode(),
+            out / "hypotheses.md": '''# CADG-SUBMOD hypotheses — historical record, not validation
+
+The preserved prior hypotheses include unverified causal claims and projected gains. They are not evidence that a candidate beat the leaderboard, and the archived CADG TIFFs fail the literal uniqueness stop. No selector can waive it.
+
+Read the [original unmodified research record at the inherited commit](https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/blob/ee683eeff93ab9d5bbec802065963c6898a4190b/research/cadg-submod-hypotheses.md) as historical context, not as an approved upload or independently reproduced scientific result. For this review's conditional queue, see [current hypotheses](../hypotheses.md) and the [research page](../research.html).
+''',
+            out / "verification.md": '''# CADG-SUBMOD verification — superseded release interpretation
+
+**DO NOT SUBMIT.** The original verification record claims an upload error was fixed and treats a narrower detector-only uniqueness comparison as relevant to selection. The previously rejected file was not supplied, so the cause of its error is unknown; a local encoding pass does not prove portal acceptance. The full registered lattice triggers the required duplicate stop, regardless of selector approval.
+
+The [independent saved-byte audit](cadg-audit.json) binds the TIFFs, ZIPs, local profiles and overlap counts. The [original verification at the inherited commit](https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/blob/ee683eeff93ab9d5bbec802065963c6898a4190b/research/cadg-submod-verification.md) remains intact for historical research; it was not independently rerun as a model experiment here.
+'''}
 
 
 def build(check_only: bool = False) -> None:
-    card = json.loads((ROOT / "evidence/cadg-submod-run-card.json").read_text())
-    receipt = json.loads((ROOT / "evidence/session-5c1613da-cadg-audit.json").read_text())
-    check_receipt(card, receipt)
-    session_receipt = json.loads((ROOT / "evidence/session-30454eca-cadg-lattice.json").read_text())
-    check_session_receipt(card, session_receipt)
-    zero = receipt["measurements"]["zeros"]
-    nan = receipt["measurements"]["nan"]
-    geom, ref = zero["geometry"], receipt["reference_mask_sensitivity"]
-    older = receipt["older_9a_pair"]
-    older_geom = older["measurements"]["zeros"]["geometry"]
-    hold = card["holdout"]
-    rows = "".join(
-        f'<tr><td>{esc(label)}</td><td><code>{esc(Path(row["file"]).name)}</code>'
-        f'<small>Research only — DO NOT SUBMIT</small></td>'
-        f'<td><code>{esc(row["geometry"]["candidate_sha256"])}</code></td>'
-        f'<td>{esc(row["validator"]["encoding_profile"])} local check; portal unverified</td><td><strong>NO</strong></td></tr>'
-        for label, row in (("f056 · finite zeros outside", zero), ("f056 · NaN outside", nan),
-                           ("9a4e · finite zeros outside", older["measurements"]["zeros"]),
-                           ("9a4e · NaN outside", older["measurements"]["nan"]))
-    )
-    warning = f'''<div class="notice"><span class="icon" aria-hidden="true">!</span><div>
-<strong>DO NOT SUBMIT — duplicate under the requested registry rule.</strong>
-<p>Reopened saved bytes: {geom['candidate_dots_within_3px_of_lattice']:,} / {geom['candidate_dots']:,} dots
-({geom['candidate_dot_overlap_fraction']:.2%}) are within 3 pixels of the registered binary lattice.
-This is above the strict 70% duplicate stop. A selector signature cannot change a failed scientific gate.</p></div></div>'''
-    intro = '''<div class="page-intro"><p class="eyebrow">Archived study / not a new submission</p>
-<h1 class="subtitle-page">CADG research archive.<br>No eligible upload.</h1>
-<p>The original artifacts and participant-run results are retained for learning, not recommended for competition submission.</p></div>'''
-    content = intro + warning + f'''
-<section class="section panel prose"><h2>Why the earlier page was wrong</h2>
-<p>The earlier page called the file download-ready, implied human sign-off could resolve a failed literal gate, and asserted that a finite grid prevents the prior portal error. Those claims are withdrawn. The rejected upload was not supplied; the portal and authentic organizer sample have not been tested.</p>
-<p>The old lattice figure used only {ref['off_catalogue_reference_dots']:,} reference dots after removing {ref['reference_dots_on_catalogue']:,} dots on the mirrored catalogue. That limited reference gives {ref['candidate_dots_near_off_catalogue_reference']:,} / {geom['candidate_dots']:,} ({ref['candidate_fraction_near_off_catalogue_reference']:.2%}); the required full registered raster gives {geom['candidate_dots_within_3px_of_lattice']:,} / {geom['candidate_dots']:,} ({geom['candidate_dot_overlap_fraction']:.2%}). Both fail. This is a geometry measurement, not a model score.</p>
-<p>An older, distinct 9a4e prediction differs from f056 at {older['pixels_different_from_f056_pair']:,} in-footprint pixels; it also fails: {older_geom['candidate_dots_within_3px_of_lattice']:,} / {older_geom['candidate_dots']:,} ({older_geom['candidate_dot_overlap_fraction']:.2%}) against the full lattice. Neither pair can be submitted under the protocol.</p>
-<p><a href="../data/session-5c1613da-cadg-audit.json">Independent saved-byte forensic receipt →</a> · <a href="run-card.json">Original card · historical claims →</a></p></section>
-<section class="section panel"><h2>Original files · research use only</h2><p>Exact names and hashes are retained for reproducibility, but the failed files are not linked for download. Within each pair, the outside encodings have identical in-footprint predictions; the two pairs differ. The mirror is not authenticated by the organizer. A local encoding pass does not establish portal acceptance or novelty.</p>
-<div class="table-wrap"><table><thead><tr><th>Encoding</th><th>Archived TIFF</th><th>SHA-256</th><th>Local format profile</th><th>Submit?</th></tr></thead><tbody>{rows}</tbody></table></div></section>
-<section class="section panel prose"><h2>Original participant-run holdout</h2>
-<p><strong>HOLDOUT-DTI {hold['value']:.6f}</strong> — evaluator <code>{esc(hold['evaluator_version'])}</code>, {hold['withheld_positives']:,} withheld positives, 95% CI [{hold['ci95'][0]:.6f}, {hold['ci95'][1]:.6f}]. This is a prior participant-reported result, not independently rerun here, not organizer-confirmed, not a forecast, and not directly comparable to a different split or evaluator.</p>
-<p>Original submission name: <code>{esc(card['submission_name'])}</code><br>Original note, for identification only: <code>{esc(card['submission_note'])}</code></p></section>
-<section class="section panel prose"><h2>Next steps before any eligible download</h2><p>Resolve the assigned lane, centrally repair and repin the shared evaluator, obtain the canonical cached features and complete registry, and establish a valid paired holdout incumbent. Then perform canaries, pre-placement and final-dot comparisons, and saved-byte validation. A separate selector can consider a slot only after all gates pass.</p><p><a href="../executive-summary.html">Read the step-by-step submission guide →</a></p></section>'''
-    md = f'''# CADG archive — DO NOT SUBMIT
-
-This is a prior research artifact, not an eligible new competition submission.
-The saved TIFF has {geom['candidate_dots_within_3px_of_lattice']:,} / {geom['candidate_dots']:,}
-({geom['candidate_dot_overlap_fraction']:.2%}) dots within 3 pixels of the full pinned binary lattice,
-above the mandatory 70% duplicate stop; the failed artifacts are not linked for download. The prior off-catalogue-only reference produced
-{ref['candidate_fraction_near_off_catalogue_reference']:.2%}; both fail.
-The distinct older 9a4e field also fails: {older_geom['candidate_dots_within_3px_of_lattice']:,} /
-{older_geom['candidate_dots']:,} ({older_geom['candidate_dot_overlap_fraction']:.2%}).
-
-The local format profiles do not prove organizer acceptance. The rejected upload was not supplied.
-The original participant-run HOLDOUT-DTI is {hold['value']:.6f}, evaluator
-`{hold['evaluator_version']}`, {hold['withheld_positives']:,} positives, 95% CI
-[{hold['ci95'][0]:.6f}, {hold['ci95'][1]:.6f}]; it was not independently rerun and is not a leaderboard forecast.
-
-[Research-only archive](index.html) · [Forensic receipt](../data/session-5c1613da-cadg-audit.json) · [Current decision desk](../index.html)
-'''
-    outputs = {OUT / "index.html": frame("CADG research archive", content),
-               OUT / "executive-summary.html": frame("CADG research archive and guide", content),
-               OUT / "EXECUTIVE_SUMMARY.md": md}
-    if check_only:
-        stale = [str(path.relative_to(ROOT)) for path, text in outputs.items()
-                 if not path.is_file() or path.read_text() != text]
-        if stale:
-            raise ValueError("CADG quarantine pages are stale: " + ", ".join(stale))
-    else:
-        for path, text in outputs.items():
+    outputs = render()
+    stale = [str(p.relative_to(ROOT)) for p, content in outputs.items() if not p.is_file() or p.read_text() != content]
+    if check_only and stale:
+        raise ValueError("Generated CADG archive is stale: " + ", ".join(stale))
+    if not check_only:
+        for path, content in outputs.items():
             path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(text)
+            path.write_text(content)
 
 
 if __name__ == "__main__":

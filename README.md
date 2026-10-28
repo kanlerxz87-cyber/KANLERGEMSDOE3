@@ -42,6 +42,14 @@ The prior session's research clock expired and was not reset.
 
 ## Concurrent reviews merged during this continuation
 
+- [Session 91270cac](research/session-91270cac-review.md) compared two frozen
+  nine-site Git-tree snapshots and found 29 added TIFF paths, including encoding
+  twins. All 29 exact blobs failed the same full-lattice duplicate check; this is
+  not a count of independent models, a complete-registry audit, or a review of
+  later commits. Its [path inventory](evidence/session-91270cac-raster-changes.json),
+  [saved-byte findings](evidence/session-91270cac-changed-peer-audit.json),
+  four-file CADG/ZIP audit, preserved historical presentation snapshots, and
+  fail-closed archive wrappers are retained.
 - [Session 5c1613da](research/session-5c1613da-review.md) independently reproduced the
   99.94% f056 lattice overlap and audited an older, distinct 9a4e field at **99.95%**.
   The four saved encodings and both negative decisions are in its

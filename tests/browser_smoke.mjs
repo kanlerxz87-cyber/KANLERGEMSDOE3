@@ -96,12 +96,15 @@ try {
   assert.match(await page.locator('#kpl36-conflict').innerText(), /99\.17%/);
   assert.match(await page.locator('#s2d36-audit').innerText(), /99\.48%/);
   assert.match(await page.locator('#cadg-submod-study-link').innerText(), /99\.94%/);
+  assert.equal(await page.locator('#changed-peer-audit tbody tr').count(), 9);
+  assert.match(await page.locator('#changed-peer-audit').innerText(), /29 changed raster files fail one reference/);
+  assert.match(await page.locator('#changed-peer-audit').innerText(), /not.*a count of independent models/i);
   checks.push('primary warning precedes historical-study links and peer duplicate checks remain visible');
   await noGlobalOverflow(page, 'desktop summary');
   await page.screenshot({ path: path.join(output, 'desktop.png'), fullPage: true });
   checks.push('desktop: nine sites, four hypotheses, historical ranking and no approved download');
   await page.locator('details').last().evaluate(element => { element.open = true; });
-  for (const name of ['executive-summary.html', 'submission.html', 'research.html', 'hypotheses.html', 'summary.html', 'sources.html', 'parallel-research.html', 'k3h1.html', 'candidate.html', ...feed.rows.map(row => `sites/${row.site}.html`)]) {
+  for (const name of ['executive-summary.html', 'submission.html', 'research.html', 'hypotheses.html', 'summary.html', 'sources.html', 'parallel-research.html', 'parallel-gpc-dashboard.html', 'parallel-gpc-submission-guide.html', 'k3h1.html', 'candidate.html', ...feed.rows.map(row => `sites/${row.site}.html`)]) {
     const result = await page.goto(base + '/' + name, { waitUntil: 'networkidle' });
     assert.equal(result.status(), 200, name);
     assert.equal(await page.locator('h1').count(), 1, name);
@@ -113,6 +116,14 @@ try {
   assert.match(await page.locator('main').innerText(), /rejected file was not provided/);
   assert.match(await page.locator('main').innerText(), /superseded claims/);
   checks.push('parallel TIFF downloads stay quarantined with corrected uncertainty');
+  for (const name of ['parallel-gpc-dashboard.html', 'parallel-gpc-submission-guide.html']) {
+    await page.goto(base + '/' + name, { waitUntil: 'networkidle' });
+    const text = await page.locator('main').innerText();
+    assert.match(text, /DO NOT SUBMIT/);
+    assert.match(text, /selector cannot waive/i);
+    assert.doesNotMatch(text, /Download the unique GPC|Scored historical files prove the zeros encoding is accepted|NaN outside the footprint triggers/);
+    if (await page.locator('a[download]').count()) assert.match(text, /research.only/i);
+  }
   for (const name of ['cadg-submod/index.html', 'cadg-submod/executive-summary.html']) {
     const result = await page.goto(base + '/' + name, { waitUntil: 'networkidle' });
     assert.equal(result.status(), 200, name);
@@ -141,7 +152,7 @@ try {
   const table = await mobilePage.locator('#comparison .table-wrap').evaluate(element => ({ client: element.clientWidth, scroll: element.scrollWidth }));
   assert.ok(table.scroll > table.client, 'The wide table must scroll locally on mobile');
   await mobilePage.screenshot({ path: path.join(output, 'mobile.png'), fullPage: true });
-  for (const name of ['executive-summary.html', 'sources.html', 'research.html', 'parallel-research.html', 'k3h1.html', 'candidate.html', 'sites/GEMSDOE32.html', 'sites/GEMSDOE36.html', 'cadg-submod/index.html', 'cadg-submod/executive-summary.html']) {
+  for (const name of ['executive-summary.html', 'sources.html', 'research.html', 'parallel-research.html', 'parallel-gpc-dashboard.html', 'k3h1.html', 'candidate.html', 'sites/GEMSDOE32.html', 'sites/GEMSDOE36.html', 'cadg-submod/index.html', 'cadg-submod/executive-summary.html']) {
     await mobilePage.goto(base + '/' + name, { waitUntil: 'networkidle' });
     await noGlobalOverflow(mobilePage, 'mobile ' + name);
   }

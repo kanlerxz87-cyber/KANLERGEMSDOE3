@@ -3,11 +3,12 @@
 Before changing this project, read:
 1. `README.md`, including its full standing user request (also `PROJECT_PROMPT.md`).
 2. `PROJECT_REQUEST.md` and `research/standing-requirements.md` for the compact standing rules.
-3. `research/session-30454eca-review.md`, `research/session-5c1613da-review.md`,
-   the preserved session configs under `config/`, and `research/verification.md`.
+3. `research/session-30454eca-review.md`, `research/session-91270cac-review.md`,
+   `research/session-5c1613da-review.md`, the expired default session config
+   `config/research-session-52a91352.json`, other preserved configs, and `research/verification.md`.
 4. `evidence/run-card.json` (preserved canonical bilateral run, negative),
-   `evidence/session-5c1613da-run-card.json` (concurrent review), and
-   `evidence/session-30454eca-run-card.json` (this audit, no model run).
+   `evidence/session-91270cac-run-card.json` and `evidence/session-5c1613da-run-card.json`
+   (concurrent reviews), and `evidence/session-30454eca-run-card.json` (this audit, no model run).
 
 Keep **Maximize P(Win)** and **Own the Outcome** explicit. File format, model quality,
 semantic novelty, evidence authenticity and weekly-slot authorization are separate.
