@@ -10,6 +10,14 @@
 
 The upstream head changed four of five tracked files since the older snapshot. This session did not validate that new version. The *pinned* evaluator still fails the synthetic operator audit. The legacy uniqueness and support-cache CLIs are now blocked because they can misclassify dense/continuous references; use the fail-closed checker with a genuinely complete registry instead. No weekly slot is authorized.
 
+## Repository review — 28 October 2026
+
+[Three-pass review](research/session-20261028-review.md) · **Negative / DO NOT SUBMIT**.
+That separate review checkout had no competition rasters. A project-local test environment was installed
+and the suite passed (257 passed, 9 skipped); fail-closed readiness still denies research
+and submission. No experiment, TIFF, score estimate, or competition slot was produced. The review documents the exact blockers
+and next actions. Its review card is not a model run card.
+
 ## Final integrated continuation — 27 October 2026
 
 [Three-pass review and next steps](research/session-e2903b2e-review.md) ·
@@ -22,7 +30,7 @@ The upstream head changed four of five tracked files since the older snapshot. T
 **DO NOT SUBMIT.** The concurrent forensic work below is integrated without claiming its experiments.
 This final review restored every available pinned instrument/input, refreshed all nine participant
 sources, and independently re-ran the unchanged operator audit. It produced no new TIFF or score
-estimate and used no geological experiment or weekly slot. The five current shared evaluator,
+estimate and used no geological experiment or weekly slot. At that snapshot, the five shared evaluator,
 feature, and writer files remain byte-identical to the pinned defective versions. The named
 35-channel cache still has neither obtainable bytes nor a content digest;
 [upstream issue 53](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/53) requests a central
