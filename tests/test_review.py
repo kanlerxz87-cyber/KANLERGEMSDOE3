@@ -9,7 +9,7 @@ from scripts.review import build, verify_snapshots
 def fixture():
     from scripts.promotion_gate import REQUIRED_TRUE, VALIDATOR_CHECKS
     card={k:True for k in REQUIRED_TRUE}
-    card.update(surface_max_rank_correlation=.9,final_max_rank_correlation=.9,surface_dot_overlap_3px=.7,final_dot_overlap_3px=.7,max_feature_auc=.9,paired_improvement_ci95=[.001,.01],holdout={'class':'HOLDOUT-DTI','evaluator_version':'TEST ONLY','withheld_positives':10,'value':.2,'ci95':[.1,.3],'alpha':.2,'beta':.8,'kernel_m':300,'kernel':'triangular','aggregation':'pooled'},validator={k:True for k in VALIDATOR_CHECKS},raster_sha256='a'*64,hypothesis='synthetic',mechanism='test',non_fault_mimic='test',submission_name='test',submission_note='test')
+    card.update(surface_max_rank_correlation=.9,final_max_rank_correlation=.9,surface_dot_overlap_3px=.7,final_dot_overlap_3px=.7,max_feature_auc=.9,paired_improvement_ci95=[.001,.01],candidate_id='candidate',holdout={'class':'HOLDOUT-DTI','evaluator_version':'TEST ONLY','withheld_positives':10,'value':.2,'ci95':[.1,.3],'alpha':.2,'beta':.8,'kernel_m':300,'kernel':'triangular','aggregation':'pooled','fold_sha256':'b'*64},incumbent_comparison={'strongest_same_evaluator_incumbent':'best','incumbent_holdout_dti':.195},paired_comparison={'candidate_id':'candidate','incumbent_id':'best','candidate_value':.2,'incumbent_value':.195,'delta':.005,'ci95':[.001,.01],'evaluator_version':'TEST ONLY','withheld_positives':10,'fold_sha256':'b'*64},validator={k:True for k in VALIDATOR_CHECKS},raster_sha256='a'*64,hypothesis='synthetic',mechanism='test',non_fault_mimic='test',submission_name='test',submission_note='test')
     return card
 
 class ReviewTests(unittest.TestCase):

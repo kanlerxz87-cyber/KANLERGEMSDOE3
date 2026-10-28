@@ -97,10 +97,10 @@
     link.textContent = 'Latest L-K3-ATSC-SUBMOD study (Exp-ATSC-2): research only · DO NOT SUBMIT';
     title.append(link);
     const note = document.createElement('p');
-    note.textContent = 'Scoped participant-mirror HOLDOUT-DTI 0.163715 (95% CI [0.153314, 0.174809], gems-segment-pooled-v1, 60,988 withheld positives; +66.4 bps vs prior CADG; 87/87 genuine fault detectors <=57.14%). Fails the literal all-registry 207k lattice rule (99.99% unfiltered / 99.77% off-catalogue; verdict=negative, slot_authorized=false; selector cannot waive). ';
+    note.textContent = 'The independent saved-byte review confirms 99.99% overlap with the registered lattice. The historical canary inventory omits all 22 Stage-2 corridor features, and its positive paired interval is versus B0 rather than the named CADG incumbent. The result is research only; a selector cannot waive the duplicate stop. ';
     const guide = document.createElement('a');
     guide.href = new URL('atsc-submod/executive-summary.html', scriptURL).href;
-    guide.textContent = 'Executive summary, encoding reference & research-only GeoTIFFs ->';
+    guide.textContent = 'Corrected archive, saved-byte audit & submission guide ->';
     note.append(guide);
     panel.append(title, note);
     section.append(panel);

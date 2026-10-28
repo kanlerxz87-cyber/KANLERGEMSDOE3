@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "session_id": "cfcca804",
+  "kind": "NEGATIVE REVIEW CARD — NO NEW GEOLOGICAL EXPERIMENT",
+  "hypothesis": "A new geological hypothesis cannot be assigned to this parallel lane because the requested single-method paragraph is absent.",
+  "mechanism": "No new model was fitted; this review tested saved-byte uniqueness, historical canary coverage, paired-comparison binding and synthetic metric invariants.",
+  "non_fault_mimic": "Volcanic lithologic contacts or survey seams can resemble magnetic and radiometric edges; no new geological interpretation was evaluated.",
+  "assigned_method_paragraph": null,
+  "session_started_utc": null,
+  "clock_note": "No new geological experiment was started and no start time was fabricated or prior budget reopened.",
+  "geological_experiments_this_session": 0,
+  "weekly_slots_used_this_session": 0,
+  "holdout_dti": null,
+  "holdout_ci95": null,
+  "surface_registry_comparison": null,
+  "final_dot_registry_comparison": null,
+  "raster_sha256": null,
+  "validator_output": {
+    "status": "NOT RUN — no new candidate TIFF exists"
+  },
+  "submission_name": null,
+  "submission_note": "No eligible candidate; do not upload or spend a weekly slot.",
+  "historical_atsc_audit": "evidence/session-cfcca804-atsc-audit.json",
+  "upstream_source_audit": "evidence/session-cfcca804-upstream-prerequisites.json",
+  "upstream_synthetic_operator_audit": "evidence/session-cfcca804-upstream-operator.json",
+  "organizer_template_authenticated": false,
+  "leaderboard_estimate": null,
+  "ok_to_download_for_submission": false,
+  "ok_to_submit": false,
+  "slot_authorized": false,
+  "verdict": "negative"
+}

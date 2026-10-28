@@ -929,4 +929,6 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    from archive_guard import stop_archived_cli
+    stop_archived_cli()
     raise SystemExit(main())

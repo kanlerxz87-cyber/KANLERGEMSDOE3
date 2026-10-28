@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Controlled 3-experiment runner for L-K3-ATSC-SUBMOD (KANLERGEMSDOE3).
+"""Archived L-K3-ATSC-SUBMOD runner; direct CLI execution is disabled.
 
-Supports checkpointed execution (`--stage primary`, `--stage finalize`, or default `--stage all`)
-within the strict <=3 experiment, <=2 hour Parallel-Run Protocol budget.
+The earlier three-experiment session and its evidence are frozen. The archived
+implementation is retained for review, not for reopening its budget or writing
+another TIFF. Use ``scripts/audit_atsc_archive.py`` for a read-only forensic check.
 """
 from __future__ import annotations
 
@@ -1004,4 +1005,6 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    from archive_guard import stop_archived_cli
+    stop_archived_cli()
     raise SystemExit(main())

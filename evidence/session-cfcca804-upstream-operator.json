@@ -1,0 +1,35 @@
+{
+  "kind": "UPSTREAM SYNTHETIC OPERATOR AUDIT \u2014 NOT HOLDOUT-DTI",
+  "repository": "buffedlizard55-lab/GEMSDOE32",
+  "commit": "e56a10a9d2f218c05ea66c5a5b7228bb780bb5a7",
+  "sources": [
+    {
+      "path": "src/gems32/__init__.py",
+      "git_blob_sha1": "9efce07675433f30ed55b7b2ed8b3ea17185234e"
+    },
+    {
+      "path": "src/gems32/metric.py",
+      "git_blob_sha1": "33b32da8909811f4ef004c556ecdcdc44c564ebe"
+    },
+    {
+      "path": "src/gems32/submission.py",
+      "git_blob_sha1": "d1857dbb16a52ed030ea1258151e476fa2f2fe71"
+    },
+    {
+      "path": "src/gems32/holdout.py",
+      "git_blob_sha1": "d9b40fd2068c84f6839eab65ebb0aa3b5c2e806e"
+    }
+  ],
+  "checks": {
+    "empty_truth_fp_preserved": false,
+    "synthetic_fold_fp": 1.0,
+    "synthetic_pooled_block_fp": 0.0,
+    "soft_input_behavior": "REJECTED",
+    "soft_detail": "Binary predictions must be finite and exactly 0 or 1 inside the footprint; no implicit thresholding",
+    "scope": "Synthetic fixtures only; neither observed behavior proves an organizer result or a complete repair."
+  },
+  "source_repinned": false,
+  "candidate_generated": false,
+  "slot_authorized": false,
+  "verdict": "negative"
+}

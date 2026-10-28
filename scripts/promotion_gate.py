@@ -58,6 +58,37 @@ def assess(card):
     if not interval(improvement, -1, 1) or improvement[0] <= 0:
         failures.append("paired_holdout_improvement")
     metric = card.get("holdout") if isinstance(card.get("holdout"), dict) else {}
+    # An interval versus an easy baseline is not evidence of improvement over
+    # the named best incumbent. These fields provide only schema-level binding;
+    # the underlying fold predictions and receipts still need authentication.
+    pair = card.get("paired_comparison") if isinstance(card.get("paired_comparison"), dict) else {}
+    incumbent = card.get("incumbent_comparison") if isinstance(card.get("incumbent_comparison"), dict) else {}
+    candidate_id, incumbent_id = card.get("candidate_id"), incumbent.get("strongest_same_evaluator_incumbent")
+    fold_digest = metric.get("fold_sha256")
+    candidate_value, incumbent_value = pair.get("candidate_value"), pair.get("incumbent_value")
+    delta = pair.get("delta")
+    paired_bound = (
+        isinstance(candidate_id, str) and bool(candidate_id.strip())
+        and isinstance(incumbent_id, str) and bool(incumbent_id.strip())
+        and candidate_id != incumbent_id
+        and pair.get("candidate_id") == candidate_id and pair.get("incumbent_id") == incumbent_id
+        and isinstance(fold_digest, str) and bool(re.fullmatch(r"[0-9a-f]{64}", fold_digest))
+        and pair.get("fold_sha256") == fold_digest
+        and isinstance(metric.get("evaluator_version"), str) and bool(metric["evaluator_version"].strip())
+        and pair.get("evaluator_version") == metric.get("evaluator_version")
+        and type(metric.get("withheld_positives")) is int and metric["withheld_positives"] > 0
+        and type(pair.get("withheld_positives")) is int
+        and pair.get("withheld_positives") == metric["withheld_positives"]
+        and finite(candidate_value) and finite(incumbent_value) and finite(delta)
+        and finite(metric.get("value")) and finite(incumbent.get("incumbent_holdout_dti"))
+        and 0 <= incumbent_value < candidate_value <= 1
+        and math.isclose(candidate_value, metric["value"], rel_tol=0, abs_tol=1e-12)
+        and math.isclose(incumbent_value, incumbent["incumbent_holdout_dti"], rel_tol=0, abs_tol=1e-12)
+        and math.isclose(delta, candidate_value - incumbent_value, rel_tol=0, abs_tol=1e-12)
+        and interval(improvement, -1, 1) and pair.get("ci95") == improvement
+    )
+    if not paired_bound:
+        failures.append("paired_incumbent_binding")
     version = metric.get("evaluator_version")
     if metric.get("class") != "HOLDOUT-DTI" or not isinstance(version, str) or not version.strip():
         failures.append("holdout_identity")
