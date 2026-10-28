@@ -1,6 +1,8 @@
-# Executive summary — 2026-10-28 CFRP session
+# Executive summary — 2026-10-28 CFRP session (research only)
 
-## ✅ DOWNLOAD THIS FILE (unique, validated, ready to submit)
+## 🔴 DOWNLOAD FOR RESEARCH ONLY — DO NOT SUBMIT
+
+Current literal-gate wrapper: [`cfrp-literal-gate-20261028.json`](cfrp-literal-gate-20261028.json). The concurrent original run card is preserved as a scoped research record; it is not current upload authorization.
 
 **File:** [`kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif`](downloads/kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif)
 (also as [`.zip`](downloads/kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.zip))
@@ -11,22 +13,23 @@
 | Gate | Result |
 |---|---|
 | Format validator (`submission-format-v4`, finite-grid profile) | **PASS** — single band float32, EPSG:32611, 3730×3292, transform matches sample, 0 NaN inside footprint, **entire grid finite and in [0,1]** (min 0.0, max 1.0). This zeros-outside encoding is the one that cannot trip the portal's "Predicted values must be in range [0, 1]" check. |
-| Unique vs focus-9 champions? | **YES** — surface Spearman max \|ρ\| = **0.093** (limit 0.90); final dots within 3 px max **34.8%** (limit 70%). Checked on the surface before placement and on the final dots. |
+| Unique under literal all-registry rule? | **NO / STOP** — focus-nine diagnostic passes (surface Spearman max \|ρ\| = **0.093**; final dots max **34.8%**), but the run card records **100%** final-dot overlap with the spacing-5 calibration lattice and a pigeonhole minimum above 70%. |
 | Validated score estimate | **HOLDOUT-DTI 0.1388** (evaluator `gems-segment-pooled-v1`, 60,988 withheld positives, 95% CI [0.1275, 0.1496]) |
 | Leaderboard projection | **PROJECTION 0.111** (live-ledger inversion S3, LOO MAE 0.0219 — a projection, never a score; no ORGANIZER-CONFIRMED score exists for this file) |
 | SHA-256 | `7fb488c0560820dfb3f26b62316140d2987107726e3e9753bdd789b6c4d684fd` |
 
-**Honest expectation:** this is the best *unique* candidate produced under this
-session's 3-experiment budget and the only file here that is eligible to
-download and submit. Current evidence does **not** establish that it beats the
-owner-reported 0.2778 (projection 0.111; champion same-fit projection 0.2843).
-Spending a weekly slot is a separate selector decision.
+**Fail-closed decision:** this is a format-valid concurrent research artifact,
+not an eligible upload. It passes the bounded focus-nine diagnostic but its own
+run card records 100% overlap with the spacing-5 calibration lattice; the
+standing all-registry rule therefore stops it. Current evidence does **not**
+establish that it beats the owner-reported 0.2778 (projection 0.111; champion
+same-fit projection 0.2843). No weekly slot is authorized.
 
 ## Required table — what to download, estimated score, unique?
 
 | File to download | Estimated score | Unique vs the 9 focus sites? | Submit? |
 |---|---|---|---|
-| **`kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif` (this session)** | HOLDOUT-DTI **0.1388** [0.1275, 0.1496] (60,988 withheld); PROJECTION 0.111 | **Yes** — max \|ρ\| 0.093, max 3-px dot overlap 34.8% vs every focus-9 champion | **YES — the only eligible file** |
+| **`kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif` (research only)** | HOLDOUT-DTI **0.1388** [0.1275, 0.1496] (60,988 withheld); PROJECTION 0.111 (not a score) | **NO under literal all-registry rule** — focus-nine-only max \|ρ\| 0.093 and 34.8%, but spacing-5 lattice overlap 100% | **NO — DO NOT SUBMIT** |
 | GEMSDOE32 `h33-h33-2-b2-…-e5eb6e7e-zeros` (historical) | Owner-reported 0.2778 (not organizer-confirmed; not estimable by us) | **No** — it is the GEMSDOE25/30 mask minus near-catalogue dots; family duplicates itself | No — previous submission, not unique, not ours to resubmit |
 | GEMSDOE36 `anderson-geothermal-pinn-38854-…-zeros` (historical) | Owner-reported 0.2750 | No (focus family overlap >70% vs peers per repo audit) | No |
 | GEMSDOE28 `h36-1-rung30-blind-r1-…` (historical) | Owner-reported 0.2710 | No | No |
@@ -63,9 +66,11 @@ Spending a weekly slot is a separate selector decision.
   the same parent; not an independent candidate. Not submittable.
 
 **Clear answer to "which is the best submission to submit?":** historically,
-GEMSDOE32's H33-B2 scored highest — but it is a previous, non-unique family
-submission. The best (and only) file that is both unique and validated for a
-new submission is this session's CFRP file in the table above.
+GEMSDOE32's H33-B2 scored highest in the supplied owner report — but it is a
+previous, non-unique family submission. The CFRP file is format-valid and
+passes the bounded focus-nine diagnostic, but the literal full-registry
+calibration-lattice stop fails. Therefore **no file in this subportal is
+approved for competition upload**.
 
 ## Why did 0.2778 win, and can we beat it?
 
@@ -89,13 +94,12 @@ near the champions' corroborated network. Beating 0.2778 credibly therefore
 needs a surface that is *both* near that network's geology *and* <70%/ρ≤0.90
 different in dots/surface — the next-session experiment, not a claim made here.
 
-## How to submit (no human inspection needed)
+## Research retention — no competition upload
 
-1. Download the `-zeros.tif` above. 2. DrivenData → competition 306 →
-Submit → upload the `.tif` (or the `.zip`). 3. Paste the 79-char note.
-4. Automated gates already run: format validator PASS, uniqueness PASS,
-holdout reported above. Portal acceptance itself is NOT_TESTED — no portal
-submission was made from this sandbox.
+Download the `-zeros.tif` above only for local research/audit. Do **not** upload
+it: the literal full-registry uniqueness gate fails on the spacing-5 calibration
+lattice. The 79-character note and validator receipts are retained for lineage;
+no selector authorization or portal receipt exists.
 
 ## Experiments (budget 3/3, all HOLDOUT-DTI, evaluator gems-segment-pooled-v1, 60,988 withheld)
 

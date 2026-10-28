@@ -1,25 +1,25 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
-## ✅ NEW 2026-10-28 — unique validated submission ready to download
+## 28 October 2026 candidate quarantine — no upload authorized
 
-**Download:** [`docs/cfrp-20261028/downloads/kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif`](docs/cfrp-20261028/downloads/kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif) ·
-[Executive summary & submission page](docs/cfrp-20261028/index.html) ·
-[Run card](docs/cfrp-20261028/run-card.json)
+The concurrent CFRP lane produced a format-valid research TIFF and a recorded
+`HOLDOUT-DTI 0.1388` (evaluator `gems-segment-pooled-v1`, 60,988 withheld
+positives, 95% CI [0.1275, 0.1496]). Its `0.111` live-ledger value is a
+**PROJECTION, not a score**. It passed only the focus-nine comparison, but its
+own run card records `100%` final-dot overlap with the spacing-5 calibration
+lattice and a pigeonhole minimum above the 70% rule. Under the standing literal
+all-registry protocol, **it is not unique and must not be submitted**.
 
-CFRP (cross-field ridge persistence) lane, 3 experiments under the parallel-run
-protocol: **HOLDOUT-DTI 0.1388** (evaluator `gems-segment-pooled-v1`, 60,988
-withheld positives, 95% CI [0.1275, 0.1496]); leaderboard **PROJECTION 0.111**
-(live-ledger inversion, not a score). Unique vs all 9 focus champions
-(max Spearman |ρ| 0.093 ≤ 0.90; max 3-px dot overlap 34.8% ≤ 70%); format
-validator PASS with every value finite and in [0,1] (zeros variant — cannot
-trip the portal range error). Submission note (79 chars):
-`CFRP cross-field ridge persistence, 44090 ridge dots, collar>2px, zeros outside`.
-Beating the owner-reported 0.2778 is **not** established; a weekly slot remains
-a separate selector decision. All earlier "DO NOT SUBMIT" sections below remain
-accurate for the historical files they describe — they do not apply to this
-new, independently generated raster. The standing user request for this project
-is preserved verbatim in [PROJECT_PROMPT.md](PROJECT_PROMPT.md) and the
-"full standing user request" section below; read it at the start of every session.
+The research-only bytes and concurrent card remain available for audit at the
+[CFRP subportal](docs/cfrp-20261028/index.html), [run card](docs/cfrp-20261028/run-card.json),
+and [exact GeoTIFF](docs/cfrp-20261028/downloads/kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif).
+The site is a preserved concurrent experiment, not this review session's
+promotion authority. The exact file is **OK to download for research only;
+DO NOT SUBMIT**. No weekly slot is authorized.
+
+The standing user request for this project is preserved verbatim in
+[PROJECT_PROMPT.md](PROJECT_PROMPT.md) and the "full standing user request"
+section below; read it at the start of every session.
 
 **Start every session by reading this README (including the full user request below),
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
@@ -44,6 +44,16 @@ That separate session reported no competition rasters in its checkout. A project
 and the suite passed (257 passed, 9 skipped); fail-closed readiness still denies research
 and submission. No experiment, TIFF, score estimate, or competition slot was produced. The review documents the exact blockers
 and next actions. Its review card is not a model run card.
+
+## 28 October 2026 bounded peer-forensics continuation
+
+[Bounded current peer audit and next steps](research/peer-forensics-20261028.md) ·
+[Machine-readable 35-repository observation](evidence/nine_site_and_peer_forensics_20261028.json) ·
+[Exact ATSC saved-byte recheck](evidence/atsc-current-peer-audit-20261028.json)
+
+This continuation refreshed the nine requested focus repositories and 26 extended/sibling repositories at current GitHub commits. It selected at most 12 unique raster stems per repository, producing 249 hash-verified peer bytes; this is explicitly **not a complete registry** or organizer score feed. The exact ATSC research TIFF remains **DO NOT SUBMIT**: its final dots overlap 244 bounded discrete detectors by at most 57.143995%, but overlap a selected continuous calibration probe by 100%, and the full `r13-lattice-s5` receipt already forces the literal duplicate stop. No model, leaderboard estimate or weekly slot was created here.
+
+The fresh GEMSDOE30 off-lattice artifact is recorded as a boundary/calibration irregularity, not a promotion: 6,493 of 6,649 dots are within 500 m of the outer survey boundary and only 135 mirrored catalogue pixels lie in that uncovered zone. The current peer source feed is dated 28 October; participant pages, source commits and local holdouts are never converted into `ORGANIZER-CONFIRMED` scores.
 
 ## Final integrated continuation — 27 October 2026
 
