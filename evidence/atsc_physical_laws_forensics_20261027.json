@@ -1,0 +1,68 @@
+{
+  "KANLERGEMSDOE3_Exp-ATSC-2_NEW": {
+    "n_dots_off_catalogue": 37654,
+    "law1_far_field_gt_1p5km_frac": 0.569395,
+    "near_collar_le_2px_frac": 0.0,
+    "mid_band_200m_1p5km_frac": 0.430605,
+    "law2_flat_deep_basin_spill_frac": 0.029107,
+    "law3_clump_ge3_300m_frac": 0.001142,
+    "mean_300m_neighbors": 0.2175,
+    "footprint_300m_coverage_frac": 0.167331,
+    "lidar_void_dot_share": 0.246561
+  },
+  "KANLERGEMSDOE3_CADG_Exp_K3_3_PRIOR": {
+    "n_dots_off_catalogue": 37654,
+    "law1_far_field_gt_1p5km_frac": 0.511845,
+    "near_collar_le_2px_frac": 0.0,
+    "mid_band_200m_1p5km_frac": 0.488155,
+    "law2_flat_deep_basin_spill_frac": 0.033463,
+    "law3_clump_ge3_300m_frac": 0.01389,
+    "mean_300m_neighbors": 0.6626,
+    "footprint_300m_coverage_frac": 0.132855,
+    "lidar_void_dot_share": 0.331837
+  },
+  "GEMSDOE32_H33_B2_0p2778": {
+    "n_dots_off_catalogue": 37654,
+    "law1_far_field_gt_1p5km_frac": 0.583975,
+    "near_collar_le_2px_frac": 0.0,
+    "mid_band_200m_1p5km_frac": 0.416025,
+    "law2_flat_deep_basin_spill_frac": 0.004037,
+    "law3_clump_ge3_300m_frac": 0.006932,
+    "mean_300m_neighbors": 0.6301,
+    "footprint_300m_coverage_frac": 0.15188,
+    "lidar_void_dot_share": 0.244516
+  },
+  "GEMSDOE70_P8_0p2478": {
+    "n_dots_off_catalogue": 37654,
+    "law1_far_field_gt_1p5km_frac": 0.548813,
+    "near_collar_le_2px_frac": 0.0,
+    "mid_band_200m_1p5km_frac": 0.451187,
+    "law2_flat_deep_basin_spill_frac": 0.002125,
+    "law3_clump_ge3_300m_frac": 0.151113,
+    "mean_300m_neighbors": 1.3087,
+    "footprint_300m_coverage_frac": 0.126511,
+    "lidar_void_dot_share": 0.263531
+  },
+  "GEMSDOE36_KPL36_0p1647": {
+    "n_dots_off_catalogue": 37654,
+    "law1_far_field_gt_1p5km_frac": 0.494954,
+    "near_collar_le_2px_frac": 0.0,
+    "mid_band_200m_1p5km_frac": 0.505046,
+    "law2_flat_deep_basin_spill_frac": 0.020715,
+    "law3_clump_ge3_300m_frac": 0.425692,
+    "mean_300m_neighbors": 2.3528,
+    "footprint_300m_coverage_frac": 0.083542,
+    "lidar_void_dot_share": 0.216737
+  },
+  "GEMSDOE36_S2D36_holdout0p2008": {
+    "n_dots_off_catalogue": 37654,
+    "law1_far_field_gt_1p5km_frac": 0.508684,
+    "near_collar_le_2px_frac": 0.0,
+    "mid_band_200m_1p5km_frac": 0.491316,
+    "law2_flat_deep_basin_spill_frac": 0.03564,
+    "law3_clump_ge3_300m_frac": 0.30589,
+    "mean_300m_neighbors": 1.9923,
+    "footprint_300m_coverage_frac": 0.096498,
+    "lidar_void_dot_share": 0.256175
+  }
+}

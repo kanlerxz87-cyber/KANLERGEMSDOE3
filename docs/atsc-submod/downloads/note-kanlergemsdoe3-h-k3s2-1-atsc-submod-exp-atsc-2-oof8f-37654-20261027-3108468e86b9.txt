@@ -1,0 +1,1 @@
+H-K3S2-1 Exp-ATSC-2: ATSC dip-wedge+8-az corridor+d2.85 300m CELF 37654d HOLDOUT-DTI=0.1637 3108468e86b9

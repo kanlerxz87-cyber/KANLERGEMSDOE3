@@ -19,8 +19,10 @@ def main():
     # committed root page be silently replaced or shipped by an isolated lane.
     from scripts.build_site import build as check_root
     from scripts.build_cadg_site import build as check_cadg
+    from scripts.build_atsc_site import build as check_atsc
     check_root(check_only=True)
     check_cadg(check_only=True)
+    check_atsc(check_only=True)
     tracked = subprocess.check_output(['git','ls-files','-z'], cwd=ROOT).decode().split('\0')
     files = []
     blocked = {'.git','.cache','.venv','node_modules','__pycache__','.pytest_cache'}

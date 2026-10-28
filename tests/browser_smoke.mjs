@@ -141,6 +141,19 @@ try {
     await noGlobalOverflow(page, 'desktop ' + name);
   }
   checks.push('CADG pages quarantine both encodings and reject selector override or portal guarantees');
+  for (const name of ['atsc-submod/index.html', 'atsc-submod/executive-summary.html', 'atsc-submod/hypotheses.html']) {
+    const result = await page.goto(base + '/' + name, { waitUntil: 'networkidle' });
+    assert.equal(result.status(), 200, name);
+    assert.equal(await page.locator('h1').count(), 1, name);
+    if (name !== 'atsc-submod/hypotheses.html') {
+      const body = await page.locator('body').innerText();
+      assert.match(body, /DO NOT SUBMIT/);
+      assert.match(body, /cannot waive/i);
+      assert.match(body, /unverified/i);
+    }
+    await noGlobalOverflow(page, 'desktop ' + name);
+  }
+  checks.push('ATSC subportal pages render responsive tables, research-only downloads and fail-closed literal gate');
   assert.deepEqual(errors, []);
   checks.push('desktop: no JavaScript exceptions across every active page');
   await desktop.close();

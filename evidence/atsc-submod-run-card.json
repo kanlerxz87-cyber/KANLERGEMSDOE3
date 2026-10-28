@@ -1,0 +1,339 @@
+{
+  "lane_id": "L-K3-ATSC-SUBMOD",
+  "selected_hypothesis_id": "H-K3S2-1",
+  "selected_ablation_id": "Exp-ATSC-2",
+  "deployment_surface_mode": "8-fold-spatial-OOF-cross-fitted (0.5*quadrant + 0.5*diagonal)",
+  "lane_recorded": true,
+  "shared_template_pinned": true,
+  "canonical_cache_verified": true,
+  "shared_operator_audit_passed": true,
+  "whole_segment_buffered_holdout": true,
+  "visible_only_features": true,
+  "pixel_exact_visible_mask": true,
+  "out_of_fold_lineage_verified": true,
+  "all_features_canary_tested": true,
+  "same_evaluator_incumbent": true,
+  "registry_complete": true,
+  "surface_checked_before_placement": true,
+  "preview_dots_checked_before_writing": true,
+  "final_dots_checked": true,
+  "preview_final_support_matches": true,
+  "saved_bytes_validated": true,
+  "template_provenance_verified": false,
+  "outside_encoding_contract_verified": false,
+  "budget_verified": true,
+  "hypothesis": "H-K3S2-1 (Exp-ATSC-2, lane L-K3-ATSC-SUBMOD): Listric normal-fault basinward dip-offset (+300..+700 m) hanging-wall wedge tomography, GeoDAWN radon/potassic DoG & 4-block seam deconfounding, and nested spatial-OOF Stage-2 8-azimuth (1.0 km & 2.6 km) structural corridor tomography with axial crest concentration and non-clumping d=2.85 300 m submodular CELF recover concealed off-catalogue Quaternary faults substantially better than 1-stage CADG-Submod (Exp-K3-2 / Exp-K3-3) and B0 regional incumbents.",
+  "mechanism": "Two-stage nested spatial-OOF learner: Stage-1 disjoint LiDAR / seamless 10 m-3DEP HGB specialists fuse 77 label-free geophysical/topographic/hydrothermal channels with 22 basinward dip-offset hanging-wall wedge & GeoDAWN radon/seam channels; Stage-2 U-GBDT integrates 8-azimuth 1.0 km and 2.6 km directional corridor line means, bilateral interior continuity, cross-strike anisotropy, and 800 m crest concentration; emitted at N=37,654 off-catalogue binary {0,1} dots via axial-spine d=2.85 300 m CELF submodular allocation.",
+  "non_fault_mimic": "Tilted Mio-Pliocene volcanic ash-flow tuff hogbacks or buried caldera ring margins dipping basinward above alluvial fans away from TIGER/Line roads and Pleistocene shoreline highstands.",
+  "holdout": {
+    "class": "HOLDOUT-DTI",
+    "evaluator_version": "gems-segment-pooled-v1",
+    "split_id": "quadrant-buffered-15px-v1",
+    "withheld_positives": 60988,
+    "value": 0.1637154060975635,
+    "ci95": [
+      0.15331407692303034,
+      0.1748086574042234
+    ],
+    "alpha": 0.2,
+    "beta": 0.8,
+    "kernel_m": 300,
+    "kernel": "triangular",
+    "aggregation": "pooled"
+  },
+  "paired_improvement_ci95": [
+    0.04879747320344218,
+    0.07395741605736927
+  ],
+  "max_feature_auc": 0.630488,
+  "surface_max_rank_correlation": 0.204066,
+  "surface_dot_overlap_3px": 1.0,
+  "final_max_rank_correlation": 0.071221,
+  "final_dot_overlap_3px": 1.0,
+  "incumbent_comparison": {
+    "strongest_same_evaluator_incumbent": "CADG_Exp_K3_3_prior_repo_best",
+    "incumbent_holdout_dti": 0.15707951145733381,
+    "incumbent_ci95": [
+      0.14305676474785212,
+      0.1710298003168745
+    ],
+    "delta_vs_cadg_exp_k3_3": 0.006636,
+    "fold_wins_vs_cadg_exp_k3_3": "4/4",
+    "paired_vs_b0_regional_d28": {
+      "evaluator_version": "gems-segment-pooled-v1",
+      "candidate_dti": 0.1637154060975635,
+      "baseline_dti": 0.10225451596817445,
+      "paired_delta_dti": 0.061460890129389045,
+      "paired_delta_ci95": [
+        0.04879747320344218,
+        0.07395741605736927
+      ],
+      "ci95_strictly_positive": true,
+      "fold_wins": 4,
+      "n_folds": 4,
+      "min_fold_delta": 0.04302872215630826,
+      "folds": [
+        {
+          "fold": "NW",
+          "candidate_dti": 0.18293498349632772,
+          "baseline_dti": 0.11108261857216783,
+          "delta_dti": 0.07185236492415989,
+          "candidate_wins": true
+        },
+        {
+          "fold": "NE_LidarGapHeavy",
+          "candidate_dti": 0.19558123737551902,
+          "baseline_dti": 0.15255251521921076,
+          "delta_dti": 0.04302872215630826,
+          "candidate_wins": true
+        },
+        {
+          "fold": "SW",
+          "candidate_dti": 0.1112185159530527,
+          "baseline_dti": 0.062272344896491465,
+          "delta_dti": 0.04894617105656123,
+          "candidate_wins": true
+        },
+        {
+          "fold": "SE",
+          "candidate_dti": 0.1881167723446818,
+          "baseline_dti": 0.10470440788358495,
+          "delta_dti": 0.08341236446109684,
+          "candidate_wins": true
+        }
+      ]
+    },
+    "within_lane_ablations_holdout_dti": {
+      "Exp-ATSC-1": {
+        "dti": 0.161641,
+        "ci95": [
+          0.149321,
+          0.173826
+        ]
+      },
+      "Exp-ATSC-2": {
+        "dti": 0.163715,
+        "ci95": [
+          0.153314,
+          0.174809
+        ]
+      },
+      "Exp-ATSC-3": {
+        "dti": 0.16129,
+        "ci95": [
+          0.151015,
+          0.172266
+        ]
+      }
+    },
+    "orthogonal_diagonal_confirmation": {
+      "split_id": "diagonal-wedge-buffered-20px-confirm-v1",
+      "candidate_holdout_dti": 0.15284427203454354,
+      "candidate_ci95": [
+        0.14186636427223073,
+        0.16413944227598917
+      ],
+      "recorded_cadg_exp_k3_3_diag_dti": 0.147663,
+      "delta_vs_recorded_cadg_exp_k3_3_diag": 0.005181,
+      "b0_holdout_dti": 0.09623027773222052,
+      "paired_delta_vs_b0": 0.056613994302323015,
+      "paired_delta_ci95_vs_b0": [
+        0.04567390949160673,
+        0.06814416994142829
+      ],
+      "fold_wins_vs_b0": "4/4"
+    }
+  },
+  "leakage_canary": {
+    "tested_features_count": 103,
+    "max_feature_auc": 0.630488,
+    "threshold": 0.9,
+    "leakage_suspected": false
+  },
+  "uniqueness_registry_summary": {
+    "total_rasters_checked": 90,
+    "genuine_detector_rasters_checked": 87,
+    "calibration_probes_checked": 3,
+    "genuine_detectors_passed": true,
+    "genuine_surface_max_abs_spearman_rho": 0.179908,
+    "genuine_surface_dot_overlap_3px": 0.66155,
+    "genuine_final_max_abs_spearman_rho": 0.071221,
+    "genuine_final_dot_overlap_3px": 0.57144,
+    "nearest_genuine_surface_detector": {
+      "id": "KANLERGEMSDOE2:gems27-h31-drcg-wl-celf28-20261026-cf8e1bbef244-allfinite",
+      "site": "KANLERGEMSDOE2",
+      "file": "KANLERGEMSDOE2__gems27-h31-drcg-wl-celf28-20261026-cf8e1bbef244-allfinite.tif",
+      "sha256": "2c002b02792419864bd3b29a218e543cb41e3f07b3b57c29ef35c6e39e184bfe",
+      "positive_pixels_off_catalogue": 37654,
+      "reported_dti": null,
+      "is_calibration_probe": false,
+      "surface_spearman_rho": 0.100709,
+      "surface_abs_spearman_rho": 0.100709,
+      "surface_preview_3px_overlap": 0.66155,
+      "final_spearman_rho": 0.047158,
+      "final_abs_spearman_rho": 0.047158,
+      "final_3px_overlap": 0.57144
+    },
+    "nearest_genuine_final_detector": {
+      "id": "KANLERGEMSDOE2:gems27-h31-drcg-wl-celf28-20261026-cf8e1bbef244-allfinite",
+      "site": "KANLERGEMSDOE2",
+      "file": "KANLERGEMSDOE2__gems27-h31-drcg-wl-celf28-20261026-cf8e1bbef244-allfinite.tif",
+      "sha256": "2c002b02792419864bd3b29a218e543cb41e3f07b3b57c29ef35c6e39e184bfe",
+      "positive_pixels_off_catalogue": 37654,
+      "reported_dti": null,
+      "is_calibration_probe": false,
+      "surface_spearman_rho": 0.100709,
+      "surface_abs_spearman_rho": 0.100709,
+      "surface_preview_3px_overlap": 0.66155,
+      "final_spearman_rho": 0.047158,
+      "final_abs_spearman_rho": 0.047158,
+      "final_3px_overlap": 0.57144
+    },
+    "pigeonhole_lattice_bounds": [
+      {
+        "id": "calib_13gems_20261001_r13-lattice-s5_v2_nan-ou",
+        "probe_in_footprint_dots": 206895,
+        "footprint_cells_total": 5167373,
+        "footprint_cells_within_3px": 5160724,
+        "footprint_cells_uncovered": 6649,
+        "footprint_3px_saturation_fraction": 0.998713,
+        "candidate_budget_dots": 37654,
+        "mathematical_min_possible_3px_overlap": 0.823418
+      },
+      {
+        "id": "GEMSDOE76:gems76-geophys-cataloguefree-rank-gate1-20261021",
+        "probe_in_footprint_dots": 5106385,
+        "footprint_cells_total": 5167373,
+        "footprint_cells_within_3px": 5167373,
+        "footprint_cells_uncovered": 0,
+        "footprint_3px_saturation_fraction": 1.0,
+        "candidate_budget_dots": 37654,
+        "mathematical_min_possible_3px_overlap": 1.0
+      },
+      {
+        "id": "WBGGEMSDOE2:wbg-h1-blind-conduit-breach-20261026T220000Z-a1b2c3d4-zeros",
+        "probe_in_footprint_dots": 5167373,
+        "footprint_cells_total": 5167373,
+        "footprint_cells_within_3px": 5167373,
+        "footprint_cells_uncovered": 0,
+        "footprint_3px_saturation_fraction": 1.0,
+        "candidate_budget_dots": 37654,
+        "mathematical_min_possible_3px_overlap": 1.0
+      }
+    ],
+    "calibration_probes": [
+      {
+        "id": "calib_13gems_20261001_r13-lattice-s5_v2_nan-ou",
+        "site": "GEMSDOE24_archive",
+        "file": "13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+        "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+        "positive_pixels_off_catalogue": 204504,
+        "reported_dti": null,
+        "is_calibration_probe": true,
+        "surface_spearman_rho": -0.006613,
+        "surface_abs_spearman_rho": 0.006613,
+        "surface_preview_3px_overlap": 1.0,
+        "final_spearman_rho": -0.000727,
+        "final_abs_spearman_rho": 0.000727,
+        "final_3px_overlap": 0.997663
+      },
+      {
+        "id": "GEMSDOE76:gems76-geophys-cataloguefree-rank-gate1-20261021",
+        "site": "GEMSDOE76",
+        "file": "GEMSDOE76__gems76-geophys-cataloguefree-rank-gate1-20261021.tif",
+        "sha256": "9810829f5df3c8e8267a3b2079653a8d0f2dcecceeb3310076f88dbf92095c69",
+        "positive_pixels_off_catalogue": 5106385,
+        "reported_dti": null,
+        "is_calibration_probe": true,
+        "surface_spearman_rho": 0.204066,
+        "surface_abs_spearman_rho": 0.204066,
+        "surface_preview_3px_overlap": 1.0,
+        "final_spearman_rho": 0.026022,
+        "final_abs_spearman_rho": 0.026022,
+        "final_3px_overlap": 1.0
+      },
+      {
+        "id": "WBGGEMSDOE2:wbg-h1-blind-conduit-breach-20261026T220000Z-a1b2c3d4-zeros",
+        "site": "WBGGEMSDOE2",
+        "file": "WBGGEMSDOE2__wbg-h1-blind-conduit-breach-20261026T220000Z-a1b2c3d4-zeros.tif",
+        "sha256": "95458ad456a01733d1e95e537557bd410b82543985cb22b9174429cffc2fa9ad",
+        "positive_pixels_off_catalogue": 5106385,
+        "reported_dti": null,
+        "is_calibration_probe": true,
+        "surface_spearman_rho": 0.002363,
+        "surface_abs_spearman_rho": 0.002363,
+        "surface_preview_3px_overlap": 1.0,
+        "final_spearman_rho": 0.001489,
+        "final_abs_spearman_rho": 0.001489,
+        "final_3px_overlap": 1.0
+      }
+    ]
+  },
+  "physical_laws": {
+    "n_dots_off_catalogue": 37654,
+    "law1_far_field_gt_1p5km_frac": 0.569395,
+    "near_collar_le_2px_frac": 0.0,
+    "mid_band_200m_1p5km_frac": 0.430605,
+    "law2_flat_deep_basin_spill_frac": 0.029107,
+    "law3_clump_ge3_300m_frac": 0.001142,
+    "mean_300m_neighbors": 0.2175,
+    "footprint_300m_coverage_frac": 0.167331,
+    "lidar_void_dot_share": 0.246561
+  },
+  "raster_sha256": "bf21ac69a0e5e6325d9725e7188be210a24b2e68b68060574db56af0d5972566",
+  "validator": {
+    "single_band": true,
+    "dtype_float32": true,
+    "no_nan_inside_footprint": true,
+    "no_masked_inside_footprint": true,
+    "inside_range_0_1": true,
+    "selected_encoding": true,
+    "all_finite": true,
+    "range_0_1": true,
+    "crs_match": true,
+    "shape_match": true,
+    "transform_match": true,
+    "whole_array_all_finite_0_1": true,
+    "predicted_positive_dots": 37654,
+    "catalogue_overlap_dots": 0
+  },
+  "submission_name": "kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros",
+  "submission_note": "H-K3S2-1 Exp-ATSC-2: ATSC dip-wedge+8-az corridor+d2.85 300m CELF 37654d HOLDOUT-DTI=0.1637 3108468e86b9",
+  "note": "H-K3S2-1 Exp-ATSC-2: ATSC dip-wedge+8-az corridor+d2.85 300m CELF 37654d HOLDOUT-DTI=0.1637 3108468e86b9",
+  "submission_artifacts": {
+    "primary_zeros_tif": "docs/atsc-submod/downloads/kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros.tif",
+    "primary_zeros_zip": "docs/atsc-submod/downloads/kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros.zip",
+    "primary_zeros_sha256": "bf21ac69a0e5e6325d9725e7188be210a24b2e68b68060574db56af0d5972566",
+    "primary_zeros_bytes": 825834,
+    "official_nan_twin_tif": "docs/atsc-submod/downloads/kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-nan.tif",
+    "official_nan_twin_zip": "docs/atsc-submod/downloads/kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-nan.zip",
+    "official_nan_twin_sha256": "c5aa1f764151a4c3f7116bf635c3dc7fa337bc07b18ad905f3307e2a94776f29",
+    "note_file": "docs/atsc-submod/downloads/note-kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9.txt",
+    "receipt_file": "docs/atsc-submod/downloads/receipt-kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9.json"
+  },
+  "experiments_used": 3,
+  "max_experiments_budget": 3,
+  "elapsed_seconds": 1263.11,
+  "live_submission_slots_used": 0,
+  "verdict": "negative",
+  "slot_authorized": false,
+  "gate_failures": [
+    "template_provenance_verified",
+    "outside_encoding_contract_verified",
+    "surface_dot_overlap_3px",
+    "final_dot_overlap_3px"
+  ],
+  "promotion_gate": {
+    "verdict": "negative",
+    "schema_status": "incomplete",
+    "failures": [
+      "template_provenance_verified",
+      "outside_encoding_contract_verified",
+      "surface_dot_overlap_3px",
+      "final_dot_overlap_3px"
+    ],
+    "promotion_evaluated": false,
+    "slot_authorized": false,
+    "scope": "Schema validation only; does not authenticate evidence, promote, publish or spend a competition slot."
+  }
+}
