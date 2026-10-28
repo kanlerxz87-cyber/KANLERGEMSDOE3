@@ -76,3 +76,36 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount, {once: true});
   else mount();
 })();
+
+/* Parallel-safe L-K3-ATSC-SUBMOD entry point: isolated under docs/atsc-submod/. */
+(() => {
+  const scriptURL = document.currentScript ? document.currentScript.src : window.location.href;
+  const mount = () => {
+    const main = document.querySelector('main');
+    if (!main || document.getElementById('atsc-submod-study-link')) return;
+    const section = document.createElement('section');
+    section.id = 'atsc-submod-study-link';
+    section.className = 'wrap';
+    section.setAttribute('aria-label', 'L-K3-ATSC-SUBMOD 8-fold OOF research result and literal gate');
+    const panel = document.createElement('div');
+    panel.className = 'panel';
+    panel.style.padding = '20px';
+    panel.style.marginTop = '20px';
+    const title = document.createElement('h2');
+    const link = document.createElement('a');
+    link.href = new URL('atsc-submod/index.html', scriptURL).href;
+    link.textContent = 'Latest L-K3-ATSC-SUBMOD study (Exp-ATSC-2): research only · DO NOT SUBMIT';
+    title.append(link);
+    const note = document.createElement('p');
+    note.textContent = 'Scoped participant-mirror HOLDOUT-DTI 0.163715 (95% CI [0.153314, 0.174809], gems-segment-pooled-v1, 60,988 withheld positives; +66.4 bps vs prior CADG; 87/87 genuine fault detectors <=57.14%). Fails the literal all-registry 207k lattice rule (99.99% unfiltered / 99.77% off-catalogue; verdict=negative, slot_authorized=false; selector cannot waive). ';
+    const guide = document.createElement('a');
+    guide.href = new URL('atsc-submod/executive-summary.html', scriptURL).href;
+    guide.textContent = 'Executive summary, encoding reference & research-only GeoTIFFs ->';
+    note.append(guide);
+    panel.append(title, note);
+    section.append(panel);
+    main.append(section);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount, {once: true});
+  else mount();
+})();

@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "preregistration_id": "KANLERGEMSDOE3-ATSC-20261027",
+  "frozen_before_training": true,
+  "timestamp_utc": "2026-10-27T00:00:00Z",
+  "branch": "arena/9cdeb62a-kanlergemsdoe3",
+  "assigned_lane": "L-K3-ATSC-SUBMOD",
+  "selected_hypothesis_id": "H-K3S2-1",
+  "budget": {
+    "max_experiments": 3,
+    "max_wall_clock_hours": 2.0,
+    "planned_experiments": [
+      "Exp-ATSC-1",
+      "Exp-ATSC-2",
+      "Exp-ATSC-3"
+    ],
+    "live_slots_consumed_in_automation": 0
+  },
+  "evaluator": {
+    "primary_module": "vendor/gems24_template/holdout.py:SegmentHoldout",
+    "evaluator_version": "gems-segment-pooled-v1",
+    "primary_buffer_px": 15,
+    "orthogonal_confirmation": "scripts/cadg_evaluate_holdout.py:DiagonalSegmentHoldout",
+    "orthogonal_buffer_px": 20,
+    "alpha": 0.2,
+    "beta": 0.8,
+    "kernel_radius_m": 300.0,
+    "visible_collar_px": 2.05,
+    "full_submission_dot_budget": 37654,
+    "min_self_spacing_px": 2.85
+  },
+  "gates": {
+    "max_single_feature_canary_auc": 0.9,
+    "max_surface_abs_spearman_vs_genuine_detectors": 0.9,
+    "max_dot_abs_spearman_vs_genuine_detectors": 0.9,
+    "max_3px_overlap_vs_genuine_detectors": 0.7,
+    "paired_ci95_must_be_strictly_positive_vs_incumbent": true,
+    "preserve_literal_promotion_gate_fail_closed": true
+  },
+  "ranked_hypotheses": [
+    {
+      "rank": 1,
+      "id": "H-K3S2-1",
+      "title": "Anisotropic Tectonic-Strain Corridor & Listric Hanging-Wall Wedge Tomography (ATSC-Submod)",
+      "sandbox_viable": true,
+      "selected": true,
+      "named_non_fault_mimic": "Tilted Mio-Pliocene volcanic ash-flow tuff hogbacks or buried caldera ring margins dipping basinward above alluvial fans"
+    },
+    {
+      "rank": 2,
+      "id": "H-K3S2-2",
+      "title": "GeoDAWN Survey-Seam Deconfounding & 214Bi/208Tl Radon-Transport Degassing Ridges",
+      "sandbox_viable": true,
+      "selected": true,
+      "tested_in": "Exp-ATSC-2",
+      "named_non_fault_mimic": "Uraniferous rhyolitic ash-fall tuffs or oxidized evaporite playa roll-fronts"
+    },
+    {
+      "rank": 3,
+      "id": "H-K3S2-3",
+      "title": "Fold-Visible Coulomb Tip-Propagation Lobe x Label-Free Corridor Bridge",
+      "sandbox_viable": true,
+      "selected": true,
+      "tested_in": "Exp-ATSC-3",
+      "named_non_fault_mimic": "Incised alluvial-fan feeder channels aligned with range-front fault terminations"
+    },
+    {
+      "rank": 4,
+      "id": "H-K3S2-4",
+      "title": "Raw 1-D GeoDAWN Flight-Line CWT Singularity Chains x NASA OPERA DISP-S1 InSAR Phase-Step",
+      "sandbox_viable": false,
+      "selected": false,
+      "blocker": "Sandbox outbound allowlist blocks sciencebase.gov and asf.alaska.edu",
+      "named_non_fault_mimic": "Agricultural center-pivot groundwater pumping cones and geothermal reinjection subsidence bowls"
+    }
+  ]
+}
