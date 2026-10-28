@@ -4,6 +4,14 @@
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
 [current fixed session config](config/research-session-e2903b2e.json), [preserved prior session configs](config/), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-30454eca-run-card.json), and [latest negative card](evidence/session-e2903b2e-run-card.json). Never reset an earlier session clock.**
 
+## Repository review — 28 October 2026
+
+[Three-pass review](research/session-20261028-review.md) · **Negative / DO NOT SUBMIT**.
+This checkout has no competition rasters. A project-local test environment was installed
+and the suite passed (257 passed, 9 skipped); fail-closed readiness still denies research
+and submission. No experiment, TIFF, score estimate, or competition slot was produced. The review documents the exact blockers
+and next actions. Its review card is not a model run card.
+
 ## Final integrated continuation — 27 October 2026
 
 [Three-pass review and next steps](research/session-e2903b2e-review.md) ·
