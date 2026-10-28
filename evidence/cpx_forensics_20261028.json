@@ -1,0 +1,299 @@
+{
+  "kind": "CPX forensics; measured geometry + labelled proxies; no candidate",
+  "hashes": {
+    "training_features.tif": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5",
+    "labels.tif": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+    "sample_submission.tif": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc"
+  },
+  "grid": {
+    "shape": [
+      3730,
+      3292
+    ],
+    "footprint_px": 5167373,
+    "catalogue_px": 60988
+  },
+  "sample_irregularity": {
+    "ones_in_sample": 60988,
+    "ones_equal_catalogue": true,
+    "note": "Mirror sample finite values reproduce the catalogue; conflicts with an all-absence sample description. Provenance flagged, geometry unaffected."
+  },
+  "h33_lineage": {
+    "class": "GEOMETRY",
+    "gemsdoe25_dots": 44090,
+    "gemsdoe30_dots": 44090,
+    "gemsdoe32_dots": 37654,
+    "doe25_equals_doe30_mask": true,
+    "added_30_to_32": 0,
+    "removed_30_to_32": 6436,
+    "removed_within_2px_of_catalogue": 6436,
+    "retained32_within_2px": 0,
+    "doe32_equals_doe30_after_b2_exclusion": true,
+    "doe32_min_dist_to_catalogue_px": 2.23606797749979,
+    "doe32_dots_on_catalogue": 0
+  },
+  "lattice_pigeonhole": {
+    "class": "GEOMETRY",
+    "lattice_dots": 206895,
+    "footprint_cells_within_3px_of_lattice": 5160724,
+    "footprint_cells_uncovered_gt3px": 6649,
+    "max_dots_possible_all_gt3px_from_lattice": 6649,
+    "candidate_budget": 37654,
+    "min_fraction_within_3px_for_any_budget_file": 0.8234184947150369,
+    "conclusion": "Any 37,654-dot file has >=82.3% of dots within 3 px of the lattice; a <=70% rule against this calibration probe is unsatisfiable at this budget regardless of geology. Probe is a uniform grid, not a fault lane."
+  },
+  "sgmc": {
+    "sgmc_px": 83593,
+    "sgmc_off_catalogue_gt3px_px": 62122,
+    "class": "PROXY-DTI truth definition: SGMC geologic-map faults >300 m from the USGS/INGENIOUS catalogue. Independent mapped-fault population; NOT the hidden leaderboard truth."
+  },
+  "focus9_static": {
+    "GEMSDOE24": {
+      "dots": 60069,
+      "on_catalogue": 0,
+      "frac_within_2px_catalogue": 0.14598212056135446,
+      "median_dist_to_catalogue_px": 14.866068747318506,
+      "proxy_dti_vs_sgmc_off": 0.09991134894155884,
+      "within_3px_of_GEMSDOE32": 0.88476585260284,
+      "GEMSDOE32_within_3px_of_this": 1.0
+    },
+    "GEMSDOE25": {
+      "dots": 44090,
+      "on_catalogue": 0,
+      "frac_within_2px_catalogue": 0.1459741437967793,
+      "median_dist_to_catalogue_px": 15.0,
+      "proxy_dti_vs_sgmc_off": 0.09417442916103437,
+      "within_3px_of_GEMSDOE32": 0.8817192107053754,
+      "GEMSDOE32_within_3px_of_this": 1.0
+    },
+    "GEMSDOE27": {
+      "dots": 61328,
+      "on_catalogue": 0,
+      "frac_within_2px_catalogue": 0.14471367075397862,
+      "median_dist_to_catalogue_px": 14.142135623730951,
+      "proxy_dti_vs_sgmc_off": 0.10116333958684386,
+      "within_3px_of_GEMSDOE32": 0.8671895382207149,
+      "GEMSDOE32_within_3px_of_this": 1.0
+    },
+    "GEMSDOE28": {
+      "dots": 37660,
+      "on_catalogue": 0,
+      "frac_within_2px_catalogue": 0.06248008497079129,
+      "median_dist_to_catalogue_px": 17.72004514666935,
+      "proxy_dti_vs_sgmc_off": 0.09335640287879314,
+      "within_3px_of_GEMSDOE32": 0.9547265002655337,
+      "GEMSDOE32_within_3px_of_this": 0.9987517926382323
+    },
+    "GEMSDOE30": {
+      "dots": 44090,
+      "on_catalogue": 0,
+      "frac_within_2px_catalogue": 0.1459741437967793,
+      "median_dist_to_catalogue_px": 15.0,
+      "proxy_dti_vs_sgmc_off": 0.09417442916103437,
+      "within_3px_of_GEMSDOE32": 0.8817192107053754,
+      "GEMSDOE32_within_3px_of_this": 1.0
+    },
+    "GEMSDOE31": {
+      "dots": 40199,
+      "on_catalogue": 0,
+      "frac_within_2px_catalogue": 0.06331003258787532,
+      "median_dist_to_catalogue_px": 17.69180601295413,
+      "proxy_dti_vs_sgmc_off": 0.09529485537948303,
+      "within_3px_of_GEMSDOE32": 0.9539043259782581,
+      "GEMSDOE32_within_3px_of_this": 1.0
+    },
+    "GEMSDOE32": {
+      "dots": 37654,
+      "on_catalogue": 0,
+      "frac_within_2px_catalogue": 0.0,
+      "median_dist_to_catalogue_px": 19.6468827043885,
+      "proxy_dti_vs_sgmc_off": 0.09538611460466043,
+      "within_3px_of_GEMSDOE32": 1.0,
+      "GEMSDOE32_within_3px_of_this": 1.0
+    },
+    "GEMSDOE33": {
+      "dots": 41865,
+      "on_catalogue": 0,
+      "frac_within_2px_catalogue": 0.09301325689716948,
+      "median_dist_to_catalogue_px": 16.64331697709324,
+      "proxy_dti_vs_sgmc_off": 0.09568259594196295,
+      "within_3px_of_GEMSDOE32": 0.9264301922847247,
+      "GEMSDOE32_within_3px_of_this": 0.9998406543793488
+    },
+    "GEMSDOE36": {
+      "dots": 38854,
+      "on_catalogue": 0,
+      "frac_within_2px_catalogue": 0.0,
+      "median_dist_to_catalogue_px": 19.235384061671343,
+      "proxy_dti_vs_sgmc_off": 0.09676998666061168,
+      "within_3px_of_GEMSDOE32": 0.9740309878004839,
+      "GEMSDOE32_within_3px_of_this": 1.0
+    }
+  },
+  "catalogue_intercomponent_spacing": {
+    "class": "GEOMETRY (mapped catalogue population; sampled components >=5 px)",
+    "n_components_total": 3199,
+    "n_sampled": 120,
+    "frac_with_neighbour_within_2px": 0.2,
+    "frac_with_neighbour_within_3px": 0.5666666666666667,
+    "frac_with_neighbour_within_5px": 0.8166666666666667,
+    "median_nearest_other_component_px": 2.8284271247461903,
+    "note": "Components are 8-connected at 100 m; touching strands merge into one component, so this bounds distinct-structure spacing from the mapped set. It does not prove hidden faults obey the same spacing."
+  },
+  "static_holdout_benchmarks": {
+    "static_GEMSDOE32_H33B2": {
+      "class": "GEOMETRY-BENCHMARK on holdout folds; static file built with full catalogue visible (leaky) and deliberately off-catalogue; NOT comparable to retrained HOLDOUT-DTI lanes",
+      "dti": 0.0067081038868037944,
+      "ci95": [
+        0.006041121207444067,
+        0.0074048908975619865
+      ],
+      "n_truth": 60988
+    },
+    "static_GEMSDOE30_D28": {
+      "class": "GEOMETRY-BENCHMARK on holdout folds; static file built with full catalogue visible (leaky) and deliberately off-catalogue; NOT comparable to retrained HOLDOUT-DTI lanes",
+      "dti": 0.16163037136893005,
+      "ci95": [
+        0.15137462303225252,
+        0.17209191754096795
+      ],
+      "n_truth": 60988
+    }
+  },
+  "dti_algebra_02600_to_02778": {
+    "class": "ALGEBRA on OWNER-REPORTED scores (no receipts); underdetermined system reported as feasible bands, never as measured TP/FP",
+    "identity": "DTI = TP/(TP+0.2FP+0.8FN) = TP/(0.2(TP+FP)+0.8|G|), FN=|G|-TP",
+    "rows": [
+      {
+        "assumed_hidden_truth_px": 8000,
+        "S30_frac_of_N": 0.85,
+        "implied_TP30": 3612.778,
+        "feasible_deletions": [
+          {
+            "removed_mass_t_plus_f": 4472.571428571428,
+            "implied_lost_TP_t": 1.1597285714287864,
+            "implied_removed_FP_f": 4471.4117
+          },
+          {
+            "removed_mass_t_plus_f": 4963.428571428572,
+            "implied_lost_TP_t": 28.43175142857126,
+            "implied_removed_FP_f": 4934.99682
+          },
+          {
+            "removed_mass_t_plus_f": 5454.285714285714,
+            "implied_lost_TP_t": 55.703774285713735,
+            "implied_removed_FP_f": 5398.58194
+          }
+        ]
+      },
+      {
+        "assumed_hidden_truth_px": 8000,
+        "S30_frac_of_N": 1.0,
+        "implied_TP30": 3956.6800000000003,
+        "feasible_deletions": [
+          {
+            "removed_mass_t_plus_f": 4963.428571428572,
+            "implied_lost_TP_t": 4.887691428571998,
+            "implied_removed_FP_f": 4958.54088
+          },
+          {
+            "removed_mass_t_plus_f": 5454.285714285714,
+            "implied_lost_TP_t": 32.15971428571447,
+            "implied_removed_FP_f": 5422.125999999999
+          },
+          {
+            "removed_mass_t_plus_f": 5945.142857142857,
+            "implied_lost_TP_t": 59.4317371428574,
+            "implied_removed_FP_f": 5885.71112
+          }
+        ]
+      },
+      {
+        "assumed_hidden_truth_px": 10000,
+        "S30_frac_of_N": 0.85,
+        "implied_TP30": 4028.778,
+        "feasible_deletions": [
+          {
+            "removed_mass_t_plus_f": 5454.285714285714,
+            "implied_lost_TP_t": 27.22377428571417,
+            "implied_removed_FP_f": 5427.06194
+          },
+          {
+            "removed_mass_t_plus_f": 5945.142857142857,
+            "implied_lost_TP_t": 54.4957971428571,
+            "implied_removed_FP_f": 5890.647059999999
+          },
+          {
+            "removed_mass_t_plus_f": 6436.0,
+            "implied_lost_TP_t": 81.76782000000003,
+            "implied_removed_FP_f": 6354.23218
+          }
+        ]
+      },
+      {
+        "assumed_hidden_truth_px": 10000,
+        "S30_frac_of_N": 1.0,
+        "implied_TP30": 4372.68,
+        "feasible_deletions": [
+          {
+            "removed_mass_t_plus_f": 5454.285714285714,
+            "implied_lost_TP_t": 3.679714285713999,
+            "implied_removed_FP_f": 5450.606
+          },
+          {
+            "removed_mass_t_plus_f": 5945.142857142857,
+            "implied_lost_TP_t": 30.951737142857382,
+            "implied_removed_FP_f": 5914.1911199999995
+          },
+          {
+            "removed_mass_t_plus_f": 6436.0,
+            "implied_lost_TP_t": 58.223760000000766,
+            "implied_removed_FP_f": 6377.776239999999
+          }
+        ]
+      },
+      {
+        "assumed_hidden_truth_px": 12691,
+        "S30_frac_of_N": 0.85,
+        "implied_TP30": 4588.506,
+        "feasible_deletions": [
+          {
+            "removed_mass_t_plus_f": 5945.142857142857,
+            "implied_lost_TP_t": 16.175957142856532,
+            "implied_removed_FP_f": 5928.9669
+          },
+          {
+            "removed_mass_t_plus_f": 6436.0,
+            "implied_lost_TP_t": 43.447979999999916,
+            "implied_removed_FP_f": 6392.55202
+          }
+        ]
+      },
+      {
+        "assumed_hidden_truth_px": 12691,
+        "S30_frac_of_N": 1.0,
+        "implied_TP30": 4932.408000000001,
+        "feasible_deletions": [
+          {
+            "removed_mass_t_plus_f": 6436.0,
+            "implied_lost_TP_t": 19.903920000000653,
+            "implied_removed_FP_f": 6416.096079999999
+          }
+        ]
+      },
+      {
+        "assumed_hidden_truth_px": 15000,
+        "S30_frac_of_N": 0.85,
+        "implied_TP30": 5068.778,
+        "feasible_deletions": [
+          {
+            "removed_mass_t_plus_f": 6436.0,
+            "implied_lost_TP_t": 10.56782000000112,
+            "implied_removed_FP_f": 6425.432179999999
+          }
+        ]
+      }
+    ],
+    "reading": "For every feasible |G|, the implied lost TP from deleting the 6,436 near-catalogue dots is small relative to removed FP mass: the deleted dots were overwhelmingly false-positive mass under the hidden truth. That is why pure deletion raised the owner-reported score."
+  }
+}
