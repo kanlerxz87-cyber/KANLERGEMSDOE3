@@ -32,7 +32,8 @@ evidence; no geological experiment, score estimate or submission authorization f
 [Current preflight](evidence/session-e2903b2e-preflight.json) ·
 [Current negative run card](evidence/session-e2903b2e-run-card.json) ·
 [Current upstream prerequisite audit](evidence/session-e2903b2e-upstream-prerequisites.json) ·
-[Refreshed nine-site source feed](evidence/session-e2903b2e-focus-feed.json)
+[Refreshed nine-site source feed](evidence/session-e2903b2e-focus-feed.json) ·
+[Cumulative verification](evidence/session-e2903b2e-verification.json)
 
 **DO NOT SUBMIT.** This session restored every available pinned instrument/input, refreshed all nine
 participant sources, integrated the concurrent negative reviews, and independently re-ran the

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "session_id": "e2903b2e",
+  "kind": "CUMULATIVE IMPLEMENTATION VERIFICATION — NOT GEOLOGICAL VALIDATION",
+  "completed_utc": "2026-10-28T00:08:55Z",
+  "branch": "arena/e2903b2e-kanlergemsdoe3",
+  "verified_commit_before_receipt": "b9a1b8136f51d1a0b6699b0f247ebd49504b5685",
+  "integrated_main_commit": "18bae5c4308cf628799eb690f429190fc3cd9226",
+  "passes": [
+    {
+      "name": "implementation_and_generated_output",
+      "commands": [
+        ".venv/bin/python scripts/build_site.py --check",
+        "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q"
+      ],
+      "status": "PASS",
+      "python_tests": 218,
+      "note": "Generated-site check ran before pytest so writer tests could not conceal stale committed pages."
+    },
+    {
+      "name": "hostile_bug_and_evidence_review",
+      "commands": [
+        ".venv/bin/python scripts/audit_shared_tools.py",
+        ".venv/bin/python scripts/audit_upstream_prerequisites.py",
+        ".venv/bin/python scripts/preflight.py --config config/research-session-e2903b2e.json"
+      ],
+      "status": "EXPECTED_NEGATIVE",
+      "shared_operator_ok": false,
+      "preflight_research_ready": false,
+      "preflight_submit_ready": false,
+      "upstream_issue_53_open": true,
+      "geological_model_evaluated": false,
+      "note": "Negative operator/preflight exits are the expected fail-closed result, not test failures."
+    },
+    {
+      "name": "full_requirements_and_publication_reconciliation",
+      "commands": [
+        ".venv/bin/python scripts/check_run.py",
+        ".venv/bin/python scripts/review.py",
+        ".venv/bin/python scripts/build_site.py --check",
+        "git diff --exit-code",
+        "node tests/browser_smoke.mjs --serve"
+      ],
+      "status": "PASS",
+      "browser_ui_status": "PASS",
+      "desktop_mobile_overflow": false,
+      "javascript_exceptions": 0,
+      "approved_download_exposed": false,
+      "note": "UI checks are not model, score, portal, provenance, or organizer evidence."
+    }
+  ],
+  "artifact_hashes": {
+    "docs/index.html": "1d3f3d74342264edd9ca48f96e4ec71321127b87f563488d831589434135d92f",
+    "evidence/session-e2903b2e-run-card.json": "028f6a1fb7288139f8fa8483aeed3b2fd161ad682bbe17b11ea494febe48b493",
+    "evidence/session-e2903b2e-upstream-prerequisites.json": "d03b8c568eb85d6dc91002f1a3c7cbe654c478e5aaacdefe9e34e0149a97250a",
+    "evidence/session-e2903b2e-focus-feed.json": "5008a44f132c4f772495dec80b1c215969a26c692bbcffe86ea51e283e4f8d9f",
+    "evidence/session-e2903b2e-preflight.json": "6a2a723598d500f57562ba89fe0b26dccb696e68fafa80f51865700e446ba991"
+  },
+  "changed_tiff_files": 0,
+  "geological_experiments_this_session": 0,
+  "weekly_slots_used_this_session": 0,
+  "candidate_generated": false,
+  "holdout_dti": null,
+  "leaderboard_estimate": null,
+  "ok_to_submit": false,
+  "verdict": "negative"
+}
