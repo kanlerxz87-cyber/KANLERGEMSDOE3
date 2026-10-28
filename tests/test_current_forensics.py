@@ -234,6 +234,18 @@ def test_inherited_duplicate_and_saved_bytes_checked():
         check_inherited(report)
 
 
+def test_default_preflight_does_not_reopen_expired_clock(tmp_path):
+    import subprocess
+    import sys
+    output = tmp_path / 'preflight.json'
+    result = subprocess.run([sys.executable, str(ROOT / 'scripts/preflight.py'), '--out', str(output)], capture_output=True, text=True)
+    assert result.returncode == 1
+    receipt = json.loads(output.read_text())
+    assert receipt['config'] == 'config/research-session-52a91352.json'
+    assert any('budget' in f for f in receipt['failures'])
+    assert receipt['research_ready'] is False and receipt['slot_authorized'] is False
+
+
 def test_current_run_card_is_honestly_negative_and_empty():
     card = read('evidence/session-91270cac-run-card.json')
     assert card['geological_experiments_this_session'] == 0

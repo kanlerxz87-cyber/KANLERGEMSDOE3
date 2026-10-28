@@ -3,9 +3,11 @@
 Before changing this project, read:
 1. `README.md`, including its full standing user request (also `PROJECT_PROMPT.md`).
 2. `PROJECT_REQUEST.md` and `research/standing-requirements.md` for the compact standing rules.
-3. `config/research-session.json`, `research/review.md`, and `research/verification.md`.
-4. `evidence/run-card.json` (preserved canonical bilateral run, negative) and
-   `evidence/session-7d1e577d-run-card.json` (this review session, no model run).
+3. `config/research-session-52a91352.json` (expired default), `config/research-session-12817d00.json` (concurrent scoped clock), `research/session-12817d00-review.md`, and `research/verification.md`.
+4. `evidence/run-card.json` (preserved canonical bilateral run, negative),
+   `evidence/session-12817d00-run-card.json` (concurrent scoped review), and
+   `evidence/session-91270cac-run-card.json` with `research/session-91270cac-review.md`
+   (latest forensic review; no model run). Keep every original fixed clock and card.
 
 Keep **Maximize P(Win)** and **Own the Outcome** explicit. File format, model quality,
 semantic novelty, evidence authenticity and weekly-slot authorization are separate.
@@ -34,6 +36,11 @@ Do not exempt dense binary lattices or continuous diagnostics from the registry 
 The former blocks the recorded dot budgets; the latter saturates an older tool's
 positive-cell-as-dot convention. Soft surfaces need explicit companion dots before
 our geometry CLI can compare them. An undefined representation is blocked, not unique.
+The latest CADG saved-byte audit finds 37,630 / 37,654 dots (99.9363%) within
+3 px of the full lattice; all four archived CADG TIFFs fail. The older filtered
+reference also fails. A selector cannot waive duplication. Preserve the TIFFs and
+prior cards, with no authorized download or portal claim; see
+`evidence/session-91270cac-cadg-audit.json`.
 
 Local adapters may perform transport, prerequisites, saved-byte validation, orchestration
 and reporting. New geological experiments require the lane and scientific prerequisites.

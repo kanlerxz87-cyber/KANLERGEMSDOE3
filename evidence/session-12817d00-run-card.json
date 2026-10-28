@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "session_id": "12817d00",
+  "session_started_utc": "2026-10-27T23:39:29+00:00",
+  "assigned_method_paragraph": null,
+  "hypothesis": "Conditional top research hypothesis only: cross-field Morse-Smale junction persistence in magnetic and gravity edge fields.",
+  "mechanism": "A concealed fault intersection or relay may form a persistent saddle-to-ridge junction across independent potential-field transforms even where no single gradient ridge is strong.",
+  "non_fault_mimic": "Intrusive contacts, intersecting flight-line levelling seams, and basin-fill lithologic boundaries.",
+  "geological_experiments_this_session": 0,
+  "weekly_slots_used_this_session": 0,
+  "holdout_dti": null,
+  "holdout_ci95": null,
+  "evaluator_version": null,
+  "withheld_positive_count": null,
+  "surface_registry_comparison": null,
+  "final_dot_registry_comparison": null,
+  "registry_status": "No candidate was generated. A complete surface registry is unavailable; literal dot-reference semantics remain contradictory.",
+  "registry_obstruction": {
+    "measurement_class": "GEOMETRIC BOUND; NOT HOLDOUT-DTI OR SCORE",
+    "receipt": "evidence/lattice-coverage.json",
+    "reference_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "uncovered_footprint_pixels": 6649,
+    "first_budget_for_forced_overlap_over_70_percent": 22164,
+    "minimum_overlap_at_37654_dots": 0.8234184947150369,
+    "scope": "Mathematical bound against one registered binary lattice; no candidate comparison and no score."
+  },
+  "raster_sha256": null,
+  "validator_checks": {
+    "status": "NOT RUN: no candidate",
+    "finite_inside_footprint": null,
+    "values_in_0_1": null,
+    "float32_single_band": null,
+    "crs_shape_transform_match_authentic_template": null,
+    "organizer_template_authenticated": false,
+    "portal_acceptance": null
+  },
+  "submission_name": null,
+  "submission_note": "No candidate: lane, corrected evaluator, canonical cache, complete registry, and matched incumbent are unavailable.",
+  "preflight_receipt": "evidence/session-12817d00-preflight.json",
+  "source_feed": "evidence/session-12817d00-focus-feed.json",
+  "unresolved": [
+    "Missing explicit single-method paragraph",
+    "Centrally locked evaluator omits false-positive mass in empty-truth cells; upstream issue 41 remains open",
+    "Authenticated shared cached feature stack and digest unavailable",
+    "Complete raster/surface registry and companion-dot semantics unavailable",
+    "Same-evaluator, same-fold incumbent unavailable",
+    "Official template provenance, account weekly cap and selector authorization unavailable"
+  ],
+  "slot_authorized": false,
+  "ok_to_submit": false,
+  "verdict": "negative"
+}

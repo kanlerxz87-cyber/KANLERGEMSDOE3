@@ -1,30 +1,61 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
 **Start every session by reading this README (including the full user request below),
-[AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
-[fixed current session config](config/research-session-52a91352.json), [preserved prior session config](config/research-session.json), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-7d1e577d-run-card.json), and [current negative card](evidence/session-52a91352-run-card.json). Never reset an earlier session clock.**
+[AGENTS.md](AGENTS.md), [latest scoped review](research/session-91270cac-review.md),
+[concurrent review](research/session-12817d00-review.md), [fixed concurrent session config](config/research-session-12817d00.json), [expired default session config](config/research-session-52a91352.json), [preserved bilateral run card](docs/run-card.json), and [latest negative card](evidence/session-91270cac-run-card.json). Never reset an earlier session clock.**
 
-## Latest continuation — 27 October 2026
+## Latest forensic continuation — 91270cac
 
-[Current scoped review and next steps](research/session-20261027-review.md) ·
-[Current readiness receipt](evidence/session-20261027-readiness.json) ·
-[Current nine-site source observations](evidence/session-20261027-focus-feed.json) ·
-[Current negative review card](evidence/session-20261027-run-card.json)
+**DO NOT SUBMIT.** No new candidate, geological experiment, score, or slot was generated. The inherited clocks are expired; the missing lane, centrally flawed evaluator, unverified official template, absent cache/incumbent and incomplete registry remain blockers. This review preserves all concurrent findings, including the 12817d00 negative card and independent unimplemented hypothesis queue.
 
-That separate readiness-review session produced no new TIFF or score estimate. Seven priority
-repositories changed since its saved feed; source changes are not a scientific/novelty audit.
-Its readiness check now binds operator receipts to the exact provenance-manifest digest and rejects
-contradictory conservation checks. Its review reported 177 passing tests after restoring optional
-instruments. Its checkout lacked core rasters; this session has restored pinned participant-mirror
-inputs locally, although those ignored bulk files may not persist. That review used no geological
-experiment or weekly slot.
+- [Three-pass review](research/session-91270cac-review.md) · [Scoped hypotheses](research/session-91270cac-hypotheses.md) · [Negative run card](evidence/session-91270cac-run-card.json) · [Dated preflight](evidence/session-91270cac-preflight.json)
+- The four preserved CADG TIFFs fail the literal lattice stop. For the advertised zero/NaN twins, **37,630 / 37,654 dots (99.9363%)** lie within three pixels of the full registered lattice. [Saved-byte audit](evidence/session-91270cac-cadg-audit.json); the old narrower filtered calculation also fails. No selector can waive this stop.
+- A frozen comparison of nine peer trees found 29 newly added TIFF paths, including encoding twins; all 29 exact Git blobs failed the same one-reference lattice test. [Inventory](evidence/session-91270cac-raster-changes.json) · [saved-byte findings](evidence/session-91270cac-changed-peer-audit.json). This is not a score, complete registry audit or review of later commits.
+- Corrected unsafe public CADG/GPC presentation while retaining original records in `evidence/archived-pages/`, prior cards and all raster bytes. The rejected upload was never provided, so its range-error cause and portal acceptance remain unknown.
+
+## Preserved concurrent review — bb1bdbdd
+
+[Three-pass review](research/session-bb1bdbdd-review.md) ·
+[Readiness receipt](evidence/session-bb1bdbdd-readiness.json) ·
+[Nine-site source refresh](evidence/session-bb1bdbdd-focus-feed.json) ·
+[Negative review card](evidence/session-bb1bdbdd-run-card.json)
+
+**DO NOT SUBMIT.** No new TIFF, defensible estimate or slot used. All nine peer
+sources changed since the last saved feed; this is not novelty clearance. Fixed
+malformed-receipt handling and regenerated the drifted home page using the existing
+canonical builder. Final checks: 200 tests passed and desktop/mobile smoke passed.
+The requested high-scoring unique artifact remains undelivered; see the scoped review.
+
+## Preserved concurrent quarantine review — 20261027
+
+[Three-pass review](research/session-20261027-arena-review.md) ·
+[Negative review card](evidence/session-20261027-arena-review-card.json)
+
+That concurrent review removed unsafe download links from the archived CADG subsite after confirming
+99.73% lattice overlap, above the literal 70% duplicate stop. Its software checks are preserved as dated
+evidence; no geological experiment, score estimate or submission authorization followed.
+
+## Preserved concurrent continuation — 27 October 2026
+
+[Current scoped review and next steps](research/session-12817d00-review.md) ·
+[Current readiness receipt](evidence/session-12817d00-preflight.json) ·
+[Current nine-site source observations](evidence/session-12817d00-focus-feed.json) ·
+[Current negative review card](evidence/session-12817d00-run-card.json)
+
+This review found and corrected a public-release regression: the checked-in homepage said
+“Research Complete / DOWNLOAD READY” while the evidence card remained negative and the deterministic
+builder rejected the page as stale. The active desk is again generated from negative receipts only.
+Core participant-mirror inputs were autonomously restored and prepared without rebuilding the missing
+canonical cache. The centrally tracked evaluator defect remains open, the method paragraph is absent,
+and the literal registry makes a 37,654-dot design mathematically unable to pass one registered lattice.
+No geological experiment, candidate TIFF, score estimate or weekly slot was used.
 
 ## Executive decision: DO NOT SUBMIT
 
 [Executive desk](docs/index.html) · [Every priority site](docs/index.html#comparison) ·
 [How to submit](docs/executive-summary.html) · [Research queue](docs/research.html) ·
 [Official-source ledger](docs/sources.html) · [Machine audit](docs/audit.json) ·
-[Current three-pass review](research/session-52a91352-review.md)
+[Latest three-pass review](research/session-91270cac-review.md)
 
 **There is no qualified TIFF to download and no defensible leaderboard estimate.** This review
 session ran no geological experiment, generated no new TIFF and spent no weekly slot. Concurrent
@@ -33,6 +64,9 @@ preserved, not claimed as this session’s work. The requested winning artifact 
 
 ### Progress in this session
 
+- Corrected a stale, optimistic `docs/index.html` that contradicted the negative evidence card; `scripts/build_site.py --check` now passes and the active homepage exposes no eligible download.
+- Refreshed all nine participant source heads into a dated, read-only source observation. This is not a score feed, full registry or scientific approval.
+- Replaced the older conditional queue with four unimplemented-in-this-repository hypotheses. The top Morse–Smale junction proposal was not run because mandatory prerequisites fail before experiment one.
 - Restored the complete 19-band core feature raster, labels, sample and SGMC proxy from immutable,
   hash-pinned participant mirrors. **Core-mirror data placement is completed**, but mirror integrity is not
   organizer authentication. Large inputs remain ignored, not copied into Git.
@@ -67,6 +101,7 @@ preserved, not claimed as this session’s work. The requested winning artifact 
   are in [the earlier ledger](evidence/official-claims-20261026.json), the [dated observation](evidence/official-observation-20261027.json), and [updated geological notes](knowledge/geothermal-science-2026-10-27.md). No per-file organizer receipt exists.
 - Rebuilt the Pages executive desk with an individual summary for each priority site, four ranked
   conditional hypotheses, automatic read-only source-change checks, and explicit no-submit status.
+- Final software verification passed **202 Python tests** after integrating concurrent main, plus desktop/mobile browser checks. These are not geological validation or score evidence.
 
 ### Remaining research blockers
 
@@ -88,10 +123,13 @@ python -m venv .venv
 bash scripts/download_competition_data.sh   # pinned public mirror; ~420 MB core, ignored
 .venv/bin/python scripts/prepare_data.py    # delegates to shared raw-band preparation only
 .venv/bin/python scripts/audit_shared_tools.py  # expected nonzero: unresolved upstream defect
- .venv/bin/python scripts/preflight.py          # live local receipt in ignored data/; nonzero expected
+.venv/bin/python scripts/preflight.py --config config/research-session-12817d00.json # nonzero expected
 .venv/bin/python scripts/restore_audit_data.py # historical learning only; never a candidate
 .venv/bin/python scripts/audit_h33_lineage.py  # read-only geometry; no candidate/score/slot
 .venv/bin/python scripts/audit_kpl36_external.py --restore # expected nonzero: duplicate stop
+.venv/bin/python scripts/audit_cadg_archive.py --restore --output data/cadg-recheck.json # expected nonzero: duplicate
+.venv/bin/python scripts/snapshot_raster_changes.py --before evidence/session-20261027-focus-feed.json --after evidence/session-91270cac-focus-feed.json --output data/peer-tree-recheck.json
+.venv/bin/python scripts/audit_changed_peer_rasters.py --changes data/peer-tree-recheck.json --output data/peer-recheck.json # nonzero: cannot authorize
 .venv/bin/python scripts/audit_rasters.py
 .venv/bin/python scripts/install_template.py # inherited shared pins; sources only
 PYTHON=.venv/bin/python bash scripts/bootstrap_template.sh
@@ -134,7 +172,7 @@ K3-H1, DCAP-LHC and isolated SSP1 studies, other source pins, research-only TIFF
 and registry-saturation evidence. SSP1 maintenance `9a24c59` is also retained. The preserved canonical bilateral run/card remains
 canonical at `evidence/run-card.json` and identical root/docs aliases. The previous review’s card
 is `evidence/session-7d1e577d-run-card.json`; the current session’s separate card is
-`evidence/session-52a91352-run-card.json`. The current session records zero new geological runs;
+`evidence/session-12817d00-run-card.json`. The current session records zero new geological runs;
 the repository-wide history is not zero. No result is promoted.
 
 All four root-archive TIFF files were independently replayed against the required

@@ -21,8 +21,10 @@
 
 ## Pass 3 — software and UI verification
 
-- Before concurrent-main reconciliation: **225 Python tests passed**, including 35 new focused forensic regression cases. Desktop/mobile browser smoke passed, including negative source-feed states and archive controls; GitHub API responses were mocked, and screenshots are ignored. Tests are software/UI evidence, not geological validation.
-- The `build_site.py --check` and `build_cadg_site.py --check` commands passed before reconciliation. Upstream main advanced from `ee683ee` to `4aed222` during this work; its concurrent preflight, site, hypotheses, negative cards and CADG no-download decision must be preserved and all checks rerun after integration.
+- Before concurrent-main reconciliation: **225 Python tests passed**, including 35 new focused forensic regression cases.
+- Main advanced from `ee683ee` to `4aed222` during this work. Integrated its concurrent preflight hardening, newer source feed, separately scoped hypotheses, negative cards and CADG no-download decision; preserved this session's distinct hypotheses, byte-audit receipts and original evidence. No prior scientific record or raster was replaced.
+- After initial reconciliation: **237 Python tests passed**; both `build_site.py --check` and `build_cadg_site.py --check` passed. Desktop/mobile browser smoke passed, including negative source-feed states and no CADG download links; GitHub API responses were mocked, and screenshots are ignored. Tests are software/UI evidence, not geological validation.
+- The concurrent preflight default pointed to another session's later clock. For this continuation, the default is the original expired `52a91352` clock; other recorded session configurations remain available only when explicitly selected for their own session. This prevents a fresh-looking budget from reopening an expired run.
 
 ## Required next actions
 
