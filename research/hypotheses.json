@@ -9,7 +9,7 @@
     "non_fault_mimic": "Intersecting intrusive or lithologic contacts, flight-line levelling seams, and basin-fill boundaries.",
     "cost": "Medium",
     "expected_improvement": "Rank 1 qualitative information gain; no DTI projection or score estimate.",
-    "viability": "Core participant-mirror bands are locally obtainable. Execution is blocked by the missing lane, defective shared evaluator, absent canonical cache/digest and incomplete registry; no new external data is required for a pilot.",
+    "viability": "Core challenge bands would suffice; no new external dataset is needed. Raw core TIFFs and a digest-bound input receipt are absent from this checkout. Execution is blocked by the missing lane, expired clock, evaluator defect, absent cache/digest, incomplete registry, and missing same-fold incumbent.",
     "source": "https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and"
   },
   {
@@ -22,7 +22,7 @@
     "non_fault_mimic": "Angular unconformities, intrusive contacts, survey-block boundaries and aligned cultural noise.",
     "cost": "Medium",
     "expected_improvement": "Rank 2 qualitative information gain; no DTI projection or score estimate.",
-    "viability": "Core bands are locally obtainable; a label-free pilot needs no external source. Scientific execution remains blocked by the shared prerequisites.",
+    "viability": "Core challenge bands would suffice; no new external dataset is needed. Raw core TIFFs and a digest-bound input receipt are absent from this checkout, and the inherited fixed clock and shared-tool/registry prerequisites block execution.",
     "source": "https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and"
   },
   {
@@ -35,7 +35,7 @@
     "non_fault_mimic": "Deep lithologic contacts, regional basement margins and continuation artifacts near footprint boundaries.",
     "cost": "Low",
     "expected_improvement": "Rank 3 qualitative information gain; cheapest falsifiable pilot, not a score projection.",
-    "viability": "Uses locally obtainable core bands only. Boundary padding and physical continuation assumptions must be preregistered; experiment remains blocked by protocol prerequisites.",
+    "viability": "Core challenge bands would suffice; no new external dataset is needed. Raw core TIFFs and a digest-bound input receipt are absent from this checkout; continuation assumptions and peer novelty would require review, and execution is blocked by the inherited fixed clock and shared prerequisites.",
     "source": "https://github.com/drivendataorg/gems-prize-reference-solution"
   },
   {

@@ -4,6 +4,8 @@
 
 There is **no approved competition TIFF** to download from this project. A previously committed GPC-3 research TIFF and the historical references fail the requested uniqueness threshold; the prior bilateral experiment did not write a TIFF. Do not rename, perturb or upload any of them as a fresh entry. No current candidate leaderboard estimate exists.
 
+The latest preflight (`2026-10-28T16:22:13Z`) is false for research and submission readiness: raw core TIFFs/input receipt are absent from this checkout, the inherited fixed two-hour clock is exhausted, and there is no assigned method, authenticated feature cache, complete registry, repaired evaluator, or same-fold incumbent. See the [current negative card](data/session-20261028-run-card.json), [preflight](data/session-20261028-preflight.json), and [three-pass review](session-20261028-review.md). This clock is not reset by updating the guide.
+
 ## Required automated evidence before a future selector can approve a file
 
 1. Resolve the missing parallel method lane and the full-footprint registry diagnostic described in the [scientific review](review.md). Restore the intended shared template and authorized organizer sample; confirm all data/code licenses.

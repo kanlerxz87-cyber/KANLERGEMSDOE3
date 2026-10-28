@@ -1,0 +1,51 @@
+{
+  "observed_utc": "2026-10-28T16:22:13+00:00",
+  "config": "config/research-session-e2903b2e.json",
+  "snapshot_not_live": true,
+  "schema_version": 1,
+  "research_ready": false,
+  "submit_ready": false,
+  "slot_authorized": false,
+  "experiments_used": 0,
+  "submission_slots_used": 0,
+  "resolved": [
+    "Shared evaluator/writer and dependencies restored unmodified and hash-locked"
+  ],
+  "failures": [
+    "Missing assigned single-method lane paragraph",
+    "Core data restoration receipt absent",
+    "Shared evaluator operator audit fails or is missing; central repair required",
+    "Authenticated shared feature cache/digest not restored; no private rebuild permitted",
+    "Complete raster/surface registry not available",
+    "Registry dot representation/saturation unresolved; no diagnostic or lattice is silently exempt",
+    "Same-evaluator, same-fold incumbent evidence absent or malformed",
+    "Experiment/time budget exhausted or malformed"
+  ],
+  "submission_failures": [
+    "Missing assigned single-method lane paragraph",
+    "Core data restoration receipt absent",
+    "Shared evaluator operator audit fails or is missing; central repair required",
+    "Authenticated shared feature cache/digest not restored; no private rebuild permitted",
+    "Complete raster/surface registry not available",
+    "Registry dot representation/saturation unresolved; no diagnostic or lattice is silently exempt",
+    "Same-evaluator, same-fold incumbent evidence absent or malformed",
+    "Experiment/time budget exhausted or malformed",
+    "Official organizer-template provenance not authenticated",
+    "No candidate has beaten the paired HOLDOUT-DTI incumbent",
+    "No unique candidate saved bytes/validator receipt exist",
+    "Separate selector has not authorized a weekly slot"
+  ],
+  "template": {
+    "ok": true,
+    "commit": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+    "repository": "buffedlizard55-lab/GEMSDOE32",
+    "files_checked": 13,
+    "failures": [],
+    "manifest_sha256": "13a9e48eacbca3a2f7f53d5ec460427ab7532e0620c63664df6c6c1b6195553d"
+  },
+  "input_integrity": [],
+  "input_organizer_authenticated": false,
+  "holdout_dti": null,
+  "leaderboard_estimate": null,
+  "scope": "Automated prerequisites only; not a score, no human raster inspection required."
+}

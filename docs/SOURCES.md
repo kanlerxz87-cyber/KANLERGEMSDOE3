@@ -21,3 +21,7 @@ A public source is not a submission receipt. Page access through the research to
 ## Official format versus conservative local policy
 
 The organizer says the raster must have the same bounds as the training data and null/NaN outside those bounds. It does not explicitly state whether zero-valued cells outside the irregular mask of the independently mirrored sample are rejected by the portal. `scripts/validate_submission.py` conservatively requires null/masked/NaN outside that sample mask and reports whole-grid raw range separately. Treat a local failure or pass as local evidence, not a portal receipt. In particular, the exact cause of the user's prior range error is unknown without its uploaded bytes and organizer response.
+
+## 28 October 2026 refresh boundary
+
+The current continuation refreshed immutable GitHub participant repositories and issues only (see the [`session-20261028-peer-source-observations.json`](data/session-20261028-peer-source-observations.json) and upstream prerequisite receipts). It did not fetch the official DrivenData, USGS, or GDR hosts, official data binaries, a logged-in submission page, or an account-specific quota. The dated official excerpts above remain prior observations, not a live 28 October re-verification. No new official free-data obtainability or portal-acceptance claim is made. The top three active hypotheses use challenge-core bands and need no new external dataset; the GDR-dependent fourth remains gated on checking the actual files and spatial/temporal coverage.

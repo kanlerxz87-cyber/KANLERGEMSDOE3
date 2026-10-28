@@ -1,0 +1,54 @@
+[
+  {
+    "rank": 1,
+    "name": "Cross-field Morse-Smale junction persistence",
+    "layers": "Core RTP/TMI (bands 2 and 14), TMI horizontal/vertical gradients (bands 3 and 9), isostatic gravity anomaly and gradients (bands 13, 18 and 11).",
+    "signature": "Build signed scale-space edge fields separately, extract Morse-Smale ridge/saddle graphs, and rank junctions that persist across magnetic and gravity fields without requiring high anomaly magnitude.",
+    "missing_fault_rationale": "A concealed relay, intersection or accommodation structure may perturb topology in two independent potential fields while remaining too weak or discontinuous for a mapped surface trace or a single-field ridge threshold.",
+    "difference": "No local implementation uses Morse-Smale complexes, saddle-to-ridge persistence or cross-field topological junction matching. Existing local methods use Hessian ridges, phase concordance, texture, pointwise classifiers or submodular placement. Current peer-wide novelty is not established.",
+    "non_fault_mimic": "Intersecting intrusive or lithologic contacts, flight-line levelling seams, and basin-fill boundaries.",
+    "cost": "Medium",
+    "expected_improvement": "Rank 1 qualitative information gain; no DTI projection or score estimate.",
+    "viability": "Core challenge bands would suffice; no new external dataset is needed. Raw core TIFFs and a digest-bound input receipt are absent from this checkout. Execution is blocked by the missing lane, expired clock, evaluator defect, absent cache/digest, incomplete registry, and missing same-fold incumbent.",
+    "source": "https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and"
+  },
+  {
+    "rank": 2,
+    "name": "Two-sided directional-fabric entropy break",
+    "layers": "Core RTP/TMI and isostatic gravity (bands 2, 14 and 13), with detrended elevation and slope (bands 12 and 19) used only as terrain confounder controls.",
+    "signature": "Estimate multiscale structure-tensor orientation distributions on opposing sides of candidate axes and detect abrupt Jensen-Shannon divergence in directional fabric while anomaly amplitude remains moderate.",
+    "missing_fault_rationale": "A fault buried by basin fill can juxtapose blocks with different structural grain even when no continuous scarp or high-gradient line survives at the surface.",
+    "difference": "Local code computes per-pixel coherence/orientation but does not compare two-sided orientation distributions or directional entropy across an axis. It is not another maximum-gradient, ridge-density or catalogue-distance feature.",
+    "non_fault_mimic": "Angular unconformities, intrusive contacts, survey-block boundaries and aligned cultural noise.",
+    "cost": "Medium",
+    "expected_improvement": "Rank 2 qualitative information gain; no DTI projection or score estimate.",
+    "viability": "Core challenge bands would suffice; no new external dataset is needed. Raw core TIFFs and a digest-bound input receipt are absent from this checkout, and the inherited fixed clock and shared-tool/registry prerequisites block execution.",
+    "source": "https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and"
+  },
+  {
+    "rank": 3,
+    "name": "Signed edge-migration stability under continuation",
+    "layers": "Core TMI/RTP (bands 14 and 2), TMI gradients (bands 3 and 9), and depth-to-base surface (band 15).",
+    "signature": "Track signed zero-crossing locations through a preregistered Gaussian/upward-continuation scale ladder and score edges whose positions remain stable while shallow high-frequency responses decay.",
+    "missing_fault_rationale": "A deep fault-related source contrast might preserve edge position under continuation beneath cover, whereas shallow mapped scarps and surface clutter may weaken or migrate with scale. The supplied depth-to-conductive-base band is not automatically geological basement depth.",
+    "difference": "Existing local work uses multiscale ridge magnitude and phase features but does not model signed edge trajectories or location migration as the feature. It must still be checked against newer peer Fourier-continuation work before any global-novelty claim.",
+    "non_fault_mimic": "Deep lithologic contacts, regional basement margins and continuation artifacts near footprint boundaries.",
+    "cost": "Low",
+    "expected_improvement": "Rank 3 qualitative information gain; cheapest falsifiable pilot, not a score projection.",
+    "viability": "Core challenge bands would suffice; no new external dataset is needed. Raw core TIFFs and a digest-bound input receipt are absent from this checkout; continuation assumptions and peer novelty would require review, and execution is blocked by the inherited fixed clock and shared prerequisites.",
+    "source": "https://github.com/drivendataorg/gems-prize-reference-solution"
+  },
+  {
+    "rank": 4,
+    "name": "Hydrochemical geothermometer residual corridors",
+    "layers": "GDR 1391 spring/well chemistry and temperature fields, core elevation/slope, and magnetic structural axes.",
+    "signature": "Fit lithology- and elevation-conditioned background geothermometer relations, then test whether spatially coherent positive residuals terminate or align along independent potential-field axes.",
+    "missing_fault_rationale": "Focused deep-fluid ascent can mark permeable concealed structures away from mapped traces; residual corridors seek transport anomalies rather than nearest-hot-point proximity.",
+    "difference": "No local implementation models hydrochemical geothermometer residuals. Prior local thermal/conduit features use temperatures, proximity or generic halos, not chemistry-conditioned residual transport.",
+    "non_fault_mimic": "Mixing, evaporation, shallow groundwater flow, seasonal sampling, pumping and analytical batch effects.",
+    "cost": "High",
+    "expected_improvement": "Rank 4 qualitative information gain; no DTI projection or score estimate.",
+    "viability": "Not currently viable. The official GDR resource index is identified, but exact chemistry files, variables, coverage, dates and license-compatible bytes have not been obtained and checked. Do not implement until those official resources are confirmed obtainable.",
+    "source": "https://gdr.openei.org/submissions/1391"
+  }
+]

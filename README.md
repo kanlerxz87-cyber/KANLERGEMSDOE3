@@ -1,26 +1,20 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
 **Start every session by reading this README (including the full user request below),
-[AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
-[current fixed session config](config/research-session-e2903b2e.json), [preserved prior session configs](config/), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-30454eca-run-card.json), and [latest negative card](evidence/session-e2903b2e-run-card.json). Never reset an earlier session clock.**
+[AGENTS.md](AGENTS.md), [current three-pass review](research/session-20261028-review.md),
+[current negative run card](evidence/session-20261028-run-card.json), [current fixed session config](config/research-session-e2903b2e.json), [preserved prior session configs](config/), [preserved bilateral run card](docs/run-card.json), and [prior review card](evidence/session-30454eca-run-card.json). Never reset an earlier session clock.**
 
-## Final integrated continuation — 27 October 2026
+## Current review — 28 October 2026
 
-[Three-pass review and next steps](research/session-e2903b2e-review.md) ·
-[Negative run card](evidence/session-e2903b2e-run-card.json) ·
-[Readiness snapshot](evidence/session-e2903b2e-preflight.json) ·
-[Fresh nine-site source snapshot](evidence/session-e2903b2e-focus-feed.json) ·
-[Shared prerequisite audit](evidence/session-e2903b2e-upstream-prerequisites.json) ·
-[Cumulative verification](evidence/session-e2903b2e-verification.json)
+[Three-pass review and next steps](research/session-20261028-review.md) ·
+[Current negative run card](evidence/session-20261028-run-card.json) ·
+[Current fail-closed preflight](evidence/session-20261028-preflight.json) ·
+[Nine-site participant-page observations](evidence/session-20261028-peer-source-observations.json) ·
+[Current upstream prerequisite audit](evidence/session-20261028-upstream-prerequisites.json) ·
+[Synthetic current-source operator test](evidence/session-20261028-upstream-operator-audit.json) ·
+[Canonical ranked hypotheses](research/session-20261028-hypotheses.md)
 
-**DO NOT SUBMIT.** The concurrent forensic work below is integrated without claiming its experiments.
-This final review restored every available pinned instrument/input, refreshed all nine participant
-sources, and independently re-ran the unchanged operator audit. It produced no new TIFF or score
-estimate and used no geological experiment or weekly slot. The five current shared evaluator,
-feature, and writer files remain byte-identical to the pinned defective versions. The named
-35-channel cache still has neither obtainable bytes nor a content digest;
-[upstream issue 53](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/53) requests a central
-content-addressed release, lineage, invalidation, and verifier. Source freshness is not approval.
+**DO NOT SUBMIT.** No candidate TIFF, HOLDOUT-DTI, leaderboard estimate, organizer receipt, or slot authorization was produced. The fresh preflight is false for both research and submission readiness; it records the inherited fixed clock as expired. The current checkout lacks raw core inputs and a data receipt. At GEMSDOE32 `main` commit `109f364f…`, four of five checked shared files differ from the local pin; the current source rejects a synthetic soft mask but still drops empty-truth false-positive mass from pooled blocks. The feature-cache bytes/digest, complete registry, assigned method paragraph, and same-fold incumbent are still missing. The earlier 27 October review is preserved below as a historical snapshot; its statements about restored inputs and all five files matching the pin do not describe this checkout/current upstream observation.
 
 ## Preserved concurrent forensic continuation — 30454eca
 

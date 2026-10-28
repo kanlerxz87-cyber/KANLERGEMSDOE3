@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "kind": "SYNTHETIC CURRENT-UPSTREAM OPERATOR DIAGNOSTIC \u2014 NOT HOLDOUT-DTI",
+  "observed_utc": "2026-10-28T16:22:13+00:00",
+  "upstream_repository": "buffedlizard55-lab/GEMSDOE32",
+  "upstream_commit": "109f364fb39030e40ef51b839b79cf694123b51b",
+  "upstream_source_urls": {
+    "holdout.py": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/109f364fb39030e40ef51b839b79cf694123b51b/src/gems32/holdout.py",
+    "submission.py": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/109f364fb39030e40ef51b839b79cf694123b51b/src/gems32/submission.py",
+    "issue_41": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41",
+    "issue_53": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/53"
+  },
+  "source_scope_caveat": "holdout.py and submission.py were fetched at current upstream HEAD. metric.py, paths.py, and __init__.py were copied from the local pinned template only to satisfy imports; metric.py was not audited as current upstream. This fixture tests evaluator aggregation control flow, not geological data.",
+  "fixture": {
+    "cells": 8,
+    "empty_truth_cells": 1,
+    "truth_cells": 7,
+    "predictions_in_empty_truth_cells": 1,
+    "predictions_matching_truth_cells": 7,
+    "grid_n": 2,
+    "bootstrap_replicates": 32
+  },
+  "results": {
+    "fold_false_positive_mass": 1.0,
+    "pooled_block_false_positive_mass": 0.0,
+    "recorded_true_positive_mass": 7.0,
+    "recorded_false_negative_mass": 0.0,
+    "pooled_dti_reported_synthetically": 0.9999999999998571,
+    "conservation_recomputed_diagnostic": 0.9722222222220872,
+    "comparison_label": "Synthetic diagnostic values only; not a competition score or HOLDOUT-DTI result."
+  },
+  "soft_mask_validation": {
+    "input_inside_value": 0.5,
+    "rejected": true,
+    "type": "ValueError",
+    "message": "Binary predictions must be finite and exactly 0 or 1 inside the footprint; no implicit thresholding"
+  },
+  "geological_data_used": false,
+  "candidate_raster_generated": false,
+  "score_claimed": false
+}

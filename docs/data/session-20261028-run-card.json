@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "session_id": "20261028-review",
+  "observed_utc": "2026-10-28T16:22:13+00:00",
+  "fixed_budget_session_id": "e2903b2e",
+  "fixed_budget_started_utc": "2026-10-27T23:37:00+00:00",
+  "assigned_method_paragraph": null,
+  "hypothesis": "Planning-only rank 1 from the canonical conditional shortlist: cross-field Morse-Smale junction persistence. This is not an assigned lane or tested candidate.",
+  "mechanism": "Hypothesis only: signed scale-space magnetic and gravity fields may contain persistent, cross-field ridge/saddle junctions associated with concealed fault relays or intersections even where no single amplitude ridge or surface scarp is strong. No transform or geological prediction was run.",
+  "named_non_fault_mimic": "Intersecting intrusive or lithologic contacts, basin-fill boundaries, and airborne survey levelling seams can create persistent cross-field junctions without faults.",
+  "geological_experiments_this_session": 0,
+  "experiment_budget": {
+    "maximum_experiments": 3,
+    "maximum_hours": 2,
+    "used_experiments": 0,
+    "fixed_clock_expired": true,
+    "elapsed_not_reset_from_prior_sessions": true,
+    "new_budget_authorized": false
+  },
+  "submission_slots_used_this_session": 0,
+  "holdout_dti": null,
+  "holdout_ci95": null,
+  "evaluator_version": null,
+  "withheld_positive_count": null,
+  "paired_incumbent_comparison": null,
+  "correlation_overlap_vs_registry": {
+    "pre_placement_surface": {
+      "max_abs_spearman_rho": null,
+      "max_directed_dot_overlap_3px": null,
+      "status": "NOT RUN: no candidate surface or preview-dot mask exists"
+    },
+    "final_dot_mask": {
+      "max_abs_spearman_rho": null,
+      "max_directed_dot_overlap_3px": null,
+      "status": "NOT RUN: no candidate raster or final-dot mask exists"
+    },
+    "historical_focus_winners": {
+      "receipt": "docs/audit.json",
+      "scope": "Prior hash-pinned geometric audit only; every supplied winner exceeds the literal 70% directed-overlap stop against at least one other focus winner. This is not a new candidate comparison, complete-registry clearance, or score.",
+      "classification": "GEOMETRIC MEASUREMENT; NOT HOLDOUT-DTI OR ORGANIZER-CONFIRMED"
+    }
+  },
+  "raster_sha256": null,
+  "validator_output": {
+    "status": "NOT RUN: no candidate raster was generated",
+    "no_nan_inside_footprint": null,
+    "values_in_0_1": null,
+    "single_band_float32": null,
+    "crs_shape_transform_match": null,
+    "organizer_template_authenticated": false,
+    "portal_acceptance": null
+  },
+  "submission_name": null,
+  "submission_note": "NOT A SUBMISSION: no candidate generated; DO NOT SUBMIT",
+  "submission_note_status": "Placeholder status note only; no submission metadata or upload file exists.",
+  "current_preflight_receipt": "evidence/session-20261028-preflight.json",
+  "current_participant_source_receipt": "evidence/session-20261028-peer-source-observations.json",
+  "current_upstream_prerequisite_receipt": "evidence/session-20261028-upstream-prerequisites.json",
+  "synthetic_upstream_operator_diagnostic": "evidence/session-20261028-upstream-operator-audit.json",
+  "unresolved": [
+    "No explicit single-method paragraph or lane assignment",
+    "Fixed two-hour review clock inherited from session e2903b2e is exhausted; it was not reset",
+    "Core competition TIFFs and authenticated input receipt are absent from this checkout",
+    "Current upstream empty-truth false-positive mass is omitted from pooled spatial blocks; central repair and a pinned review are required",
+    "Canonical feature-cache bytes and SHA-256 are unavailable; private rebuilding is prohibited",
+    "Complete surface/dot registry, dot representation and saturation definition are unresolved",
+    "Same-evaluator, same-fold incumbent and paired improvement evidence are absent",
+    "Official organizer template provenance and account-specific remaining slot cap were not verified",
+    "No candidate bytes, automated validator receipt, score-to-file receipt, or selector authorization exist"
+  ],
+  "candidate_generated": false,
+  "leaderboard_estimate": null,
+  "slot_authorized": false,
+  "ok_to_download_for_submission": false,
+  "ok_to_submit": false,
+  "verdict": "negative"
+}
