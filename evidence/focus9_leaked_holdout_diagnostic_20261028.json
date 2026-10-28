@@ -1,0 +1,74 @@
+{
+ "GEMSDOE24": {
+  "holdout_dti_leaked_diagnostic": 0.1718253926823608,
+  "ci95": [
+   0.16096053337648952,
+   0.18275629628899617
+  ],
+  "n_withheld": 60988
+ },
+ "GEMSDOE25": {
+  "holdout_dti_leaked_diagnostic": 0.16163037136893005,
+  "ci95": [
+   0.15118373021577872,
+   0.17208752934253438
+  ],
+  "n_withheld": 60988
+ },
+ "GEMSDOE27": {
+  "holdout_dti_leaked_diagnostic": 0.17263596544312604,
+  "ci95": [
+   0.16200149922716697,
+   0.1834501933187646
+  ],
+  "n_withheld": 60988
+ },
+ "GEMSDOE28": {
+  "holdout_dti_leaked_diagnostic": 0.04618035989562031,
+  "ci95": [
+   0.04282794432585901,
+   0.049836531040749435
+  ],
+  "n_withheld": 60988
+ },
+ "GEMSDOE30": {
+  "holdout_dti_leaked_diagnostic": 0.16163037136893005,
+  "ci95": [
+   0.15118373021577872,
+   0.17208752934253438
+  ],
+  "n_withheld": 60988
+ },
+ "GEMSDOE31": {
+  "holdout_dti_leaked_diagnostic": 0.04906085984556028,
+  "ci95": [
+   0.04553349283792611,
+   0.05275799178313156
+  ],
+  "n_withheld": 60988
+ },
+ "GEMSDOE32": {
+  "holdout_dti_leaked_diagnostic": 0.0067081038868037944,
+  "ci95": [
+   0.006089042478927522,
+   0.007400421326837834
+  ],
+  "n_withheld": 60988
+ },
+ "GEMSDOE33": {
+  "holdout_dti_leaked_diagnostic": 0.08640764777535297,
+  "ci95": [
+   0.08040048739371651,
+   0.09242873185978004
+  ],
+  "n_withheld": 60988
+ },
+ "GEMSDOE36": {
+  "holdout_dti_leaked_diagnostic": 0.006928589305656043,
+  "ci95": [
+   0.0062868089045687555,
+   0.007618627797462533
+  ],
+  "n_withheld": 60988
+ }
+}
