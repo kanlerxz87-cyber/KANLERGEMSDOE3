@@ -4,6 +4,16 @@
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
 [current fixed session config](config/research-session-e2903b2e.json), [preserved prior session configs](config/), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-30454eca-run-card.json), and [latest negative card](evidence/session-e2903b2e-run-card.json). Never reset an earlier session clock.**
 
+## 28 October 2026 peer-forensics continuation
+
+[Bounded current peer audit and next steps](research/peer-forensics-20261028.md) ·
+[Machine-readable 35-repository observation](evidence/nine_site_and_peer_forensics_20261028.json) ·
+[Exact ATSC saved-byte recheck](evidence/atsc-current-peer-audit-20261028.json)
+
+This continuation refreshed the nine requested focus repositories and 26 extended/sibling repositories at current GitHub commits. It selected at most 12 unique raster stems per repository, producing 249 hash-verified peer bytes; this is explicitly **not a complete registry** or organizer score feed. The exact ATSC research TIFF remains **DO NOT SUBMIT**: its final dots overlap 244 bounded discrete detectors by at most 57.143995%, but overlap a selected continuous calibration probe by 100%, and the full `r13-lattice-s5` receipt already forces the literal duplicate stop. No model, leaderboard estimate or weekly slot was created here.
+
+The fresh GEMSDOE30 off-lattice artifact is recorded as a boundary/calibration irregularity, not a promotion: 6,493 of 6,649 dots are within 500 m of the outer survey boundary and only 135 mirrored catalogue pixels lie in that uncovered zone. The current peer source feed is dated 28 October; participant pages, source commits and local holdouts are never converted into `ORGANIZER-CONFIRMED` scores.
+
 ## Final integrated continuation — 27 October 2026
 
 [Three-pass review and next steps](research/session-e2903b2e-review.md) ·
