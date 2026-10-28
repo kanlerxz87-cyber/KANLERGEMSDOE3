@@ -4,6 +4,12 @@
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
 [current fixed session config](config/research-session-e2903b2e.json), [preserved prior session configs](config/), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-30454eca-run-card.json), and [latest negative card](evidence/session-e2903b2e-run-card.json). Never reset an earlier session clock.**
 
+## Session 662a9e8b — 28 October 2026
+
+**DO NOT SUBMIT.** No new TIFF, geological experiment, holdout score, leaderboard estimate or competition slot. Read the [three-pass review](research/session-662a9e8b-review.md), [negative JSON card](evidence/session-662a9e8b-run-card.json), [preflight](evidence/session-662a9e8b-preflight.json), [focus source snapshot](evidence/session-662a9e8b-focus-feed.json) and [upstream audit](evidence/session-662a9e8b-upstream-prerequisites.json). The five participant-mirrored core inputs were restored again but remain ignored/ephemeral and are not organizer-authenticated. The assigned lane, cache, complete registry and matched incumbent remain unavailable.
+
+The upstream head changed four of five tracked files since the older snapshot. This session did not validate that new version. The *pinned* evaluator still fails the synthetic operator audit. The legacy uniqueness and support-cache CLIs are now blocked because they can misclassify dense/continuous references; use the fail-closed checker with a genuinely complete registry instead. No weekly slot is authorized.
+
 ## Final integrated continuation — 27 October 2026
 
 [Three-pass review and next steps](research/session-e2903b2e-review.md) ·
