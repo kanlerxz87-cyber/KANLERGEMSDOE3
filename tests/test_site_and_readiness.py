@@ -197,7 +197,7 @@ class SiteAndReadinessTests(unittest.TestCase):
         from scripts.archive_guard import stop_archived_cli
         with self.assertRaisesRegex(SystemExit, "Archived session"):
             stop_archived_cli()
-        for name in ("run_e1_holdout.py", "run_e2_unique.py", "run_e3_canary.py", "run_e3_hybrid.py", "run_kanler_h1.py", "finalize_candidate.py", "build_run_card.py", "write_run_card.py"):
+        for name in ("run_e1_holdout.py", "run_e2_unique.py", "run_e3_canary.py", "run_e3_hybrid.py", "run_kanler_h1.py", "finalize_candidate.py", "build_run_card.py", "write_run_card.py", "uniqueness_gate.py", "registry_cache.py"):
             tree = ast.parse((ROOT / "scripts" / name).read_text())
             guard = next(n for n in tree.body if isinstance(n, ast.If) and "__name__" in ast.unparse(n.test))
             self.assertEqual(ast.unparse(guard.body[1]), "stop_archived_cli()")

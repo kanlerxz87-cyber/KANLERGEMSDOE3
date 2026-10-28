@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REPOSITORY = "buffedlizard55-lab/GEMSDOE32"
 ISSUES = (37, 39, 41, 42, 49, 51, 53)
 PROVENANCE = ROOT / "vendor" / "shared-template" / "PROVENANCE.json"
-DEFAULT_OUTPUT = ROOT / "evidence" / "session-e2903b2e-upstream-prerequisites.json"
+DEFAULT_OUTPUT = ROOT / "data" / "current-upstream-prerequisites.json"
 HEX40 = re.compile(r"^[0-9a-f]{40}$")
 HEX64 = re.compile(r"^[0-9a-f]{64}$")
 
@@ -76,10 +76,12 @@ def validate_receipt(receipt: object) -> list[str]:
     if not isinstance(cache, dict):
         errors.append("canonical_feature_cache")
     else:
-        if cache.get("receipt_declares_sha256") is not False:
+        if type(cache.get("receipt_declares_sha256")) is not bool:
             errors.append("cache_digest_claim")
-        if cache.get("cache_bytes_in_repository_tree") is not False:
+        if type(cache.get("cache_bytes_in_repository_tree")) is not bool:
             errors.append("cache_bytes_claim")
+        # A path and a declared digest do not authenticate downloaded bytes,
+        # feature lineage, fold isolation or a usable cache.
         if cache.get("usable_for_protocol_reuse") is not False:
             errors.append("cache_reuse_claim")
     if receipt.get("research_ready") is not False:
@@ -154,11 +156,10 @@ def audit() -> dict:
     local_reproduced = [finding["id"] for finding in local_operator.get("blocking_findings", [])]
     blockers = [
         "No explicit single-method paragraph is present in the received request.",
-        "The shared empty-truth false-positive defect remains open and is locally reproduced.",
-        "The shared evaluator/writer silently binarize soft positive values.",
-        "The shared surface gate does not enforce preview-dot overlap.",
-        "The shared Hessian ridge implementation has an open eigenvalue-selection defect.",
-        "The canonical 35-channel cache has neither obtainable bytes nor a declared content digest.",
+        "The pinned evaluator fails the synthetic empty-truth FP test; a changed upstream head has not been validated here.",
+        "The pinned evaluator silently binarizes soft positive values; inspect and validate any changed upstream version before reuse.",
+        "Surface-gate and Hessian reports require resolution and independent validation before repinning.",
+        "The canonical cache has not been restored, hash-verified, and checked for fold-safe lineage.",
         "A complete, representation-resolved registry and same-fold incumbent are not established.",
     ]
     result = {
@@ -184,11 +185,14 @@ def audit() -> dict:
             "receipt_declares_sha256": digest_valid,
             "declared_sha256": declared_digest if digest_valid else None,
             "cache_bytes_in_repository_tree": cache_present,
-            "usable_for_protocol_reuse": bool(digest_valid and cache_present),
+            "usable_for_protocol_reuse": False,
+            "verification_scope": "Only receipt metadata and repository tree were inspected; no cache bytes or lineage were verified.",
             "upstream_request": f"https://github.com/{REPOSITORY}/issues/53",
         },
         "local_synthetic_operator_audit": {
             "receipt": "evidence/shared_tool_audit.json",
+            "tested_pinned_commit": provenance["commit"],
+            "current_head_tested": False,
             "ok": local_operator.get("ok"),
             "reproduced_blocking_findings": local_reproduced,
             "geological_model_evaluated": False,
@@ -222,7 +226,16 @@ def main() -> int:
         print(json.dumps(result, indent=2, allow_nan=False))
         return 0
     except (OSError, KeyError, TypeError, ValueError, subprocess.SubprocessError, json.JSONDecodeError) as exc:
-        print(json.dumps({"ok": False, "candidate_generated": False, "error": str(exc)}))
+        failure = {"ok": False, "status": "UNKNOWN_REFRESH_FAILED", "research_ready": False,
+                   "ok_to_submit": False, "slot_authorized": False, "candidate_generated": False,
+                   "holdout_dti": None, "leaderboard_estimate": None, "error": str(exc)}
+        # Do not leave an older successful refresh looking current after a failure.
+        try:
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_text(json.dumps(failure, indent=2, allow_nan=False) + "\n")
+        except OSError as write_exc:
+            failure["write_error"] = str(write_exc)
+        print(json.dumps(failure))
         return 1
 
 

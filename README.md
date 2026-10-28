@@ -4,10 +4,16 @@
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
 [current fixed session config](config/research-session-e2903b2e.json), [preserved prior session configs](config/), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-30454eca-run-card.json), and [latest negative card](evidence/session-e2903b2e-run-card.json). Never reset an earlier session clock.**
 
+## Session 662a9e8b — 28 October 2026
+
+**DO NOT SUBMIT.** No new TIFF, geological experiment, holdout score, leaderboard estimate or competition slot. Read the [three-pass review](research/session-662a9e8b-review.md), [negative JSON card](evidence/session-662a9e8b-run-card.json), [preflight](evidence/session-662a9e8b-preflight.json), [focus source snapshot](evidence/session-662a9e8b-focus-feed.json) and [upstream audit](evidence/session-662a9e8b-upstream-prerequisites.json). The five participant-mirrored core inputs were restored again but remain ignored/ephemeral and are not organizer-authenticated. The assigned lane, cache, complete registry and matched incumbent remain unavailable.
+
+The upstream head changed four of five tracked files since the older snapshot. This session did not validate that new version. The *pinned* evaluator still fails the synthetic operator audit. The legacy uniqueness and support-cache CLIs are now blocked because they can misclassify dense/continuous references; use the fail-closed checker with a genuinely complete registry instead. No weekly slot is authorized.
+
 ## Repository review — 28 October 2026
 
 [Three-pass review](research/session-20261028-review.md) · **Negative / DO NOT SUBMIT**.
-This checkout has no competition rasters. A project-local test environment was installed
+That separate review checkout had no competition rasters. A project-local test environment was installed
 and the suite passed (257 passed, 9 skipped); fail-closed readiness still denies research
 and submission. No experiment, TIFF, score estimate, or competition slot was produced. The review documents the exact blockers
 and next actions. Its review card is not a model run card.
@@ -24,7 +30,7 @@ and next actions. Its review card is not a model run card.
 **DO NOT SUBMIT.** The concurrent forensic work below is integrated without claiming its experiments.
 This final review restored every available pinned instrument/input, refreshed all nine participant
 sources, and independently re-ran the unchanged operator audit. It produced no new TIFF or score
-estimate and used no geological experiment or weekly slot. The five current shared evaluator,
+estimate and used no geological experiment or weekly slot. At that snapshot, the five shared evaluator,
 feature, and writer files remain byte-identical to the pinned defective versions. The named
 35-channel cache still has neither obtainable bytes nor a content digest;
 [upstream issue 53](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/53) requests a central
