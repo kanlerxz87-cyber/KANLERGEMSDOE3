@@ -120,9 +120,11 @@ try {
     const body = await page.locator('body').innerText();
     assert.match(body, /DO NOT SUBMIT/);
     assert.match(body, /99\.94%/);
+    assert.match(body, /99\.95%/);
     assert.match(body, /99\.73%/);
-    assert.match(body, /cannot (override|waive)/i);
-    assert.match(body, /cause of the earlier/i);
+    assert.match(body, /cannot (override|waive|change)/i);
+    assert.match(body, /rejected upload was not supplied/i);
+    assert.match(body, /unverified/i);
     assert.doesNotMatch(body, /prevents.*Predicted values/i);
     assert.equal(await page.locator('a[download]').count(), 0);
     await noGlobalOverflow(page, 'desktop ' + name);

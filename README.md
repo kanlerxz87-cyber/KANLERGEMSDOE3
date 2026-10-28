@@ -42,6 +42,11 @@ The prior session's research clock expired and was not reset.
 
 ## Concurrent reviews merged during this continuation
 
+- [Session 5c1613da](research/session-5c1613da-review.md) independently reproduced the
+  99.94% f056 lattice overlap and audited an older, distinct 9a4e field at **99.95%**.
+  The four saved encodings and both negative decisions are in its
+  [forensic receipt](evidence/session-5c1613da-cadg-audit.json). Its stronger
+  readiness gates and SSP1 technical checks are preserved; no slot was spent.
 - [Session 12817d00](research/session-12817d00-review.md) independently restored the
   fail-closed desk and recorded a separate set of four conditional hypotheses, now in
   [the shared research queue](research/hypotheses.md). Its negative card and fixed

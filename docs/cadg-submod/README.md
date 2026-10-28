@@ -1,9 +1,13 @@
-# CADG-SUBMOD: negative research archive
+# Archived CADG study — DO NOT SUBMIT
 
-**DO NOT SUBMIT.** The independent full-lattice audit found 37,630/37,654 dots (99.94%) within 3 px, exceeding the literal 70% stop. A selector cannot waive that gate. The older 99.73% figure excludes lattice cells on the mirrored catalogue; it also fails and is not an exemption.
+**This directory describes a prior research experiment, not the current approved submission. No candidate TIFF or ZIP from this lane is approved for download or upload.**
 
-The prior card reports HOLDOUT-DTI 0.157080, 95% CI [0.143057, 0.171030], evaluator `gems-segment-pooled-v1`, 60,988 withheld positives. This participant result was not rerun or organizer-confirmed.
+Two distinct archived `Exp-K3-3` prediction fields are retained in the repository for reproducibility and learning, but the literal registry rule disqualifies them: independent saved-byte comparisons find 37,630 / 37,654 dots (99.9363%) for f056 and 37,635 / 37,654 dots (99.9495%) for 9a4e within 3 pixels of the **full** registered calibration lattice. Both exceed the 70% duplicate stop. The earlier f056 figure of 99.7318% used only catalogue-excluded lattice dots and also failed. The archived card records `verdict: negative`, `slot_authorized: false`, and unverified official-template provenance. Neither a format pass, a holdout result, nor selector sign-off can clear a failed duplicate stop. [Forensic receipt](../data/session-5c1613da-cadg-audit.json).
 
-The original zero-outside TIFF's SHA-256 is `bc019ae673a9d5ca1fe40e968759a2af8ae757a110599b66fc949c4f59961fba`. Its locally finite [0,1] values do not establish the cause of the prior portal error or guarantee acceptance; the rejected file is unavailable. The official task describes null/NaN outside bounds. Both encodings are preserved only as research artifacts.
+- [Current executive decision](../index.html): no eligible TIFF; **DO NOT SUBMIT**.
+- [Archived lane decision](index.html): fail-closed status and reason.
+- [Submission instructions](executive-summary.html): this lane has no eligible upload.
+- [Archived run card](run-card.json): scoped experiment receipt.
+- [Archived executive evidence](EXECUTIVE_SUMMARY.md): non-leaderboard HOLDOUT-DTI and limitations.
 
-[Current CADG decision](index.html) · [Gate guide](executive-summary.html) · [Full root desk](../index.html) · [Forensic receipt](../data/session-30454eca-cadg-lattice.json) · [Original card](run-card.json)
+Historical `HOLDOUT-DTI` measurements are not ORGANIZER-CONFIRMED scores and do not estimate a live leaderboard result. No score receipt binds a competition score to these bytes. The older download directions, candidate promotions, and “DOWNLOAD READY” statements are withdrawn. Existing TIFF/ZIP files are not deleted; they are quarantined as research artifacts.

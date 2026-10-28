@@ -1,9 +1,16 @@
-# CADG-SUBMOD: negative research archive
+# CADG archive — DO NOT SUBMIT
 
-**DO NOT SUBMIT.** The independent full-lattice audit found 37,630/37,654 dots (99.94%) within 3 px, exceeding the literal 70% stop. A selector cannot waive that gate. The older 99.73% figure excludes lattice cells on the mirrored catalogue; it also fails and is not an exemption.
+This is a prior research artifact, not an eligible new competition submission.
+The saved TIFF has 37,630 / 37,654
+(99.94%) dots within 3 pixels of the full pinned binary lattice,
+above the mandatory 70% duplicate stop; the failed artifacts are not linked for download. The prior off-catalogue-only reference produced
+99.73%; both fail.
+The distinct older 9a4e field also fails: 37,635 /
+37,654 (99.95%).
 
-The prior card reports HOLDOUT-DTI 0.157080, 95% CI [0.143057, 0.171030], evaluator `gems-segment-pooled-v1`, 60,988 withheld positives. This participant result was not rerun or organizer-confirmed.
+The local format profiles do not prove organizer acceptance. The rejected upload was not supplied.
+The original participant-run HOLDOUT-DTI is 0.157080, evaluator
+`gems-segment-pooled-v1`, 60,988 positives, 95% CI
+[0.143057, 0.171030]; it was not independently rerun and is not a leaderboard forecast.
 
-The original zero-outside TIFF's SHA-256 is `bc019ae673a9d5ca1fe40e968759a2af8ae757a110599b66fc949c4f59961fba`. Its locally finite [0,1] values do not establish the cause of the prior portal error or guarantee acceptance; the rejected file is unavailable. The official task describes null/NaN outside bounds. Both encodings are preserved only as research artifacts.
-
-[Current CADG decision](index.html) · [Gate guide](executive-summary.html) · [Full root desk](../index.html) · [Forensic receipt](../data/session-30454eca-cadg-lattice.json) · [Original card](run-card.json)
+[Research-only archive](index.html) · [Forensic receipt](../data/session-5c1613da-cadg-audit.json) · [Current decision desk](../index.html)

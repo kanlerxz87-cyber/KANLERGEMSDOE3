@@ -11,7 +11,7 @@ import numpy as np
 import pytest
 
 from scripts.audit_s2d36_peer import compare_dots
-from scripts.build_cadg_site import build as build_cadg, check_receipt as check_cadg
+from scripts.build_cadg_site import build as build_cadg, check_session_receipt as check_cadg
 from scripts.build_site import build as build_root, check_s2d36_receipt
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -109,10 +109,11 @@ def test_both_generated_sites_and_public_receipts_are_consistent_without_writes(
                  ROOT / "docs/cadg-submod/EXECUTIVE_SUMMARY.md", ROOT / "docs/cadg-submod/README.md"):
         text = page.read_text()
         assert "DO NOT SUBMIT" in text
-        assert "99.94%" in text
-        assert "99.73%" in text
+        assert "99.94%" in text or "99.9363%" in text
+        assert "99.73%" in text or "99.7318%" in text
         assert "prevents \"Predicted values" not in text
         assert "After Human Selector Sign-Off" not in text
+        assert 'href="downloads/' not in text.lower()
 
 
 def test_staging_and_legacy_builder_refuse_stale_or_obsolete_root_pages():
