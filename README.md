@@ -8,7 +8,7 @@
 
 [Three-pass review](research/session-6ad17006-review.md) ·
 [Preflight snapshot](evidence/session-6ad17006-preflight.json) ·
-[Current nine-site source snapshot](evidence/session-6ad17006-focus-feed.json) ·
+[Current nine-site source snapshot](evidence/session-6ad17006-focus-feed-post-merge.json) ·
 [Official-source science and conditional ranking](knowledge/session-6ad17006-geothermal-research.md) ·
 [Verification receipt](evidence/session-6ad17006-verification.json) ·
 [Negative JSON run card](evidence/session-6ad17006-run-card.json)
@@ -24,10 +24,12 @@ shared auditor in raw-zero mode **and** an independently checked internal mask; 
 current shared writer does not emit that combined encoding, so central repair is
 still required. Local validation cannot establish portal acceptance.
 
-Verification: **216 Python tests passed**, deterministic site and whitespace checks
-passed, and desktop/mobile browser smoke passed with mocked GitHub feed scenarios.
-The source snapshots, cached data and this result are dated; see the review for
-remaining blockers. The full original request remains below.
+Verification after integrating concurrent main: **231 Python tests passed**,
+deterministic site and whitespace checks passed, and desktop/mobile browser smoke
+passed with mocked GitHub feed scenarios. The isolated SSP1 study also passed 61
+Python tests and its 15-page browser smoke; those technical checks do not authorize a
+submission. The source snapshots, cached data and this result are dated; see the
+review for remaining blockers. The full original request remains below.
 
 ## Prior scoped review — bb1bdbdd
 
@@ -42,20 +44,49 @@ malformed-receipt handling and regenerated the drifted home page using the exist
 canonical builder. Final checks: 200 tests passed and desktop/mobile smoke passed.
 The requested high-scoring unique artifact remains undelivered; see the scoped review.
 
-## Prior continuation — 27 October 2026
+## Preserved concurrent quarantine review — 20261027
 
-[Current scoped review and next steps](research/session-20261027-review.md) ·
-[Current readiness receipt](evidence/session-20261027-readiness.json) ·
-[Current nine-site source observations](evidence/session-20261027-focus-feed.json) ·
-[Current negative review card](evidence/session-20261027-run-card.json)
+[Three-pass review](research/session-20261027-arena-review.md) ·
+[Negative review card](evidence/session-20261027-arena-review-card.json)
 
-That separate readiness-review session produced no new TIFF or score estimate. Seven priority
-repositories changed since its saved feed; source changes are not a scientific/novelty audit.
-Its readiness check now binds operator receipts to the exact provenance-manifest digest and rejects
-contradictory conservation checks. Its review reported 177 passing tests after restoring optional
-instruments. Its checkout lacked core rasters; this session has restored pinned participant-mirror
-inputs locally, although those ignored bulk files may not persist. That review used no geological
-experiment or weekly slot.
+That concurrent review removed unsafe download links from the archived CADG subsite after confirming
+99.73% lattice overlap against a catalogue-excluded reference, above the literal 70% duplicate stop; the full-lattice replay below is larger. Its software checks are preserved as dated
+evidence; no geological experiment, score estimate or submission authorization followed.
+
+## Preserved concurrent continuation — 5c1613da
+
+[Three-pass review](research/session-5c1613da-review.md) · [Preflight](evidence/session-5c1613da-preflight.json) · [Negative run card](evidence/session-5c1613da-run-card.json) · [CADG saved-byte audit](evidence/session-5c1613da-cadg-audit.json) · [Nine-site source feed](evidence/session-5c1613da-focus-feed.json)
+
+**DO NOT SUBMIT.** That concurrent session generated no candidate TIFF, ran no geological experiment and
+spent no weekly slot. It restored hash-pinned participant-mirror inputs locally (ignored, not
+organizer-authenticated), prepared raw bands, reconfirmed the unfixed shared evaluator defect,
+and repaired the misleading CADG publication pages. Reopening the exact inherited CADG TIFFs
+against the **full** registered binary lattice found **37,630 / 37,654 (99.9363%)** f056 dots
+and **37,635 / 37,654 (99.9495%)** older 9a4e dots within 3 px. Both distinct fields and their
+encodings fail the required >70% stop; their separate negative historical card and writer receipt are preserved.
+The earlier f056 figure of 99.7318% had removed catalogue-overlapping reference dots. The exact
+rejected upload and organizer receipt remain unavailable: local validation is not portal approval,
+and human selector sign-off cannot override a failed duplicate test.
+
+No assigned single-method lane, canonical 35-channel cache, corrected shared evaluator, full
+registry interpretation, or same-fold incumbent was found. Until those are available, a new
+raster or estimated score would not meet the user's protocol. The outcome is a reproducible
+negative result, not the requested winning submission.
+
+## Previous continuation — 27 October 2026
+
+[Previous scoped review](research/session-12817d00-review.md) ·
+[Previous readiness receipt](evidence/session-12817d00-preflight.json) ·
+[Previous nine-site source observations](evidence/session-12817d00-focus-feed.json) ·
+[Previous negative review card](evidence/session-12817d00-run-card.json)
+
+This review found and corrected a public-release regression: the checked-in homepage said
+“Research Complete / DOWNLOAD READY” while the evidence card remained negative and the deterministic
+builder rejected the page as stale. The active desk is again generated from negative receipts only.
+Core participant-mirror inputs were autonomously restored and prepared without rebuilding the missing
+canonical cache. The centrally tracked evaluator defect remains open, the method paragraph is absent,
+and the literal registry makes a 37,654-dot design mathematically unable to pass one registered lattice.
+No geological experiment, candidate TIFF, score estimate or weekly slot was used.
 
 ## Executive decision: DO NOT SUBMIT
 
@@ -69,8 +100,14 @@ session ran no geological experiment, generated no new TIFF and spent no weekly 
 main contains other sessions’ negative model results and quarantined research TIFFs; those are
 preserved, not claimed as this session’s work. The requested winning artifact is not delivered.
 
-### Prior session 52a91352 progress (retained)
+### Cumulative progress (current and earlier sessions)
 
+The items below summarize preserved concurrent and earlier work; the current session's own
+actions and tests are separated in its [three-pass review](research/session-6ad17006-review.md).
+
+- Corrected a stale, optimistic `docs/index.html` that contradicted the negative evidence card; `scripts/build_site.py --check` now passes and the active homepage exposes no eligible download.
+- Refreshed all nine participant source heads into a dated, read-only source observation. This is not a score feed, full registry or scientific approval.
+- Replaced the older conditional queue with four unimplemented-in-this-repository hypotheses. The top Morse–Smale junction proposal was not run because mandatory prerequisites fail before experiment one.
 - Restored the complete 19-band core feature raster, labels, sample and SGMC proxy from immutable,
   hash-pinned participant mirrors. **Core-mirror data placement is completed**, but mirror integrity is not
   organizer authentication. Large inputs remain ignored, not copied into Git.
@@ -105,6 +142,7 @@ preserved, not claimed as this session’s work. The requested winning artifact 
   are in [the earlier ledger](evidence/official-claims-20261026.json), the [dated observation](evidence/official-observation-20261027.json), and [updated geological notes](knowledge/geothermal-science-2026-10-27.md). No per-file organizer receipt exists.
 - Rebuilt the Pages executive desk with an individual summary for each priority site, four ranked
   conditional hypotheses, automatic read-only source-change checks, and explicit no-submit status.
+- The concurrent `12817d00` review recorded **202 Python tests**; after this session's reconciliation **215 tests** and desktop/mobile browser checks passed. These are not geological validation or score evidence.
 
 ### Remaining research blockers
 
@@ -127,6 +165,7 @@ bash scripts/download_competition_data.sh   # pinned public mirror; ~420 MB core
 .venv/bin/python scripts/prepare_data.py    # delegates to shared raw-band preparation only
 .venv/bin/python scripts/audit_shared_tools.py  # expected nonzero: unresolved upstream defect
 .venv/bin/python scripts/preflight.py --config config/research-session-6ad17006.json --out data/session-6ad17006-preflight.json  # nonzero expected; fixed clock
+.venv/bin/python scripts/audit_cadg_quarantine.py --restore-lattice --output data/cadg-recheck.json  # research only
 .venv/bin/python scripts/restore_audit_data.py # historical learning only; never a candidate
 .venv/bin/python scripts/audit_h33_lineage.py  # read-only geometry; no candidate/score/slot
 .venv/bin/python scripts/audit_kpl36_external.py --restore # expected nonzero: duplicate stop
@@ -135,8 +174,8 @@ bash scripts/download_competition_data.sh   # pinned public mirror; ~420 MB core
 PYTHON=.venv/bin/python bash scripts/bootstrap_template.sh
 .venv/bin/python scripts/restore_instruments.py --profile saturation57
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q
-.venv/bin/python scripts/build_site.py
-.venv/bin/python scripts/build_site.py --check
+.venv/bin/python scripts/build_site.py --check  # detects drift without overwriting tracked pages
+# To intentionally regenerate after changing evidence: .venv/bin/python scripts/build_site.py
 .venv/bin/python -m http.server 8000 --bind 0.0.0.0 --directory docs
 ```
 
@@ -170,9 +209,9 @@ Tests mock source API success/change/quota failures and storage restrictions, no
 Main `4338f12`, `9ebfc4b` and `1fcc140` introduced parallel bilateral/GPC,
 K3-H1, DCAP-LHC and isolated SSP1 studies, other source pins, research-only TIFFs
 and registry-saturation evidence. SSP1 maintenance `9a24c59` is also retained. The preserved canonical bilateral run/card remains
-canonical at `evidence/run-card.json` and identical root/docs aliases. The previous review’s card
-is `evidence/session-7d1e577d-run-card.json`; the current session’s separate card is
-`evidence/session-52a91352-run-card.json`. The current session records zero new geological runs;
+canonical at `evidence/run-card.json` and identical root/docs aliases. Earlier reviews' cards
+include `evidence/session-7d1e577d-run-card.json` and `evidence/session-12817d00-run-card.json`;
+the concurrent card is `evidence/session-5c1613da-run-card.json` and this session's is `evidence/session-6ad17006-run-card.json`. This session records zero new geological runs;
 the repository-wide history is not zero. No result is promoted.
 
 All four root-archive TIFF files were independently replayed against the required

@@ -252,7 +252,7 @@ def evaluate(card: dict, root: Path = ROOT, shared_validator=validate_with_share
             and interval(a.get("ci95")) and interval(b.get("ci95"))
             and 0 <= a["ci95"][0] <= a["dti"] <= a["ci95"][1] <= 1
             and 0 <= b["ci95"][0] <= b["dti"] <= b["ci95"][1] <= 1
-            and a["dti"] > b["dti"] and interval(paired) and paired[0] > 0
+            and a["dti"] > b["dti"] and interval(paired) and 0 < paired[0] <= paired[1] <= 1
             and paired[0] <= a["dti"] - b["dti"] <= paired[1]
         )
     checks["comparable_holdout_and_paired_win"] = comparable
@@ -297,7 +297,9 @@ def evaluate(card: dict, root: Path = ROOT, shared_validator=validate_with_share
     )
     note, name = sub.get("note"), sub.get("name")
     checks["submission_name_and_note"] = bool(
-        isinstance(name, str) and name.strip() and isinstance(note, str) and note.strip() and len(note) <= 140
+        isinstance(name, str) and re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{0,199}", name)
+        and isinstance(note, str) and bool(note.strip()) and len(note) <= 140
+        and all(ord(c) >= 32 and ord(c) != 127 for c in note)
     )
     replay = {"ok": False, "reason": "Other prerequisites or two-stage summaries did not pass; uniqueness replay not run."}
     if novelty_summary_ok and all(checks.values()):

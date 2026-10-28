@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "kind": "SOFTWARE_AND_UI_VERIFICATION_NOT_MODEL_RESULT",
-  "recorded_utc": "2026-10-28T00:03:36+00:00",
+  "recorded_utc": "2026-10-28T00:08:17+00:00",
   "python_tests": {
     "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q --junitxml=data/session-6ad17006-pytest.xml",
-    "started_utc": "2026-10-28T00:03:19.244788+00:00",
-    "tests": 216,
+    "started_utc": "2026-10-28T00:06:24.380678+00:00",
+    "tests": 231,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "seconds": 12.353,
+    "seconds": 12.54,
     "optional_pinned_instruments_restored": true
   },
   "browser": {
@@ -28,6 +28,8 @@
       "desktop parallel-research.html: no global horizontal overflow",
       "desktop k3h1.html: no global horizontal overflow",
       "desktop candidate.html: no global horizontal overflow",
+      "desktop cadg-submod/index.html: no global horizontal overflow",
+      "desktop cadg-submod/executive-summary.html: no global horizontal overflow",
       "desktop sites/GEMSDOE24.html: no global horizontal overflow",
       "desktop sites/GEMSDOE25.html: no global horizontal overflow",
       "desktop sites/GEMSDOE27.html: no global horizontal overflow",
@@ -37,7 +39,11 @@
       "desktop sites/GEMSDOE32.html: no global horizontal overflow",
       "desktop sites/GEMSDOE33.html: no global horizontal overflow",
       "desktop sites/GEMSDOE36.html: no global horizontal overflow",
+      "desktop cadg-submod/index.html: no global horizontal overflow",
+      "desktop cadg-submod/executive-summary.html: no global horizontal overflow",
+      "archived CADG decision and instructions expose no candidate download",
       "parallel TIFF downloads stay quarantined with corrected uncertainty",
+      "both CADG fields stay quarantined without download links, with full-lattice duplicate counts",
       "desktop: no JavaScript exceptions across every active page",
       "mobile summary: no global horizontal overflow",
       "mobile executive-summary.html: no global horizontal overflow",
@@ -46,6 +52,8 @@
       "mobile parallel-research.html: no global horizontal overflow",
       "mobile k3h1.html: no global horizontal overflow",
       "mobile candidate.html: no global horizontal overflow",
+      "mobile cadg-submod/index.html: no global horizontal overflow",
+      "mobile cadg-submod/executive-summary.html: no global horizontal overflow",
       "mobile sites/GEMSDOE32.html: no global horizontal overflow",
       "mobile sites/GEMSDOE36.html: no global horizontal overflow",
       "mobile: table scroll is local; all required controls readable",
@@ -68,5 +76,14 @@
   "limits": "Local tests and mock browser network do not establish a model score, registry completeness, organizer acceptance or slot authorization.",
   "geological_experiments": 0,
   "weekly_slots_used": 0,
-  "slot_authorized": false
+  "slot_authorized": false,
+  "preserved_ssp1": {
+    "python_tests_passed": 61,
+    "browser_status": "PASS",
+    "browser_pages": 15,
+    "scientific_verdict": "negative",
+    "ok_to_submit": false,
+    "offline_technical_receipt": "evidence/session-6ad17006-ssp1-technical.json",
+    "scope": "Isolated technical verification and browser delivery only; no real-data OOF rerun, new candidate or promotion."
+  }
 }

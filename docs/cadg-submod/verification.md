@@ -1,3 +1,5 @@
+> **ARCHIVED — DO NOT SUBMIT.** This document contains superseded download-readiness, selector-sign-off and portal-error claims. The independent full-lattice saved-byte audit found both CADG prediction fields violate the mandatory duplicate stop. A signature cannot override it. See the [current quarantine](index.html) and [forensic receipt](../data/session-5c1613da-cadg-audit.json). The original text below is preserved for historical context, not authorization.
+
 # Three-Pass Verification Record — 2026-10-26 (Lane `L-K3-CADG-SUBMOD`)
 
 ## Official Primary Sources Fetched & Verified (`2026-10-26 UTC`)

@@ -23,10 +23,14 @@ was assigned as this session's lane.
 
 ## Four untried proposals, ranked qualitatively
 
-The ranking is a **hypothesis about relative potential**, not an estimated DTI gain or a
-score. No proposal is eligible to run until the assigned lane and shared prerequisites
-are resolved. These transformations are differentiated from the inspected local code,
-not certified novel against every participant repository or the geological literature.
+This refines the earlier cross-scale/drainage/alteration/thermal alternative queue.
+A concurrently merged session preserved a different four-proposal queue in
+[`research/hypotheses.json`](https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/blob/main/research/hypotheses.json);
+neither queue assigns this session's lane. The ranking is a **hypothesis about
+relative potential**, not an estimated DTI gain or a score. No proposal is eligible
+to run until the assigned lane and shared prerequisites are resolved. These
+transformations are differentiated from the inspected local code, not certified novel
+against every participant repository or the geological literature.
 
 | Relative DTI-improvement priority / cost | Layers and proposed physical signature | Why it might reveal a catalogue-missing structure | Contrast with inspected local code and named non-fault mimic | Actual availability |
 |---|---|---|---|---|

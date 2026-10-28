@@ -114,6 +114,12 @@ def test_holdout_requires_matched_folds_and_positive_paired_interval(tmp_path):
     card = eligible_card(tmp_path)
     card["holdout"]["same_evaluator_best"]["withheld_positives"] = True
     assert not review(card, tmp_path)["checks"]["comparable_holdout_and_paired_win"]
+    card = eligible_card(tmp_path)
+    card["holdout"]["candidate"]["ci95"] = [.01, .03]
+    assert not review(card, tmp_path)["checks"]["comparable_holdout_and_paired_win"]
+    card = eligible_card(tmp_path)
+    card["holdout"]["paired_delta_ci95"] = [.04, 2.0]
+    assert not review(card, tmp_path)["checks"]["comparable_holdout_and_paired_win"]
 
 
 def test_uniqueness_requires_complete_current_literal_registry(tmp_path):
@@ -122,6 +128,12 @@ def test_uniqueness_requires_complete_current_literal_registry(tmp_path):
     assert not review(card, tmp_path)["checks"]["literal_all_registry_uniqueness"]
     card = eligible_card(tmp_path)
     card["uniqueness"]["surface"]["max_rank_correlation"] = .90001
+    assert not review(card, tmp_path)["checks"]["literal_all_registry_uniqueness"]
+    card = eligible_card(tmp_path)
+    card["uniqueness"]["surface"]["max_within_3px"] = .70001
+    assert not review(card, tmp_path)["checks"]["literal_all_registry_uniqueness"]
+    card = eligible_card(tmp_path)
+    del card["uniqueness"]["surface"]["max_within_3px"]
     assert not review(card, tmp_path)["checks"]["literal_all_registry_uniqueness"]
     card = eligible_card(tmp_path)
     card["uniqueness"]["surface"]["max_within_3px"] = .70001
@@ -181,6 +193,14 @@ def test_broken_operator_and_replay_exceptions_fail_closed(tmp_path):
                                 shared_operator=lambda *args: True, uniqueness_validator=broken)
     assert not result["checks"]["literal_all_registry_uniqueness"]
     assert not result["eligible_for_separate_selector"]
+
+
+def test_name_and_note_reject_unsafe_or_empty_fields(tmp_path):
+    for field, bad in (("name", "../candidate"), ("name", "bad\nname"),
+                       ("note", " "), ("note", "line one\nline two")):
+        card = eligible_card(tmp_path)
+        card["submission"][field] = bad
+        assert not review(card, tmp_path)["checks"]["submission_name_and_note"]
 
 
 def test_default_validator_does_not_trust_receipt_flags(tmp_path):

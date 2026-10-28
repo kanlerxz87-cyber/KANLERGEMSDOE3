@@ -3,9 +3,12 @@
 Before changing this project, read:
 1. `README.md`, including its full standing user request (also `PROJECT_PROMPT.md`).
 2. `PROJECT_REQUEST.md` and `research/standing-requirements.md` for the compact standing rules.
-3. `config/research-session.json`, `research/review.md`, and `research/verification.md`.
-4. `evidence/run-card.json` (preserved canonical bilateral run, negative) and
-   `evidence/session-7d1e577d-run-card.json` (this review session, no model run).
+3. `config/research-session-6ad17006.json`, `research/session-6ad17006-review.md`,
+   `research/session-5c1613da-review.md` and `research/session-12817d00-review.md`
+   (preserved parallel work), and `research/verification.md`.
+4. `evidence/run-card.json` (preserved canonical bilateral run, negative),
+   `evidence/session-6ad17006-run-card.json` (current review session, no model run), and
+   `evidence/session-5c1613da-run-card.json` (preserved concurrent negative review).
 
 Keep **Maximize P(Win)** and **Own the Outcome** explicit. File format, model quality,
 semantic novelty, evidence authenticity and weekly-slot authorization are separate.
@@ -45,8 +48,8 @@ under `data/` or `.cache/`. Small receipts/manifests may be tracked. Do not comm
 just to make a dashboard green. Legacy archive builders must not overwrite active pages
 or silently recompute the recorded evidence-pinning manifest.
 
-Reproduce the pinned optional instruments, run `python -m pytest -q`, build with
-`python scripts/build_site.py`, and verify with `python scripts/build_site.py --check`.
-Run the desktop/mobile browser smoke test from the README after UI changes. Use the
+Reproduce the pinned optional instruments, run `python -m pytest -q`, and verify
+`python scripts/build_site.py --check` before any intentional rebuild with `python scripts/build_site.py`;
+this detects drift rather than silently repairing it. Run the desktop/mobile browser smoke test from the README after UI changes. Use the
 process tools for a preview bound to 0.0.0.0; browser application URLs must not target
 localhost. Preserve the existing main/root Pages configuration and root redirect.

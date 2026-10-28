@@ -55,7 +55,8 @@
     "live_operator_audit_snapshot": "evidence/session-6ad17006-operator.json",
     "upstream_git_observation": "evidence/session-6ad17006-upstream.json",
     "historical_h33_geometry": "evidence/session-6ad17006-h33-lineage.json",
-    "source_change_feed": "evidence/session-6ad17006-focus-feed.json",
+    "source_change_feed": "evidence/session-6ad17006-focus-feed-post-merge.json",
+    "initial_source_change_feed": "evidence/session-6ad17006-focus-feed.json",
     "geothermal_research": "knowledge/session-6ad17006-geothermal-research.md",
     "verification": "evidence/session-6ad17006-verification.json"
   }

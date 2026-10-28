@@ -12,8 +12,11 @@ claim that none of the proposed mechanisms can work.
 The nine participant repositories were repinned at
 [23:42:22 UTC](../evidence/session-6ad17006-focus-feed.json); the homepage feed had
 been older. Nine commits changed relative to that older deployed feed; three changed
-relative to the preceding scoped review. These are source-head observations only, not
-a complete registry, scientific review, updated score receipt, or permission to upload.
+relative to the preceding scoped review. After integrating concurrent main, a second
+[9/9 refresh at 00:05:57 UTC on 28 October](../evidence/session-6ad17006-focus-feed-post-merge.json)
+found GEMSDOE33 changed since the newer main feed. These are source-head observations
+only, not a complete registry, scientific review, updated score receipt, or permission
+to upload.
 The pages contain per-site source file links, SHA-256s, local-format profiles and
 geometric uniqueness against the prior priority references:
 
@@ -99,11 +102,14 @@ numerical evaluator was introduced.
 
 The [primary-source audit and conditional ranking](../knowledge/session-6ad17006-geothermal-research.md)
 records DOE/NLR rules, USGS GeoDAWN/3DEP, USGS Surprise Valley and GDR. The four
-untried ideas are, in qualitative priority order: cross-scale magnetic edge with
-signed radiometric termination; repeated drainage offsets; paired alteration-front
-terminations; and terrain/season-conditioned thermal asymmetry. Each has named
-non-fault mimics, missing-fault rationale, cost and provenance limits; none is the
-missing assigned lane or a global novelty claim. GeoDAWN Area 2 nominal flight-line
+untried ideas in the **earlier alternative queue** are, in qualitative priority order:
+cross-scale magnetic edge with signed radiometric termination; repeated drainage
+offsets; paired alteration-front terminations; and terrain/season-conditioned thermal
+asymmetry. Their refined machine-readable record is
+[`hypotheses-session-6ad17006.json`](hypotheses-session-6ad17006.json). The concurrently
+merged [newer queue](hypotheses.md) is preserved unchanged as the site's main four
+proposals. Each has named non-fault mimics, missing-fault rationale, cost and provenance
+limits; neither queue is the missing assigned lane or a global novelty claim. GeoDAWN Area 2 nominal flight-line
 spacing is 400 m, so a 100 m grid is not independent 100 m acquisition. Official DEM
 tile metadata is available within the template's bounding rectangle, not proven
 footprint coverage. The attempted official 2 m probe archive retrieval returned HTTP
@@ -114,7 +120,7 @@ CPU-only execution; a GPU is not universally required.
 
 - Full Python suite with restored optional pinned instruments:
   `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q` →
-  **216 passed** ([verification receipt](../evidence/session-6ad17006-verification.json)).
+  **231 passed** after integrating concurrent main ([verification receipt](../evidence/session-6ad17006-verification.json)).
   These are software/synthetic and historical consistency tests, not new geological experiments.
 - `python scripts/review.py && python scripts/build_site.py --check` passed; the
   deterministic generator retains other sessions' isolated study artifacts. The
@@ -124,6 +130,10 @@ CPU-only execution; a GPU is not universally required.
   no-approved-download, overflow, and changed/unavailable/rate-limited feed tests.
   GitHub API responses in browser scenarios were mocked; this is not a live score
   or organizer check. The production page's read-only source feed is not a score feed.
+- The preserved SSP1 study's separate suite passed **61 tests**, its 15-page browser
+  check passed, and its offline saved-byte verifier passed 38 checks; the original
+  study receipts were restored unchanged ([scoped receipt](../evidence/session-6ad17006-ssp1-technical.json)).
+  This did not rerun its real-data OOF experiment or change its negative verdict.
 - The [dated preflight](../evidence/session-6ad17006-preflight.json) verifies pinned
   participant-mirror input bytes and shared-tool lock locally, but those hashes do not
   establish organizer provenance. The mirror sample includes catalogue positives,
