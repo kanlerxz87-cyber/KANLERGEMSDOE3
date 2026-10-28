@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "kind": "CPX HISTORICAL SAVED-BYTE AUDIT \u2014 NOT A NEW MODEL OR ORGANIZER RECEIPT",
+  "historical_card_sha256": "d1a4b90434327ffdba2e49f353e02e4803be6d86e2f8cf016c9ef1445044b22b",
+  "candidate_file": "docs/cpx-edti/downloads/kanlergemsdoe3-h-cpx1-edti-fusion-37654-20261028-c170892fad1f-zeros.tif",
+  "candidate_sha256": "dd94527ee42a484763e1cb4645bd9aee94ace4e483af91497e57c6f3553dbbce",
+  "input_sha256": {
+    "sample_submission": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "labels": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+    "calib_13gems_20261001_r13-lattice-s5_v2_nan-ou": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2"
+  },
+  "geometry": {
+    "schema_version": 1,
+    "scope": "Saved binary dots versus one pinned lattice; not a full live-registry or surface audit.",
+    "candidate_sha256": "dd94527ee42a484763e1cb4645bd9aee94ace4e483af91497e57c6f3553dbbce",
+    "lattice_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "sample_mirror_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "label_mirror_sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+    "organizer_template_authenticated": false,
+    "geometry": {
+      "bands": 1,
+      "dtype": "float32",
+      "crs": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      "nodata": null
+    },
+    "candidate_dots": 37654,
+    "candidate_dots_within_3px_of_lattice": 37648,
+    "candidate_dot_overlap_fraction": 0.9998406543793488,
+    "candidate_dots_outside_lattice_radius": 6,
+    "duplicate_over_70_percent": true,
+    "catalogue_positive_pixels": 0,
+    "in_footprint_nan": 0,
+    "in_footprint_inf": 0,
+    "in_footprint_min": 0.0,
+    "in_footprint_max": 1.0,
+    "outside_pixel_count": 7111787,
+    "outside_unmasked_finite_count": 7111787,
+    "outside_nan_count": 0,
+    "strict_nan_outside": false,
+    "note": "Research-only forensic audit. No selector authorization or organizer acceptance is implied."
+  },
+  "local_profiles": {
+    "template-mask": {
+      "ok": false,
+      "errors": [
+        "selected_encoding"
+      ],
+      "candidate_sha256": "dd94527ee42a484763e1cb4645bd9aee94ace4e483af91497e57c6f3553dbbce",
+      "nonfinite_inside": 0,
+      "inside_range_0_1": true,
+      "crs_match": true,
+      "shape_match": true,
+      "transform_match": true
+    },
+    "finite-grid": {
+      "ok": true,
+      "errors": [],
+      "candidate_sha256": "dd94527ee42a484763e1cb4645bd9aee94ace4e483af91497e57c6f3553dbbce",
+      "nonfinite_inside": 0,
+      "inside_range_0_1": true,
+      "crs_match": true,
+      "shape_match": true,
+      "transform_match": true
+    },
+    "masked-finite": {
+      "ok": false,
+      "errors": [
+        "selected_encoding"
+      ],
+      "candidate_sha256": "dd94527ee42a484763e1cb4645bd9aee94ace4e483af91497e57c6f3553dbbce",
+      "nonfinite_inside": 0,
+      "inside_range_0_1": true,
+      "crs_match": true,
+      "shape_match": true,
+      "transform_match": true
+    }
+  },
+  "full_registry_compared": false,
+  "surface_registry_comparison": null,
+  "template_organizer_authenticated": false,
+  "portal_acceptance_verified": false,
+  "candidate_generated": false,
+  "geological_experiments_this_session": 0,
+  "weekly_slots_used_this_session": 0,
+  "ok_to_submit": false,
+  "slot_authorized": false,
+  "verdict": "negative"
+}

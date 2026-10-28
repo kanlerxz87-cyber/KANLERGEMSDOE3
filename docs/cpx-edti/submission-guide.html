@@ -1,58 +1,14 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>How to submit · L-K3-CPX-EDTI</title><style>
-:root{--bg:#f4f7f9;--surface:#fff;--border:#d8e1e8;--text:#0f172a;--muted:#475569;
---accent:#0f766e;--red:#b91c1c;--redbg:#fef2f2;--amber:#92400e;--amberbg:#fffbeb;
---greenbg:#ecfdf5;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
---sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.55}
-.container{max-width:1240px;margin:0 auto;padding:26px 20px 60px}
-nav{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 18px;margin-bottom:18px}
-nav a{color:var(--accent);text-decoration:none;font-weight:600;margin-right:14px}
-.panel{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:18px}
-.banner{border-radius:12px;padding:22px;margin-bottom:18px;border:2px solid var(--red);background:var(--redbg)}
-.banner h1{margin:0 0 6px;font-size:1.7rem;color:var(--red)}
-table{width:100%;border-collapse:collapse;font-size:.92rem}th,td{border-bottom:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top}
-th{background:#f8fafc}code{font-family:var(--mono);font-size:.82rem;word-break:break-all}
-.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.78rem;font-weight:700}
-.no{background:var(--redbg);color:var(--red);border:1px solid var(--red)}
-.ok{background:var(--greenbg);color:#065f46;border:1px solid #10b981}
-.warn{background:var(--amberbg);color:var(--amber);border:1px solid #f59e0b}
-small{color:var(--muted)}.wrap{overflow-x:auto}a{color:var(--accent)}
-.btn{display:inline-block;background:var(--accent);color:#fff!important;padding:9px 16px;border-radius:8px;text-decoration:none;font-weight:700;margin:4px 6px 4px 0}
-.btn.ghost{background:#fff;color:var(--accent)!important;border:1px solid var(--accent)}
-h2{margin-top:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
-</style></head>
-<body><div class="container">
-<nav><div><strong>KANLERGEMSDOE3</strong> · L-K3-CPX-EDTI</div>
-<div><a href="index.html">Executive summary</a><a href="hypotheses.html">Hypotheses</a><a href="submission-guide.html">How to submit</a><a href="../index.html">Main research desk</a></div></nav>
-<section class="panel"><h1>How to make a submission (executive guide)</h1>
-<p><span class="tag no">CURRENT DECISION: DO NOT SUBMIT — yet</span> &nbsp;<small>Do not upload the CPX research TIFF.
-The steps below are the exact, validated path to use <em>once a selector approves a file and a weekly slot</em>.</small></p>
-<h2>1 · Pick the approved file and verify its bytes</h2>
-<ol><li>Download the selector-approved <code>-zeros.tif</code> (or its <code>.zip</code>) from this portal.</li>
-<li>Verify SHA-256 matches the run card before uploading:
-<code>sha256sum kanlergemsdoe3-h-cpx1-edti-fusion-37654-20261028-c170892fad1f-zeros.tif</code> → for the CPX research file: <code>dd94527ee42a484763e1cb4645bd9aee94ace4e483af91497e57c6f3553dbbce</code>.</li>
-<li>Local re-validation (optional, writer already checked saved bytes):
-<code>python scripts/validate_submission.py &lt;sample_submission.tif&gt; &lt;file.tif&gt; --profile finite-grid</code>.</li></ol>
-<h2>2 · Why you will not see “Predicted values must be in range [0, 1]”</h2>
-<p>That portal error fires when a whole-array scan finds NaN, nodata sentinels, or values outside [0,1].
-The <code>-zeros</code> encoding writes <strong>finite values in [0,1] in every one of the 12,279,160 cells</strong>
-(0 outside the study footprint, verified on saved bytes: min 0.0, max 1.0, 0 NaN).
-A <code>-nan</code> twin (NaN outside footprint, matching the literal sample) is shipped alongside.
-Upload <strong>one</strong> of them — the <code>-zeros</code> file is the primary deliverable; both contain identical predictions inside the footprint.</p>
-<h2>3 · Upload on DrivenData</h2>
-<ol><li>Open the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">competition page</a>, sign in, check your remaining weekly submissions (rules: 3/week — verify live).</li>
-<li><strong>Submit → Make new submission</strong>. Choose the single <code>.tif</code> (or a <code>.zip</code> containing exactly one GeoTIFF — both provided).</li>
-<li>Paste the run-card note into <strong>Note</strong> (≤140 chars). For CPX: <code>CPX coincident grav-mag-strain fusion + exact E-DTI emission 37.7k dots b2 c170892fad1f</code></li>
-<li>Submit, then <strong>record the organizer receipt and bind it to the file SHA-256</strong> — only that receipt creates an ORGANIZER-CONFIRMED score.</li></ol>
-<h2>4 · Format contract (validated locally; portal acceptance still only proven by a receipt)</h2>
-<p><small>Single-band float32 GeoTIFF · EPSG:32611 · shape 3730×3292 · transform identical to sample (100 m px, origin 243350 / 4508550) ·
-predictions finite in [0,1] inside footprint · unique filename per content hash. Sources:
-<a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">problem description</a> ·
-<a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">rules PDF</a> ·
-<a href="https://github.com/drivendataorg/gems-prize-reference-solution">reference solution</a>.</small></p></section>
-<footer><small>Maximize P(Win) · Own the Outcome · Every number labels its evidence class
-(HOLDOUT-DTI / OWNER-REPORTED / GEOMETRY / ALGEBRA). No leaderboard projection is a score.
-Run card: <a href="run-card.json">run-card.json</a></small></footer>
-</div></body></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Evidence-first DOE GEMS fault discovery. Exact historical files, automated validation and a clear submission decision.">
+<title>CPX submission guide · GEMS research desk</title><link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a><header class="topbar"><div class="bar">
+<a class="brand" href="../index.html"><span class="mark" aria-hidden="true">G</span><span>GEMS<small>Fault discovery / research desk</small></span></a>
+<nav aria-label="Main navigation"><a href="../index.html" aria-current="page">Executive summary</a><a href="../research.html">Research</a><a href="../sources.html">Evidence</a><a href="../executive-summary.html">How to submit</a></nav><span class="nav-status">Research blocked</span></div></header>
+<main id="main"><p class="breadcrumb"><a href="index.html">← CPX archive</a></p><div class="page-intro"><p class="eyebrow">Conditional future submission guide</p><h1 class="subtitle-page">Do not upload this TIFF.</h1><p>The literal duplicate stop prevents submission; this page cannot authorize a slot.</p></div><div class="notice"><span class="icon" aria-hidden="true">!</span><div><strong>DO NOT SUBMIT · literal all-registry stop</strong>
+<p>The saved TIFF has 37,648 / 37,654 dots (99.98%) within 3 pixels of the registered binary lattice. Detector-only comparisons do not override this stop; a selector cannot waive it. The earlier recommendation to treat another study as a slot candidate is withdrawn.</p></div></div><section class="section panel prose"><h2>Historical file and local format</h2>
+<p><code>kanlergemsdoe3-h-cpx1-edti-fusion-37654-20261028-c170892fad1f-zeros.tif</code><br>SHA-256 <code>dd94527ee42a484763e1cb4645bd9aee94ace4e483af91497e57c6f3553dbbce</code>. This zero-outside TIFF passes only the local <code>finite-grid</code> profile against the participant mirror, not <code>template-mask</code> or <code>masked-finite</code>. Values inside the mirrored footprint are finite and in [0,1]. The rejected upload was not supplied; its error cause and portal acceptance are unknown.</p>
+<p><a href="cpx-audit.json">Independent saved-byte audit →</a> · <a href="run-card.json">Unchanged historical card →</a> · <a href="../index.html#comparison">Nine-site executive desk →</a></p></section><section class="section panel prose"><h2>When a future candidate is eligible</h2><p>Use the <a href="../executive-summary.html">repository submission guide</a> only after an independently authenticated template, paired same-fold improvement, complete registry checks and a separate selector decision. Local format checks cannot guarantee a portal result.</p></section></main>
+<footer class="footer"><div><strong>KANLERGEMSDOE3</strong> · Evidence before promotion<br>Maximize P(Win). Own the outcome. No fabricated scores or renamed submissions.</div>
+<div>Reviewed 28 Oct 2026 · <a href="../data/session-cfcca804-run-card.json">Current negative JSON card</a><br>Source changes do not authorize an upload. No competition submission is automated.</div></footer></body></html>

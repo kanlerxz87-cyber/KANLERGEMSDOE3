@@ -392,7 +392,7 @@ def main() -> int:
     parser.add_argument(
         "--out",
         type=Path,
-        default=ROOT / "evidence/nine_site_and_peer_forensics_20261028.json",
+        default=ROOT / "data/nine-site-peer-forensics-latest.json",
     )
     parser.add_argument("--max-per-repo", type=int, default=12)
     args = parser.parse_args()

@@ -23,7 +23,8 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CANDIDATE = ROOT / "docs/atsc-submod/downloads/kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros.tif"
 DEFAULT_MANIFEST = ROOT / ".cache/peer_registry_20261028/manifest.json"
 DEFAULT_TEMPLATE = ROOT / ".cache/gems_data/sample_submission.tif"
-DEFAULT_OUTPUT = ROOT / "evidence/atsc-current-peer-audit-20261028.json"
+# A fresh bounded audit must not overwrite the frozen 28 October receipt.
+DEFAULT_OUTPUT = ROOT / "data/atsc-current-peer-audit-latest.json"
 
 
 def sha256_file(path: Path) -> str:
@@ -41,13 +42,20 @@ def dot_rc(arr: np.ndarray, footprint: np.ndarray) -> np.ndarray:
 
 def audit(candidate: Path, manifest_path: Path, template: Path) -> dict:
     with rasterio.open(template) as src:
-        footprint = np.isfinite(src.read(1, masked=False))
-        shape = src.shape
-        crs = str(src.crs)
+        if src.count != 1 or src.crs is None:
+            raise ValueError("template must have one band and a CRS")
+        footprint = np.isfinite(src.read(1, masked=False)) & (src.dataset_mask() > 0)
+        shape, crs, transform = src.shape, src.crs, src.transform
+    if not footprint.any():
+        raise ValueError("template footprint is empty")
     with rasterio.open(candidate) as src:
-        if src.count != 1 or src.shape != shape or str(src.crs) != crs:
+        if src.count != 1 or src.shape != shape or src.crs != crs or src.transform != transform:
             raise ValueError("candidate grid does not match the saved template")
         candidate_arr = src.read(1, masked=False)
+        if not (src.dataset_mask()[footprint] > 0).all():
+            raise ValueError("candidate has masked in-footprint cells")
+    if not np.isfinite(candidate_arr[footprint]).all() or not np.isin(candidate_arr[footprint], [0, 1]).all():
+        raise ValueError("candidate must be finite binary dots inside the footprint")
     candidate_dots = dot_rc(candidate_arr, footprint)
     if len(candidate_dots) == 0:
         raise ValueError("candidate has no positive in-footprint dots")
@@ -58,8 +66,13 @@ def audit(candidate: Path, manifest_path: Path, template: Path) -> dict:
     rows = []
     seen_sha = set()
     for entry in manifest:
-        local = manifest_path.parent / entry["local_file"]
-        if not local.is_file():
+        if not isinstance(entry, dict) or type(entry.get("is_calibration_probe")) is not bool:
+            raise ValueError("peer entry must contain an explicit boolean representation flag")
+        relative = Path(entry["local_file"])
+        if relative.is_absolute() or len(relative.parts) != 1 or relative.name in (".", ".."):
+            raise ValueError("peer local_file must be a simple filename")
+        local = manifest_path.parent / relative
+        if local.is_symlink() or not local.is_file():
             raise FileNotFoundError(local)
         actual = sha256_file(local)
         if actual != entry["sha256"]:
@@ -68,7 +81,7 @@ def audit(candidate: Path, manifest_path: Path, template: Path) -> dict:
             continue
         seen_sha.add(actual)
         with rasterio.open(local) as src:
-            if src.count != 1 or src.shape != shape or str(src.crs) != crs:
+            if src.count != 1 or src.shape != shape or src.crs != crs or src.transform != transform:
                 raise ValueError(f"peer grid mismatch: {entry['local_file']}")
             ref_arr = src.read(1, masked=False)
         ref_dots = dot_rc(ref_arr, footprint)
@@ -134,18 +147,27 @@ def main() -> int:
     parser.add_argument("--template", type=Path, default=DEFAULT_TEMPLATE)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()
-    result = audit(args.candidate, args.manifest, args.template)
+    try:
+        result = audit(args.candidate, args.manifest, args.template)
+        code = 1 if result["result"]["literal_duplicate_stop"] else 0
+        summary = {
+            "candidate_sha256": result["candidate"]["sha256"],
+            "rasters_compared": result["peer_registry_scope"]["rasters_compared"],
+            "genuine_detectors_compared": result["peer_registry_scope"]["genuine_detectors_compared"],
+            "max_final_dot_overlap_3px_all_compared": result["result"]["max_final_dot_overlap_3px_all_compared"],
+            "max_final_dot_overlap_3px_genuine_detectors": result["result"]["max_final_dot_overlap_3px_genuine_detectors"],
+            "literal_duplicate_stop": result["result"]["literal_duplicate_stop"],
+            "slot_authorized": False,
+        }
+    except Exception as exc:
+        result = summary = {"kind": "BOUNDED PEER AUDIT FAILED", "error": str(exc),
+                            "verdict": "negative", "slot_authorized": False,
+                            "complete_registry": False, "surface_gate_evaluated": False}
+        code = 2
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
-    print(json.dumps({
-        "candidate_sha256": result["candidate"]["sha256"],
-        "rasters_compared": result["peer_registry_scope"]["rasters_compared"],
-        "genuine_detectors_compared": result["peer_registry_scope"]["genuine_detectors_compared"],
-        "max_final_dot_overlap_3px_all_compared": result["result"]["max_final_dot_overlap_3px_all_compared"],
-        "max_final_dot_overlap_3px_genuine_detectors": result["result"]["max_final_dot_overlap_3px_genuine_detectors"],
-        "literal_duplicate_stop": result["result"]["literal_duplicate_stop"],
-    }, indent=2))
-    return 1 if result["result"]["literal_duplicate_stop"] else 0
+    print(json.dumps(summary, indent=2))
+    return code
 
 
 if __name__ == "__main__":

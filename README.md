@@ -4,18 +4,17 @@
 
 The concurrent CFRP lane produced a format-valid research TIFF and a recorded
 `HOLDOUT-DTI 0.1388` (evaluator `gems-segment-pooled-v1`, 60,988 withheld
-positives, 95% CI [0.1275, 0.1496]). Its `0.111` live-ledger value is a
-**PROJECTION, not a score**. It passed only the focus-nine comparison, but its
+positives, 95% CI [0.1275, 0.1496]). This participant-run result was not rerun
+here, and the archived live-ledger projection is not a validated estimate. It
+passed only the focus-nine comparison, but its
 own run card records `100%` final-dot overlap with the spacing-5 calibration
 lattice and a pigeonhole minimum above the 70% rule. Under the standing literal
 all-registry protocol, **it is not unique and must not be submitted**.
 
-The research-only bytes and concurrent card remain available for audit at the
-[CFRP subportal](docs/cfrp-20261028/index.html), [run card](docs/cfrp-20261028/run-card.json),
-and [exact GeoTIFF](docs/cfrp-20261028/downloads/kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif).
-The site is a preserved concurrent experiment, not this review session's
-promotion authority. The exact file is **OK to download for research only;
-DO NOT SUBMIT**. No weekly slot is authorized.
+The [CFRP subportal](docs/cfrp-20261028/index.html), [historical card](docs/cfrp-20261028/run-card.json),
+and [independent saved-byte audit](evidence/session-cfcca804-cfrp-audit.json) retain the concurrent result for review.
+The earlier focus-nine promotion is superseded by the literal stop; no upload is
+authorized and no local format check guarantees portal acceptance.
 
 The standing user request for this project is preserved verbatim in
 [PROJECT_PROMPT.md](PROJECT_PROMPT.md) and the "full standing user request"
@@ -23,7 +22,38 @@ section below; read it at the start of every session.
 
 **Start every session by reading this README (including the full user request below),
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
-[current fixed session config](config/research-session-e2903b2e.json), [preserved prior session configs](config/), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-30454eca-run-card.json), and [latest negative card](evidence/session-e2903b2e-run-card.json). Never reset an earlier session clock.**
+[preserved fixed session config](config/research-session-e2903b2e.json), [prior session configs](config/),
+[preserved bilateral run card](docs/run-card.json), and the [latest negative card](evidence/session-cfcca804-run-card.json). Never reset an earlier session clock.**
+
+## Latest independent review — 28 October 2026
+
+**DO NOT SUBMIT: no new eligible TIFF, defensible leaderboard estimate or authorized
+slot exists.** The [three-pass review](research/session-cfcca804-review.md),
+[negative run card](evidence/session-cfcca804-run-card.json), [ATSC saved-byte audit](evidence/session-cfcca804-atsc-audit.json),
+[nine-source snapshot](evidence/session-cfcca804-focus-feed.json), and
+[current-source synthetic audit](evidence/session-cfcca804-upstream-operator.json)
+record this continuation. It ran no geological experiment and used no competition slot.
+
+- The prior ATSC TIFF fails the literal all-registry lattice stop (99.99% overlap),
+  and its recorded canaries do not include 22 Stage-2 corridor features. Its
+  positive paired interval is against B0, not the named CADG incumbent. These are
+  bounded audit findings, not proof of leakage or a claim about a hidden score.
+- Concurrent CFRP and CPX TIFFs also fail: the [CFRP audit](evidence/session-cfcca804-cfrp-audit.json)
+  finds all 44,090 dots, and the [CPX audit](evidence/session-cfcca804-cpx-audit.json)
+  finds 37,648 of 37,654 dots, within 3 pixels of the binary lattice. Earlier
+  detector-only promotion and portal-range guarantees are not accepted here.
+- The observed GEMSDOE32 head changed since the older pin. Its unmodified source
+  still fails a synthetic empty-truth false-positive invariant; it now rejects
+  soft input rather than silently binarizing it. No shared source was repinned.
+  The canonical 35-channel cache is still not independently verified.
+- The site removes misleading research-download and causal-score claims, and the
+  schema gate now binds paired comparisons to the declared incumbent, evaluator,
+  fold digest and withheld count. Schema checks still cannot authenticate evidence.
+- `python scripts/audit_atsc_archive.py --restore` reproduces the negative byte
+  audit (exit 1 means duplicate); `python scripts/audit_current_shared_operator.py
+  --commit e56a10a9d2f218c05ea66c5a5b7228bb780bb5a7` reproduces the synthetic
+  operator finding (exit 1 means a failed invariant). Both are read-only audits.
+  Source hashes authenticate participant mirrors, not organizer data or licensing.
 
 ## Continuation — 28 October 2026
 
@@ -288,36 +318,40 @@ portal is isolated at `docs/ssp1/` with source/evidence at `studies/ssp1/`; its
 evaluator and the canonical bilateral evaluator are **not directly comparable**.
 The full public source-status script and its explicit negative study entry point remain.
 
-The new **`L-K3-ATSC-SUBMOD`** (`H-K3S2-1+2` / `Exp-ATSC-2` Anisotropic Dip-Offset Structural
-Corridor Tomography + Axial `d=2.85` 300 m Submodular CELF, preregistered SHA-256
-`e87228d624bcca28a5d6ec7475a10582a82d833c996644bbc8b5312b6e189201`) lane is isolated at
-[`docs/atsc-submod/index.html`](docs/atsc-submod/index.html)
-([executive summary & encoding reference](docs/atsc-submod/executive-summary.html),
-[hypotheses & `GEMSDOE32` mathematical analysis](docs/atsc-submod/hypotheses.html),
-[research dossier](research/atsc_results_and_peer_forensics_20261027.md)) with Run Card
-[`evidence/atsc-submod-run-card.json`](evidence/atsc-submod-run-card.json) and source in
-`src/kanlergems3_atsc/` + `scripts/run_atsc_experiments.py` + `scripts/build_atsc_site.py`:
-- **Spatial Holdout (`HOLDOUT-DTI`, participant-mirrored `gems-segment-pooled-v1` / `quadrant-buffered-15px-v1`, `60,988` withheld positives, `N = 37,654` dots):** **`0.163715`** (`95% CI [0.153314, 0.174809]`), outperforming prior `CADG Exp-K3-3` (`0.157080`, **`+0.006635` / `+66.4 bps`**), 1-stage `CADG Exp-K3-2` (`0.153035`, **`+106.8 bps`**), and `B0_regional_d28` (`0.102255`, **`+0.061460`**, paired `95% CI [+0.0506, +0.0722]`, `4/4` folds). Within-lane ablations: `Exp-ATSC-1 = 0.161641`, `Exp-ATSC-2 = 0.163715` (winner), `Exp-ATSC-3 = 0.161290` (falsifying visible-tip proximity `H-K3S2-3` at `-24.3 bps`). Orthogonal `DiagonalSegmentHoldout(buffer_px=20)` = **`0.152844`** vs `CADG Exp-K3-3` `0.147663` (**`+51.8 bps`**) and `B0_regional_d28` `0.096230` (`+0.056614`, `4/4` folds). All `103/103` single-feature leakage canaries pass (`max AUC = 0.6305 <= 0.90`).
-- **Three Physical Laws, 90-Raster Uniqueness & Fail-Closed Gate (`DO NOT SUBMIT`):** Satisfies all three physical laws (`56.94%` dots `>1.5 km` off-catalogue; `2.91% <= 4.3%` flat deep-basin spill; **`0.11% < 2.0%` `Clump>=3` 300 m crowding**; `24.66%` LiDAR-void dot share), passes `16/16` local `finite-grid` byte checks on research-only [`kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros.tif`](docs/atsc-submod/downloads/kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros.tif) (`SHA-256: bf21ac69a0e5e6325d9725e7188be210a24b2e68b68060574db56af0d5972566`, `0` NaN across `12,279,160` cells; portal acceptance unverified), and passes detector-only uniqueness across **all `87/87` genuine geological fault detectors** (`57.14% <= 70%` max 3-px overlap; `|rho| = 0.0712 <= 0.90`). Against the registered `206,895`-dot `13GEMSDOE r13-lattice-s5` uniform grid probe, `37,652 / 37,654` dots (`99.99%` unfiltered; `99.77%` off-catalogue; mathematical min `82.34%`) fall within 3 px: `promotion_gate.py` holds `verdict = "negative"` (`slot_authorized = false`, `0` live slots spent), and a selector cannot waive the literal stop.
+The prior **`L-K3-ATSC-SUBMOD`** study is preserved at
+[`docs/atsc-submod/index.html`](docs/atsc-submod/index.html) with its unchanged
+[historical card](evidence/atsc-submod-run-card.json). **DO NOT SUBMIT.** Our
+[independent saved-byte audit](evidence/session-cfcca804-atsc-audit.json) finds
+37,652 / 37,654 dots (99.99%) within 3 pixels of the full registered lattice.
+The historical zero and NaN exterior twins have identical in-footprint predictions,
+but pass different local encoding profiles; neither proves portal acceptance.
+
+The earlier card reports **HOLDOUT-DTI 0.163715**, 95% CI `[0.153314, 0.174809]`,
+`gems-segment-pooled-v1`, 60,988 withheld positives. This was not rerun here and is
+not a leaderboard forecast or organizer receipt. Its paired CI is against B0, not its
+named CADG incumbent. The record's 103 canary names omit all 22 Stage-2 corridor
+features. Missing canaries are not proof of leakage, but prevent the required gate
+from being accepted. The earlier claims of confirmed hypotheses, universal physical
+laws, a causal 0.2778 explanation and fully verified all-feature uniqueness are
+superseded; the original presentation is preserved under `archive/atsc-cfcca804/`.
+The frozen ATSC/CADG training CLIs are disabled; use the read-only audits instead.
 
 The `L-K3-CADG-SUBMOD` prior lane is preserved at [`docs/cadg-submod/index.html`](docs/cadg-submod/index.html), with its unchanged [original card](evidence/cadg-submod-run-card.json) and research files. Its current card reports **`HOLDOUT-DTI 0.157080`**, 95% CI `[0.143057, 0.171030]`, `gems-segment-pooled-v1`, 60,988 withheld positives. This participant-run measurement was not rerun in the latest audit and is not an organizer-confirmed score. Its reported detector-only comparisons do not establish all-registry uniqueness. The new [saved-byte check](evidence/session-30454eca-cadg-lattice.json) finds **99.94%** of the current card's 37,654 dots within three pixels of the full registered lattice; the card's **99.73%** figure excluded lattice dots on the mirrored known-fault catalogue. Both exceed the literal stop. The card remains negative, no selector may waive the stop, and its finite-zero TIFF is not proven to fix the prior portal error.
 
-The newest **`L-K3-CPX-EDTI`** lane (2026-10-28; coincident gravity×magnetic×basement×strain
-ridge posterior rank-fused with a quadrant-OOF supervised surface, emitted by a kernel-exact
-expected-DTI greedy allocator; preregistration SHA-256
-`35d2fc2ca5f2104b62b3c35dc7032a75274202155f7222988bf8c3fedb1ec265`) is isolated at
-[`docs/cpx-edti/index.html`](docs/cpx-edti/index.html)
-([submission guide](docs/cpx-edti/submission-guide.html),
-[ranked hypotheses](docs/cpx-edti/hypotheses.html),
-[why-0.2778 analysis](research/cpx_why_02778_20261028.md)) with Run Card
-[`evidence/cpx-run-card.json`](evidence/cpx-run-card.json) and source in
-`src/kanlergems3_cpx/` + `scripts/run_cpx_experiments.py` + `scripts/cpx_forensics.py` +
-`scripts/build_cpx_run_card.py` + `scripts/build_cpx_site.py` (reproduce:
-`.venv/bin/python scripts/cadg_restore_data.py`, then `run_cpx_experiments.py` stages
-`physics → canary → holdout → deploy → finalize`, then the two builders; all bulk data ignored
-under `.cache/`):
-- **Result (negative by preregistered gates; `HOLDOUT-DTI`, `gems-segment-pooled-v1`, 60,988 withheld positives):** Exp-CPX-2 candidate **`0.110639`** (`95% CI [0.100399, 0.120560]`), Exp-CPX-1 (spacing-CELF control) `0.115323`, Exp-CPX-3 (supervised-only ablation) `0.143704`, B0 19-band baseline `0.100331`. Paired vs B0 `+0.010308` with 95% CI `[-0.00145, +0.0212]` (not significant); the FP-priced emission and the physics fusion both *lost* their paired mechanism tests for catalogue recovery, and nothing beat the recorded ATSC best `0.163715`. Verdict `negative`, **DO NOT SUBMIT**, `0` slots spent. Leakage canary: `94/94` features pass (max AUC `0.5887 <= 0.90`).
-- **Unique research TIFF:** [`kanlergemsdoe3-h-cpx1-edti-fusion-37654-20261028-c170892fad1f-zeros.tif`](docs/cpx-edti/downloads/kanlergemsdoe3-h-cpx1-edti-fusion-37654-20261028-c170892fad1f-zeros.tif) (SHA-256 in run card; whole array finite in `[0,1]`, so the portal `[0,1]` range error cannot trigger on values; `-nan` twin included). It passes genuine-detector uniqueness across the restored 49-detector registry (max final 3-px overlap `55.30% <= 70%`; `37.5–42.2%` vs each focus-9 winner) and fails only the literal calibration-lattice test, which is mathematically unsatisfiable at this budget (min possible `82.34%`; proof in run card). No leaderboard estimate exists: the verified 0.2778 file scores `0.0067` on this holdout, so holdout and leaderboard measure different populations (see the why-0.2778 analysis).
+The concurrent **`L-K3-CPX-EDTI`** study remains preserved at
+[`docs/cpx-edti/index.html`](docs/cpx-edti/index.html) with its unchanged
+[historical card](evidence/cpx-run-card.json). **DO NOT SUBMIT.** Our
+[independent saved-byte audit](evidence/session-cfcca804-cpx-audit.json) finds
+37,648 / 37,654 dots (99.98%) within 3 pixels of the full registered lattice.
+The earlier detector-only comparison and any selector cannot waive that stop.
+The prior claims of guaranteed portal range acceptance and a slot recommendation
+are withdrawn; the original presentation remains in `archive/integration-cfcca804-cpx/`.
+
+Its prior card reports **HOLDOUT-DTI 0.110639**, 95% CI `[0.100399, 0.120560]`,
+`gems-segment-pooled-v1`, 60,988 withheld positives. This participant-run result
+was not rerun here and is not an organizer-confirmed score or leaderboard forecast.
+The frozen CPX experiment, run-card writer and original forensics CLI are disabled;
+use the read-only saved-byte audit instead.
 
 ## Publication and three-pass review
 

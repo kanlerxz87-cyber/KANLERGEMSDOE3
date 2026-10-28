@@ -51,6 +51,23 @@ def test_current_candidate_audit_is_bound_to_atsc_bytes_and_negative():
     assert audit["candidate"]["preplacement_surface_comparison"] is None
 
 
+def test_failed_peer_refresh_replaces_stale_local_receipt(tmp_path, monkeypatch):
+    import sys
+    import scripts.audit_current_peer_candidate as auditor
+    out = tmp_path / "latest.json"
+    out.write_text('{"literal_duplicate_stop":false,"slot_authorized":true}')
+    def fail(*_args):
+        raise ValueError("missing input")
+    monkeypatch.setattr(auditor, "audit", fail)
+    monkeypatch.setattr(sys, "argv", ["audit", "--output", str(out)])
+    assert auditor.main() == 2
+    result = json.loads(out.read_text())
+    assert result["verdict"] == "negative"
+    assert result["slot_authorized"] is False
+    assert result["complete_registry"] is False
+    assert auditor.DEFAULT_OUTPUT == ROOT / "data/atsc-current-peer-audit-latest.json"
+
+
 def test_generated_pages_expose_fresh_audit_without_authorizing_upload():
     root = (ROOT / "docs/index.html").read_text()
     atsc = (ROOT / "docs/atsc-submod/index.html").read_text()
@@ -64,6 +81,8 @@ def test_generated_pages_expose_fresh_audit_without_authorizing_upload():
     assert "current-peer-audit-20261028.json" in atsc
     assert 'download="KANLER_GEMS' not in root
     cfrp = (ROOT / "docs/cfrp-20261028/index.html").read_text()
-    assert "RESEARCH DOWNLOAD ONLY — DO NOT SUBMIT" in cfrp
-    assert "literal all-registry gate fails" in cfrp
-    assert "<strong>YES</strong>" not in cfrp.split("<h2>What to download", 1)[0]
+    assert "DO NOT SUBMIT" in cfrp and "literal all-registry gate fails" in cfrp
+    assert "cannot waive" in cfrp and "portal acceptance are unknown" in cfrp
+    assert "<a download" not in cfrp.lower()
+    assert "paste into DrivenData" not in cfrp
+    assert "cannot trigger" not in cfrp

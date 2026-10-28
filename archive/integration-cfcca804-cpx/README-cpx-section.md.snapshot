@@ -1,0 +1,17 @@
+The newest **`L-K3-CPX-EDTI`** lane (2026-10-28; coincident gravity×magnetic×basement×strain
+ridge posterior rank-fused with a quadrant-OOF supervised surface, emitted by a kernel-exact
+expected-DTI greedy allocator; preregistration SHA-256
+`35d2fc2ca5f2104b62b3c35dc7032a75274202155f7222988bf8c3fedb1ec265`) is isolated at
+[`docs/cpx-edti/index.html`](docs/cpx-edti/index.html)
+([submission guide](docs/cpx-edti/submission-guide.html),
+[ranked hypotheses](docs/cpx-edti/hypotheses.html),
+[why-0.2778 analysis](research/cpx_why_02778_20261028.md)) with Run Card
+[`evidence/cpx-run-card.json`](evidence/cpx-run-card.json) and source in
+`src/kanlergems3_cpx/` + `scripts/run_cpx_experiments.py` + `scripts/cpx_forensics.py` +
+`scripts/build_cpx_run_card.py` + `scripts/build_cpx_site.py` (reproduce:
+`.venv/bin/python scripts/cadg_restore_data.py`, then `run_cpx_experiments.py` stages
+`physics → canary → holdout → deploy → finalize`, then the two builders; all bulk data ignored
+under `.cache/`):
+- **Result (negative by preregistered gates; `HOLDOUT-DTI`, `gems-segment-pooled-v1`, 60,988 withheld positives):** Exp-CPX-2 candidate **`0.110639`** (`95% CI [0.100399, 0.120560]`), Exp-CPX-1 (spacing-CELF control) `0.115323`, Exp-CPX-3 (supervised-only ablation) `0.143704`, B0 19-band baseline `0.100331`. Paired vs B0 `+0.010308` with 95% CI `[-0.00145, +0.0212]` (not significant); the FP-priced emission and the physics fusion both *lost* their paired mechanism tests for catalogue recovery, and nothing beat the recorded ATSC best `0.163715`. Verdict `negative`, **DO NOT SUBMIT**, `0` slots spent. Leakage canary: `94/94` features pass (max AUC `0.5887 <= 0.90`).
+- **Unique research TIFF:** [`kanlergemsdoe3-h-cpx1-edti-fusion-37654-20261028-c170892fad1f-zeros.tif`](docs/cpx-edti/downloads/kanlergemsdoe3-h-cpx1-edti-fusion-37654-20261028-c170892fad1f-zeros.tif) (SHA-256 in run card; whole array finite in `[0,1]`, so the portal `[0,1]` range error cannot trigger on values; `-nan` twin included). It passes genuine-detector uniqueness across the restored 49-detector registry (max final 3-px overlap `55.30% <= 70%`; `37.5–42.2%` vs each focus-9 winner) and fails only the literal calibration-lattice test, which is mathematically unsatisfiable at this budget (min possible `82.34%`; proof in run card). No leaderboard estimate exists: the verified 0.2778 file scores `0.0067` on this holdout, so holdout and leaderboard measure different populations (see the why-0.2778 analysis).
+

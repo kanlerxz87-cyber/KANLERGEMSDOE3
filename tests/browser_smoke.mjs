@@ -145,15 +145,36 @@ try {
     const result = await page.goto(base + '/' + name, { waitUntil: 'networkidle' });
     assert.equal(result.status(), 200, name);
     assert.equal(await page.locator('h1').count(), 1, name);
-    if (name !== 'atsc-submod/hypotheses.html') {
-      const body = await page.locator('body').innerText();
-      assert.match(body, /DO NOT SUBMIT/);
-      assert.match(body, /cannot waive/i);
-      assert.match(body, /unverified/i);
-    }
+    const body = await page.locator('body').innerText();
+    assert.match(body, /DO NOT SUBMIT/);
+    assert.match(body, /cannot waive/i);
+    assert.match(body, /22 Stage-2 corridor features/i);
+    assert.doesNotMatch(body, /excising them gave|Three Live-Leaderboard Physical Laws/);
+    assert.equal(await page.locator('a[download]').count(), 0, name);
+    if (name !== 'atsc-submod/hypotheses.html') assert.match(body, /unverified/i);
     await noGlobalOverflow(page, 'desktop ' + name);
   }
-  checks.push('ATSC subportal pages render responsive tables, research-only downloads and fail-closed literal gate');
+  checks.push('ATSC pages quarantine downloads, expose missing canaries and preserve the literal duplicate stop');
+  await page.goto(base + '/cfrp-20261028/index.html', { waitUntil: 'networkidle' });
+  const cfrp = await page.locator('body').innerText();
+  assert.match(cfrp, /DO NOT SUBMIT/);
+  assert.match(cfrp, /44,090 \/ 44,090/);
+  assert.match(cfrp, /cannot waive/i);
+  assert.doesNotMatch(cfrp, /paste into DrivenData|cannot trigger/i);
+  assert.equal(await page.locator('a[download]').count(), 0);
+  await noGlobalOverflow(page, 'desktop CFRP archive');
+  checks.push('CFRP archive exposes the saved-byte stop without portal guarantees or upload links');
+  for (const name of ['cpx-edti/index.html', 'cpx-edti/executive-summary.html', 'cpx-edti/submission-guide.html', 'cpx-edti/hypotheses.html']) {
+    await page.goto(base + '/' + name, { waitUntil: 'networkidle' });
+    const body = await page.locator('body').innerText();
+    assert.match(body, /DO NOT SUBMIT/);
+    assert.match(body, /37,648 \/ 37,654/);
+    assert.match(body, /cannot waive/i);
+    assert.doesNotMatch(body, /NEAREST TO READY|portal-safe/i);
+    assert.equal(await page.locator('a[download]').count(), 0, name);
+    await noGlobalOverflow(page, 'desktop ' + name);
+  }
+  checks.push('CPX archive withdraws selector-waiver and portal-safety claims');
   assert.deepEqual(errors, []);
   checks.push('desktop: no JavaScript exceptions across every active page');
   await desktop.close();
@@ -165,7 +186,7 @@ try {
   const table = await mobilePage.locator('#comparison .table-wrap').evaluate(element => ({ client: element.clientWidth, scroll: element.scrollWidth }));
   assert.ok(table.scroll > table.client, 'The wide table must scroll locally on mobile');
   await mobilePage.screenshot({ path: path.join(output, 'mobile.png'), fullPage: true });
-  for (const name of ['executive-summary.html', 'sources.html', 'research.html', 'parallel-research.html', 'parallel-gpc-dashboard.html', 'k3h1.html', 'candidate.html', 'sites/GEMSDOE32.html', 'sites/GEMSDOE36.html', 'cadg-submod/index.html', 'cadg-submod/executive-summary.html']) {
+  for (const name of ['executive-summary.html', 'sources.html', 'research.html', 'parallel-research.html', 'parallel-gpc-dashboard.html', 'k3h1.html', 'candidate.html', 'sites/GEMSDOE32.html', 'sites/GEMSDOE36.html', 'cadg-submod/index.html', 'cadg-submod/executive-summary.html', 'atsc-submod/index.html', 'atsc-submod/executive-summary.html', 'atsc-submod/hypotheses.html', 'cfrp-20261028/index.html', 'cpx-edti/index.html', 'cpx-edti/submission-guide.html']) {
     await mobilePage.goto(base + '/' + name, { waitUntil: 'networkidle' });
     await noGlobalOverflow(mobilePage, 'mobile ' + name);
   }

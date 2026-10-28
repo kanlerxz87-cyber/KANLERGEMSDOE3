@@ -1,0 +1,268 @@
+{
+  "schema_version": 1,
+  "kind": "HISTORICAL ATSC SAVED-BYTE AUDIT \u2014 NOT A NEW MODEL OR ORGANIZER RECEIPT",
+  "source_card_sha256": "a75b4d3ca9f77f4f7e1ab64e5a42df8f5e4693e0fc404c3e2246598053e64362",
+  "canary_evidence_sha256": "b1353fb4f011938ac4375a032bd69609d1bbe6eb9bb5f4a7b6491c984058391b",
+  "input_sha256": {
+    "sample_submission": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "labels": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+    "calib_13gems_20261001_r13-lattice-s5_v2_nan-ou": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2"
+  },
+  "artifacts": {
+    "zeros": {
+      "file": "docs/atsc-submod/downloads/kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros.tif",
+      "sha256": "bf21ac69a0e5e6325d9725e7188be210a24b2e68b68060574db56af0d5972566"
+    },
+    "nan": {
+      "file": "docs/atsc-submod/downloads/kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-nan.tif",
+      "sha256": "c5aa1f764151a4c3f7116bf635c3dc7fa337bc07b18ad905f3307e2a94776f29"
+    }
+  },
+  "measurements": {
+    "zeros": {
+      "geometry": {
+        "schema_version": 1,
+        "scope": "Saved binary dots versus one pinned lattice; not a full live-registry or surface audit.",
+        "candidate_sha256": "bf21ac69a0e5e6325d9725e7188be210a24b2e68b68060574db56af0d5972566",
+        "lattice_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+        "sample_mirror_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+        "label_mirror_sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+        "organizer_template_authenticated": false,
+        "geometry": {
+          "bands": 1,
+          "dtype": "float32",
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0
+          ],
+          "nodata": null
+        },
+        "candidate_dots": 37654,
+        "candidate_dots_within_3px_of_lattice": 37652,
+        "candidate_dot_overlap_fraction": 0.9999468847931162,
+        "candidate_dots_outside_lattice_radius": 2,
+        "duplicate_over_70_percent": true,
+        "catalogue_positive_pixels": 0,
+        "in_footprint_nan": 0,
+        "in_footprint_inf": 0,
+        "in_footprint_min": 0.0,
+        "in_footprint_max": 1.0,
+        "outside_pixel_count": 7111787,
+        "outside_unmasked_finite_count": 7111787,
+        "outside_nan_count": 0,
+        "strict_nan_outside": false,
+        "note": "Research-only forensic audit. No selector authorization or organizer acceptance is implied."
+      },
+      "local_profiles": {
+        "template-mask": {
+          "ok": false,
+          "errors": [
+            "selected_encoding"
+          ],
+          "candidate_sha256": "bf21ac69a0e5e6325d9725e7188be210a24b2e68b68060574db56af0d5972566",
+          "nonfinite_inside": 0,
+          "raw_nan_pixels": 0,
+          "inside_range_0_1": true,
+          "crs_match": true,
+          "shape_match": true,
+          "transform_match": true
+        },
+        "finite-grid": {
+          "ok": true,
+          "errors": [],
+          "candidate_sha256": "bf21ac69a0e5e6325d9725e7188be210a24b2e68b68060574db56af0d5972566",
+          "nonfinite_inside": 0,
+          "raw_nan_pixels": 0,
+          "inside_range_0_1": true,
+          "crs_match": true,
+          "shape_match": true,
+          "transform_match": true
+        },
+        "masked-finite": {
+          "ok": false,
+          "errors": [
+            "selected_encoding"
+          ],
+          "candidate_sha256": "bf21ac69a0e5e6325d9725e7188be210a24b2e68b68060574db56af0d5972566",
+          "nonfinite_inside": 0,
+          "raw_nan_pixels": 0,
+          "inside_range_0_1": true,
+          "crs_match": true,
+          "shape_match": true,
+          "transform_match": true
+        }
+      },
+      "zip_sha256": "2b60db2b74aa9c67eccb0741f6de4d7ce2d873a77fefeba6725411834bdf7022",
+      "zip_contains_exact_tiff_only": true
+    },
+    "nan": {
+      "geometry": {
+        "schema_version": 1,
+        "scope": "Saved binary dots versus one pinned lattice; not a full live-registry or surface audit.",
+        "candidate_sha256": "c5aa1f764151a4c3f7116bf635c3dc7fa337bc07b18ad905f3307e2a94776f29",
+        "lattice_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+        "sample_mirror_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+        "label_mirror_sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+        "organizer_template_authenticated": false,
+        "geometry": {
+          "bands": 1,
+          "dtype": "float32",
+          "crs": "EPSG:32611",
+          "shape": [
+            3730,
+            3292
+          ],
+          "transform": [
+            100.0,
+            0.0,
+            243350.0,
+            0.0,
+            -100.0,
+            4508550.0
+          ],
+          "nodata": null
+        },
+        "candidate_dots": 37654,
+        "candidate_dots_within_3px_of_lattice": 37652,
+        "candidate_dot_overlap_fraction": 0.9999468847931162,
+        "candidate_dots_outside_lattice_radius": 2,
+        "duplicate_over_70_percent": true,
+        "catalogue_positive_pixels": 0,
+        "in_footprint_nan": 0,
+        "in_footprint_inf": 0,
+        "in_footprint_min": 0.0,
+        "in_footprint_max": 1.0,
+        "outside_pixel_count": 7111787,
+        "outside_unmasked_finite_count": 0,
+        "outside_nan_count": 7111787,
+        "strict_nan_outside": true,
+        "note": "Research-only forensic audit. No selector authorization or organizer acceptance is implied."
+      },
+      "local_profiles": {
+        "template-mask": {
+          "ok": true,
+          "errors": [],
+          "candidate_sha256": "c5aa1f764151a4c3f7116bf635c3dc7fa337bc07b18ad905f3307e2a94776f29",
+          "nonfinite_inside": 0,
+          "raw_nan_pixels": 7111787,
+          "inside_range_0_1": true,
+          "crs_match": true,
+          "shape_match": true,
+          "transform_match": true
+        },
+        "finite-grid": {
+          "ok": false,
+          "errors": [
+            "selected_encoding"
+          ],
+          "candidate_sha256": "c5aa1f764151a4c3f7116bf635c3dc7fa337bc07b18ad905f3307e2a94776f29",
+          "nonfinite_inside": 0,
+          "raw_nan_pixels": 7111787,
+          "inside_range_0_1": true,
+          "crs_match": true,
+          "shape_match": true,
+          "transform_match": true
+        },
+        "masked-finite": {
+          "ok": false,
+          "errors": [
+            "selected_encoding"
+          ],
+          "candidate_sha256": "c5aa1f764151a4c3f7116bf635c3dc7fa337bc07b18ad905f3307e2a94776f29",
+          "nonfinite_inside": 0,
+          "raw_nan_pixels": 7111787,
+          "inside_range_0_1": true,
+          "crs_match": true,
+          "shape_match": true,
+          "transform_match": true
+        }
+      },
+      "zip_sha256": "1228c36b6b5cb8071e1f737945936caf2409af3bba656cb565de76d3e8dbdf30",
+      "zip_contains_exact_tiff_only": true
+    }
+  },
+  "equal_predictions_inside_mirrored_footprint": true,
+  "canary_coverage": {
+    "recorded_feature_count": 103,
+    "stage2_corridor_feature_count": 22,
+    "stage2_corridor_features_in_recorded_inventory": 0,
+    "stage2_corridor_features_missing_from_inventory": [
+      "s2_p1_raw",
+      "s2_corr_max_1km",
+      "s2_corr_max_2p6km",
+      "s2_corr_bilateral_min_1km",
+      "s2_corr_bilateral_min_2p6km",
+      "s2_corr_tip_asym_2p6km",
+      "s2_ortho_1km",
+      "s2_anisotropy_ratio_1km",
+      "s2_anisotropy_ratio_2p6km",
+      "s2_crest_conc_300m",
+      "s2_crest_conc_800m",
+      "s2_log_odds_dog_1p2_7",
+      "s2_basin_extensional_strike_align",
+      "s2_strain_x_corridor",
+      "s2_dip_grav_x_corridor",
+      "s2_has_lidar",
+      "s2_ctx_depth_base",
+      "s2_ctx_det_elev_slope",
+      "s2_ctx_topo10_relief",
+      "s2_ctx_flat_playa",
+      "s2_ctx_road_logdist",
+      "s2_ctx_piedmont_sweetspot"
+    ],
+    "all_stage2_corridor_features_individually_tested_by_record": false,
+    "full_feature_canary_gate_proven": false,
+    "scope": "Name-level comparison only; absence is not proof of actual leakage or of the missing features' AUCs. Presence alone does not establish full-model canary coverage."
+  },
+  "paired_evidence_scope": {
+    "label": "HOLDOUT-DTI (historical report, not rerun)",
+    "evaluator_version": "gems-segment-pooled-v1",
+    "withheld_positives": 60988,
+    "candidate_value": 0.1637154060975635,
+    "candidate_ci95": [
+      0.15331407692303034,
+      0.1748086574042234
+    ],
+    "named_strongest_incumbent": "CADG_Exp_K3_3_prior_repo_best",
+    "incumbent_value": 0.15707951145733381,
+    "point_difference_vs_named_incumbent": 0.006635894640229678,
+    "paired_interval": [
+      0.04879747320344218,
+      0.07395741605736927
+    ],
+    "paired_interval_baseline": "B0_regional_d28",
+    "paired_interval_baseline_value": 0.10225451596817445,
+    "paired_interval_for_named_incumbent_established": false,
+    "scope": "The recorded CI compares ATSC with B0, not the named CADG incumbent; no paired CADG interval is supplied."
+  },
+  "synthetic_marginal_counterexample": {
+    "kind": "SYNTHETIC METRIC FIXTURE \u2014 NOT HOLDOUT-DTI OR AN ORGANIZER SCORE",
+    "baseline_metric": 0.5555555246913597,
+    "after_metric": 0.5629030229208187,
+    "incremental_tp": 0.05719095841793642,
+    "incremental_fp": 0.33333333333333326,
+    "claimed_unconditional_threshold": 0.12499999218750049,
+    "unconditional_iff_claim_disproved": true,
+    "relation": "Delta TP * (1 - (1 - beta) * DTI) > alpha * DTI * Delta FP, for a positive denominator.",
+    "upstream_issue": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/50"
+  },
+  "full_registry_compared": false,
+  "surface_registry_comparison": null,
+  "template_organizer_authenticated": false,
+  "portal_acceptance_verified": false,
+  "candidate_generated": false,
+  "geological_experiments_this_session": 0,
+  "weekly_slots_used_this_session": 0,
+  "ok_to_submit": false,
+  "slot_authorized": false,
+  "verdict": "negative"
+}

@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""CFRP lane experiments E1-E3 (preregistration: research/cfrp-20261028-preregistration.md).
+"""Archived CFRP lane experiments; direct CLI execution is disabled.
+
+This retained implementation cannot reopen the completed session budget or
+rewrite its evidence. Use scripts/audit_cfrp_archive.py for saved-byte review.
+Original preregistration: research/cfrp-20261028-preregistration.md.
 
 Reuse, don't rebuild: SegmentHoldout + pooled DTI from src/gems/holdout.py,
 ridge-NMS dotted emission from src/kanler3/emission.py, writer/validator from
@@ -283,4 +287,6 @@ def main():
 
 
 if __name__ == "__main__":
+    from archive_guard import stop_archived_cli
+    stop_archived_cli()
     raise SystemExit(main())

@@ -154,6 +154,7 @@ class KanlerGems3Tests(unittest.TestCase):
                 "outside_encoding_contract_verified",
                 "surface_dot_overlap_3px",
                 "final_dot_overlap_3px",
+                "paired_incumbent_binding",
             ],
         )
         self.assertEqual(card["live_submission_slots_used"], 0)

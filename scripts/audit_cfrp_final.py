@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Final CFRP audit: uniqueness vs focus-9 + lattice, catalogue-DTI calibration.
+"""Archived CFRP audit (CLI disabled); use audit_cfrp_archive.py instead.
+
+Original scope: uniqueness vs focus-9 + lattice, catalogue-DTI calibration.
 
 Comparison-only registry rasters. Spearman uses gems.novelty.rank_correlation
 (binary-reference affine-rank shortcut, exact over all footprint pixels);
@@ -20,7 +22,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from gems.metric import dti_score_fast
 from gems.novelty import dot_overlap, rank_correlation, classify_space_filling_control
 
-def sha(p): 
+def sha(p):
     h=hashlib.sha256()
     with open(p,'rb') as f:
         for c in iter(lambda: f.read(1<<20), b''): h.update(c)
@@ -82,4 +84,6 @@ def main():
     return 0
 
 if __name__=="__main__":
+    from archive_guard import stop_archived_cli
+    stop_archived_cli()
     raise SystemExit(main())
