@@ -1,0 +1,317 @@
+{
+  "schema": "kanler3.catalogue_blind_audits.v1",
+  "generated_utc": "2026-10-28T16:41:15+00:00",
+  "incumbents_same_evaluator": {
+    "GEMSDOE24": {
+      "dots": 60069,
+      "hide_recover_pooled_dti": 0.0932,
+      "hide_recover_ci95": [
+        0.0813,
+        0.106
+      ],
+      "hide_recover_withheld_positives": 22232,
+      "hide_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "sgmc_raw_pooled_dti": 0.1011,
+      "sgmc_raw_ci95": [
+        0.0905,
+        0.1125
+      ],
+      "sgmc_calibrated_dti": 0.0579,
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0",
+      "sgmc_withheld_positives": 62703,
+      "label": "HOLDOUT-DTI"
+    },
+    "GEMSDOE25": {
+      "dots": 44090,
+      "hide_recover_pooled_dti": 0.0967,
+      "hide_recover_ci95": [
+        0.0842,
+        0.1095
+      ],
+      "hide_recover_withheld_positives": 22232,
+      "hide_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "sgmc_raw_pooled_dti": 0.0953,
+      "sgmc_raw_ci95": [
+        0.085,
+        0.1061
+      ],
+      "sgmc_calibrated_dti": 0.0606,
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0",
+      "sgmc_withheld_positives": 62703,
+      "label": "HOLDOUT-DTI"
+    },
+    "GEMSDOE27": {
+      "dots": 61328,
+      "hide_recover_pooled_dti": 0.0927,
+      "hide_recover_ci95": [
+        0.0809,
+        0.1054
+      ],
+      "hide_recover_withheld_positives": 22232,
+      "hide_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "sgmc_raw_pooled_dti": 0.1024,
+      "sgmc_raw_ci95": [
+        0.0915,
+        0.1135
+      ],
+      "sgmc_calibrated_dti": 0.0583,
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0",
+      "sgmc_withheld_positives": 62703,
+      "label": "HOLDOUT-DTI"
+    },
+    "GEMSDOE28": {
+      "dots": 37660,
+      "hide_recover_pooled_dti": 0.0294,
+      "hide_recover_ci95": [
+        0.025,
+        0.0344
+      ],
+      "hide_recover_withheld_positives": 22232,
+      "hide_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "sgmc_raw_pooled_dti": 0.0943,
+      "sgmc_raw_ci95": [
+        0.0843,
+        0.1049
+      ],
+      "sgmc_calibrated_dti": 0.063,
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0",
+      "sgmc_withheld_positives": 62703,
+      "label": "HOLDOUT-DTI"
+    },
+    "GEMSDOE30": {
+      "dots": 44090,
+      "hide_recover_pooled_dti": 0.0967,
+      "hide_recover_ci95": [
+        0.0842,
+        0.1095
+      ],
+      "hide_recover_withheld_positives": 22232,
+      "hide_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "sgmc_raw_pooled_dti": 0.0953,
+      "sgmc_raw_ci95": [
+        0.085,
+        0.1061
+      ],
+      "sgmc_calibrated_dti": 0.0606,
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0",
+      "sgmc_withheld_positives": 62703,
+      "label": "HOLDOUT-DTI"
+    },
+    "GEMSDOE31": {
+      "dots": 40199,
+      "hide_recover_pooled_dti": 0.0305,
+      "hide_recover_ci95": [
+        0.0257,
+        0.0361
+      ],
+      "hide_recover_withheld_positives": 22232,
+      "hide_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "sgmc_raw_pooled_dti": 0.0963,
+      "sgmc_raw_ci95": [
+        0.0859,
+        0.107
+      ],
+      "sgmc_calibrated_dti": 0.063,
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0",
+      "sgmc_withheld_positives": 62703,
+      "label": "HOLDOUT-DTI"
+    },
+    "GEMSDOE32": {
+      "dots": 37654,
+      "hide_recover_pooled_dti": 0.0045,
+      "hide_recover_ci95": [
+        0.0038,
+        0.0053
+      ],
+      "hide_recover_withheld_positives": 22232,
+      "hide_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "sgmc_raw_pooled_dti": 0.0961,
+      "sgmc_raw_ci95": [
+        0.0857,
+        0.1071
+      ],
+      "sgmc_calibrated_dti": 0.0641,
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0",
+      "sgmc_withheld_positives": 62703,
+      "label": "HOLDOUT-DTI"
+    },
+    "GEMSDOE33": {
+      "dots": 41865,
+      "hide_recover_pooled_dti": 0.052,
+      "hide_recover_ci95": [
+        0.0458,
+        0.0583
+      ],
+      "hide_recover_withheld_positives": 22232,
+      "hide_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "sgmc_raw_pooled_dti": 0.0968,
+      "sgmc_raw_ci95": [
+        0.0862,
+        0.1078
+      ],
+      "sgmc_calibrated_dti": 0.0626,
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0",
+      "sgmc_withheld_positives": 62703,
+      "label": "HOLDOUT-DTI"
+    },
+    "GEMSDOE36": {
+      "dots": 38854,
+      "hide_recover_pooled_dti": 0.0046,
+      "hide_recover_ci95": [
+        0.0039,
+        0.0053
+      ],
+      "hide_recover_withheld_positives": 22232,
+      "hide_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "sgmc_raw_pooled_dti": 0.0974,
+      "sgmc_raw_ci95": [
+        0.0868,
+        0.1085
+      ],
+      "sgmc_calibrated_dti": 0.0644,
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0",
+      "sgmc_withheld_positives": 62703,
+      "label": "HOLDOUT-DTI"
+    }
+  },
+  "control_uniform_random": {
+    "dots": 37654,
+    "hide_recover_pooled_dti": 0.0447,
+    "hide_recover_ci95": [
+      0.0402,
+      0.0489
+    ],
+    "hide_recover_withheld_positives": 22232,
+    "hide_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "sgmc_raw_pooled_dti": 0.0715,
+    "sgmc_raw_ci95": [
+      0.0682,
+      0.0746
+    ],
+    "sgmc_calibrated_dti": 0.0478,
+    "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0",
+    "sgmc_withheld_positives": 62703,
+    "label": "HOLDOUT-DTI"
+  },
+  "leakage_canary_auc_vs_sgmc_offcatalogue": {
+    "positives": 62703,
+    "background_sample": 400000,
+    "max_auc": 0.7685,
+    "channels_above_0_90": [],
+    "auc": {
+      "band01": 0.5162,
+      "band02": 0.5237,
+      "band03": 0.4924,
+      "band04": 0.4798,
+      "band05": 0.4301,
+      "band06": 0.3762,
+      "band07": 0.4785,
+      "band08": 0.4428,
+      "band09": 0.5025,
+      "band10": 0.4811,
+      "band11": 0.4687,
+      "band12": 0.701,
+      "band13": 0.6095,
+      "band14": 0.531,
+      "band15": 0.3377,
+      "band16": 0.4826,
+      "band17": 0.5175,
+      "band18": 0.5067,
+      "band19": 0.7558,
+      "curv_s1": 0.5697,
+      "curv_s2": 0.5469,
+      "ridge_s1": 0.4947,
+      "ridge_s2": 0.4918,
+      "ridge_s3": 0.4885,
+      "relief5": 0.7685,
+      "tophat2": 0.5834,
+      "tmi_edge": 0.4936,
+      "rtp_edge": 0.4953,
+      "grav_edge": 0.4327,
+      "cond_edge": 0.4986,
+      "depth_grad": 0.3795,
+      "coherence_s2": 0.3536,
+      "strike_cos": 0.4996,
+      "strike_sin": 0.4883,
+      "footprint": 0.5
+    }
+  },
+  "hide_recover_distance_canary": {
+    "cell": "draw20_fold0",
+    "n_truth": 1911,
+    "auc_distance_to_FULL_catalogue": 1.0,
+    "auc_distance_to_VISIBLE_catalogue": 0.8085,
+    "reading": "FULL-catalogue distance contains hidden truth (AUC 1.0 = leakage by construction). The visible-only AUC is legitimate but shows the proxy rewards proximity to known faults."
+  },
+  "saturation_lattice_r13": {
+    "lattice_dots": 206895,
+    "footprint_fraction_within_3px": 0.9987,
+    "uniform_random_directed_overlap_trials": [
+      0.9986,
+      0.9984,
+      0.9986
+    ],
+    "reading": "any dot field trips the literal 70% test: the stop is non-discriminative for this reference"
+  },
+  "lineage_exact": {
+    "GEMSDOE32_subset_of_GEMSDOE31": true,
+    "removed_31_to_32": 2545,
+    "removed_31_to_32_within_2px_of_catalogue": 2545,
+    "GEMSDOE31_dots_within_2px_of_catalogue": 2545,
+    "added_32_to_36": 1200,
+    "added_32_to_36_within_2px_of_catalogue": 0,
+    "removed_32_to_36": 0
+  },
+  "catalogue_proximity": {
+    "GEMSDOE24": {
+      "dots_within_2px_of_catalogue": 0.146,
+      "dots_within_3px_of_catalogue": 0.1987,
+      "dots_on_catalogue": 0
+    },
+    "GEMSDOE25": {
+      "dots_within_2px_of_catalogue": 0.146,
+      "dots_within_3px_of_catalogue": 0.1952,
+      "dots_on_catalogue": 0
+    },
+    "GEMSDOE27": {
+      "dots_within_2px_of_catalogue": 0.1447,
+      "dots_within_3px_of_catalogue": 0.1987,
+      "dots_on_catalogue": 0
+    },
+    "GEMSDOE28": {
+      "dots_within_2px_of_catalogue": 0.0625,
+      "dots_within_3px_of_catalogue": 0.1162,
+      "dots_on_catalogue": 0
+    },
+    "GEMSDOE30": {
+      "dots_within_2px_of_catalogue": 0.146,
+      "dots_within_3px_of_catalogue": 0.1952,
+      "dots_on_catalogue": 0
+    },
+    "GEMSDOE31": {
+      "dots_within_2px_of_catalogue": 0.0633,
+      "dots_within_3px_of_catalogue": 0.1173,
+      "dots_on_catalogue": 0
+    },
+    "GEMSDOE32": {
+      "dots_within_2px_of_catalogue": 0.0,
+      "dots_within_3px_of_catalogue": 0.0577,
+      "dots_on_catalogue": 0
+    },
+    "GEMSDOE33": {
+      "dots_within_2px_of_catalogue": 0.093,
+      "dots_within_3px_of_catalogue": 0.1439,
+      "dots_on_catalogue": 0
+    },
+    "GEMSDOE36": {
+      "dots_within_2px_of_catalogue": 0.0,
+      "dots_within_3px_of_catalogue": 0.0587,
+      "dots_on_catalogue": 0
+    },
+    "uniform_random": {
+      "dots_within_2px_of_catalogue": 0.0602,
+      "dots_within_3px_of_catalogue": 0.0866,
+      "dots_on_catalogue": 449
+    }
+  }
+}

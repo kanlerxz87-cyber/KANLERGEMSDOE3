@@ -1,0 +1,18 @@
+{
+ "lattice_dots": 206895,
+ "footprint_fraction_within_3px": 0.9987,
+ "random_controls": {
+  "uniform_random_trial0": {
+   "directed": 0.9988,
+   "duplicate": true
+  },
+  "uniform_random_trial1": {
+   "directed": 0.9987,
+   "duplicate": true
+  },
+  "uniform_random_trial2": {
+   "directed": 0.999,
+   "duplicate": true
+  }
+ }
+}
