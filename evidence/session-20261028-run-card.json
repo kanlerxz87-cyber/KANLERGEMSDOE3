@@ -1,0 +1,36 @@
+{
+  "session_scope": "2026-10-28 repository and prerequisites review, not a geological experiment",
+  "hypothesis": "Not tested: cross-field Morse–Smale junction persistence, a conditional proposal rather than an assigned lane.",
+  "mechanism": "Compare persistent signed magnetic and gravity ridge/saddle junctions to identify possible concealed structural relays.",
+  "non_fault_mimic": "Intrusive or lithologic contacts and airborne-survey levelling seams.",
+  "holdout": {
+    "label": "HOLDOUT-DTI",
+    "status": "NOT RUN",
+    "value": null,
+    "evaluator_version": null,
+    "withheld_positives": null,
+    "ci95": null,
+    "reason": "No assigned lane, verified canonical cache, valid same-fold incumbent, complete registry or repaired-and-retested pinned evaluator."
+  },
+  "registry": {
+    "surface_rank_correlation": null,
+    "preview_dot_overlap_3px": null,
+    "final_dot_overlap_3px": null,
+    "reason": "No candidate exists; complete registry and representation remain unresolved."
+  },
+  "raster_sha256": null,
+  "validator": {
+    "status": "NOT RUN — no candidate raster",
+    "no_nan_inside_footprint": null,
+    "values_0_1": null,
+    "crs_shape_transform_match": null
+  },
+  "submission_name": null,
+  "submission_note": "No candidate; required research and novelty gates are blocked. Do not submit.",
+  "candidate_generated": false,
+  "experiments_run": 0,
+  "weekly_slots_used": 0,
+  "slot_authorized": false,
+  "leaderboard_estimate": null,
+  "verdict": "negative"
+}

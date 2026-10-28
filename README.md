@@ -4,6 +4,12 @@
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
 [current fixed session config](config/research-session-e2903b2e.json), [preserved prior session configs](config/), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-30454eca-run-card.json), and [latest negative card](evidence/session-e2903b2e-run-card.json). Never reset an earlier session clock.**
 
+## Continuation — 28 October 2026
+
+[Three-pass review](research/session-20261028-review.md) · [Negative run card](evidence/session-20261028-run-card.json) · [Preflight](evidence/session-20261028-preflight.json) · [Current participant source audit](evidence/session-20261028-upstream-prerequisites.json) · [Nine source heads](evidence/session-20261028-focus-feed.json)
+
+**DO NOT SUBMIT.** The participant-mirrored core inputs were restored and raw bands prepared, but the canonical derived cache, assigned lane, complete registry and same-fold incumbent remain missing. The restored data are ignored bulk files and are not organizer-authenticated. The pinned evaluator still fails its synthetic operator check; four shared files changed upstream and must be independently audited before adoption. No geological experiment, new candidate, forecast or slot was produced. The prerequisite refresh now preserves historical receipts and does not infer cache validity from a digest and path alone.
+
 ## Final integrated continuation — 27 October 2026
 
 [Three-pass review and next steps](research/session-e2903b2e-review.md) ·
