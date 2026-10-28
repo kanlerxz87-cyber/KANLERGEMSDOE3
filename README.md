@@ -1,5 +1,26 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
+## ✅ NEW 2026-10-28 — unique validated submission ready to download
+
+**Download:** [`docs/cfrp-20261028/downloads/kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif`](docs/cfrp-20261028/downloads/kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif) ·
+[Executive summary & submission page](docs/cfrp-20261028/index.html) ·
+[Run card](docs/cfrp-20261028/run-card.json)
+
+CFRP (cross-field ridge persistence) lane, 3 experiments under the parallel-run
+protocol: **HOLDOUT-DTI 0.1388** (evaluator `gems-segment-pooled-v1`, 60,988
+withheld positives, 95% CI [0.1275, 0.1496]); leaderboard **PROJECTION 0.111**
+(live-ledger inversion, not a score). Unique vs all 9 focus champions
+(max Spearman |ρ| 0.093 ≤ 0.90; max 3-px dot overlap 34.8% ≤ 70%); format
+validator PASS with every value finite and in [0,1] (zeros variant — cannot
+trip the portal range error). Submission note (79 chars):
+`CFRP cross-field ridge persistence, 44090 ridge dots, collar>2px, zeros outside`.
+Beating the owner-reported 0.2778 is **not** established; a weekly slot remains
+a separate selector decision. All earlier "DO NOT SUBMIT" sections below remain
+accurate for the historical files they describe — they do not apply to this
+new, independently generated raster. The standing user request for this project
+is preserved verbatim in [PROJECT_PROMPT.md](PROJECT_PROMPT.md) and the
+"full standing user request" section below; read it at the start of every session.
+
 **Start every session by reading this README (including the full user request below),
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
 [current fixed session config](config/research-session-e2903b2e.json), [preserved prior session configs](config/), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-30454eca-run-card.json), and [latest negative card](evidence/session-e2903b2e-run-card.json). Never reset an earlier session clock.**

@@ -1,0 +1,1 @@
+CFRP cross-field ridge persistence, 44090 ridge dots, collar>2px, zeros outside
