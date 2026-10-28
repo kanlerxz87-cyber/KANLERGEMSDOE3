@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_utc": "2026-10-28T00:01:55+00:00",
+  "checked_utc": "2026-10-28T00:06:27+00:00",
   "kind": "PARTICIPANT_SOURCE_CHANGE_FEED_NOT_SCORE_RECEIPTS",
   "rows": [
     {
@@ -74,9 +74,9 @@
       "scientific_approval": false,
       "accepted_score": null,
       "status": "PINNED_SOURCE_ONLY",
-      "commit": "672849f56dc8476df912f7b7c7956e3f3f3c6210",
+      "commit": "dd8302678a3cf249abc1a0bed6cf0e95e781044c",
       "source_page": "index.html",
-      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/672849f56dc8476df912f7b7c7956e3f3f3c6210/index.html",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/dd8302678a3cf249abc1a0bed6cf0e95e781044c/index.html",
       "source_title": "Research overview \u00b7 GEMS30",
       "raster_paths_in_tree": 37,
       "continuous_cache_paths": [],

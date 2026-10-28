@@ -4,9 +4,9 @@ Before changing this project, read:
 1. `README.md`, including its full standing user request (also `PROJECT_PROMPT.md`).
 2. `PROJECT_REQUEST.md` and `research/standing-requirements.md` for the compact standing rules.
 3. `config/research-session-e2903b2e.json`, `research/session-e2903b2e-review.md`,
-   `research/review.md`, and `research/verification.md`.
+   `research/session-5c1613da-review.md` (preserved concurrent work), and `research/verification.md`.
 4. `evidence/run-card.json` (preserved canonical bilateral run, negative) and
-   `evidence/session-e2903b2e-run-card.json` (current session, no model run).
+   `evidence/session-e2903b2e-run-card.json` (current review session, no model run).
 
 Keep **Maximize P(Win)** and **Own the Outcome** explicit. File format, model quality,
 semantic novelty, evidence authenticity and weekly-slot authorization are separate.
@@ -27,8 +27,8 @@ unverified owner claim into a score, or spend a real slot without a separate sel
 All 13 files locked by `vendor/shared-template/PROVENANCE.json` must remain byte-identical
 to upstream Git blobs and SHA-256. The gems32 operator defect is tracked centrally in
 GEMSDOE32 issue #41; pin a repaired central source instead of editing vendor bytes.
-Issue #53 requests canonical cache bytes/digest/invalidation; do not substitute a
-private rebuild. Current source status is pinned in
+Issue #53 requests canonical cache bytes/digest/invalidation; do not substitute a private
+rebuild. Current source status is pinned in
 `evidence/session-e2903b2e-upstream-prerequisites.json`.
 Inherited gems/gems57 pins are different instruments, not interchangeable evidence.
 The mirror sample's catalogue positives conflict with the official absence-sample
@@ -49,8 +49,8 @@ under `data/` or `.cache/`. Small receipts/manifests may be tracked. Do not comm
 just to make a dashboard green. Legacy archive builders must not overwrite active pages
 or silently recompute the recorded evidence-pinning manifest.
 
-Reproduce the pinned optional instruments, run `python -m pytest -q`, build with
-`python scripts/build_site.py`, and verify with `python scripts/build_site.py --check`.
-Run the desktop/mobile browser smoke test from the README after UI changes. Use the
+Reproduce the pinned optional instruments, run `python -m pytest -q`, and verify
+`python scripts/build_site.py --check` before any intentional rebuild with `python scripts/build_site.py`;
+this detects drift rather than silently repairing it. Run the desktop/mobile browser smoke test from the README after UI changes. Use the
 process tools for a preview bound to 0.0.0.0; browser application URLs must not target
 localhost. Preserve the existing main/root Pages configuration and root redirect.

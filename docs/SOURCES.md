@@ -1,4 +1,6 @@
-# Source register — checked 26 October 2026 UTC
+# Source register — initial review 26 October 2026 UTC
+
+Current-session primary-source geology, 3DEP, competition format/rules and data-index checks are dated 27 October in the [geological notes](../knowledge/geothermal-science-2026-10-27.md) and [current review](../research/session-5c1613da-review.md). No automated DrivenData monitoring or authenticated account access was performed.
 
 A public source is not a submission receipt. Page access through the research tool does not imply that the sandbox can download the underlying binaries. This register distinguishes each level of verification.
 

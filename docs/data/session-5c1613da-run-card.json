@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "session": "arena/5c1613da-kanlergemsdoe3",
+  "scope": "Readiness, saved-byte forensics and publication-safety review; not a geological experiment.",
+  "hypothesis": "Unassigned lane. Conditional proposal: cross-scale magnetic edge and signed radiometric termination may identify concealed faults.",
+  "mechanism": "Compare persistent TMI/RTP edge geometry with edge-normal radiometric derivative changes; do not use withheld fault labels in features.",
+  "named_non_fault_mimic": "Intrusive lithologic contacts or survey flight-block levelling seams.",
+  "holdout_dti": null,
+  "holdout_ci95": null,
+  "evaluator_version": null,
+  "withheld_positives": null,
+  "correlation_overlap_vs_registry": {
+    "new_candidate_surface": null,
+    "new_candidate_final_dots": null,
+    "complete": false,
+    "reason": "No new candidate; full registry and reference surface representations unavailable.",
+    "prior_cadg_final_dots_vs_one_registered_lattice": {
+      "nearby": 37630,
+      "total": 37654,
+      "fraction": 0.9993626175173952,
+      "reference": "evidence/session-5c1613da-cadg-audit.json",
+      "not_a_new_candidate_or_full_registry_audit": true
+    }
+  },
+  "raster_sha256": null,
+  "validator_output": {
+    "status": "NOT_RUN_NO_NEW_CANDIDATE",
+    "no_nan_inside_footprint": null,
+    "values_in_0_1": null,
+    "crs_shape_transform_match": null,
+    "organizer_acceptance": "NOT_TESTED"
+  },
+  "submission_name": null,
+  "submission_note": "Negative readiness and duplicate audit; no new candidate or score. Do not submit.",
+  "experiments_used": 0,
+  "submission_slots_used": 0,
+  "leaderboard_estimate": null,
+  "slot_authorized": false,
+  "ok_to_submit": false,
+  "verdict": "negative",
+  "preflight_receipt": "evidence/session-5c1613da-preflight.json",
+  "forensic_receipt": "evidence/session-5c1613da-cadg-audit.json",
+  "source_feed": "evidence/session-5c1613da-focus-feed.json"
+}

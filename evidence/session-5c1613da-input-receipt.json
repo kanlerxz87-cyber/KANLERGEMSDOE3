@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "template_commit": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+  "files": [
+    {
+      "id": "training_features",
+      "path": "data/core/training_features.tif",
+      "status": "restored",
+      "sha256": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5",
+      "bytes": 418912844,
+      "provenance": "owner-supplied mirror of a DrivenData competition file (login-walled at https://www.drivendata.org/competitions/306/competition-doe-gems/data/); integrity-pinned, NOT organizer-authenticated; 19 float32 bands, nodata -3.4028234663852886e+38",
+      "organizer_authenticated": false
+    },
+    {
+      "id": "labels",
+      "path": "data/core/labels.tif",
+      "status": "restored",
+      "sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+      "bytes": 425830,
+      "provenance": "owner-supplied mirror of a DrivenData competition file (login-walled at https://www.drivendata.org/competitions/306/competition-doe-gems/data/); integrity-pinned, NOT organizer-authenticated",
+      "organizer_authenticated": false
+    },
+    {
+      "id": "existing_faults",
+      "path": "data/core/existing_faults.tif",
+      "status": "restored",
+      "sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+      "bytes": 425830,
+      "provenance": "owner-supplied mirror of a DrivenData competition file (login-walled at https://www.drivendata.org/competitions/306/competition-doe-gems/data/); integrity-pinned, NOT organizer-authenticated (byte-identical to labels.tif)",
+      "organizer_authenticated": false
+    },
+    {
+      "id": "sample_submission",
+      "path": "data/core/sample_submission.tif",
+      "status": "restored",
+      "sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+      "bytes": 1599597,
+      "provenance": "owner-supplied mirror of a DrivenData competition file (login-walled at https://www.drivendata.org/competitions/306/competition-doe-gems/data/); integrity-pinned, NOT organizer-authenticated; used ONLY as the grid/footprint template (its 60,988 pixels equal to 1 sit on the labelled faults, unlike the page's 'total fault absence' wording)",
+      "organizer_authenticated": false
+    },
+    {
+      "id": "ext_derived_sgmc_faults_100m_u8",
+      "path": "data/core/external/derived_sgmc_faults_100m_u8.tif",
+      "status": "restored",
+      "sha256": "643cbe992ef4ba37588fb469163ed8291e3ceb23d6c1f78a3cfaa462430c2da0",
+      "bytes": 198602,
+      "provenance": "derived from USGS SGMC geologic-map faults (proxy only; not used in the factorial)",
+      "organizer_authenticated": false
+    }
+  ],
+  "organizer_authenticated": false,
+  "note": "Byte/hash consistency with the participant mirror, not organizer authentication. No historic prediction used as a candidate."
+}
