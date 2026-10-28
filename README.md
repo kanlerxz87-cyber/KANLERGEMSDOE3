@@ -10,6 +10,12 @@
 
 **DO NOT SUBMIT.** The participant-mirrored core inputs were restored and raw bands prepared, but the canonical derived cache, assigned lane, complete registry and same-fold incumbent remain missing. The restored data are ignored bulk files and are not organizer-authenticated. The pinned evaluator still fails its synthetic operator check; four shared files changed upstream and must be independently audited before adoption. No geological experiment, new candidate, forecast or slot was produced. The prerequisite refresh now preserves historical receipts and does not infer cache validity from a digest and path alone.
 
+## Session 662a9e8b — 28 October 2026
+
+**DO NOT SUBMIT.** No new TIFF, geological experiment, holdout score, leaderboard estimate or competition slot. Read the [three-pass review](research/session-662a9e8b-review.md), [negative JSON card](evidence/session-662a9e8b-run-card.json), [preflight](evidence/session-662a9e8b-preflight.json), [focus source snapshot](evidence/session-662a9e8b-focus-feed.json) and [upstream audit](evidence/session-662a9e8b-upstream-prerequisites.json). The five participant-mirrored core inputs were restored again but remain ignored/ephemeral and are not organizer-authenticated. The assigned lane, cache, complete registry and matched incumbent remain unavailable.
+
+The upstream head changed four of five tracked files since the older snapshot. This session did not validate that new version. The *pinned* evaluator still fails the synthetic operator audit. The legacy uniqueness and support-cache CLIs are now blocked because they can misclassify dense/continuous references; use the fail-closed checker with a genuinely complete registry instead. No weekly slot is authorized.
+
 ## Repository review — 28 October 2026
 
 [Three-pass review](research/session-20261028-review.md) · **Negative / DO NOT SUBMIT**.

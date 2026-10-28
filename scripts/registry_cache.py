@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Pre-compute the duplicate-gate geometry of every restored registry raster.
+"""ARCHIVED AND CLI-BLOCKED: historical support-cache calculation.
+
+Positive values in a soft field are not automatically dot locations. This
+legacy cache cannot establish protocol uniqueness.
+
+Pre-compute the duplicate-gate geometry of every restored registry raster.
 
 For each raster in registry/registry_index.json:
   * support  = finite & > 0 pixels (the literal inherited definition of "dots"; shared
@@ -97,4 +102,6 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    from archive_guard import stop_archived_cli
+    stop_archived_cli()
     sys.exit(main())

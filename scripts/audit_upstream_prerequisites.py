@@ -195,6 +195,8 @@ def audit() -> dict:
         },
         "local_synthetic_operator_audit": {
             "receipt": "evidence/shared_tool_audit.json",
+            "tested_pinned_commit": provenance["commit"],
+            "current_head_tested": False,
             "ok": local_operator.get("ok"),
             "reproduced_blocking_findings": local_reproduced,
             "scope": "Pinned local template only; not a test of the current upstream head.",
@@ -229,7 +231,16 @@ def main() -> int:
         print(json.dumps(result, indent=2, allow_nan=False))
         return 0
     except (OSError, KeyError, TypeError, ValueError, subprocess.SubprocessError, json.JSONDecodeError) as exc:
-        print(json.dumps({"ok": False, "candidate_generated": False, "error": str(exc)}))
+        failure = {"ok": False, "status": "UNKNOWN_REFRESH_FAILED", "research_ready": False,
+                   "ok_to_submit": False, "slot_authorized": False, "candidate_generated": False,
+                   "holdout_dti": None, "leaderboard_estimate": None, "error": str(exc)}
+        # Do not leave an older successful refresh looking current after a failure.
+        try:
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_text(json.dumps(failure, indent=2, allow_nan=False) + "\n")
+        except OSError as write_exc:
+            failure["write_error"] = str(write_exc)
+        print(json.dumps(failure))
         return 1
 
 

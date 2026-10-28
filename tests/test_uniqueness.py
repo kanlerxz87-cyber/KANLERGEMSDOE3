@@ -70,6 +70,10 @@ class UniquenessTests(unittest.TestCase):
             self.assertFalse(decision([row], complete, expected)["unique_under_protocol"])
         self.assertFalse(decision([], True, 0)["unique_under_protocol"])
 
+    def test_missing_or_malformed_duplicate_decision_is_blocked(self):
+        for row in ({"comparable": True}, {"comparable": True, "duplicate": 0}, None):
+            self.assertFalse(decision([row], True, 1)["unique_under_protocol"])
+
     def test_constant_surface_and_empty_masks_not_unique(self):
         surface, dots, reference, foot = self.fixture()
         row = compare(np.ones_like(surface), dots, reference, foot)
