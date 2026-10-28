@@ -24,6 +24,8 @@ jobs:
       - run: python scripts/install_template.py
       - run: PYTHON=python bash scripts/bootstrap_template.sh
       - run: python scripts/restore_instruments.py --profile saturation57
+      # Fail before legacy tests can regenerate and conceal a stale/misleading page.
+      - run: python scripts/build_site.py --check
       - run: python -m pytest -q
       - run: python scripts/check_run.py
       - run: python scripts/review.py && python scripts/build_site.py --check && git diff --exit-code

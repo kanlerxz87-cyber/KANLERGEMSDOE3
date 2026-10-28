@@ -2,29 +2,29 @@
 
 **Start every session by reading this README (including the full user request below),
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
-[fixed current session config](config/research-session-52a91352.json), [preserved prior session config](config/research-session.json), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-7d1e577d-run-card.json), and [current negative card](evidence/session-52a91352-run-card.json). Never reset an earlier session clock.**
+[fixed current session config](config/research-session-e2903b2e.json), [preserved prior session config](config/research-session-52a91352.json), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-52a91352-run-card.json), and [current negative card](evidence/session-e2903b2e-run-card.json). Never reset an earlier session clock.**
 
 ## Latest continuation — 27 October 2026
 
-[Current scoped review and next steps](research/session-20261027-review.md) ·
-[Current readiness receipt](evidence/session-20261027-readiness.json) ·
-[Current nine-site source observations](evidence/session-20261027-focus-feed.json) ·
-[Current negative review card](evidence/session-20261027-run-card.json)
+[Current three-pass review and next steps](research/session-e2903b2e-review.md) ·
+[Current readiness receipt](evidence/session-e2903b2e-preflight.json) ·
+[Current nine-site source observations](evidence/session-e2903b2e-focus-feed.json) ·
+[Current upstream prerequisite audit](evidence/session-e2903b2e-upstream-prerequisites.json) ·
+[Current negative run card](evidence/session-e2903b2e-run-card.json)
 
-That separate readiness-review session produced no new TIFF or score estimate. Seven priority
-repositories changed since its saved feed; source changes are not a scientific/novelty audit.
-Its readiness check now binds operator receipts to the exact provenance-manifest digest and rejects
-contradictory conservation checks. Its review reported 177 passing tests after restoring optional
-instruments. Its checkout lacked core rasters; this session has restored pinned participant-mirror
-inputs locally, although those ignored bulk files may not persist. That review used no geological
-experiment or weekly slot.
+This session restored every available pinned instrument/input, refreshed all nine participant sources,
+and independently re-ran the unchanged operator audit. It produced no new TIFF or score estimate and
+used no geological experiment or weekly slot. The five latest shared evaluator/feature/writer files
+remain byte-identical to the pinned versions with open defects. The named 35-channel cache still has
+neither obtainable bytes nor a content digest; [upstream issue 53](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/53)
+requests a central content-addressed release and verifier. Source freshness is not scientific approval.
 
 ## Executive decision: DO NOT SUBMIT
 
 [Executive desk](docs/index.html) · [Every priority site](docs/index.html#comparison) ·
 [How to submit](docs/executive-summary.html) · [Research queue](docs/research.html) ·
 [Official-source ledger](docs/sources.html) · [Machine audit](docs/audit.json) ·
-[Current three-pass review](research/session-52a91352-review.md)
+[Current three-pass review](research/session-e2903b2e-review.md)
 
 **There is no qualified TIFF to download and no defensible leaderboard estimate.** This review
 session ran no geological experiment, generated no new TIFF and spent no weekly slot. Concurrent
@@ -41,6 +41,10 @@ preserved, not claimed as this session’s work. The requested winning artifact 
 - Restored 13 unmodified shared evaluator/writer/dependency files with SHA-256 and immutable Git-tree blob identity checks.
   Synthetic tests independently reproduce the existing [shared empty-truth FP defect](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41).
   Real evaluation remains blocked pending a central fix. No private numerical fork was introduced.
+- Audited the current shared-template head and open issues 37, 39, 41, 42, 49, 51 and 53.
+  The five protocol-critical source files are unchanged from this repository's pinned copy. The
+  machine-readable receipt distinguishes participant-source status from organizer evidence and
+  records no candidate or score: [upstream prerequisite audit](evidence/session-e2903b2e-upstream-prerequisites.json).
 - Independently reconfirmed all nine historic winner hashes and all 72 directed geometric overlaps.
   Every winner exceeds the literal duplicate stop against another. These are **geometric audit
   measurements, not scores**; historical continuous-surface correlation remains unknown.
@@ -88,7 +92,8 @@ python -m venv .venv
 bash scripts/download_competition_data.sh   # pinned public mirror; ~420 MB core, ignored
 .venv/bin/python scripts/prepare_data.py    # delegates to shared raw-band preparation only
 .venv/bin/python scripts/audit_shared_tools.py  # expected nonzero: unresolved upstream defect
- .venv/bin/python scripts/preflight.py          # live local receipt in ignored data/; nonzero expected
+.venv/bin/python scripts/audit_upstream_prerequisites.py # participant-source status; never a score
+.venv/bin/python scripts/preflight.py --config config/research-session-e2903b2e.json # nonzero expected
 .venv/bin/python scripts/restore_audit_data.py # historical learning only; never a candidate
 .venv/bin/python scripts/audit_h33_lineage.py  # read-only geometry; no candidate/score/slot
 .venv/bin/python scripts/audit_kpl36_external.py --restore # expected nonzero: duplicate stop
@@ -132,10 +137,10 @@ Tests mock source API success/change/quota failures and storage restrictions, no
 Main `4338f12`, `9ebfc4b` and `1fcc140` introduced parallel bilateral/GPC,
 K3-H1, DCAP-LHC and isolated SSP1 studies, other source pins, research-only TIFFs
 and registry-saturation evidence. SSP1 maintenance `9a24c59` is also retained. The preserved canonical bilateral run/card remains
-canonical at `evidence/run-card.json` and identical root/docs aliases. The previous review’s card
-is `evidence/session-7d1e577d-run-card.json`; the current session’s separate card is
-`evidence/session-52a91352-run-card.json`. The current session records zero new geological runs;
-the repository-wide history is not zero. No result is promoted.
+canonical at `evidence/run-card.json` and identical root/docs aliases. Earlier review cards remain
+preserved; the current session’s separate card is `evidence/session-e2903b2e-run-card.json`.
+The current session records zero new geological runs; the repository-wide history is not zero.
+No result is promoted.
 
 All four root-archive TIFF files were independently replayed against the required
 binary lattice and fail the literal overlap stop. The GPC file also retains 4,115
