@@ -1,0 +1,101 @@
+{
+ "candidate": "CFRP direct top-k emission, 44090 dots, collar>2px",
+ "focus9_rows": [
+  {
+   "site": "GEMSDOE24",
+   "spearman": 0.09143712310165984,
+   "dot_overlap": 0.4026536629621229,
+   "duplicate": false
+  },
+  {
+   "site": "GEMSDOE25",
+   "spearman": 0.07683680463016361,
+   "dot_overlap": 0.3853481515082785,
+   "duplicate": false
+  },
+  {
+   "site": "GEMSDOE27",
+   "spearman": 0.09267168201433469,
+   "dot_overlap": 0.41610342481288276,
+   "duplicate": false
+  },
+  {
+   "site": "GEMSDOE28",
+   "spearman": 0.06476753061468105,
+   "dot_overlap": 0.34808346563846676,
+   "duplicate": false
+  },
+  {
+   "site": "GEMSDOE30",
+   "spearman": 0.07683680463016361,
+   "dot_overlap": 0.3853481515082785,
+   "duplicate": false
+  },
+  {
+   "site": "GEMSDOE31",
+   "spearman": 0.06727137056260624,
+   "dot_overlap": 0.35364028124291225,
+   "duplicate": false
+  },
+  {
+   "site": "GEMSDOE32",
+   "spearman": 0.06096043638350441,
+   "dot_overlap": 0.32265819913812654,
+   "duplicate": false
+  },
+  {
+   "site": "GEMSDOE33",
+   "spearman": 0.0703904128825943,
+   "dot_overlap": 0.36756634157405305,
+   "duplicate": false
+  },
+  {
+   "site": "GEMSDOE36",
+   "spearman": 0.061389849562234464,
+   "dot_overlap": 0.32746654570197326,
+   "duplicate": false
+  }
+ ],
+ "focus9_max_abs_spearman": 0.09267168201433469,
+ "focus9_max_dot_overlap": 0.41610342481288276,
+ "focus9_unique": true,
+ "lattice": {
+  "spearman": -9.341239580254998e-05,
+  "dot_overlap": 0.9937854388750283,
+  "is_space_filling_calibration_control": true,
+  "footprint_3px_covered_pixels": 5160724,
+  "footprint_3px_uncovered_pixels": 6649,
+  "footprint_3px_coverage": 0.9987132726822701,
+  "coverage_threshold": 0.7,
+  "pigeonhole_min_overlap_for_candidate_size": 0.8491948287593558
+ },
+ "lli_projection": {
+  "tp": 1840.7170310747656,
+  "m": 751.8276033974045,
+  "fp": 43338.1723966026,
+  "fn": 16163.586016674237,
+  "g": 18004.303047749003,
+  "dti": 0.07853149574309201,
+  "dots": 44090
+ },
+ "lli_meta": {
+  "design": "S3",
+  "n_unique_rasters": 111,
+  "loo": {
+   "mae": 0.02194541449612522,
+   "rmse": 0.03200731224179911,
+   "max_abs_err": 0.11406295754621354,
+   "spearman": 0.9267236462593216,
+   "abs_err_q90": 0.05420053128522437
+  },
+  "leave_site_out": {
+   "mae": 0.02234471596410571,
+   "rmse": 0.03230961049191979,
+   "max_abs_err": 0.11406295754621354,
+   "spearman": 0.9232750375490387,
+   "abs_err_q90": 0.05558225130568792
+  },
+  "g_public_truth_pixels": 18004.303047749003,
+  "source": "buffedlizard55-lab/GEMSDOE32 evidence/live_ledger_inversion.json (archived fit, reused unchanged)"
+ }
+}

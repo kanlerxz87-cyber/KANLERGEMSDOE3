@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "scope": "Current KANLERGEMSDOE3 literal all-registry protocol; wrapper around a concurrent session card, not a replacement of that card.",
+  "source_run_card": "evidence/cfrp_run_card_20261028.json",
+  "source_run_card_sha256": "87a15ec228d3bce2fdf7996f4fa2d730748cd6c0afa06864a236750a78d7bd29",
+  "candidate_sha256": "7fb488c0560820dfb3f26b62316140d2987107726e3e9753bdd789b6c4d684fd",
+  "candidate_file": "docs/cfrp-20261028/downloads/kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif",
+  "focus_nine_diagnostic": {
+    "max_abs_spearman": 0.09267168201433469,
+    "max_dot_overlap_3px": 0.34817418915853937,
+    "scope_complete": false
+  },
+  "literal_calibration_probe": {
+    "dot_overlap_3px": 1.0,
+    "pigeonhole_min_overlap": 0.8491948287593558,
+    "probe": "r13-lattice-s5",
+    "stop_threshold": 0.7
+  },
+  "verdict": "negative",
+  "ok_to_download_for_research": true,
+  "ok_to_submit": false,
+  "slot_authorized": false,
+  "reason": "The original concurrent CFRP card promotes within a focus-nine scope, but the current literal all-registry rule stops any candidate exceeding 70% overlap with a registry raster. The spacing-5 calibration probe is explicitly not exempt.",
+  "holdout_dti": 0.13881641514545673,
+  "holdout_label": "HOLDOUT-DTI; not a leaderboard score",
+  "leaderboard_projection": 0.111,
+  "leaderboard_projection_label": "PROJECTION; not a score"
+}

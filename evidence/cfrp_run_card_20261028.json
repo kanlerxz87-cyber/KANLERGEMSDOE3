@@ -1,0 +1,117 @@
+{
+ "schema_version": 1,
+ "session_date": "2026-10-28",
+ "lane": "CFRP \u2014 Cross-Field Ridge Persistence (declared in research/cfrp-20261028-preregistration.md; prompt supplied no coordinator-assigned method paragraph, so none is claimed)",
+ "hypothesis": "Co-located Hessian ridge/saddle persistence across independent potential fields (RTP/TMI, isostatic gravity, detrended elevation) at sigma 1.5/3/6 px identifies fault-related boundaries that single-field pointwise ranking misses.",
+ "mechanism": "Label-free cross-field ridge min/product + scale-persistence features added to raw-band+context HistGB; fold-visible-only training; ridge-NMS >=3px dotted emission, 44,090 dots, >2px from visible catalogue (E2-selected V2).",
+ "named_non_fault_process": "Intersecting intrusive/lithologic contacts; flight-line levelling seams; basin-fill boundaries; alluvial terrace breaks.",
+ "experiments_used": 3,
+ "experiment_limit": 3,
+ "leakage_canary": {
+  "label": "LEAKAGE-CANARY",
+  "passed": true,
+  "worst_two_polarity_auc": 0.5624,
+  "threshold": 0.9,
+  "file": "evidence/cfrp_canary_20261028.json"
+ },
+ "holdout_dti": {
+  "label": "HOLDOUT-DTI",
+  "evaluator_version": "gems-segment-pooled-v1",
+  "alpha": 0.2,
+  "beta": 0.8,
+  "triangular_kernel_radius_m": 300,
+  "withheld_positive_pixels": 60988,
+  "E1_BASE_37654": {
+   "dti": 0.11725371830889088,
+   "ci95": [
+    0.10617904276140973,
+    0.12848958039543804
+   ]
+  },
+  "E1_CFRP_37654": {
+   "dti": 0.12667286138546202,
+   "ci95": [
+    0.11555989400239722,
+    0.13720905800381827
+   ]
+  },
+  "E1_paired_CFRP_minus_BASE": {
+   "delta": 0.009419143076571143,
+   "ci95": [
+    0.0036087314210125248,
+    0.014878383096707725
+   ]
+  },
+  "E2_selected_V2_44090_collar2": {
+   "dti": 0.13881641514545673,
+   "ci95": [
+    0.12747681698600719,
+    0.14957973844744848
+   ]
+  },
+  "E3_direct_topk_44090": {
+   "dti": 0.14319948506672917,
+   "ci95": [
+    0.13045856886508686,
+    0.15521081974457696
+   ],
+   "paired_vs_ridge": {
+    "delta": 0.004383069921272437,
+    "ci95": [
+     -0.0005742932823772389,
+     0.00974388913826286
+    ]
+   },
+   "decision": "Not selected: paired CI includes 0 (preregistered strict rule); ridge V2 retained."
+  }
+ },
+ "leaderboard_projection": {
+  "label": "PROJECTION (live-ledger inversion S3, vendor/gems32lli archived fit reused unchanged; NOT a score, NOT ORGANIZER-CONFIRMED)",
+  "candidate_projection": 0.111,
+  "champion_same_fit": 0.2843,
+  "loo_mae": 0.0219,
+  "loo_abs_err_q90": 0.0542,
+  "expected_to_beat_0.2778": "Not established. Both the projection (0.111) and the honest holdout design say this unique raster is a valid new entry, not a demonstrated champion-beater."
+ },
+ "organizer_confirmed_score": null,
+ "correlation_overlap_vs_registry": {
+  "scope": "focus-9 champion rasters (hash-pinned) + spacing-5 lattice listed separately",
+  "surface_before_placement_and_final_dots_checked": true,
+  "focus9_max_abs_spearman": 0.09267168201433469,
+  "focus9_max_dot_overlap_within_3px": 0.34817418915853937,
+  "rank_limit": 0.9,
+  "overlap_limit": 0.7,
+  "focus9_unique": true,
+  "lattice_space_filling_control": {
+   "spearman": -9.341239580254998e-05,
+   "dot_overlap": 1.0,
+   "footprint_3px_coverage": 0.9987132726822701,
+   "pigeonhole_min_overlap": 0.8491948287593558,
+   "note": "Synthetic spacing-5 calibration lattice covers 99.87% of footprint within 3px; every >=44k-dot candidate has pigeonhole-minimum overlap 0.849, so the overlap gate cannot discriminate there. Rank gate (|-0.00009|<=0.90) passes. Flagged, not hidden."
+  }
+ },
+ "raster_sha256": "7fb488c0560820dfb3f26b62316140d2987107726e3e9753bdd789b6c4d684fd",
+ "validator_output": {
+  "validator": "submission-format-v4 (scripts/validate_submission.py) + gems.submission.check_variants",
+  "ok": true,
+  "encoding_profile": "finite-grid",
+  "no_nan_inside_footprint": true,
+  "entire_grid_finite_range_0_1": true,
+  "finite_min": 0.0,
+  "finite_max": 1.0,
+  "crs_shape_transform_match_template": true,
+  "dots": 44090,
+  "organizer_acceptance": "NOT_TESTED (no portal submission made in this session)"
+ },
+ "submission_name": "kanlergemsdoe3-cfrp-ridge-44090dots-20261028-6f20cc42-zeros.tif",
+ "submission_note": "CFRP cross-field ridge persistence, 44090 ridge dots, collar>2px, zeros outside",
+ "submission_note_chars": 79,
+ "verdict": "promote",
+ "verdict_scope": "Promote as the session's unique, format-valid download candidate. Separate selector still owns any weekly-slot decision; beating 0.2778 is not claimed.",
+ "irregularities": [
+  "Final ridge dots are >=10px from known catalogue (ridge_nms support erosion ~7px + 2px collar): a ~1km near-catalogue corridor is unemitted; stepover/parallel new faults there would be missed. Same mechanism was active (vs visible faults) in the validating holdout.",
+  "Owner-reported champion scores (incl. 0.2778) have no organizer receipt binding score to file bytes.",
+  "Competition inputs are participant-mirror restorations (SHA-256 verified), not organizer-authenticated downloads; DrivenData auth was unavailable.",
+  "Current official leaderboard top value could not be re-verified live in this session (prompt reports 0.3195/0.4413 at different points; repo snapshot 2026-10-27 observed 0.4544)."
+ ]
+}

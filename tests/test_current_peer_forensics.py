@@ -63,3 +63,7 @@ def test_generated_pages_expose_fresh_audit_without_authorizing_upload():
     assert "slot_authorized=false" in atsc
     assert "current-peer-audit-20261028.json" in atsc
     assert 'download="KANLER_GEMS' not in root
+    cfrp = (ROOT / "docs/cfrp-20261028/index.html").read_text()
+    assert "RESEARCH DOWNLOAD ONLY — DO NOT SUBMIT" in cfrp
+    assert "literal all-registry gate fails" in cfrp
+    assert "<strong>YES</strong>" not in cfrp.split("<h2>What to download", 1)[0]
