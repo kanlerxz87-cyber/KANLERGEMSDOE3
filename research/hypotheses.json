@@ -30,7 +30,7 @@
     "name": "Signed edge-migration stability under continuation",
     "layers": "Core TMI/RTP (bands 14 and 2), TMI gradients (bands 3 and 9), and depth-to-base surface (band 15).",
     "signature": "Track signed zero-crossing locations through a preregistered Gaussian/upward-continuation scale ladder and score edges whose positions remain stable while shallow high-frequency responses decay.",
-    "missing_fault_rationale": "Deep basement offsets can preserve edge position under continuation beneath cover, whereas shallow mapped scarps and surface clutter may weaken or migrate with scale.",
+    "missing_fault_rationale": "A deep fault-related source contrast might preserve edge position under continuation beneath cover, whereas shallow mapped scarps and surface clutter may weaken or migrate with scale. The supplied depth-to-conductive-base band is not automatically geological basement depth.",
     "difference": "Existing local work uses multiscale ridge magnitude and phase features but does not model signed edge trajectories or location migration as the feature. It must still be checked against newer peer Fourier-continuation work before any global-novelty claim.",
     "non_fault_mimic": "Deep lithologic contacts, regional basement margins and continuation artifacts near footprint boundaries.",
     "cost": "Low",

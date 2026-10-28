@@ -23,8 +23,9 @@
 
 - Before concurrent-main reconciliation: **225 Python tests passed**, including 35 new focused forensic regression cases.
 - Main advanced from `ee683ee` to `4aed222` during this work. Integrated its concurrent preflight hardening, newer source feed, separately scoped hypotheses, negative cards and CADG no-download decision; preserved this session's distinct hypotheses, byte-audit receipts and original evidence. No prior scientific record or raster was replaced.
-- After initial reconciliation: **237 Python tests passed**; both `build_site.py --check` and `build_cadg_site.py --check` passed. Desktop/mobile browser smoke passed, including negative source-feed states and no CADG download links; GitHub API responses were mocked, and screenshots are ignored. Tests are software/UI evidence, not geological validation.
-- The concurrent preflight default pointed to another session's later clock. For this continuation, the default is the original expired `52a91352` clock; other recorded session configurations remain available only when explicitly selected for their own session. This prevents a fresh-looking budget from reopening an expired run.
+- Main advanced again to `18bae5c` with a separate independent CADG replay and readiness hardening. Both audit receipts agree on the f056 saved-byte overlap; the second reports 54,082 in-footprint differences between old and current fields. Kept both receipts and tests, the no-download decision, both scoped hypothesis queues and all independent cards. The 23:45:31 UTC source feed is newer than this session's 23:39 raster audit; later source changes remain outside the audit.
+- After both reconciliations: **251 Python tests passed**; both `build_site.py --check` and `build_cadg_site.py --check` passed. Desktop/mobile browser smoke passed, including negative source-feed states and no CADG download links; GitHub API responses were mocked, and screenshots are ignored. Tests are software/UI evidence, not geological validation.
+- A concurrent preflight default pointed to another session's later clock. For this continuation, the default is the original expired `52a91352` clock; other recorded session configurations remain available only when explicitly selected for their own session. This prevents a fresh-looking budget from reopening an expired run.
 
 ## Required next actions
 

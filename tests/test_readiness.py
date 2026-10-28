@@ -30,7 +30,8 @@ def eligible_card(tmp_path):
                                             "dti": .1, "ci95": [.08, .12]}, "paired_delta_ci95": [.04, .16]},
         "uniqueness": {"complete": True, "current_snapshot_verified": True, "registry_snapshot_sha256": snap,
                        "raster_count": 3, "missing_or_incompatible": 0,
-                       "surface": {"complete": True, "snapshot_sha256": snap, "max_abs_spearman": .9},
+                       "surface": {"complete": True, "snapshot_sha256": snap, "max_abs_spearman": .9,
+                                   "max_within_3px": .7},
                        "final_dots": {"complete": True, "snapshot_sha256": snap, "max_abs_spearman": .3,
                                       "max_within_3px": .7, "raster_sha256": h}},
         "validator": {"sha256": h, "template_sha256": "d" * 64,
@@ -85,6 +86,12 @@ def test_holdout_requires_matched_folds_and_positive_paired_interval(tmp_path):
     card = eligible_card(tmp_path)
     card["holdout"]["protocol"]["catalogue_features_visible_only"] = False
     assert not review(card, tmp_path)["checks"]["comparable_holdout_and_paired_win"]
+    card = eligible_card(tmp_path)
+    card["holdout"]["candidate"]["ci95"] = [.01, .03]
+    assert not review(card, tmp_path)["checks"]["comparable_holdout_and_paired_win"]
+    card = eligible_card(tmp_path)
+    card["holdout"]["paired_delta_ci95"] = [.04, 2.0]
+    assert not review(card, tmp_path)["checks"]["comparable_holdout_and_paired_win"]
 
 
 def test_uniqueness_requires_complete_current_literal_registry(tmp_path):
@@ -93,6 +100,12 @@ def test_uniqueness_requires_complete_current_literal_registry(tmp_path):
     assert not review(card, tmp_path)["checks"]["literal_all_registry_uniqueness"]
     card = eligible_card(tmp_path)
     card["uniqueness"]["surface"]["max_abs_spearman"] = .90001
+    assert not review(card, tmp_path)["checks"]["literal_all_registry_uniqueness"]
+    card = eligible_card(tmp_path)
+    card["uniqueness"]["surface"]["max_within_3px"] = .70001
+    assert not review(card, tmp_path)["checks"]["literal_all_registry_uniqueness"]
+    card = eligible_card(tmp_path)
+    del card["uniqueness"]["surface"]["max_within_3px"]
     assert not review(card, tmp_path)["checks"]["literal_all_registry_uniqueness"]
     card = eligible_card(tmp_path)
     card["uniqueness"]["missing_or_incompatible"] = 1
@@ -123,6 +136,14 @@ def test_budget_note_and_malformed_objects_fail_closed(tmp_path):
         bad = copy.deepcopy(card)
         bad[name] = None
         assert not review(bad, tmp_path)["eligible_for_separate_selector"]
+
+
+def test_name_and_note_reject_unsafe_or_empty_fields(tmp_path):
+    for field, bad in (("name", "../candidate"), ("name", "bad\nname"),
+                       ("note", " "), ("note", "line one\nline two")):
+        card = eligible_card(tmp_path)
+        card["submission"][field] = bad
+        assert not review(card, tmp_path)["checks"]["submission_name_and_note"]
 
 
 def test_default_validator_does_not_trust_receipt_flags(tmp_path):

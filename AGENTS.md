@@ -3,9 +3,9 @@
 Before changing this project, read:
 1. `README.md`, including its full standing user request (also `PROJECT_PROMPT.md`).
 2. `PROJECT_REQUEST.md` and `research/standing-requirements.md` for the compact standing rules.
-3. `config/research-session-52a91352.json` (expired default), `config/research-session-12817d00.json` (concurrent scoped clock), `research/session-12817d00-review.md`, and `research/verification.md`.
+3. `config/research-session-52a91352.json` (expired default), the concurrent scoped clocks in `config/`, `research/session-5c1613da-review.md`, `research/session-12817d00-review.md`, and `research/verification.md`.
 4. `evidence/run-card.json` (preserved canonical bilateral run, negative),
-   `evidence/session-12817d00-run-card.json` (concurrent scoped review), and
+   `evidence/session-12817d00-run-card.json` and `evidence/session-5c1613da-run-card.json` (concurrent scoped reviews), and
    `evidence/session-91270cac-run-card.json` with `research/session-91270cac-review.md`
    (latest forensic review; no model run). Keep every original fixed clock and card.
 

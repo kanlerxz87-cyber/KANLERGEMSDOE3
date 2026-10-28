@@ -402,8 +402,9 @@ def build(check_only: bool = False) -> None:
     session = read("evidence/session-7d1e577d-run-card.json")
     previous_session = read("evidence/session-52a91352-run-card.json")
     concurrent_session = read("evidence/session-12817d00-run-card.json")
+    second_concurrent_session = read("evidence/session-5c1613da-run-card.json")
     current_session = read("evidence/session-91270cac-run-card.json")
-    for scoped in (previous_session, concurrent_session, current_session):
+    for scoped in (previous_session, concurrent_session, second_concurrent_session, current_session):
         if scoped.get("verdict") != "negative" or scoped.get("ok_to_submit") is not False or scoped.get("slot_authorized") is not False or scoped.get("raster_sha256") is not None:
             raise ValueError("A review-session card cannot authorize an unimplemented publisher")
     inherited = read("evidence/inherited_literal_audit.json")
@@ -561,7 +562,7 @@ The [original scoped report at the inherited commit](https://github.com/kanlerxz
         emit(DOCS / "sites" / f"{row['repo']}.html", page(row["repo"] + " executive summary", text, prefix="../"))
     for source, dest in [("evidence/parallel-poisson-audit-20261027.json", "parallel-poisson-audit-20261027.json"), ("evidence/kpl36-lattice-audit-20261027.json", "kpl36-lattice-audit-20261027.json"), ("evidence/h33-lineage-20261027.json", "h33-lineage-20261027.json"), ("evidence/official-observation-20261027.json", "official-observation-20261027.json"), ("evidence/official-claims-20261026.json", "official-claims.json"), ("evidence/shared_tool_audit.json", "tool-audit.json"), ("evidence/input-integrity.json", "input-integrity.json"), ("evidence/session-7d1e577d-verification.json", "verification.json"), ("evidence/inherited_literal_audit.json", "inherited-literal-audit.json"), ("evidence/sample-provenance-check.json", "sample-provenance-check.json"), ("knowledge/geothermal-science-2026-10-27.md", "geothermal-science-2026-10-27.md")]:
         emit(DOCS / dest, (ROOT / source).read_text())
-    for name in ("review", "hypotheses", "verification", "session-12817d00-review", "session-91270cac-review", "session-91270cac-hypotheses"):
+    for name in ("review", "hypotheses", "verification", "session-12817d00-review", "session-5c1613da-review", "session-91270cac-review", "session-91270cac-hypotheses"):
         emit(DOCS / f"{name}.md", (ROOT / "research" / f"{name}.md").read_text())
 
     for src, destinations in [
@@ -570,6 +571,8 @@ The [original scoped report at the inherited commit](https://github.com/kanlerxz
         ("evidence/session-7d1e577d-run-card.json", [DOCS / "data/session-7d1e577d-run-card.json"]),
         ("evidence/session-52a91352-run-card.json", [DOCS / "data/session-52a91352-run-card.json"]),
         ("evidence/session-12817d00-run-card.json", [DOCS / "data/session-12817d00-run-card.json"]),
+        ("evidence/session-5c1613da-run-card.json", [DOCS / "data/session-5c1613da-run-card.json"]),
+        ("evidence/session-5c1613da-cadg-audit.json", [DOCS / "data/session-5c1613da-cadg-audit.json"]),
         ("evidence/session-91270cac-run-card.json", [DOCS / "data/session-91270cac-run-card.json"]),
         ("evidence/registry_saturation_20261026.json", [DOCS / "data/registry_saturation.json"]),
         ("evidence/feature_cache_recovery_20261026.json", [DOCS / "data/feature_cache_recovery.json"]),

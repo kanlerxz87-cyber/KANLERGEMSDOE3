@@ -123,6 +123,12 @@ try {
     if (name.startsWith('cadg-submod/')) assert.equal(await page.locator('a[download]').count(), 0, name);
     else if (await page.locator('a[download]').count()) assert.match(text, /research.only/i);
   }
+  await page.goto(base + '/cadg-submod/index.html', { waitUntil: 'networkidle' });
+  const cadg = await page.locator('main').innerText();
+  assert.match(cadg, /99\.94%/);
+  assert.match(cadg, /99\.95%/);
+  assert.match(cadg, /selector signature cannot change/i);
+  assert.match(cadg, /unverified/i);
   checks.push('CADG and GPC archives retain files only as explicitly rejected research');
   assert.deepEqual(errors, []);
   checks.push('desktop: no JavaScript exceptions across every active page');
