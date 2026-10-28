@@ -1,0 +1,21 @@
+{
+  "observed_utc": "2026-10-27T23:53:24+00:00",
+  "shared_upstream": {
+    "repository": "https://github.com/buffedlizard55-lab/GEMSDOE32",
+    "head_commit": "5871b14fbc477032c6e4b339c3d41cae7243f4fe",
+    "holdout_path": "src/gems32/holdout.py",
+    "head_holdout_git_blob_sha1": "574cf333baf78f427b55b018aab038a97c3c7456",
+    "locked_holdout_git_blob_sha1": "574cf333baf78f427b55b018aab038a97c3c7456",
+    "holdout_identical_to_locked_blob": true,
+    "issue_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41",
+    "issue_state": "open",
+    "issue_updated_at": "2026-10-26T21:56:49Z",
+    "authenticated_account_push_permission": false
+  },
+  "official_reference": {
+    "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
+    "head_commit": "aebe92f7c8a990f0e3443451b7a825d9afd6336b"
+  },
+  "scope": "Git source identity and public issue state only; not organizer authentication or model performance.",
+  "slot_authorized": false
+}

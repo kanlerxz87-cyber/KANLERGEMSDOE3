@@ -1,0 +1,54 @@
+[
+  {
+    "rank": 1,
+    "name": "Cross-scale edge phase disagreement",
+    "layers": "Core TMI/RTP; upward-continued TMI at 150 m; GeoDAWN K/Th/U or ratio grids.",
+    "signature": "Persistent magnetic edges with signed edge-normal radiometric derivative reversal or termination, rather than coincident large gradient magnitudes.",
+    "missing_fault_rationale": "A buried discontinuity might remain visible at depth while shallow alteration changes across a concealed segment. Catalogue distance is not used as positive evidence.",
+    "difference": "In inspected local code GPC uses RTP/gravity/depth/elevation orientation, while DCAP-LHC uses a magnetic contact with K/Th/hydro context; the signed radiometric derivative-termination interaction is not the same. Global novelty and a complete registry comparison remain unproved.",
+    "non_fault_mimic": "Intrusive lithologic contacts or flight-block levelling seams.",
+    "cost": "Medium",
+    "expected_improvement": "Highest qualitative information-gain potential in this shortlist; no numeric DTI projection.",
+    "viability": "Not executable yet: the derived shared cache/digest is missing and the official GeoDAWN archives were listed but their bytes were not obtained.",
+    "source": "https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and"
+  },
+  {
+    "rank": 2,
+    "name": "Repeated drainage displacement graph",
+    "layers": "Core detrended elevation (band 12), elevation slope (band 19), derived drainage graph; optional 3DEP high-resolution DEM.",
+    "signature": "Repeated signed lateral offsets across independent tributaries, with graph-level agreement across scales instead of a single scarp maximum.",
+    "missing_fault_rationale": "Displaced channels might reveal a transverse structure that has no continuous surface scarp and is absent from a trace catalogue.",
+    "difference": "In inspected local code the terrain builder includes chi, slope and scarp features; repeated paired channel-displacement graph inference was not found. Global novelty and peer comparison remain unproved.",
+    "non_fault_mimic": "Stream capture, fan avulsion or abandoned lake shorelines.",
+    "cost": "High",
+    "expected_improvement": "Second qualitative rank; more independent evidence, but resolution risk. No numeric DTI projection.",
+    "viability": "Not executable yet: raw coarse bands were restored, but the canonical derived cache is absent. The official 3DEP catalog listed tiles within the mirror-grid bounding rectangle; tile bytes, footprint coverage and alignment remain unverified.",
+    "source": "https://tnmaccess.nationalmap.gov/api/v1/products?datasets=Digital%20Elevation%20Model%20%28DEM%29%201%20meter&bbox=-119.0%2C39.5%2C-118.8%2C39.7&outputFormat=JSON&max=2"
+  },
+  {
+    "rank": 3,
+    "name": "Alteration-front termination pairs",
+    "layers": "GeoDAWN K/Th/U or Th/K and U/K; independent magnetic edge or analytic-signal axes.",
+    "signature": "Pair opposite-side along-strike terminations of alteration fronts across a magnetic edge; do not select merely high-ratio pixels.",
+    "missing_fault_rationale": "An unmapped transverse structure may compartmentalize alteration instead of lying on its strongest observed anomaly.",
+    "difference": "The inspected local builder smooths a K alteration halo and DCAP-LHC uses radiometric context; explicit opposite-side endpoint topology is a different proposed interaction, not established as globally novel.",
+    "non_fault_mimic": "Erosional unconformities, lithologic boundaries or soil-moisture effects.",
+    "cost": "Medium",
+    "expected_improvement": "Third qualitative rank; physically motivated corroboration, not a calibrated probability or DTI forecast.",
+    "viability": "Not executable yet: exact band definitions and saturation, original official archive bytes, and authenticated shared derived-cache provenance remain unresolved.",
+    "source": "https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and"
+  },
+  {
+    "rank": 4,
+    "name": "Terrain-conditioned thermal sign asymmetry",
+    "layers": "GDR #1391 well/spring and 2 m probe temperatures with dates; elevation, aspect and drainage position.",
+    "signature": "Robust terrain-corrected temperature residuals with repeated cross-line sign consistency, rather than nearest-hot-point distance.",
+    "missing_fault_rationale": "Focused upflow could corroborate concealed permeability away from mapped traces. It does not by itself establish a geothermal vent or a fault.",
+    "difference": "The inspected local builder smooths probe and well/spring proxies; a terrain/season-conditioned paired residual-sign test is not the same transformation. Peer uniqueness remains unproved.",
+    "non_fault_mimic": "Groundwater advection, seasonality, pumping or land-use effects.",
+    "cost": "High",
+    "expected_improvement": "Fourth qualitative rank because sparse and seasonally biased sampling may dominate. No numeric DTI projection.",
+    "viability": "Not executable yet: the official index was readable, but the attempted 2 m probe archive retrieval returned HTTP 500; source bytes, spatial coverage and sampling dates remain unverified.",
+    "source": "https://gdr.openei.org/submissions/1391"
+  }
+]

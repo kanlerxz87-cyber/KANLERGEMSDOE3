@@ -140,13 +140,50 @@ class FormatProfileTests(unittest.TestCase):
         self.write(self.candidate, np.zeros((5, 5)), nodata=None)
         self.assertFalse(validate(self.template, self.candidate, "finite-grid")["ok"])
 
+    def test_unhashed_template_sidecar_blocks_every_encoding(self):
+        self.write(self.candidate, np.zeros((5, 5)), nodata=None)
+        original_hash = digest(self.template)
+        mask = np.full((5, 5), 255, dtype="uint8"); mask[1, 1] = 0
+        with rasterio.Env(GDAL_TIFF_INTERNAL_MASK=False):
+            with rasterio.open(self.template, "r+") as dst:
+                dst.write_mask(mask)
+        self.assertEqual(original_hash, digest(self.template))
+        with rasterio.open(self.template) as src:
+            self.assertGreater(len(src.files), 1)
+        for profile in ("template-mask", "finite-grid", "masked-finite"):
+            result = validate(self.template, self.candidate, profile)
+            self.assertFalse(result["ok"])
+            self.assertFalse(result["checks"]["template_standalone_without_sidecars"])
+            self.assertFalse(any(result["local_encoding_compatibility"].values()))
+
     def test_report_binds_exact_candidate_and_template(self):
         self.write(self.candidate, np.zeros((5, 5)), nodata=None)
         result = validate(self.template, self.candidate, "finite-grid")
         self.assertEqual(result["candidate_sha256"], digest(self.candidate))
         self.assertEqual(result["template_sha256"], digest(self.template))
+        self.assertTrue(result["checks"]["candidate_bytes_unchanged"])
+        self.assertTrue(result["checks"]["template_bytes_unchanged"])
         with self.assertRaises(ValueError):
             validate(self.template, self.candidate, "anything")
+
+    def test_changing_saved_bytes_during_validation_blocks_every_profile(self):
+        from unittest.mock import patch
+        self.write(self.candidate, np.zeros((5, 5)), nodata=None)
+        for changed in (self.template, self.candidate):
+            calls = 0
+            def unstable(path):
+                nonlocal calls
+                if Path(path) == changed:
+                    calls += 1
+                    if calls == 2:
+                        return "0" * 64
+                return digest(path)
+            with patch("scripts.validate_submission.digest", side_effect=unstable):
+                report = validate(self.template, self.candidate, "finite-grid")
+            self.assertFalse(report["ok"])
+            field = "template_bytes_unchanged" if changed == self.template else "candidate_bytes_unchanged"
+            self.assertFalse(report["checks"][field])
+            self.assertFalse(any(report["local_encoding_compatibility"].values()))
 
 
 if __name__ == "__main__":

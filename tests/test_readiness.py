@@ -19,8 +19,9 @@ def eligible_card(tmp_path):
         "lane": {"explicitly_assigned": True, "assigned_method": "test lane"},
         "feature_cache": {"provenance_verified": True, "path": "feature_stack.npy", "sha256": cache_sha},
         "budget": {"experiments": 1, "hours": 0.5},
-        "leakage_canaries": {"complete": True, "expected_features": ["mag", "elev"],
-                             "results": {"mag": .66, "elev": .9}},
+        "leakage_canaries": {"complete": True, "two_polarities_checked": True,
+                             "folds_sha256": fold, "withheld_positives": 100,
+                             "expected_features": ["mag", "elev"], "results": {"mag": .66, "elev": .9}},
         "holdout": {"protocol": {"whole_segments_with_buffer": True, "catalogue_features_visible_only": True,
                                   "visible_mask_pixel_exact": True, "pooled_dti": True,
                                   "alpha": .2, "beta": .8, "kernel_radius_m": 300},
@@ -30,8 +31,9 @@ def eligible_card(tmp_path):
                                             "dti": .1, "ci95": [.08, .12]}, "paired_delta_ci95": [.04, .16]},
         "uniqueness": {"complete": True, "current_snapshot_verified": True, "registry_snapshot_sha256": snap,
                        "raster_count": 3, "missing_or_incompatible": 0,
-                       "surface": {"complete": True, "snapshot_sha256": snap, "max_abs_spearman": .9},
-                       "final_dots": {"complete": True, "snapshot_sha256": snap, "max_abs_spearman": .3,
+                       "surface": {"complete": True, "snapshot_sha256": snap, "max_rank_correlation": .9,
+                                   "max_within_3px": .7},
+                       "final_dots": {"complete": True, "snapshot_sha256": snap, "max_rank_correlation": .3,
                                       "max_within_3px": .7, "raster_sha256": h}},
         "validator": {"sha256": h, "template_sha256": "d" * 64,
                       "receipt_source": "shared-template-reopened-geotiff", "single_band": True,
@@ -42,7 +44,11 @@ def eligible_card(tmp_path):
 
 
 def review(card, tmp_path):
-    return readiness.evaluate(card, tmp_path, shared_validator=lambda root, path, val: True)
+    # Logic-only fixtures: actual validators, operator and geometric replay have
+    # separate integration tests; these callbacks do not authorize a real file.
+    return readiness.evaluate(card, tmp_path, shared_validator=lambda root, path, val: True,
+                              shared_operator=lambda root, hold: True,
+                              uniqueness_validator=lambda root, u, s, v: {"ok": True})
 
 
 def test_missing_card_is_negative_and_not_approved():
@@ -60,9 +66,14 @@ def test_current_run_card_is_negative():
 
 
 def test_good_evidence_only_reaches_separate_selector(tmp_path):
-    result = review(eligible_card(tmp_path), tmp_path)
+    card = eligible_card(tmp_path)
+    result = review(card, tmp_path)
     assert result["eligible_for_separate_selector"]
     assert not result["ok_to_submit"]
+    # The protocol stops on positive correlation above .90, not a negative
+    # correlation whose magnitude is above .90.
+    card["uniqueness"]["surface"]["max_rank_correlation"] = -.99
+    assert review(card, tmp_path)["checks"]["literal_all_registry_uniqueness"]
 
 
 def test_canary_must_cover_all_features_and_catch_both_polarities(tmp_path):
@@ -72,6 +83,15 @@ def test_canary_must_cover_all_features_and_catch_both_polarities(tmp_path):
     card["leakage_canaries"]["results"]["mag"] = .02
     assert not review(card, tmp_path)["checks"]["all_feature_canaries"]
     card["leakage_canaries"]["results"].pop("mag")
+    assert not review(card, tmp_path)["checks"]["all_feature_canaries"]
+    card = eligible_card(tmp_path)
+    card["leakage_canaries"]["two_polarities_checked"] = False
+    assert not review(card, tmp_path)["checks"]["all_feature_canaries"]
+    card = eligible_card(tmp_path)
+    card["leakage_canaries"]["folds_sha256"] = "e" * 64
+    assert not review(card, tmp_path)["checks"]["all_feature_canaries"]
+    card = eligible_card(tmp_path)
+    card["leakage_canaries"]["withheld_positives"] = True
     assert not review(card, tmp_path)["checks"]["all_feature_canaries"]
 
 
@@ -85,6 +105,15 @@ def test_holdout_requires_matched_folds_and_positive_paired_interval(tmp_path):
     card = eligible_card(tmp_path)
     card["holdout"]["protocol"]["catalogue_features_visible_only"] = False
     assert not review(card, tmp_path)["checks"]["comparable_holdout_and_paired_win"]
+    card = eligible_card(tmp_path)
+    card["holdout"]["candidate"]["ci95"] = [.01, .02]
+    assert not review(card, tmp_path)["checks"]["comparable_holdout_and_paired_win"]
+    card = eligible_card(tmp_path)
+    card["holdout"]["paired_delta_ci95"] = [.2, .3]
+    assert not review(card, tmp_path)["checks"]["comparable_holdout_and_paired_win"]
+    card = eligible_card(tmp_path)
+    card["holdout"]["same_evaluator_best"]["withheld_positives"] = True
+    assert not review(card, tmp_path)["checks"]["comparable_holdout_and_paired_win"]
 
 
 def test_uniqueness_requires_complete_current_literal_registry(tmp_path):
@@ -92,7 +121,13 @@ def test_uniqueness_requires_complete_current_literal_registry(tmp_path):
     card["uniqueness"]["final_dots"]["max_within_3px"] = .70001
     assert not review(card, tmp_path)["checks"]["literal_all_registry_uniqueness"]
     card = eligible_card(tmp_path)
-    card["uniqueness"]["surface"]["max_abs_spearman"] = .90001
+    card["uniqueness"]["surface"]["max_rank_correlation"] = .90001
+    assert not review(card, tmp_path)["checks"]["literal_all_registry_uniqueness"]
+    card = eligible_card(tmp_path)
+    card["uniqueness"]["surface"]["max_within_3px"] = .70001
+    assert not review(card, tmp_path)["checks"]["literal_all_registry_uniqueness"]
+    card = eligible_card(tmp_path)
+    del card["uniqueness"]["surface"]["max_within_3px"]
     assert not review(card, tmp_path)["checks"]["literal_all_registry_uniqueness"]
     card = eligible_card(tmp_path)
     card["uniqueness"]["missing_or_incompatible"] = 1
@@ -123,6 +158,29 @@ def test_budget_note_and_malformed_objects_fail_closed(tmp_path):
         bad = copy.deepcopy(card)
         bad[name] = None
         assert not review(bad, tmp_path)["eligible_for_separate_selector"]
+
+
+def test_summary_flags_alone_cannot_skip_actual_two_stage_replay(tmp_path):
+    card = eligible_card(tmp_path)
+    decision = readiness.evaluate(card, tmp_path, shared_validator=lambda *args: True,
+                                  shared_operator=lambda *args: True)
+    assert not decision["checks"]["literal_all_registry_uniqueness"]
+    assert not decision["eligible_for_separate_selector"]
+    assert "Missing registry" in decision["uniqueness_replay"]["error"]
+
+
+def test_broken_operator_and_replay_exceptions_fail_closed(tmp_path):
+    card = eligible_card(tmp_path)
+    def broken(*args):
+        raise ValueError("broken instrument")
+    result = readiness.evaluate(card, tmp_path, shared_validator=lambda *args: True,
+                                shared_operator=broken, uniqueness_validator=lambda *args: {"ok": True})
+    assert not result["checks"]["shared_operator_correct_and_pinned"]
+    assert not result["eligible_for_separate_selector"]
+    result = readiness.evaluate(card, tmp_path, shared_validator=lambda *args: True,
+                                shared_operator=lambda *args: True, uniqueness_validator=broken)
+    assert not result["checks"]["literal_all_registry_uniqueness"]
+    assert not result["eligible_for_separate_selector"]
 
 
 def test_default_validator_does_not_trust_receipt_flags(tmp_path):

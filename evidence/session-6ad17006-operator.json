@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "kind": "SYNTHETIC OPERATOR AUDIT \u2014 NOT HOLDOUT-DTI",
+  "source_lock": {
+    "ok": true,
+    "commit": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+    "repository": "buffedlizard55-lab/GEMSDOE32",
+    "files_checked": 13,
+    "failures": [],
+    "manifest_sha256": "13a9e48eacbca3a2f7f53d5ec460427ab7532e0620c63664df6c6c1b6195553d"
+  },
+  "checks": {
+    "empty_truth_cell_fp_preserved_in_pooled_totals": false,
+    "soft_fields_are_silently_binarized": true
+  },
+  "blocking_findings": [
+    {
+      "id": "SHARED-EMPTY-TRUTH-FP",
+      "severity": "BLOCKER",
+      "path": "src/gems32/holdout.py",
+      "lines": [
+        677,
+        679
+      ],
+      "description": "The n_t == 0 branch records cell false positives, then continues without adding them to fp_blk. Pooled DTI/bootstrap therefore omit this prediction mass.",
+      "reproduction": "python scripts/audit_shared_tools.py; tests/test_shared_tools.py",
+      "resolution": "Repair once upstream, pin the corrected commit, rerun these tests; no local evaluator fork is permitted.",
+      "upstream_issue": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41",
+      "upstream_issue_status_at_review": "OPEN; existing issue independently reproduced, no duplicate issue opened"
+    }
+  ],
+  "ok": false,
+  "numerical_model_scores": null,
+  "note": "Synthetic fixtures only. This does not show that any historical competition result was affected. Use binary masks only; soft probability evaluation is not supported by this shared hide-and-recover entry point."
+}

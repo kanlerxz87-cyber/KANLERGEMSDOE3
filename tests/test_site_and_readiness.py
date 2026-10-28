@@ -63,6 +63,23 @@ class SiteAndReadinessTests(unittest.TestCase):
         after = [hashlib.sha256(path.read_bytes()).hexdigest() for path in paths]
         self.assertEqual(before, after)
 
+    def test_current_negative_card_cannot_release_candidate(self):
+        from copy import deepcopy
+        from scripts.build_site import check_current_session_card
+        card = json.loads((ROOT / "evidence/session-6ad17006-run-card.json").read_text())
+        check_current_session_card(card)
+        for keys, value in ((["selector_slot_authorized"], True), (["verdict"], "PROMOTE"),
+                            (["raster", "sha256"], "a" * 64), (["holdout", "value"], 0.5),
+                            (["leaderboard_estimate"], 0.5), (["organizer_confirmed_score"], 0.5),
+                            (["proposed_submission_name"], "candidate"), (["weekly_slots_used_this_session"], False)):
+            altered = deepcopy(card)
+            target = altered
+            for key in keys[:-1]:
+                target = target[key]
+            target[keys[-1]] = value
+            with self.assertRaises(ValueError):
+                check_current_session_card(altered)
+
     def test_source_feed_does_not_launder_scores_or_approvals(self):
         feed = json.loads((DOCS / "data/focus-feed.json").read_text())
         self.assertEqual(len(feed["rows"]), 9)

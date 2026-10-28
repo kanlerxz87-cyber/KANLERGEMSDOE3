@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "session_id": "6ad17006",
+  "status": "NEGATIVE_REVIEW_NO_GEOLOGICAL_EXPERIMENT",
+  "session_started_utc": "2026-10-27T23:40:41+00:00",
+  "hypothesis": "No method was assigned; the leading untested research proposal is a persistent magnetic edge with signed cross-edge radiometric derivative reversal or termination.",
+  "method_lane": null,
+  "physical_mechanism": "A buried structural boundary might coincide with persistent magnetic contrast and an across-boundary change in shallow radiometric expression; this has not been tested here.",
+  "named_non_fault_mimic": "An intrusive lithologic contact or soil contrast can produce a similar geophysical edge without being a fault.",
+  "holdout": {
+    "label": "HOLDOUT-DTI",
+    "value": null,
+    "evaluator_version": null,
+    "withheld_positives": null,
+    "ci95": null,
+    "same_fold_incumbent": null,
+    "paired_improvement_ci95": null,
+    "status": "NOT_RUN; pinned shared evaluator fails synthetic empty-truth false-positive conservation"
+  },
+  "organizer_confirmed_score": null,
+  "leaderboard_estimate": null,
+  "uniqueness": {
+    "pre_placement_surface_max_spearman": null,
+    "pre_placement_dot_max_overlap_3px": null,
+    "final_surface_max_spearman": null,
+    "final_dot_max_overlap_3px": null,
+    "registry_complete": false,
+    "status": "NOT_RUN; no candidate, complete registry or authenticated surface/dot representation"
+  },
+  "raster": {
+    "path": null,
+    "sha256": null,
+    "status": "NO_NEW_CANDIDATE"
+  },
+  "validator": {
+    "version": "submission-format-v6-stable-saved-bytes",
+    "candidate_checks_run": false,
+    "finite_inside": null,
+    "range_0_1_inside": null,
+    "grid_crs_shape_transform_match": null,
+    "single_band": null,
+    "portal_acceptance": null
+  },
+  "proposed_submission_name": null,
+  "proposed_submission_note": null,
+  "geological_experiments_used": 0,
+  "weekly_slots_used_this_session": 0,
+  "remaining_account_cap": null,
+  "selector_slot_authorized": false,
+  "promotion_decision": "DO NOT PROMOTE OR SUBMIT",
+  "verdict": "NEGATIVE",
+  "reason": "Missing assigned lane, corrected pinned shared evaluator, authenticated shared derived cache, complete/defined registry, same-fold incumbent and organizer-authenticated sample. No scientifically evaluated candidate exists.",
+  "supporting_evidence": {
+    "preflight_snapshot": "evidence/session-6ad17006-preflight.json",
+    "live_operator_audit_snapshot": "evidence/session-6ad17006-operator.json",
+    "upstream_git_observation": "evidence/session-6ad17006-upstream.json",
+    "historical_h33_geometry": "evidence/session-6ad17006-h33-lineage.json",
+    "source_change_feed": "evidence/session-6ad17006-focus-feed.json",
+    "geothermal_research": "knowledge/session-6ad17006-geothermal-research.md",
+    "verification": "evidence/session-6ad17006-verification.json"
+  }
+}

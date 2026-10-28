@@ -20,7 +20,7 @@ from pathlib import Path
 import numpy as np
 import rasterio
 
-VERSION = "submission-format-v4-masked-finite-diagnostics"
+VERSION = "submission-format-v6-stable-saved-bytes"
 PROFILES = ("template-mask", "finite-grid", "masked-finite")
 
 
@@ -56,14 +56,16 @@ def validate(template_path: Path, candidate_path: Path, profile: str = "template
             "template_epsg_32611": ref.crs is not None and ref.crs.to_epsg() == 32611,
             "template_100m_grid": ref.transform.a == 100 and ref.transform.e == -100 and ref.transform.b == 0 and ref.transform.d == 0,
             "template_mask_unambiguous": not bool((template_mask & ~np.isfinite(template_values)).any()),
+            "template_standalone_without_sidecars": all(Path(name).resolve() == template_path.resolve() for name in ref.files),
             "standalone_without_sidecars": all(Path(name).resolve() == candidate_path.resolve() for name in src.files),
         }
         errors.extend(key for key, ok in checks.items() if not ok)
         sha = digest(candidate_path)
+        template_sha = digest(template_path)
         base = {
             "validator": VERSION, "encoding_profile": profile,
             "template": str(template_path), "candidate": str(candidate_path),
-            "template_sha256": digest(template_path), "candidate_sha256": sha, "sha256": sha,
+            "template_sha256": template_sha, "candidate_sha256": sha, "sha256": sha,
             "organizer_acceptance": "NOT_TESTED", "portal_acceptance_verified": False,
             "submission_authorized": False, "slot_authorized": False, "checks": checks,
         }
@@ -119,6 +121,13 @@ def validate(template_path: Path, candidate_path: Path, profile: str = "template
             profile = "finite-grid"
         base["encoding_profile"] = profile
         base["legacy_allow_zero_outside"] = allow_zero_outside
+        # A report must not attest to bytes or sidecar masks that changed while
+        # the arrays were being inspected. Reopen for sidecar discovery and
+        # compare both hashes again after the read. This detects changes during
+        # the audit, but cannot prevent modifications after a report is issued.
+        with rasterio.open(template_path) as ref_again, rasterio.open(candidate_path) as src_again:
+            template_still_standalone = all(Path(name).resolve() == template_path.resolve() for name in ref_again.files)
+            candidate_still_standalone = all(Path(name).resolve() == candidate_path.resolve() for name in src_again.files)
         checks.update(
             no_nan_inside_footprint=bool(np.isfinite(inside).all()),
             no_masked_inside_footprint=bool(candidate_mask[footprint].all()),
@@ -126,13 +135,18 @@ def validate(template_path: Path, candidate_path: Path, profile: str = "template
             no_infinite_pixels_anywhere=no_infinity,
             selected_encoding=bool(encodings[profile]),
             expected_positive_pixels_match=expected_dots is None or expected_dots == positive_pixels,
+            template_bytes_unchanged=digest(template_path) == template_sha,
+            candidate_bytes_unchanged=digest(candidate_path) == sha,
+            template_still_standalone=template_still_standalone,
+            candidate_still_standalone=candidate_still_standalone,
         )
-        for key in ("no_nan_inside_footprint", "no_masked_inside_footprint", "inside_range_0_1", "no_infinite_pixels_anywhere", "selected_encoding", "expected_positive_pixels_match"):
+        for key in ("no_nan_inside_footprint", "no_masked_inside_footprint", "inside_range_0_1", "no_infinite_pixels_anywhere", "selected_encoding", "expected_positive_pixels_match", "template_bytes_unchanged", "candidate_bytes_unchanged", "template_still_standalone", "candidate_still_standalone"):
             if not checks[key]:
                 errors.append(key)
         structural_ok = all(checks[key] for key in (
             "template_single_band", "single_band", "shape_match", "crs_match", "transform_match", "dtype_float32",
-            "template_epsg_32611", "template_100m_grid", "template_mask_unambiguous", "standalone_without_sidecars",
+            "template_epsg_32611", "template_100m_grid", "template_mask_unambiguous", "template_standalone_without_sidecars", "standalone_without_sidecars",
+            "template_bytes_unchanged", "candidate_bytes_unchanged", "template_still_standalone", "candidate_still_standalone",
         ))
         return {
             **base, "ok": not errors, "errors": errors,

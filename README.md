@@ -2,9 +2,34 @@
 
 **Start every session by reading this README (including the full user request below),
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
-[fixed current session config](config/research-session-52a91352.json), [preserved prior session config](config/research-session.json), [preserved bilateral run card](docs/run-card.json), [prior review card](evidence/session-7d1e577d-run-card.json), and [current negative card](evidence/session-52a91352-run-card.json). Never reset an earlier session clock.**
+[fixed current session config](config/research-session-6ad17006.json), [prior session config](config/research-session-52a91352.json), [preserved bilateral run card](docs/run-card.json), and [current negative card](evidence/session-6ad17006-run-card.json). Never reset an earlier session clock.**
 
-## Current scoped review — bb1bdbdd
+## Current review — 6ad17006
+
+[Three-pass review](research/session-6ad17006-review.md) ·
+[Preflight snapshot](evidence/session-6ad17006-preflight.json) ·
+[Current nine-site source snapshot](evidence/session-6ad17006-focus-feed.json) ·
+[Official-source science and conditional ranking](knowledge/session-6ad17006-geothermal-research.md) ·
+[Verification receipt](evidence/session-6ad17006-verification.json) ·
+[Negative JSON run card](evidence/session-6ad17006-run-card.json)
+
+**DO NOT SUBMIT.** No method lane was assigned, no geological experiment was run,
+no new candidate TIFF or justified leaderboard estimate exists, and no competition
+slot was used. Nine priority site sources were repinned for freshness, not cleared
+for uniqueness. Independent H33 geometry reproduces the earlier result; it does not
+explain its owner-reported score. Both pre-placement and final-dot uniqueness now
+replay saved comparisons, the source-locked operator is audited live, and saved-byte
+format checks reject changed files and unhashed sidecars. The gate uses the pinned
+shared auditor in raw-zero mode **and** an independently checked internal mask; the
+current shared writer does not emit that combined encoding, so central repair is
+still required. Local validation cannot establish portal acceptance.
+
+Verification: **216 Python tests passed**, deterministic site and whitespace checks
+passed, and desktop/mobile browser smoke passed with mocked GitHub feed scenarios.
+The source snapshots, cached data and this result are dated; see the review for
+remaining blockers. The full original request remains below.
+
+## Prior scoped review — bb1bdbdd
 
 [Three-pass review](research/session-bb1bdbdd-review.md) ·
 [Readiness receipt](evidence/session-bb1bdbdd-readiness.json) ·
@@ -17,7 +42,7 @@ malformed-receipt handling and regenerated the drifted home page using the exist
 canonical builder. Final checks: 200 tests passed and desktop/mobile smoke passed.
 The requested high-scoring unique artifact remains undelivered; see the scoped review.
 
-## Latest continuation — 27 October 2026
+## Prior continuation — 27 October 2026
 
 [Current scoped review and next steps](research/session-20261027-review.md) ·
 [Current readiness receipt](evidence/session-20261027-readiness.json) ·
@@ -37,14 +62,14 @@ experiment or weekly slot.
 [Executive desk](docs/index.html) · [Every priority site](docs/index.html#comparison) ·
 [How to submit](docs/executive-summary.html) · [Research queue](docs/research.html) ·
 [Official-source ledger](docs/sources.html) · [Machine audit](docs/audit.json) ·
-[Current three-pass review](research/session-52a91352-review.md)
+[Current three-pass review](research/session-6ad17006-review.md)
 
 **There is no qualified TIFF to download and no defensible leaderboard estimate.** This review
 session ran no geological experiment, generated no new TIFF and spent no weekly slot. Concurrent
 main contains other sessions’ negative model results and quarantined research TIFFs; those are
 preserved, not claimed as this session’s work. The requested winning artifact is not delivered.
 
-### Progress in this session
+### Prior session 52a91352 progress (retained)
 
 - Restored the complete 19-band core feature raster, labels, sample and SGMC proxy from immutable,
   hash-pinned participant mirrors. **Core-mirror data placement is completed**, but mirror integrity is not
@@ -101,7 +126,7 @@ python -m venv .venv
 bash scripts/download_competition_data.sh   # pinned public mirror; ~420 MB core, ignored
 .venv/bin/python scripts/prepare_data.py    # delegates to shared raw-band preparation only
 .venv/bin/python scripts/audit_shared_tools.py  # expected nonzero: unresolved upstream defect
- .venv/bin/python scripts/preflight.py          # live local receipt in ignored data/; nonzero expected
+.venv/bin/python scripts/preflight.py --config config/research-session-6ad17006.json --out data/session-6ad17006-preflight.json  # nonzero expected; fixed clock
 .venv/bin/python scripts/restore_audit_data.py # historical learning only; never a candidate
 .venv/bin/python scripts/audit_h33_lineage.py  # read-only geometry; no candidate/score/slot
 .venv/bin/python scripts/audit_kpl36_external.py --restore # expected nonzero: duplicate stop

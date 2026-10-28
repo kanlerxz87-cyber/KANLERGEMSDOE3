@@ -10,8 +10,10 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
 import re
 import sys
+import tempfile
 from pathlib import Path
 
 import numpy as np
@@ -71,6 +73,13 @@ def decision(rows: list[dict], registry_complete: bool, expected_count: int) -> 
 
 def raster(path: Path, template: Path) -> tuple[np.ndarray, np.ndarray]:
     with rasterio.open(template) as ref, rasterio.open(path) as src:
+        if ref.count != 1 or ref.crs is None:
+            raise ValueError("Uniqueness template must be a single-band georeferenced raster")
+        # A sidecar mask changes the pixels being compared without changing the
+        # pinned TIFF hash. Require the mask to be contained in the TIFF bytes.
+        for dataset, main in ((ref, template), (src, path)):
+            if any(Path(name).resolve() != main.resolve() for name in dataset.files):
+                raise ValueError(f"Raster has an unhashed sidecar: {main}")
         if src.count != 1 or src.shape != ref.shape or src.crs is None or src.crs != ref.crs or src.transform != ref.transform:
             raise ValueError(f"Raster grid mismatch: {path}")
         foot = (ref.dataset_mask() > 0) & np.isfinite(ref.read(1))
@@ -120,6 +129,109 @@ def member_path(manifest_path: Path, name: str) -> Path:
     return path
 
 
+def audit_registry(surface_path: Path, dots_path: Path, template_path: Path,
+                   registry_path: Path, stage: str) -> dict:
+    """Reopen and compare exact saved rasters. Stop at the first duplicate.
+
+    A declared complete manifest is only a scoped inventory, not independent
+    proof that every prior submission has been enumerated. This function never
+    grants a slot. Callers can reuse it to replay both stages before selection.
+    """
+    if stage not in ("surface-before-writer", "final-dots"):
+        raise ValueError("Unknown uniqueness stage")
+    surface_path, dots_path, template_path, registry_path = map(
+        Path, (surface_path, dots_path, template_path, registry_path))
+    manifest_hash = sha256_file(registry_path)
+    manifest = json.loads(registry_path.read_text())
+    entries = registry_entries(manifest)
+    hashes = {"surface_sha256": sha256_file(surface_path),
+              "dots_sha256": sha256_file(dots_path),
+              "template_sha256": sha256_file(template_path)}
+    if stage == "final-dots" and hashes["surface_sha256"] != hashes["dots_sha256"]:
+        raise ValueError("Final-dot rank correlation must use the exact final dot raster")
+    surface, foot = raster(surface_path, template_path)
+    dots, _ = raster(dots_path, template_path)
+    rows = []
+    for entry in entries:
+        path = member_path(registry_path, entry["path"])
+        if sha256_file(path) != entry["sha256"]:
+            raise ValueError("Registry hash mismatch: " + entry["id"])
+        reference, _ = raster(path, template_path)
+        reference_dots = None
+        companion_path = None
+        if entry.get("dots_path") is not None:
+            companion_path = member_path(registry_path, entry["dots_path"])
+            if sha256_file(companion_path) != entry["dots_sha256"]:
+                raise ValueError("Registry companion-dot hash mismatch: " + entry["id"])
+            reference_dots, _ = raster(companion_path, template_path)
+        row = {"id": entry["id"], "sha256": entry["sha256"],
+               **compare(surface, dots, reference, foot, reference_dots)}
+        if companion_path is not None:
+            row["dots_sha256"] = entry["dots_sha256"]
+        # Do not attest to arrays read from bytes that changed during the audit.
+        if sha256_file(path) != entry["sha256"] or (
+                companion_path is not None and sha256_file(companion_path) != entry["dots_sha256"]):
+            raise ValueError("Registry file changed during audit: " + entry["id"])
+        rows.append(row)
+        if row["duplicate"]:
+            break
+    for path, key in ((surface_path, "surface_sha256"), (dots_path, "dots_sha256"),
+                      (template_path, "template_sha256")):
+        if sha256_file(path) != hashes[key]:
+            raise ValueError("Candidate or template changed during uniqueness audit")
+    if sha256_file(registry_path) != manifest_hash:
+        raise ValueError("Registry manifest changed during uniqueness audit")
+    return {"kind": "GEOMETRIC_AUDIT_NOT_SCORE", "stage": stage,
+            "registry_manifest_sha256": manifest_hash, **hashes,
+            "registry_entries_declared": len(entries), "registry_entries_compared": len(rows),
+            "comparisons": rows,
+            **decision(rows, manifest.get("complete"), manifest.get("expected_count", -1))}
+
+
+def safe_output_path(out: Path, primary_inputs: tuple[Path, ...], registry: Path) -> None:
+    """Never overwrite an input, even if an output aliases it through a symlink."""
+    if out.suffix.lower() != ".json":
+        raise ValueError("Uniqueness receipt must have a .json extension")
+    output = out.resolve()
+    protected = {path.resolve() for path in primary_inputs}
+    # Inspect even a partially malformed inventory for member aliases before
+    # replacing a receipt. Failure to parse is handled by the audit itself.
+    try:
+        manifest = json.loads(registry.read_text())
+        rows = manifest.get("rasters", []) if isinstance(manifest, dict) else []
+        if isinstance(rows, list):
+            for row in rows:
+                if isinstance(row, dict):
+                    for key in ("path", "dots_path"):
+                        if isinstance(row.get(key), str):
+                            try:
+                                # Protect even malformed or escaping member paths:
+                                # the audit will reject them, but must not overwrite them.
+                                protected.add((registry.parent / row[key]).resolve())
+                            except (OSError, RuntimeError, ValueError):
+                                pass
+    except (OSError, ValueError):
+        pass
+    if output in protected:
+        raise ValueError("Receipt output aliases an input or registry member")
+
+
+def write_receipt(path: Path, result: dict) -> None:
+    """Atomically replace old results; a failed run must not leave a stale pass."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent,
+                                         prefix=".uniqueness-", delete=False) as stream:
+            temp = Path(stream.name)
+            json.dump(result, stream, indent=2, allow_nan=False)
+            stream.write("\n")
+        os.replace(temp, path)
+    finally:
+        if temp is not None:
+            temp.unlink(missing_ok=True)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--surface", type=Path, required=True)
@@ -129,33 +241,33 @@ def main() -> int:
     parser.add_argument("--stage", choices=["surface-before-writer", "final-dots"], required=True)
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
-    manifest = json.loads(args.registry.read_text())
-    entries = registry_entries(manifest)
-    surface, foot = raster(args.surface, args.template)
-    dots, _ = raster(args.dots, args.template)
-    rows = []
-    for entry in entries:
-        path = member_path(args.registry, entry["path"])
-        if sha256_file(path) != entry["sha256"]:
-            raise ValueError("Registry hash mismatch: " + entry["id"])
-        reference, _ = raster(path, args.template)
-        reference_dots = None
-        if entry.get("dots_path") is not None:
-            dots_path = member_path(args.registry, entry["dots_path"])
-            if sha256_file(dots_path) != entry.get("dots_sha256"):
-                raise ValueError("Registry companion-dot hash mismatch: " + entry["id"])
-            reference_dots, _ = raster(dots_path, args.template)
-        rows.append({"id": entry["id"], "sha256": entry["sha256"], **compare(surface, dots, reference, foot, reference_dots)})
-    result = {"kind": "GEOMETRIC_AUDIT_NOT_SCORE", "stage": args.stage, "registry_manifest_sha256": sha256_file(args.registry), "surface_sha256": sha256_file(args.surface), "dots_sha256": sha256_file(args.dots), "template_sha256": sha256_file(args.template), "comparisons": rows, **decision(rows, manifest.get("complete"), manifest.get("expected_count", -1))}
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
-    print(json.dumps(result, indent=2))
+    try:
+        safe_output_path(args.out, (args.surface, args.dots, args.template, args.registry), args.registry)
+    except (OSError, ValueError) as exc:
+        # Do not write a failure receipt over a protected input.
+        print(json.dumps({"status": "BLOCKED_UNSAFE_OUTPUT", "error": str(exc),
+                          "unique_under_protocol": False, "slot_authorized": False}), file=sys.stderr)
+        return 2
+    pending = {"kind": "GEOMETRIC_AUDIT_NOT_SCORE", "stage": args.stage,
+               "status": "BLOCKED_IN_PROGRESS", "unique_under_protocol": False,
+               "registry_complete": False, "slot_authorized": False}
+    try:
+        # Publish a negative result before any expensive reads, so interruption
+        # or an exception cannot leave an earlier pass in place.
+        write_receipt(args.out, pending)
+        result = audit_registry(args.surface, args.dots, args.template, args.registry, args.stage)
+        write_receipt(args.out, result)
+    except Exception as exc:
+        result = {**pending, "status": "BLOCKED_ERROR", "error": str(exc)}
+        try:
+            write_receipt(args.out, result)
+        except OSError as write_error:
+            print("Unable to replace uniqueness receipt: " + str(write_error), file=sys.stderr)
+        print(json.dumps(result, indent=2), file=sys.stderr)
+        return 2
+    print(json.dumps(result, indent=2, allow_nan=False))
     return 0 if result["unique_under_protocol"] else 1
 
 
 if __name__ == "__main__":
-    try:
-        raise SystemExit(main())
-    except (ValueError, OSError, KeyError, TypeError) as exc:
-        print(json.dumps({"status": "BLOCKED", "error": str(exc), "unique_under_protocol": False}), file=sys.stderr)
-        raise SystemExit(2)
+    raise SystemExit(main())

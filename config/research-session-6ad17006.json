@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "session_id": "6ad17006",
+  "session_started_utc": "2026-10-27T23:40:41+00:00",
+  "assigned_method_paragraph": null,
+  "lane_status": "BLOCKED_MISSING_PARAGRAPH; no method silently assigned",
+  "max_experiments": 3,
+  "max_seconds": 7200,
+  "geological_experiments": [],
+  "shared_cache": {
+    "path": null,
+    "sha256": null,
+    "status": "The shared source records a derived feature stack but no authenticated stack bytes or digest. Raw-band preparation is not that cache."
+  },
+  "registry": {
+    "complete": false,
+    "manifest": "evidence/priority-registry-manifest.json",
+    "reference_dot_definition_verified": false,
+    "status": "Frozen priority references are not the complete current raster/surface registry; three priority source heads changed from the immediately previous observation.",
+    "scope_issue": "The registered dense lattice and positive-support interpretation of a soft diagnostic cannot be silently exempted."
+  },
+  "same_evaluator_incumbent": null,
+  "organizer_template_authenticated": false,
+  "official_submission_receipts": [],
+  "selector": {
+    "slot_authorized": false,
+    "slots_used_this_session": 0,
+    "remaining_weekly_cap_from_account": null,
+    "published_limit_per_week": 3,
+    "published_rule_source": "https://docs.nlr.gov/docs/fy26osti/96647.pdf#page=11"
+  }
+}
