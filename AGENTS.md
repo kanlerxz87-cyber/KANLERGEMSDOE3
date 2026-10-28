@@ -3,7 +3,7 @@
 Before changing this project, read:
 1. `README.md`, including its full standing user request (also `PROJECT_PROMPT.md`).
 2. `PROJECT_REQUEST.md` and `research/standing-requirements.md` for the compact standing rules.
-3. `research/session-20261028-review.md`, `research/session-e2903b2e-review.md`, `config/research-session-e2903b2e.json`,
+3. `research/session-0f36badb-review.md`, `research/session-e2903b2e-review.md`, `config/research-session-e2903b2e.json`,
    `research/session-30454eca-review.md`, `research/session-91270cac-review.md`,
    other preserved configs/reviews, and `research/verification.md`.
 4. `evidence/run-card.json` (preserved canonical bilateral run, negative), concurrent cards

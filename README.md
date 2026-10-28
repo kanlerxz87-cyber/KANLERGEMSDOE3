@@ -6,9 +6,17 @@
 
 ## Continuation — 28 October 2026
 
-[Three-pass review](research/session-20261028-review.md) · [Negative run card](evidence/session-20261028-run-card.json) · [Preflight](evidence/session-20261028-preflight.json) · [Current participant source audit](evidence/session-20261028-upstream-prerequisites.json) · [Nine source heads](evidence/session-20261028-focus-feed.json)
+[Three-pass review](research/session-0f36badb-review.md) · [Negative run card](evidence/session-20261028-run-card.json) · [Preflight](evidence/session-20261028-preflight.json) · [Current participant source audit](evidence/session-20261028-upstream-prerequisites.json) · [Nine source heads](evidence/session-20261028-focus-feed.json)
 
 **DO NOT SUBMIT.** The participant-mirrored core inputs were restored and raw bands prepared, but the canonical derived cache, assigned lane, complete registry and same-fold incumbent remain missing. The restored data are ignored bulk files and are not organizer-authenticated. The pinned evaluator still fails its synthetic operator check; four shared files changed upstream and must be independently audited before adoption. No geological experiment, new candidate, forecast or slot was produced. The prerequisite refresh now preserves historical receipts and does not infer cache validity from a digest and path alone.
+
+## Repository review — 28 October 2026
+
+[Three-pass review](research/session-20261028-review.md) · **Negative / DO NOT SUBMIT**.
+That separate session reported no competition rasters in its checkout. A project-local test environment was installed
+and the suite passed (257 passed, 9 skipped); fail-closed readiness still denies research
+and submission. No experiment, TIFF, score estimate, or competition slot was produced. The review documents the exact blockers
+and next actions. Its review card is not a model run card.
 
 ## Final integrated continuation — 27 October 2026
 
@@ -22,8 +30,8 @@
 **DO NOT SUBMIT.** The concurrent forensic work below is integrated without claiming its experiments.
 This final review restored every available pinned instrument/input, refreshed all nine participant
 sources, and independently re-ran the unchanged operator audit. It produced no new TIFF or score
-estimate and used no geological experiment or weekly slot. The five current shared evaluator,
-feature, and writer files remain byte-identical to the pinned defective versions. The named
+estimate and used no geological experiment or weekly slot. At that 27 October snapshot, the five checked shared evaluator,
+feature, and writer files were byte-identical to the pinned defective versions; the 28 October source differs. The named
 35-channel cache still has neither obtainable bytes nor a content digest;
 [upstream issue 53](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/53) requests a central
 content-addressed release, lineage, invalidation, and verifier. Source freshness is not approval.
