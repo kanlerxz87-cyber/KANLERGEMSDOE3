@@ -1,0 +1,12 @@
+{
+ "generated_utc": "2026-10-28T16:30:27.772968+00:00",
+ "fit": {
+  "n_pos": 50000,
+  "n_neg": 300000
+ },
+ "budget": 44090,
+ "collar_gt2px": true,
+ "dots": 44090,
+ "surface_sha256": "b35024603d31a7266c23985fd2906ba30c187eef8e25d7e3c0b197a37522b48c",
+ "note": "Binary 1.0 on emitted dots, 0.0 elsewhere inside footprint in zeros variant"
+}

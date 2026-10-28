@@ -155,6 +155,15 @@ try {
     await noGlobalOverflow(page, 'desktop ' + name);
   }
   checks.push('ATSC pages quarantine downloads, expose missing canaries and preserve the literal duplicate stop');
+  await page.goto(base + '/cfrp-20261028/index.html', { waitUntil: 'networkidle' });
+  const cfrp = await page.locator('body').innerText();
+  assert.match(cfrp, /DO NOT SUBMIT/);
+  assert.match(cfrp, /44,090 \/ 44,090/);
+  assert.match(cfrp, /cannot waive/i);
+  assert.doesNotMatch(cfrp, /paste into DrivenData|cannot trigger/i);
+  assert.equal(await page.locator('a[download]').count(), 0);
+  await noGlobalOverflow(page, 'desktop CFRP archive');
+  checks.push('CFRP archive exposes the saved-byte stop without portal guarantees or upload links');
   assert.deepEqual(errors, []);
   checks.push('desktop: no JavaScript exceptions across every active page');
   await desktop.close();
@@ -166,7 +175,7 @@ try {
   const table = await mobilePage.locator('#comparison .table-wrap').evaluate(element => ({ client: element.clientWidth, scroll: element.scrollWidth }));
   assert.ok(table.scroll > table.client, 'The wide table must scroll locally on mobile');
   await mobilePage.screenshot({ path: path.join(output, 'mobile.png'), fullPage: true });
-  for (const name of ['executive-summary.html', 'sources.html', 'research.html', 'parallel-research.html', 'parallel-gpc-dashboard.html', 'k3h1.html', 'candidate.html', 'sites/GEMSDOE32.html', 'sites/GEMSDOE36.html', 'cadg-submod/index.html', 'cadg-submod/executive-summary.html', 'atsc-submod/index.html', 'atsc-submod/executive-summary.html', 'atsc-submod/hypotheses.html']) {
+  for (const name of ['executive-summary.html', 'sources.html', 'research.html', 'parallel-research.html', 'parallel-gpc-dashboard.html', 'k3h1.html', 'candidate.html', 'sites/GEMSDOE32.html', 'sites/GEMSDOE36.html', 'cadg-submod/index.html', 'cadg-submod/executive-summary.html', 'atsc-submod/index.html', 'atsc-submod/executive-summary.html', 'atsc-submod/hypotheses.html', 'cfrp-20261028/index.html']) {
     await mobilePage.goto(base + '/' + name, { waitUntil: 'networkidle' });
     await noGlobalOverflow(mobilePage, 'mobile ' + name);
   }

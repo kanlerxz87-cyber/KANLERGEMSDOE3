@@ -21,7 +21,7 @@ REPOSITORY = "buffedlizard55-lab/GEMSDOE32"
 ISSUES = (37, 39, 41, 42, 49, 51, 53)
 PROVENANCE = ROOT / "vendor" / "shared-template" / "PROVENANCE.json"
 # A refresh must never overwrite a previous session's frozen receipt.
-DEFAULT_OUTPUT = ROOT / "data" / "upstream-prerequisites-latest.json"
+DEFAULT_OUTPUT = ROOT / "data" / "upstream-prerequisites-live.json"
 HEX40 = re.compile(r"^[0-9a-f]{40}$")
 HEX64 = re.compile(r"^[0-9a-f]{64}$")
 
@@ -232,7 +232,8 @@ def main() -> int:
     except (OSError, KeyError, TypeError, ValueError, subprocess.SubprocessError, json.JSONDecodeError) as exc:
         # Do not leave an old successful-looking refresh in place on failure.
         failure = {"kind": "PARTICIPANT-SOURCE PREREQUISITE REFRESH FAILED",
-                   "ok": False, "candidate_generated": False, "research_ready": False,
+                   "status": "UNKNOWN_REFRESH_FAILED", "ok": False, "candidate_generated": False,
+                   "research_ready": False, "holdout_dti": None, "leaderboard_estimate": None,
                    "ok_to_submit": False, "slot_authorized": False, "verdict": "negative",
                    "error": str(exc)}
         text = json.dumps(failure, indent=2, allow_nan=False) + "\n"

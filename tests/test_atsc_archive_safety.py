@@ -94,6 +94,34 @@ def test_archived_atsc_and_cadg_cli_cannot_rerun_or_rewrite_evidence():
         assert "Archived session" in result.stderr
 
 
+def test_bounded_peer_receipt_never_implies_a_complete_registry():
+    from scripts.build_atsc_site import check_bounded_peer_receipt
+    peer = json.loads((ROOT / "evidence/atsc-current-peer-audit-20261028.json").read_text())
+    card = json.loads(CARD_PATH.read_text())
+    check_bounded_peer_receipt(peer, card)
+    bad = copy.deepcopy(peer)
+    bad["peer_registry_scope"]["complete_registry"] = True
+    with pytest.raises(ValueError):
+        check_bounded_peer_receipt(bad, card)
+    bad = copy.deepcopy(peer)
+    bad["comparisons"][0]["candidate_dots_within_3px"] = 0
+    with pytest.raises(ValueError):
+        check_bounded_peer_receipt(bad, card)
+
+
+def test_atsc_check_mode_does_not_repair_a_stale_page():
+    from scripts.build_atsc_site import build
+    target = ROOT / "docs/atsc-submod/index.html"
+    original = target.read_text()
+    try:
+        target.write_text("stale sentinel")
+        with pytest.raises(ValueError, match="Stale ATSC"):
+            build(check_only=True)
+        assert target.read_text() == "stale sentinel"
+    finally:
+        target.write_text(original)
+
+
 def test_atsc_site_is_fail_closed_and_uses_no_tiff_download_control():
     from scripts.build_atsc_site import build
     build(check_only=True)

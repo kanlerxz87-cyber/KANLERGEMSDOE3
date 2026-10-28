@@ -8,6 +8,7 @@ are verified as Git blobs, loaded in an isolated temporary package and discarded
 from __future__ import annotations
 
 import argparse
+import hashlib
 import importlib
 import importlib.util
 import json
@@ -24,7 +25,15 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.audit_upstream_prerequisites import REPOSITORY, content_at  # noqa: E402
 
-SOURCES = ("__init__.py", "metric.py", "submission.py", "holdout.py")
+AUDITED_COMMIT = "e56a10a9d2f218c05ea66c5a5b7228bb780bb5a7"
+# Fixed byte identities for the source inspected during this review. Do not run
+# arbitrary future GitHub code merely because a caller supplies a commit.
+SOURCES = {
+    "__init__.py": "e4a584f79eab8c0db81b5704b1525536fef2dcee5bac28da1455a39868983504",
+    "metric.py": "382de3eb6d77d549e01bafa718fd01f5a7132263be0b6925dbd5a40a24025289",
+    "submission.py": "d397118a7165f674ba45bdea89b65852f2a24450edaa9b7e00e7cd5b87f0b9e1",
+    "holdout.py": "9ce9cf359f4d7b7fa844dd8f208ec00c3e6c15afef5d724d9014320b944d318d",
+}
 
 
 def probe_module(holdout) -> dict:
@@ -69,13 +78,16 @@ def probe_module(holdout) -> dict:
 
 
 def audit(commit: str) -> dict:
-    if not re.fullmatch(r"[0-9a-f]{40}", commit):
-        raise ValueError("An immutable 40-character lowercase commit is required")
+    if not re.fullmatch(r"[0-9a-f]{40}", commit) or commit != AUDITED_COMMIT:
+        raise ValueError("Only the explicitly reviewed and hash-pinned upstream commit may be executed")
     source_rows, contents = [], {}
-    for name in SOURCES:
+    for name, expected_sha in SOURCES.items():
         path = f"src/gems32/{name}"
         metadata, raw = content_at(path, commit)
-        source_rows.append({"path": path, "git_blob_sha1": metadata["sha"]})
+        actual_sha = hashlib.sha256(raw).hexdigest()
+        if actual_sha != expected_sha:
+            raise ValueError(f"Observed source SHA-256 mismatch: {path}")
+        source_rows.append({"path": path, "git_blob_sha1": metadata["sha"], "sha256": actual_sha})
         contents[name] = raw
 
     # A separate package name prevents accidentally importing an older installed

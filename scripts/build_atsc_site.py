@@ -10,7 +10,9 @@ from __future__ import annotations
 import argparse
 from html import escape
 import json
+import math
 from pathlib import Path
+import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,6 +23,42 @@ from scripts.build_site import page  # noqa: E402
 OUT = ROOT / "docs/atsc-submod"
 RECEIPT = ROOT / "evidence/session-cfcca804-atsc-audit.json"
 CARD = ROOT / "evidence/atsc-submod-run-card.json"
+PEER_RECEIPT = ROOT / "evidence/atsc-current-peer-audit-20261028.json"
+
+
+def check_bounded_peer_receipt(report: dict, card: dict) -> None:
+    """Check a separate bounded peer receipt without claiming registry completeness."""
+    try:
+        candidate, scope, result = report["candidate"], report["peer_registry_scope"], report["result"]
+        rows = report["comparisons"]
+        good = (candidate["sha256"] == card["raster_sha256"]
+                and candidate["path"] == card["submission_artifacts"]["primary_zeros_tif"]
+                and candidate["dots_in_footprint"] == 37654
+                and candidate["preplacement_surface_comparison"] is None
+                and scope["complete_registry"] is False and result["surface_gate_evaluated"] is False
+                and isinstance(rows, list) and scope["rasters_compared"] == len(rows)
+                and result["literal_duplicate_stop"] is True)
+        for row in rows:
+            hits = row["candidate_dots_within_3px"]
+            fraction = row["candidate_dot_overlap_3px"]
+            good = (good and type(row["is_calibration_probe"]) is bool
+                    and type(hits) is int and 0 <= hits <= candidate["dots_in_footprint"]
+                    and isinstance(row["sha256"], str) and bool(re.fullmatch(r"[0-9a-f]{64}", row["sha256"]))
+                    and type(fraction) in (int, float) and math.isfinite(fraction)
+                    and math.isclose(fraction, hits / candidate["dots_in_footprint"], rel_tol=0, abs_tol=5.1e-9)
+                    and row["duplicate_over_70_percent"] is (hits / candidate["dots_in_footprint"] > .70))
+        genuine = [row for row in rows if not row["is_calibration_probe"]]
+        probes = [row for row in rows if row["is_calibration_probe"]]
+        good = (good and len(genuine) == scope["genuine_detectors_compared"]
+                and len(probes) == scope["calibration_or_continuous_probes_compared"]
+                and bool(genuine) and bool(probes)
+                and math.isclose(result["max_final_dot_overlap_3px_all_compared"], max(row["candidate_dot_overlap_3px"] for row in rows), abs_tol=1e-8)
+                and math.isclose(result["max_final_dot_overlap_3px_genuine_detectors"], max(row["candidate_dot_overlap_3px"] for row in genuine), abs_tol=1e-8)
+                and math.isclose(result["max_final_dot_overlap_3px_calibration_or_continuous_probes"], max(row["candidate_dot_overlap_3px"] for row in probes), abs_tol=1e-8))
+    except (KeyError, TypeError, ValueError, ZeroDivisionError):
+        good = False
+    if not good:
+        raise ValueError("Bounded ATSC peer receipt is inconsistent; refuse publication")
 
 
 def e(value: object) -> str:
@@ -46,6 +84,9 @@ def build(check_only: bool = False) -> None:
     check_receipt(receipt)
     raw_card = CARD.read_text()
     card = json.loads(raw_card)
+    raw_peer = PEER_RECEIPT.read_text()
+    peer = json.loads(raw_peer)
+    check_bounded_peer_receipt(peer, card)
     rows = json.loads((ROOT / "docs/audit.json").read_text())["rows"]
     if len(rows) != 9 or len({row["repo"] for row in rows}) != 9:
         raise ValueError("The priority-site audit must contain nine distinct sites")
@@ -75,6 +116,16 @@ The rejected upload was not supplied, so its range-error cause and portal accept
 <p><a href="atsc-audit.json">Independent saved-byte and canary audit →</a> · <a href="run-card.json">Unchanged historical card →</a> ·
 <a href="../executive-summary.html">Repository submission guide →</a></p></section>'''
 
+    peer_scope = peer["peer_registry_scope"]
+    peer_result = peer["result"]
+    bounded_peer = f'''<section class="section panel prose"><h2>Fresh bounded final-dot audit (28 Oct): STOP.</h2>
+<p>A separate peer audit compared {peer_scope['rasters_compared']} selected raster bytes, including
+{peer_scope['genuine_detectors_compared']} that it classified as detectors. Its largest recorded overlap is
+{peer_result['max_final_dot_overlap_3px_all_compared']:.2%} under its positive-support convention.
+Some references are continuous diagnostics, not established dot fields; their representation remains unresolved.
+The sample is incomplete and does not include a pre-placement surface. The independent binary-lattice stop above is sufficient.</p>
+<p><code>verdict=negative</code>, <code>slot_authorized=false</code>. <a href="current-peer-audit-20261028.json">Separate bounded peer receipt →</a></p></section>'''
+
     limitations = f'''<section class="section panel prose"><h2>Historical holdout: not a leaderboard estimate</h2>
 <p>The prior card reports <strong>HOLDOUT-DTI {hold['value']:.6f}</strong>, 95% CI
 [{hold['ci95'][0]:.6f}, {hold['ci95'][1]:.6f}], evaluator <code>{e(hold['evaluator_version'])}</code>,
@@ -92,7 +143,7 @@ The historical <code>registry_complete</code> and <code>all_features_canary_test
 <h1 class="subtitle-page">One prior study.<br>No eligible submission.</h1>
 <p>Research-only forensic review, not a new run. The competition targets unmapped fault geometry; it does not by itself establish a geothermal vent or a commercial resource.</p></div>'''
 
-    index_body = intro + warning + identity + limitations + f'''<section class="section" id="comparison"><div class="section-heading"><div><h2>Nine priority sites</h2><p>Supplied historical claims are unverified and no file below is approved.</p></div></div>{priority_table(rows)}</section>'''
+    index_body = intro + warning + identity + bounded_peer + limitations + f'''<section class="section" id="comparison"><div class="section-heading"><div><h2>Nine priority sites</h2><p>Supplied historical claims are unverified and no file below is approved.</p></div></div>{priority_table(rows)}</section>'''
 
     guide_body = f'''<p class="breadcrumb"><a href="index.html">← ATSC archive</a></p>
 <div class="page-intro"><p class="eyebrow">Submission guide · conditional future use</p>
@@ -134,6 +185,7 @@ The zero TIFF locally passes `finite-grid`, not `template-mask`; the NaN twin pa
         OUT / "EXECUTIVE_SUMMARY.md": md,
         OUT / "README.md": md,
         OUT / "atsc-audit.json": raw_receipt,
+        OUT / "current-peer-audit-20261028.json": raw_peer,
         OUT / "run-card.json": raw_card,
     }
     if check_only:

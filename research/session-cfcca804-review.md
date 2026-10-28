@@ -15,10 +15,16 @@ an absent new prediction, score, registry comparison and validator result.
   Both have **37,652 / 37,654 (99.99%)** dots within three pixels. This is a
   directed geometric measurement against one reference, not a new model score or
   a complete current-registry comparison. Both remain **DO NOT SUBMIT**.
-- Ran the local saved-byte validator against the mirrored sample. The zero twin
+- Ran the local saved-byte validator against the mirrored sample. The ATSC zero twin
   passes `finite-grid` only; the NaN twin passes `template-mask` only; neither
   passes `masked-finite`. The rejected upload and organizer template/receipt are
   missing. Local validity does not determine portal acceptance.
+- Integrated the separately produced CFRP lane from concurrent main. An independent
+  [saved-byte audit](../evidence/session-cfcca804-cfrp-audit.json) finds all
+  **44,090 / 44,090** CFRP dots within 3 px of the registered lattice. Its
+  original focus-nine promotion is superseded and its TIFF remains **DO NOT SUBMIT**.
+  Its zero-outside file passes `finite-grid` but not `template-mask` or
+  `masked-finite`. No inference about portal acceptance follows.
 - Refreshed the nine priority repositories as a dated source observation
   ([snapshot](../evidence/session-cfcca804-focus-feed.json)), not an official
   leaderboard feed or proof that newly changed submissions are unique.
@@ -45,8 +51,10 @@ an absent new prediction, score, registry comparison and validator result.
   code or historical card was privately patched.
 - Replaced the ATSC public archive's unsupported causal-score, confirmed-law,
   globally unique and upload-adjacent claims with the bounded findings. Original
-  pages and generator are preserved as non-active snapshots. Disabled the frozen
-  ATSC and CADG experiment CLIs so their expired journals cannot be overwritten.
+  pages and generator are preserved as non-active snapshots. Corrected the CFRP
+  archive's purported portal-range guarantee and upload-adjacent note as well.
+  Disabled the frozen ATSC, CADG and CFRP experiment CLIs and the CFRP legacy
+  calibration CLI so their completed journals cannot be overwritten.
 - Hardened the upstream refresher so it does not overwrite the prior receipt by
   default, cannot equate a declared cache digest with verified bytes, and writes
   an explicit failure state rather than retaining stale success on refresh error.

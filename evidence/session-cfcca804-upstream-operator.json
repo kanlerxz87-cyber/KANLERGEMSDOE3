@@ -5,19 +5,23 @@
   "sources": [
     {
       "path": "src/gems32/__init__.py",
-      "git_blob_sha1": "9efce07675433f30ed55b7b2ed8b3ea17185234e"
+      "git_blob_sha1": "9efce07675433f30ed55b7b2ed8b3ea17185234e",
+      "sha256": "e4a584f79eab8c0db81b5704b1525536fef2dcee5bac28da1455a39868983504"
     },
     {
       "path": "src/gems32/metric.py",
-      "git_blob_sha1": "33b32da8909811f4ef004c556ecdcdc44c564ebe"
+      "git_blob_sha1": "33b32da8909811f4ef004c556ecdcdc44c564ebe",
+      "sha256": "382de3eb6d77d549e01bafa718fd01f5a7132263be0b6925dbd5a40a24025289"
     },
     {
       "path": "src/gems32/submission.py",
-      "git_blob_sha1": "d1857dbb16a52ed030ea1258151e476fa2f2fe71"
+      "git_blob_sha1": "d1857dbb16a52ed030ea1258151e476fa2f2fe71",
+      "sha256": "d397118a7165f674ba45bdea89b65852f2a24450edaa9b7e00e7cd5b87f0b9e1"
     },
     {
       "path": "src/gems32/holdout.py",
-      "git_blob_sha1": "d9b40fd2068c84f6839eab65ebb0aa3b5c2e806e"
+      "git_blob_sha1": "d9b40fd2068c84f6839eab65ebb0aa3b5c2e806e",
+      "sha256": "9ce9cf359f4d7b7fa844dd8f208ec00c3e6c15afef5d724d9014320b944d318d"
     }
   ],
   "checks": {

@@ -20,9 +20,11 @@ def main():
     from scripts.build_site import build as check_root
     from scripts.build_cadg_site import build as check_cadg
     from scripts.build_atsc_site import build as check_atsc
+    from scripts.build_cfrp_site import build as check_cfrp
     check_root(check_only=True)
     check_cadg(check_only=True)
     check_atsc(check_only=True)
+    check_cfrp(check_only=True)
     tracked = subprocess.check_output(['git','ls-files','-z'], cwd=ROOT).decode().split('\0')
     files = []
     blocked = {'.git','.cache','.venv','node_modules','__pycache__','.pytest_cache'}

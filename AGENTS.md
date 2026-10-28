@@ -7,6 +7,9 @@ lattice stop; its 103 recorded canary names omit 22 Stage-2 corridor features, a
 positive paired interval is against B0 rather than the named CADG incumbent. These are
 missing-evidence findings, not proof of leakage. Keep the old card and original evidence
 unchanged; the old ATSC/CADG training CLIs are archived and cannot reopen their budgets.
+The concurrent CFRP TIFF also fails: `evidence/session-cfcca804-cfrp-audit.json` binds
+all 44,090 dots to the same >70% lattice stop. Its original focus-nine promotion is
+superseded; the CFRP experiment and legacy scoring-audit CLIs are archived as well.
 
 At observed upstream commit `e56a10a9d2f218c05ea66c5a5b7228bb780bb5a7`, source files
 changed from the pins and reject soft inputs, but the unmodified current evaluator still
@@ -18,7 +21,7 @@ blockers remain. Schema-level paired binding is not evidence authentication.
 Before changing this project, read:
 1. `README.md`, including its full standing user request (also `PROJECT_PROMPT.md`).
 2. `PROJECT_REQUEST.md` and `research/standing-requirements.md` for the compact standing rules.
-3. `research/session-e2903b2e-review.md`, `config/research-session-e2903b2e.json`,
+3. `research/session-0f36badb-review.md`, `research/session-e2903b2e-review.md`, `config/research-session-e2903b2e.json`,
    `research/session-30454eca-review.md`, `research/session-91270cac-review.md`,
    other preserved configs/reviews, and `research/verification.md`.
 4. `evidence/run-card.json` (preserved canonical bilateral run, negative), concurrent cards

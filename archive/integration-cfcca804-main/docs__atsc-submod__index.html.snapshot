@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KANLERGEMSDOE3 · L-K3-ATSC-SUBMOD Executive Portal &amp; Audited GeoTIFFs</title>
+  <style>
+:root {
+  --bg: #f4f7f9;
+  --surface: #ffffff;
+  --surface-alt: #f8fafc;
+  --border: #d8e1e8;
+  --text: #0f172a;
+  --muted: #475569;
+  --accent: #0f766e;
+  --accent-soft: #ecfdf5;
+  --amber-bg: #fffbeb;
+  --amber-border: #f59e0b;
+  --amber-text: #92400e;
+  --blue-bg: #eff6ff;
+  --blue-border: #3b82f6;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1260px; margin: 0 auto; padding: 28px 22px 56px; }
+nav.topnav {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  justify-content: space-between; margin-bottom: 20px;
+  padding: 12px 18px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px;
+}
+nav.topnav .links { display: flex; flex-wrap: wrap; gap: 8px; }
+nav.topnav a {
+  text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.9rem;
+  padding: 6px 12px; border-radius: 8px; border: 1px solid transparent;
+}
+nav.topnav a:hover { background: var(--surface-alt); border-color: var(--border); }
+nav.topnav a.active { background: var(--accent-soft); color: var(--accent); border-color: #99f6e4; }
+header.hero, section.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 24px 26px; margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+h1 { font-size: 1.95rem; letter-spacing: -0.025em; margin: 6px 0 10px; line-height: 1.2; }
+h2 { font-size: 1.3rem; letter-spacing: -0.015em; margin: 0 0 12px; }
+h3 { font-size: 1.05rem; margin: 16px 0 8px; }
+p { margin: 8px 0; color: #1e293b; }
+small, .muted { color: var(--muted); font-size: 0.85rem; }
+code, pre { font-family: var(--mono); font-size: 0.86rem; }
+code { background: #f1f5f9; padding: 2px 6px; border-radius: 5px; word-break: break-all; }
+pre {
+  background: #0f172a; color: #f8fafc; padding: 14px 16px; border-radius: 10px;
+  overflow-x: auto; line-height: 1.45; margin: 10px 0;
+}
+.badge {
+  display: inline-block; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.03em;
+  text-transform: uppercase; padding: 3px 9px; border-radius: 999px;
+}
+.badge-teal { background: #ccfbf1; color: #115e59; }
+.badge-amber { background: #fef3c7; color: #92400e; }
+.badge-slate { background: #e2e8f0; color: #334155; }
+.verdict-banner {
+  background: var(--amber-bg); border: 2px solid var(--amber-border);
+  border-radius: 12px; padding: 18px 20px; margin: 16px 0;
+}
+.verdict-banner strong { color: var(--amber-text); }
+.kpi-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px; margin-top: 16px;
+}
+.kpi {
+  background: var(--surface-alt); border: 1px solid var(--border);
+  border-radius: 11px; padding: 14px 16px;
+}
+.kpi .label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); font-weight: 600; }
+.kpi .val { font-size: 1.45rem; font-weight: 800; color: var(--text); margin: 4px 0 2px; font-variant-numeric: tabular-nums; }
+.kpi .sub { font-size: 0.82rem; color: var(--muted); }
+.table-wrap { overflow-x: auto; margin-top: 12px; border: 1px solid var(--border); border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; font-variant-numeric: tabular-nums; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { background: var(--surface-alt); font-weight: 700; color: #334155; white-space: nowrap; }
+tr:last-child td { border-bottom: none; }
+tr.highlight td { background: var(--accent-soft); }
+.dl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 16px; margin-top: 14px; }
+.dl-card { border: 1px solid var(--border); border-radius: 12px; padding: 18px; background: var(--surface-alt); }
+.dl-card.primary { border: 2px solid var(--accent); background: #f0fdfa; }
+.btn {
+  display: inline-block; text-decoration: none; font-weight: 700; font-size: 0.88rem;
+  padding: 9px 15px; border-radius: 8px; margin: 8px 8px 4px 0;
+}
+.btn-primary { background: var(--accent); color: #ffffff; }
+.btn-secondary { background: #ffffff; color: var(--text); border: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="container">
+  <nav class="topnav"><div><strong>KANLERGEMSDOE3</strong> · <span class="badge badge-teal">L-K3-ATSC-SUBMOD</span></div><div class="links"><a href="index.html" class="active">ATSC-Submod Overview</a><a href="executive-summary.html" class="">Executive Summary &amp; Submission Guide</a><a href="hypotheses.html" class="">Hypotheses &amp; GEMSDOE32 Analysis</a><a href="run-card.json" class="">Run Card JSON</a><a href="../index.html" class="">&lt;- Repository Root Review</a></div></nav>
+  <header class="hero">
+    <span class="badge badge-teal">DrivenData DOE GEMS · Fault Mapping</span>
+    <span class="badge badge-slate">Preregistered SHA-256: e87228d6…</span>
+    <h1>Anisotropic Dip-Offset Structural Corridor Tomography &amp; Axial 300 m Submodular Allocation (<code>L-K3-ATSC-SUBMOD</code>)</h1>
+    <p>New 8-fold spatial out-of-fold fault-mapping model (<code>Exp-ATSC-2</code>) advancing <code>KANLERGEMSDOE3</code> from prior best <code>HOLDOUT-DTI 0.157080</code> (<code>L-K3-CADG-SUBMOD</code>) to <strong><code>HOLDOUT-DTI 0.163715</code></strong> (+66.4 bps primary quadrant holdout; +51.8 bps orthogonal diagonal confirmation; 0.11% 300 m blob clumping; 87/87 genuine fault detectors unique).</p>
+    
+    <div class="verdict-banner">
+      <strong>AUTOMATED VERDICT: DO NOT SUBMIT TO COMPETITION &middot; RESEARCH-ONLY DOWNLOADS (ZERO HUMAN RASTER INSPECTION REQUIRED)</strong><br>
+      1. <strong>Literal Fail-Closed Promotion Gate: <code>verdict = "negative"</code> (<code>slot_authorized = false</code>)</strong> — Against the registered <code>206,895</code>-dot <code>13GEMSDOE r13-lattice-s5</code> uniform grid probe covering <code>99.8713%</code> of the footprint within 3 px, <code>37,652 / 37,654</code> dots (<code>99.99%</code> unfiltered; <code>99.77%</code> off-catalogue-filtered; mathematical pigeonhole minimum <code>82.34%</code>) fall within 3 px. Under this repository's literal all-registry rule, a selector signature cannot waive or override a &gt;70% registry overlap.<br>
+      2. <strong>Genuine Geological Detector Uniqueness (Scoped Diagnostic): PASS across all 87/87 real fault detectors</strong> in <code>GEMSDOE24..92</code>, <code>KANLERGEMSDOE1..3</code>, <code>WBGGEMSDOE1..3</code>, <code>GEMSDOEkarage1..3</code>, <code>ApartGEMSDOE1..3</code>, and <code>GEMSDOESASS1..3</code> (max 3-px dot overlap = <code>57.14% &le; 70%</code>; max |&rho;| = <code>0.0712 &le; 0.90</code>).<br>
+      3. <strong>Scientific Spatial Holdout Gain: PASS (+66.4 bps Primary / +51.8 bps Orthogonal over Prior Repo Best)</strong> — <code>HOLDOUT-DTI = 0.163715</code> (95% CI <code>[0.153314, 0.174809]</code>, <code>60,988</code> withheld positives on participant-mirrored <code>gems-segment-pooled-v1</code>), outperforming prior repo best <code>CADG Exp-K3-3</code> (<code>0.157080</code>) and <code>B0_regional_d28</code> (<code>0.102255</code>, paired 95% CI <code>[+0.0488, +0.0740]</code>, <code>4/4</code> folds).<br>
+      4. <strong>Local Saved-Byte Format Validation: PASS (16/16 checks on <code>finite-grid</code> and <code>template-mask</code>; Portal Acceptance Unverified)</strong> — Primary research file <code>kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros.tif</code> (SHA-256 <code>bf21ac69a0e5e6325d9725e7188be210a24b2e68b68060574db56af0d5972566</code>) is single-band <code>float32</code>, <code>EPSG:32611</code>, shape <code>(3730, 3292)</code>, with <strong>0 NaN / 0 Inf across all 12,279,160 whole-array pixels</strong> and exact values in <code>{0.0, 1.0}</code> (<code>37,654</code> off-catalogue dots, <code>0</code> catalogue overlap). Because the historically rejected upload was not supplied and template provenance is mirrored rather than organizer-signed, actual DrivenData portal acceptance remains unverified.<br>
+      5. <strong>Fresh bounded final-dot audit (28 Oct): STOP.</strong> The exact saved bytes were compared with <code>249</code> selected current peer rasters (244 genuine detectors and 5 calibration/continuous probes). Final-dot overlap is <code>57.14%</code> versus genuine detectors but <code>100.00%</code> versus a continuous calibration probe. The bounded audit has no pre-placement surface or holdout result and cannot weaken the full-registry lattice stop.
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="label">Primary HOLDOUT-DTI</div>
+        <div class="val">0.163715</div>
+        <div class="sub">95% CI [0.1533, 0.1748] · +66.4 bps vs CADG</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Orthogonal Diag HOLDOUT-DTI</div>
+        <div class="val">0.152844</div>
+        <div class="sub">2.0 km buffer · +51.8 bps vs CADG (0.147663)</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Genuine Detector Uniqueness</div>
+        <div class="val">57.14%</div>
+        <div class="sub">&le;70% PASS across 87/87 real detectors (|&rho;|=0.071)</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Three Physical Laws</div>
+        <div class="val">3 / 3 PASS</div>
+        <div class="sub">56.94% &gt;1.5 km · 2.91% deep spill · 0.11% clump&ge;3</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Leakage Canary (103 Feats)</div>
+        <div class="val">0.6305</div>
+        <div class="sub">Max two-sided AUC &le; 0.90 PASS · 3/3 budget</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="card" id="downloads">
+    <h2>Research-Only Audited GeoTIFF Artifacts (DO NOT SUBMIT) &amp; Recorded Note (&le;140 chars)</h2>
+    <p>Every research-only artifact below is byte-verified locally by <code>scripts/validate_submission.py</code> against mirrored <code>sample_submission.tif</code> (<code>EPSG:32611</code>, <code>3730 &times; 3292</code>, <code>float32</code>, <code>37,654</code> binary <code>{0, 1}</code> off-catalogue dots, <code>0</code> catalogue overlap; portal acceptance unverified). Open the <a href="executive-summary.html"><strong>Executive Summary &amp; Encoding Reference Guide &rarr;</strong></a></p>
+    <div class="dl-grid">
+      <div class="dl-card primary">
+        <span class="badge badge-amber">Research Only &middot; Finite-Grid Encoding (-zeros.tif)</span>
+        <h3><code>kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros.tif</code></h3>
+        <p><small>Sets the <code>7,111,787</code> outside-footprint cells to finite <code>0.0</code> (<code>nodata=None</code>) so whole-array <code>((a &gt;= 0) &amp; (a &lt;= 1)).all() == True</code> across all <code>12,279,160</code> pixels locally (<code>--profile finite-grid</code> PASS; rejected upload was not supplied, so portal acceptance remains unverified).</small></p>
+        <p><small>SHA-256: <code>bf21ac69a0e5e6325d9725e7188be210a24b2e68b68060574db56af0d5972566</code> (825,834 bytes)</small></p>
+        <a class="btn btn-primary" download href="downloads/kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros.tif">Research download -zeros.tif</a>
+        <a class="btn btn-secondary" download href="downloads/kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros.zip">Research download -zeros.zip</a>
+      </div>
+      <div class="dl-card">
+        <span class="badge badge-slate">Research Only &middot; NaN-Outside Twin (-nan.tif)</span>
+        <h3><code>kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-nan.tif</code></h3>
+        <p><small>Identical <code>37,654</code> in-footprint positive pixels, with outside-footprint cells set to <code>NaN</code> matching mirrored <code>sample_submission.tif</code> (<code>--profile template-mask</code> PASS).</small></p>
+        <p><small>SHA-256: <code>c5aa1f764151a4c3f7116bf635c3dc7fa337bc07b18ad905f3307e2a94776f29</code></small></p>
+        <a class="btn btn-secondary" download href="downloads/kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-nan.tif">Research download -nan.tif</a>
+        <a class="btn btn-secondary" download href="downloads/kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-nan.zip">Research download -nan.zip</a>
+      </div>
+    </div>
+    <h3>Submission Note (104 / 140 characters)</h3>
+    <pre>H-K3S2-1 Exp-ATSC-2: ATSC dip-wedge+8-az corridor+d2.85 300m CELF 37654d HOLDOUT-DTI=0.1637 3108468e86b9</pre>
+    <p><small>Supporting receipts: <a download href="downloads/note-kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9.txt"><code>note-kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9.txt</code></a> · <a download href="downloads/receipt-kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9.json"><code>receipt-kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9.json</code></a> · <a href="run-card.json"><code>run-card.json</code></a> · <a href="current-peer-audit-20261028.json"><code>current-peer-audit-20261028.json</code></a></small></p>
+  </section>
+
+  <section class="card" id="priority-sites">
+    <h2>Priority Nine-Site Summary Table (<code>GEMSDOE24..36</code>) &amp; <code>KANLERGEMSDOE3</code> Advancement</h2>
+    <p>Strict metric labeling per Parallel-Run Protocol Rule 3: historical site scores without organizer portal receipts are labeled <code>OWNER-REPORTED-UNVERIFIED</code>; internal metrics are labeled <code>HOLDOUT-DTI</code> with evaluator version, withheld positive pixel count, and 95% spatial-block CI. No leaderboard projections are stated anywhere.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Site / Lane</th>
+            <th>Artifact &amp; Dot Support</th>
+            <th>Strictly Labeled Metric</th>
+            <th>Uniqueness vs. 90-Raster Registry</th>
+            <th>Automated Verdict</th>
+            <th>Format Audit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>GEMSDOE24</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE24/blob/063b04e2ff3154d0ffd017bb5723f4f717d1754d/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif"><code>gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif</code></a><br><small>60,069 dots · Historical reference only — do not re-submit</small></td><td>0.2477 (OWNER-REPORTED-UNVERIFIED; no organizer receipt)</td><td>NO — historical registry baseline (100.00% max 3-px peer overlap)</td><td><span class="badge badge-slate">DO NOT SUBMIT</span><br><small>Already submitted / nested lineage</small></td><td><small>Finite-zero outside (7,111,787 cells; in-footprint [0,1] PASS)</small></td></tr><tr><td><strong>GEMSDOE25</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE25/blob/78064a194f97fee45b0d81b1bb3b6385729c5c2b/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif"><code>gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif</code></a><br><small>44,090 dots · Historical reference only — do not re-submit</small></td><td>0.2600 (OWNER-REPORTED-UNVERIFIED; no organizer receipt)</td><td>NO — historical registry baseline (100.00% max 3-px peer overlap)</td><td><span class="badge badge-slate">DO NOT SUBMIT</span><br><small>Already submitted / nested lineage</small></td><td><small>Finite-zero outside (7,111,787 cells; in-footprint [0,1] PASS)</small></td></tr><tr><td><strong>GEMSDOE27</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE27/blob/cf8b4c201f2cc2ef649b6ca7cd32f235c2f6743a/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif"><code>gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif</code></a><br><small>61,328 dots · Historical reference only — do not re-submit</small></td><td>0.2449 (OWNER-REPORTED-UNVERIFIED; no organizer receipt)</td><td>NO — historical registry baseline (98.02% max 3-px peer overlap)</td><td><span class="badge badge-slate">DO NOT SUBMIT</span><br><small>Already submitted / nested lineage</small></td><td><small>Finite-zero outside (7,111,787 cells; in-footprint [0,1] PASS)</small></td></tr><tr><td><strong>GEMSDOE28</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE28/blob/12ec4fea4c97a7887a7ca8a06f9bd94c7609ea07/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif"><code>gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif</code></a><br><small>37,660 dots · Historical reference only — do not re-submit</small></td><td>0.2710 (OWNER-REPORTED-UNVERIFIED; no organizer receipt)</td><td>NO — historical registry baseline (100.00% max 3-px peer overlap)</td><td><span class="badge badge-slate">DO NOT SUBMIT</span><br><small>Already submitted / nested lineage</small></td><td><small>Finite-zero outside (7,111,787 cells; in-footprint [0,1] PASS)</small></td></tr><tr><td><strong>GEMSDOE30</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE30/blob/35ce8911e2c3287eed973eacd12c252e8cb3f34c/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif"><code>gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif</code></a><br><small>44,090 dots · Historical reference only — do not re-submit</small></td><td>0.2600 (OWNER-REPORTED-UNVERIFIED; no organizer receipt)</td><td>NO — historical registry baseline (100.00% max 3-px peer overlap)</td><td><span class="badge badge-slate">DO NOT SUBMIT</span><br><small>Already submitted / nested lineage</small></td><td><small>PASS (NaN outside)</small></td></tr><tr><td><strong>GEMSDOE31</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/78f9bf3ae82e5c78ca348aa37c0660c339e72f0e/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif"><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif</code></a><br><small>40,199 dots · Historical reference only — do not re-submit</small></td><td>0.2708 (OWNER-REPORTED-UNVERIFIED; no organizer receipt)</td><td>NO — historical registry baseline (100.00% max 3-px peer overlap)</td><td><span class="badge badge-slate">DO NOT SUBMIT</span><br><small>Already submitted / nested lineage</small></td><td><small>Finite-zero outside (7,111,787 cells; in-footprint [0,1] PASS)</small></td></tr><tr><td><strong>GEMSDOE32</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9155d44d9bc3d57f96fbf9f7db2d18e083ab6e2b/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif"><code>gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif</code></a><br><small>37,654 dots · Historical reference only — do not re-submit</small></td><td>0.2778 (OWNER-REPORTED-UNVERIFIED; no organizer receipt)</td><td>NO — historical registry baseline (100.00% max 3-px peer overlap)</td><td><span class="badge badge-slate">DO NOT SUBMIT</span><br><small>Already submitted / nested lineage</small></td><td><small>Finite-zero outside (7,111,787 cells; in-footprint [0,1] PASS)</small></td></tr><tr><td><strong>GEMSDOE33</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE33/blob/0384d793b5a23151425f45505ac745b54f84c7c9/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif"><code>GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif</code></a><br><small>41,865 dots · Historical reference only — do not re-submit</small></td><td>0.2632 (OWNER-REPORTED-UNVERIFIED; no organizer receipt)</td><td>NO — historical registry baseline (99.71% max 3-px peer overlap)</td><td><span class="badge badge-slate">DO NOT SUBMIT</span><br><small>Already submitted / nested lineage</small></td><td><small>PASS (NaN outside)</small></td></tr><tr><td><strong>GEMSDOE36</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE36/blob/2c78770e0544259082b0b6b73ce8e4d0749c175d/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif"><code>gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif</code></a><br><small>38,854 dots · Historical reference only — do not re-submit</small></td><td>0.2750 (OWNER-REPORTED-UNVERIFIED; no organizer receipt)</td><td>NO — historical registry baseline (97.58% max 3-px peer overlap)</td><td><span class="badge badge-slate">DO NOT SUBMIT</span><br><small>Already submitted / nested lineage</small></td><td><small>Finite-zero outside (7,111,787 cells; in-footprint [0,1] PASS)</small></td></tr><tr><td><strong>KANLERGEMSDOE3 (Prior CADG)</strong></td><td><a href="../cadg-submod/index.html"><code>kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-f0565e6d10f9-zeros.tif</code></a><br><small>37,654 dots · SHA-256 <code>bc019ae673a9d5ca…</code></small></td><td><strong>HOLDOUT-DTI 0.157080</strong><br><small>95% CI [0.143057, 0.171030] · <code>gems-segment-pooled-v1</code></small></td><td>YES vs 39 detectors (57.11% max) · Superseded by ATSC (+66.4 bps)</td><td><span class="badge badge-slate">SUPERSEDED BY ATSC</span></td><td><small>PASS (finite [0,1])</small></td></tr><tr class="highlight"><td><strong>KANLERGEMSDOE3 (L-K3-ATSC-SUBMOD)</strong><br><span class="badge badge-teal">NEW REPO BEST</span></td><td><a download href="downloads/kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros.tif"><code>kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros.tif</code></a> · <a download href="downloads/kanlergemsdoe3-h-k3s2-1-atsc-submod-exp-atsc-2-oof8f-37654-20261027-3108468e86b9-zeros.zip"><code>.zip</code></a><br><small>37,654 binary {0,1} dots · SHA-256 <code>bf21ac69a0e5e632…</code></small></td><td><strong>HOLDOUT-DTI 0.163715</strong><br><small>95% CI [0.153314, 0.174809] · 60,988 withheld px · <code>gems-segment-pooled-v1</code> · Orthogonal Diag: <strong>0.152844</strong> (+51.8 bps vs CADG)</small></td><td><strong>YES vs all 87/87 genuine fault detectors</strong><br><small>Max 3-px overlap = 57.14% (&le;70% PASS); max |&rho;| = 0.0712 (&le;0.90 PASS); vs GEMSDOE32 = 48.02%; vs CADG = 52.28%. Literal 207k lattice probe: 100.00% (min possible 82.34%).</small></td><td><span class="badge badge-amber">DO NOT SUBMIT (LITERAL GATE)</span><br><small>Research-only artifact: <code>verdict=negative</code>, <code>slot_authorized=false</code>. 87/87 genuine fault detectors pass (&le;57.14%), but unfiltered 207k <code>r13-lattice-s5</code> overlap is 99.99% (99.77% off-catalogue; selector cannot waive literal rule).</small></td><td><strong>PASS (16/16 local finite-grid)</strong><br><small>All 12,279,160 px finite in [0,1]; portal acceptance unverified</small></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card" id="ablations">
+    <h2>Controlled 3-Experiment Campaign &amp; Same-Evaluator Benchmarks (<code>gems-segment-pooled-v1</code>)</h2>
+    <p>Evaluated on whole-segment <code>1.5 km</code> buffered quadrant holdout (<code>60,988</code> withheld fault pixels across <code>3,199</code> connected components, pixel-exact visible-fault masking, pooled <code>alpha=0.2, beta=0.8</code>, <code>300 m</code> triangular kernel, <code>N = 37,654</code> dots).</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Experiment / Series</th>
+            <th>Geological &amp; Algorithmic Specification</th>
+            <th>Pooled HOLDOUT-DTI</th>
+            <th>95% Spatial-Block CI</th>
+            <th>&Delta; vs Prior Repo Best (0.157080)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>matched_random</code></td><td>Matched random spacing (d=2.8 px, 37,654 dots)</td><td><strong>0.073404</strong></td><td>[0.070389, 0.076261]</td><td>-0.083675</td></tr><tr><td><code>static_G70_P8</code></td><td>Static GEMSDOE70 P8-oof38k (catalogue-collared on labels.tif)</td><td><strong>0.003644</strong></td><td>[0.003198, 0.004116]</td><td>-0.153435</td></tr><tr><td><code>static_H33_B2</code></td><td>Static GEMSDOE32 H33-2-B2 (catalogue-collared on labels.tif)</td><td><strong>0.006708</strong></td><td>[0.006089, 0.007400]</td><td>-0.150371</td></tr><tr><td><code>unsupervised_D28_37654</code></td><td>Label-free 5-channel geophysical/3DEP rank + d=2.8 spacing</td><td><strong>0.084356</strong></td><td>[0.073333, 0.095526]</td><td>-0.072723</td></tr><tr><td><code>B0_regional_d28</code></td><td>B0_regional_d28: 19-band HGB baseline + d=2.8 spacing (live incumbent)</td><td><strong>0.102255</strong></td><td>[0.091234, 0.113877]</td><td>-0.054825</td></tr><tr><td><code>CADG Exp-K3-2 (Oct 26)</code></td><td>Prior 1-stage deconfounded scarp + TMI150 + 300 m CELF</td><td><strong>0.153035</strong></td><td>[0.139088, 0.167424]</td><td>-0.004045</td></tr><tr><td><code>CADG Exp-K3-3 (Oct 26)</code></td><td>Prior Repo Best: CADG + visible LCO relay/tip continuation</td><td><strong>0.157080</strong></td><td>[0.143057, 0.171030]</td><td>+0.000000</td></tr><tr><td><code>Exp-ATSC-1</code></td><td>H-K3S2-1a: Disjoint LiDAR/10m-3DEP Stage-1 + 12 Dip-Offset Wedge + Axial d=2.85 CELF</td><td><strong>0.161641</strong></td><td>[0.149321, 0.173826]</td><td>+0.004562</td></tr><tr class="highlight"><td><code>Exp-ATSC-2</code></td><td>H-K3S2-1+2 (WINNER): + GeoDAWN Radon/Seam + Regime-Harmonized Nested-OOF Stage-2 8-Azimuth Corridor U-GBDT</td><td><strong>0.163715</strong></td><td>[0.153314, 0.174809]</td><td>+0.006636</td></tr><tr><td><code>Exp-ATSC-3</code></td><td>H-K3S2-3 (Falsified): + Fold-Visible Coulomb Tip-Lobe / Relay-Bridge Interaction</td><td><strong>0.161290</strong></td><td>[0.151015, 0.172266]</td><td>+0.004210</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card" id="physical-laws">
+    <h2>Three Live-Leaderboard Physical Laws Verification</h2>
+    <p>Across 30+ historical peer runs, every model exceeding <code>0.22</code> owner-reported live DTI simultaneously satisfied Far-Field Reach (<code>52–58%</code> of dots &gt;1.5 km off-catalogue), Flat Deep-Basin Discipline (&le;4.3% spill), and Non-Clumping (&lt;2% <code>Clump&ge;3</code>). Axial spine concentration + <code>d=2.85 px</code> self-spacing eliminates the <code>3.57&times;</code> 2-D disk inflation inside 300 m CELF.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Model / Emitted 37,654-Dot Raster</th>
+            <th>Law 1: Far-Field (&gt;1.5 km)</th>
+            <th>Law 2: Flat Deep-Basin Spill (&le;4.3%)</th>
+            <th>Law 3: 300 m Clump&ge;3 (&lt;2.0%)</th>
+            <th>LiDAR-Void Dot Share (24.63% Area)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight"><td><strong>KANLERGEMSDOE3 Exp-ATSC-2 (New Repo Best, 37,654 dots)</strong></td><td>56.94%</td><td>2.91%</td><td><strong>0.11%</strong></td><td>24.66%</td></tr><tr><td><strong>KANLERGEMSDOE3 CADG Exp-K3-3 (Prior Repo Best, 37,654 dots)</strong></td><td>51.18%</td><td>3.35%</td><td><strong>1.39%</strong></td><td>33.18%</td></tr><tr><td><strong>GEMSDOE32 H33-2-B2 (0.2778 owner-reported, 37,654 dots)</strong></td><td>58.40%</td><td>0.40%</td><td><strong>0.69%</strong></td><td>24.45%</td></tr><tr><td><strong>GEMSDOE70 P8-oof38k (0.2478 owner-reported, 37,654 dots)</strong></td><td>54.88%</td><td>0.21%</td><td><strong>15.11%</strong></td><td>26.35%</td></tr><tr><td><strong>GEMSDOE36 KPL-36 (0.1647 owner-reported, 37,654 dots)</strong></td><td>49.50%</td><td>2.07%</td><td><strong>42.57%</strong></td><td>21.67%</td></tr><tr><td><strong>GEMSDOE36 S2D36 (HOLDOUT-DTI 0.2008, 37,654 dots)</strong></td><td>50.87%</td><td>3.56%</td><td><strong>30.59%</strong></td><td>25.62%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+</body>
+</html>

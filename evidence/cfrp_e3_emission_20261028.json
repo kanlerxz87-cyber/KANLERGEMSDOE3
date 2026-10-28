@@ -1,0 +1,65 @@
+{
+ "label": "HOLDOUT-DTI",
+ "evaluator_version": "gems-segment-pooled-v1",
+ "experiment": "E3",
+ "withheld_positives": 60988,
+ "ridge_V2_at_44090": {
+  "dti": 0.13881641514545673,
+  "ci95": [
+   0.12747681698600719,
+   0.14957973844744848
+  ]
+ },
+ "direct_topk_44090_collar2": {
+  "dti": 0.14319948506672917,
+  "ci95": [
+   0.13045856886508686,
+   0.15521081974457696
+  ]
+ },
+ "paired_direct_minus_ridge": {
+  "evaluator_version": "gems-segment-pooled-v1",
+  "candidate_dti": 0.14319948506672917,
+  "baseline_dti": 0.13881641514545673,
+  "paired_delta_dti": 0.004383069921272437,
+  "paired_delta_ci95": [
+   -0.0005742932823772389,
+   0.00974388913826286
+  ],
+  "ci95_strictly_positive": false,
+  "fold_wins": 3,
+  "n_folds": 4,
+  "min_fold_delta": -0.004186644873651224,
+  "folds": [
+   {
+    "fold": "NW",
+    "candidate_dti": 0.15952000903993735,
+    "baseline_dti": 0.15127755470720738,
+    "delta_dti": 0.008242454332729965,
+    "candidate_wins": true
+   },
+   {
+    "fold": "NE_LidarGapHeavy",
+    "candidate_dti": 0.19692085288244632,
+    "baseline_dti": 0.18439031195797942,
+    "delta_dti": 0.012530540924466899,
+    "candidate_wins": true
+   },
+   {
+    "fold": "SW",
+    "candidate_dti": 0.08695620840073201,
+    "baseline_dti": 0.09114285327438323,
+    "delta_dti": -0.004186644873651224,
+    "candidate_wins": false
+   },
+   {
+    "fold": "SE",
+    "candidate_dti": 0.1565665275693887,
+    "baseline_dti": 0.15102872766996028,
+    "delta_dti": 0.0055377998994284305,
+    "candidate_wins": true
+   }
+  ]
+ },
+ "select_direct": false
+}

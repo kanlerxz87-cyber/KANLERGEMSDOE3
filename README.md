@@ -1,5 +1,25 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
+## 28 October 2026 candidate quarantine — no upload authorized
+
+The concurrent CFRP lane produced a format-valid research TIFF and a recorded
+`HOLDOUT-DTI 0.1388` (evaluator `gems-segment-pooled-v1`, 60,988 withheld
+positives, 95% CI [0.1275, 0.1496]). This participant-run result was not rerun
+here, and the archived live-ledger projection is not a validated estimate. It
+passed only the focus-nine comparison, but its
+own run card records `100%` final-dot overlap with the spacing-5 calibration
+lattice and a pigeonhole minimum above the 70% rule. Under the standing literal
+all-registry protocol, **it is not unique and must not be submitted**.
+
+The [CFRP subportal](docs/cfrp-20261028/index.html), [historical card](docs/cfrp-20261028/run-card.json),
+and [independent saved-byte audit](evidence/session-cfcca804-cfrp-audit.json) retain the concurrent result for review.
+The earlier focus-nine promotion is superseded by the literal stop; no upload is
+authorized and no local format check guarantees portal acceptance.
+
+The standing user request for this project is preserved verbatim in
+[PROJECT_PROMPT.md](PROJECT_PROMPT.md) and the "full standing user request"
+section below; read it at the start of every session.
+
 **Start every session by reading this README (including the full user request below),
 [AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
 [preserved fixed session config](config/research-session-e2903b2e.json), [prior session configs](config/),
@@ -18,6 +38,9 @@ record this continuation. It ran no geological experiment and used no competitio
   and its recorded canaries do not include 22 Stage-2 corridor features. Its
   positive paired interval is against B0, not the named CADG incumbent. These are
   bounded audit findings, not proof of leakage or a claim about a hidden score.
+- A concurrent CFRP TIFF also fails: [the saved-byte audit](evidence/session-cfcca804-cfrp-audit.json)
+  finds all 44,090 dots within 3 pixels of the binary lattice. Its original
+  focus-nine promotion and portal-range guarantee are not accepted here.
 - The observed GEMSDOE32 head changed since the older pin. Its unmodified source
   still fails a synthetic empty-truth false-positive invariant; it now rejects
   soft input rather than silently binarizing it. No shared source was repinned.
@@ -31,6 +54,36 @@ record this continuation. It ran no geological experiment and used no competitio
   operator finding (exit 1 means a failed invariant). Both are read-only audits.
   Source hashes authenticate participant mirrors, not organizer data or licensing.
 
+## Continuation — 28 October 2026
+
+[Three-pass review](research/session-0f36badb-review.md) · [Negative run card](evidence/session-20261028-run-card.json) · [Preflight](evidence/session-20261028-preflight.json) · [Current participant source audit](evidence/session-20261028-upstream-prerequisites.json) · [Nine source heads](evidence/session-20261028-focus-feed.json)
+
+**DO NOT SUBMIT.** The participant-mirrored core inputs were restored and raw bands prepared, but the canonical derived cache, assigned lane, complete registry and same-fold incumbent remain missing. The restored data are ignored bulk files and are not organizer-authenticated. The pinned evaluator still fails its synthetic operator check; four shared files changed upstream and must be independently audited before adoption. No geological experiment, new candidate, forecast or slot was produced. The prerequisite refresh now preserves historical receipts and does not infer cache validity from a digest and path alone.
+
+## Session 662a9e8b — 28 October 2026
+
+**DO NOT SUBMIT.** No new TIFF, geological experiment, holdout score, leaderboard estimate or competition slot. Read the [three-pass review](research/session-662a9e8b-review.md), [negative JSON card](evidence/session-662a9e8b-run-card.json), [preflight](evidence/session-662a9e8b-preflight.json), [focus source snapshot](evidence/session-662a9e8b-focus-feed.json) and [upstream audit](evidence/session-662a9e8b-upstream-prerequisites.json). The five participant-mirrored core inputs were restored again but remain ignored/ephemeral and are not organizer-authenticated. The assigned lane, cache, complete registry and matched incumbent remain unavailable.
+
+The upstream head changed four of five tracked files since the older snapshot. This session did not validate that new version. The *pinned* evaluator still fails the synthetic operator audit. The legacy uniqueness and support-cache CLIs are now blocked because they can misclassify dense/continuous references; use the fail-closed checker with a genuinely complete registry instead. No weekly slot is authorized.
+
+## Repository review — 28 October 2026
+
+[Three-pass review](research/session-20261028-review.md) · **Negative / DO NOT SUBMIT**.
+That separate session reported no competition rasters in its checkout. A project-local test environment was installed
+and the suite passed (257 passed, 9 skipped); fail-closed readiness still denies research
+and submission. No experiment, TIFF, score estimate, or competition slot was produced. The review documents the exact blockers
+and next actions. Its review card is not a model run card.
+
+## 28 October 2026 bounded peer-forensics continuation
+
+[Bounded current peer audit and next steps](research/peer-forensics-20261028.md) ·
+[Machine-readable 35-repository observation](evidence/nine_site_and_peer_forensics_20261028.json) ·
+[Exact ATSC saved-byte recheck](evidence/atsc-current-peer-audit-20261028.json)
+
+This continuation refreshed the nine requested focus repositories and 26 extended/sibling repositories at current GitHub commits. It selected at most 12 unique raster stems per repository, producing 249 hash-verified peer bytes; this is explicitly **not a complete registry** or organizer score feed. The exact ATSC research TIFF remains **DO NOT SUBMIT**: its final dots overlap 244 bounded discrete detectors by at most 57.143995%, but overlap a selected continuous calibration probe by 100%, and the full `r13-lattice-s5` receipt already forces the literal duplicate stop. No model, leaderboard estimate or weekly slot was created here.
+
+The fresh GEMSDOE30 off-lattice artifact is recorded as a boundary/calibration irregularity, not a promotion: 6,493 of 6,649 dots are within 500 m of the outer survey boundary and only 135 mirrored catalogue pixels lie in that uncovered zone. The current peer source feed is dated 28 October; participant pages, source commits and local holdouts are never converted into `ORGANIZER-CONFIRMED` scores.
+
 ## Final integrated continuation — 27 October 2026
 
 [Three-pass review and next steps](research/session-e2903b2e-review.md) ·
@@ -43,8 +96,8 @@ record this continuation. It ran no geological experiment and used no competitio
 **DO NOT SUBMIT.** The concurrent forensic work below is integrated without claiming its experiments.
 This final review restored every available pinned instrument/input, refreshed all nine participant
 sources, and independently re-ran the unchanged operator audit. It produced no new TIFF or score
-estimate and used no geological experiment or weekly slot. The five current shared evaluator,
-feature, and writer files remain byte-identical to the pinned defective versions. The named
+estimate and used no geological experiment or weekly slot. At that 27 October snapshot, the five checked shared evaluator,
+feature, and writer files were byte-identical to the pinned defective versions; the 28 October source differs. The named
 35-channel cache still has neither obtainable bytes nor a content digest;
 [upstream issue 53](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/53) requests a central
 content-addressed release, lineage, invalidation, and verifier. Source freshness is not approval.
