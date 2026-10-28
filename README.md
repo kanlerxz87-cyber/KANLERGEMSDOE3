@@ -38,9 +38,10 @@ record this continuation. It ran no geological experiment and used no competitio
   and its recorded canaries do not include 22 Stage-2 corridor features. Its
   positive paired interval is against B0, not the named CADG incumbent. These are
   bounded audit findings, not proof of leakage or a claim about a hidden score.
-- A concurrent CFRP TIFF also fails: [the saved-byte audit](evidence/session-cfcca804-cfrp-audit.json)
-  finds all 44,090 dots within 3 pixels of the binary lattice. Its original
-  focus-nine promotion and portal-range guarantee are not accepted here.
+- Concurrent CFRP and CPX TIFFs also fail: the [CFRP audit](evidence/session-cfcca804-cfrp-audit.json)
+  finds all 44,090 dots, and the [CPX audit](evidence/session-cfcca804-cpx-audit.json)
+  finds 37,648 of 37,654 dots, within 3 pixels of the binary lattice. Earlier
+  detector-only promotion and portal-range guarantees are not accepted here.
 - The observed GEMSDOE32 head changed since the older pin. Its unmodified source
   still fails a synthetic empty-truth false-positive invariant; it now rejects
   soft input rather than silently binarizing it. No shared source was repinned.
@@ -336,6 +337,21 @@ superseded; the original presentation is preserved under `archive/atsc-cfcca804/
 The frozen ATSC/CADG training CLIs are disabled; use the read-only audits instead.
 
 The `L-K3-CADG-SUBMOD` prior lane is preserved at [`docs/cadg-submod/index.html`](docs/cadg-submod/index.html), with its unchanged [original card](evidence/cadg-submod-run-card.json) and research files. Its current card reports **`HOLDOUT-DTI 0.157080`**, 95% CI `[0.143057, 0.171030]`, `gems-segment-pooled-v1`, 60,988 withheld positives. This participant-run measurement was not rerun in the latest audit and is not an organizer-confirmed score. Its reported detector-only comparisons do not establish all-registry uniqueness. The new [saved-byte check](evidence/session-30454eca-cadg-lattice.json) finds **99.94%** of the current card's 37,654 dots within three pixels of the full registered lattice; the card's **99.73%** figure excluded lattice dots on the mirrored known-fault catalogue. Both exceed the literal stop. The card remains negative, no selector may waive the stop, and its finite-zero TIFF is not proven to fix the prior portal error.
+
+The concurrent **`L-K3-CPX-EDTI`** study remains preserved at
+[`docs/cpx-edti/index.html`](docs/cpx-edti/index.html) with its unchanged
+[historical card](evidence/cpx-run-card.json). **DO NOT SUBMIT.** Our
+[independent saved-byte audit](evidence/session-cfcca804-cpx-audit.json) finds
+37,648 / 37,654 dots (99.98%) within 3 pixels of the full registered lattice.
+The earlier detector-only comparison and any selector cannot waive that stop.
+The prior claims of guaranteed portal range acceptance and a slot recommendation
+are withdrawn; the original presentation remains in `archive/integration-cfcca804-cpx/`.
+
+Its prior card reports **HOLDOUT-DTI 0.110639**, 95% CI `[0.100399, 0.120560]`,
+`gems-segment-pooled-v1`, 60,988 withheld positives. This participant-run result
+was not rerun here and is not an organizer-confirmed score or leaderboard forecast.
+The frozen CPX experiment, run-card writer and original forensics CLI are disabled;
+use the read-only saved-byte audit instead.
 
 ## Publication and three-pass review
 

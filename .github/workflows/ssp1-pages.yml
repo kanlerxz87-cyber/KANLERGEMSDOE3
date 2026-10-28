@@ -35,8 +35,8 @@ jobs:
           cache: pip
           cache-dependency-path: studies/ssp1/requirements.lock
       - run: python -m pip install --requirement requirements.lock
-      - name: Reject stale root, CADG, ATSC and CFRP pages before any build or publication
-        run: python ../../scripts/build_site.py --check && python ../../scripts/build_cadg_site.py --check && python ../../scripts/build_atsc_site.py --check && python ../../scripts/build_cfrp_site.py --check
+      - name: Reject stale root, CADG, ATSC, CFRP and CPX pages before any build or publication
+        run: python ../../scripts/build_site.py --check && python ../../scripts/build_cadg_site.py --check && python ../../scripts/build_atsc_site.py --check && python ../../scripts/build_cfrp_site.py --check && python ../../scripts/build_cpx_site.py --check
       # The historic leaderboard observation remains stale. DrivenData terms
       # prohibit automated access for monitoring; this job never polls it.
       - name: Validate scientific gates and saved bytes

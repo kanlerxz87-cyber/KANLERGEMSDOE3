@@ -10,6 +10,9 @@ unchanged; the old ATSC/CADG training CLIs are archived and cannot reopen their 
 The concurrent CFRP TIFF also fails: `evidence/session-cfcca804-cfrp-audit.json` binds
 all 44,090 dots to the same >70% lattice stop. Its original focus-nine promotion is
 superseded; the CFRP experiment and legacy scoring-audit CLIs are archived as well.
+Concurrent CPX also fails: `evidence/session-cfcca804-cpx-audit.json` binds 37,648 / 37,654
+dots to the full lattice. Its selector-waiver and portal guarantees are withdrawn; its
+experiment, original card-writer and historical forensics CLIs are archived.
 
 At observed upstream commit `e56a10a9d2f218c05ea66c5a5b7228bb780bb5a7`, source files
 changed from the pins and reject soft inputs, but the unmodified current evaluator still

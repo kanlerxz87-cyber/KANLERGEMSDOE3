@@ -25,6 +25,10 @@ an absent new prediction, score, registry comparison and validator result.
   original focus-nine promotion is superseded and its TIFF remains **DO NOT SUBMIT**.
   Its zero-outside file passes `finite-grid` but not `template-mask` or
   `masked-finite`. No inference about portal acceptance follows.
+- A separate later CPX lane was integrated without claiming its experiments. Its
+  [saved-byte audit](../evidence/session-cfcca804-cpx-audit.json) independently
+  finds **37,648 / 37,654 (99.98%)** dots within 3 px of the full lattice. Its
+  detector-only scope cannot waive the stop; the historical card remains negative.
 - Refreshed the nine priority repositories as a dated source observation
   ([snapshot](../evidence/session-cfcca804-focus-feed.json)), not an official
   leaderboard feed or proof that newly changed submissions are unique.
@@ -53,13 +57,26 @@ an absent new prediction, score, registry comparison and validator result.
   globally unique and upload-adjacent claims with the bounded findings. Original
   pages and generator are preserved as non-active snapshots. Corrected the CFRP
   archive's purported portal-range guarantee and upload-adjacent note as well.
-  Disabled the frozen ATSC, CADG and CFRP experiment CLIs and the CFRP legacy
-  calibration CLI so their completed journals cannot be overwritten.
+  Corrected CPX's selector-waiver, portal guarantee and causal H33 prose while
+  preserving its original presentation in a non-active archive. Disabled the
+  frozen ATSC, CADG, CFRP and CPX experiment CLIs and their old record-writing
+  audit CLIs so completed journals cannot be overwritten.
 - Hardened the upstream refresher so it does not overwrite the prior receipt by
   default, cannot equate a declared cache digest with verified bytes, and writes
   an explicit failure state rather than retaining stale success on refresh error.
 
 ## Pass 3 — request reconciliation and remaining work
+
+After integrating concurrent main through commit `00f6275`, the root test suite
+passed **341 tests** both with restored mirror inputs and with those inputs
+hidden, and the isolated SSP1 suite passed **61 tests** plus its offline technical
+verification. Desktop/mobile browser smoke passed for the root desk, all nine
+site pages, ATSC, CFRP and CPX; GitHub API feed responses were mocked. These are
+software/UI checks, not geological validation or portal acceptance. Deterministic
+checks cover the root, CADG, ATSC, CFRP and CPX builders before publication.
+Concurrent source/evidence is retained, and conflicting former presentations are
+preserved under `archive/integration-cfcca804-main/` and
+`archive/integration-cfcca804-cpx/`.
 
 The nine-site executive desk still lists historical owner-reported claims, exact
 reference files, estimates as unavailable, novelty disposition and **NO** upload.

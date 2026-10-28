@@ -22,13 +22,13 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - name: Reject stale committed pages before tests or generators can rewrite them
-        run: python scripts/build_site.py --check && python scripts/build_cadg_site.py --check && python scripts/build_atsc_site.py --check && python scripts/build_cfrp_site.py --check
+        run: python scripts/build_site.py --check && python scripts/build_cadg_site.py --check && python scripts/build_atsc_site.py --check && python scripts/build_cfrp_site.py --check && python scripts/build_cpx_site.py --check
       - run: python scripts/install_template.py
       - run: PYTHON=python bash scripts/bootstrap_template.sh
       - run: python scripts/restore_instruments.py --profile saturation57
       - run: python -m pytest -q
       - run: python scripts/check_run.py
-      - run: python scripts/review.py && python scripts/build_site.py --check && python scripts/build_cadg_site.py --check && python scripts/build_atsc_site.py --check && python scripts/build_cfrp_site.py --check && git diff --exit-code
+      - run: python scripts/review.py && python scripts/build_site.py --check && python scripts/build_cadg_site.py --check && python scripts/build_atsc_site.py --check && python scripts/build_cfrp_site.py --check && python scripts/build_cpx_site.py --check && git diff --exit-code
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs

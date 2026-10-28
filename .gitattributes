@@ -7,3 +7,4 @@ studies/ssp1/src/gems32/holdout.py whitespace=-blank-at-eof
 
 # Historical main-side snapshots preserve original bytes, including blank-space lines.
 archive/integration-cfcca804-main/*.snapshot whitespace=-blank-at-eol
+archive/integration-cfcca804-cpx/*.snapshot whitespace=-blank-at-eol,-blank-at-eof

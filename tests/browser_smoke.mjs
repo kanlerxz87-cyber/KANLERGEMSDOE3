@@ -164,6 +164,17 @@ try {
   assert.equal(await page.locator('a[download]').count(), 0);
   await noGlobalOverflow(page, 'desktop CFRP archive');
   checks.push('CFRP archive exposes the saved-byte stop without portal guarantees or upload links');
+  for (const name of ['cpx-edti/index.html', 'cpx-edti/executive-summary.html', 'cpx-edti/submission-guide.html', 'cpx-edti/hypotheses.html']) {
+    await page.goto(base + '/' + name, { waitUntil: 'networkidle' });
+    const body = await page.locator('body').innerText();
+    assert.match(body, /DO NOT SUBMIT/);
+    assert.match(body, /37,648 \/ 37,654/);
+    assert.match(body, /cannot waive/i);
+    assert.doesNotMatch(body, /NEAREST TO READY|portal-safe/i);
+    assert.equal(await page.locator('a[download]').count(), 0, name);
+    await noGlobalOverflow(page, 'desktop ' + name);
+  }
+  checks.push('CPX archive withdraws selector-waiver and portal-safety claims');
   assert.deepEqual(errors, []);
   checks.push('desktop: no JavaScript exceptions across every active page');
   await desktop.close();
@@ -175,7 +186,7 @@ try {
   const table = await mobilePage.locator('#comparison .table-wrap').evaluate(element => ({ client: element.clientWidth, scroll: element.scrollWidth }));
   assert.ok(table.scroll > table.client, 'The wide table must scroll locally on mobile');
   await mobilePage.screenshot({ path: path.join(output, 'mobile.png'), fullPage: true });
-  for (const name of ['executive-summary.html', 'sources.html', 'research.html', 'parallel-research.html', 'parallel-gpc-dashboard.html', 'k3h1.html', 'candidate.html', 'sites/GEMSDOE32.html', 'sites/GEMSDOE36.html', 'cadg-submod/index.html', 'cadg-submod/executive-summary.html', 'atsc-submod/index.html', 'atsc-submod/executive-summary.html', 'atsc-submod/hypotheses.html', 'cfrp-20261028/index.html']) {
+  for (const name of ['executive-summary.html', 'sources.html', 'research.html', 'parallel-research.html', 'parallel-gpc-dashboard.html', 'k3h1.html', 'candidate.html', 'sites/GEMSDOE32.html', 'sites/GEMSDOE36.html', 'cadg-submod/index.html', 'cadg-submod/executive-summary.html', 'atsc-submod/index.html', 'atsc-submod/executive-summary.html', 'atsc-submod/hypotheses.html', 'cfrp-20261028/index.html', 'cpx-edti/index.html', 'cpx-edti/submission-guide.html']) {
     await mobilePage.goto(base + '/' + name, { waitUntil: 'networkidle' });
     await noGlobalOverflow(mobilePage, 'mobile ' + name);
   }

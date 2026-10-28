@@ -22,6 +22,7 @@
   "submission_note": "No eligible candidate; do not upload or spend a weekly slot.",
   "historical_atsc_audit": "evidence/session-cfcca804-atsc-audit.json",
   "historical_cfrp_audit": "evidence/session-cfcca804-cfrp-audit.json",
+  "historical_cpx_audit": "evidence/session-cfcca804-cpx-audit.json",
   "upstream_source_audit": "evidence/session-cfcca804-upstream-prerequisites.json",
   "upstream_synthetic_operator_audit": "evidence/session-cfcca804-upstream-operator.json",
   "organizer_template_authenticated": false,
