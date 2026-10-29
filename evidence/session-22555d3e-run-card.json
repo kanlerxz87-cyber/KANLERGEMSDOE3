@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "session_id": "22555d3e",
+  "branch": "arena/22555d3e-kanlergemsdoe3",
+  "reviewed_utc": "2026-10-29T02:44:22+00:00",
+  "preflight_receipt": "evidence/session-22555d3e-preflight.json",
+  "run_status": "NOT_RUN_NEGATIVE_REVIEW_ONLY",
+  "candidate_generated": false,
+  "geological_experiments_this_session": 0,
+  "weekly_slots_used_this_session": 0,
+  "assigned_method_lane": null,
+  "requested_top_hypothesis_not_assigned": "Cross-field Morse-Smale junction persistence",
+  "mechanism": "Qualitative hypothesis only: persistent junctions in signed multi-scale RTP/TMI and gravity fields may indicate buried fault relays or intersections where no single surface trace is strong; no implementation or causal test was performed.",
+  "non_fault_mimic": "Intrusive or lithologic contacts, basin-fill boundaries, and survey levelling seams may create similar cross-field junctions.",
+  "expected_dti_benefit": "Qualitatively moderate-to-high conditional potential relative to the other listed proposals; unmeasured, low confidence, not a score estimate.",
+  "external_data_availability": {
+    "additional_external_dataset_required_for_top_hypothesis": false,
+    "official_competition_data_page_authenticated": false,
+    "organizer_authenticated_input_receipt": false,
+    "participant_mirror_is_organizer_authenticated": false,
+    "canonical_feature_cache_path": null,
+    "canonical_feature_cache_sha256": null,
+    "status": "Official data page redirected to login; the public participant mirror was not used as an organizer-authenticated source; no core raster/cache experiment was run."
+  },
+  "budget": {
+    "inherited_config": "config/research-session-e2903b2e.json",
+    "max_experiments": 3,
+    "max_seconds": 7200,
+    "fixed_time_gate_open": false,
+    "clock_reset": false
+  },
+  "holdout": {
+    "status": "NOT_RUN",
+    "spatially_blocked": null,
+    "design_required": "Spatially blocked; hide whole fault segments with a buffer; derive catalogue-based features from visible faults only; mask visible faults pixel-exactly.",
+    "whole_fault_segments_hidden_with_buffer": null,
+    "catalogue_features_derived_from_visible_faults_only": null,
+    "visible_faults_masked_pixel_exactly": null,
+    "alpha": 0.2,
+    "beta": 0.8,
+    "kernel": "triangular 300 m",
+    "evaluator_version": null,
+    "withheld_positive_count": null,
+    "holdout_dti": null,
+    "ci_95": null,
+    "paired_ci_vs_same_fold_incumbent": null,
+    "same_fold_incumbent": null,
+    "feature_alone_auc_canaries": null,
+    "auc_leakage_threshold": "AUC >0.90 is leakage until explained",
+    "reason": "No assigned lane, authenticated inputs/cache, centrally repaired evaluator, complete registry, or same-fold incumbent; inherited fixed session time gate is expired."
+  },
+  "registry_comparisons": {
+    "status": "NOT_RUN_NO_CANDIDATE",
+    "registry_complete": false,
+    "preplacement_continuous_surface_comparison": null,
+    "preplacement_preview_dot_comparison": null,
+    "final_dot_comparison": null,
+    "rank_correlation": null,
+    "fraction_within_3px_of_any_registered_raster": null,
+    "hard_stop_rules": {
+      "rank_correlation_above_0_90": true,
+      "candidate_dots_within_3px_above_0_70": true,
+      "binary_lattice_exemption": false,
+      "ambiguous_soft_surface_exemption": false
+    },
+    "reason": "No new candidate geometry exists; the feed is source freshness, not a complete registry."
+  },
+  "raster": {
+    "path": null,
+    "sha256": null,
+    "decoded_sha256": null,
+    "positive_pixels": null,
+    "validator_output": null
+  },
+  "shared_tools": {
+    "pinned_evaluator_commit": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+    "synthetic_audit_passed": false,
+    "blocking_findings": [
+      "Pooled false-positive mass in empty-truth cells is omitted by the synthetic audit.",
+      "Soft input is silently binarized by the pinned shared operator."
+    ],
+    "local_fork_or_patch": false
+  },
+  "submission": {
+    "download_authorized": false,
+    "upload_authorized": false,
+    "weekly_selector_authorized": false,
+    "weekly_capacity_from_account": null,
+    "submission_slot_used": false,
+    "unique_submission_name": null,
+    "submission_note_max_characters": 140,
+    "submission_note": null,
+    "portal_acceptance_receipt": null
+  },
+  "raster_sha256": null,
+  "validator_output": null,
+  "score_estimate": null,
+  "ok_to_submit": false,
+  "promote": false,
+  "verdict": "NEGATIVE_DO_NOT_SUBMIT",
+  "verdict_reason": "No new TIFF, no verified HOLDOUT-DTI, no ORGANIZER-CONFIRMED score, no complete registry, and no authorized submission slot. Preserve the negative result; do not infer a score or uniqueness."
+}

@@ -1,5 +1,11 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
+## 29 October 2026 continuation — negative / no submission authorized
+
+The [three-pass review](research/session-22555d3e-review.md) and [session-scoped negative run card](evidence/session-22555d3e-run-card.json) preserve the review of all nine refreshed focus sites, the cautious H33 B2 assessment, and the pre-implementation hypothesis ranking. The source feed is pinned at `2026-10-29T02:33:30+00:00`, but remains source freshness only (`registry_complete:false`, no accepted scores or approvals). No geological experiment, holdout, new TIFF, defensible new-file score estimate, or submission slot was produced. **Download and upload are not authorized.**
+
+The official competition data page redirected to login; the available restore script reads a public participant mirror, not an organizer-authenticated download. The canonical feature cache, repaired shared evaluator, complete registry, same-fold incumbent, assigned method paragraph, and selector approval are still missing. The inherited fixed session time gate was not reset. The [fail-closed preflight](evidence/session-22555d3e-preflight.json) records the blockers.
+
 ## 28 October 2026 candidate quarantine — no upload authorized
 
 The concurrent CFRP lane produced a format-valid research TIFF and a recorded

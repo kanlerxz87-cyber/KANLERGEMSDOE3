@@ -41,7 +41,7 @@ def page(title: str, content: str, active: str = "summary", prefix: str = "") ->
 <nav aria-label="Main navigation">{nav}</nav><span class="nav-status">Research blocked</span></div></header>
 <main id="main">{content}</main>
 <footer class="footer"><div><strong>KANLERGEMSDOE3</strong> · Evidence before promotion<br>Maximize P(Win). Own the outcome. No fabricated scores or renamed submissions.</div>
-<div>Reviewed 28 Oct 2026 · <a href="{prefix}data/session-cfcca804-run-card.json">Current negative JSON card</a><br>Source changes do not authorize an upload. No competition submission is automated.</div></footer></body></html>\n'''
+<div>Reviewed 29 Oct 2026 · <a href="{prefix}data/session-22555d3e-run-card.json">Current negative JSON card</a><br>Source changes do not authorize an upload. No competition submission is automated.</div></footer></body></html>\n'''
 
 
 def historical_url(row: dict) -> str:
@@ -768,6 +768,8 @@ The [original scoped report at the inherited commit](https://github.com/kanlerxz
         ("evidence/session-e2903b2e-run-card.json", [DOCS / "data/session-e2903b2e-run-card.json"]),
         ("evidence/session-20261028-run-card.json", [DOCS / "data/session-20261028-run-card.json"]),
         ("evidence/session-cfcca804-run-card.json", [DOCS / "data/session-cfcca804-run-card.json"]),
+        ("evidence/session-22555d3e-run-card.json", [DOCS / "data/session-22555d3e-run-card.json"]),
+        ("evidence/session-22555d3e-preflight.json", [DOCS / "data/session-22555d3e-preflight.json"]),
         ("evidence/session-cfcca804-upstream-operator.json", [DOCS / "data/session-cfcca804-upstream-operator.json"]),
         ("evidence/session-cfcca804-upstream-prerequisites.json", [DOCS / "data/session-cfcca804-upstream-prerequisites.json"]),
         ("evidence/session-e2903b2e-verification.json", [DOCS / "data/session-e2903b2e-verification.json"]),
