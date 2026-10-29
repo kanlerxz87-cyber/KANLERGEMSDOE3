@@ -19,6 +19,21 @@
 ---
 
 
+---
+
+## 29 October 2026 continuation — this review negative / no submission authorized
+
+The [three-pass review](research/session-22555d3e-review.md) and [session-scoped negative run card](evidence/session-22555d3e-run-card.json) preserve all nine refreshed focus-site reviews, the cautious H33 B2 analysis, and the pre-implementation hypothesis ranking. The source feed is pinned at `2026-10-29T02:33:30+00:00`, but remains source freshness only (`registry_complete:false`, no accepted scores or approvals). This session produced no geological experiment, holdout, candidate TIFF, defensible new-file score estimate, or submission slot. The official data page redirected to login; the restore script uses a public participant mirror, not an organizer-authenticated download. The canonical feature cache, repaired shared evaluator, complete registry, same-fold incumbent, assigned method paragraph, and selector approval remain missing. The inherited fixed session time gate was not reset. **This review authorizes no download or upload.** See the [fail-closed preflight](evidence/session-22555d3e-preflight.json).
+
+**Concurrent main artifact — not this session's work and not approved here:** merged PR [#48](https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/pull/48) added `kanler-geocontrast-v1` and a public download page. Its run card reports **HOLDOUT-DTI 0.3003**, evaluator `gems-segment-pooled-v1`, 60,988 withheld positives, 95% CI `[0.2887, 0.3113]`; this is a participant-run holdout, not an organizer score or a leaderboard estimate. Its validator says `ok_to_upload:false` and `submission_authorized:false`; the card has no top-level `submission_authorization` key. Its `promote` / `ok_to_download` fields and uniqueness-by-method rationale do not satisfy the project's literal all-registry stop. The PR #48 body says its inputs came from participant mirrors; the card itself omits an `input_provenance` key. This review does not endorse its download or upload; the TIFF and original card are preserved, while active generated pages are returned to the fail-closed desk. See `evidence/unique_submission_run_card.json` and the [current review](research/session-22555d3e-review.md). PR #47's baseline LR zeros/NaN TIFF pair is also preserved, but its card reports `NOT_ESTIMABLE` holdout and `NOT_FULLY_CHECKED` uniqueness while setting `ok_to_download:true`; this review does not adopt that download flag either. The active desk binds both cards to the saved bytes, displays them as quarantined, and exposes no TIFF/ZIP download link.
+
+## 29 October 2026 earlier review — no candidate in that session
+
+[Earlier three-pass review and ranked research hypotheses](research/session-20261029-review.md) · [Earlier negative JSON run card](evidence/session-20261029-run-card.json)
+
+That separate session produced no TIFF, geological experiment, holdout result, leaderboard estimate, or competition slot. Its lane, authenticated input stack/canonical cache, complete registry, and repaired shared evaluator were unavailable. Its ranked hypotheses were exploratory; software tests did not establish scientific validation or portal acceptance. The next session must resolve the listed prerequisites before experiments.
+
+
 ## 28 October 2026 candidate quarantine — no upload authorized
 
 The concurrent CFRP lane produced a format-valid research TIFF and a recorded
@@ -40,9 +55,7 @@ The standing user request for this project is preserved verbatim in
 section below; read it at the start of every session.
 
 **Start every session by reading this README (including the full user request below),
-[AGENTS.md](AGENTS.md), [scientific review / continuation](research/review.md),
-[preserved fixed session config](config/research-session-e2903b2e.json), [prior session configs](config/),
-[preserved bilateral run card](docs/run-card.json), and the [latest negative card](evidence/session-cfcca804-run-card.json). Never reset an earlier session clock.**
+[PROJECT_PROMPT.md](PROJECT_PROMPT.md), [AGENTS.md](AGENTS.md), the [current three-pass review](research/session-22555d3e-review.md), its [negative run card](evidence/session-22555d3e-run-card.json) and [preflight](evidence/session-22555d3e-preflight.json), the [scientific review / continuation](research/review.md), the [preserved fixed session config](config/research-session-e2903b2e.json), [prior session configs](config/), the [preserved bilateral run card](docs/run-card.json), and the [previous negative card](evidence/session-cfcca804-run-card.json). Never reset an earlier session clock.**
 
 ## Latest independent review — 28 October 2026
 

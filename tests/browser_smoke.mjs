@@ -80,6 +80,11 @@ try {
   assert.equal(await page.locator('#comparison tbody tr').count(), 9);
   assert.match(await page.locator('#comparison tbody tr').first().innerText(), /GEMSDOE32/);
   assert.equal(await page.locator('a[download]').count(), 0);
+  const concurrentArtifacts = await page.locator('#concurrent-main-artifacts').innerText();
+  assert.match(concurrentArtifacts, /HOLDOUT-DTI.*0\.300267|0\.300267 HOLDOUT-DTI/s);
+  assert.match(concurrentArtifacts, /PR #48.*promote|promote.*ok_to_upload:false/s);
+  assert.match(concurrentArtifacts, /QUARANTINED/);
+  assert.equal(await page.locator('#concurrent-main-artifacts a[href*="downloads/"]').count(), 0);
   assert.match(await page.locator('.file-unavailable').innerText(), /DO NOT SUBMIT/);
   assert.equal(await page.locator('.hypothesis').count(), 4);
   await page.locator('#cadg-submod-study-link').waitFor();

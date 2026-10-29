@@ -1,0 +1,68 @@
+{
+  "schema": "kanler.run_card.v1",
+  "generated_utc": "2026-10-29T12:00:00+00:00",
+  "session": "arena/2014e0c0-kanlergemsdoe3",
+  "hypothesis": "Logistic regression baseline on 19 GEMSDOE training features predicts fault probability; sparse top-k emission at threshold 0.3 within footprint, excluding known catalogue traces.",
+  "mechanism": "Linear combination of 19 geophysical/geomorphic bands (mag_anom, rtp, tmi_hg, geod_2ndinv, iso_grav_anom_slope, tc, geod_shearrate, geod_dilaterate, tmi_vg, deq_n100a15, iso_grav_anom_vg, det_elev, iso_grav_anom, tmi, depth_to_base_surf, ieq_n100a15, cond_surf, iso_grav_anom_hg, det_elev_slope) fitted via logistic regression on a 100k-sample spatial subsample; prediction surface emitted as dots above probability threshold 0.3.",
+  "named_non_fault_mimic": "Lithologic contacts, survey block boundaries, cultural alignment, levelling seams, and basin-fill contacts can produce similar potential-field and topographic signatures without representing active faults.",
+  "holdout": {
+    "label": "NOT_ESTIMABLE",
+    "evaluator_version": "none_run",
+    "dti": null,
+    "ci95": null,
+    "withheld_positives": null,
+    "note": "Holdout evaluation not run: no single-method lane assigned, no canonical cached feature stack, shared evaluator has open empty-truth FP defect, no same-fold incumbent available."
+  },
+  "leaderboard_estimate": "NOT ESTIMABLE — no projection is written as a score. Historical owner-reported highs are unverified and not comparable.",
+  "owner_reported_focus9_best": {
+    "site": "GEMSDOE32",
+    "score": 0.2778,
+    "label": "OWNER-REPORTED — not a score",
+    "file": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros"
+  },
+  "uniqueness_vs_focus9": "NOT_FULLY_CHECKED — registry completeness unresolved; candidate is a new baseline not copied from any focus-site file. Dot overlap vs focus9 rasters not computed (no canonical registry available).",
+  "raster_sha256": "82ecf4d2057ef678bea2dbe0ccc502ba046d05a64e82d3a4b258814dd98fb2b2",
+  "content_id": "21b0bc23",
+  "dots": 3245,
+  "validator": {
+    "profile": "zeros",
+    "all_checks_passed": true,
+    "no_nan_inside_footprint": true,
+    "values_in_0_1_inside_footprint": true,
+    "no_infinite_pixels_anywhere": true,
+    "crs_epsg_32611": true,
+    "shape_3730x3292": true,
+    "transform_match": true,
+    "single_band_float32": true,
+    "zero_on_catalogue_leakage": true,
+    "outside_footprint_value": 0.0,
+    "audit_file": "downloads/gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-audit.json"
+  },
+  "submission_name": "gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-zeros.tif",
+  "submission_note": "KANLER baseline LR v1 | 19 features | holdout-pending | id 21b0bc23",
+  "note_chars": 67,
+  "tif": "downloads/gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-zeros.tif",
+  "zip": "downloads/gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-zeros.tif.zip",
+  "verdict": "negative",
+  "ok_to_download": true,
+  "ok_to_submit": false,
+  "download_reason": "Format-valid but holdout-pending. Requires: lane assignment, evaluator repair, canonical cache recovery, holdout DTI vs incumbent, uniqueness vs complete registry, selector slot authorization.",
+  "blockers": [
+    "No single-method lane assigned (protocol blocker)",
+    "No canonical cached feature bytes/digest available",
+    "Shared evaluator has open empty-truth false-positive defect (GEMSDOE32 issue #41)",
+    "No complete frozen registry for uniqueness stop",
+    "No same-fold incumbent to compare against",
+    "No weekly slot authorization verified"
+  ],
+  "next_steps": [
+    "Resolve the assigned single-method lane",
+    "Fix shared evaluator centrally (pin repaired commit)",
+    "Recover canonical 35-channel feature cache bytes and digest",
+    "Build complete frozen registry of all raster surfaces",
+    "Run holdout validation: pooled DTI (alpha 0.2, beta 0.8, 300 m triangular kernel)",
+    "Run leakage canaries (each feature alone; AUC > 0.90 = leakage stop)",
+    "Verify uniqueness (rank correlation <= 0.90, <= 70% dots within 3 px of any registry raster)",
+    "Selector authorizes weekly slot before upload"
+  ]
+}
