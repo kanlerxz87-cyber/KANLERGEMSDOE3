@@ -1,26 +1,28 @@
 # Executive Summary — GEMSDOE Competition Submission Status
 
-**DrivenData GEMS Geothermal Prize (Competition #306)**  
-**Status: DO NOT SUBMIT — no holdout-validated candidate exists**  
-**Generated: 2026-10-29 UTC**  
+> **Current-status override — 29 October 2026:** This Markdown is a preserved historical export from branch `arena/2014e0c0-kanlergemsdoe3`, not current submission advice. Main now contains a separate concurrent artifact from PR #48, `kanler-geocontrast-v1`; its card reports **HOLDOUT-DTI 0.3003**, evaluator `gems-segment-pooled-v1`, 60,988 withheld positives, 95% CI `[0.2887, 0.3113]`, but its validator records `ok_to_upload:false` and `submission_authorized:false`; the card has no top-level `submission_authorization` key. Its stated uniqueness is method novelty, not the required full-registry overlap check. The PR #48 body says participant-mirror inputs were used; the card has no `input_provenance` key. This review does **not** authorize download or upload; active generated pages no longer expose its download link. Preserve the TIFF and original card for audit only. See the [current three-pass review](../research/session-22555d3e-review.md) and [current negative run card](../evidence/session-22555d3e-run-card.json).
+
+**DrivenData GEMS Geothermal Prize (Competition #306)**<br>
+**Historical status when generated: DO NOT SUBMIT — the baseline TIF had not passed holdout validation**<br>
+**Generated: 2026-10-29 UTC**<br>
 **Branch: `arena/2014e0c0-kanlergemsdoe3`**
 
 ---
 
 ## ⚠️ Top-Line Decision
 
-| Question | Answer |
+| Question | Current answer (this review) |
 |---|---|
-| Is there a downloadable TIF ready to submit? | **No.** A format-valid baseline TIF exists but has **not** passed holdout validation. |
-| Can I download and submit a file today? | **No.** No candidate has beaten the holdout incumbent, and no single-method lane is assigned. |
-| What is the highest verified score? | **None available.** All historical values are unverified owner reports, not organizer receipts. |
-| What should I do? | Read the blockers below, validate a candidate on the holdout, then a separate selector authorizes a slot. |
+| Is there an authorized downloadable TIF? | **No.** Preserved files exist, but none has complete all-registry uniqueness and selector authorization. |
+| Can I download and submit a file today? | **No.** This review authorizes neither action; method novelty and format validation alone are insufficient. |
+| What is the strongest current HOLDOUT-DTI claim? | The concurrent PR #48 card reports **HOLDOUT-DTI 0.3003**, evaluator `gems-segment-pooled-v1`, 60,988 withheld positives, 95% CI `[0.2887, 0.3113]`; it is not independently reproduced here, is not `ORGANIZER-CONFIRMED`, and is not a leaderboard estimate. |
+| What should I do? | Do not use the historical download instructions below. Follow the [current review](../research/session-22555d3e-review.md); a separate selector decision is still required after all scientific gates pass. |
 
 ---
 
 ## 1. Focus-Site Historical Claims (GEMSDOE 24, 25, 27, 28, 30, 31, 32, 33, 36)
 
-All nine focus sites are owned by `buffedlizard55-lab` on GitHub Pages. The values below are **owner-reported claims from site pages**, not DrivenData submission receipts. They are **not** `ORGANIZER-CONFIRMED` scores and **not** `HOLDOUT-DTI` results. No estimate is offered because no holdout evaluation has been run for any candidate.
+All nine focus sites are owned by `buffedlizard55-lab` on GitHub Pages. The values below are **owner-reported claims from site pages**, not DrivenData submission receipts. They are **not** `ORGANIZER-CONFIRMED` scores and **not** `HOLDOUT-DTI` results. This is a historical site snapshot and does not include the separate PR #48 HGB HOLDOUT-DTI claim described above. No leaderboard estimate is offered.
 
 | # | Site | Best historical file (owner claim) | Owner-reported value | Evidence class | Unique vs focus peers? | OK to download & submit? |
 |---|------|-----------------------------------|---------------------|----------------|----------------------|-------------------------|
@@ -52,62 +54,30 @@ GEMSDOE32's `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros` (reported 0.2778) is 
 
 ---
 
-## 3. New Candidate: KANLER Baseline LR v1 (Format-Valid, Holdout-Pending)
+## 3. Archived concurrent baseline — no download or upload authorized
 
-A new, **unique** TIF has been generated using a logistic regression baseline on the 19 GEMSDOE training features. It is **format-valid** (all 13 audit checks pass) but has **not** been validated on the holdout. It must **not** be submitted until holdout DTI is measured and beats the incumbent.
+A prior main-branch PR (#47) left the baseline artifact below for audit. This old summary called it unique and downloadable based on a method label and format check. That claim is superseded: format validation and focus-peer novelty do not establish the required all-registry stop, organizer provenance, scientific improvement, or selector authorization. The file and original receipt remain preserved, but this current review authorizes **no download or upload**. Do not follow the historical note or link.
 
-| Field | Value |
+| Field | Historical record (not current approval) |
 |---|---|
-| **File to download** | `gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-zeros.tif` |
-| **ZIP bundle** | `gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-zeros.tif.zip` |
-| **Estimated score** | **Not estimable** — holdout DTI not yet run (no lane assigned, no canonical cache) |
-| **Unique submission?** | **Yes** — new baseline, not a copy of any focus-site file |
-| **OK to download?** | **Yes** — format-valid GeoTIFF |
-| **OK to submit?** | **No** — requires holdout validation and selector authorization |
-| **SHA-256** | `82ecf4d2057ef678bea2dbe0ccc502ba046d05a64e82d3a4b258814dd98fb2b2` |
-| **Submission note** | `KANLER baseline LR v1 | 19 features | holdout-pending | id 21b0bc23` (67 chars, ≤140) |
-| **Positive pixels** | 3,245 (sparse, within budget) |
-| **Value range** | [0.0, 1.0] everywhere, no NaN/Inf inside footprint |
-| **Outside footprint** | 0.0 (zeros variant), avoiding the `[0,1]` portal range error |
-| **CRS / shape / transform** | EPSG:32611 / 3730×3292 / 100 m, origin (243350, 4508550) — matches template |
-| **Audit file** | `gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-audit.json` |
-
-**Download link:** [docs/downloads/gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-zeros.tif](downloads/gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-zeros.tif)
+| File | `gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-zeros.tif` (forensic path: `docs/downloads/`; no active link) |
+| Historical SHA-256 | `82ecf4d2057ef678bea2dbe0ccc502ba046d05a64e82d3a4b258814dd98fb2b2` |
+| Holdout / score estimate | Not available for this baseline; do not infer from format checks. |
+| Uniqueness | Not established against the complete raster/surface registry. |
+| Download / upload / slot | Not authorized by the current review. |
+| Historical note | `KANLER baseline LR v1 | 19 features | holdout-pending | id 21b0bc23` — not an approved submission note. |
+| Original audit/card | `docs/downloads/gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-audit.json`; `docs/data/kanler-baseline-lr-v1-run-card.json` |
 
 ---
 
-## 4. Submission Instructions
+## 4. Submission guide — no download or upload authorized
 
-### Step 1: Verify the file
+**Current decision: DO NOT SUBMIT.** No candidate from this review is approved. A format-valid file, a participant-run holdout, or a new method name is not enough to establish full-registry uniqueness, scientific promotion, or a portal slot.
 
-Before downloading, confirm the SHA-256 matches the run card:
-
-```bash
-sha256sum gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-zeros.tif
-# Expected: 82ecf4d2057ef678bea2dbe0ccc502ba046d05a64e82d3a4b258814dd98fb2b2
-```
-
-### Step 2: Format validation (already passed)
-
-The file passed all 13 hard format checks:
-- Single-band float32 GeoTIFF
-- CRS: EPSG:32611, shape: 3730×3292, transform: 100 m origin (243350, 4508550)
-- Values in [0, 1] inside the 5,167,373-pixel footprint
-- No NaN or Inf inside the footprint
-- 0.0 outside the footprint (zeros variant) — avoids the "Predicted values must be in range [0, 1]" error
-- No positive pixels on known catalogue traces
-
-### Step 3: Submit to DrivenData
-
-1. Sign in to [DrivenData](https://www.drivendata.org/competitions/306/competition-doe-gems/)
-2. Go to **Submit → Make new submission**
-3. Upload the `.tif` (or `.zip` containing it)
-4. In the **Note** field, enter: `KANLER baseline LR v1 | 19 features | holdout-pending | id 21b0bc23` (≤140 characters)
-5. Submit only after a separate selector authorizes the weekly slot
-
-### Step 4: Preserve the receipt
-
-After submission, save the organizer's submission-page receipt. Only an actual receipt can support an `ORGANIZER-CONFIRMED` score.
+1. Do not download or submit the historical baseline or the concurrent `kanler-geocontrast-v1` artifact from `docs/downloads/`; their bytes and run cards are preserved for audit, not approved by this review.
+2. Do not reuse their historical names or notes. This review has no approved candidate name or note, and it has no defensible score estimate.
+3. A future candidate must first pass the assigned-lane, organizer-data/cache, centrally repaired evaluator, whole-segment spatial holdout, leakage-canary, complete pre-placement and final-dot registry, paired-incumbent, and saved-byte validation gates listed below.
+4. Only a separate selector may authorize a slot using the account's actual weekly quota. If all gates pass, upload only the exact hash-bound candidate and preserve the organizer's submission-page receipt. Only that receipt can support an `ORGANIZER-CONFIRMED` score.
 
 ---
 
@@ -119,7 +89,7 @@ After submission, save the organizer's submission-page receipt. Only an actual r
 | No canonical cached feature stack | The 35-channel derived feature cache bytes/digest are unavailable; private rebuilds are prohibited. |
 | Shared evaluator defect | The pinned evaluator fails the synthetic empty-truth false-positive invariant (GEMSDOE32 issue #41). Central fix required. |
 | No complete registry | A full frozen registry of all raster surfaces is not available for the uniqueness stop. |
-| No same-fold incumbent | No baseline holdout result exists to compare against. |
+| No same-fold incumbent | The concurrent PR #48 card lacks a verified paired same-fold incumbent comparison accepted by this review; no promotion decision can rely on it. |
 | No weekly slot | Account remaining cap and slot authorization have not been verified. |
 | Data provenance | Training data restored from participant-mirrored GitHub repos (SHA-256 verified) but not organizer-authenticated. DrivenData data download requires login. |
 
