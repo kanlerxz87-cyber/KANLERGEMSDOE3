@@ -138,10 +138,10 @@ def test_uniqueness_receipt_is_v2_with_controls():
 
 
 def test_run_card_is_unchanged_from_session_base():
-    base = "295efea629af2e47411bcf0eb715d97e18c534dc"
-    old = subprocess.run(["git", "show", f"{base}:evidence/run-card.json"], cwd=ROOT,
-                         capture_output=True, check=True).stdout
-    assert (EV / "run-card.json").read_bytes() == old
+    # Pinned digest of evidence/run-card.json at base 295efea (git show 295efea:evidence/run-card.json).
+    # Not a git-history lookup: CI uses a shallow checkout that lacks the base commit.
+    base_sha256 = "2fb875f77e96b97369a8af160722d8f0d8b35ebe9e2a054f228a24d9c1aae330"
+    assert hashlib.sha256((EV / "run-card.json").read_bytes()).hexdigest() == base_sha256
 
 
 def test_focus9_champions_pinned_hashes_match_cache():
