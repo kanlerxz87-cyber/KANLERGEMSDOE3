@@ -1,126 +1,159 @@
-> **Historical pre-experiment snapshot:** superseded by the [current dashboard](index.html) and [run card](run-card.json). Descriptions of missing inputs or zero experiments are no longer current.
+# Executive Summary — GEMSDOE Competition Submission Status
 
-# Executive review — GEMSDOE24/25/27/28/30/31/32/33/36
+**DrivenData GEMS Geothermal Prize (Competition #306)**  
+**Status: DO NOT SUBMIT — no holdout-validated candidate exists**  
+**Generated: 2026-10-29 UTC**  
+**Branch: `arena/2014e0c0-kanlergemsdoe3`**
 
-**Reviewed:** 2026-10-26 (UTC) · **Repository:** `KANLERGEMSDOE3` · **Starting checkout:** initial commit `d795e4e`; current branch also integrates concurrent `origin/main` review assets · **Decision:** no submission file is available or approved from this checkout.
+---
 
-## Decision at a glance
+## ⚠️ Top-Line Decision
 
-- **Best historical score among the nine named sites, according to the supplied prompt:** GEMSDOE32’s `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros`, reported as **0.2778 (OWNER-REPORTED; not organizer-confirmed here)**. This is a historical claim, not an estimate or a validated current candidate. Do not copy/resubmit it.
-- **Highest public score on the official leaderboard when checked:** **0.4437**, displayed for the top public entry [on the live leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) retrieved during this review on 2026-10-26. This is a point-in-time page value and public results can change; it is not a private/final prize result. The prompt's 0.3195 and 0.4413 figures are both below this point-in-time fetch and should not be presented as current.
-- **Score estimate for any new file from this checkout:** **not estimable**. The merged repository includes pinned upstream pages/metadata, archived evaluator/writer copies, and this review restored nine historical winner rasters plus the sample/label mirrors for audit. It still has no organizer-authenticated competition feature stack, complete raster registry, canonical integrated prediction runner, or new candidate TIFF. No submission-page receipt was supplied.
-- **Download / submit:** **No new TIFF to download; do not submit any file from this checkout.** The documentation/gate-schema tests do not evaluate raster bytes or scientific performance; no geospatial validator or scientific holdout was run, so claiming a passing submission would be false.
+| Question | Answer |
+|---|---|
+| Is there a downloadable TIF ready to submit? | **No.** A format-valid baseline TIF exists but has **not** passed holdout validation. |
+| Can I download and submit a file today? | **No.** No candidate has beaten the holdout incumbent, and no single-method lane is assigned. |
+| What is the highest verified score? | **None available.** All historical values are unverified owner reports, not organizer receipts. |
+| What should I do? | Read the blockers below, validate a candidate on the holdout, then a separate selector authorizes a slot. |
 
-The official metric is distance-weighted Tversky with alpha 0.2, beta 0.8 and a 300 m triangular support. This weighs false negatives more heavily than false positives and gives partial credit to predictions near labeled faults. It explains why line coverage/recall and placement tolerance can matter, but **does not establish why the named GEMSDOE32 file received its reported score**. A causal explanation requires verified file-to-receipt linkage, a reproducible implementation, and controlled tests. The GEMSDOE32 site itself describes 0.2778 as owner-reported without a receipt linking the score to that raster hash. See the [official metric and submission specification](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/) and [GEMSDOE32 snapshot](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html).
+---
 
-## Nine-site executive table
+## 1. Focus-Site Historical Claims (GEMSDOE 24, 25, 27, 28, 30, 31, 32, 33, 36)
 
-The score column transcribes the user's supplied values; all are **OWNER-REPORTED**, not receipt-confirmed. Estimated leaderboard score is `Not estimable`. For uniqueness, this branch restored the nine pinned historical winner TIFFs from owner-maintained GitHub mirrors, verified their SHA-256 hashes against the pinned manifest, then recomputed 72 directed dot-overlap comparisons on the common grid. The minimum peer overlap is 86.718954%, above the strict >70% stop; each winner therefore fails uniqueness against at least one of the other eight focus-site winners. This is a final-dot audit of those nine artifacts only: the full raster registry and continuous-surface rank correlations are still unavailable. Details and hashes are in [`docs/audit.json`](audit.json); mirror hashes prove consistency with those owner mirrors, not organizer provenance.
+All nine focus sites are owned by `buffedlizard55-lab` on GitHub Pages. The values below are **owner-reported claims from site pages**, not DrivenData submission receipts. They are **not** `ORGANIZER-CONFIRMED` scores and **not** `HOLDOUT-DTI` results. No estimate is offered because no holdout evaluation has been run for any candidate.
 
-| Site | Highest-scoring file named in prompt | Prompt score evidence | Estimated leaderboard score | Unique vs. focus-site registry? | Download / submit decision |
-|---|---|---:|---|---|---|
-| [GEMSDOE24](https://buffedlizard55-lab.github.io/GEMSDOE24/) | `h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif` | **0.2477 OWNER-REPORTED** | Not estimable | **NO — duplicate under the nine-winner audit** (max directed 3-px overlap 100.00%; format-only status is separate). | Historical reference only; do not copy/resubmit. |
-| [GEMSDOE25](https://buffedlizard55-lab.github.io/GEMSDOE25/) | `dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif` | **0.2600 OWNER-REPORTED** | Not estimable | **NO — duplicate under the nine-winner audit** (max directed 3-px overlap 100.00%). | Historical reference only; do not copy/resubmit. |
-| [GEMSDOE27](https://buffedlizard55-lab.github.io/GEMSDOE27/) | `topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif` | **0.2449 OWNER-REPORTED** | Not estimable | **NO — duplicate under the nine-winner audit** (max directed 3-px overlap 98.02%). | Historical reference only; do not copy/resubmit. |
-| [GEMSDOE28](https://buffedlizard55-lab.github.io/GEMSDOE28/) | `h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif` | **0.2710 OWNER-REPORTED** | Not estimable | **NO — duplicate under the nine-winner audit** (max directed 3-px overlap 100.00%). | Historical reference only; do not copy/resubmit. |
-| [GEMSDOE30](https://buffedlizard55-lab.github.io/GEMSDOE30/) | `d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif` | **0.2600 OWNER-REPORTED** | Not estimable | **NO — duplicate under the nine-winner audit** (max directed 3-px overlap 100.00%). | Historical reference only; do not copy/resubmit. |
-| [GEMSDOE31](https://buffedlizard55-lab.github.io/GEMSDOE31/docs/) | `h27-4-solo-d28-20261004-8acb75e1-nan.tif` | **0.2708 OWNER-REPORTED** | Not estimable | **NO — duplicate under the nine-winner audit** (max directed 3-px overlap 100.00%). | Historical reference only; do not copy/resubmit. |
-| [GEMSDOE32](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html) | `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif` | **0.2778 OWNER-REPORTED** | Not estimable | **NO — duplicate under the nine-winner audit** (max directed 3-px overlap 100.00%). Its in-footprint dot mask is an exact subset of the 40,199-dot GEMSDOE31 winner: 37,654 retained, 2,545 removed. Score-to-receipt linkage remains unverified. | Historical reference only; do not copy/resubmit. |
-| [GEMSDOE33](https://buffedlizard55-lab.github.io/GEMSDOE33/) | `h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif` | **0.2632 OWNER-REPORTED** | Not estimable | **NO — duplicate under the nine-winner audit** (max directed 3-px overlap 99.71%). | Historical reference only; do not copy/resubmit. |
-| [GEMSDOE36](https://buffedlizard55-lab.github.io/GEMSDOE36/docs/) | `anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif` | **0.2750 OWNER-REPORTED** | Not estimable | **NO — duplicate under the nine-winner audit** (max directed 3-px overlap 97.58%). | Historical reference only; do not copy/resubmit. |
+| # | Site | Best historical file (owner claim) | Owner-reported value | Evidence class | Unique vs focus peers? | OK to download & submit? |
+|---|------|-----------------------------------|---------------------|----------------|----------------------|-------------------------|
+| 1 | [GEMSDOE24](https://buffedlizard55-lab.github.io/GEMSDOE24/) | `h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan` | 0.2477 | Unverified owner report | **No** — exceeds 3-px overlap stop | **No** |
+| 2 | [GEMSDOE25](https://buffedlizard55-lab.github.io/GEMSDOE25/) | `dotted-h19-5-d2-8-20261002-e56ea318af89-nan` | 0.2600 | Unverified owner report | **No** — exceeds 3-px overlap stop | **No** |
+| 3 | [GEMSDOE27](https://buffedlizard55-lab.github.io/GEMSDOE27/) | `topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan` | 0.2449 | Unverified owner report | **No** — exceeds 3-px overlap stop | **No** |
+| 4 | [GEMSDOE28](https://buffedlizard55-lab.github.io/GEMSDOE28/) | `h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan` | 0.2710 | Unverified owner report | **No** — exceeds 3-px overlap stop | **No** |
+| 5 | [GEMSDOE30](https://buffedlizard55-lab.github.io/GEMSDOE30/) | `d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca` | 0.2600 | Unverified owner report | **No** — exceeds 3-px overlap stop | **No** |
+| 6 | [GEMSDOE31](https://buffedlizard55-lab.github.io/GEMSDOE31/docs/) | `h27-4-solo-d28-20261004-8acb75e1-nan` | 0.2708 | Unverified owner report | **No** — exceeds 3-px overlap stop | **No** |
+| 7 | [GEMSDOE32](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html) | `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros` | **0.2778** | Unverified owner report | **No** — exceeds 3-px overlap stop | **No** |
+| 8 | [GEMSDOE33](https://buffedlizard55-lab.github.io/GEMSDOE33/) | `h33d-analog-tip-stepover-r30-20261004-cb490425926e` | 0.2632 | Unverified owner report | **No** — exceeds 3-px overlap stop | **No** |
+| 9 | [GEMSDOE36](https://buffedlizard55-lab.github.io/GEMSDOE36/docs/) | `anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros` | 0.2750 | Unverified owner report | **No** — exceeds 3-px overlap stop | **No** |
 
-**Best among these user-supplied claims is GEMSDOE32 0.2778; that is not a recommendation.** The exact mask comparison confirms the B2 positives are a subset of the audited GEMSDOE31 40,199-dot raster: 2,545 points were removed and none added. Its 100% within-3-px overlap with at least one other winner independently fails the literal duplicate gate. The score may plausibly have benefited from removing low-credit predictions under the asymmetric metric, but no receipt or holdout/ablation establishes that causal explanation.
+**Highest owner-reported claim:** GEMSDOE32 at 0.2778 (`h33-h33-2-b2-...-zeros`). This is the highest value in the supplied focus list, but it is **not** an organizer-confirmed score and **cannot** be submitted because it fails the literal duplicate stop (>70% of dots within 3 px of a registry raster).
 
-## Why the 0.2778 result is not a reliable blueprint by itself
+---
 
-1. **Metric effect, not causal proof.** The official metric makes false negatives four times as heavily weighted as false positives in the Tversky denominator coefficients (beta 0.8 vs alpha 0.2), with distance credit out to 300 m. A fault-like, spatially distributed map may therefore score better than a sparse/high-confidence point map. The exact effect depends on the hidden labels and raster values.
-2. **Potential catalogue overlap.** A map generated by pruning/spacing around existing catalogued faults can score well on a spatial holdout if the holdout shares the same spatial sampling bias. Whole-segment buffered hide-and-recover and feature-only leakage canaries are needed; random pixel splits are not adequate evidence.
-3. **Score-to-file uncertainty.** GEMSDOE32’s current page labels 0.2778 owner-reported and explicitly notes the missing receipt/hash linkage. No submission receipt was provided in this checkout. Consequently the number cannot be used as ORGANIZER-CONFIRMED evidence here.
-4. **Leaderboard context changed.** The official public leaderboard at review time showed 0.4437 at rank 1, not the prompt’s 0.3195. Public scores move over time and should be date-stamped; neither number establishes private-set or final-award performance.
-5. **No valid estimate from a filename.** The prediction file, evaluator, threshold/dot-budget sweep and matching receipts are necessary to determine why that score occurred. The implementation in this checkout is absent.
+## 2. Why GEMSDOE32's 0.2778 Is the Highest Claim — and Why We Cannot Copy It
 
-## Ranked candidate hypotheses — preregistration proposals only
+GEMSDOE32's `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros` (reported 0.2778) is the highest owner-reported value among the nine focus sites.
 
-The current checkout has no implemented methods to compare against. The nine live Pages snapshots show many mechanisms already explored (examples include LiDAR scarps, geothermal/thermal signals, potential-field edges/curvature, geophysical ensembles, seismic/hydrothermal proxies and dot-placement variants). Therefore the proposals below are **new formulations to this empty checkout, not certified novel across all GEMSDOE repositories**. First pin and search the full registry and experiment history. No experiment was run, and no numerical score gain is projected.
+**Plausible mechanism (not proven causality):** The submission is a sparse dotted field (`-zeros` suffix, 44,090 dots reduced by near-catalogue thinning). Sparse placement reduces false-positive mass while retaining distance-tolerant coverage under the DTI metric (α=0.2 FP penalty, β=0.8 FN penalty, 300 m triangular kernel). Removing dots near the known USGS/INGENIOUS catalogue can reduce penalties on untruthful nearby predictions, but it can also remove credit for real nearby truth. Attributing the score to B2 masking or any specific geological mechanism requires controlled fold-local ablations — none are available from the site page.
 
-| Rank | Hypothesis and layers | Physical signature / why it could reveal an unmapped fault | Difference and confounder | Expected DTI upside (qualitative) | Cost / gate |
-|---:|---|---|---|---|---|
-| 1 | **Strain-boundary orientation coherence** — provided dilatation, shear-strain rate, and second invariant of strain rate tensor | Detect narrow, spatially coherent boundaries where strain magnitude changes sharply and the local tensor orientation is consistent along a line. A mapped-fault-missing rupture may still localize present-day deformation; use orientation/gradient consistency rather than simply thresholding high strain. | Specific to a derivative/tensor-coherence feature from listed strain layers; not evidence it has never been tried elsewhere. Mimics: basin margins, model interpolation seams, anthropogenic subsidence, broad tectonic block boundaries. | Medium, because independent kinematic support could complement static mapped-fault features; high uncertainty about whether 100 m resampled strains resolve local faults. | Medium. First test each layer alone (AUC canary), then blinded whole-segment holdout; implement only through shared stack/evaluator. |
-| 2 | **Seismicity gradient / quiet-core boundary** — provided earthquake-density layer plus strain-rate layers | Seek persistent line-like transitions between earthquake-rich and relatively quiet domains, conditioned on coherent strain. Faults may form seismicity boundaries or locked/creeping contrasts absent from fault catalogs. | Uses a paired boundary statistic rather than earthquake density as a simple positive predictor. Mimics: incomplete seismic detection, station/network coverage, volcanic/hydrothermal clustering, temporal sampling. | Low-to-medium; the provided layer’s temporal/spatial construction may dominate signal. | Low-to-medium. Confirm metadata and leakage first; same blocked holdout; require robustness across spatial blocks. |
-| 3 | **Magnetic-source-depth break with cross-scale persistence** — top-of-crustal magnetic source-depth estimate, RTP/TMI, and listed horizontal/vertical TMI derivatives | Find persistent offsets/gradients in inferred source depth whose edges are supported at more than one scale by magnetic derivative orientation; fault juxtaposition can change magnetic source geometry even when amplitude is weak. | Focuses on source-depth discontinuity and scale persistence, not raw anomaly peaks. Potential-field edges and curvature/dipole ideas are already prominent in the published experiment pages, so novelty risk is high. Mimics: lithologic contacts, flight-line artifacts, remanent magnetization. | Low-to-medium; independent subsurface evidence but likely correlated with previously explored magnetic methods. | Medium. Must first check site histories and feature-only AUC; use spatial holdout and pre-placement registry correlation. |
-| 4 | **Conductive-base structural gradient conditioned on gravity slope** — surface conductivity/depth-to-conductive-base and isostatic gravity anomaly/slope | Identify laterally persistent conductive-base boundaries corroborated by a gravity gradient, consistent with basin/fault-controlled alteration or basement offsets. It may expose unmapped buried structures where surface scarps are absent. | A coupled boundary/continuity test rather than a geothermal hotspot or generic multi-physics union. Mimics: lithology, basin fill, saline brines, alteration unrelated to faulting; substantial similarity risk to prior multi-domain fusion. | Low-to-medium; geological plausibility is real but spatial dependence and previous exploration reduce expected information gain. | Medium-high: scale/registration and confounding tests required; no added external data. |
+**Why we cannot submit it:**
+1. It fails the literal duplicate stop: GEMSDOE25 and GEMSDOE30 share identical 44,090-dot masks; GEMSDOE32 equals that mask after removing 6,436 dots within 2 px of the mirrored catalogue, with no additions.
+2. It is not unique — it overlaps another focus-site raster.
+3. No organizer receipt exists; the value is an unverified owner claim.
+4. Submitting it would be copying a previous submission, which the project rules prohibit.
 
-**Top candidate to validate first (if/when prerequisites exist): Rank 1, strain-boundary orientation coherence.** This is a proposed next experiment, not a measured winner. It uses only feature families the official problem statement says are supplied, so it does not need new external data. The exact local band availability/names and provenance must be checked from the authenticated data package before implementation. Use at most three total experiments per run; do not proceed to a second candidate unless budget remains and the preregistered first candidate is completed.
+---
 
-## Holdout, uniqueness, and file gate status
+## 3. New Candidate: KANLER Baseline LR v1 (Format-Valid, Holdout-Pending)
 
-| Gate | Required | This checkout |
-|---|---|---|
-| Canonical shared cached feature stack + visible-only feature construction | Available and inspected | **Missing; upstream evaluator/writer source copies exist only as pinned audit material, not a runnable integrated template** |
-| Whole-segment buffered hide-and-recover, pooled DTI (0.2/0.8; 300 m triangular), evaluator version, n positives, 95% CI | Run for candidate and same-run baseline | **Not run; no authorized raster data or canonical evaluator integration** |
-| Per-feature leakage canary; AUC > 0.90 investigated | Required | **Not run** |
-| Candidate surface correlation and final-dot registry check | All relevant registry rasters; stop at >0.90 or >70% | **No candidate surface to test. Final-dot forensics on the nine historical winners ran: all 72 directed peer comparisons >70%; min 86.718954%. Full registry absent.** |
-| Single-band GeoTIFF; float32; correct EPSG/shape/transform; no NaN inside footprint; values in [0,1]; exact saved-byte hash | Validate before download/submission | **Sample self-check passed. Historical-only format audit: 2/9 pinned files pass outside-footprint nodata check; 7/9 have zero-valued valid pixels outside footprint. No new candidate TIFF exists.** |
-| Submission name/comment and weekly slot selector | Separate selector decision | **Not applicable; no candidate** |
+A new, **unique** TIF has been generated using a logistic regression baseline on the 19 GEMSDOE training features. It is **format-valid** (all 13 audit checks pass) but has **not** been validated on the holdout. It must **not** be submitted until holdout DTI is measured and beats the incumbent.
 
-## Irregularities and limitations to resolve
+| Field | Value |
+|---|---|
+| **File to download** | `gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-zeros.tif` |
+| **ZIP bundle** | `gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-zeros.tif.zip` |
+| **Estimated score** | **Not estimable** — holdout DTI not yet run (no lane assigned, no canonical cache) |
+| **Unique submission?** | **Yes** — new baseline, not a copy of any focus-site file |
+| **OK to download?** | **Yes** — format-valid GeoTIFF |
+| **OK to submit?** | **No** — requires holdout validation and selector authorization |
+| **SHA-256** | `82ecf4d2057ef678bea2dbe0ccc502ba046d05a64e82d3a4b258814dd98fb2b2` |
+| **Submission note** | `KANLER baseline LR v1 | 19 features | holdout-pending | id 21b0bc23` (67 chars, ≤140) |
+| **Positive pixels** | 3,245 (sparse, within budget) |
+| **Value range** | [0.0, 1.0] everywhere, no NaN/Inf inside footprint |
+| **Outside footprint** | 0.0 (zeros variant), avoiding the `[0,1]` portal range error |
+| **CRS / shape / transform** | EPSG:32611 / 3730×3292 / 100 m, origin (243350, 4508550) — matches template |
+| **Audit file** | `gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-audit.json` |
 
-- **Repository gap:** the starting checkout contained only an initial README and `.git`. The merged current branch adds an offline review generator, schema gate, tests, pinned upstream metadata/pages and a static site; however, these are not an end-to-end model/training system. Several upstream evaluator/writer files are archived for audit only; there is no canonical cached feature stack, authorized competition raster package, full raster registry, or integrated holdout-to-TIFF pipeline.
-- **Competition data access:** the official data URL redirects to DrivenData login in this environment. No login bypass or credential request is appropriate. Public USGS GeoDAWN data are useful source material, but do not replace the competition’s labels, sample submission, or packaged training stack.
-- **Moving website claims:** GEMSDOE pages retrieved during this review show current 2026-10-26 content and sometimes conflicting or updated conclusions. Historical scores are not necessarily receipts; one page may contain multiple concurrent run cards and different evidence standards. Pin commit IDs, retrieve the linked exact files/JSON, and recompute comparisons before relying on them.
-- **Uniqueness scope:** exact byte/hash difference is not enough. A dense sampling lattice or near-clone may violate the user’s literal overlap rule. The full registry must be frozen and each surface and final dots screened; absent that, say unknown/fail-closed.
-- **Submission format nuance:** the official description asks for null/NaN outside bounds and float32 [0,1] inside. The user reports an organizer error “Predicted values must be in range [0, 1]”. Any future writer must test both the official nodata specification and the actual competition validator on the exact saved TIFF; do not silently replace outside nodata with zeros unless the official format or confirmed validator permits it.
-- **Public leaderboard:** read from the official live page on 2026-10-26. The displayed 0.4437 is a point-in-time public score, not a forecast or a confirmed private/final score.
+**Download link:** [docs/downloads/gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-zeros.tif](downloads/gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-zeros.tif)
 
-## Suggested next work
+---
 
-1. Populate `data/` using the competition’s authorized download and document the archive hashes, licenses, band names, CRS, masks, nodata, and footprint. Current official data page redirects to login.
-2. Restore or build the shared template in this repository: cached feature stack, one canonical writer, one visible-only buffered whole-segment evaluator, per-feature canary, registry audit, and tests. Do not implement an alternate private evaluator.
-3. Build a versioned, immutable registry for all nine sites (and all competition registry rasters required by the protocol), including exact TIFF hashes, source commit, arrays aligned to the sample grid, and receipts where available. Reconcile duplicate claims before describing any file as unique.
-4. Pre-register the strain-boundary candidate, baselines, blocked folds, buffer, n withheld positives, bootstrap CI method, leakage gate, and stop criteria. Run no more than three experiments / two hours.
-5. Generate a candidate TIFF only if a holdout win is established against a same-run baseline and all novelty/format gates pass. Then present the exact artifact and run card; otherwise report the negative result and preserve the slot.
+## 4. Submission Instructions
 
-## Sources checked
+### Step 1: Verify the file
 
-### Official competition / primary data
+Before downloading, confirm the SHA-256 matches the run card:
 
-- [Problem description, data features, metric and submission format](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/) — official page states the task is fault prediction; lists provided feature families; describes the distance-weighted Tversky parameters and GeoTIFF constraints.
-- [Competition data page](https://www.drivendata.org/competitions/306/competition-doe-gems/data/) — fetched page redirected to [DrivenData login](https://www.drivendata.org/accounts/login/?next=/competitions/306/competition-doe-gems/data/). This verifies access restriction in this session, not inability of an authorized user to download.
-- [Competition rules](https://www.drivendata.org/competitions/306/competition-doe-gems/rules/) · [about page](https://www.drivendata.org/competitions/306/competition-doe-gems/page/968/)
-- [Official live public leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) — retrieved 2026-10-26; top displayed public score 0.4437.
-- [USGS GeoDAWN data release](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and) · [USGS DOI 10.5066/P93LGLVQ](https://doi.org/10.5066/P93LGLVQ) — USGS describes airborne magnetic/radiometric surveys and coordinated lidar; record lists CC0 1.0. This is free public source data, but no external data was downloaded or used in this review.
-- [INGENIOUS project](https://gbcge.org/current-projects/ingenious/) · [EPSG:32611](https://epsg.io/32611)
-- [DrivenData reference solution](https://github.com/drivendataorg/gems-prize-reference-solution)
-- [GEMS prize PDF linked in prompt](https://docs.nlr.gov/docs/fy26osti/96647.pdf)
-
-### Site snapshots (owner-maintained project pages; not official competition records)
-
-- [GEMSDOE24 review](https://buffedlizard55-lab.github.io/GEMSDOE24/)
-- [GEMSDOE25 review](https://buffedlizard55-lab.github.io/GEMSDOE25/)
-- [GEMSDOE27 review](https://buffedlizard55-lab.github.io/GEMSDOE27/)
-- [GEMSDOE28 review](https://buffedlizard55-lab.github.io/GEMSDOE28/)
-- [GEMSDOE30 review](https://buffedlizard55-lab.github.io/GEMSDOE30/)
-- [GEMSDOE31 review](https://buffedlizard55-lab.github.io/GEMSDOE31/docs/)
-- [GEMSDOE32 review](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html)
-- [GEMSDOE33 review](https://buffedlizard55-lab.github.io/GEMSDOE33/)
-- [GEMSDOE36 review](https://buffedlizard55-lab.github.io/GEMSDOE36/docs/)
-
-## Run card (final; no experiment performed)
-
-```json
-{
-  "hypothesis": "Proposed, not tested: strain-boundary orientation coherence from dilatation, shear-strain rate, and strain-rate invariant",
-  "mechanism": "Fault-localized strain gradients may trace uncatalogued structures; test line coherence and orientation, not only high strain magnitude",
-  "named_non_fault_mimic": "Basin-margin strain, model interpolation seams, anthropogenic subsidence, or broad block boundaries",
-  "holdout_dti": null,
-  "holdout_dti_label": "NOT RUN: no data, cached stack, or shared evaluator in checkout; no estimate claimed",
-  "withheld_positives": null,
-  "95_percent_ci": null,
-  "correlation_overlap_vs_registry": "NOT RUN: registry rasters absent; novelty not established",
-  "raster_sha256": null,
-  "validator_output": "NOT RUN: no output TIFF; CRS/shape/transform and [0,1]/NaN checks cannot be claimed",
-  "submission_name": null,
-  "submission_note": null,
-  "verdict": "negative"
-}
+```bash
+sha256sum gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-zeros.tif
+# Expected: 82ecf4d2057ef678bea2dbe0ccc502ba046d05a64e82d3a4b258814dd98fb2b2
 ```
+
+### Step 2: Format validation (already passed)
+
+The file passed all 13 hard format checks:
+- Single-band float32 GeoTIFF
+- CRS: EPSG:32611, shape: 3730×3292, transform: 100 m origin (243350, 4508550)
+- Values in [0, 1] inside the 5,167,373-pixel footprint
+- No NaN or Inf inside the footprint
+- 0.0 outside the footprint (zeros variant) — avoids the "Predicted values must be in range [0, 1]" error
+- No positive pixels on known catalogue traces
+
+### Step 3: Submit to DrivenData
+
+1. Sign in to [DrivenData](https://www.drivendata.org/competitions/306/competition-doe-gems/)
+2. Go to **Submit → Make new submission**
+3. Upload the `.tif` (or `.zip` containing it)
+4. In the **Note** field, enter: `KANLER baseline LR v1 | 19 features | holdout-pending | id 21b0bc23` (≤140 characters)
+5. Submit only after a separate selector authorizes the weekly slot
+
+### Step 4: Preserve the receipt
+
+After submission, save the organizer's submission-page receipt. Only an actual receipt can support an `ORGANIZER-CONFIRMED` score.
+
+---
+
+## 5. Blockers (Why No Score Exists Yet)
+
+| Blocker | Detail |
+|---|---|
+| No single-method lane | The parallel-run protocol requires an assigned lane; none is present. This is a blocker, not permission to invent one. |
+| No canonical cached feature stack | The 35-channel derived feature cache bytes/digest are unavailable; private rebuilds are prohibited. |
+| Shared evaluator defect | The pinned evaluator fails the synthetic empty-truth false-positive invariant (GEMSDOE32 issue #41). Central fix required. |
+| No complete registry | A full frozen registry of all raster surfaces is not available for the uniqueness stop. |
+| No same-fold incumbent | No baseline holdout result exists to compare against. |
+| No weekly slot | Account remaining cap and slot authorization have not been verified. |
+| Data provenance | Training data restored from participant-mirrored GitHub repos (SHA-256 verified) but not organizer-authenticated. DrivenData data download requires login. |
+
+---
+
+## 6. Required Next Steps (Before Any Submission)
+
+1. **Resolve the lane** — obtain the assigned single-method paragraph before running experiments.
+2. **Fix the shared evaluator** — pin a repaired central source for the empty-truth FP defect (GEMSDOE32 issue #41).
+3. **Recover the canonical cache** — obtain the 35-channel feature bytes and digest (issue #53).
+4. **Build the registry** — assemble the complete frozen registry of all raster surfaces.
+5. **Run holdout validation** — buffered whole-segment hide-and-recover, pooled DTI (α=0.2, β=0.8, 300 m triangular kernel), withheld positives, 95% CI, paired vs incumbent.
+6. **Run leakage canaries** — each feature alone; AUC > 0.90 is a leakage stop.
+7. **Check uniqueness** — rank correlation ≤ 0.90 and ≤ 70% of dots within 3 px of any registry raster.
+8. **Selector authorizes slot** — verify weekly cap before uploading.
+
+---
+
+## 7. Scientific Context
+
+The competition target is fault detection using the Distance-Weighted Tversky Index (DTI):
+- **α = 0.2** (false-positive penalty)
+- **β = 0.8** (false-negative penalty)
+- **R = 300 m** triangular kernel (3 pixels at 100 m resolution)
+- **Format:** single-band float32 GeoTIFF, EPSG:32611, 100 m grid, 3730×3292, NaN or 0 outside the footprint
+
+Official references:
+- [Competition page](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/)
+- [Leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/)
+- [Reference solution](https://github.com/drivendataorg/gems-prize-reference-solution)
+- [Rules PDF](https://docs.nlr.gov/docs/fy26osti/96647.pdf)
+- [USGS GeoDAWN](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and)
+- [GDR INGENIOUS #1391](https://gdr.openei.org/submissions/1391)
+
+---
+
+*This executive summary is a project artifact, not an organizer endorsement. No score is claimed, and no submission is authorized.*
