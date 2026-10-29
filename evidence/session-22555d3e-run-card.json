@@ -2,7 +2,7 @@
   "schema_version": 1,
   "session_id": "22555d3e",
   "branch": "arena/22555d3e-kanlergemsdoe3",
-  "reviewed_utc": "2026-10-29T02:44:22+00:00",
+  "reviewed_utc": "2026-10-29T03:01:49+00:00",
   "preflight_receipt": "evidence/session-22555d3e-preflight.json",
   "run_status": "NOT_RUN_NEGATIVE_REVIEW_ONLY",
   "candidate_generated": false,
@@ -98,5 +98,5 @@
   "ok_to_submit": false,
   "promote": false,
   "verdict": "NEGATIVE_DO_NOT_SUBMIT",
-  "verdict_reason": "No new TIFF, no verified HOLDOUT-DTI, no ORGANIZER-CONFIRMED score, no complete registry, and no authorized submission slot. Preserve the negative result; do not infer a score or uniqueness."
+  "verdict_reason": "This review generated no TIFF or HOLDOUT-DTI. A separate PR #48 run card reports a participant HOLDOUT-DTI claim but was not reproduced or approved here; no ORGANIZER-CONFIRMED score, complete-registry uniqueness, or authorized slot exists for this review. Preserve the negative result; do not infer a score or uniqueness."
 }

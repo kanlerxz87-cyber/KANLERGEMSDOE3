@@ -234,6 +234,35 @@ def test_inherited_duplicate_and_saved_bytes_checked():
         check_inherited(report)
 
 
+def test_concurrent_main_candidates_are_hash_bound_but_never_promoted(monkeypatch):
+    from scripts import build_site
+    receipt = build_site.check_quarantined_artifacts()
+    assert len(receipt['files']) == 3
+    assert receipt['geocontrast']['verdict'] == 'promote'
+    assert receipt['geocontrast']['ok_to_download'] is True
+    assert receipt['geocontrast']['validator']['ok_to_upload'] is False
+    assert 'submission_authorization' not in receipt['geocontrast']
+    assert 'input_provenance' not in receipt['geocontrast']
+    assert receipt['baseline']['verdict'] == 'negative'
+    assert receipt['baseline']['ok_to_submit'] is False
+    page = (ROOT / 'docs/index.html').read_text()
+    assert 'Preserved bytes. No download or upload authorization.' in page
+    assert 'HOLDOUT-DTI' in page and '0.300267' in page
+    assert 'QUARANTINED' in page
+    assert 'href="downloads/kanler-geocontrast-v1-' not in page
+    assert 'href="downloads/gemsdoe32-kanler-baseline-lr-v1-' not in page
+
+    original_read = build_site.read
+    def tampered(path):
+        value = original_read(path)
+        if path == 'evidence/unique_submission_run_card.json':
+            value['validator']['submission_authorized'] = True
+        return value
+    monkeypatch.setattr(build_site, 'read', tampered)
+    with pytest.raises(ValueError, match='fail-closed'):
+        build_site.check_quarantined_artifacts()
+
+
 def test_default_preflight_does_not_reopen_expired_clock(tmp_path):
     import subprocess
     import sys
