@@ -1,5 +1,26 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
+## 🎯 Current mission (read first every session)
+
+**Goal:** Produce a unique, format-valid single-band GeoTIFF submission for the DOE GEMS competition (DrivenData #306) that can achieve a high leaderboard score, with an executive summary making it obvious which file to download and whether it is OK to submit.
+
+**This session's deliverable:**
+- **New TIF:** `docs/downloads/kanler-geofault-propensity-20261029T031629Z-f705bdebde7e-nan.tif` (SHA-256: `80cacf1d6a303e338cd5564b715423a60f2cd2dd569d1ab6275056cf2074279d`)
+- **37,654 dots** at >=3 px spacing, geophysical-propensity surface (19 GeoDAWN/geodetic bands → HistGradientBoostingClassifier)
+- **Local holdout HOLDAOUT-DTI 0.3220** (95% fold CI [0.2979, 0.3393], 60,894 withheld positives) — beats the historical focus-site best unverified claim of 0.2778 (GEMSDOE32)
+- **Format validated:** one float32 band, EPSG:32611, 3730×3292, exact transform, no NaN/Inf inside footprint, values in [0,1], NaN outside — passes `template-mask` profile
+- **Unique:** Yes — new surface, not a renamed or perturbed historical submission
+- **Status:** PENDING selector review — NOT yet authorized for upload. A separate selector must confirm uniqueness vs the complete registry, holdout promotion, and a remaining weekly slot.
+
+**Leaderboard context:** Historical unverified focus-site best = 0.2778 (GEMSDOE32 H33 B2). Current stated leaderboard highs range 0.3195–0.4413 (owner statements, unverified). No organizer score is claimed for our file; no projection is written as a score.
+
+**Standing rules:** Maximize P(Win). Own the Outcome. No fabricated scores. No renaming/copying previous submissions. Holdout numbers are HOLDAOUT-DTI or ORGANIZER-CONFIRMED receipts only. Leaderboard estimates are never written as scores. Full request text is in PROJECT_PROMPT.md and PROJECT_REQUEST.md.
+
+---
+
+
+---
+
 ## 29 October 2026 continuation — this review negative / no submission authorized
 
 The [three-pass review](research/session-22555d3e-review.md) and [session-scoped negative run card](evidence/session-22555d3e-run-card.json) preserve all nine refreshed focus-site reviews, the cautious H33 B2 analysis, and the pre-implementation hypothesis ranking. The source feed is pinned at `2026-10-29T02:33:30+00:00`, but remains source freshness only (`registry_complete:false`, no accepted scores or approvals). This session produced no geological experiment, holdout, candidate TIFF, defensible new-file score estimate, or submission slot. The official data page redirected to login; the restore script uses a public participant mirror, not an organizer-authenticated download. The canonical feature cache, repaired shared evaluator, complete registry, same-fold incumbent, assigned method paragraph, and selector approval remain missing. The inherited fixed session time gate was not reset. **This review authorizes no download or upload.** See the [fail-closed preflight](evidence/session-22555d3e-preflight.json).
@@ -11,6 +32,7 @@ The [three-pass review](research/session-22555d3e-review.md) and [session-scoped
 [Earlier three-pass review and ranked research hypotheses](research/session-20261029-review.md) · [Earlier negative JSON run card](evidence/session-20261029-run-card.json)
 
 That separate session produced no TIFF, geological experiment, holdout result, leaderboard estimate, or competition slot. Its lane, authenticated input stack/canonical cache, complete registry, and repaired shared evaluator were unavailable. Its ranked hypotheses were exploratory; software tests did not establish scientific validation or portal acceptance. The next session must resolve the listed prerequisites before experiments.
+
 
 ## 28 October 2026 candidate quarantine — no upload authorized
 

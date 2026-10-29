@@ -1,0 +1,138 @@
+[
+  {
+    "tag": "C_proximity_only",
+    "dti": 0.739076,
+    "n_withheld": 60894,
+    "TP_w": 44164.9,
+    "FP_w": 11043.84,
+    "FN_w": 16729.1,
+    "folds": [
+      {
+        "fold": 0,
+        "dti": 0.729502,
+        "n_truth": 10154,
+        "dots": 7250
+      },
+      {
+        "fold": 1,
+        "dti": 0.726013,
+        "n_truth": 12496,
+        "dots": 8876
+      },
+      {
+        "fold": 2,
+        "dti": 0.746263,
+        "n_truth": 20494,
+        "dots": 10410
+      },
+      {
+        "fold": 3,
+        "dti": 0.746001,
+        "n_truth": 17750,
+        "dots": 8428
+      }
+    ]
+  },
+  {
+    "tag": "D_ml_x_proximity",
+    "dti": 0.70176,
+    "n_withheld": 60894,
+    "TP_w": 41705.59,
+    "FP_w": 11868.56,
+    "FN_w": 19188.41,
+    "folds": [
+      {
+        "fold": 0,
+        "dti": 0.69201,
+        "n_truth": 10154,
+        "dots": 7021
+      },
+      {
+        "fold": 1,
+        "dti": 0.689891,
+        "n_truth": 12496,
+        "dots": 8599
+      },
+      {
+        "fold": 2,
+        "dti": 0.712948,
+        "n_truth": 20494,
+        "dots": 10410
+      },
+      {
+        "fold": 3,
+        "dti": 0.703221,
+        "n_truth": 17750,
+        "dots": 8428
+      }
+    ]
+  },
+  {
+    "tag": "B_ml_nosuppress",
+    "dti": 0.322046,
+    "n_withheld": 60894,
+    "TP_w": 18818.99,
+    "FP_w": 29783.43,
+    "FN_w": 42075.01,
+    "folds": [
+      {
+        "fold": 0,
+        "dti": 0.339299,
+        "n_truth": 10154,
+        "dots": 8416
+      },
+      {
+        "fold": 1,
+        "dti": 0.334358,
+        "n_truth": 12496,
+        "dots": 10400
+      },
+      {
+        "fold": 2,
+        "dti": 0.297878,
+        "n_truth": 20494,
+        "dots": 10410
+      },
+      {
+        "fold": 3,
+        "dti": 0.330034,
+        "n_truth": 17750,
+        "dots": 8428
+      }
+    ]
+  },
+  {
+    "tag": "A_ml_suppressed",
+    "dti": 0.0,
+    "n_withheld": 60894,
+    "TP_w": 0.0,
+    "FP_w": 37654.0,
+    "FN_w": 60894.0,
+    "folds": [
+      {
+        "fold": 0,
+        "dti": 0.0,
+        "n_truth": 10154,
+        "dots": 8416
+      },
+      {
+        "fold": 1,
+        "dti": 0.0,
+        "n_truth": 12496,
+        "dots": 10400
+      },
+      {
+        "fold": 2,
+        "dti": 0.0,
+        "n_truth": 20494,
+        "dots": 10410
+      },
+      {
+        "fold": 3,
+        "dti": 0.0,
+        "n_truth": 17750,
+        "dots": 8428
+      }
+    ]
+  }
+]
