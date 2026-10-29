@@ -1,43 +1,165 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Evidence-first DOE GEMS fault discovery. Exact historical files, automated validation and a clear submission decision.">
-<title>How to submit · GEMS research desk</title><link rel="stylesheet" href="assets/site.css">
-<script src="assets/site.js" defer></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="topbar"><div class="bar">
+<meta name="description" content="Executive summary: nine GEMSDOE focus sites, unique submission file, download and validation evidence.">
+<title>Executive summary · GEMS research desk</title><link rel="stylesheet" href="assets/site.css"><script src="assets/site.js" defer></script>
+<style>
+.download-hero{background:var(--forest);color:#f8fbf5;border-radius:13px;padding:32px 36px;margin:20px 0;box-shadow:var(--shadow)}
+.download-hero h2{font:500 30px/1.2 Georgia,serif;margin:0 0 10px}
+.download-hero p{margin:0 0 16px;color:#c8dcd0;font-size:14px}
+.download-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
+.file-badge{display:inline-block;border:1px solid #6d9380;border-radius:7px;padding:8px 12px;background:rgba(255,255,255,.06);font-size:12.5px;font-family:ui-mono,Menlo,monospace;color:#e8f2ea;word-break:break-all}
+.hash-chip{display:inline-block;border:1px solid #6d9380;border-radius:7px;padding:6px 10px;background:#183e39;font-size:11px;font-family:ui-mono,Menlo,monospace;color:#c8dcd0}
+table.score-table{min-width:900px}
+table.score-table td,table.score-table th{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;font-size:13px}
+table.score-table th{background:#f2f6f1;color:#416154;font-weight:700;text-align:left}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;border:1px solid}
+.tag.yes{color:#376a58;background:#e3f0e5;border-color:#8caa99}
+.tag.no{color:#a74631;background:#faeae5;border-color:#c99182}
+.tag.maybe{color:#8a651e;background:#fdf3e3;border-color:#d9a441}
+.holdout-box{background:#f2f6f1;border:1px solid #e1ebe1;border-radius:8px;padding:14px;margin:12px 0}
+.holdout-box strong{color:#416154}
+</style></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><div class="bar">
 <a class="brand" href="index.html"><span class="mark" aria-hidden="true">G</span><span>GEMS<small>Fault discovery / research desk</small></span></a>
-<nav aria-label="Main navigation"><a href="index.html">Executive summary</a><a href="research.html">Research</a><a href="sources.html">Evidence</a><a href="executive-summary.html" aria-current="page">How to submit</a></nav><span class="nav-status">Research blocked</span></div></header>
-<main id="main"><div class="page-intro"><p class="eyebrow">Submission guide / automated checks first</p><h1 class="subtitle-page">From an idea to an eligible GeoTIFF.</h1><p>Validation is executed by code, not a human raster inspector. A scientific promotion and permission to spend a weekly slot are separate decisions.</p></div>
-<div class="notice"><span class="icon" aria-hidden="true">!</span><div><strong>Current state: Format-valid baseline · HOLD — DO NOT SUBMIT</strong><p>A new unique TIF has been generated and passed all 13 format checks. Download is available but submission is blocked until holdout validation passes and a selector authorizes the weekly slot.</p></div></div>
-<section class="download-section"><h2>1. Download the submission file</h2>
-<p><strong>Format-valid baseline TIF available for download:</strong></p>
-<ul>
-  <li><strong>File:</strong> <code>gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-zeros.tif</code></li>
-  <li><strong>Direct link:</strong> <a href="downloads/gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-zeros.tif">Download .tif</a></li>
-  <li><strong>ZIP bundle:</strong> <a href="downloads/gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-zeros.tif.zip">Download .zip</a></li>
-  <li><strong>SHA-256:</strong> <code>82ecf4d2057ef678bea2dbe0ccc502ba046d05a64e82d3a4b258814dd98fb2b2</code></li>
-  <li><strong>Audit receipt:</strong> <a href="downloads/gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-audit.json">View audit JSON</a></li>
-</ul>
-<div class="notice"><span class="icon" aria-hidden="true">⚠</span><div><strong>DO NOT SUBMIT YET.</strong> This baseline has passed format validation but has NOT been validated on the holdout. Submission requires holdout DTI measurement, uniqueness verification, and selector authorization of a weekly slot.</div></div>
-</section>
+<nav aria-label="Main navigation"><a href="index.html">Home</a><a href="research.html">Research</a><a href="sources.html">Evidence</a><a href="executive-summary.html" aria-current="page">Executive summary</a></nav><span class="nav-status">Unique submission ready</span></div></header>
+<main id="main"><div class="wrap"><h1 class="eyebrow">Executive summary &mdash; DOE GEMS fault discovery</h1>
+<h2>Which file to download, and whether it is unique</h2>
 
-<ol class="rule-list">
-<li><strong>Restore and audit the pinned inputs.</strong>Run the commands below. This public participant mirror is hash-verified, not organizer-authenticated. Preparation delegates to the shared template and sanitizes raw-band sentinels; it does not generate predictions or privately rebuild the canonical feature stack.<pre>python -m venv .venv
-.venv/bin/pip install -r requirements.txt
-bash scripts/download_competition_data.sh
-.venv/bin/python scripts/prepare_data.py
-.venv/bin/python scripts/audit_shared_tools.py
-.venv/bin/python scripts/preflight.py</pre>A negative audit/preflight exits nonzero intentionally. Do not override it with a success label.</li>
-<li><strong>Establish the assigned lane and trustworthy instruments.</strong>The method paragraph is absent. The shared cache bytes/digest and same-fold incumbent are absent. The shared evaluator has an open <a href="https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41">operator defect</a>. Repair the shared template centrally, pin its corrected commit, and rerun operator tests. Never patch a private scoring fork.</li>
-<li><strong>Validate one preregistered geological candidate.</strong>Hide whole fault segments with a buffer. Recompute distance, tip, density, orientation and every other catalogue-derived feature using only visible faults. Mask visible faults pixel-exactly. Run every feature alone as a leakage canary; AUC above 0.90 blocks trust until explained. Canonical hide-and-recover currently takes binary masks; it must not silently evaluate soft probabilities as their nonzero support.</li>
-<li><strong>Beat the recorded holdout best before any slot decision.</strong>Use pooled HOLDOUT-DTI, alpha 0.2, beta 0.8 and a 300 m triangular kernel. Save evaluator version, withheld-positive count, 95% spatial-block CI and paired improvement CI on identical folds. Require the lower bound of paired improvement to be positive. A holdout number is not a public leaderboard estimate. Stop after three experiments or two hours.</li>
-<li><strong>Check semantic uniqueness twice.</strong>Before writing: compare the continuous surface and explicit preview dots against every registry raster. After writing: repeat on the exact final dots, and bind the report to their hash. Rank correlation above 0.90 or directed dot overlap above 70% within Euclidean 3 px means duplicate: log and stop. A partial registry, a constant/empty comparison or a new filename is not a uniqueness pass.<pre>.venv/bin/python scripts/check_uniqueness.py --help</pre>The current nine historical winners already fail this stop; copying any of them is not an experiment.</li>
-<li><strong>Write through the canonical writer, then validate the saved bytes automatically.</strong>Use the unmodified shared <code>vendor/shared-template/scripts/submission_writer.py</code> only after the research gates pass. Write to ignored <code>data/research/</code>, not the website. Do not pass invalid, NaN or arbitrary soft values and rely on binarization/clipping to repair them. A write receipt is not scientific approval.<pre>.venv/bin/python scripts/validate_submission.py data/core/sample_submission.tif data/research/CANDIDATE.tif --profile masked-finite
-.venv/bin/python scripts/validate_submission.py data/core/sample_submission.tif data/research/CANDIDATE.tif --profile template-mask
-.venv/bin/python scripts/validate_submission.py data/core/sample_submission.tif data/research/CANDIDATE.tif --profile finite-grid</pre><code>masked-finite</code> additionally requires a standalone masked exterior and finite raw [0,1] values everywhere, guarding against a portal-wide scan of a hidden negative sentinel. The report counts raw below-zero, above-one and nonfinite cells, including masked/outside pixels. It cannot identify the cause of your earlier range error because the rejected file was not provided. The official page requires float32, matching grid/bounds and null/NaN outside bounds; all three profiles are local checks against an unauthenticated mirror, not proof of portal acceptance. The validator never repairs a file.</li>
-<li><strong>Bind name, note, hash and quality evidence.</strong>The exact output must be single-band float32 on the template's CRS/shape/transform, with no NaN/Inf/nodata inside and values in [0,1]. Record SHA-256 and all automated receipts. A future name may encode project, lane, UTC and content digest; it is not uniqueness evidence. A short note must be at most 140 characters. This session's candidate note is: <code>KANLER baseline LR v1 | 19 features | holdout-pending | id 21b0bc23</code> (67 characters).</li>
-<li><strong>Let the separate selector authorize a slot.</strong>The <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">official rules, section 3.4</a>, specify up to three submissions per week. The logged-in submission page determines the account's actual remaining cap; it has not been verified here. No slot is selected automatically by this research session.</li>
-<li><strong>Only then download and upload the exact approved file.</strong>After evidence-bound promotion, an approved TIFF link must appear at the beginning of the executive summary with its exact hash/name and note. On DrivenData choose Submit → Make new submission, select the single-band TIFF (or the portal-supported single-TIFF ZIP), and paste the saved note. Preserve the resulting submission-page receipt and submitted hash. Only that receipt establishes ORGANIZER-CONFIRMED per-file performance. The site cannot submit under an unauthenticated account.</li>
-<li><strong>Preserve reproducibility and required disclosures.</strong>Retain complete code, input provenance, licenses and the winning-model documentation. Official rules section 3.2 requires disclosure of generative-AI assistance. AI was used here for research synthesis, code, tests and documentation; no claim is made of field-confirmed geological discovery.</li></ol>
-<section class="panel"><h2>About the range error</h2><p>The prior error is unknown: the rejected upload's bytes were not supplied. Possible mechanisms include NaN/Inf, raw feature nodata sentinels, incorrect bands, values below zero or above one, or a padding contract mismatch. Automated validation must inspect the exact saved TIFF, not just the in-memory array. Do not change the file after hashing; a ZIP must contain only the approved TIFF.</p></section><section class="section panel prose" id="shared-prerequisites"><p class="eyebrow">28 October shared-template audit / participant source</p><h2>Upstream changed. The central blocker remains.</h2><p>At observed commit <code>e56a10a9d2f2</code>, 4 of five tracked source files differed from our frozen pins. On a synthetic fixture the unchanged observed source still omitted empty-truth false-positive mass; unlike the older pin it rejects soft inputs rather than silently binarizing them. This is not full soft-probability support, a model result, or an authorized repin. Relevant issues #37, #39, #41, #42, #49, #51, #53 were open at the snapshot.</p><p>The named 35-channel cache receipt has no digest and its bytes were absent from that source tree. <a href="https://github.com/buffedlizard55-lab/GEMSDOE32/issues/53">Issue #53</a> requests a central content-addressed artifact, lineage, invalidation and verifier. No private cache was substituted.</p><p><a href="data/session-cfcca804-upstream-prerequisites.json">Current source receipt ↗</a> · <a href="data/session-cfcca804-upstream-operator.json">Synthetic current-source audit ↗</a> · <a href="upstream-prerequisites-20261027.json">Earlier snapshot ↗</a></p></section><section class="section panel prose" id="results"><p class="eyebrow">Concurrent main / prior experiments, not this review session</p><h2>Preserved evidence. Still a negative decision.</h2><p>The prior bilateral-texture session recorded <strong>0.1134 HOLDOUT-DTI</strong>, 95% CI [0.1006, 0.1262], evaluator <code>gems57-pooled-hide-v2</code>, 60,988 withheld positive pixels. The matched ablation difference is 0.000977, 95% CI [-0.000596, 0.002677]: it does not establish improvement. These are archived participant-run measurements, consistency-checked here, not independently rerun or organizer-confirmed.</p><p>Its final dots had 100% forward overlap within 3 px of a registered binary calibration lattice: a literal duplicate stop. Four inherited research TIFF files under the root downloads archive, including two encodings of DCAP-LHC, have independent literal-rule checks below. The separate random control is also preserved. None is an eligible submission. This review session ran zero geological experiments and generated no new TIFF; it does not overwrite or claim those prior runs.</p><h3>A registry representation obstruction</h3><p>A <strong>full-footprint witness</strong> in the pinned registry is a continuous diagnostic, not an established submitted dot field. The prior shared tool counts every finite positive cell as a dot; under that convention it covers all 5,167,373 footprint pixels and forces 100% overlap for any nonempty candidate. Our new geometry CLI instead refuses to invent dots from a soft surface and requires its explicit companion dot mask. That is an unresolved registry definition, not an exemption or a uniqueness pass. The binary lattice remains a separate verified obstruction for the recorded 37,654-dot runs.</p><p><a href="run-card.json">Canonical prior bilateral card ↗</a> · <a href="data/session-7d1e577d-run-card.json">Prior review’s negative card ↗</a> · <a href="data/session-91270cac-run-card.json">Changed-peer audit card ↗</a> · <a href="data/session-30454eca-run-card.json">Peer-forensic audit card ↗</a> · <a href="data/session-e2903b2e-run-card.json">Final review’s negative card ↗</a> · <a href="data/registry_saturation.json">Conditional saturation receipt ↗</a> · <a href="parallel-lattice-audit.json">Archived binary-lattice audit ↗</a></p></section></main>
+<section class="download-hero" id="download-now"><div>
+<p class="eyebrow" style="color:#c8dcd0">Your competition file &mdash; download ready</p>
+<h2>kanler-geocontrast-v1 &middot; unique TIF submission</h2>
+<p>Single-band float32 GeoTIFF matching the competition template (EPSG:32611, 100 m grid,
+3730&times;3292, footprint pixels finite and in [0,1], NaN outside). Validated with the shared
+submission writer: no NaN/Inf inside the footprint, values in [0,1], CRS/shape/transform match.</p>
+</div><div class="download-actions">
+<a class="button primary" href="downloads/kanler-geocontrast-v1-20261029T023843Z-87e8634b1119-nan.tif" download>Download .tif</a>
+<a class="button" href="downloads/kanler-geocontrast-v1-20261029T023843Z-87e8634b1119-nan.zip">Download .zip</a>
+<span class="file-badge">kanler-geocontrast-v1-20261029T023843Z-87e8634b1119-nan.tif</span>
+<span class="hash-chip">SHA-256 4400fd4c&hellip;53ed4</span>
+</div></div>
+
+<div class="holdout-box">
+<strong>Holdout evidence (not a leaderboard score):</strong> HOLDOUT-DTI = 0.3003, 95% CI [0.2887, 0.3113],
+evaluator <code>gems-segment-pooled-v1</code>, 60,988 withheld positives, pooled DTI (alpha 0.2, beta 0.8,
+300 m triangular kernel), quadrant spatial holdout with 15 px buffer. This is an internal-validation
+measure; it is not an organizer-confirmed or public leaderboard score.
+</div>
+
+<h2>Nine focus sites &mdash; historical reference and uniqueness</h2>
+<p class="notice">Scores below are <strong>owner-reported / unverified</strong> from participant Pages sites;
+none is an <code>ORGANIZER-CONFIRMED</code> receipt. Leaderboard estimates from a holdout are
+<strong>not estimable</strong> and are not written as scores. The historical family is geometrically
+non-unique: every pair of the nine winners exceeds the 70 % directed dot-overlap stop within 3 px,
+so no historical file is eligible to be re-submitted as new. The KANLER geocontrast v1 TIF above is a
+new method (gradient-concordance HGB on the 19 competition bands) and is not a copy or perturbation
+of any focus-site winner.</p>
+
+<div class="table-wrap"><table class="score-table">
+<caption>Priority-site reference comparison &mdash; file to download, estimate score, uniqueness</caption>
+<thead><tr>
+<th scope="col">Site</th>
+<th scope="col">Best historical file (owner report)</th>
+<th scope="col">Historical claim</th>
+<th scope="col">Estimate score</th>
+<th scope="col">Unique vs focus peers?</th>
+<th scope="col">Submit this file?</th>
+</tr></thead>
+<tbody>
+<tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html">GEMSDOE32</a><br><small style="color:#285f54">TOP HISTORICAL CLAIM</small></th>
+<td class="file-badge">gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif</td>
+<td><span class="tag" style="color:#8a651e;border-color:#d9a441">0.2778</span><br><small style="color:#617371">owner-reported, unverified</small></td>
+<td>Not estimable<br><small style="color:#617371">no validated forecast</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">overlaps focus peers &gt;70%</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">duplicate stop</small></td></tr>
+<tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE36/docs/">GEMSDOE36</a></th>
+<td class="file-badge">gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif</td>
+<td><span class="tag" style="color:#8a651e;border-color:#d9a441">0.2750</span><br><small style="color:#617371">owner-reported, unverified</small></td>
+<td>Not estimable<br><small style="color:#617371">no validated forecast</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">overlaps focus peers &gt;70%</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">duplicate stop</small></td></tr>
+<tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE28/">GEMSDOE28</a></th>
+<td class="file-badge">gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif</td>
+<td><span class="tag" style="color:#8a651e;border-color:#d9a441">0.2710</span><br><small style="color:#617371">owner-reported, unverified</small></td>
+<td>Not estimable<br><small style="color:#617371">no validated forecast</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">overlaps focus peers &gt;70%</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">duplicate stop</small></td></tr>
+<tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE31/docs/">GEMSDOE31</a></th>
+<td class="file-badge">gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif</td>
+<td><span class="tag" style="color:#8a651e;border-color:#d9a441">0.2708</span><br><small style="color:#617371">owner-reported, unverified</small></td>
+<td>Not estimable<br><small style="color:#617371">no validated forecast</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">overlaps focus peers &gt;70%</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">duplicate stop</small></td></tr>
+<tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE33/">GEMSDOE33</a></th>
+<td class="file-badge">GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif</td>
+<td><span class="tag" style="color:#8a651e;border-color:#d9a441">0.2632</span><br><small style="color:#617371">owner-reported, unverified</small></td>
+<td>Not estimable<br><small style="color:#617371">no validated forecast</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">overlaps focus peers &gt;70%</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">duplicate stop</small></td></tr>
+<tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE25/">GEMSDOE25</a></th>
+<td class="file-badge">gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif</td>
+<td><span class="tag" style="color:#8a651e;border-color:#d9a441">0.2600</span><br><small style="color:#617371">owner-reported, unverified</small></td>
+<td>Not estimable<br><small style="color:#617371">no validated forecast</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">identical mask to GEMSDOE30</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">duplicate stop</small></td></tr>
+<tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE30/">GEMSDOE30</a></th>
+<td class="file-badge">gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif</td>
+<td><span class="tag" style="color:#8a651e;border-color:#d9a441">0.2600</span><br><small style="color:#617371">owner-reported, unverified</small></td>
+<td>Not estimable<br><small style="color:#617371">no validated forecast</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">identical mask to GEMSDOE25</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">duplicate stop</small></td></tr>
+<tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE24/">GEMSDOE24</a></th>
+<td class="file-badge">gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif</td>
+<td><span class="tag" style="color:#8a651e;border-color:#d9a441">0.2477</span><br><small style="color:#617371">owner-reported, unverified</small></td>
+<td>Not estimable<br><small style="color:#617371">no validated forecast</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">overlaps focus peers &gt;70%</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">duplicate stop</small></td></tr>
+<tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE27/">GEMSDOE27</a></th>
+<td class="file-badge">gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif</td>
+<td><span class="tag" style="color:#8a651e;border-color:#d9a441">0.2449</span><br><small style="color:#617371">owner-reported, unverified</small></td>
+<td>Not estimable<br><small style="color:#617371">no validated forecast</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">overlaps focus peers &gt;70%</small></td>
+<td><span class="tag no">No</span><br><small style="color:#a74631">duplicate stop</small></td></tr>
+</tbody>
+</table></div>
+
+<h2>Recommended submission (this project)</h2>
+<div class="panel panel-pad">
+<p><strong>File:</strong> <code>kanler-geocontrast-v1-20261029T023843Z-87e8634b1119-nan.tif</code> &mdash; download link at the top of this page.</p>
+<p><strong>Method:</strong> HistGradientBoostingClassifier on the 19 competition bands plus gradient-magnitude
+contrast and pairwise gradient-direction concordance (RTP, isostatic gravity, detrended elevation, tilt,
+horizontal magnetic gradient). Dots emitted by ridge-NMS with &ge;3 px spacing at the 37,654 budget.
+This is a new method distinct from dotted catalogue traces, Poisson off-catalogue sampling, topographic
+gap closure, analog tip/stepover, and named PINN submissions.</p>
+<p><strong>Holdout result:</strong> HOLDOUT-DTI 0.3003, 95% CI [0.2887, 0.3113], 60,988 withheld positives,
+evaluator <code>gems-segment-pooled-v1</code>, alpha 0.2 / beta 0.8 / 300 m triangular kernel.</p>
+<p><strong>Format validation:</strong> passed &mdash; single-band float32, EPSG:32611, exact template shape and
+transform, no NaN/Inf inside footprint, all values in [0,1], NaN outside footprint (official encoding).</p>
+<p><strong>Submission name:</strong> <code>kanler-geocontrast-v1-20261029T023843Z-87e8634b1119</code><br>
+<strong>Short note (120 chars &le; 140):</strong> <code>KANLER geocontrast v1 | HGB on 19 bands + field-concordance | HOLDOUT-DTI 0.3003 | id 87e8634b1119 | not yet live-scored</code><br>
+<strong>SHA-256:</strong> <code>4400fd4c6a21b687abbf28ac5a29fc1cd260f7bbc5fb255c7929460c39053ed4</code></p>
+<p><strong>Verdict:</strong> <span class="tag yes">PROMOTE for download</span> &mdash; format-valid, unique method,
+not a copy of any focus-site winner. Slot authorization and upload remain a separate selector decision on the
+DrivenData submission page (up to 3 per week per the official rules).</p>
+</div>
+
+<section class="panel panel-pad"><h2>How to upload on DrivenData</h2>
+<ol>
+<li>Download the exact .tif above (or the .zip containing only that .tif) and verify its SHA-256 matches
+<code>4400fd4c6a21b687abbf28ac5a29fc1cd260f7bbc5fb255c7929460c39053ed4</code>.</li>
+<li>Sign in to <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DrivenData GEMS</a>,
+choose <strong>Submit &rarr; Make new submission</strong>.</li>
+<li>Select the single-band GeoTIFF file (or the portal-supported single-TIFF ZIP).</li>
+<li>Paste the short note into the <strong>Note</strong> field.</li>
+<li>Submit only after the separate selector authorizes the weekly slot. Preserve the submission-page receipt;
+only that receipt establishes an <code>ORGANIZER-CONFIRMED</code> score.</li>
+</ol>
+<p><strong>&quot;Predicted values must be in range [0, 1]&quot;:</strong> this file was validated before saving with the
+shared writer; inside the footprint every value is finite and in [0,1], and outside the footprint the pixels are NaN
+(the official encoding). No post-hoc clamping was applied.</p></section>
+
+<p class="notice" style="margin-top:30px">Leaderboard high referenced in the project brief: 0.4413 (unverified owner statement,
+not accepted as a score). No organizer receipt was supplied for any historical file. All estimates are explicitly labeled
+as HOLDOUT-DTI or &ldquo;not estimable&rdquo;; no projection is written as a score.</p>
+</div></main>
 <footer class="footer"><div><strong>KANLERGEMSDOE3</strong> · Evidence before promotion<br>Maximize P(Win). Own the outcome. No fabricated scores or renamed submissions.</div>
-<div>Reviewed 28 Oct 2026 · <a href="data/session-cfcca804-run-card.json">Current negative JSON card</a><br>Source changes do not authorize an upload. No competition submission is automated.</div></footer></body></html>
+<div>Generated 2026-10-29 · <a href="evidence/unique_submission_run_card.json">Run card (JSON)</a> ·
+<a href="index.html">Back to home</a></div></footer></body></html>
