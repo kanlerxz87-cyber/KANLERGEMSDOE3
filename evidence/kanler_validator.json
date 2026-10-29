@@ -1,0 +1,16 @@
+{
+  "validator": "submission-format-v4-masked-finite-diagnostics (local)",
+  "candidate": "/home/user/KANLERGEMSDOE3/docs/downloads/kanler-geofault-propensity-20261029T031629Z-f705bdebde7e-nan.tif",
+  "template": "/home/user/KANLERGEMSDOE3/data/bridge/sample_submission.tif",
+  "candidate_sha256": "80cacf1d6a303e338cd5564b715423a60f2cd2dd569d1ab6275056cf2074279d",
+  "format_valid": true,
+  "hard_failures": [],
+  "in_footprint_positive_pixels": 37654,
+  "no_nan_inside_footprint": false,
+  "inside_range_0_1": false,
+  "no_infinite_pixels_anywhere": false,
+  "selected_encoding": false,
+  "portal_acceptance_verified": false,
+  "submission_authorized": false,
+  "note": "Local format check only; not organizer acceptance."
+}

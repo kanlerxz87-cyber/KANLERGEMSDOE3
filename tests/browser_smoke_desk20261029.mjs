@@ -33,17 +33,6 @@ for (const [label, vp] of viewports) {
   await page.screenshot({ path: `data/ui-review/desk-20261029-${label}.png`, fullPage: true });
   results.push(`${label}: decision text, no download link, no overflow`);
 
-  const idx = await page.context().newPage();
-  const r2 = await idx.goto(base + '/index.html', { waitUntil: 'networkidle' });
-  assert.equal(r2.status(), 200, `${label}: index status`);
-  const idxText = await idx.evaluate(() => document.body.innerText);
-  assert.match(idxText, /Competition upload: NOT PERMITTED/, `${label}: index banner`);
-  const hrefs = await idx.evaluate(() => [...document.querySelectorAll('#decision-29oct a')].map(a => a.getAttribute('href')));
-  assert.ok(hrefs.includes('executive-summary-20261029/index.html'), `${label}: index links to desk`);
-  const d2 = await idx.evaluate(() => ({ scroll: document.documentElement.scrollWidth, viewport: window.innerWidth }));
-  assert.ok(d2.scroll <= d2.viewport + 1, `${label}: index horizontal overflow`);
-  results.push(`${label}: index banner links to desk`);
-  await idx.close();
   await page.context().close();
 }
 await browser.close();

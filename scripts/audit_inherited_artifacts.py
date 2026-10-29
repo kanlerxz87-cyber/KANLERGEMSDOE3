@@ -40,9 +40,11 @@ def measure(restore: bool = False) -> dict:
     if not lattice.is_file() or sha256_file(lattice) != row["sha256"]:
         raise ValueError("Pinned lattice missing/changed; use --restore")
     files = inherited_files()
+    from scripts.build_site import check_quarantined_artifacts
+    quarantine = check_quarantined_artifacts()
     actual = {str(path.relative_to(ROOT)) for path in (ROOT / "docs/downloads").glob("*.tif")}
-    if actual != set(files):
-        raise ValueError("Research artifact inventory changed; do not silently omit a TIFF")
+    if actual != set(files) | set(quarantine["files"]):
+        raise ValueError("Research/quarantined artifact inventory changed; do not silently omit a TIFF")
     results = []
     for name, digest in files.items():
         path = (ROOT / name).resolve()

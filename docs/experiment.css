@@ -118,3 +118,12 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; }
 .markdown-page pre { padding: 15px; overflow: auto; background: #eef4ee; border-radius: 8px; }
 .markdown-page code { overflow-wrap: anywhere; }
 .markdown-page blockquote { padding: 5px 18px; margin-left: 0; border-left: 4px solid #84b29b; }
+
+/* New submission status tags */
+.tag.available { border: 1px solid #2e7d32; padding: 3px 7px; border-radius: 4px; color: #2e7d32; font-size: 10px; letter-spacing: .04em; white-space: nowrap; font-weight: 750; }
+.tag.positive { border: 1px solid #2e7d32; padding: 3px 7px; border-radius: 4px; color: #2e7d32; font-size: 10px; letter-spacing: .04em; white-space: nowrap; font-weight: 750; background: #e7f0e9; }
+.tag.pass { border: 1px solid #2e7d32; padding: 3px 7px; border-radius: 4px; color: #2e7d32; font-size: 10px; letter-spacing: .04em; white-space: nowrap; font-weight: 750; background: #e7f0e9; }
+.file-unavailable, .file-available { display: flex; gap: 10px; align-items: center; margin: 12px 0; padding: 14px; border-radius: 8px; }
+.file-unavailable { background: #faece6; border: 1px solid #f0d6c5; }
+.file-available { background: #e7f0e9; border: 1px solid #b8d4c0; }
+.top-label { font-size: 10px; text-transform: uppercase; letter-spacing: .08em; color: #2e7d32; font-weight: 800; display: block; margin-top: 4px; }

@@ -41,7 +41,7 @@ def page(title: str, content: str, active: str = "summary", prefix: str = "") ->
 <nav aria-label="Main navigation">{nav}</nav><span class="nav-status">Research blocked</span></div></header>
 <main id="main">{content}</main>
 <footer class="footer"><div><strong>KANLERGEMSDOE3</strong> · Evidence before promotion<br>Maximize P(Win). Own the outcome. No fabricated scores or renamed submissions.</div>
-<div>Reviewed 28 Oct 2026 · <a href="{prefix}data/session-cfcca804-run-card.json">Current negative JSON card</a><br>Source changes do not authorize an upload. No competition submission is automated.</div></footer></body></html>\n'''
+<div>Reviewed 29 Oct 2026 · <a href="{prefix}data/session-22555d3e-run-card.json">Current negative JSON card</a><br>Source changes do not authorize an upload. No competition submission is automated.</div></footer></body></html>\n'''
 
 
 def historical_url(row: dict) -> str:
@@ -119,7 +119,7 @@ def comparison_table(rows: list[dict]) -> str:
 <td><span class="tag negative">Duplicate</span><small>{row['max_overlap_3px']:.2%} maximum directed dot overlap within 3 px</small></td>
 <td><span class="tag unknown">{encoding}</span><small>Local mask policy; not a portal verdict<br>Named encoding profile, not approval.</small></td>
 <td><span class="not-approved">NO</span><small>No slot selected</small></td></tr>''')
-    return '''<div class="table-wrap"><table><caption class="skip">Nine priority-site historical reference comparison; none is a submission recommendation.</caption><thead><tr><th scope="col">Site</th><th scope="col">File to download / submit</th><th scope="col">Historical claim</th><th scope="col">Leaderboard estimate</th><th scope="col">Unique?</th><th scope="col">Encoding profile</th><th scope="col">Submit?</th></tr></thead><tbody>''' + "".join(out) + "</tbody></table></div>"
+    return '''<div class="table-wrap"><table><caption class="skip">Nine priority-site historical reference comparison; none is a submission recommendation.</caption><thead><tr><th scope="col">Site</th><th scope="col">Candidate / historical reference</th><th scope="col">Historical claim</th><th scope="col">Leaderboard estimate</th><th scope="col">Unique?</th><th scope="col">Encoding profile</th><th scope="col">Submit?</th></tr></thead><tbody>''' + "".join(out) + "</tbody></table></div>"
 
 
 
@@ -354,11 +354,90 @@ def method_note(repo: str) -> str:
 
 
 
-def check_inherited(report: dict) -> None:
-    """Bind the saved geometry receipt to every inherited TIFF, without repinning."""
-    files = {str(path.relative_to(ROOT)) for path in (DOCS / "downloads").glob("*.tif")}
-    if len(report["rows"]) != len(files) or {row["file"] for row in report["rows"]} != files or report.get("slot_authorized") is not False:
-        raise ValueError("Inherited TIFF inventory/authorization receipt changed")
+def check_quarantined_artifacts() -> dict:
+    """Hash-bind concurrent main TIFFs to their original cards without approving them.
+
+    These artifacts are deliberately outside the inherited-lattice receipt. Their
+    exact saved bytes are identified, but no geometry/registry test is inferred.
+    """
+    def bind(relative: str, expected_sha256: str, expected_size: int | None = None) -> Path:
+        rel = Path(relative)
+        if rel.is_absolute() or ".." in rel.parts:
+            raise ValueError("Quarantined artifact path is unsafe")
+        path = ROOT / rel
+        if (path.is_symlink() or not path.is_file()
+                or not path.resolve().is_relative_to((DOCS / "downloads").resolve())):
+            raise ValueError("Quarantined artifact is missing or outside docs/downloads: " + relative)
+        actual = hashlib.sha256(path.read_bytes()).hexdigest()
+        if actual != expected_sha256 or (expected_size is not None and path.stat().st_size != expected_size):
+            raise ValueError("Quarantined saved bytes differ from their source card: " + relative)
+        return path
+
+    geocontrast = read("evidence/unique_submission_run_card.json")
+    if geocontrast.get("schema") != "kanler.unique_submission.v1":
+        raise ValueError("Concurrent geocontrast card has an unexpected schema")
+    gtif = geocontrast.get("tif")
+    gzip_path = geocontrast.get("zip")
+    gv = geocontrast.get("validator") or {}
+    if (not isinstance(gtif, str) or not isinstance(gzip_path, str)
+            or geocontrast.get("raster_sha256") != gv.get("sha256")
+            or gv.get("ok_to_upload") is not False or gv.get("submission_authorized") is not False
+            or "submission_authorization" in geocontrast or "input_provenance" in geocontrast
+            or geocontrast.get("verdict") != "promote" or geocontrast.get("ok_to_download") is not True):
+        raise ValueError("Concurrent geocontrast card does not preserve a fail-closed upload decision")
+    tif = bind(gtif, geocontrast["raster_sha256"], gv.get("bytes"))
+    zip_file = bind(gzip_path, geocontrast["zip_sha256"])
+    try:
+        with zipfile.ZipFile(zip_file) as archive:
+            members = [entry for entry in archive.infolist() if not entry.is_dir()]
+            if (archive.testzip() is not None or len(members) != 1
+                    or members[0].filename != Path(gtif).name
+                    or hashlib.sha256(archive.read(members[0])).hexdigest() != geocontrast["raster_sha256"]):
+                raise ValueError("Concurrent geocontrast ZIP does not contain the exact card-bound TIFF")
+    except (OSError, zipfile.BadZipFile, KeyError) as exc:
+        raise ValueError("Concurrent geocontrast ZIP is unreadable") from exc
+    hold = geocontrast.get("holdout") or {}
+    if (hold.get("label") != "HOLDOUT-DTI" or not isinstance(hold.get("evaluator_version"), str)
+            or type(hold.get("withheld_positives")) is not int or hold["withheld_positives"] <= 0
+            or not isinstance(hold.get("ci95"), list) or len(hold["ci95"]) != 2
+            or not all(isinstance(x, (int, float)) and math.isfinite(x) for x in hold["ci95"])
+            or not isinstance(hold.get("dti"), (int, float)) or not math.isfinite(hold["dti"])):
+        raise ValueError("Concurrent geocontrast HOLDOUT-DTI metadata is malformed")
+
+    baseline = read("docs/data/kanler-baseline-lr-v1-run-card.json")
+    if (baseline.get("schema") != "kanler.run_card.v1" or baseline.get("verdict") != "negative"
+            or baseline.get("ok_to_submit") is not False or baseline.get("holdout", {}).get("dti") is not None
+            or "NOT_FULLY_CHECKED" not in baseline.get("uniqueness_vs_focus9", "")):
+        raise ValueError("Concurrent baseline card cannot support a release and must remain quarantined")
+    audit_path = DOCS / "downloads/gemsdoe32-kanler-baseline-lr-v1-20261029T120000Z-21b0bc23-audit.json"
+    if not audit_path.is_file():
+        raise ValueError("Concurrent baseline saved-byte audit is missing")
+    baseline_audit = json.loads(audit_path.read_text())
+    files: dict[str, str] = {gtif: geocontrast["raster_sha256"]}
+    for key in ("zeros_tif", "nan_tif"):
+        record = baseline_audit.get(key) or {}
+        relative = "docs/downloads/" + str(record.get("filename", ""))
+        path = bind(relative, record.get("sha256", ""), record.get("size_bytes"))
+        files[relative] = record["sha256"]
+        if key == "zeros_tif" and (baseline.get("raster_sha256") != record["sha256"]
+                                    or Path(baseline.get("tif", "")).name != path.name):
+            raise ValueError("Concurrent baseline run card is not bound to its zeros TIFF")
+    if len(files) != 3 or geocontrast.get("tif") not in files:
+        raise ValueError("Concurrent quarantine inventory is incomplete")
+    return {"files": files, "geocontrast": geocontrast, "baseline": baseline,
+            "baseline_audit": baseline_audit, "geocontrast_zip": gzip_path}
+
+
+def check_inherited(report: dict, quarantine: dict | None = None) -> None:
+    """Bind inherited audit rows separately from hash-only quarantined main artifacts."""
+    quarantine = quarantine if quarantine is not None else check_quarantined_artifacts()
+    all_files = {str(path.relative_to(ROOT)) for path in (DOCS / "downloads").glob("*.tif")}
+    quarantine_files = set(quarantine["files"])
+    files = all_files - quarantine_files
+    audited = {row["file"] for row in report["rows"]}
+    if (len(report["rows"]) != len(files) or audited != files or quarantine_files - all_files
+            or all_files != audited | quarantine_files or report.get("slot_authorized") is not False):
+        raise ValueError("Inherited/quarantined TIFF inventory or authorization receipt changed")
     lattice = next(row for row in read("research/registry-lock.json")["entries"] if row["id"] == "registry-160")
     for row in report["rows"]:
         path = (ROOT / row["file"]).resolve()
@@ -387,6 +466,29 @@ def inherited_section(report: dict, downloads: bool = False) -> str:
             label = f'<a href="downloads/{esc(filename)}" title="{esc(filename)}" download>{label} ↘</a><br><small>Research-only TIFF; not an eligible upload.</small>'
         rows.append(f'<tr><th scope="row">{label}</th><td>{row["candidate_dots"]:,}</td><td>{row["candidate_dot_overlap_fraction"]:.3%}</td><td>{row["catalogue_positive_pixels"]:,}</td><td>{"PASS local profile only" if row["validator"]["ok"] else "FAIL"}</td><td class="status-stop">{"STOP DUPLICATE" if row["duplicate_over_70_percent"] else "BLOCKED / incomplete registry"}</td></tr>')
     return f'<section class="section panel" id="kanler-h1"><p class="eyebrow">Concurrent main preserved · not this session’s experiments</p><h2>Four root-archive TIFFs. Still no eligible upload.</h2><p>An independent saved-byte check includes the binary calibration lattice, with no “like-for-like” exemption. All four root-archive TIFFs exceed the literal 70% overlap stop. The separately preserved SSP1 study is not included in this four-file count. This is geometry forensics, not a model score or a complete registry audit.</p><div class="table-wrap" role="region" aria-label="Inherited research artifact literal-rule audit" tabindex="0"><table class="comparison"><thead><tr><th scope="col">Inherited research artifact</th><th scope="col">Dots</th><th scope="col">Within 3 px of lattice</th><th scope="col">On mirrored catalogue</th><th scope="col">Saved bytes</th><th scope="col">Eligibility</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div><p>The GPC file also contains 4,115 positives on mirrored catalogue pixels; its final-file visible-mask claim must not be inferred from a holdout flag. Local padding checks are not organizer authentication.</p><p><a href="inherited-literal-audit.json">Bound geometric + format receipts ↗</a> · <a href="parallel-research.html">Scoped parallel cards / research-only downloads ↗</a></p></section>'
+
+
+def quarantined_section(receipt: dict, prefix: str = "") -> str:
+    """Show concurrent artifacts as hash-bound but unapproved, without file links."""
+    geocontrast = receipt["geocontrast"]
+    baseline = receipt["baseline"]
+    hold = geocontrast["holdout"]
+    holdout_text = (f"{hold['dti']:.6f} HOLDOUT-DTI · evaluator <code>{esc(hold['evaluator_version'])}</code> · "
+                    f"{hold['withheld_positives']:,} withheld positives · 95% CI "
+                    f"[{hold['ci95'][0]:.6f}, {hold['ci95'][1]:.6f}]")
+    rows = [
+        f'''<tr><th scope="row">Concurrent PR #48 · gradient-concordance HGB</th>
+<td><code>{esc(geocontrast['submission_name'])}</code><br><small>Note recorded in card, not approved: {esc(geocontrast['submission_note'])}</small></td>
+<td><code>{esc(Path(geocontrast['tif']).name)}</code><br><small>SHA-256 <code>{esc(geocontrast['raster_sha256'])}</code></small></td>
+<td>{holdout_text}<br><small>Participant-run claim; not reproduced here, not a leaderboard estimate.</small></td>
+<td><strong>QUARANTINED</strong><br>No complete-registry uniqueness or selector authorization. Validator says upload false; source card's “promote” / download flag is not adopted.</td></tr>''',
+        f'''<tr><th scope="row">Concurrent PR #47 · baseline LR</th>
+<td><code>{esc(baseline['submission_name'])}</code><br><small>Note recorded in card, not approved: {esc(baseline['submission_note'])}</small></td>
+<td><code>{esc(receipt['baseline_audit']['zeros_tif']['filename'])}</code><br><small>SHA-256 <code>{esc(receipt['baseline_audit']['zeros_tif']['sha256'])}</code></small><br><code>{esc(receipt['baseline_audit']['nan_tif']['filename'])}</code><br><small>SHA-256 <code>{esc(receipt['baseline_audit']['nan_tif']['sha256'])}</code></small></td>
+<td><strong>NOT_ESTIMABLE</strong><br><small>No HOLDOUT-DTI was run for this baseline.</small></td>
+<td><strong>QUARANTINED</strong><br>No full-registry uniqueness, holdout, or selector authorization. Historical card's download flag is not adopted.</td></tr>''',
+    ]
+    return f'''<section class="section panel" id="concurrent-main-artifacts"><p class="eyebrow">Concurrent main artifacts · not this review's output</p><h2>Preserved bytes. No download or upload authorization.</h2><p>These files arrived with merged PRs #47/#48 while this review branch was active. The checks below bind saved bytes to their cards; they do <strong>not</strong> reproduce their models, validate their holdouts, establish all-registry uniqueness, or grant a slot. No TIFF or ZIP link is exposed here.</p><div class="table-wrap" role="region" aria-label="Quarantined concurrent candidate artifacts" tabindex="0"><table class="comparison"><thead><tr><th scope="col">Source / method</th><th scope="col">Recorded name and note (not approved)</th><th scope="col">Preserved bytes</th><th scope="col">Score evidence</th><th scope="col">Current review status</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div><p>The PR #48 body says participant-mirror inputs were used; its run card omits <code>input_provenance</code>. The recorded <code>ok_to_download</code> / <code>promote</code> values do not override the validator's <code>ok_to_upload:false</code>, the missing top-level authorization key, the incomplete registry, or the separate selector. No score projection is made.</p><p><a href="{prefix}data/unique_submission_run_card.json">PR #48 original run card ↗</a> · <a href="{prefix}data/kanler-baseline-lr-v1-run-card.json">PR #47 original run card ↗</a> · <a href="{prefix}executive-summary.md">Historical Markdown summary and status override ↗</a></p></section>'''
 
 
 def gpc_archive_pages(report: dict, card: dict) -> dict[Path, str]:
@@ -567,7 +669,8 @@ def build(check_only: bool = False) -> None:
     check_cfrp_receipt(cfrp_audit)
     cfrp_geom = cfrp_audit["geometry"]
     inherited = read("evidence/inherited_literal_audit.json")
-    check_inherited(inherited)
+    quarantine = check_quarantined_artifacts()
+    check_inherited(inherited, quarantine)
     saturation = read("evidence/session-30454eca-saturation.json")
     check_saturation(saturation, (ROOT / "evidence/upstream/GEMSDOE31/registry/raster_registry.json").read_bytes())
     from scripts.check_run import check
@@ -663,10 +766,10 @@ The [superseded parallel research at the inherited commit](https://github.com/ka
                     else "The cache source inventory changed; its bytes, lineage and suitability have not been independently verified.")
     shared_panel = f'''<section class="section panel prose" id="shared-prerequisites"><p class="eyebrow">28 October shared-template audit / participant source</p><h2>Upstream changed. The central blocker remains.</h2><p>At observed commit <code>{esc(current_upstream['participant_source']['head_commit'][:12])}</code>, {changed_files} of five tracked source files differed from our frozen pins. On a synthetic fixture the unchanged observed source still omitted empty-truth false-positive mass; unlike the older pin it rejects soft inputs rather than silently binarizing them. This is not full soft-probability support, a model result, or an authorized repin. Relevant issues {esc(issue_numbers)} were open at the snapshot.</p><p>{esc(cache_detail)} <a href="https://github.com/buffedlizard55-lab/GEMSDOE32/issues/53">Issue #53</a> requests a central content-addressed artifact, lineage, invalidation and verifier. No private cache was substituted.</p><p><a href="data/session-cfcca804-upstream-prerequisites.json">Current source receipt ↗</a> · <a href="data/session-cfcca804-upstream-operator.json">Synthetic current-source audit ↗</a> · <a href="upstream-prerequisites-20261027.json">Earlier snapshot ↗</a></p></section>'''
     parallel_panel = f'''<section class="section panel prose" id="results"><p class="eyebrow">Concurrent main / prior experiments, not this review session</p><h2>Preserved evidence. Still a negative decision.</h2><p>The prior bilateral-texture session recorded <strong>{prior['dti']:.4f} HOLDOUT-DTI</strong>, 95% CI [{prior['ci95'][0]:.4f}, {prior['ci95'][1]:.4f}], evaluator <code>{esc(prior['evaluator_version'])}</code>, {prior['withheld_positive_pixels']:,} withheld positive pixels. The matched ablation difference is {delta['delta']:.6f}, 95% CI [{delta['ci95'][0]:.6f}, {delta['ci95'][1]:.6f}]: it does not establish improvement. These are archived participant-run measurements, consistency-checked here, not independently rerun or organizer-confirmed.</p><p>Its final dots had 100% forward overlap within 3 px of a registered binary calibration lattice: a literal duplicate stop. Four inherited research TIFF files under the root downloads archive, including two encodings of DCAP-LHC, have independent literal-rule checks below. The separate random control is also preserved. None is an eligible submission. This review session ran zero geological experiments and generated no new TIFF; it does not overwrite or claim those prior runs.</p><h3>A registry representation obstruction</h3><p>A <strong>full-footprint witness</strong> in the pinned registry is a continuous diagnostic, not an established submitted dot field. The prior shared tool counts every finite positive cell as a dot; under that convention it covers all 5,167,373 footprint pixels and forces 100% overlap for any nonempty candidate. Our new geometry CLI instead refuses to invent dots from a soft surface and requires its explicit companion dot mask. That is an unresolved registry definition, not an exemption or a uniqueness pass. The binary lattice remains a separate verified obstruction for the recorded 37,654-dot runs.</p><p><a href="run-card.json">Canonical prior bilateral card ↗</a> · <a href="data/session-7d1e577d-run-card.json">Prior review’s negative card ↗</a> · <a href="data/session-91270cac-run-card.json">Changed-peer audit card ↗</a> · <a href="data/session-30454eca-run-card.json">Peer-forensic audit card ↗</a> · <a href="data/session-e2903b2e-run-card.json">Final review’s negative card ↗</a> · <a href="data/registry_saturation.json">Conditional saturation receipt ↗</a> · <a href="parallel-lattice-audit.json">Archived binary-lattice audit ↗</a></p></section>'''
-    main = f'''<section class="section panel" id="decision-29oct"><p class="eyebrow">Latest decision / 29 October 2026</p><h2>Download: NOT PERMITTED · Competition upload: NOT PERMITTED</h2><p>The off-catalogue candidate failed the literal registry uniqueness gate. Its holdout estimate, HOLDOUT-DTI 0.1146 (95% CI 0.1087–0.1205), is below the recorded same-evaluator best 0.163715. <a href="executive-summary-20261029/index.html">Executive summary</a> · <a href="executive-summary-20261029/index.html#submit-steps">Submission guide</a></p></section>
-<section class="hero"><div><p class="eyebrow">Executive summary / DOE GEMS</p><h1>Better fault predictions.<br><em>Evidence before a slot.</em></h1><p class="lede">An honest decision desk for the nine priority sites. See exactly what can be downloaded, what has been tested, and what still blocks a genuinely new submission.</p><p class="date">28 October 2026 review · Earlier observations remain dated, not score projections</p></div>
-<aside class="download-card" aria-label="Submission file status"><p class="eyebrow">Your competition file</p><h2>No eligible TIFF yet.</h2><p>The required scientific and uniqueness gates have not passed. No historical file is being relabelled as new.</p><div class="file-unavailable"><svg width="27" height="32" viewBox="0 0 27 32" fill="none" aria-hidden="true"><path d="M4 1h12l7 7v22H4zM16 1v8h7M9 16h9M9 21h9" stroke="currentColor" stroke-width="1.4"/></svg><div><strong>Download unavailable · DO NOT SUBMIT</strong><small>No placeholder file. No authorized slot.</small></div></div><div class="download-meta"><div><span>Score estimate</span><strong>Not estimable</strong></div><div><span>Unique candidate</span><strong>Not generated</strong></div><div><span>Weekly slots used</span><strong>None this session</strong></div></div></aside></section>
-<div class="notice"><span class="icon" aria-hidden="true">!</span><div><strong>DO NOT SUBMIT — historical winners duplicate; no new candidate qualifies.</strong><p>The historical family fails your literal overlap stop. Core data were restored locally for this review from participant mirrors; ignored inputs must be restored in a fresh checkout. The assigned lane/cache/incumbent are missing and the shared evaluator needs a central repair. This is a negative research deliverable, not a completed high-scoring model.</p><p><a href="session-e2903b2e-review.md">Final integrated three-pass review →</a> · <a href="session-30454eca-review.md">Peer-forensic review →</a> · <a href="session-91270cac-review.md">Changed-peer audit →</a> · <a href="session-5c1613da-review.md">Parallel CADG audit →</a></p></div></div>
+    main = f'''<section class="hero"><div><p class="eyebrow">Executive summary / DOE GEMS</p><h1>Better fault predictions.<br><em>Evidence before a slot.</em></h1><p class="lede">An honest decision desk for the nine priority sites. See exactly what can be downloaded, what has been tested, and what still blocks a genuinely new submission.</p><p class="date">29 October 2026 review · Earlier observations remain dated, not score projections</p></div>
+<aside class="download-card" aria-label="Submission file status"><p class="eyebrow">Your competition file</p><h2>No eligible TIFF yet.</h2><p>The required scientific and uniqueness gates have not passed. No historical file is being relabelled as new.</p><div class="file-unavailable"><svg width="27" height="32" viewBox="0 0 27 32" fill="none" aria-hidden="true"><path d="M4 1h12l7 7v22H4zM16 1v8h7M9 16h9M9 21h9" stroke="currentColor" stroke-width="1.4"/></svg><div><strong>Download unavailable · DO NOT SUBMIT</strong><small>No placeholder file. No authorized slot.</small></div></div><div class="download-meta"><div><span>Score estimate</span><strong>Not estimable</strong></div><div><span>Unique candidate</span><strong>Not certified</strong></div><div><span>Weekly slots used</span><strong>None this session</strong></div></div></aside></section>
+<div class="notice"><span class="icon" aria-hidden="true">!</span><div><strong>DO NOT SUBMIT — historical winners duplicate; no new candidate qualifies.</strong><p>The historical family fails your literal overlap stop. Core data were restored locally for this review from participant mirrors; ignored inputs must be restored in a fresh checkout. The assigned lane/cache/incumbent are missing and the shared evaluator needs a central repair. This is a negative research deliverable, not a completed high-scoring model.</p><p><a href="session-22555d3e-review.md">Current three-pass review →</a> · <a href="data/session-22555d3e-run-card.json">Current negative run card →</a> · <a href="session-e2903b2e-review.md">Previous integrated review →</a> · <a href="session-91270cac-review.md">Changed-peer audit →</a></p></div></div>
+{quarantined_section(quarantine)}
 {peer_forensics_section(peer_forensics)}
 <div class="stats"><article class="stat"><span class="label">Historical uniqueness</span><strong>9 / 9 stopped</strong><small>Geometric audit · not DTI scores</small></article><article class="stat"><span class="label">Data placement</span><strong>Locally restored</strong><small>19-band input · participant mirror, not organizer-authenticated</small></article><article class="stat"><span class="label">Shared instruments</span><strong>Blocked</strong><small>Source-locked · operator defect reproduced</small></article><article class="stat"><span class="label">Geological experiments / current review</span><strong>0 / 3</strong><small>No lane silently assigned · no slot spent</small></article></div>
 <section class="section panel prose" id="atsc-submod-study-link"><p class="eyebrow">Latest preserved ATSC study / independent audit</p><h2>ATSC archive: <span class="not-approved">DO NOT SUBMIT.</span></h2><p>The saved research TIFF has <strong>{atsc_geom['candidate_dots_within_3px_of_lattice']:,} / {atsc_geom['candidate_dots']:,} dots ({atsc_geom['candidate_dot_overlap_fraction']:.2%})</strong> within 3 px of the full registered lattice. The stop cannot be waived. Its recorded canaries omit all 22 Stage-2 corridor feature names; missing evidence is not proof of leakage. Its positive paired interval is versus B0, not the named CADG incumbent.</p><p>The zero-outside TIFF passes only the local finite-grid profile; its NaN twin passes only template-mask. Neither establishes portal acceptance. No new TIFF, score estimate, or slot was created in this review.</p><a href="atsc-submod/index.html">Corrected study and saved-byte audit →</a> · <a href="session-cfcca804-review.md">Three-pass review →</a> · <a href="data/session-cfcca804-run-card.json">Current negative run card →</a> · <a href="data/session-cfcca804-upstream-operator.json">Current-source synthetic operator audit →</a></section>
@@ -691,7 +794,7 @@ The [superseded parallel research at the inherited commit](https://github.com/ka
     emit(DOCS / "index.html", page("Executive summary", main))
     emit(DOCS / "summary.html", page("Executive summary", main))
     for path in ("executive-summary.html", "submission.html"):
-        emit(DOCS / path, page("How to submit", guide() + shared_panel + parallel_panel, "guide"))
+        emit(DOCS / path, page("How to submit", guide() + quarantined_section(quarantine) + shared_panel + parallel_panel, "guide"))
     research = f'''<div class="page-intro"><p class="eyebrow">Scientific research / preregistered proposals</p><h1 class="subtitle-page">Contrarian mechanisms.<br>Conservative evidence.</h1><p>The competition predicts previously unmapped faults, not directly geothermal vents. Geological plausibility is a hypothesis; only a leakage-safe, paired experiment can establish holdout improvement.</p></div><div class="notice"><span class="icon" aria-hidden="true">!</span><div><strong>No method lane was supplied. No geological experiment was run in this review session.</strong><p>These proposals were recorded before method implementation. “Untested” does not mean globally novel. New-data variants are not viable until the official bytes and required coverage are obtainable.</p></div></div>
 {hypothesis_cards(hypotheses, detailed=True)}
 <section class="section panel prose"><h2>Separate scoped hypothesis queue</h2><p>Another review independently ranked four conditional proposals: cross-scale magnetic/radiometric edge disagreement, repeated drainage-displacement graphs, paired alteration-front terminations and terrain-conditioned thermal asymmetry. They are not interchangeable with the concurrent queue above and neither review assigned a lane or ran a geological experiment.</p><p><a href="session-91270cac-hypotheses.md">Session 91270cac ranked mechanisms, mimics, sources and costs →</a> · <a href="session-12817d00-review.md">Concurrent review and prerequisites →</a> · <a href="session-91270cac-review.md">Changed-peer forensic review →</a> · <a href="session-e2903b2e-review.md">Final integrated review →</a></p></section>
@@ -753,7 +856,7 @@ The [original scoped report at the inherited commit](https://github.com/kanlerxz
     emit(DOCS / "upstream-prerequisites-20261028.json", (ROOT / "evidence/session-20261028-upstream-prerequisites.json").read_text())
     for source, dest in [("evidence/parallel-poisson-audit-20261027.json", "parallel-poisson-audit-20261027.json"), ("evidence/kpl36-lattice-audit-20261027.json", "kpl36-lattice-audit-20261027.json"), ("evidence/h33-lineage-20261027.json", "h33-lineage-20261027.json"), ("evidence/official-observation-20261027.json", "official-observation-20261027.json"), ("evidence/official-claims-20261026.json", "official-claims.json"), ("evidence/shared_tool_audit.json", "tool-audit.json"), ("evidence/input-integrity.json", "input-integrity.json"), ("evidence/session-7d1e577d-verification.json", "verification.json"), ("evidence/inherited_literal_audit.json", "inherited-literal-audit.json"), ("evidence/sample-provenance-check.json", "sample-provenance-check.json"), ("evidence/session-e2903b2e-upstream-prerequisites.json", "upstream-prerequisites-20261027.json"), ("evidence/session-662a9e8b-upstream-prerequisites.json", "session-662a9e8b-upstream-prerequisites.json"), ("knowledge/geothermal-science-2026-10-27.md", "geothermal-science-2026-10-27.md")]:
         emit(DOCS / dest, (ROOT / source).read_text())
-    for name in ("review", "hypotheses", "verification", "session-12817d00-review", "session-5c1613da-review", "session-91270cac-review", "session-91270cac-hypotheses", "session-30454eca-review", "session-30454eca-hypotheses", "session-e2903b2e-review", "session-0f36badb-review", "session-cfcca804-review"):
+    for name in ("review", "hypotheses", "verification", "session-12817d00-review", "session-5c1613da-review", "session-91270cac-review", "session-91270cac-hypotheses", "session-30454eca-review", "session-30454eca-hypotheses", "session-e2903b2e-review", "session-0f36badb-review", "session-cfcca804-review", "session-22555d3e-review"):
         emit(DOCS / f"{name}.md", (ROOT / "research" / f"{name}.md").read_text())
 
     for src, destinations in [
@@ -769,6 +872,9 @@ The [original scoped report at the inherited commit](https://github.com/kanlerxz
         ("evidence/session-e2903b2e-run-card.json", [DOCS / "data/session-e2903b2e-run-card.json"]),
         ("evidence/session-20261028-run-card.json", [DOCS / "data/session-20261028-run-card.json"]),
         ("evidence/session-cfcca804-run-card.json", [DOCS / "data/session-cfcca804-run-card.json"]),
+        ("evidence/session-22555d3e-run-card.json", [DOCS / "data/session-22555d3e-run-card.json"]),
+        ("evidence/session-22555d3e-preflight.json", [DOCS / "data/session-22555d3e-preflight.json"]),
+        ("evidence/unique_submission_run_card.json", [DOCS / "data/unique_submission_run_card.json"]),
         ("evidence/session-cfcca804-upstream-operator.json", [DOCS / "data/session-cfcca804-upstream-operator.json"]),
         ("evidence/session-cfcca804-upstream-prerequisites.json", [DOCS / "data/session-cfcca804-upstream-prerequisites.json"]),
         ("evidence/session-e2903b2e-verification.json", [DOCS / "data/session-e2903b2e-verification.json"]),
