@@ -1,5 +1,62 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
+## 29 October 2026 — executive summary, submission desk and verdict
+
+**Verdict: DO NOT DOWNLOAD OR SUBMIT.** No file produced in this session passes every gate.
+
+- The only format-valid candidate, KS3-strain (`docs/submission/quarantine/kanlergemsdoe3-ks3-strain-37654-20261029-zeros.tif`,
+  zeros outside the footprint, 37,654 dots, 0 catalogue dots), is **quarantined**. It fails the
+  uniqueness gate under the two-way rule: 72.1% of the dots of GEMSDOE69
+  `h69-joint-relayramp-pullapart-38669` lie within 3 px of a KS3-strain dot (chance 19.1%); the reverse
+  share is 5.5%. The candidate also fails the value gate (SGMC-CAL
+  proxy 0.0540 is below the H33 B2 reference 0.0641). The file is not linked as a download.
+- Estimated leaderboard score: **not estimated.** Proxies are not scores.
+- The nine focus sites: every historical best file is a listed submission, so none is new or unique.
+  Owner-reported values are UNVERIFIED and labelled as such on the desk.
+- Pages: [submission desk (executive summary, file table, how to submit)](docs/submission/index.html).
+  The root `docs/index.html` opens with the same verdict banner. The root redirect is unchanged.
+
+Receipts: [verdict card](evidence/kanler-s3-verdict-20261029.json) ·
+[write receipt](evidence/kanler-s3-materialize-20261029.json) ·
+[uniqueness v2](evidence/kanler-s3-uniqueness-20261029.json) (v1 kept as
+[superseded](evidence/kanler-s3-uniqueness-20261029-v1-superseded.json)) ·
+[peer inventory](evidence/peer-tif-inventory-20261029.json) ·
+[focus-9 audit](evidence/focus9-audit-20261029.json) ·
+[E1 canary](evidence/kanler-s3-e1-canary-20261029.json) ·
+[E2/E3 candidates](evidence/kanler-s3-e2-candidates-20261029.json) ·
+[pre-registration](evidence/preregistration-20261029-kanler-s3.json).
+
+**Standing request for this session (29 Oct 2026), summarized.** The full standing request is
+preserved in [PROJECT_PROMPT.md](PROJECT_PROMPT.md) and in the "Full standing user request"
+section below; read both at the start of every session. The 29 Oct request asks for:
+(1) an executive summary at the top of the site naming the single best file to download and
+submit from the nine focus sites (24, 25, 27, 28, 30, 31, 32, 33, 36), with a table of file,
+estimated score and uniqueness versus the other listed sites; (2) a unique TIF in [0,1] on the
+EPSG:32611 3730×3292 grid, with a unique name and a note of at most 140 characters, validated by
+the project and not by a human inspector; (3) every score labelled HOLDOUT-DTI or
+ORGANIZER-CONFIRMED, with projections never written as scores; (4) no duplicates of a previous
+submission (a 70% directed overlap counts as a duplicate); (5) a single method lane, at most 3
+experiments or 2 hours, with no slot picking; (6) the reported error "Predicted values must be in
+range [0, 1]" addressed; (7) a PR merged to `main`, with multi-pass review and irregularities
+flagged; (8) no hallucinations and official links for manual review. The reported leaderboard
+values 0.4413 (high) and 0.3195 (reference) are unverified.
+
+**Uniqueness rule revision (disclosed).** The first uniqueness run (v1) measured only
+candidate-to-peer coverage, and dense or non-submission rasters (feature maps, all-ones masks,
+integer ID maps) were flagged at 100% by construction (109 flags). v2 (a) excludes rasters that are
+neither binary nor in [0,1], since the submission format requires [0,1]; (b) requires coverage above
+70% and at least 50 points above chance in either direction (the two-way reading is the conservative
+one, because "overlaps at least 70%" does not say which side). Controls were run: a 1-px shifted copy
+flags, H33 vs GEMSDOE30 flags, and random dots do not. v1 is retained as superseded evidence.
+
+**Irregularities flagged.** The two-way rule is a judgment call on the wording of the 70% rule;
+the one-sided reading would pass this file. Owner mirrors only, not organizer-authenticated; the mirrored
+sample raster's 60,988 positives equal the labels, which the source register notes contradicts the
+organizer's description; the range error is unexplained (one hypothesis is NaN outside the
+footprint); the uniqueness scope is default-branch HEAD of the 113 listed repositories. Full list:
+[submission desk](docs/submission/index.html#irr).
+
+
 ## 28 October 2026 candidate quarantine — no upload authorized
 
 The concurrent CFRP lane produced a format-valid research TIFF and a recorded

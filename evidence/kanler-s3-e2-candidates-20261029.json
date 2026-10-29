@@ -1,0 +1,179 @@
+{
+  "kind": "E2/E3 CANDIDATE EVALUATION (pre-registered; proxies, NOT organizer scores)",
+  "template_lock_commit": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+  "pre_registration": "evidence/preregistration-20261029-kanler-s3.json",
+  "parameters": {
+    "dots": 37654,
+    "suppress_px": 4,
+    "catalogue_exclusion_px": 2.0
+  },
+  "results": {
+    "KS3-ridge": {
+      "dots": 37654,
+      "on_catalogue": 0,
+      "within_2px_catalogue": 0,
+      "sgmc": {
+        "sgmc_prevalence_calibrated_dti": 0.048467,
+        "sgmc_calibrated_ci95": [
+          0.040233,
+          0.056888
+        ],
+        "sgmc_raw_dti": 0.072748,
+        "sgmc_n_withheld": 62703,
+        "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+        "label": "SGMC-CAL proxy (not an organizer score)"
+      },
+      "catalogue_holdout": {
+        "pooled_dti": 0.047265,
+        "ci95": [
+          0.038465,
+          0.056695
+        ],
+        "n_withheld_positives": 22232,
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "build": "per-cell, VISIBLE-only exclusion (leak-free)",
+        "label": "HOLDOUT-DTI (catalogue, leak-free)"
+      },
+      "overlap_within_3px_vs_focus9": {
+        "GEMSDOE24": 0.227546,
+        "GEMSDOE25": 0.215781,
+        "GEMSDOE27": 0.231662,
+        "GEMSDOE28": 0.208796,
+        "GEMSDOE30": 0.215781,
+        "GEMSDOE31": 0.211345,
+        "GEMSDOE32": 0.206034,
+        "GEMSDOE33": 0.214771,
+        "GEMSDOE36": 0.221092
+      },
+      "max_overlap_within_3px_vs_focus9": 0.231662,
+      "spearman_vs_focus9": {
+        "GEMSDOE24": 0.001492,
+        "GEMSDOE25": 0.001799,
+        "GEMSDOE27": 0.001494,
+        "GEMSDOE28": 0.002155,
+        "GEMSDOE30": 0.001799,
+        "GEMSDOE31": 0.002618,
+        "GEMSDOE32": 0.0032,
+        "GEMSDOE33": 0.001826,
+        "GEMSDOE36": 0.003737
+      },
+      "max_spearman_vs_focus9": 0.003737
+    },
+    "KS3-strain": {
+      "dots": 37654,
+      "on_catalogue": 0,
+      "within_2px_catalogue": 0,
+      "sgmc": {
+        "sgmc_prevalence_calibrated_dti": 0.054036,
+        "sgmc_calibrated_ci95": [
+          0.031848,
+          0.075899
+        ],
+        "sgmc_raw_dti": 0.081052,
+        "sgmc_n_withheld": 62703,
+        "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+        "label": "SGMC-CAL proxy (not an organizer score)"
+      },
+      "catalogue_holdout": {
+        "pooled_dti": 0.052247,
+        "ci95": [
+          0.036355,
+          0.067829
+        ],
+        "n_withheld_positives": 22232,
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "build": "per-cell, VISIBLE-only exclusion (leak-free)",
+        "label": "HOLDOUT-DTI (catalogue, leak-free)"
+      },
+      "overlap_within_3px_vs_focus9": {
+        "GEMSDOE24": 0.205184,
+        "GEMSDOE25": 0.195756,
+        "GEMSDOE27": 0.21262,
+        "GEMSDOE28": 0.186381,
+        "GEMSDOE30": 0.195756,
+        "GEMSDOE31": 0.18909,
+        "GEMSDOE32": 0.183619,
+        "GEMSDOE33": 0.192861,
+        "GEMSDOE36": 0.186275
+      },
+      "max_overlap_within_3px_vs_focus9": 0.21262,
+      "spearman_vs_focus9": {
+        "GEMSDOE24": 0.001853,
+        "GEMSDOE25": 0.000958,
+        "GEMSDOE27": 0.001956,
+        "GEMSDOE28": 0.001781,
+        "GEMSDOE30": 0.000958,
+        "GEMSDOE31": 0.001737,
+        "GEMSDOE32": 0.002291,
+        "GEMSDOE33": 0.001927,
+        "GEMSDOE36": 0.00213
+      },
+      "max_spearman_vs_focus9": 0.002291
+    },
+    "random_off_catalogue": {
+      "dots": 37654,
+      "on_catalogue": 0,
+      "within_2px_catalogue": 0,
+      "sgmc": {
+        "sgmc_prevalence_calibrated_dti": 0.052485,
+        "sgmc_calibrated_ci95": [
+          0.0487,
+          0.056016
+        ],
+        "sgmc_raw_dti": 0.078673,
+        "sgmc_n_withheld": 62703,
+        "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+        "label": "SGMC-CAL proxy (not an organizer score)"
+      },
+      "catalogue_holdout": {
+        "pooled_dti": 0.047048,
+        "ci95": [
+          0.042863,
+          0.051184
+        ],
+        "n_withheld_positives": 22232,
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "build": "per-cell, VISIBLE-only exclusion (leak-free)",
+        "label": "HOLDOUT-DTI (catalogue, leak-free)"
+      },
+      "overlap_within_3px_vs_focus9": {
+        "GEMSDOE24": 0.168189,
+        "GEMSDOE25": 0.159532,
+        "GEMSDOE27": 0.172067,
+        "GEMSDOE28": 0.15422,
+        "GEMSDOE30": 0.159532,
+        "GEMSDOE31": 0.156743,
+        "GEMSDOE32": 0.15353,
+        "GEMSDOE33": 0.159877,
+        "GEMSDOE36": 0.157088
+      },
+      "max_overlap_within_3px_vs_focus9": 0.172067,
+      "spearman_vs_focus9": {
+        "GEMSDOE24": -0.000525,
+        "GEMSDOE25": -0.000452,
+        "GEMSDOE27": -0.000523,
+        "GEMSDOE28": 0.000791,
+        "GEMSDOE30": -0.000452,
+        "GEMSDOE31": 0.000261,
+        "GEMSDOE32": 0.000766,
+        "GEMSDOE33": -7.8e-05,
+        "GEMSDOE36": 0.000945
+      },
+      "max_spearman_vs_focus9": 0.000945
+    },
+    "REFERENCE_H33_B2": {
+      "dots": 37654,
+      "sgmc": {
+        "sgmc_prevalence_calibrated_dti": 0.064121,
+        "sgmc_calibrated_ci95": [
+          0.056621,
+          0.071058
+        ],
+        "sgmc_raw_dti": 0.09606,
+        "sgmc_n_withheld": 62703,
+        "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+        "label": "SGMC-CAL proxy (not an organizer score)"
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "kind": "PRE-REGISTRATION (written before experiments E1-E3 were run)",
+  "date_utc": "2026-10-29",
+  "question": "Can a dot field built from a single structural prior, placed off the known catalogue with a 2-px exclusion (the H33 B2 rule), be unique versus the nine focus-site TIFFs and beat the H33 B2 value on the SGMC-CAL proxy?",
+  "why_this_proxy": "Across the nine focus files, the prevalence-calibrated SGMC off-catalogue DTI (evaluate_sgmc_with_ci) ranks the owner-reported leaderboard values with Spearman 0.95 (n=9; owner values UNVERIFIED). The catalogue hide-and-recover holdout ranks them with Spearman -0.85, i.e. it is anti-aligned, so it is NOT used as the selection target.",
+  "budget": {"max_experiments": 3, "E1": "leakage canary per feature", "E2": "candidate KS3-ridge (primary)", "E3": "candidate KS3-strain (single ablation of the prior)"},
+  "candidates": {
+    "KS3-ridge": {
+      "prior": "Hessian ridge response (largest-magnitude negative eigenvalue) of the rtp band (band 2, magnetic reduced-to-pole), Gaussian sigma=1.5 px, z-scored over footprint",
+      "catalogue_exclusion_px": 2.0,
+      "dot_count": 37654,
+      "selection": "greedy descending-prior pick, suppression radius 4 px (Chebyshev-free Euclidean)",
+      "uses_catalogue_only_for": "2-px exclusion and the pixel-exact label mask; never as a feature"
+    },
+    "KS3-strain": {
+      "prior": "geod_shearrate (band 7) z-scored over footprint, Gaussian sigma=1.5 px",
+      "catalogue_exclusion_px": 2.0,
+      "dot_count": 37654,
+      "selection": "identical to KS3-ridge",
+      "uses_catalogue_only_for": "identical to KS3-ridge"
+    }
+  },
+  "leakage_rule": "Each feature alone is evaluated for AUC against withheld-catalogue truth on the vendored holdout cells; AUC > 0.90 means leakage until disproved.",
+  "decision_rules": [
+    "A candidate is valid only if format checks, dot-overlap < 70% within 3 px and Spearman < 0.90 hold against every focus-site TIFF.",
+    "Promotion as the recommended file requires SGMC-CAL point estimate above H33 B2 (0.0641 computed here) with non-overlapping-or-explained CI; otherwise the verdict is negative.",
+    "The catalogue hide-and-recover value is reported for transparency and is NOT a selection criterion.",
+    "No weekly slot is spent by this work; the organizer leaderboard value is unknown until a receipt exists."
+  ],
+  "named_non_fault_mimics": [
+    "Magnetic ridges from lithologic contacts, intrusive margins or topographic/terrain-correlated noise in rtp (KS3-ridge).",
+    "Strain-rate artefacts from flight-line or gridding geometry in the GeoDAWN-derived geod_* bands (KS3-strain)."
+  ]
+}

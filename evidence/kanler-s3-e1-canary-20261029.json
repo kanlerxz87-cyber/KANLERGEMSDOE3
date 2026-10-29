@@ -1,0 +1,277 @@
+{
+  "kind": "E1 LEAKAGE CANARY (each feature alone; holdout cells; not a score)",
+  "evaluator": "vendored gems32 load_holdout_context (lock-verified)",
+  "results": {
+    "d_visible_catalogue_only_visible_faults": {
+      "auc_mean": 0.2505,
+      "auc_min": 0.1905,
+      "auc_max": 0.3109,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "mag_anom": {
+      "auc_mean": 0.4839,
+      "auc_min": 0.4209,
+      "auc_max": 0.5393,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "rtp": {
+      "auc_mean": 0.5139,
+      "auc_min": 0.4262,
+      "auc_max": 0.5605,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "tmi_hg": {
+      "auc_mean": 0.4992,
+      "auc_min": 0.4354,
+      "auc_max": 0.5591,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "geod_2ndinv": {
+      "auc_mean": 0.5146,
+      "auc_min": 0.479,
+      "auc_max": 0.5472,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "iso_grav_anom_slope": {
+      "auc_mean": 0.5359,
+      "auc_min": 0.4641,
+      "auc_max": 0.58,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "tc": {
+      "auc_mean": 0.4494,
+      "auc_min": 0.409,
+      "auc_max": 0.5005,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "geod_shearrate": {
+      "auc_mean": 0.5153,
+      "auc_min": 0.4486,
+      "auc_max": 0.5504,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "geod_dilaterate": {
+      "auc_mean": 0.5166,
+      "auc_min": 0.4845,
+      "auc_max": 0.5448,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "tmi_vg": {
+      "auc_mean": 0.5015,
+      "auc_min": 0.4811,
+      "auc_max": 0.5235,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "deq_n100a15": {
+      "auc_mean": 0.5082,
+      "auc_min": 0.4628,
+      "auc_max": 0.5495,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "iso_grav_anom_vg": {
+      "auc_mean": 0.5343,
+      "auc_min": 0.478,
+      "auc_max": 0.5904,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "det_elev": {
+      "auc_mean": 0.5012,
+      "auc_min": 0.4209,
+      "auc_max": 0.6328,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "iso_grav_anom": {
+      "auc_mean": 0.4896,
+      "auc_min": 0.4275,
+      "auc_max": 0.518,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "tmi": {
+      "auc_mean": 0.4928,
+      "auc_min": 0.4293,
+      "auc_max": 0.534,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "depth_to_base_surf": {
+      "auc_mean": 0.4982,
+      "auc_min": 0.4575,
+      "auc_max": 0.5922,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "ieq_n100a15": {
+      "auc_mean": 0.5249,
+      "auc_min": 0.4838,
+      "auc_max": 0.5755,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "cond_surf": {
+      "auc_mean": 0.5028,
+      "auc_min": 0.4361,
+      "auc_max": 0.5881,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "iso_grav_anom_hg": {
+      "auc_mean": 0.4983,
+      "auc_min": 0.4233,
+      "auc_max": 0.6082,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "det_elev_slope": {
+      "auc_mean": 0.5553,
+      "auc_min": 0.4981,
+      "auc_max": 0.6371,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "ridge_rtp_s1p5": {
+      "auc_mean": 0.4979,
+      "auc_min": 0.4767,
+      "auc_max": 0.5319,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "geod_shear_smooth_s1p5": {
+      "auc_mean": 0.5162,
+      "auc_min": 0.4472,
+      "auc_max": 0.5504,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "lidar_scarp_features_u8_b1": {
+      "auc_mean": 0.5484,
+      "auc_min": 0.5104,
+      "auc_max": 0.5879,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "lidar_scarp_features_u8_b2": {
+      "auc_mean": 0.5354,
+      "auc_min": 0.4995,
+      "auc_max": 0.5774,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "lidar_scarp_features_u8_b3": {
+      "auc_mean": 0.5499,
+      "auc_min": 0.513,
+      "auc_max": 0.5967,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "lidar_scarp_features_u8_b4": {
+      "auc_mean": 0.5555,
+      "auc_min": 0.5111,
+      "auc_max": 0.6159,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "lidar_scarp_features_u8_b5": {
+      "auc_mean": 0.5614,
+      "auc_min": 0.5168,
+      "auc_max": 0.6137,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "lidar_scarp_features_u8_b6": {
+      "auc_mean": 0.5347,
+      "auc_min": 0.4792,
+      "auc_max": 0.5774,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "lidar_scarp_features_u8_b7": {
+      "auc_mean": 0.5457,
+      "auc_min": 0.4882,
+      "auc_max": 0.6094,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "lidar_scarp_features_u8_b8": {
+      "auc_mean": 0.5298,
+      "auc_min": 0.4544,
+      "auc_max": 0.6047,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "lidar_scarp_features_u8_b9": {
+      "auc_mean": 0.564,
+      "auc_min": 0.5104,
+      "auc_max": 0.6503,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "lidar_scarp_features_u8_b10": {
+      "auc_mean": 0.4741,
+      "auc_min": 0.4428,
+      "auc_max": 0.4914,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "lidar_scarp_features_u8_b11": {
+      "auc_mean": 0.5131,
+      "auc_min": 0.4922,
+      "auc_max": 0.5272,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "lidar_scarp_features_u8_b12": {
+      "auc_mean": 0.4997,
+      "auc_min": 0.4974,
+      "auc_max": 0.5002,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "geodawn_rad_u8_b1": {
+      "auc_mean": 0.4354,
+      "auc_min": 0.3928,
+      "auc_max": 0.4844,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "geodawn_rad_u8_b2": {
+      "auc_mean": 0.4563,
+      "auc_min": 0.4058,
+      "auc_max": 0.5249,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "geodawn_rad_u8_b3": {
+      "auc_mean": 0.4796,
+      "auc_min": 0.4528,
+      "auc_max": 0.5029,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    },
+    "geodawn_rad_u8_b4": {
+      "auc_mean": 0.449,
+      "auc_min": 0.4091,
+      "auc_max": 0.4997,
+      "cells": 8,
+      "verdict": "pass (<=0.90)"
+    }
+  },
+  "max_auc_feature": {
+    "name": "lidar_scarp_features_u8_b9",
+    "auc_max": 0.6503
+  },
+  "n_leakage_flags": 0
+}

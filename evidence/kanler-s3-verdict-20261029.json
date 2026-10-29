@@ -1,0 +1,112 @@
+{
+  "kind": "VERDICT CARD - KS3-strain candidate (proxies, not organizer scores)",
+  "date_utc": "2026-10-29",
+  "file": "docs/submission/quarantine/kanlergemsdoe3-ks3-strain-37654-20261029-zeros.tif",
+  "sha256": "fe669470038bbc7983d6158c0ee4b47012fddd166bdc2895379960a82c6d0b00",
+  "bytes": 151794,
+  "name": "KANLER-S3-strain-37654-20261029",
+  "note": "KANLER-S3 strain prior, 37,654 dots, 2px catalogue exclusion. NOT unique (two-way 3px test vs GEMSDOE69). Do not submit.",
+  "note_chars": 120,
+  "gates": {
+    "G1_format_validator_passed": true,
+    "G2_range_0_1_full_grid_finite": true,
+    "G3_grid_crs_shape_transform": true,
+    "G4_unique_vs_inventory_and_inventory_complete": false,
+    "G4_detail": {
+      "files_compared": 3289,
+      "files_inventoried": 3476,
+      "not_comparable": 34,
+      "unreadable": 1,
+      "max_coverage_candidate_dots": {
+        "file": "buffedlizard55-lab__13GEMSDOE__docs__downloads__13gems_20261001_r14-union-tips10-lat6_nan-outside.tif",
+        "repo": "buffedlizard55-lab/13GEMSDOE",
+        "value": 0.766346,
+        "expected_random": 0.666931
+      },
+      "max_coverage_peer_dots": {
+        "file": "buffedlizard55-lab__GEMSDOE69__submissions__h69-joint-relayramp-pullapart-38669-20261020T201504Z-f29b6df5-nan.tif",
+        "repo": "buffedlizard55-lab/GEMSDOE69",
+        "value": 0.720965,
+        "expected_random": 0.191111
+      },
+      "max_rank_corr": {
+        "file": "buffedlizard55-lab__GEMSDOE68__docs__downloads__gems68-autoctx-40000-20261012T014104Z-surface-zeros.tif",
+        "repo": "buffedlizard55-lab/GEMSDOE68",
+        "value": 0.088697
+      },
+      "duplicate_flags": [
+        {
+          "file": "buffedlizard55-lab__GEMSDOE69__submissions__h69-joint-relayramp-pullapart-38669-20261020T201504Z-f29b6df5-nan.tif",
+          "repo": "buffedlizard55-lab/GEMSDOE69",
+          "f_c": 0.055373,
+          "f_p": 0.720965,
+          "expected_random_c": 0.195739,
+          "expected_random_p": 0.191111,
+          "trigger": "peer_side"
+        },
+        {
+          "file": "buffedlizard55-lab__GEMSDOE69__submissions__h69-joint-relayramp-pullapart-38669-20261020T201504Z-f29b6df5-zeros.tif",
+          "repo": "buffedlizard55-lab/GEMSDOE69",
+          "f_c": 0.055373,
+          "f_p": 0.720965,
+          "expected_random_c": 0.195739,
+          "expected_random_p": 0.191111,
+          "trigger": "peer_side"
+        }
+      ],
+      "repos_listed": 113,
+      "repos_available": 113,
+      "repos_not_complete": 0
+    },
+    "G5_zero_catalogue_dots": true,
+    "G6_value_gate_sgmc_cal_ge_H33": false,
+    "G6_detail": {
+      "candidate_sgmc_cal": 0.054036,
+      "H33_B2_reference_sgmc_cal": 0.064121,
+      "candidate_ci95": [
+        0.031848,
+        0.075899
+      ],
+      "H33_ci95": [
+        0.056621,
+        0.071058
+      ]
+    },
+    "G7_organizer_provenance": false
+  },
+  "download_allowed": false,
+  "submit_allowed": false,
+  "verdict": "DO NOT DOWNLOAD OR SUBMIT - NOT UNIQUE",
+  "blockers": [
+    "G4 not unique under the two-way rule (see duplicate_flags)",
+    "G6 proxy below H33 reference",
+    "G7 organizer provenance not established"
+  ],
+  "duplicate_flags": [
+    {
+      "file": "buffedlizard55-lab__GEMSDOE69__submissions__h69-joint-relayramp-pullapart-38669-20261020T201504Z-f29b6df5-nan.tif",
+      "repo": "buffedlizard55-lab/GEMSDOE69",
+      "f_c": 0.055373,
+      "f_p": 0.720965,
+      "expected_random_c": 0.195739,
+      "expected_random_p": 0.191111,
+      "trigger": "peer_side"
+    },
+    {
+      "file": "buffedlizard55-lab__GEMSDOE69__submissions__h69-joint-relayramp-pullapart-38669-20261020T201504Z-f29b6df5-zeros.tif",
+      "repo": "buffedlizard55-lab/GEMSDOE69",
+      "f_c": 0.055373,
+      "f_p": 0.720965,
+      "expected_random_c": 0.195739,
+      "expected_random_p": 0.191111,
+      "trigger": "peer_side"
+    }
+  ],
+  "estimated_leaderboard_score": "NOT ESTIMATED",
+  "e1_canary_max_auc": {
+    "name": "lidar_scarp_features_u8_b9",
+    "auc_max": 0.6503
+  },
+  "slot_authorized": false,
+  "weekly_slots_used_this_session": 0
+}
