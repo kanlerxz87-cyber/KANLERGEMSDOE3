@@ -1,0 +1,37 @@
+{
+  "schema": "kanler.submission_run_card.v1",
+  "generated_utc": "2026-10-29T03:16:30.183104+00:00",
+  "hypothesis": "Geophysical band propensity (mag/gravity/geodetic/radar) predicts unseen fault traces near mapped catalogue faults.",
+  "mechanism": "HistGradientBoosting on 19 GeoDAWN/geodetic bands trained on catalogue faults; dots emitted at high-propensity non-catalogue pixels with >=3px spacing.",
+  "named_non_fault_mimic": "Lithologic/alteration contacts and topographic scarps that share geophysical gradients with faults but are not through-going fault zones.",
+  "holdout": {
+    "label": "HOLDAOUT-DTI (local reimplementation)",
+    "evaluator_version": "segment-hide-recover-pooled-v1 (local reimplementation)",
+    "dti": 0.322046,
+    "ci95": [
+      0.2979,
+      0.3393
+    ],
+    "n_withheld_positive_pixels": 60894,
+    "note": "Approach B: ML propensity, no known-fault suppression. Local holdout reimplementation; not an organizer score and not a leaderboard projection. CI is fold range, not full block bootstrap."
+  },
+  "leaderboard_estimate": "NOT ESTIMABLE from holdout (different truth set); no projection is written as a score.",
+  "owner_reported_focus9_best": {
+    "site": "GEMSDOE32",
+    "score": 0.2778,
+    "label": "OWNER-REPORTED, UNVERIFIED"
+  },
+  "uniqueness_note": "Must be compared against the full registry before submission; this script does not perform registry comparison.",
+  "raster_sha256": "80cacf1d6a303e338cd5564b715423a60f2cd2dd569d1ab6275056cf2074279d",
+  "content_id": "f705bdebde7e",
+  "dots": 37654,
+  "submission_name": "kanler-geofault-propensity-20261029T031629Z-f705bdebde7e-nan",
+  "submission_note": "KANLER geofault propensity 37654dots | HOLDAOUT-DTI 0.3220 | not live-scored | id f705bdebde7e",
+  "note_chars": 94,
+  "tif": "docs/downloads/kanler-geofault-propensity-20261029T031629Z-f705bdebde7e-nan.tif",
+  "zip": "docs/downloads/kanler-geofault-propensity-20261029T031629Z-f705bdebde7e-nan.zip",
+  "format_valid": true,
+  "ok_to_submit": false,
+  "verdict": "promote_to_registry_check",
+  "download_url": "docs/downloads/kanler-geofault-propensity-20261029T031629Z-f705bdebde7e-nan.tif"
+}

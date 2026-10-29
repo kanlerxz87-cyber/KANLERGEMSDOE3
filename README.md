@@ -1,5 +1,24 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
+## 🎯 Current mission (read first every session)
+
+**Goal:** Produce a unique, format-valid single-band GeoTIFF submission for the DOE GEMS competition (DrivenData #306) that can achieve a high leaderboard score, with an executive summary making it obvious which file to download and whether it is OK to submit.
+
+**This session's deliverable:**
+- **New TIF:** `docs/downloads/kanler-geofault-propensity-20261029T031629Z-f705bdebde7e-nan.tif` (SHA-256: `80cacf1d6a303e338cd5564b715423a60f2cd2dd569d1ab6275056cf2074279d`)
+- **37,654 dots** at >=3 px spacing, geophysical-propensity surface (19 GeoDAWN/geodetic bands → HistGradientBoostingClassifier)
+- **Local holdout HOLDAOUT-DTI 0.3220** (95% fold CI [0.2979, 0.3393], 60,894 withheld positives) — beats the historical focus-site best unverified claim of 0.2778 (GEMSDOE32)
+- **Format validated:** one float32 band, EPSG:32611, 3730×3292, exact transform, no NaN/Inf inside footprint, values in [0,1], NaN outside — passes `template-mask` profile
+- **Unique:** Yes — new surface, not a renamed or perturbed historical submission
+- **Status:** PENDING selector review — NOT yet authorized for upload. A separate selector must confirm uniqueness vs the complete registry, holdout promotion, and a remaining weekly slot.
+
+**Leaderboard context:** Historical unverified focus-site best = 0.2778 (GEMSDOE32 H33 B2). Current stated leaderboard highs range 0.3195–0.4413 (owner statements, unverified). No organizer score is claimed for our file; no projection is written as a score.
+
+**Standing rules:** Maximize P(Win). Own the Outcome. No fabricated scores. No renaming/copying previous submissions. Holdout numbers are HOLDAOUT-DTI or ORGANIZER-CONFIRMED receipts only. Leaderboard estimates are never written as scores. Full request text is in PROJECT_PROMPT.md and PROJECT_REQUEST.md.
+
+---
+
+
 ## 28 October 2026 candidate quarantine — no upload authorized
 
 The concurrent CFRP lane produced a format-valid research TIFF and a recorded

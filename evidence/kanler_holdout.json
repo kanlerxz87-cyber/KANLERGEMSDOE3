@@ -1,0 +1,59 @@
+{
+  "evaluator_version": "segment-hide-recover-pooled-v1 (optimized local reimplementation)",
+  "alpha": 0.2,
+  "beta": 0.8,
+  "radius_m": 300,
+  "TP_w": 6199.1703,
+  "FP_w": 35015.906,
+  "FN_w": 54694.82969891906,
+  "n_withheld_positive_pixels": 60894,
+  "n_folds_scored": 4,
+  "dti": 0.108837,
+  "ci95_fold_percentile": [
+    0.078536375,
+    0.15180097499999998
+  ],
+  "folds": [
+    {
+      "fold": 0,
+      "name": "NW",
+      "TP_w": 1087.9401,
+      "FP_w": 7935.4936,
+      "FN_w": 9066.059896971237,
+      "dti": 0.109584,
+      "n_truth": 10154,
+      "dots": 8416
+    },
+    {
+      "fold": 1,
+      "name": "NE",
+      "TP_w": 1906.8003,
+      "FP_w": 9576.9574,
+      "FN_w": 10589.199680036872,
+      "dti": 0.155106,
+      "n_truth": 12496,
+      "dots": 10400
+    },
+    {
+      "fold": 2,
+      "name": "SW",
+      "TP_w": 1416.8167,
+      "FP_w": 9796.1015,
+      "FN_w": 19077.183335889105,
+      "dti": 0.076019,
+      "n_truth": 20494,
+      "dots": 10410
+    },
+    {
+      "fold": 3,
+      "name": "SE",
+      "TP_w": 1787.6132,
+      "FP_w": 7707.3535,
+      "FN_w": 15962.386786021849,
+      "dti": 0.111039,
+      "n_truth": 17750,
+      "dots": 8428
+    }
+  ],
+  "note": "Local holdout reimplementation; not an organizer score and not a leaderboard projection. CI is fold-percentile, not a full spatial block bootstrap."
+}
