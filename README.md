@@ -1,5 +1,16 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
+## 29 October 2026 executive summary — download and upload decision
+
+**Download: NOT PERMITTED. Competition upload: NOT PERMITTED.**
+
+- Executive summary and submission guide: [docs/executive-summary-20261029/index.html](docs/executive-summary-20261029/index.html) (guide section: [#submit-steps](docs/executive-summary-20261029/index.html#submit-steps)). Site root: [docs/index.html](docs/index.html).
+- Candidate `kanlergemsdoe3-offcat-hgb-quadrant-37654-20261029-zeros.tif` (note 111 characters) is format-valid under the shared local validator, but it is **not unique**: the literal all-registry gate (shared comparator, 2,218 hash-unique registry rasters, complete accessible scan not certified) finds 74 duplicates. 66 registry rasters cover at least half the footprint, so under the literal overlap rule no sparse dot file can pass. The file is not published under `downloads/`.
+- HOLDOUT-DTI 0.1146 (95% CI 0.1087–0.1205; evaluator gems24 shared metric; 60,988 withheld positives; 3,199 withheld segments) is below the recorded same-evaluator best 0.163715 (participant-run, not rerun). No slot is authorized.
+- Owner-reported focus-site scores (0.2600–0.2778) are **unverified** and are not scores. GEMSDOE32's own note says "UNSCORED" and projects 0.2747, not 0.2778. The leaderboard highs 0.4413 and 0.3195 are unverified owner claims that conflict with one another.
+- Experiments used: 2 of 3 budgeted. Hypotheses H1 and H2 were tested; H3–H5 were ranked but not tested.
+- Reproduce: `python scripts/build_registry.py`, `python scripts/check_registry_uniqueness.py --candidate <tif> --out evidence/uniqueness_offcat_hgb_20261029.json`, `python scripts/build_submit_desk.py` (and `--check`).
+- Receipts: [evidence/run-card-20261029.json](evidence/run-card-20261029.json), [evidence/uniqueness_offcat_hgb_20261029.json](evidence/uniqueness_offcat_hgb_20261029.json), [evidence/focus_site_registry_match.json](evidence/focus_site_registry_match.json).
 ## 🎯 Current mission (read first every session)
 
 **Goal:** Produce a unique, format-valid single-band GeoTIFF submission for the DOE GEMS competition (DrivenData #306) that can achieve a high leaderboard score, with an executive summary making it obvious which file to download and whether it is OK to submit.

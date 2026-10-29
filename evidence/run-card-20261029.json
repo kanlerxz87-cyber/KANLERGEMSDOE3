@@ -1,0 +1,76 @@
+{
+ "beats_recorded_same_evaluator_best": false,
+ "download_ok": false,
+ "evaluator": "gems24 shared metric (sha256 c024510de39746c9390e5bbf5c1d1b639a9ee895017a38fab4b609f0f2c33e48), pooled quadrant folds",
+ "experiment_budget": 3,
+ "flank_exclusion_variant_dti": 0.11177299026542183,
+ "geological_experiments_run": 2,
+ "holdout_ci95": [
+  0.10874740214631445,
+  0.12048699888684236
+ ],
+ "holdout_class": "HOLDOUT-DTI",
+ "holdout_dti": 0.11464408029340067,
+ "hypothesis": "Quadrant-blocked off-catalogue fault likelihood from geophysics (magnetics, gravity, strain, seismicity, elevation), LiDAR scarp metrics and GeoDAWN radiometrics predicts withheld fault segments better than random dots under the same 37,654-dot budget.",
+ "leakage_canary": {
+  "feature": "lidar_b07",
+  "flagged": false,
+  "max_univariate_auc": 0.5798,
+  "stop_above": 0.9
+ },
+ "mechanism": "Fault-controlled magnetic/gravity gradients and topographic breaks co-located with unmapped structures, learned by gradient-boosted trees on a 35-channel footprint stack; dots = thinned local maxima.",
+ "named_non_fault_mimic": "Basement-sediment contacts and erosional/fluvial scarps (depth_to_base_surf with tmi_hg / lidar relief) yield similar gradients without faulting.",
+ "random_baseline_dti": 0.07194766754281638,
+ "raster_sha256": "5a28f4cb8ec8c814edd6d76eb2f8598db6eb2360cc3ce6e454c43b89d45a3255",
+ "recorded_same_evaluator_best": {
+  "class": "PARTICIPANT-RUN, not rerun here",
+  "source": "evidence/atsc-submod-run-card.json (holdout.evaluator_version gems-segment-pooled-v1, 60,988 withheld)",
+  "value": 0.163715
+ },
+ "registry": {
+  "checked_unique_bytes": 2218,
+  "final_dots_worst_overlap": 1.0,
+  "final_dots_worst_rho": 0.09895032707957899,
+  "placement_surface_max_rho": 0.9179348143576699,
+  "placement_surface_rho_gt_0_90": 4,
+  "rasters_indexed": 3250,
+  "repos": 113,
+  "unique_bytes": 2218
+ },
+ "schema": 1,
+ "session_date": "2026-10-29",
+ "slots_used_by_this_session": 0,
+ "submission_name": "kanlergemsdoe3-offcat-hgb-quadrant-37654-20261029",
+ "submission_note": "Off-catalogue HGB dots (quadrant holdout DTI 0.1146, not organizer); 37654 dots; finite zeros outside footprint",
+ "submission_note_chars": 111,
+ "submit_ok": false,
+ "validator": {
+  "checks": {
+   "crs_match": true,
+   "dtype_float32": true,
+   "expected_positive_pixels_match": true,
+   "inside_range_0_1": true,
+   "no_infinite_pixels_anywhere": true,
+   "no_masked_inside_footprint": true,
+   "no_nan_inside_footprint": true,
+   "selected_encoding": true,
+   "shape_match": true,
+   "single_band": true,
+   "standalone_without_sidecars": true,
+   "template_100m_grid": true,
+   "template_epsg_32611": true,
+   "template_mask_unambiguous": true,
+   "template_single_band": true,
+   "transform_match": true
+  },
+  "errors": [],
+  "finite_range_inside": [
+   0.0,
+   1.0
+  ],
+  "ok": true,
+  "positive_pixels": 37654
+ },
+ "verdict": "negative",
+ "withheld_positives": 60988
+}
