@@ -1,0 +1,678 @@
+{
+ "schema": 1,
+ "generated_utc": "2026-10-29T02:44:11.818607+00:00",
+ "evaluator": "gems24-shared metric.dti_components_exact (gems-segment-pooled-v1 equivalent: alpha 0.2 beta 0.8 3px linear kernel)",
+ "features": {
+  "channels": 35,
+  "names": [
+   "train_b01",
+   "train_b02",
+   "train_b03",
+   "train_b04",
+   "train_b05",
+   "train_b06",
+   "train_b07",
+   "train_b08",
+   "train_b09",
+   "train_b10",
+   "train_b11",
+   "train_b12",
+   "train_b13",
+   "train_b14",
+   "train_b15",
+   "train_b16",
+   "train_b17",
+   "train_b18",
+   "train_b19",
+   "lidar_b01",
+   "lidar_b02",
+   "lidar_b03",
+   "lidar_b04",
+   "lidar_b05",
+   "lidar_b06",
+   "lidar_b07",
+   "lidar_b08",
+   "lidar_b09",
+   "lidar_b10",
+   "lidar_b11",
+   "lidar_b12",
+   "geodawn_b01",
+   "geodawn_b02",
+   "geodawn_b03",
+   "geodawn_b04"
+  ],
+  "source": "restored owner mirrors (data/), assembled in memory; not the canonical cache"
+ },
+ "holdout_design": "quadrant-blocked hide-and-recover of whole catalogue segments, 10 px buffer, background 2 px from visible catalogue",
+ "budget": 37654,
+ "spacing_px": 4,
+ "seed": 20261029,
+ "experiments": {
+  "E1_model_no_flank_exclusion": {
+   "folds": [
+    {
+     "fold": "NW",
+     "withheld_positive_px": 29334,
+     "visible_positive_px": 31654,
+     "train_pos_rows": 31519,
+     "train_bg_rows": 4369861,
+     "region_footprint_px": 2447204,
+     "budget": 17832,
+     "dots_placed": 17832,
+     "dti_fold": 0.10922351737713921,
+     "TP_w": 2993.554631144919,
+     "FP_w": 16708.452522457104,
+     "FN_w": 26340.445368855082,
+     "fit_seconds": 38.7
+    },
+    {
+     "fold": "NE",
+     "withheld_positive_px": 12572,
+     "visible_positive_px": 48416,
+     "train_pos_rows": 48348,
+     "train_bg_rows": 4618575,
+     "region_footprint_px": 1368257,
+     "budget": 9970,
+     "dots_placed": 9970,
+     "dti_fold": 0.10463281035246433,
+     "TP_w": 1277.5099628751111,
+     "FP_w": 9481.78287773813,
+     "FN_w": 11294.49003712489,
+     "fit_seconds": 23.5
+    },
+    {
+     "fold": "SW",
+     "withheld_positive_px": 9364,
+     "visible_positive_px": 51624,
+     "train_pos_rows": 51363,
+     "train_bg_rows": 4727956,
+     "region_footprint_px": 562729,
+     "budget": 4101,
+     "dots_placed": 4101,
+     "dti_fold": 0.11431361513008086,
+     "TP_w": 964.0229671754737,
+     "FP_w": 3745.6878305738487,
+     "FN_w": 8399.977032824527,
+     "fit_seconds": 13.6
+    },
+    {
+     "fold": "SE",
+     "withheld_positive_px": 9718,
+     "visible_positive_px": 51270,
+     "train_pos_rows": 51096,
+     "train_bg_rows": 4724409,
+     "region_footprint_px": 789183,
+     "budget": 5751,
+     "dots_placed": 5751,
+     "dti_fold": 0.14472765578285984,
+     "TP_w": 1316.1708019570428,
+     "FP_w": 5282.433790618848,
+     "FN_w": 8401.829198042957,
+     "fit_seconds": 16.9
+    }
+   ],
+   "pooled": {
+    "TP_w": 6551.258363152547,
+    "FP_w": 35218.35702138793,
+    "FN_w": 54436.74163684746,
+    "n_truth": 60988,
+    "dti": 0.11464408029340067,
+    "ci95_low": 0.10874740214631445,
+    "ci95_high": 0.12048699888684236,
+    "withheld_segments": 3199,
+    "withheld_positive_px": 60988,
+    "tp_component_consistency_abs_diff": 0.3119935778249783
+   },
+   "canary": [
+    {
+     "feature": "train_b01",
+     "auc_univariate": 0.4892,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b02",
+     "auc_univariate": 0.4974,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b03",
+     "auc_univariate": 0.5229,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b04",
+     "auc_univariate": 0.5688,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b05",
+     "auc_univariate": 0.5359,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b06",
+     "auc_univariate": 0.4463,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b07",
+     "auc_univariate": 0.5682,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b08",
+     "auc_univariate": 0.5258,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b09",
+     "auc_univariate": 0.4872,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b10",
+     "auc_univariate": 0.5506,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b11",
+     "auc_univariate": 0.5289,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b12",
+     "auc_univariate": 0.4844,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b13",
+     "auc_univariate": 0.4618,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b14",
+     "auc_univariate": 0.4867,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b15",
+     "auc_univariate": 0.5102,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b16",
+     "auc_univariate": 0.5668,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b17",
+     "auc_univariate": 0.4806,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b18",
+     "auc_univariate": 0.4992,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b19",
+     "auc_univariate": 0.5582,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b01",
+     "auc_univariate": 0.5642,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b02",
+     "auc_univariate": 0.5562,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b03",
+     "auc_univariate": 0.5653,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b04",
+     "auc_univariate": 0.5676,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b05",
+     "auc_univariate": 0.5707,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b06",
+     "auc_univariate": 0.5758,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b07",
+     "auc_univariate": 0.5798,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b08",
+     "auc_univariate": 0.5724,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b09",
+     "auc_univariate": 0.5643,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b10",
+     "auc_univariate": 0.5072,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b11",
+     "auc_univariate": 0.5283,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b12",
+     "auc_univariate": 0.5217,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "geodawn_b01",
+     "auc_univariate": 0.4379,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "geodawn_b02",
+     "auc_univariate": 0.4489,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "geodawn_b03",
+     "auc_univariate": 0.4742,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "geodawn_b04",
+     "auc_univariate": 0.4458,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    }
+   ],
+   "baseline_random": {
+    "dti": 0.07194766754281638,
+    "TP_w": 4089.32682771553,
+    "FP_w": 36146.26169103374,
+    "FN_w": 56898.67317228446
+   }
+  },
+  "E2_model_flank2px_exclusion": {
+   "folds": [
+    {
+     "fold": "NW",
+     "withheld_positive_px": 29334,
+     "visible_positive_px": 31654,
+     "train_pos_rows": 31519,
+     "train_bg_rows": 4369861,
+     "region_footprint_px": 2447204,
+     "budget": 17832,
+     "dots_placed": 17832,
+     "dti_fold": 0.10728284562147843,
+     "TP_w": 2939.8235796676117,
+     "FP_w": 16736.928208690966,
+     "FN_w": 26394.176420332387,
+     "fit_seconds": 41.1
+    },
+    {
+     "fold": "NE",
+     "withheld_positive_px": 12572,
+     "visible_positive_px": 48416,
+     "train_pos_rows": 48348,
+     "train_bg_rows": 4618575,
+     "region_footprint_px": 1368257,
+     "budget": 9970,
+     "dots_placed": 9970,
+     "dti_fold": 0.10125104470637875,
+     "TP_w": 1235.6574324156743,
+     "FP_w": 9495.833081922865,
+     "FN_w": 11336.342567584326,
+     "fit_seconds": 24.1
+    },
+    {
+     "fold": "SW",
+     "withheld_positive_px": 9364,
+     "visible_positive_px": 51624,
+     "train_pos_rows": 51363,
+     "train_bg_rows": 4727956,
+     "region_footprint_px": 562729,
+     "budget": 4101,
+     "dots_placed": 4101,
+     "dti_fold": 0.10129970992444638,
+     "TP_w": 852.7219661427256,
+     "FP_w": 3780.3406169876484,
+     "FN_w": 8511.278033857274,
+     "fit_seconds": 15.1
+    },
+    {
+     "fold": "SE",
+     "withheld_positive_px": 9718,
+     "visible_positive_px": 51270,
+     "train_pos_rows": 51096,
+     "train_bg_rows": 4724409,
+     "region_footprint_px": 789183,
+     "budget": 5751,
+     "dots_placed": 5751,
+     "dti_fold": 0.14909413235784988,
+     "TP_w": 1356.7161898282761,
+     "FP_w": 5269.928470346198,
+     "FN_w": 8361.283810171724,
+     "fit_seconds": 18.2
+    }
+   ],
+   "pooled": {
+    "TP_w": 6384.919168054288,
+    "FP_w": 35283.030377947674,
+    "FN_w": 54603.080831945714,
+    "n_truth": 60988,
+    "dti": 0.11177299026542183,
+    "ci95_low": 0.10597373058820299,
+    "ci95_high": 0.11714815083126673,
+    "withheld_segments": 3199,
+    "withheld_positive_px": 60988,
+    "tp_component_consistency_abs_diff": 0.00015330764108512085
+   },
+   "canary": [
+    {
+     "feature": "train_b01",
+     "auc_univariate": 0.4924,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b02",
+     "auc_univariate": 0.4996,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b03",
+     "auc_univariate": 0.5258,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b04",
+     "auc_univariate": 0.5691,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b05",
+     "auc_univariate": 0.5344,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b06",
+     "auc_univariate": 0.4459,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b07",
+     "auc_univariate": 0.569,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b08",
+     "auc_univariate": 0.5227,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b09",
+     "auc_univariate": 0.489,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b10",
+     "auc_univariate": 0.5492,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b11",
+     "auc_univariate": 0.5249,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b12",
+     "auc_univariate": 0.485,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b13",
+     "auc_univariate": 0.461,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b14",
+     "auc_univariate": 0.4902,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b15",
+     "auc_univariate": 0.5096,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b16",
+     "auc_univariate": 0.5683,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b17",
+     "auc_univariate": 0.4825,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b18",
+     "auc_univariate": 0.4997,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "train_b19",
+     "auc_univariate": 0.5583,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b01",
+     "auc_univariate": 0.5629,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b02",
+     "auc_univariate": 0.5554,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b03",
+     "auc_univariate": 0.5635,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b04",
+     "auc_univariate": 0.5665,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b05",
+     "auc_univariate": 0.5701,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b06",
+     "auc_univariate": 0.5743,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b07",
+     "auc_univariate": 0.5789,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b08",
+     "auc_univariate": 0.5711,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b09",
+     "auc_univariate": 0.5634,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b10",
+     "auc_univariate": 0.5069,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b11",
+     "auc_univariate": 0.5263,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "lidar_b12",
+     "auc_univariate": 0.5207,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "geodawn_b01",
+     "auc_univariate": 0.4371,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "geodawn_b02",
+     "auc_univariate": 0.4484,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "geodawn_b03",
+     "auc_univariate": 0.4745,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    },
+    {
+     "feature": "geodawn_b04",
+     "auc_univariate": 0.4453,
+     "flag_gt_0_90": false,
+     "flag_lt_0_10": false
+    }
+   ],
+   "baseline_random": {
+    "dti": 0.07239486930951751,
+    "TP_w": 4114.713190877079,
+    "FP_w": 36118.70147419861,
+    "FN_w": 56873.286809122925
+   }
+  }
+ },
+ "grid": {
+  "crs": "EPSG:32611",
+  "transform": [
+   100.0,
+   0.0,
+   243350.0,
+   0.0,
+   -100.0,
+   4508550.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "shape": [
+   3730,
+   3292
+  ]
+ },
+ "log": [
+  "[    0.2s] grid [3730, 3292] footprint=5167373 positives=60988",
+  "[   55.4s] features (5167373, 35) channels=35",
+  "[   56.3s] catalogue segments=3199 per-fold segments=[1821, 685, 373, 320]",
+  "[   56.3s] == E1_model_no_flank_exclusion",
+  "[   96.2s] fold NW: withheld=29334 dots=17832 dti=0.1092",
+  "[  120.8s] fold NE: withheld=12572 dots=9970 dti=0.1046",
+  "[  135.5s] fold SW: withheld=9364 dots=4101 dti=0.1143",
+  "[  153.5s] fold SE: withheld=9718 dots=5751 dti=0.1447",
+  "[  154.6s] E1_model_no_flank_exclusion pooled DTI 0.1146 CI [0.1087,0.1205] random 0.0719",
+  "[  154.6s] == E2_model_flank2px_exclusion",
+  "[  197.0s] fold NW: withheld=29334 dots=17832 dti=0.1073",
+  "[  222.3s] fold NE: withheld=12572 dots=9970 dti=0.1013",
+  "[  238.7s] fold SW: withheld=9364 dots=4101 dti=0.1013",
+  "[  258.0s] fold SE: withheld=9718 dots=5751 dti=0.1491",
+  "[  259.3s] E2_model_flank2px_exclusion pooled DTI 0.1118 CI [0.1060,0.1171] random 0.0724",
+  "[  259.3s] canary top AUC: [{'feature': 'lidar_b07', 'auc_univariate': 0.5798, 'flag_gt_0_90': False, 'flag_lt_0_10': False}, {'feature': 'lidar_b06', 'auc_univariate': 0.5758, 'flag_gt_0_90': False, 'flag_lt_0_10': False}, {'feature': 'lidar_b08', 'auc_univariate': 0.5724, 'flag_gt_0_90': False, 'flag_lt_0_10': False}]",
+  "[  259.3s] == FINAL model on all catalogue positives",
+  "[  334.5s] surface min=0.0003227 max=0.9742"
+ ]
+}

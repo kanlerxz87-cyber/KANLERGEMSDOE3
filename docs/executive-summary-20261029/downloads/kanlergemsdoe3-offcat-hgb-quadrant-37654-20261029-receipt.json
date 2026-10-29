@@ -1,0 +1,59 @@
+{
+ "file": "downloads/kanlergemsdoe3-offcat-hgb-quadrant-37654-20261029-zeros.tif",
+ "sha256": "5a28f4cb8ec8c814edd6d76eb2f8598db6eb2360cc3ce6e454c43b89d45a3255",
+ "bytes": 322473,
+ "note": "Off-catalogue HGB dots (quadrant holdout DTI 0.1146, not organizer); 37654 dots; finite zeros outside footprint",
+ "note_chars": 111,
+ "name": "kanlergemsdoe3-offcat-hgb-quadrant-37654-20261029",
+ "validator": {
+  "tool": "scripts/validate_submission.py (shared)",
+  "profile": "finite-grid",
+  "ok": true,
+  "errors": [],
+  "positive_pixels": 37654,
+  "finite_range_inside": [
+   0.0,
+   1.0
+  ],
+  "crs": "EPSG:32611",
+  "shape": [
+   3730,
+   3292
+  ],
+  "transform": [
+   100.0,
+   0.0,
+   243350.0,
+   0.0,
+   -100.0,
+   4508550.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "portal_acceptance_verified": false
+ },
+ "uniqueness": {
+  "file": "evidence/uniqueness_offcat_hgb_20261029.json",
+  "unique": false,
+  "duplicate_count": 74,
+  "registry_rasters_checked": 2204,
+  "worst_spearman_full_footprint": 0.09895032707957899,
+  "worst_dot_overlap": 1.0,
+  "complete_accessible_scan": false
+ },
+ "holdout": {
+  "class": "HOLDOUT-DTI",
+  "pooled_dti": 0.11464408029340067,
+  "ci95": [
+   0.10874740214631445,
+   0.12048699888684236
+  ],
+  "withheld_positive_px": 60988,
+  "design": "quadrant-blocked hide-and-recover of whole catalogue segments, 10 px buffer, background 2 px from visible catalogue",
+  "evaluator": "vendor/gems24_template/metric.py (sha256 c024510de39746c9390e5bbf5c1d1b639a9ee895017a38fab4b609f0f2c33e48)"
+ },
+ "organizer_confirmed": null,
+ "submission_authorized": false,
+ "slot_authorized": false
+}
