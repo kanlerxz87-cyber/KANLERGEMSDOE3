@@ -1,5 +1,11 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
+## 29 October 2026 review — no candidate / DO NOT SUBMIT
+
+[Three-pass review and ranked research hypotheses](research/session-20261029-review.md) · [Negative JSON run card](evidence/session-20261029-run-card.json)
+
+No new TIFF, geological experiment, holdout result, leaderboard estimate, or competition slot. No lane assignment, authenticated input stack/canonical cache, complete registry, or repaired shared evaluator is available in this checkout. The ranked hypotheses are explicitly exploratory; none is validated or presently viable. Existing historical TIFFs remain learning-only and must not be downloaded as new submissions. The full configured root software suite passed **329 tests, 9 skipped** after installing declared dependencies into an ignored project-local virtual environment; software tests do not establish scientific validation or portal acceptance. The next session must resolve the listed prerequisites before experiments.
+
 ## 28 October 2026 candidate quarantine — no upload authorized
 
 The concurrent CFRP lane produced a format-valid research TIFF and a recorded
