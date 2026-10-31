@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "session_date_utc": "2026-10-31",
+  "kind": "NEGATIVE REPOSITORY REVIEW CARD — NO GEOLOGICAL EXPERIMENT",
+  "hypothesis": "No candidate hypothesis was assigned or tested in this review. Five feature-based hypotheses remain preregistered in docs/HYPOTHESES.md; H1 strain-tensor orientation discontinuity is ranked first, conditional on blockers being resolved.",
+  "mechanism": null,
+  "named_non_fault_process_that_could_mimic_it": "For the ranked H1, broad regional tectonic strain, anthropogenic deformation, gridding artifacts, and smooth model trends could mimic a localized fault-related strain signature.",
+  "holdout_dti": null,
+  "holdout_evaluator": null,
+  "withheld_positives": null,
+  "holdout_ci95": null,
+  "registry_correlation_overlap": {
+    "candidate_surface_tested": false,
+    "final_dots_tested": false,
+    "rho_max": null,
+    "overlap_3px_max": null,
+    "status": "NOT RUN — no new candidate was generated; full accessible registry is incomplete."
+  },
+  "raster_sha256": null,
+  "validator_output": {
+    "new_candidate": false,
+    "no_nan_inside_footprint": null,
+    "values_in_0_1": null,
+    "crs_shape_transform_match": null,
+    "status": "NOT RUN for a new candidate. A previously committed geofault TIFF is now explicitly hash-bound in quarantine; archived validation fields conflict, so it is not eligible for download or submission."
+  },
+  "submission_name": null,
+  "submission_note": "No eligible candidate; do not download or submit any preserved research TIFF.",
+  "submission_note_characters": 77,
+  "verdict": "negative",
+  "download_ok": false,
+  "submit_ok": false,
+  "weekly_slots_used": 0,
+  "geological_experiments_run": 0,
+  "prerequisite_audit": {
+    "research_ready": false,
+    "submit_ready": false,
+    "failed": [
+      "No assigned single-method lane",
+      "Competition inputs and canonical feature cache absent in this checkout",
+      "Shared evaluator synthetic invariant fails and central repair is unresolved",
+      "Complete registry and soft-surface dot semantics unavailable",
+      "Same-evaluator same-fold incumbent absent",
+      "The preserved session's two-hour budget has expired and was not reset",
+      "Organizer template provenance and weekly-slot selector authorization absent"
+    ]
+  },
+  "software_verification": {
+    "pinned_shared_tool_integrity_audit": "PASS — all thirteen pinned upstream files remain unchanged; the separate synthetic operator test correctly exits negative on an evaluator defect.",
+    "build_site_check_before_fix": "FAIL — one already-committed legacy TIFF was missing from the quarantine inventory; fixed by hash-binding it and suppressing download links.",
+    "build_site_check_after_fix": "PASS",
+    "pytest": "331 passed, 9 skipped after the fix",
+    "browser_smoke": "PASS — desktop/mobile pages and negative download decision; GitHub feed responses mocked, not live leaderboard verification"
+  },
+  "score_estimate": null,
+  "organizer_confirmed_score": null,
+  "limitations": [
+    "No competition TIFF is authorized for download or upload.",
+    "Owner-reported historical leaderboard values are not authenticated receipts.",
+    "The existing legacy TIFF's contradictory archived holdout/validator records do not support a candidate score or format clearance.",
+    "Public participant-mirror hashes do not authenticate organizer input identity or derived-cache provenance."
+  ]
+}

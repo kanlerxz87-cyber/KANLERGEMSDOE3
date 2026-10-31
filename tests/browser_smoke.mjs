@@ -84,6 +84,8 @@ try {
   assert.match(concurrentArtifacts, /HOLDOUT-DTI.*0\.300267|0\.300267 HOLDOUT-DTI/s);
   assert.match(concurrentArtifacts, /PR #48.*promote|promote.*ok_to_upload:false/s);
   assert.match(concurrentArtifacts, /QUARANTINED/);
+  assert.match(concurrentArtifacts, /Earlier geofault candidate/i);
+  assert.match(concurrentArtifacts, /conflicting archived validation and holdout records/);
   assert.equal(await page.locator('#concurrent-main-artifacts a[href*="downloads/"]').count(), 0);
   assert.match(await page.locator('.file-unavailable').innerText(), /DO NOT SUBMIT/);
   assert.equal(await page.locator('.hypothesis').count(), 4);
