@@ -1,5 +1,11 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
+## Current status — 31 October 2026
+
+**DO NOT DOWNLOAD OR SUBMIT a TIFF from this repository.** This review generated no candidate and no new holdout or score estimate; no upload is authorized. The nine-site report at [docs/EXECUTIVE_SUMMARY.md](docs/EXECUTIVE_SUMMARY.md) is the current comparison: historical scores are unverified owner reports, candidate score is not estimable, and no focus-site file is endorsed as unique or submission-ready. The repository review is [research/review-20261031.md](research/review-20261031.md). Do not interpret legacy dated README sections below as current clearance; they preserve prior-session claims and are superseded by this status and the current decision page.
+
+**Start here each session:** read this README, [PROJECT_PROMPT.md](PROJECT_PROMPT.md), [PROJECT_REQUEST.md](PROJECT_REQUEST.md), [AGENTS.md](AGENTS.md), [docs/EXECUTIVE_SUMMARY.md](docs/EXECUTIVE_SUMMARY.md), and the latest review linked above. Reconcile evidence dates before acting.
+
 ## 29 October 2026 executive summary — download and upload decision
 
 **Download: NOT PERMITTED. Competition upload: NOT PERMITTED.**
