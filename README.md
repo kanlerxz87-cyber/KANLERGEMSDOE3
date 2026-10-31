@@ -1,5 +1,9 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
+## Current review — 31 October 2026
+
+**Negative / no submission authorized.** See the [three-pass repository review](research/session-20261031-review.md) and its [JSON run card](evidence/session-20261031-run-card.json). The user’s complete standing request is preserved in [PROJECT_PROMPT.md](PROJECT_PROMPT.md); read it before project work. No new TIFF, score estimate, or holdout result was produced. The local site integrity check currently fails closed because the TIFF inventory does not match its saved audit receipts.
+
 ## 29 October 2026 executive summary — download and upload decision
 
 **Download: NOT PERMITTED. Competition upload: NOT PERMITTED.**
