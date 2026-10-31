@@ -78,6 +78,35 @@ class SiteAndReadinessTests(unittest.TestCase):
         self.assertNotIn("DOWNLOAD READY", homepage)
         self.assertNotIn('download href="cadg-submod/downloads/', homepage)
 
+    def test_20261031_quarantine_is_byte_bound_and_not_published(self):
+        from unittest.mock import patch
+        from scripts.build_site import check_failed_candidate_quarantine
+        import tempfile
+
+        audit = check_failed_candidate_quarantine()
+        artifact = audit["artifact"]
+        tif = ROOT / artifact["archived_path"]
+        self.assertTrue(tif.is_file())
+        self.assertEqual(hashlib.sha256(tif.read_bytes()).hexdigest(), artifact["sha256"])
+        self.assertEqual(artifact["raster_metadata_and_values"]["nan_cells"], 7_111_787)
+        self.assertFalse(audit["decision"]["download_for_competition"])
+        self.assertFalse(audit["decision"]["upload"])
+        self.assertFalse((DOCS / "downloads" / tif.name).exists())
+
+        homepage = (DOCS / "index.html").read_text()
+        self.assertIn("DO NOT DOWNLOAD OR SUBMIT", homepage)
+        self.assertIn("session-20261031-run-card.json", homepage)
+        self.assertNotIn(f'href="downloads/{tif.name}"', homepage)
+
+        with tempfile.TemporaryDirectory() as directory:
+            fake_docs = Path(directory) / "docs"
+            downloads = fake_docs / "downloads"
+            downloads.mkdir(parents=True)
+            (downloads / tif.name).write_bytes(tif.read_bytes())
+            with patch("scripts.build_site.DOCS", fake_docs):
+                with self.assertRaisesRegex(ValueError, "publicly downloadable"):
+                    check_failed_candidate_quarantine()
+
     def test_source_feed_does_not_launder_scores_or_approvals(self):
         feed = json.loads((DOCS / "data/focus-feed.json").read_text())
         self.assertEqual(len(feed["rows"]), 9)

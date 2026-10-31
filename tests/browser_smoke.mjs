@@ -86,6 +86,10 @@ try {
   assert.match(concurrentArtifacts, /QUARANTINED/);
   assert.equal(await page.locator('#concurrent-main-artifacts a[href*="downloads/"]').count(), 0);
   assert.match(await page.locator('.file-unavailable').innerText(), /DO NOT SUBMIT/);
+  assert.match(await page.locator('.notice').first().innerText(), /DO NOT DOWNLOAD OR SUBMIT/);
+  assert.match(await page.locator('.notice').first().innerText(), /7,111,787 NaN cells/);
+  assert.equal(await page.locator('.notice').first().locator('a[href="data/session-20261031-run-card.json"]').count(), 1);
+  assert.equal(await page.locator('a[href*="kanler-geofault-propensity-20261029T031629Z-f705bdebde7e-nan.tif"]').count(), 0);
   assert.equal(await page.locator('.hypothesis').count(), 4);
   await page.locator('#cadg-submod-study-link').waitFor();
   const archivedLink = await page.locator('#cadg-submod-study-link').innerText();
@@ -96,7 +100,8 @@ try {
     const archived = document.querySelector('#cadg-submod-study-link');
     return !!(warning.compareDocumentPosition(archived) & Node.DOCUMENT_POSITION_FOLLOWING);
   }), 'Historical study links must not precede the primary no-submit warning');
-  assert.match(await page.locator('main').innerText(), /6,436 dots/);
+  assert.match(await page.locator('main').innerText(), /2,545-dot reduction/);
+  assert.match(await page.locator('main').innerText(), /source-snapshot counts conflict/);
   assert.match(await page.locator('#parallel-control').innerText(), /DO NOT SUBMIT|not a submission/i);
   assert.match(await page.locator('#kpl36-conflict').innerText(), /99\.17%/);
   assert.match(await page.locator('#s2d36-audit').innerText(), /99\.48%/);

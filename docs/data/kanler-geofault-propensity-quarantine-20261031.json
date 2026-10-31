@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "reviewed_utc": "2026-10-31",
+  "status": "QUARANTINED_NOT_DOWNLOADABLE_NOT_SUBMITTABLE",
+  "purpose": "Read-only saved-byte forensic audit; this is not a new model experiment, holdout, score estimate, registry clearance, or organizer receipt.",
+  "artifact": {
+    "original_public_path": "docs/downloads/kanler-geofault-propensity-20261029T031629Z-f705bdebde7e-nan.tif",
+    "archived_path": "archive/quarantined-submissions/20261029/kanler-geofault-propensity-20261029T031629Z-f705bdebde7e-nan.tif",
+    "sha256": "80cacf1d6a303e338cd5564b715423a60f2cd2dd569d1ab6275056cf2074279d",
+    "bytes": 1590676,
+    "zip_path": "archive/quarantined-submissions/20261029/kanler-geofault-propensity-20261029T031629Z-f705bdebde7e-nan.zip",
+    "zip_sha256": "bf88d825df331cab45ee85c2df52ca66b0f0d29cd4c8c08750acdca2156e3162",
+    "zip_bytes": 281094,
+    "zip_integrity": {
+      "members": [
+        "kanler-geofault-propensity-20261029T031629Z-f705bdebde7e-nan.tif"
+      ],
+      "single_member": true,
+      "member_matches_tif": true
+    },
+    "raster_metadata_and_values": {
+      "driver": "GTiff",
+      "bands": 1,
+      "dtype": [
+        "float32"
+      ],
+      "crs": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "nodata": "NaN",
+      "finite_cells": 5167373,
+      "nonfinite_cells": 7111787,
+      "nan_cells": 7111787,
+      "infinite_cells": 0,
+      "finite_min": 0.0,
+      "finite_max": 1.0,
+      "finite_values_below_0": 0,
+      "finite_values_above_1": 0
+    }
+  },
+  "prior_run_card_claims": {
+    "holdout": {
+      "label": "HOLDAOUT-DTI (local reimplementation)",
+      "evaluator_version": "segment-hide-recover-pooled-v1 (local reimplementation)",
+      "dti": 0.322046,
+      "ci95": [
+        0.2979,
+        0.3393
+      ],
+      "n_withheld_positive_pixels": 60894,
+      "note": "Approach B: ML propensity, no known-fault suppression. Local holdout reimplementation; not an organizer score and not a leaderboard projection. CI is fold range, not full block bootstrap."
+    },
+    "leaderboard_estimate": "NOT ESTIMABLE from holdout (different truth set); no projection is written as a score.",
+    "uniqueness_note": "Must be compared against the full registry before submission; this script does not perform registry comparison.",
+    "ok_to_submit": false,
+    "verdict": "promote_to_registry_check",
+    "note": "The prior local-reimplementation HOLDOUT-DTI is retained as historical evidence only; it is not canonical/reproduced and is not a leaderboard estimate."
+  },
+  "prior_validator_receipt": {
+    "validator": "submission-format-v4-masked-finite-diagnostics (local)",
+    "candidate": "/home/user/KANLERGEMSDOE3/docs/downloads/kanler-geofault-propensity-20261029T031629Z-f705bdebde7e-nan.tif",
+    "template": "/home/user/KANLERGEMSDOE3/data/bridge/sample_submission.tif",
+    "candidate_sha256": "80cacf1d6a303e338cd5564b715423a60f2cd2dd569d1ab6275056cf2074279d",
+    "format_valid": true,
+    "hard_failures": [],
+    "in_footprint_positive_pixels": 37654,
+    "no_nan_inside_footprint": false,
+    "inside_range_0_1": false,
+    "no_infinite_pixels_anywhere": false,
+    "selected_encoding": false,
+    "portal_acceptance_verified": false,
+    "submission_authorized": false,
+    "note": "Local format check only; not organizer acceptance."
+  },
+  "audit_findings": [
+    "The archived TIFF contains NaN in 7,111,787 full-grid cells (the outside-footprint count in the prepared manifest), while its finite cells range from 0 to 1. This cannot pass a portal/global range check that rejects NaN values.",
+    "The prior validator receipt is internally contradictory: format_valid=true while no_nan_inside_footprint=false, inside_range_0_1=false, no_infinite_pixels_anywhere=false, and selected_encoding=false. It is not accepted as a valid format certification.",
+    "No complete current registry comparison or clean same-evaluator holdout incumbent is available in this checkout; uniqueness and promotion are unestablished.",
+    "No DrivenData upload receipt or authenticated account slot is available."
+  ],
+  "decision": {
+    "download_for_competition": false,
+    "upload": false,
+    "score_estimate": null,
+    "organizer_confirmed_score": null,
+    "slot_used": false,
+    "verdict": "negative"
+  }
+}

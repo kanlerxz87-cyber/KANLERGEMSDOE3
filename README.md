@@ -1,49 +1,19 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
-## 29 October 2026 executive summary — download and upload decision
+## Current executive decision — 31 October 2026
 
-**Download: NOT PERMITTED. Competition upload: NOT PERMITTED.**
+**NO TIFF is approved for competition download or upload.** There is no new candidate with a verified spatial holdout, complete-registry uniqueness clearance, or selector authorization. A numeric leaderboard estimate for a new file is **not estimable**. No weekly slot was used.
 
-- Executive summary and submission guide: [docs/executive-summary-20261029/index.html](docs/executive-summary-20261029/index.html) (guide section: [#submit-steps](docs/executive-summary-20261029/index.html#submit-steps)). Site root: [docs/index.html](docs/index.html).
-- Candidate `kanlergemsdoe3-offcat-hgb-quadrant-37654-20261029-zeros.tif` (note 111 characters) is format-valid under the shared local validator, but it is **not unique**: the literal all-registry gate (shared comparator, 2,218 hash-unique registry rasters, complete accessible scan not certified) finds 74 duplicates. 66 registry rasters cover at least half the footprint, so under the literal overlap rule no sparse dot file can pass. The file is not published under `downloads/`.
-- HOLDOUT-DTI 0.1146 (95% CI 0.1087–0.1205; evaluator gems24 shared metric; 60,988 withheld positives; 3,199 withheld segments) is below the recorded same-evaluator best 0.163715 (participant-run, not rerun). No slot is authorized.
-- Owner-reported focus-site scores (0.2600–0.2778) are **unverified** and are not scores. GEMSDOE32's own note says "UNSCORED" and projects 0.2747, not 0.2778. The leaderboard highs 0.4413 and 0.3195 are unverified owner claims that conflict with one another.
-- Experiments used: 2 of 3 budgeted. Hypotheses H1 and H2 were tested; H3–H5 were ranked but not tested.
-- Reproduce: `python scripts/build_registry.py`, `python scripts/check_registry_uniqueness.py --candidate <tif> --out evidence/uniqueness_offcat_hgb_20261029.json`, `python scripts/build_submit_desk.py` (and `--check`).
-- Receipts: [evidence/run-card-20261029.json](evidence/run-card-20261029.json), [evidence/uniqueness_offcat_hgb_20261029.json](evidence/uniqueness_offcat_hgb_20261029.json), [evidence/focus_site_registry_match.json](evidence/focus_site_registry_match.json).
-## 🎯 Current mission (read first every session)
+- **Executive review:** [31 October repository review](research/session-20261031-review.md) · [JSON run card](evidence/session-20261031-run-card.json)
+- **Historical focus sites:** GEMSDOE24, 25, 27, 28, 30, 31, 32, 33 and 36 are listed in the review table. Their scores are owner-reported claims, not receipts; all files are learning/reference only and fail the measured historical peer-overlap rule.
+- **GEMSDOE32 H33-B2:** 0.2778 is an unverified owner-reported claim. The project has conflicting historical lineage counts across pinned snapshots; pruning redundant predictions is a plausible metric mechanism, not a verified causal explanation. Do not copy it.
+- **Quarantined former download:** the old `kanler-geofault-propensity-20261029T031629Z-f705bdebde7e-nan.tif` is not an eligible submission. Its saved bytes contain 7,111,787 NaN cells; finite values are within [0,1], but the footprint mask is absent to confirm NaN locations. The old validator receipt contradicts itself. The unchanged file is preserved outside Pages in [quarantine](archive/quarantined-submissions/20261029/README.md); **do not download or submit**.
+- **Next research direction:** four conditional hypotheses are ranked in [research/hypotheses.md](research/hypotheses.md). The top, cross-field Morse–Smale junction persistence, was not tested. The recorded lane is unassigned, the inherited two-hour gate expired, canonical authenticated inputs/cache and a complete registry are missing, the shared evaluator has known defects, and no matched incumbent is available. These prerequisites prevent a defensible holdout; no proxy score is substituted.
+- **Official references and access limits:** source links are collected in [the 31 October review](research/session-20261031-review.md) and [source register](docs/SOURCES.md). The latest saved source feed is dated 29 October; it is not live scoring. The DrivenData data page was reported to redirect to login in the last documented check.
 
-**Goal:** Produce a unique, format-valid single-band GeoTIFF submission for the DOE GEMS competition (DrivenData #306) that can achieve a high leaderboard score, with an executive summary making it obvious which file to download and whether it is OK to submit.
-
-**This session's deliverable:**
-- **New TIF:** `docs/downloads/kanler-geofault-propensity-20261029T031629Z-f705bdebde7e-nan.tif` (SHA-256: `80cacf1d6a303e338cd5564b715423a60f2cd2dd569d1ab6275056cf2074279d`)
-- **37,654 dots** at >=3 px spacing, geophysical-propensity surface (19 GeoDAWN/geodetic bands → HistGradientBoostingClassifier)
-- **Local holdout HOLDAOUT-DTI 0.3220** (95% fold CI [0.2979, 0.3393], 60,894 withheld positives) — beats the historical focus-site best unverified claim of 0.2778 (GEMSDOE32)
-- **Format validated:** one float32 band, EPSG:32611, 3730×3292, exact transform, no NaN/Inf inside footprint, values in [0,1], NaN outside — passes `template-mask` profile
-- **Unique:** Yes — new surface, not a renamed or perturbed historical submission
-- **Status:** PENDING selector review — NOT yet authorized for upload. A separate selector must confirm uniqueness vs the complete registry, holdout promotion, and a remaining weekly slot.
-
-**Leaderboard context:** Historical unverified focus-site best = 0.2778 (GEMSDOE32 H33 B2). Current stated leaderboard highs range 0.3195–0.4413 (owner statements, unverified). No organizer score is claimed for our file; no projection is written as a score.
-
-**Standing rules:** Maximize P(Win). Own the Outcome. No fabricated scores. No renaming/copying previous submissions. Holdout numbers are HOLDAOUT-DTI or ORGANIZER-CONFIRMED receipts only. Leaderboard estimates are never written as scores. Full request text is in PROJECT_PROMPT.md and PROJECT_REQUEST.md.
+**Read the full standing user request before every session:** [PROJECT_PROMPT.md](PROJECT_PROMPT.md), also preserved verbatim in the full-request section below. Core values: **Maximize P(Win)** and **Own the Outcome**. A format-valid TIFF is not automatically scientifically eligible, unique, or accepted by the portal.
 
 ---
-
-
----
-
-## 29 October 2026 continuation — this review negative / no submission authorized
-
-The [three-pass review](research/session-22555d3e-review.md) and [session-scoped negative run card](evidence/session-22555d3e-run-card.json) preserve all nine refreshed focus-site reviews, the cautious H33 B2 analysis, and the pre-implementation hypothesis ranking. The source feed is pinned at `2026-10-29T02:33:30+00:00`, but remains source freshness only (`registry_complete:false`, no accepted scores or approvals). This session produced no geological experiment, holdout, candidate TIFF, defensible new-file score estimate, or submission slot. The official data page redirected to login; the restore script uses a public participant mirror, not an organizer-authenticated download. The canonical feature cache, repaired shared evaluator, complete registry, same-fold incumbent, assigned method paragraph, and selector approval remain missing. The inherited fixed session time gate was not reset. **This review authorizes no download or upload.** See the [fail-closed preflight](evidence/session-22555d3e-preflight.json).
-
-**Concurrent main artifact — not this session's work and not approved here:** merged PR [#48](https://github.com/kanlerxz87-cyber/KANLERGEMSDOE3/pull/48) added `kanler-geocontrast-v1` and a public download page. Its run card reports **HOLDOUT-DTI 0.3003**, evaluator `gems-segment-pooled-v1`, 60,988 withheld positives, 95% CI `[0.2887, 0.3113]`; this is a participant-run holdout, not an organizer score or a leaderboard estimate. Its validator says `ok_to_upload:false` and `submission_authorized:false`; the card has no top-level `submission_authorization` key. Its `promote` / `ok_to_download` fields and uniqueness-by-method rationale do not satisfy the project's literal all-registry stop. The PR #48 body says its inputs came from participant mirrors; the card itself omits an `input_provenance` key. This review does not endorse its download or upload; the TIFF and original card are preserved, while active generated pages are returned to the fail-closed desk. See `evidence/unique_submission_run_card.json` and the [current review](research/session-22555d3e-review.md). PR #47's baseline LR zeros/NaN TIFF pair is also preserved, but its card reports `NOT_ESTIMABLE` holdout and `NOT_FULLY_CHECKED` uniqueness while setting `ok_to_download:true`; this review does not adopt that download flag either. The active desk binds both cards to the saved bytes, displays them as quarantined, and exposes no TIFF/ZIP download link.
-
-## 29 October 2026 earlier review — no candidate in that session
-
-[Earlier three-pass review and ranked research hypotheses](research/session-20261029-review.md) · [Earlier negative JSON run card](evidence/session-20261029-run-card.json)
-
-That separate session produced no TIFF, geological experiment, holdout result, leaderboard estimate, or competition slot. Its lane, authenticated input stack/canonical cache, complete registry, and repaired shared evaluator were unavailable. Its ranked hypotheses were exploratory; software tests did not establish scientific validation or portal acceptance. The next session must resolve the listed prerequisites before experiments.
-
 
 ## 28 October 2026 candidate quarantine — no upload authorized
 

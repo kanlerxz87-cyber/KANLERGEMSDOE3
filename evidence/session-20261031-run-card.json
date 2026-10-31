@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "session_id": "20261031",
+  "reviewed_utc": "2026-10-31",
+  "hypothesis": "No experiment was authorized. The top untested proposal in research/hypotheses.md is cross-field Morse–Smale junction persistence across RTP/TMI and isostatic gravity; it remains an unvalidated research hypothesis, not an assigned lane.",
+  "mechanism": "No candidate mechanism was fitted or tested in this review. Proposed mechanism: persistent cross-field ridge/saddle junctions may indicate concealed structural relays where no single potential-field edge is strong.",
+  "named_non_fault_process_that_could_mimic_it": "Intrusive or lithologic intersections, basin-fill contacts, and survey levelling seams.",
+  "experiment_status": "NOT_RUN_BLOCKED",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "evaluator_version": null,
+    "withheld_positive_count": null,
+    "value": null,
+    "ci95": null,
+    "reason": "No experiment was run: no assigned method paragraph, expired recorded budget, unauthenticated inputs/cache, shared-evaluator defects, incomplete registry, and no same-fold incumbent."
+  },
+  "correlation_overlap_vs_registry": {
+    "surface_rank_correlation": null,
+    "final_dot_overlap_within_3px": null,
+    "registry_complete": false,
+    "status": "NOT_RUN_NO_CANDIDATE",
+    "reason": "No candidate surface or final-dot raster was generated in this review. Historical focus-nine overlaps are documented separately and are not a complete registry."
+  },
+  "raster_sha256": null,
+  "validator_output": {
+    "no_nan_inside_footprint": null,
+    "all_values_in_0_1": null,
+    "crs_match": null,
+    "shape_match": null,
+    "transform_match": null,
+    "status": "NOT_RUN_NO_NEW_RASTER"
+  },
+  "submission_name": null,
+  "submission_note": "No candidate generated; do not download or submit historical or quarantined TIFFs.",
+  "submission_note_characters": 82,
+  "download_authorized": false,
+  "upload_authorized": false,
+  "slot_authorized": false,
+  "slots_used": 0,
+  "score_estimate": null,
+  "organizer_confirmed_score": null,
+  "verdict": "negative",
+  "verdict_reason": "No eligible candidate, measured holdout improvement, complete uniqueness clearance, or selector authorization."
+}
