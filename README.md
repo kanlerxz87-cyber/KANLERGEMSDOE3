@@ -1,20 +1,20 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
-## 31 October 2026 executive status — negative; no download or upload
 
-**DO NOT DOWNLOAD OR SUBMIT any TIFF from this repository.** No candidate passed every release gate; no slot was used. The public Pages source had stale prose offering an inherited geofault TIFF for download even though its evidence bundle was inconsistent. This review hash-bound that exact file in quarantine, removed the download presentation from generated active pages, and added a regression test. The file is preserved as research history, not endorsed.
+## Current status — 31 October 2026
 
-- Current review: [three-pass repository/site review](research/session-20261031-review.md) · [negative JSON run card](evidence/session-20261031-run-card.json).
-- Current Pages root: [docs/index.html](docs/index.html). It must show “No eligible TIFF yet,” “Download unavailable,” and no submission download link.
-- The nine-site executive table reports historical owner claims only; candidate leaderboard estimate is **not estimable** and submission status is **NO**.
-- H33 geometry supports a testable thinning/emission-efficiency explanation, not proof of score causality. See [bounded H33 analysis](research/cpx_why_02778_20261028.md).
-- Five conditional geological hypotheses are ranked in [docs/HYPOTHESES.md](docs/HYPOTHESES.md). None is authorized for testing because the single-method lane is missing, the prior fixed session clock has expired, the canonical cache is absent, the shared evaluator has a synthetic invariant defect, and the complete registry/incumbent are unavailable.
-- Verification after the quarantine fix: `.venv/bin/python scripts/build_site.py --check` passed; `.venv/bin/python -m pytest -q` passed **331 tests, 9 skipped**. These are software/site checks, not geology, leaderboard scoring, or organizer acceptance.
-- Source provenance, privacy/authentication, all-registry coverage, matching holdout comparison, and remaining weekly submission allowance are not established. No score estimate or organizer-confirmed score is claimed.
+**DO NOT DOWNLOAD OR SUBMIT any TIFF from this repository.** No candidate passed every release gate, and no slot was used. The public Pages source had stale prose offering an inherited geofault TIFF for download despite contradictory archived evidence. This review hash-bound it in quarantine, removed the active download presentation, and added regression tests; the bytes remain research history, not an endorsement.
 
-**Start every session here.** Read this README and its preserved full prompt below, `PROJECT_PROMPT.md`, `PROJECT_REQUEST.md`, `AGENTS.md`, the [current review](research/session-20261031-review.md), and its [negative card](evidence/session-20261031-run-card.json). Continue from the documented blockers; never reset an expired budget or treat older archived download/score statements as current permission.
+- **Current executive comparison:** [docs/EXECUTIVE_SUMMARY.md](docs/EXECUTIVE_SUMMARY.md) and the [Pages root](docs/index.html). The nine focus-site rows contain historical owner claims only; no new leaderboard estimate is defensible and none is a submission recommendation.
+- **This review:** [three-pass review](research/session-20261031-review.md) · [negative run card](evidence/session-20261031-run-card.json).
+- **Earlier concurrent main review:** [research/review-20261031.md](research/review-20261031.md), merged from PR #55; it also confirms no candidate or score estimate. Its reported test/build inventory failures were subsequently resolved by this stale-download fix and verified again below.
+- **Verification:** site generators/checks pass, pytest reports **331 passed, 9 skipped**, and desktop/mobile browser smoke passes. These are software/UI checks, not geological validation, leaderboard scoring, or organizer acceptance.
+- Five hypotheses are ranked in [docs/HYPOTHESES.md](docs/HYPOTHESES.md), but none can be activated: the assigned lane and canonical cache are missing, the pinned evaluator fails a synthetic invariant, the accessible registry is incomplete, and the fixed experiment clock has expired.
+- H33 geometry supports only a thinning/emission-efficiency hypothesis, not causal score attribution; see [bounded H33 analysis](research/cpx_why_02778_20261028.md). Conflicting owner leaderboard claims remain unverified.
 
-**Standing values and rules:** Maximize P(Win). Own the Outcome. No fabricated scores; no renaming or copying old submissions. Every numeric model claim must be explicitly HOLDOUT-DTI with evaluator/count/95% CI or ORGANIZER-CONFIRMED from a receipt. Full original request: `PROJECT_PROMPT.md` and the “full standing user request” section below.
+**Start every session here.** Read this README and its preserved full prompt below, `PROJECT_PROMPT.md`, `PROJECT_REQUEST.md`, `AGENTS.md`, [docs/EXECUTIVE_SUMMARY.md](docs/EXECUTIVE_SUMMARY.md), both current 31 October reviews, and the negative card. Reconcile evidence dates before acting; never reset an expired budget or treat older archived download/score prose as permission.
+
+**Standing values and rules:** Maximize P(Win). Own the Outcome. No fabricated scores; no renamed/copied historical submissions. Every model score must be labeled HOLDOUT-DTI with evaluator/count/95% CI or ORGANIZER-CONFIRMED from a receipt. Full request: `PROJECT_PROMPT.md` and the “full standing user request” section below.
 
 ---
 
