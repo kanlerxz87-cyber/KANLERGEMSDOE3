@@ -1,31 +1,20 @@
 # KANLERGEMSDOE3 — evidence before promotion
 
-## 29 October 2026 executive summary — download and upload decision
+## 31 October 2026 executive status — negative; no download or upload
 
-**Download: NOT PERMITTED. Competition upload: NOT PERMITTED.**
+**DO NOT DOWNLOAD OR SUBMIT any TIFF from this repository.** No candidate passed every release gate; no slot was used. The public Pages source had stale prose offering an inherited geofault TIFF for download even though its evidence bundle was inconsistent. This review hash-bound that exact file in quarantine, removed the download presentation from generated active pages, and added a regression test. The file is preserved as research history, not endorsed.
 
-- Executive summary and submission guide: [docs/executive-summary-20261029/index.html](docs/executive-summary-20261029/index.html) (guide section: [#submit-steps](docs/executive-summary-20261029/index.html#submit-steps)). Site root: [docs/index.html](docs/index.html).
-- Candidate `kanlergemsdoe3-offcat-hgb-quadrant-37654-20261029-zeros.tif` (note 111 characters) is format-valid under the shared local validator, but it is **not unique**: the literal all-registry gate (shared comparator, 2,218 hash-unique registry rasters, complete accessible scan not certified) finds 74 duplicates. 66 registry rasters cover at least half the footprint, so under the literal overlap rule no sparse dot file can pass. The file is not published under `downloads/`.
-- HOLDOUT-DTI 0.1146 (95% CI 0.1087–0.1205; evaluator gems24 shared metric; 60,988 withheld positives; 3,199 withheld segments) is below the recorded same-evaluator best 0.163715 (participant-run, not rerun). No slot is authorized.
-- Owner-reported focus-site scores (0.2600–0.2778) are **unverified** and are not scores. GEMSDOE32's own note says "UNSCORED" and projects 0.2747, not 0.2778. The leaderboard highs 0.4413 and 0.3195 are unverified owner claims that conflict with one another.
-- Experiments used: 2 of 3 budgeted. Hypotheses H1 and H2 were tested; H3–H5 were ranked but not tested.
-- Reproduce: `python scripts/build_registry.py`, `python scripts/check_registry_uniqueness.py --candidate <tif> --out evidence/uniqueness_offcat_hgb_20261029.json`, `python scripts/build_submit_desk.py` (and `--check`).
-- Receipts: [evidence/run-card-20261029.json](evidence/run-card-20261029.json), [evidence/uniqueness_offcat_hgb_20261029.json](evidence/uniqueness_offcat_hgb_20261029.json), [evidence/focus_site_registry_match.json](evidence/focus_site_registry_match.json).
-## 🎯 Current mission (read first every session)
+- Current review: [three-pass repository/site review](research/session-20261031-review.md) · [negative JSON run card](evidence/session-20261031-run-card.json).
+- Current Pages root: [docs/index.html](docs/index.html). It must show “No eligible TIFF yet,” “Download unavailable,” and no submission download link.
+- The nine-site executive table reports historical owner claims only; candidate leaderboard estimate is **not estimable** and submission status is **NO**.
+- H33 geometry supports a testable thinning/emission-efficiency explanation, not proof of score causality. See [bounded H33 analysis](research/cpx_why_02778_20261028.md).
+- Five conditional geological hypotheses are ranked in [docs/HYPOTHESES.md](docs/HYPOTHESES.md). None is authorized for testing because the single-method lane is missing, the prior fixed session clock has expired, the canonical cache is absent, the shared evaluator has a synthetic invariant defect, and the complete registry/incumbent are unavailable.
+- Verification after the quarantine fix: `.venv/bin/python scripts/build_site.py --check` passed; `.venv/bin/python -m pytest -q` passed **331 tests, 9 skipped**. These are software/site checks, not geology, leaderboard scoring, or organizer acceptance.
+- Source provenance, privacy/authentication, all-registry coverage, matching holdout comparison, and remaining weekly submission allowance are not established. No score estimate or organizer-confirmed score is claimed.
 
-**Goal:** Produce a unique, format-valid single-band GeoTIFF submission for the DOE GEMS competition (DrivenData #306) that can achieve a high leaderboard score, with an executive summary making it obvious which file to download and whether it is OK to submit.
+**Start every session here.** Read this README and its preserved full prompt below, `PROJECT_PROMPT.md`, `PROJECT_REQUEST.md`, `AGENTS.md`, the [current review](research/session-20261031-review.md), and its [negative card](evidence/session-20261031-run-card.json). Continue from the documented blockers; never reset an expired budget or treat older archived download/score statements as current permission.
 
-**This session's deliverable:**
-- **New TIF:** `docs/downloads/kanler-geofault-propensity-20261029T031629Z-f705bdebde7e-nan.tif` (SHA-256: `80cacf1d6a303e338cd5564b715423a60f2cd2dd569d1ab6275056cf2074279d`)
-- **37,654 dots** at >=3 px spacing, geophysical-propensity surface (19 GeoDAWN/geodetic bands → HistGradientBoostingClassifier)
-- **Local holdout HOLDAOUT-DTI 0.3220** (95% fold CI [0.2979, 0.3393], 60,894 withheld positives) — beats the historical focus-site best unverified claim of 0.2778 (GEMSDOE32)
-- **Format validated:** one float32 band, EPSG:32611, 3730×3292, exact transform, no NaN/Inf inside footprint, values in [0,1], NaN outside — passes `template-mask` profile
-- **Unique:** Yes — new surface, not a renamed or perturbed historical submission
-- **Status:** PENDING selector review — NOT yet authorized for upload. A separate selector must confirm uniqueness vs the complete registry, holdout promotion, and a remaining weekly slot.
-
-**Leaderboard context:** Historical unverified focus-site best = 0.2778 (GEMSDOE32 H33 B2). Current stated leaderboard highs range 0.3195–0.4413 (owner statements, unverified). No organizer score is claimed for our file; no projection is written as a score.
-
-**Standing rules:** Maximize P(Win). Own the Outcome. No fabricated scores. No renaming/copying previous submissions. Holdout numbers are HOLDAOUT-DTI or ORGANIZER-CONFIRMED receipts only. Leaderboard estimates are never written as scores. Full request text is in PROJECT_PROMPT.md and PROJECT_REQUEST.md.
+**Standing values and rules:** Maximize P(Win). Own the Outcome. No fabricated scores; no renaming or copying old submissions. Every numeric model claim must be explicitly HOLDOUT-DTI with evaluator/count/95% CI or ORGANIZER-CONFIRMED from a receipt. Full original request: `PROJECT_PROMPT.md` and the “full standing user request” section below.
 
 ---
 

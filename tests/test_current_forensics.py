@@ -237,7 +237,8 @@ def test_inherited_duplicate_and_saved_bytes_checked():
 def test_concurrent_main_candidates_are_hash_bound_but_never_promoted(monkeypatch):
     from scripts import build_site
     receipt = build_site.check_quarantined_artifacts()
-    assert len(receipt['files']) == 3
+    assert len(receipt['files']) == 4
+    assert 'legacy_geofault' in receipt
     assert receipt['geocontrast']['verdict'] == 'promote'
     assert receipt['geocontrast']['ok_to_download'] is True
     assert receipt['geocontrast']['validator']['ok_to_upload'] is False

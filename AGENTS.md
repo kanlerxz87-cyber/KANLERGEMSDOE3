@@ -1,5 +1,14 @@
 # Start-of-session requirements
 
+The latest review is `research/session-20261031-review.md` with the negative card
+`evidence/session-20261031-run-card.json`. It records a fix for the stale public
+geofault-TIFF download: the legacy bytes remain preserved but hash-bound in the
+quarantine inventory, and the active generated summary must not offer a TIFF/ZIP
+link. Re-run `.venv/bin/python scripts/build_site.py --check` and
+`.venv/bin/python -m pytest -q` after edits; 331 passed / 9 skipped was the
+31 October baseline, not proof of scientific validity. Do not restore the old
+“Unique TIFF ready to download” wording or treat the legacy file as eligible.
+
 Before changing this project, read the latest independent continuation
 `research/session-cfcca804-review.md`, its negative `evidence/session-cfcca804-run-card.json`,
 and `evidence/session-cfcca804-atsc-audit.json`. The preserved ATSC TIFF fails the literal

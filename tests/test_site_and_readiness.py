@@ -77,6 +77,19 @@ class SiteAndReadinessTests(unittest.TestCase):
         self.assertNotIn("Highest Leaderboard Score Reference: 0.4413", homepage)
         self.assertNotIn("DOWNLOAD READY", homepage)
         self.assertNotIn('download href="cadg-submod/downloads/', homepage)
+        self.assertIn("Earlier geofault candidate", homepage)
+        self.assertIn("conflicting archived validation and holdout records", homepage)
+        self.assertNotIn('href="downloads/kanler-geofault-propensity-', homepage)
+        self.assertNotIn('href="docs/downloads/kanler-geofault-propensity-', homepage)
+        self.assertNotIn("Unique TIFF ready to download", homepage)
+
+    def test_legacy_geofault_tiff_is_hash_bound_but_never_released(self):
+        from scripts.build_site import check_quarantined_artifacts
+        receipt = check_quarantined_artifacts()
+        relative = "docs/downloads/kanler-geofault-propensity-20261029T031629Z-f705bdebde7e-nan.tif"
+        self.assertEqual(receipt["files"][relative], "80cacf1d6a303e338cd5564b715423a60f2cd2dd569d1ab6275056cf2074279d")
+        self.assertFalse(receipt["legacy_geofault"]["validation"]["submission_authorized"])
+        self.assertFalse(receipt["legacy_geofault"]["validation"]["portal_acceptance_verified"])
 
     def test_source_feed_does_not_launder_scores_or_approvals(self):
         feed = json.loads((DOCS / "data/focus-feed.json").read_text())
